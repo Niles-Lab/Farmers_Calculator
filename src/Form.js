@@ -6,11 +6,17 @@ class CalcForm extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			acres: 5,
+			acres: 12.345,
+			land: 23.456,
 			dairy: false,
 			name: "Nedrick",
-			options: ["a", "b", "c", "d"],
-			opts: {"Livestock": ["a", "b"], "Climate": ["c", "d"], "Other": ["Support Local Music", "d"]}
+			selected: [],
+			options: ["Method A", "Method B", "Method C", "Method D"],
+			opts: { // Calculate Options for "Category": ["Methods..."]
+				"Livestock": ["Method L-1", "Method L-2"], 
+				"Climate": ["Method C-1", "Method C-2"], 
+				"Other": ["Support Local Music", "Irrigation"]
+			}
 		};	
 
 	this.handleInputChange = this.handleInputChange.bind(this);
@@ -25,10 +31,16 @@ handleInputChange(event) {
 	const value = target.type === 'checkbox' ? target.checked : target.value;
 	const name = target.name;
 	const result = target.type === 'submit' ? true : false;
+	console.log(target);
+	console.log(value);
+	console.log(name);
 
 	this.setState({
 	[name]: value
 	});
+}
+handleSubmit(event) {
+	console.log(this.state);
 }
 
 render() {
@@ -49,10 +61,25 @@ render() {
 			<label className="row">
 				Acres:
 				<input
+					className="ml-auto col-4"
+					width="33%"
 					name="acres"
 					type="number"
+					step="0.001"
 					value={this.state.acres}
 					onChange={this.handleInputChange} />
+			</label>
+
+			<label className="row">
+				Land:
+				<input
+					className="ml-auto col-4"
+					name="land"
+					type="number"
+					step="0.001"
+					value={this.state.land}
+					onChange={this.handleInputChange} />
+				Acres
 			</label>
 
 			{
@@ -60,8 +87,9 @@ render() {
 			}
 
 			<label className="row">
-				Dairy
+				Dairy:
 				<input
+					className="ml-auto col-4"
 					name="dairy"
 					type="checkbox"
 					value={this.state.dairy}
@@ -71,11 +99,11 @@ render() {
 			{
 			// Multi-select for different techniques
 			}
+			<Form.Group className="row">
+
+				<Form.Label>Calculate Costs For:</Form.Label>
 			
-			<label className="row">
-				Calculate Costs For:
 				<Form.Control as="select" multiple
-					className="form-control"
 					name="costs"
 					type="select"
 					value={this.state.costs}
@@ -86,53 +114,49 @@ render() {
 						</option>
 					))}
 				</Form.Control>
-			</label>
+			</Form.Group>
 
 			<label className="row">
 				Calculate Costs For:  
-				<div className="ml-auto">
-				<Dropdown as={ButtonGroup} multiple>
-					<Dropdown.Toggle>
+
+				<Dropdown 
+					className="ml-auto"
+					name="costs"
+					type="select"
+					value={this.state.selected}
+					onChange={this.handleInputChange}
+					as={ButtonGroup}
+				>
+
+					<Dropdown.Toggle drop={'up'}>
 						Select
 					</Dropdown.Toggle>
 
-					<Dropdown.Menu>
-						<Dropdown.ItemText>Irrigation Techniques</Dropdown.ItemText>
-						<Dropdown.Divider />
-						<Dropdown.Item>abcd</Dropdown.Item>
-						<Dropdown.Item>afdg</Dropdown.Item>
-						<Dropdown.Divider />
-						<Dropdown.Divider />
-						<Dropdown.ItemText>Livestock Techniques</Dropdown.ItemText>
-						<Dropdown.Divider />
-						{console.log(this.state.opts)}
-
-						<div>
-						function mapper(props) {
-							//let ret;
-							console.log("abcd")
-							return <label>LABEL</label>;
-						}
-						</div>
-
-						{this.state.opts.map(option => ( // Map state options to multi-select
-
-							<Dropdown.ItemText>
-								{option}
-							</Dropdown.ItemText>
-
-
-						))}
+						<Dropdown.Menu
+							name="costs"
+							type="select"
+							value={this.state.selected}
+							onChange={this.handleInputChange}>
 						<Dropdown.Divider />
 						<Dropdown.Divider />
-						<Dropdown.ItemText>Other</Dropdown.ItemText>
-						<Dropdown.Item>Climate Change</Dropdown.Item>
-						<Dropdown.Item>Support Local Music</Dropdown.Item>
-					</Dropdown.Menu>
-
-
+							{Object.entries(this.state.opts).map(option => ( // Map state options to multi-select
+								<span>
+									<Dropdown.ItemText>
+										<b>{option[0]}</b>
+									</Dropdown.ItemText>
+										{option[1].map(d => (
+											<Dropdown.Item key={d} value={d}>
+												{d}
+											</Dropdown.Item>
+											))}
+									<Dropdown.Divider />
+									<Dropdown.Divider />
+								</span>
+							))}
+						</Dropdown.Menu>
 				</Dropdown>
-				</div>
+
+
 			</label>
 			
 			{
@@ -144,7 +168,7 @@ render() {
 					className="btn btn-primary"
 					name="submit"
 					type="submit"
-					onChange={this.handleInputChange}>
+					onChange={this.handleSubmit}>
 					Submit
 				</button>
 			</label>

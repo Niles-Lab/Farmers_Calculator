@@ -9,7 +9,8 @@ class CalcForm extends React.Component {
 			acres: 5,
 			dairy: false,
 			name: "Nedrick",
-			options: ["a", "b", "c", "d"]
+			options: ["a", "b", "c", "d"],
+			opts: {"Livestock": ["a", "b"], "Climate": ["c", "d"], "Other": ["Support Local Music", "d"]}
 		};	
 
 	this.handleInputChange = this.handleInputChange.bind(this);
@@ -87,11 +88,52 @@ render() {
 				</Form.Control>
 			</label>
 
-			<Dropdown as={ButtonGroup}>
+			<label className="row">
+				Calculate Costs For:  
+				<div className="ml-auto">
+				<Dropdown as={ButtonGroup} multiple>
+					<Dropdown.Toggle>
+						Select
+					</Dropdown.Toggle>
+
+					<Dropdown.Menu>
+						<Dropdown.ItemText>Irrigation Techniques</Dropdown.ItemText>
+						<Dropdown.Divider />
+						<Dropdown.Item>abcd</Dropdown.Item>
+						<Dropdown.Item>afdg</Dropdown.Item>
+						<Dropdown.Divider />
+						<Dropdown.Divider />
+						<Dropdown.ItemText>Livestock Techniques</Dropdown.ItemText>
+						<Dropdown.Divider />
+						{console.log(this.state.opts)}
+
+						<div>
+						function mapper(props) {
+							//let ret;
+							console.log("abcd")
+							return <label>LABEL</label>;
+						}
+						</div>
+
+						{this.state.opts.map(option => ( // Map state options to multi-select
+
+							<Dropdown.ItemText>
+								{option}
+							</Dropdown.ItemText>
 
 
+						))}
+						<Dropdown.Divider />
+						<Dropdown.Divider />
+						<Dropdown.ItemText>Other</Dropdown.ItemText>
+						<Dropdown.Item>Climate Change</Dropdown.Item>
+						<Dropdown.Item>Support Local Music</Dropdown.Item>
+					</Dropdown.Menu>
 
-			</Dropdown>
+
+				</Dropdown>
+				</div>
+			</label>
 			
 			{
 			// Submit for calculation

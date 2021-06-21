@@ -1,6 +1,5 @@
-div, form {
+div {
   background-color: #282c34;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -8,6 +7,16 @@ div, form {
   font-size: calc(10px + 2vmin);
   color: white;
 }
+
+.ItemText {
+  background-color: red;
+}
+
+label {
+  margin-top: 2vh;
+  margin-bottom: 2vh;
+}
+
 option {
   color: black;
 }
@@ -18,11 +27,13 @@ hr {
 }
 .App {
   text-align: center;
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
 

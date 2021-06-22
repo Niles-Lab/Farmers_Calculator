@@ -10,6 +10,7 @@ class CalcForm extends React.Component {
 			land: 23.456,
 			dairy: false,
 			name: "Nedrick",
+			method: [],
 			selected: [],
 			options: ["Method A", "Method B", "Method C", "Method D"],
 			opts: { // Calculate Options for "Category": ["Methods..."]
@@ -26,29 +27,31 @@ class CalcForm extends React.Component {
 
 
 handleInputChange(event) {
-	console.log(event);
+
+
 	const target = event.target;
 	const value = target.type === 'checkbox' ? target.checked : target.value;
 	const name = target.name;
-	const result = target.type === 'submit' ? true : false;
-	console.log(target);
-	console.log(value);
-	console.log(name);
+	console.log("NAME: " + name);
+	console.log("VALUE: " + value);
+
 
 	this.setState({
-	[name]: value
+		[name]: value
 	});
+
+	console.log(this.state);
+
 }
 handleSubmit(event) {
 	console.log(this.state);
+	alert(this.state);
 }
 
 render() {
 	return (
 
-
-		<form>
-	
+		<form onSubmit={this.handleSubmit}>
 
 			<h1>Calculator</h1>
 			<hr>
@@ -104,9 +107,8 @@ render() {
 				<Form.Label>Calculate Costs For:</Form.Label>
 			
 				<Form.Control as="select" multiple
-					name="costs"
+					name="method"
 					type="select"
-					value={this.state.costs}
 					onChange={this.handleInputChange}>
 					{this.state.options.map(option => ( // Map state options to multi-select
 						<option key={option} value={option}>
@@ -121,31 +123,28 @@ render() {
 
 				<Dropdown 
 					className="ml-auto"
-					name="costs"
-					type="select"
-					value={this.state.selected}
-					onChange={this.handleInputChange}
 					as={ButtonGroup}
 				>
 
-					<Dropdown.Toggle drop={'up'}>
+					<Dropdown.Toggle>
 						Select
 					</Dropdown.Toggle>
+						<Dropdown.Menu>
 
-						<Dropdown.Menu
-							name="costs"
-							type="select"
-							value={this.state.selected}
-							onChange={this.handleInputChange}>
 						<Dropdown.Divider />
 						<Dropdown.Divider />
-							{Object.entries(this.state.opts).map(option => ( // Map state options to multi-select
+							{Object.entries(this.state.opts).map(options => ( // Map state options to multi-select
 								<span>
-									<Dropdown.ItemText>
-										<b>{option[0]}</b>
+									<Dropdown.ItemText key={options[0]}>
+										<b>{options[0]}</b>
 									</Dropdown.ItemText>
-										{option[1].map(d => (
-											<Dropdown.Item key={d} value={d}>
+										{options[1].map(d => ( // Map each category's options
+											<Dropdown.Item
+											key={d} 
+											value={d}
+											name="costs"
+											type="select"
+											onChange={this.handleInputChange}>
 												{d}
 											</Dropdown.Item>
 											))}
@@ -167,8 +166,8 @@ render() {
 				<button
 					className="btn btn-primary"
 					name="submit"
-					type="submit"
-					onChange={this.handleSubmit}>
+					value="Submit"
+					type="submit">
 					Submit
 				</button>
 			</label>

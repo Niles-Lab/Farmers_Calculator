@@ -2,6 +2,10 @@ import React from "react"
 import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 
+
+let crops = 1;
+let MAX_CROPS = 10;
+
 class CalcForm extends React.Component {
 
 // Global variables for option selections
@@ -13,6 +17,8 @@ opts = { // Calculate Options for "Category": ["Methods..."]
 	};
 
 
+
+
 state = {
 	acres: 12.345,
 	land: 23.456,
@@ -20,15 +26,22 @@ state = {
 	name: "Nedrick",
 	method: [],
 	selected: [],
-	crops: {}
-
+	crops: {},
+	cropArr: []
 };	
 
 addCrop() {
-
+	if(crops < MAX_CROPS) { // Max of 10 crops
+		crops++;
+	}
+	console.log(crops);
+	return React.createElement(CropInput);
 }
 removeCrop() {
-
+	if(crops > 1) {
+		crops--;
+	}
+	console.log(crops);
 }
 
 constructor(props) {
@@ -69,11 +82,12 @@ handleInputChange(event) {
 }
 handleSubmit(event) {
 	event.preventDefault();
-	console.log(this.state)
+	console.log(this.state);
 }
 
 render() {
 	return (
+
 		<Container>
 		<Form onSubmit={this.handleSubmit}>
 		<Form.Group>
@@ -196,16 +210,26 @@ render() {
 
 				<Container>
 					<CropInput onChange={this.handleInputChange} name="crops" />
+					<Form.Control as="select" multiple
+						name="method"
+						type="select"
+						onChange={this.handleInputChange}>
+						{this.options.map(option => ( // Map state options to multi-select
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</Form.Control>
 				</Container>	
 
 					<Row className="rightAlgn">
 						<Col>
-						    <Button>
+						    <Button onClick={this.addCrop}>
 						      	Add...
 						    </Button>
 					    </Col>
 					    <Col>
-						    <Button>
+						    <Button onClick={this.removeCrop}>
 						    	Remove...
 						    </Button>
 					    </Col>

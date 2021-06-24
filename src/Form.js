@@ -1,6 +1,6 @@
-//import React, {Component} from 'react';
 import React from "react"
 import { Form, Dropdown, ButtonGroup } from 'react-bootstrap';
+import CropInput from './CropInput.jsx'
 
 class CalcForm extends React.Component {
 
@@ -35,13 +35,25 @@ handleInputChange(event) {
 
 
 	const target = event.target;
-	const value = target.type === 'checkbox' ? target.checked : target.value;
 	const name = target.name;
-	console.log(target);
-	 console.log("NAME: " + name);
-	 console.log("VALUE: " + value);
-	 console.log(target.options);
+	let value;
 
+	if(target.type === 'checkbox') {
+		value = target.checked;
+	} else if(target.type === 'select-multiple') {
+		// Get all selected values for methods
+		value = Array.from(target.options).filter(d => d.selected === true).map(s => s.value);
+	} else {
+		value = target.value;
+	}
+
+
+	// for(const sel of target.options) {
+	// 	if(sel.selected) {
+	// 		method.push(sel.value);
+	// 	}
+	// }
+	// console.log(method);
 
 	this.setState({
 		[name]: value
@@ -50,7 +62,6 @@ handleInputChange(event) {
 }
 handleSubmit(event) {
 	event.preventDefault();
-	console.log(event.target.name);
 	console.log(this.state);
 }
 
@@ -117,12 +128,16 @@ render() {
 					type="select"
 					onChange={this.handleInputChange}>
 					{this.options.map(option => ( // Map state options to multi-select
-						<option key={option} value={[option]}>
+						<option key={option} value={option}>
 							{option}
 						</option>
 					))}
 				</Form.Control>
 			</Form.Group>
+			
+			<Form.Label>I Grow...</Form.Label>
+			<CropInput />
+
 
 			<label className="row">
 				Calculate Costs For:  
@@ -146,8 +161,8 @@ render() {
 									</Dropdown.ItemText>
 										{options[1].map(d => ( // Map each category's options
 											<Dropdown.Item
-											key={d} 
 											value={d}
+											key={d} 
 											name="costs"
 											type="select"
 											onChange={this.handleInputChange}>

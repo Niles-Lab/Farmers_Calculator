@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Dropdown, ButtonGroup } from 'react-bootstrap';
+import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 
 class CalcForm extends React.Component {
@@ -20,9 +20,16 @@ state = {
 	name: "Nedrick",
 	method: [],
 	selected: [],
+	crops: {}
 
 };	
 
+addCrop() {
+
+}
+removeCrop() {
+
+}
 
 constructor(props) {
 	super(props);
@@ -46,7 +53,7 @@ handleInputChange(event) {
 	} else {
 		value = target.value;
 	}
-
+	console.log(value);
 
 	// for(const sel of target.options) {
 	// 	if(sel.selected) {
@@ -62,14 +69,14 @@ handleInputChange(event) {
 }
 handleSubmit(event) {
 	event.preventDefault();
-	console.log(this.state);
+	console.log(this.state)
 }
 
 render() {
 	return (
-
+		<Container>
 		<Form onSubmit={this.handleSubmit}>
-
+		<Form.Group>
 			<h1>Calculator</h1>
 			<hr>
 			</hr>
@@ -78,43 +85,51 @@ render() {
 			// Numerical input
 			}
 
-			<label className="row">
-				Acres:
-				<input
-					className="ml-auto col-4"
-					width="33%"
-					name="acres"
-					type="number"
-					step="0.001"
-					value={this.state.acres}
-					onChange={this.handleInputChange} />
-			</label>
+			<Row>
+				<Col>
+					Acres:
+				</Col>
+				<Col className="ml-auto">
+					<Form.Control
+						name="acres"
+						type="number"
+						step="0.001"
+						value={this.state.acres}
+						onChange={this.handleInputChange} />
+				</Col>
+			</Row>
 
-			<label className="row">
-				Land:
-				<input
-					className="ml-auto col-4"
+			<Row>
+				<Col>
+					Land(Acres):
+				</Col>
+				<Col className="ml-auto">
+				<Form.Control
 					name="land"
 					type="number"
 					step="0.001"
 					value={this.state.land}
 					onChange={this.handleInputChange} />
-				Acres
-			</label>
+				</Col>
+			</Row>
 
 			{
 			// Check box
 			}
 
-			<label className="row">
-				Dairy:
-				<input
-					className="ml-auto col-4"
+			<Row>
+				<Col className="mx-auto">
+					Dairy:
+				</Col>
+				<Col className="mx-auto">
+				<Form.Control
 					name="dairy"
 					type="checkbox"
 					value={this.state.dairy}
 					onChange={this.handleInputChange} />
-			</label>
+
+				</Col>
+			</Row>
 
 			{
 			// Multi-select for different techniques
@@ -134,14 +149,12 @@ render() {
 					))}
 				</Form.Control>
 			</Form.Group>
-			
-			<Form.Label>I Grow...</Form.Label>
-			<CropInput />
 
-
-			<label className="row">
+			<Row>
+				<Col>
 				Calculate Costs For:  
-
+				</Col>
+				<Col>
 				<Dropdown 
 					className="ml-auto"
 					as={ButtonGroup}
@@ -175,24 +188,46 @@ render() {
 							))}
 						</Dropdown.Menu>
 				</Dropdown>
+				</Col>
+			</Row>
 
 
-			</label>
+			<Form.Label>I Own...</Form.Label>
+
+				<Container>
+					<CropInput onChange={this.handleInputChange} name="crops" />
+				</Container>	
+
+					<Row className="rightAlgn">
+						<Col>
+						    <Button>
+						      	Add...
+						    </Button>
+					    </Col>
+					    <Col>
+						    <Button>
+						    	Remove...
+						    </Button>
+					    </Col>
+				    </Row>
+
 			
 			{
 			// Submit for calculation
 			}
 
-			<label>
+			<Row>
 				<button
-					className="btn btn-primary"
+					className="btn btn-primary my-4"
 					name="submit"
 					value="Submit"
 					type="submit">
 					Submit
 				</button>
-			</label>
+			</Row>
+		</Form.Group>
 		</Form>
+		</Container>
 
 		)
 }

@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Dropdown, ButtonGroup, ControlLabel, Row, Col } from 'react-bootstrap';
+import { Form, Row, Col, Container } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
 class CalcForm extends React.Component {
@@ -8,7 +8,8 @@ class CalcForm extends React.Component {
 options = ["Unknown", "Vegetables", "Fruits", "Livestock"];
 
 state = {
-	value: []
+	crop: "Unknown",
+	amount: 100
 };	
 
 
@@ -29,30 +30,32 @@ handleInputChange(event) {
 	this.setState({
 		[name]: value
 	});
+	console.log(this.state)
 
 }
 
 render() {
 	return (
 
-	<div className="container">
-		<Form.Group className="row mx-auto">
-
+	<Row>
+		<Col>
 			<Form.Control
-				placeholder="100.00"
-				name="acres"
+				placeholder="Enter..."
+				name="amount"
 				type="number"
 				step="0.01"
 				value={this.state.acres}
 				onChange={this.handleInputChange}>
 			</Form.Control>
-
-			<div className="mx-2">Acres of...</div>
-
+		</Col>
+		<Col>
+			<span>Acres of...</span>
+		</Col>
+		<Col>
 			<Form.Control
+
 				as="select"
-				className=""
-				name="method"
+				name="type"
 				type="select"
 				onChange={this.handleInputChange}>
 				{this.options.map(option => ( // Map state options to multi-select
@@ -61,9 +64,9 @@ render() {
 					</option>
 				))}
 			</Form.Control>
+		</Col>
+	</Row>
 
-		</Form.Group>
-	</div>
 
 		)
 }

@@ -3,7 +3,7 @@ import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-
 import CropInput from './CropInput.jsx'
 
 
-let crops = 1;
+let cropCount = 1;
 let MAX_CROPS = 10;
 
 class CalcForm extends React.Component {
@@ -17,8 +17,6 @@ opts = { // Calculate Options for "Category": ["Methods..."]
 	};
 
 
-
-
 state = {
 	acres: 12.345,
 	land: 23.456,
@@ -26,23 +24,10 @@ state = {
 	name: "Nedrick",
 	method: [],
 	selected: [],
-	crops: {},
+	crops: [{type: 'Unknown', amount: 100}],
 	cropArr: []
 };	
 
-addCrop() {
-	if(crops < MAX_CROPS) { // Max of 10 crops
-		crops++;
-	}
-	console.log(crops);
-	return React.createElement(CropInput);
-}
-removeCrop() {
-	if(crops > 1) {
-		crops--;
-	}
-	console.log(crops);
-}
 
 constructor(props) {
 	super(props);
@@ -84,6 +69,37 @@ handleSubmit(event) {
 	event.preventDefault();
 	console.log(this.state);
 }
+
+addCrop() {
+
+	if(cropCount >= MAX_CROPS) { // Max of 10 crops
+		return;
+	}
+
+	const crops = [...this.state.crops,
+					{type: 'Unknown', amount: 100}
+					];
+	this.setState({
+		crops,
+	});
+	cropCount++;
+	console.log(this.state.crops);
+
+}
+removeCrop() {
+	
+	if(cropCount <= 1) {
+		return;
+	}
+	this.setState({
+		crops: this.state.crops.filter(d => d.count <= cropCount),
+	});
+	cropCount--;
+
+	console.log(this.state.crops);
+}
+
+
 
 render() {
 	return (
@@ -210,16 +226,7 @@ render() {
 
 				<Container>
 					<CropInput onChange={this.handleInputChange} name="crops" />
-					<Form.Control as="select" multiple
-						name="method"
-						type="select"
-						onChange={this.handleInputChange}>
-						{this.options.map(option => ( // Map state options to multi-select
-							<option key={option} value={option}>
-								{option}
-							</option>
-						))}
-					</Form.Control>
+
 				</Container>	
 
 					<Row className="rightAlgn">

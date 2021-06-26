@@ -2,8 +2,6 @@ import React from "react"
 import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 
-
-let cropCount = 1;
 let MAX_CROPS = 10;
 
 class CalcForm extends React.Component {
@@ -24,8 +22,7 @@ state = {
 	name: "Nedrick",
 	method: [],
 	selected: [],
-	crops: [{type: 'Unknown', amount: 100}],
-	cropArr: []
+	crops: [{ idx: 0 }],
 };	
 
 
@@ -35,9 +32,16 @@ constructor(props) {
 	this.handleSubmit = this.handleSubmit.bind(this);
 }
 
+handleCropChange(event) {
+	const target = event.target;
+	const name = target.name;
+	let value;
+	console.log(event.props);
+	console.log(event);
+	console.log(target);
+}
 
 handleInputChange(event) {
-
 
 	const target = event.target;
 	const name = target.name;
@@ -52,6 +56,9 @@ handleInputChange(event) {
 		value = target.value;
 	}
 	console.log(value);
+	console.log(name);
+	console.log(target);
+	console.log(target.type);
 
 	// for(const sel of target.options) {
 	// 	if(sel.selected) {
@@ -72,49 +79,32 @@ handleSubmit(event) {
 
 addCrop() {
 
-	// if(cropCount >= MAX_CROPS) { // Max of 10 crops
-	// 	return;
-	// }
-
-	// const crops = [...this.state.crops,
-	// 				{type: 'Unknown', amount: 100}
-	// 				];
-	// this.setState({
-	// 	crops,
-	// });
-	// cropCount++;
-	if(this.state.crops.length >= MAX_CROPS) { // Max of 10 crops
+	let len;
+	if((len = this.state.crops.length) >= MAX_CROPS) { // Max of 10 crops
 		return;
 	}
 
 	const crops = [...this.state.crops,
-					{type: 'Unknown', amount: 100}
-					];
+				{ idx: len }
+				];
 	this.setState({
 		crops,
 	});
-	//cropCount++;
-
-
 
 }
 removeCrop() {
-	const len = this.state.crops.length;
-	if(len <= 1) {
+	
+	let len;
+	if((len = this.state.crops.length) <= 1) {
 		return;
 	}
 
 	const crops = [...this.state.crops];
-	crops.splice(len,1);
+	crops.splice(len-1,1);
 	this.setState({
-		
+		crops,
 	});
 	
-	// this.setState({
-	// 	crops: this.state.crops.filter(d => d.count <= len),
-	// });
-	// cropCount--;
-
 }
 
 
@@ -244,8 +234,8 @@ render() {
 
 				<Container>
 
-					{this.state.crops.map(cr => ( // Map state options to multi-select
-					<CropInput onChange={this.handleInputChange} name="crops" key={cr} />
+					{this.state.crops.map(cr => ( // Map Variate Crop Inputs
+						<CropInput onChange={this.handleCropChange} name="crops" idx={cr.idx} />
 					))}
 				
 				</Container>	

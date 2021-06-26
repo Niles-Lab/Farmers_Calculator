@@ -72,7 +72,18 @@ handleSubmit(event) {
 
 addCrop() {
 
-	if(cropCount >= MAX_CROPS) { // Max of 10 crops
+	// if(cropCount >= MAX_CROPS) { // Max of 10 crops
+	// 	return;
+	// }
+
+	// const crops = [...this.state.crops,
+	// 				{type: 'Unknown', amount: 100}
+	// 				];
+	// this.setState({
+	// 	crops,
+	// });
+	// cropCount++;
+	if(this.state.crops.length >= MAX_CROPS) { // Max of 10 crops
 		return;
 	}
 
@@ -82,21 +93,28 @@ addCrop() {
 	this.setState({
 		crops,
 	});
-	cropCount++;
-	console.log(this.state.crops);
+	//cropCount++;
+
+
 
 }
 removeCrop() {
-	
-	if(cropCount <= 1) {
+	const len = this.state.crops.length;
+	if(len <= 1) {
 		return;
 	}
-	this.setState({
-		crops: this.state.crops.filter(d => d.count <= cropCount),
-	});
-	cropCount--;
 
-	console.log(this.state.crops);
+	const crops = [...this.state.crops];
+	crops.splice(len,1);
+	this.setState({
+		
+	});
+	
+	// this.setState({
+	// 	crops: this.state.crops.filter(d => d.count <= len),
+	// });
+	// cropCount--;
+
 }
 
 
@@ -225,18 +243,21 @@ render() {
 			<Form.Label>I Own...</Form.Label>
 
 				<Container>
-					<CropInput onChange={this.handleInputChange} name="crops" />
 
+					{this.state.crops.map(cr => ( // Map state options to multi-select
+					<CropInput onChange={this.handleInputChange} name="crops" key={cr} />
+					))}
+				
 				</Container>	
 
 					<Row className="rightAlgn">
 						<Col>
-						    <Button onClick={this.addCrop}>
+						    <Button onClick={() => {this.addCrop()}}>
 						      	Add...
 						    </Button>
 					    </Col>
 					    <Col>
-						    <Button onClick={this.removeCrop}>
+						    <Button onClick={() => {this.removeCrop()}}>
 						    	Remove...
 						    </Button>
 					    </Col>

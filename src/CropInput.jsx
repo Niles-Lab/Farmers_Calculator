@@ -21,7 +21,7 @@ constructor(props) {
 
 handleChange(event) {
 
-	this.props.onChange(event);
+	this.props.onChange(event); 
 	// const target = event.target;
 	// const name = target.name;
 	// let value = target.value;
@@ -45,6 +45,7 @@ render() {
 				name="amount"
 				type="number"
 				step="0.01"
+				idx={this.props.id}
 				value={this.state.acres}
 				onChange={this.handleChange}>
 			</Form.Control>
@@ -58,6 +59,7 @@ render() {
 				as="select"
 				name="type"
 				type="select"
+				idx={this.props.id}
 				onChange={this.handleChange}>
 				{this.options.map(option => ( // Map state options to multi-select
 					<option key={option} value={option}>

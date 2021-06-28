@@ -1,12 +1,14 @@
 import React from "react"
 import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
+import Calculator from './Calculator.js'
 
 let MAX_CROPS = 10;
 
 class CalcForm extends React.Component {
 
 // Global variables for option selections
+null_crop = {type: "Unknown", amount: 0, idx: null};
 options = ["Method A", "Method B", "Method C", "Method D"];
 opts = { // Calculate Options for "Category": ["Methods..."]
 		"Livestock": ["Method L-1", "Method L-2"], 
@@ -19,10 +21,9 @@ state = {
 	acres: 12.345,
 	land: 23.456,
 	dairy: false,
-	name: "Nedrick",
 	method: [],
 	selected: [],
-	crops: [{ idx: 0 }],
+	crops: [{type: "Unknown", amount: 0, idx: 0}]
 };	
 
 
@@ -30,18 +31,25 @@ constructor(props) {
 	super(props);
 	this.handleInputChange = this.handleInputChange.bind(this);
 	this.handleSubmit = this.handleSubmit.bind(this);
+	this.handleCropChange = this.handleCropChange.bind(this);
 }
 
-handleCropChange(event) {
+handleCropChange(event) { // Special handler for the CropInput Component
 	const target = event.target;
 	const name = target.name;
-	let value;
-	console.log(event.props);
-	console.log(event);
-	console.log(target);
+	const value = target.value;
+	const idx = target.attributes.idx.value;
+
+	const crops = [...this.state.crops];
+
+	crops[idx][name] = value; // Set dictionary value from master record of crops
+
+	this.setState({
+		crops,
+	});
 }
 
-handleInputChange(event) {
+handleInputChange(event) { // Generalized event handler for most components - use this when possible
 
 	const target = event.target;
 	const name = target.name;
@@ -55,10 +63,6 @@ handleInputChange(event) {
 	} else {
 		value = target.value;
 	}
-	console.log(value);
-	console.log(name);
-	console.log(target);
-	console.log(target.type);
 
 	// for(const sel of target.options) {
 	// 	if(sel.selected) {
@@ -75,6 +79,8 @@ handleInputChange(event) {
 handleSubmit(event) {
 	event.preventDefault();
 	console.log(this.state);
+	const vals = this.state;
+
 }
 
 addCrop() {
@@ -85,7 +91,7 @@ addCrop() {
 	}
 
 	const crops = [...this.state.crops,
-				{ idx: len }
+				{ type: "Unknown", amount: 0, idx: len }
 				];
 	this.setState({
 		crops,
@@ -235,7 +241,7 @@ render() {
 				<Container>
 
 					{this.state.crops.map(cr => ( // Map Variate Crop Inputs
-						<CropInput onChange={this.handleCropChange} name="crops" idx={cr.idx} />
+						<CropInput onChange={this.handleCropChange} name="crops" id={cr.idx} />
 					))}
 				
 				</Container>	
@@ -269,8 +275,12 @@ render() {
 			</Row>
 		</Form.Group>
 		</Form>
+		
+		<Container>	
+			<Calculator />
 		</Container>
-
+		
+		</Container>
 		)
 }
 

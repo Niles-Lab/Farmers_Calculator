@@ -16,13 +16,15 @@ constructor(props) {
 
 render() {
 
-
+	this.state = this.props.vals;
 	return (
 
 	<Row>
 		<Col>
 			<div>
-				<p>{this.state.land + this.state.acres} Total Land!</p>
+				<p>{parseFloat(this.state.land) + parseFloat(this.state.acres)} Total Land!</p>
+				<p>{this.state.crops.reduce((a,v) => a + parseFloat(v.amount), 0)} Acres Total</p>
+
 			</div>
 		</Col>
 	</Row>

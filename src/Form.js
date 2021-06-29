@@ -129,6 +129,7 @@ render() {
 				<Col className="ml-auto">
 					<Form.Control
 						name="acres"
+						min="0"
 						type="number"
 						step="0.001"
 						value={this.state.acres}
@@ -143,6 +144,7 @@ render() {
 				<Col className="ml-auto">
 				<Form.Control
 					name="land"
+					min="0"
 					type="number"
 					step="0.001"
 					value={this.state.land}

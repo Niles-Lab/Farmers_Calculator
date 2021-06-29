@@ -1,33 +1,18 @@
 import React from "react"
-import { Form, Row, Col } from 'react-bootstrap';
+import { Row, Col } from 'react-bootstrap';
 
 class Calculator extends React.Component {
 
-
-state = {
-	type: ["a", "b"],
-	amount: 0
-};	
-
-
 constructor(props) {
 	super(props);
-	this.handleChange = this.handleChange.bind(this);
+	//this.handleChange = this.handleChange.bind(this);
+	this.state = this.props.vals;
 }
 
 
-handleChange(event) {
+// handleChange(event) {
 
-	//this.props.onChange(event); 
-	// const target = event.target;
-	// const name = target.name;
-	// let value = target.value;
-
-
-	// this.setState({
-	// 	[name]: value
-	// });
-}
+// }
 
 render() {
 
@@ -36,18 +21,9 @@ render() {
 
 	<Row>
 		<Col>
-			<Form.Control
-
-				as="select"
-				name="type"
-				type="select"
-				onChange={this.handleChange}>
-					{this.state.type.map(option => ( // Map state options to multi-select
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-			</Form.Control>
+			<div>
+				<p>{this.state.land + this.state.acres} Total Land!</p>
+			</div>
 		</Col>
 	</Row>
 

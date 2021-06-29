@@ -64,13 +64,6 @@ handleInputChange(event) { // Generalized event handler for most components - us
 		value = target.value;
 	}
 
-	// for(const sel of target.options) {
-	// 	if(sel.selected) {
-	// 		method.push(sel.value);
-	// 	}
-	// }
-	// console.log(method);
-
 	this.setState({
 		[name]: value
 	});
@@ -277,7 +270,7 @@ render() {
 		</Form>
 		
 		<Container>	
-			<Calculator />
+			<Calculator vals={this.state} />
 		</Container>
 		
 		</Container>

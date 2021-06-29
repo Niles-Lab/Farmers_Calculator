@@ -5,7 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 class CalcForm extends React.Component {
 
 // Global variables for option selections
-options = ["Unknown", "Vegetables", "Fruits", "Livestock"];
+options = ["Land", "Vegetables", "Fruits", "Livestock"];
 
 state = {
 	type: "Unknown",
@@ -44,6 +44,7 @@ render() {
 				placeholder="Enter..."
 				name="amount"
 				type="number"
+				min="0"
 				step="0.01"
 				idx={this.props.id}
 				value={this.state.acres}

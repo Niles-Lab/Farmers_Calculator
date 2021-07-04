@@ -1,9 +1,10 @@
 import React from "react"
-import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-bootstrap';
+import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button, Pagination, Tabs, Tab } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import Calculator from './Calculator.js'
 
 let MAX_CROPS = 10;
+
 
 class CalcForm extends React.Component {
 
@@ -18,6 +19,7 @@ opts = { // Calculate Options for "Category": ["Methods..."]
 
 
 state = {
+	isSubmitted: false,
 	acres: 12.345,
 	land: 23.456,
 	dairy: false,
@@ -68,10 +70,22 @@ handleInputChange(event) { // Generalized event handler for most components - us
 		[name]: value
 	});
 
+
 }
 handleSubmit(event) {
+
+	const target = event.target;
+	const name = target.name;
+	let value = target.value;
+	
 	event.preventDefault();
 	console.log(this.state);
+
+	this.setState({
+		["isSubmitted"]: true,
+		[name]: value
+	});	
+
 	const vals = this.state;
 
 }
@@ -180,7 +194,7 @@ render() {
 				<Form.Control as="select" multiple
 					name="method"
 					type="select"
-					onChange={this.handleInputChange}>
+					onChange={this.handleSubmit}>
 					{this.options.map(option => ( // Map state options to multi-select
 						<option key={option} value={option}>
 							{option}
@@ -271,7 +285,19 @@ render() {
 		</Form.Group>
 		</Form>
 		
-		<Container>	
+		<Container>
+			<div>
+				<Tabs updateOn={this.handleSubmit} hidden={this.state.isSubmitted ? '' : 'hidden'} id="method-tabs">
+					{this.state.method.map(tab => (
+						<Tab eventKey={tab} title={tab}>
+							<Calculator method={tab} vals={this.state} />
+						</Tab>
+						))}
+
+					
+
+				</Tabs>
+			</div>
 			<Calculator vals={this.state} />
 		</Container>
 		

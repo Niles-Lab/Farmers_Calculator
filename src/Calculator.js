@@ -2,41 +2,73 @@ import React from "react"
 import { Row, Col, Container, Table } from 'react-bootstrap';
 
 
-const opts = ["", "Unit of measure", "WP", "WOP"]
+const opts = ["", "WP", "WOP"]
 
 
 class Calculator extends React.Component {
 
 // Main method for calculations - this should be called on render to calculate all table cells
 // Each individual calculation method will output a tuple of [Title(Unit), Value With Project(WP), Value Without Project(WOP)]
-// e.g costPerTree() may return ["Cost Per Tree(USD)", "$5", "$2"]
-calculate() {
+// e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
+calculate(acres, yrs) {
+	var rows = [
+	this.costPer(),
+	this.costPerYr(yrs),
+	this.returnPer(),
+	this.returnPerYr(yrs),
+	this.profitPer(),
+	this.profitPerYr(yrs),
+	this.totalProjArea(acres),
+	this.totalCost(),
+	this.totalCostYr(yrs),
+	this.totalRevenue(),
+	this.totalRevenue(yrs),
+	this.npv()
+	];
 
+	return rows;
 }
 
-costPerTree() {
-
+costPer() {
+	return ["Cost Per " + "Tree", "5", "3"];
 }
-costPerTreeYr() {
-
+costPerYr(yrs) {
+	const costs = this.costPer();
+	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
 }
-returnPerTree() {
-
+returnPer() {
+	return ["Return Per " + "Tree", 100, 100];
 }
-returnPerTreeYr() {
-
+returnPerYr(yrs) {
+	const costs = this.returnPer();
+	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
 }
-profitPerTree() {
-
+profitPer() {
+	return ["Profie Per " + "Tree", 100, 100];
 }
-profitPerTreeYr() {
-
+profitPerYr(yrs) {
+	const costs = this.profitPer();
+	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
 }
-totalProjArea() {
-
+totalProjArea(area) {
+	return ["Area", area, area];
 }
+totalCost() {
+	return ["Total Cost", 100, 100];
+}
+totalCostYr(yrs) {
+	const costs = this.totalCost();
+	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
+}
+totalRevenue(yrs) {
+	return ["Total Revenue", 100000, 100000];
+}
+// Net Present Value(NPV) = Benefits(B) - Costs(C)
+// NPV = PV(B) - PV(C)
 npv() {
-
+	var revenue = this.totalRevenue();
+	var cost = this.totalCost();
+	return ["NPV", revenue[1]-cost[1], revenue[2]-cost[2]];
 }
 
 constructor(props) {
@@ -53,42 +85,35 @@ constructor(props) {
 render() {
 
 	this.state = this.props.vals;
-	return (
-	<Container>
-		<Row>
-			<Col>
-				<div>
-					<p>{parseFloat(this.state.land) + parseFloat(this.state.acres)} Total Land!</p>
-					<p>{this.state.crops.reduce((a,v) => a + parseFloat(v.amount), 0)} Acres Total</p>
+	const rows = this.calculate(this.state.acres);
 
-				</div>
-			</Col>
-		</Row>
+
+	return (
+
 		<Row>
-			<Table responsive variant="dark">
+			<Table responsive striped bordered hover variant="dark">
 				<thead>
 					<tr>
-						<td>1</td>
-					{Array.from({ length: 12 }).map((_, index) => (
-						<td key={index}>Table cell {index}</td>
-						))}	
+					{opts.map(opt => (
+						<td key={opt}>{opt}</td>
+						))}
 					</tr>
-					<tr>
-						<td>1</td>
-					{Array.from({ length: 12 }).map((_, index) => (
-						<td key={index}>Table cell {index}</td>
-						))}	
-					</tr>
-					<tr>
-						<td>2</td>
-					{Array.from({ length: 12 }).map((_, index) => (
-						<td key={index}>Table cell {index}</td>
-						))}	
-					</tr>
+
+					{rows.map(row => (
+						<tr>
+						{row.map(col => (
+
+
+								<td>{col}</td>
+
+
+							))}
+						</tr>
+						))}
 				</thead>
 			</Table>
 		</Row>
-	</Container>
+
 
 
 		)

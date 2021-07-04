@@ -6,6 +6,8 @@ import Calculator from './Calculator.js'
 let MAX_CROPS = 10;
 
 
+
+
 class CalcForm extends React.Component {
 
 // Global variables for option selections
@@ -34,6 +36,7 @@ constructor(props) {
 	this.handleInputChange = this.handleInputChange.bind(this);
 	this.handleSubmit = this.handleSubmit.bind(this);
 	this.handleCropChange = this.handleCropChange.bind(this);
+	this.calcRef = React.createRef();
 }
 
 handleCropChange(event) { // Special handler for the CropInput Component
@@ -61,7 +64,7 @@ handleInputChange(event) { // Generalized event handler for most components - us
 		value = target.checked;
 	} else if(target.type === 'select-multiple') {
 		// Get all selected values for methods
-		value = Array.from(target.options).filter(d => d.selected === true).map(s => s.value);
+		//value = Array.from(target.options).filter(d => d.selected === true).map(s => s.value);
 	} else {
 		value = target.value;
 	}
@@ -73,25 +76,37 @@ handleInputChange(event) { // Generalized event handler for most components - us
 
 }
 handleSubmit(event) {
-
-	const target = event.target;
-	const name = target.name;
-	let value = target.value;
 	
 	event.preventDefault();
 	console.log(this.state);
 
-	this.setState({
-		["isSubmitted"]: true,
-		[name]: value
-	});	
-
 	const vals = this.state;
+	const target = event.target;
+	const name = target.name;
+	let value;
+
+	if(target.type === 'checkbox') {
+		value = target.checked;
+	} else if(target.type === 'select-multiple') {
+		// Get all selected values for methods
+		value = Array.from(target.options).filter(d => d.selected === true).map(s => s.value);
+	} else {
+		value = target.value;
+	}
+
+	
+	this.setState({
+		[name]: value,
+		["isSubmitted"]: true
+	});
+
+
+	this.scrollTo()
+
 
 }
 
 addCrop() {
-
 	let len;
 	if((len = this.state.crops.length) >= MAX_CROPS) { // Max of 10 crops
 		return;
@@ -120,9 +135,19 @@ removeCrop() {
 	
 }
 
+scrollTo() {
+	// Add auto-scroll functionality on form submission -> yes, I know 999999 is a hack
+	// This ref is called in the instantiation of <Calculator> and in this classes Constructor
+	window.scrollTo({
+		behavior: "smooth",
+		top: 99999
+	});
+}
 
+ 
 
 render() {
+
 	return (
 
 		<Container>
@@ -278,27 +303,25 @@ render() {
 					className="btn btn-primary my-4"
 					name="submit"
 					value="Submit"
-					type="submit">
+					type="submit"
+					onClick={this.scrollTo}>
 					Submit
 				</button>
 			</Row>
 		</Form.Group>
 		</Form>
 		
-		<Container>
+		<Container hidden={this.state.isSubmitted ? '' : 'hidden'}>
 			<div>
-				<Tabs updateOn={this.handleSubmit} hidden={this.state.isSubmitted ? '' : 'hidden'} id="method-tabs">
+				<Tabs id="method-tabs">
 					{this.state.method.map(tab => (
 						<Tab eventKey={tab} title={tab}>
 							<Calculator method={tab} vals={this.state} />
 						</Tab>
 						))}
-
-					
-
+					<div ref={this.calcRef}></div>
 				</Tabs>
 			</div>
-			<Calculator vals={this.state} />
 		</Container>
 		
 		</Container>
@@ -307,4 +330,5 @@ render() {
 
 
 }
+
 export default CalcForm;

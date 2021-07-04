@@ -7,6 +7,8 @@ const opts = ["", "WP", "WOP"]
 
 class Calculator extends React.Component {
 
+
+
 // Main method for calculations - this should be called on render to calculate all table cells
 // Each individual calculation method will output a tuple of [Title(Unit), Value With Project(WP), Value Without Project(WOP)]
 // e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
@@ -28,6 +30,8 @@ calculate(acres, yrs) {
 
 	return rows;
 }
+
+
 
 costPer() {
 	return ["Cost Per " + "Tree", "5", "3"];

@@ -1,5 +1,5 @@
 import React from "react"
-import { Row, Col, Container, Table } from 'react-bootstrap';
+import { Row, Table } from 'react-bootstrap';
 
 
 const opts = ["", "WP", "WOP"]

@@ -1,5 +1,5 @@
 import React from "react"
-import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button, Pagination, Tabs, Tab } from 'react-bootstrap';
+import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button, Tabs, Tab } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import Calculator from './Calculator.js'
 

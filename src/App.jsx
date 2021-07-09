@@ -1,9 +1,11 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { Nav, Navbar, NavDropdown, Image, Container, Row, Col } from 'react-bootstrap'
+import { Nav, Navbar, NavDropdown, Image } from 'react-bootstrap'
 
+import background from './images/background_1.jpg';
 import umaine from './images/umaine.png';
 import uvm from './images/uvm.svg';
 import './App.css';
+
 
 import FormController from './FormController.jsx'
 
@@ -13,7 +15,7 @@ function App() {
 
   return (
 
-    <span>
+    <span style={{ backgroundImage: `url(${background})` }}>
       <div>
         <header>
           <Navbar expand="lg">

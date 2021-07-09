@@ -1,3 +1,5 @@
+// ATTN: THIS CLASS IS DEPRECATED - PLEASE USE CalcForm.jsx INSTEAD
+// Component Class for Calculator Form - constructing a container form for land use calculation
 import React from "react"
 import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button, Tabs, Tab } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'

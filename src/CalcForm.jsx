@@ -10,24 +10,18 @@ let MAX_CROPS = 10;
 function CalcForm(props) {
 
 
-
+// Forced update - implemented for adding and removing crops
+const [, updateState] = React.useState();
+const forceUpdate = React.useCallback(() => updateState({}), []);
 
 // Global variables for option selections
 
-const options = ["Method A", "Method B", "Method C", "Method D"];
+
 const opts = { // Calculate Options for "Category": ["Methods..."]
 		"Livestock": ["Method L-1", "Method L-2"], 
 		"Climate": ["Method C-1", "Method C-2"], 
 		"Other": ["Support Local Music", "Irrigation"]
 	};
-
-
-const [land, setLand] = useState(0);
-const [dairy, setDairy] = useState(false);
-const [acres, setAcres] = useState(100);
-const [crops, setCrops] = useState([{type: "Unknown", amount: 0, idx: 0}]);
-const [method, setMethod] = useState([]);
-
 
 
 function handleSubmit(event) {
@@ -53,34 +47,45 @@ function handleCropChange(event) { // Special handler for the CropInput Componen
 	const value = target.value;
 	const idx = target.attributes.idx.value;
 
-	crops[idx][name] = value; // Set dictionary value from master record of crops
+	props.crops[idx][name] = value; // Set dictionary value from master record of crops
 
-	setCrops(crops);
-	console.log(crops);
+	props.setCrops(props.crops);
 
 }
 
+// Handler for the "Add" button for particular land use input
+// Adds a null crop to the end of the crop model array, updates the view and scrolls to the bottom
 function addCrop() {
 	let len;
-	if((len = crops.length) >= MAX_CROPS) { // Max of 10 crops
+	if((len = props.crops.length) >= MAX_CROPS) { // Max of 10 crops
 		return;
 	}
 
-	crops.push({ type: "Unknown", amount: 0, idx: len });
-	setCrops(crops);
-
+	props.crops.push({ type: "Unknown", amount: 0, idx: len });
+	props.setCrops(props.crops);
+	window.scrollTo({
+		behavior: "smooth",
+		top: 99999
+	});
 }
+
+// Handler for "Remove" button for particular land use input
+// Splices the last index from the crop model array, updates the view and scrolls up
 function removeCrop() {
 	
 	let len;
-	if((len = crops.length) <= 1) {
+	if((len = props.crops.length) <= 1) {
 		return;
 	}
-	crops.splice(len-1,1);
-	setCrops(crops);
+	props.crops.splice(len-1,1);
+	props.setCrops(props.crops);
+
+	window.scrollTo({
+		behavior: "smooth",
+		bottom: (window.innerHeight / 2)
+	});
 	
 }
-
 
 
 	return (
@@ -107,24 +112,24 @@ function removeCrop() {
 						name="acres"
 						min="0"
 						type="number"
-						step="0.001"
-						value={acres}
-						onChange = {(event) => {setAcres(event.target.value)}} />
+						step="0.1"
+						value={props.acres}
+						onChange = {(event) => {props.setAcres(event.target.value)}} />
 				</Col>
 			</Row>
 
 			<Row>
 				<Col>
-					Land(Acres):
+					Another Input:
 				</Col>
 				<Col className="ml-auto">
 				<Form.Control
 					name="land"
 					min="0"
 					type="number"
-					step="0.001"
-					value={land}
-					onChange = {(event) => {setLand(event.target.value)}} />
+					step="0.1"
+					value={props.land}
+					onChange = {(event) => {props.setLand(event.target.value)}} />
 				</Col>
 			</Row>
 
@@ -140,8 +145,8 @@ function removeCrop() {
 				<Form.Control
 					name="dairy"
 					type="checkbox"
-					value={dairy}
-					onChange={(event) => {setDairy(event.target.checked)}} />
+					value={props.dairy}
+					onChange={(event) => {props.setDairy(event.target.checked)}} />
 
 				</Col>
 			</Row>
@@ -156,8 +161,8 @@ function removeCrop() {
 				<Form.Control as="select" multiple
 					name="method"
 					type="select"
-					onChange={(event) => {setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
-					{options.map(option => ( // Map state options to multi-select
+					onChange={(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
+					{props.options.map(option => ( // Map state options to multi-select
 						<option key={option} value={option}>
 							{option}
 						</option>
@@ -194,7 +199,7 @@ function removeCrop() {
 											name="costs"
 											type="select"
 											onChange=
-											{(event) => {setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
+											{(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
 												{d}
 											</Dropdown.Item>
 											))}
@@ -211,20 +216,19 @@ function removeCrop() {
 			<Form.Label>I Own...</Form.Label>
 
 				<Container>
-					{crops.map(cr => ( // Map Variate Crop Inputs
-						<CropInput onChange={(event) => handleCropChange(event)} name="crops" id={cr.idx} />
+					{props.crops.map(cr => ( // Map Variate Crop Inputs
+						<CropInput onChange={(event) => {forceUpdate(); handleCropChange(event)}} name="crops" id={cr.idx} key={cr.idx} />
 					))}
-				
 				</Container>	
 
-					<Row className="rightAlgn">
+					<Row className="mt-3">
 						<Col>
-						    <Button onClick={addUpd}>
+						    <Button onClick={() => {forceUpdate(); addCrop();}}>
 						      	Add...
 						    </Button>
 					    </Col>
 					    <Col>
-						    <Button onClick={removeUpd}>
+						    <Button onClick={() => {forceUpdate(); removeCrop();}}>
 						    	Remove...
 						    </Button>
 					    </Col>
@@ -235,7 +239,7 @@ function removeCrop() {
 			// Submit for calculation
 			}
 
-			<Row>
+{/*			<Row>
 				<button
 					className="btn btn-primary my-4"
 					name="submit"
@@ -244,7 +248,7 @@ function removeCrop() {
 					onClick={(event) => {event.preventDefault()}}>
 					Submit
 				</button>
-			</Row>
+			</Row>*/}
 		</Form.Group>
 		</Form>
 		

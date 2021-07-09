@@ -14,13 +14,14 @@ class Calculator extends React.Component {
 // e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
 calculate(acres, yrs) {
 	var rows = [
+	this.totalProjArea(acres),
+	this.totalManualLand(),
 	this.costPer(),
 	this.costPerYr(yrs),
 	this.returnPer(),
 	this.returnPerYr(yrs),
 	this.profitPer(),
 	this.profitPerYr(yrs),
-	this.totalProjArea(acres),
 	this.totalCost(),
 	this.totalCostYr(yrs),
 	this.totalRevenue(),
@@ -32,13 +33,18 @@ calculate(acres, yrs) {
 }
 
 
-
+totalManualLand() {
+	let land = 0;
+	console.log(this.state.crops);
+	this.props.crops.forEach(crop => land += parseInt(crop.amount))
+	return ["Inputted Land", land, 0];
+}
 costPer() {
-	return ["Cost Per " + "Tree", "5", "3"];
+	return ["Cost Per " + "Tree", (this.props.acres * 5).toFixed(2), (this.props.acres * 3).toFixed(2)];
 }
 costPerYr(yrs) {
 	const costs = this.costPer();
-	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
+	return [costs[0] + "(" + yrs + " yrs)", (costs[1] * 365).toFixed(2), (costs[2] * 365).toFixed(2)];
 }
 returnPer() {
 	return ["Return Per " + "Tree", 100, 100];
@@ -78,7 +84,7 @@ npv() {
 constructor(props) {
 	super(props);
 	//this.handleChange = this.handleChange.bind(this);
-	this.state = this.props.vals;
+	this.state = this.props;
 }
 
 
@@ -88,7 +94,7 @@ constructor(props) {
 
 render() {
 
-	this.state = this.props.vals;
+	this.state = this.props;
 	const rows = this.calculate(this.state.acres);
 
 

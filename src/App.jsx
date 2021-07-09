@@ -1,13 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Nav, Navbar, NavDropdown, Image, Container, Row, Col } from 'react-bootstrap'
-import './FormController.jsx'
+
 import umaine from './images/umaine.png';
 import uvm from './images/uvm.svg';
 import './App.css';
 
+import FormController from './FormController.jsx'
 
-import CalcForm from './Form.js'
-import Calculator from './Calculator.js'
 
 function App() {
 
@@ -43,7 +42,7 @@ function App() {
         </header>
         </div>
         <div className="App">
-          {FormController()}
+          <FormController />
         </div>
     </span>
   );

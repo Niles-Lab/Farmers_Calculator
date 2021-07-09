@@ -1,5 +1,10 @@
+header {
+  width: 100vw;
+  max-width: 100vw;
+  max-width: 100%;
+  background-color: gainsboro;
+}
 div {
-  background-color: #282c34;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -7,6 +12,7 @@ div {
   text-align: center;
 
 }
+
 .row {
   flex-direction: row;
 }
@@ -28,13 +34,15 @@ option {
   color: black;
 }
 hr {
-  border: 1px solid ghostwhite;
+  border: 1px solid black;
   width: 100%;
   margin-top: 0px;
 }
 .App {
   min-height: 100vh;
   font-size: calc(10px + 2vmin);
-  color: white;
+  background-color: #003E1F;
 }
-
+Form {
+  background-color: gainsboro;
+}

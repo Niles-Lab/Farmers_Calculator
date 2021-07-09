@@ -7,7 +7,7 @@ header {
 div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+
   justify-content: center;
   text-align: center;
 
@@ -19,12 +19,6 @@ div {
 .col {
   min-width: 1EM;
 }
-
-.rightAlgn {
-  justify-content: right;
-  align-items: flex-end;
-}
-
 label {
   margin-top: 2vh;
   margin-bottom: 2vh;

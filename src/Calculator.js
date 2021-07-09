@@ -95,7 +95,7 @@ render() {
 	return (
 
 		<Row>
-			<Table responsive striped bordered hover variant="dark">
+			<Table responsive striped bordered hover>
 				<thead>
 					<tr>
 					{opts.map(opt => (

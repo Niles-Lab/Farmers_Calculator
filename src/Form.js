@@ -101,7 +101,7 @@ handleSubmit(event) {
 	});
 
 
-	this.scrollTo()
+	this.scrollTo();
 
 
 }
@@ -212,7 +212,7 @@ render() {
 			{
 			// Multi-select for different techniques
 			}
-			<Form.Group className="row">
+			<Form.Group>
 
 				<Form.Label>Calculate Costs For:</Form.Label>
 			

@@ -2,7 +2,11 @@ import React from "react"
 import { Form, Row, Col } from 'react-bootstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
+
 class CalcForm extends React.Component {
+
+
 
 // Global variables for option selections
 options = ["Land", "Vegetables", "Fruits", "Livestock"];

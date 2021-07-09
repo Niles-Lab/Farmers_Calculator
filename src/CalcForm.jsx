@@ -24,23 +24,23 @@ const opts = { // Calculate Options for "Category": ["Methods..."]
 	};
 
 
-function handleSubmit(event) {
+// function handleSubmit(event) {
 	
-	//this.preventDefault();
+// 	//this.preventDefault();
 
 
 
-	// if(target.type === 'checkbox') {
-	// 	value = target.checked;
-	// } else if(target.type === 'select-multiple') {
-	// 	// Get all selected values for methods
-	// 	value = Array.from(target.options).filter(d => d.selected === true).map(s => s.value);
-	// } else {
-	// 	value = target.value;
-	// }
+// 	// if(target.type === 'checkbox') {
+// 	// 	value = target.checked;
+// 	// } else if(target.type === 'select-multiple') {
+// 	// 	// Get all selected values for methods
+// 	// 	value = Array.from(target.options).filter(d => d.selected === true).map(s => s.value);
+// 	// } else {
+// 	// 	value = target.value;
+// 	// }
 
 
-}
+// }
 function handleCropChange(event) { // Special handler for the CropInput Component
 	const target = event.target;
 	const name = target.name;
@@ -50,6 +50,7 @@ function handleCropChange(event) { // Special handler for the CropInput Componen
 	props.crops[idx][name] = value; // Set dictionary value from master record of crops
 
 	props.setCrops(props.crops);
+	forceUpdate();
 
 }
 
@@ -65,7 +66,7 @@ function addCrop() {
 	props.setCrops(props.crops);
 	window.scrollTo({
 		behavior: "smooth",
-		top: 99999
+		top: (window.innerHeight / 4)
 	});
 }
 
@@ -217,7 +218,7 @@ function removeCrop() {
 
 				<Container>
 					{props.crops.map(cr => ( // Map Variate Crop Inputs
-						<CropInput onChange={(event) => {forceUpdate(); handleCropChange(event)}} name="crops" id={cr.idx} key={cr.idx} />
+						<CropInput onChange={(event) => {handleCropChange(event)}} name="crops" id={cr.idx} key={cr.idx} />
 					))}
 				</Container>	
 

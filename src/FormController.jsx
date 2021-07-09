@@ -7,8 +7,10 @@ import Calculator from "./Calculator.jsx"
 
 function FormController() {
 
-const options = ["Method A", "Method B", "Method C", "Method D"];
-const [form, setForm] = useState([]);
+// Methods to calculate a cost for, this will be passed to:
+// The calculator's input for selection
+// The calculator's output - one page per method will be rendered
+const options = ["Method A", "Method B"];
 
 
 // Forced update - implemented for adding and removing crops
@@ -35,7 +37,7 @@ return (
 
 		<Container>
 			<Row>
-				<Col>
+				<Col className="my-5">
 					<CalcForm
 						onChange={() => forceUpdate()}
 						options={options}
@@ -56,13 +58,13 @@ return (
 							<Tabs id="method-tabs">
 								{options.map(tab => (
 									<Tab eventKey={tab} title={tab}>
-										<Calculator method={tab}
+										<Calculator
 											options={options}
 											land={land}
 											dairy={dairy}
 											acres={acres}
 											crops={crops}
-											method={method}/>
+											method={tab}/>
 									</Tab>
 									))}
 							</Tabs>

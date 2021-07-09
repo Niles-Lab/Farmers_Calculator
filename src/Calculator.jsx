@@ -35,12 +35,12 @@ calculate(acres, yrs) {
 
 totalManualLand() {
 	let land = 0;
-	console.log(this.state.crops);
-	this.props.crops.forEach(crop => land += parseInt(crop.amount))
-	return ["Inputted Land", land, 0];
+	console.log(this.prop.crops);
+	this.props.crops.forEach(crop => land += parseFloat(crop.amount))
+	return ["Inputted Land", land.toFixed(2), 0];
 }
 costPer() {
-	return ["Cost Per " + "Tree", (this.props.acres * 5).toFixed(2), (this.props.acres * 3).toFixed(2)];
+	return ["Cost Per " + "Tree", (this.prop.acres * 5).toFixed(2), (this.prop.acres * 3).toFixed(2)];
 }
 costPerYr(yrs) {
 	const costs = this.costPer();
@@ -84,7 +84,7 @@ npv() {
 constructor(props) {
 	super(props);
 	//this.handleChange = this.handleChange.bind(this);
-	this.state = this.props;
+	this.prop = this.props;
 }
 
 
@@ -94,8 +94,8 @@ constructor(props) {
 
 render() {
 
-	this.state = this.props;
-	const rows = this.calculate(this.state.acres);
+	this.prop = this.props;
+	const rows = this.calculate(this.prop.acres, 2);
 
 
 	return (

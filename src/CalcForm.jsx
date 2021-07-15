@@ -75,171 +75,168 @@ function removeCrop() {
 
 
 	return (
-
-
-
 		<Container>
-		<Form>
-		<Form.Group>
-			<h1>Calculator</h1>
-			<hr />
-		
+			<Form className="box">
+			<Form.Group>
+				<h1>Calculator</h1>
+				<hr />
+			
 
-			{
-			// Numerical input
-			}
+				{
+				// Numerical input
+				}
 
-			<Row>
-				<Col>
-					Acres:
-				</Col>
-				<Col className="ml-auto">
+				<Row>
+					<Col>
+						Acres:
+					</Col>
+					<Col className="ml-auto mx-4">
+						<Form.Control
+							name="acres"
+							min="0"
+							type="number"
+							step="0.1"
+							value={props.acres}
+							onChange = {(event) => {props.setAcres(event.target.value)}} />
+					</Col>
+				</Row>
+
+				<Row>
+					<Col>
+						Another Input:
+					</Col>
+					<Col className="ml-auto mx-4">
 					<Form.Control
-						name="acres"
+						name="land"
 						min="0"
 						type="number"
 						step="0.1"
-						value={props.acres}
-						onChange = {(event) => {props.setAcres(event.target.value)}} />
-				</Col>
-			</Row>
+						value={props.land}
+						onChange = {(event) => {props.setLand(event.target.value)}} />
+					</Col>
+				</Row>
 
-			<Row>
-				<Col>
-					Another Input:
-				</Col>
-				<Col className="ml-auto">
-				<Form.Control
-					name="land"
-					min="0"
-					type="number"
-					step="0.1"
-					value={props.land}
-					onChange = {(event) => {props.setLand(event.target.value)}} />
-				</Col>
-			</Row>
+				{
+				// Check box
+				}
 
-			{
-			// Check box
-			}
+				<Row>
+					<Col className="mx-auto">
+						Dairy:
+					</Col>
+					<Col className="mx-auto">
+					<Form.Control
+						name="dairy"
+						type="checkbox"
+						value={props.dairy}
+						onChange={(event) => {props.setDairy(event.target.checked)}} />
 
-			<Row>
-				<Col className="mx-auto">
-					Dairy:
-				</Col>
-				<Col className="mx-auto">
-				<Form.Control
-					name="dairy"
-					type="checkbox"
-					value={props.dairy}
-					onChange={(event) => {props.setDairy(event.target.checked)}} />
+					</Col>
+				</Row>
 
-				</Col>
-			</Row>
+				{
+				// Multi-select for different techniques
+				}
+				<Form.Group>
 
-			{
-			// Multi-select for different techniques
-			}
-			<Form.Group>
+					<Form.Label>Calculate Costs For:</Form.Label>
+				
+					<Form.Control as="select" multiple
+						name="method"
+						type="select"
+						onChange={(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
+						{props.options.map(option => ( // Map state options to multi-select
+							<option key={option} value={option}>
+								{option}
+							</option>
+						))}
+					</Form.Control>
+				</Form.Group>
 
-				<Form.Label>Calculate Costs For:</Form.Label>
-			
-				<Form.Control as="select" multiple
-					name="method"
-					type="select"
-					onChange={(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
-					{props.options.map(option => ( // Map state options to multi-select
-						<option key={option} value={option}>
-							{option}
-						</option>
-					))}
-				</Form.Control>
+				<Row>
+					<Col>
+					Alternatively:  
+					</Col>
+					<Col>
+					<Dropdown 
+						className="ml-auto"
+						as={ButtonGroup}
+					>
+
+						<Dropdown.Toggle className="mx-5">
+							Select
+						</Dropdown.Toggle>
+							<Dropdown.Menu>
+
+							<Dropdown.Divider />
+							<Dropdown.Divider />
+								{Object.entries(opts).map(options => ( // Map state options to multi-select
+									<span key={options[0]}>
+										<Dropdown.ItemText>
+											<b>{options[0]}</b>
+										</Dropdown.ItemText>
+											{options[1].map(d => ( // Map each category's options
+												<Dropdown.Item
+												value={d}
+												key={d} 
+												name="costs"
+												type="select"
+												onChange=
+												{(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
+													{d}
+												</Dropdown.Item>
+												))}
+										<Dropdown.Divider />
+										<Dropdown.Divider />
+									</span>
+								))}
+							</Dropdown.Menu>
+					</Dropdown>
+					</Col>
+				</Row>
+
+
+				<Form.Label>I Own...</Form.Label>
+
+						<Row className="mb-3 mx-4">
+							<Col>
+							    <Button onClick={() => { props.onChange(); addCrop();}}>
+							      	Add...
+							    </Button>
+						    </Col>
+						    <Col>
+							    <Button onClick={() => { props.onChange(); removeCrop();}}>
+							    	Remove...
+							    </Button>
+						    </Col>
+					    </Row>
+
+					<Container>
+						{props.crops.map(cr => ( // Map Variate Crop Inputs
+							<CropInput onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
+						))}
+					</Container>	
+
+
+
+				
+				{
+				// Submit for calculation
+				}
+
+	{/*			<Row>
+					<button
+						className="btn btn-primary my-4"
+						name="submit"
+						value="Submit"
+						type="submit"
+						onClick={(event) => {event.preventDefault()}}>
+						Submit
+					</button>
+				</Row>*/}
 			</Form.Group>
-
-			<Row>
-				<Col>
-				Alternatively:  
-				</Col>
-				<Col>
-				<Dropdown 
-					className="ml-auto"
-					as={ButtonGroup}
-				>
-
-					<Dropdown.Toggle>
-						Select
-					</Dropdown.Toggle>
-						<Dropdown.Menu>
-
-						<Dropdown.Divider />
-						<Dropdown.Divider />
-							{Object.entries(opts).map(options => ( // Map state options to multi-select
-								<span key={options[0]}>
-									<Dropdown.ItemText>
-										<b>{options[0]}</b>
-									</Dropdown.ItemText>
-										{options[1].map(d => ( // Map each category's options
-											<Dropdown.Item
-											value={d}
-											key={d} 
-											name="costs"
-											type="select"
-											onChange=
-											{(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
-												{d}
-											</Dropdown.Item>
-											))}
-									<Dropdown.Divider />
-									<Dropdown.Divider />
-								</span>
-							))}
-						</Dropdown.Menu>
-				</Dropdown>
-				</Col>
-			</Row>
-
-
-			<Form.Label>I Own...</Form.Label>
-
-					<Row className="mb-3 mx-4">
-						<Col>
-						    <Button onClick={() => { props.onChange(); addCrop();}}>
-						      	Add...
-						    </Button>
-					    </Col>
-					    <Col>
-						    <Button onClick={() => { props.onChange(); removeCrop();}}>
-						    	Remove...
-						    </Button>
-					    </Col>
-				    </Row>
-
-				<Container>
-					{props.crops.map(cr => ( // Map Variate Crop Inputs
-						<CropInput onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
-					))}
-				</Container>	
-
-
-
+			</Form>
 			
-			{
-			// Submit for calculation
-			}
-
-{/*			<Row>
-				<button
-					className="btn btn-primary my-4"
-					name="submit"
-					value="Submit"
-					type="submit"
-					onClick={(event) => {event.preventDefault()}}>
-					Submit
-				</button>
-			</Row>*/}
-		</Form.Group>
-		</Form>
-		
 
 		
 		</Container>

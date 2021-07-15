@@ -29,8 +29,9 @@ hr {
 .App {
   min-height: 100vh;
 }
-Form, Table {
-  background-color: rgba(220, 220, 220, 0.8);
+
+.box {
+  background-color: rgba(220, 220, 220, 0.8);  
 }
 Nav {
   background-color: rgba(220, 220, 220, 0.5);

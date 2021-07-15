@@ -99,8 +99,8 @@ render() {
 
 	return (
 
-		<Row>
-			<Table responsive striped bordered hover>
+		<>
+			<Table className="box" responsive striped bordered hover>
 				<thead>
 					<tr>
 					{opts.map(opt => (
@@ -116,7 +116,7 @@ render() {
 						))}
 				</thead>
 			</Table>
-		</Row>
+		</>
 
 
 

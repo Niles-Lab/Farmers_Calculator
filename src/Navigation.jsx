@@ -9,11 +9,10 @@ const Navigation = () => {
         <>
 
           <Navbar collapseOnSelect expand="sm" expand="sm">
-            <Navbar.Brand href="#home">UVM/Umaine for Farmers</Navbar.Brand>
+            <Navbar.Brand href="/">UVM/Umaine for Farmers</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="mr-auto">
-                  <Nav.Link href="/">Home</Nav.Link>
                   <Nav.Link href="/FormController">Calculator</Nav.Link>
                   <Nav.Link href="/LoremIpsum">Resources</Nav.Link>
                   <NavDropdown title="Dropdown" id="basic-nav-dropdown">

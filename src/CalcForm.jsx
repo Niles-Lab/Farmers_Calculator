@@ -21,8 +21,15 @@ const opts = { // Calculate Options for "Category": ["Methods..."]
 function handleCropChange(event) { // Special handler for the CropInput Component
 	const target = event.target;
 	const name = target.name;
-	const value = target.value;
 	const idx = target.attributes.idx.value;
+	let value = target.value;
+
+	if(event.target.type == "number") {
+		const val = parseFloat(event.target.value);
+		if(isNaN(val) || val <= 0) {
+			value = 0;
+		}
+	}
 
 	props.crops[idx][name] = value; // Set dictionary value from master record of crops
 

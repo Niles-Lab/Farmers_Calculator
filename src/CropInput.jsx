@@ -25,19 +25,25 @@ constructor(props) {
 
 
 handleChange(event) {
-	this.props.onChange(event);
+
 
 	// const target = event.target;
 	// const name = target.name;
 	// let value = target.value;
 
 	if(event.target.type == "number") {
-		console.log(parseFloat(event.target.value));
-		let invd = parseFloat(event.target.value) >= 0 ? false : true;
+		let val = parseFloat(event.target.value);
+		if(isNaN(val)) {
+			val = 0;
+		}
+		let invd = val >= 0 ? false : true;
+
 		this.setState({
-			invalid: invd
+			invalid: invd,
+			amount: val
 		})
 	}
+	this.props.onChange(event);
 	// this.setState({
 	// 	[name]: value
 	// });
@@ -63,9 +69,8 @@ render() {
 				min="0"
 				step="0.01"
 				idx={this.props.id}
-				value={this.state.acres}
-				onChange={(event) => this.handleChange(event)}
 				isInvalid={this.state.invalid}
+				onChange={(event) => this.handleChange(event)}
 				>
 			</Form.Control>
 		</Col>

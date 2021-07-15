@@ -39,7 +39,7 @@ return (
 
 		<Container>
 			<Row className="my-5">
-				<Col className="my-5">
+				<Col className="my-5" sm={6}>
 					<CalcForm
 						onChange={() => forceUpdate()}
 						options={options}
@@ -54,12 +54,12 @@ return (
 						method={method}
 						setMethod={setMethod} />
 				</Col>
-				<Col>
+				<Col sm={6}>
 					<Container>
 						<div>
 							<Tabs id="method-tabs">
 								{options.map(tab => (
-									<Tab eventKey={tab} title={tab}>
+									<Tab eventKey={tab} title={tab} key={tab}>
 										<Calculator
 
 											options={options}

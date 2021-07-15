@@ -18,10 +18,7 @@ state = {
 };	
 
 
-constructor(props) {
-	super(props);
 
-}
 
 
 handleChange(event) {
@@ -31,33 +28,21 @@ handleChange(event) {
 	// const name = target.name;
 	// let value = target.value;
 
-	if(event.target.type == "number") {
+	// Form validation - turn input form red
+	if(event.target.type === "number") {
 		let val = parseFloat(event.target.value);
-		if(isNaN(val)) {
-			val = 0;
-		}
-		let invd = val >= 0 ? false : true;
+		let invd = (val >= 0 || isNaN(val)) ? false : true;
 
 		this.setState({
 			invalid: invd,
-			amount: val
 		})
 	}
-	this.props.onChange(event);
-	// this.setState({
-	// 	[name]: value
-	// });
-}
-posNum(event) {
-	//return event.target.value > 0 ? event.target.value : (-1 * parseFloat(event.target.value));
 
-	return ;
+	this.props.onChange(event); // Update the UI
 }
 
 render() {
 
-	const type = this.props.type;
-	const amount = this.props.amount;
 	return (
 
 	<Row>
@@ -84,7 +69,7 @@ render() {
 				name="type"
 				type="select"
 				idx={this.props.id}
-				onChange={this.handleChange}>
+				onChange={(event) => this.handleChange(event)}>
 				{this.options.map(option => ( // Map state options to multi-select
 					<option key={option} value={option}>
 						{option}

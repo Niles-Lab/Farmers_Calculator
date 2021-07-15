@@ -107,15 +107,10 @@ render() {
 						<td key={opt}>{opt}</td>
 						))}
 					</tr>
-
 					{rows.map(row => (
 						<tr>
 						{row.map(col => (
-
-
 								<td>{col}</td>
-
-
 							))}
 						</tr>
 						))}

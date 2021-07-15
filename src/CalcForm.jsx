@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 
@@ -24,11 +24,12 @@ function handleCropChange(event) { // Special handler for the CropInput Componen
 	const idx = target.attributes.idx.value;
 	let value = target.value;
 
-	if(event.target.type == "number") {
-		const val = parseFloat(event.target.value);
+	if(event.target.type === "number") { // Handle UI for negative crop input value
+		const val = parseFloat(value);
 		if(isNaN(val) || val <= 0) {
 			value = 0;
 		}
+
 	}
 
 	props.crops[idx][name] = value; // Set dictionary value from master record of crops
@@ -173,8 +174,8 @@ function removeCrop() {
 						<Dropdown.Divider />
 						<Dropdown.Divider />
 							{Object.entries(opts).map(options => ( // Map state options to multi-select
-								<span>
-									<Dropdown.ItemText key={options[0]}>
+								<span key={options[0]}>
+									<Dropdown.ItemText>
 										<b>{options[0]}</b>
 									</Dropdown.ItemText>
 										{options[1].map(d => ( // Map each category's options

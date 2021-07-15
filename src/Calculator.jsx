@@ -35,7 +35,6 @@ calculate(acres, yrs) {
 
 totalManualLand() {
 	let land = 0;
-	console.log(this.prop.crops);
 	this.props.crops.forEach(crop => land += parseFloat(crop.amount))
 	return ["Inputted Land", land.toFixed(2), 0];
 }

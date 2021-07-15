@@ -10,13 +10,7 @@ let MAX_CROPS = 10;
 function CalcForm(props) {
 
 
-// Forced update - implemented for adding and removing crops
-const [, updateState] = React.useState();
-const forceUpdate = React.useCallback(() => updateState({}), []);
-
 // Global variables for option selections
-
-
 const opts = { // Calculate Options for "Category": ["Methods..."]
 		"Livestock": ["Method L-1", "Method L-2"], 
 		"Climate": ["Method C-1", "Method C-2"], 
@@ -24,23 +18,6 @@ const opts = { // Calculate Options for "Category": ["Methods..."]
 	};
 
 
-// function handleSubmit(event) {
-	
-// 	//this.preventDefault();
-
-
-
-// 	// if(target.type === 'checkbox') {
-// 	// 	value = target.checked;
-// 	// } else if(target.type === 'select-multiple') {
-// 	// 	// Get all selected values for methods
-// 	// 	value = Array.from(target.options).filter(d => d.selected === true).map(s => s.value);
-// 	// } else {
-// 	// 	value = target.value;
-// 	// }
-
-
-// }
 function handleCropChange(event) { // Special handler for the CropInput Component
 	const target = event.target;
 	const name = target.name;
@@ -50,7 +27,7 @@ function handleCropChange(event) { // Special handler for the CropInput Componen
 	props.crops[idx][name] = value; // Set dictionary value from master record of crops
 
 	props.setCrops(props.crops);
-	forceUpdate();
+	props.onChange();
 
 }
 
@@ -173,7 +150,7 @@ function removeCrop() {
 
 			<Row>
 				<Col>
-				Calculate Costs For:  
+				Alternatively:  
 				</Col>
 				<Col>
 				<Dropdown 
@@ -216,24 +193,26 @@ function removeCrop() {
 
 			<Form.Label>I Own...</Form.Label>
 
-				<Container>
-					{props.crops.map(cr => ( // Map Variate Crop Inputs
-						<CropInput onChange={(event) => {handleCropChange(event)}} name="crops" id={cr.idx} key={cr.idx} />
-					))}
-				</Container>	
-
-					<Row className="mt-3">
+					<Row className="mb-3 mx-4">
 						<Col>
-						    <Button onClick={() => {forceUpdate(); addCrop();}}>
+						    <Button onClick={() => { props.onChange(); addCrop();}}>
 						      	Add...
 						    </Button>
 					    </Col>
 					    <Col>
-						    <Button onClick={() => {forceUpdate(); removeCrop();}}>
+						    <Button onClick={() => { props.onChange(); removeCrop();}}>
 						    	Remove...
 						    </Button>
 					    </Col>
 				    </Row>
+
+				<Container>
+					{props.crops.map(cr => ( // Map Variate Crop Inputs
+						<CropInput onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
+					))}
+				</Container>	
+
+
 
 			
 			{

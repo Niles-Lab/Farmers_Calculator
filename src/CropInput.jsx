@@ -13,27 +13,39 @@ options = ["Land", "Vegetables", "Fruits", "Livestock"];
 
 state = {
 	type: "Unknown",
-	amount: 0
+	amount: 0,
+	invalid: false
 };	
 
 
 constructor(props) {
 	super(props);
-	this.handleChange = this.handleChange.bind(this);
+
 }
 
 
 handleChange(event) {
+	this.props.onChange(event);
 
-	this.props.onChange(event); 
 	// const target = event.target;
 	// const name = target.name;
 	// let value = target.value;
 
-
+	if(event.target.type == "number") {
+		console.log(parseFloat(event.target.value));
+		let invd = parseFloat(event.target.value) >= 0 ? false : true;
+		this.setState({
+			invalid: invd
+		})
+	}
 	// this.setState({
 	// 	[name]: value
 	// });
+}
+posNum(event) {
+	//return event.target.value > 0 ? event.target.value : (-1 * parseFloat(event.target.value));
+
+	return ;
 }
 
 render() {
@@ -52,7 +64,9 @@ render() {
 				step="0.01"
 				idx={this.props.id}
 				value={this.state.acres}
-				onChange={this.handleChange}>
+				onChange={(event) => this.handleChange(event)}
+				isInvalid={this.state.invalid}
+				>
 			</Form.Control>
 		</Col>
 		<Col>

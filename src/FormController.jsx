@@ -17,6 +17,8 @@ const options = ["Method A", "Method B"];
 const [, updateState] = React.useState();
 const forceUpdate = React.useCallback(() => updateState({}), []);
 
+
+
 let data = {
 	isSubmitted: false,
 	acres: 12.3,
@@ -36,7 +38,7 @@ const [method, setMethod] = useState(data.method);
 return (
 
 		<Container>
-			<Row>
+			<Row className="my-5">
 				<Col className="my-5">
 					<CalcForm
 						onChange={() => forceUpdate()}
@@ -59,6 +61,7 @@ return (
 								{options.map(tab => (
 									<Tab eventKey={tab} title={tab}>
 										<Calculator
+
 											options={options}
 											land={land}
 											dairy={dairy}

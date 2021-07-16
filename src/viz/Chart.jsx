@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import { Container } from 'react-bootstrap';
 import * as d3 from "d3";
 
-
 class Chart extends Component {
 
 
@@ -12,25 +11,57 @@ class Chart extends Component {
 	drawChart() {
 
 		// Define data and constants
-		const data = [1,2,3,4,5,6];
-		const height = "500px";
-		const width = "700px";
+
+
+        // GHG Mitigaton(tCO2e/yr)
+        let data = require('./data.json')
+		console.log(data);
+		const margin = {top: 20, right: 20, bottom: 30, left: 200},
+    	width = 960 - margin.left - margin.right,
+    	height = 500 - margin.top - margin.bottom;
+
+		var x = d3.scaleLinear()
+		.range([0,width])
+
+
+		var y = d3.scaleBand()
+		.range([height, 0])
 
 
 		const svg = d3.select("#cht")
 		.append("svg")
 		.attr("width",width)
-		.attr("height",height);
+		.attr("height",height)
+		.append("g")
+		.attr("transform",
+			"translate(" + margin.left + "," + margin.top + ")");
 
-		svg.selectAll("rect")
+	  data.forEach(function(d) {
+	    d.Value = +d.Value;
+	  });
+
+	  x.domain([0, d3.max(data, function(d){ return d.Value; })])
+	  y.domain(data.map(function(d) { return d.Method; }));
+
+
+		svg.selectAll("bar")
 		.data(data)
 		.enter()
 		.append("rect")
-		.attr("x", (d,i) => i * 70)
-		.attr("y", (d,i) => height - 10 * d)
-		.attr("width", 25)
-		.attr("height", (d,i) => d * 40)
+		.attr("class", "bar")
+		.attr("x", function(d) { return x(0); })
+		.attr("width", function(d) { return x(d.Value); })
+		.attr("y", function(d) { return y(d.Method); }) 
+		//.attr("height", ((height - (margin.top + margin.bottom)) / data.length))
+      	.attr("height", y.bandwidth())
 		.attr("fill", "green");
+
+		svg.append("g")
+			.attr("transform", "translate(0," + height + ")")
+			.call(d3.axisBottom(x));
+
+		svg.append("g")
+			.call(d3.axisLeft(y));
 
 
 		//selection.attr("property", (d,i) => {})

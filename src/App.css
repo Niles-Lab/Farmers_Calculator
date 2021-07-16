@@ -41,3 +41,6 @@ td {
 .sel {
   display: block;
 }
+#cht {
+  overflow: auto;
+}

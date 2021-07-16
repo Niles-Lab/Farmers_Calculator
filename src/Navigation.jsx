@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import umaine from './images/umaine.png';
 import uvm from './images/uvm.svg';
 
@@ -8,7 +8,7 @@ const Navigation = () => {
     return (
         <>
 
-          <Navbar collapseOnSelect expand="sm" expand="sm">
+          <Navbar collapseOnSelect expand="sm">
             <Navbar.Brand href="/">UVM/Umaine for Farmers</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">

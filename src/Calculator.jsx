@@ -2,8 +2,8 @@ import React from "react"
 import { Table } from 'react-bootstrap';
 
 
-const opts = ["", "WP", "WOP"]
-
+const opts = ["", "WP", "WOP"];
+let keyCount = 0;
 
 class Calculator extends React.Component {
 
@@ -86,6 +86,9 @@ constructor(props) {
 	this.prop = this.props;
 }
 
+genKey() {
+	return keyCount++;
+}
 
 // handleChange(event) {
 
@@ -104,15 +107,15 @@ render() {
 				<thead>
 					<tr>
 					{opts.map(opt => (
-						<td key={opt}>{opt}</td>
+						<td key={opts.indexOf(opt)}>{opt}</td>
 						))}
 					</tr>
 				</thead>
 				<tbody>
 					{rows.map(row => (
-						<tr>
+						<tr key={'r'+rows.indexOf(row)}>
 						{row.map(col => (
-								<td>{col}</td>
+								<td key={this.genKey()}>{col}</td>
 							))}
 						</tr>
 						))}

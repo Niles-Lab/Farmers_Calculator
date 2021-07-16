@@ -20,13 +20,11 @@ const forceUpdate = React.useCallback(() => updateState({}), []);
 
 
 let data = {
-	isSubmitted: false,
-	acres: 12.3,
-	land: 23.4,
-	dairy: false,
+	acres: 0,
+	land: 0,
 	method: [],
 	selected: [],
-	crops: [{type: "Unknown", amount: 1, idx: 0}]
+	crops: []
 };	
 
 const [land, setLand] = useState(data.land);
@@ -37,8 +35,8 @@ const [method, setMethod] = useState(data.method);
 
 return (
 
-		<Container>
-			<Row className="my-5">
+		<Container className="my-5">
+			<Row>
 				<Col className="my-5" sm={6}>
 					<CalcForm
 						onChange={() => forceUpdate()}
@@ -57,7 +55,7 @@ return (
 				<Col sm={6}>
 					<Container>
 						<div>
-							<Tabs id="method-tabs">
+							<Tabs>
 								{options.map(tab => (
 									<Tab 
 										eventKey={tab}

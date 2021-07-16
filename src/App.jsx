@@ -14,13 +14,9 @@ function App() {
 
     <span className="App" style={{ backgroundImage: `url(${background})` }}>
 
-
         <Navigation />
 
-
-
         <Switch>
-
           <Route path='/FormController' component={FormController}/>
           <Route path='/LoremIpsum' component={LoremIpsum}/>
           <Route path='/' component={Home}/>

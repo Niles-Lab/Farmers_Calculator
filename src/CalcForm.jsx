@@ -49,10 +49,7 @@ function addCrop() {
 
 	props.crops.push({ type: "Unknown", amount: 0, idx: len });
 	props.setCrops(props.crops);
-	window.scrollTo({
-		behavior: "smooth",
-		top: (window.innerHeight / 4)
-	});
+
 }
 
 // Handler for "Remove" button for particular land use input
@@ -66,10 +63,11 @@ function removeCrop() {
 	props.crops.splice(len-1,1);
 	props.setCrops(props.crops);
 
-	window.scrollTo({
-		behavior: "smooth",
-		bottom: (window.innerHeight / 2)
-	});
+	// Scrolling functionality for inputs
+	// window.scrollTo({
+	// 	behavior: "smooth",
+	// 	top: 0
+	// });
 	
 }
 
@@ -92,6 +90,7 @@ function removeCrop() {
 					</Col>
 					<Col>
 						<Form.Control
+							placeholder="..."
 							name="acres"
 							min="0"
 							type="number"
@@ -107,6 +106,7 @@ function removeCrop() {
 					</Col>
 					<Col>
 					<Form.Control
+						placeholder="..."
 						name="land"
 						min="0"
 						type="number"

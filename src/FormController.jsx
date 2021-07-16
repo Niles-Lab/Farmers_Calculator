@@ -1,8 +1,8 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState } from 'react';
 import { Row, Col, Container, Tabs, Tab } from 'react-bootstrap';
-import CalcForm from "./CalcForm.jsx"
-import Calculator from "./Calculator.jsx"
+import CalcForm from "./calc/CalcForm.jsx"
+import Calculator from "./calc/Calculator.jsx"
 
 
 function FormController() {

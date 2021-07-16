@@ -1,6 +1,6 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
-
+import Chart from "./viz/Chart.jsx"
 
 
 function Home(props) {
@@ -27,8 +27,12 @@ Phasellus ut elit nisi. Nulla tempor, dui id dapibus porta, nisl leo viverra nis
 			<p>
 Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.
 			</p>
+
+
 		</Container>
-		
+		<Container className="box my-5">
+			<Chart />
+		</Container>
 		</>
 
 		)

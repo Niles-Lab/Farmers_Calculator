@@ -134,14 +134,16 @@ function removeCrop() {
 					</Col>
 				</Row>
 
+
 				{
 				// Multi-select for different techniques
 				}
-				<Row>
+				<Row className="sel">
 				<Form.Group>
 					<Form.Label>Calculate Costs For:</Form.Label>
 				
 					<Form.Control as="select" multiple
+						className="sel"
 						name="method"
 						type="select"
 						onChange={(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
@@ -153,6 +155,9 @@ function removeCrop() {
 					</Form.Control>
 				</Form.Group>
 				</Row>
+
+
+
 				<Row>
 					<Col>
 					Alternatively:  

@@ -90,7 +90,7 @@ function removeCrop() {
 					<Col>
 						Acres:
 					</Col>
-					<Col className="ml-auto mx-4">
+					<Col>
 						<Form.Control
 							name="acres"
 							min="0"
@@ -105,7 +105,7 @@ function removeCrop() {
 					<Col>
 						Another Input:
 					</Col>
-					<Col className="ml-auto mx-4">
+					<Col>
 					<Form.Control
 						name="land"
 						min="0"
@@ -121,10 +121,10 @@ function removeCrop() {
 				}
 
 				<Row>
-					<Col className="mx-auto">
+					<Col>
 						Dairy:
 					</Col>
-					<Col className="mx-auto">
+					<Col>
 					<Form.Control
 						name="dairy"
 						type="checkbox"
@@ -137,8 +137,8 @@ function removeCrop() {
 				{
 				// Multi-select for different techniques
 				}
+				<Row>
 				<Form.Group>
-
 					<Form.Label>Calculate Costs For:</Form.Label>
 				
 					<Form.Control as="select" multiple
@@ -152,18 +152,17 @@ function removeCrop() {
 						))}
 					</Form.Control>
 				</Form.Group>
-
+				</Row>
 				<Row>
 					<Col>
 					Alternatively:  
 					</Col>
 					<Col>
 					<Dropdown 
-						className="ml-auto"
 						as={ButtonGroup}
 					>
 
-						<Dropdown.Toggle className="mx-5">
+						<Dropdown.Toggle>
 							Select
 						</Dropdown.Toggle>
 							<Dropdown.Menu>
@@ -198,7 +197,7 @@ function removeCrop() {
 
 				<Form.Label>I Own...</Form.Label>
 
-						<Row className="mb-3 mx-4">
+						<Row>
 							<Col>
 							    <Button onClick={() => { props.onChange(); addCrop();}}>
 							      	Add...

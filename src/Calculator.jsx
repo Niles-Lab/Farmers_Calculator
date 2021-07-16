@@ -1,5 +1,5 @@
 import React from "react"
-import { Row, Table } from 'react-bootstrap';
+import { Table } from 'react-bootstrap';
 
 
 const opts = ["", "WP", "WOP"]
@@ -100,13 +100,15 @@ render() {
 	return (
 
 		<>
-			<Table className="box" responsive striped bordered hover>
+			<Table className="box" responsive="lg" striped bordered hover>
 				<thead>
 					<tr>
 					{opts.map(opt => (
 						<td key={opt}>{opt}</td>
 						))}
 					</tr>
+				</thead>
+				<tbody>
 					{rows.map(row => (
 						<tr>
 						{row.map(col => (
@@ -114,7 +116,7 @@ render() {
 							))}
 						</tr>
 						))}
-				</thead>
+				</tbody>
 			</Table>
 		</>
 

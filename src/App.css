@@ -13,14 +13,12 @@ div {
   min-width: 1EM;
   flex-direction: column;
 }
-label {
-  margin-top: 2vh;
-  margin-bottom: 2vh;
+.row {
+  margin-top: 1vh;
+  margin-bottom: 1vh;
+  margin: 1vh;
 }
 
-option {
-  color: black;
-}
 hr {
   border: 1px solid black;
   width: 100%;
@@ -35,4 +33,20 @@ hr {
 }
 Nav {
   background-color: rgba(220, 220, 220, 0.5);
+}
+
+.table {
+  overflow: auto;
+  display: block;
+  overflow-wrap: anywhere;
+  position:  relative;
+  table-layout: auto;
+  max-height: 80vh;
+}
+tr {
+  min-width: 100%;
+  display: inline-flex;
+}  
+td {
+  min-width: 33.3%;
 }

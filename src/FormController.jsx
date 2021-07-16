@@ -59,9 +59,14 @@ return (
 						<div>
 							<Tabs id="method-tabs">
 								{options.map(tab => (
-									<Tab eventKey={tab} title={tab} key={tab}>
-										<Calculator
+									<Tab 
+										eventKey={tab}
+										title={tab}
+										key={tab}
+										hidden={method.indexOf(tab) > -1 ? false : true}
+										disabled={method.indexOf(tab) > -1 ? false : true}>
 
+										<Calculator
 											options={options}
 											land={land}
 											dairy={dairy}

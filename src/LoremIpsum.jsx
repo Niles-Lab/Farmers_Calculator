@@ -7,10 +7,9 @@ function LoremIpsum(props) {
 
 
 	return (
+		<>
 
-
-
-		<Container>
+		<Container className="box my-5">
 			<p>
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vel neque eget orci molestie viverra ut quis urna. Donec interdum viverra eros at tempor. Curabitur tellus orci, condimentum in nisi a, sollicitudin pulvinar purus. Vestibulum hendrerit, erat id sodales auctor, augue magna posuere tortor, sit amet tristique elit libero ut tellus. Sed lacinia magna sit amet justo lobortis maximus. Praesent lacinia euismod nulla, non tincidunt velit malesuada quis. Cras tristique viverra ipsum at finibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Quisque augue mi, cursus at pharetra at, gravida vel mi. Quisque fringilla felis sit amet lectus porta, non tempor quam congue. Integer molestie leo at orci volutpat, et tincidunt elit ullamcorper. Vivamus tincidunt ligula vitae sem vulputate, a bibendum dui vulputate. Pellentesque lobortis at augue sit amet varius. Nam et urna ac ligula condimentum pretium. Proin pulvinar ac justo eu aliquet.
 
@@ -23,6 +22,9 @@ Phasellus ut elit nisi. Nulla tempor, dui id dapibus porta, nisl leo viverra nis
 Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.
 			</p>
 		</Container>
+
+
+		</>
 		)
 }
 

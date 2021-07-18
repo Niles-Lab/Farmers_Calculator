@@ -31,8 +31,8 @@ return (
 		<Dropdown.Divider />
 		<Dropdown.Divider />
 			{Object.entries(props.options).map(opts => ( // Map state options to multi-select
-				<span>
-				<b key={opts[0]}>{opts[0]}</b>
+				<span key={opts[0]}>
+				<b>{opts[0]}</b>
 				{opts[1].map(d => ( // Map each category's options
 					<Form.Check
 					value={d}

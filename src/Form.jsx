@@ -229,7 +229,6 @@ render() {
 					))}
 				</Form.Control>
 			</Form.Group>
-
 			<Row>
 				<Col>
 				Calculate Costs For:  

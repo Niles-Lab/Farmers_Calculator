@@ -2,97 +2,97 @@
   {
     "Form": "Agriculture",
     "Method": "Daily Manure Management",
-    "Value": "144,132"
+    "Value": 144132
   },
   {
     "Form": "Agriculture",
     "Method": "Riparian Buffer",
-    "Value": "39,805"
+    "Value": 39805
   },
   {
     "Form": "Agriculture",
     "Method": "Convert to Perennial",
-    "Value": "406,022"
+    "Value": 406022
   },
   {
     "Form": "Agriculture",
     "Method": "Amend w/ Manure",
-    "Value": "55,112"
+    "Value": 55112
   },
   {
     "Form": "Agriculture",
     "Method": "Biochar",
-    "Value": "568,898"
+    "Value": 568898
   },
   {
     "Form": "Agriculture",
     "Method": "Cover crops",
-    "Value": "24,161"
+    "Value": 24161
   },
   {
     "Form": "Agriculture",
     "Method": "Reduced tillage",
-    "Value": "13,423"
+    "Value": 13423
   },
   {
     "Form": "Agriculture",
     "Method": "No-till from Reduced",
-    "Value": "13,994"
+    "Value": 13994
   },
   {
     "Form": "Agriculture",
     "Method": "No-till from Intensive",
-    "Value": "32,755"
+    "Value": 32755
   },
   {
     "Form": "Forestry",
     "Method": "Avoided Conversion - Developed",
-    "Value": "685,428"
+    "Value": 685428
   },
   {
     "Form": "Forestry",
     "Method": "Avoided Conversion - Crop",
-    "Value": "200,155"
+    "Value": 200155
   },
   {
     "Form": "Forestry",
     "Method": "Afforestation",
-    "Value": "759,617"
+    "Value": 759617
   },
   {
     "Form": "Forestry",
     "Method": "35% CC, plant, 20% set aside",
-    "Value": "3,195,906"
+    "Value": 3195906
   },
   {
     "Form": "Forestry",
     "Method": "35% CC, plant, 10% set aside",
-    "Value": "2,766,020"
+    "Value": 2766020
   },
   {
     "Form": "Forestry",
     "Method": "20% set-aside",
-    "Value": "1,159,547"
+    "Value": 1159547
   },
   {
     "Form": "Forestry",
     "Method": "10% set-aside",
-    "Value": "493,224"
+    "Value": 493224
   },
   {
     "Form": "Forestry",
     "Method": "50% CC, plant",
-    "Value": "3,516,260"
+    "Value": 3516260
   },
   {
     "Form": "Forestry",
     "Method": "35% CC, plant",
-    "Value": "2,453,073"
+    "Value": 2453073
   },
   {
     "Form": "Forestry",
     "Method": "50% Clearcut(CC)",
-    "Value": "165,926"
+    "Value": 165926
   },
   {
     "Form": "Forestry",
@@ -102,7 +102,7 @@
   {
     "Form": "Forestry",
     "Method": "Min 100 years",
-    "Value": "830,094"
+    "Value": 830094
   },
   {
     "Form": "Forestry",

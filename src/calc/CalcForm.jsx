@@ -1,6 +1,7 @@
-import React from 'react';
-import { Form, Dropdown, ButtonGroup, Col, Row, Container, Button } from 'react-bootstrap';
+import React from "react";
+import { Form, Col, Row, Container, Button } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
+import DDSelect from './DDSelect.jsx'
 
 let MAX_CROPS = 10;
 
@@ -134,7 +135,6 @@ function removeCrop() {
 					</Col>
 				</Row>
 
-
 				{
 				// Multi-select for different techniques
 				}
@@ -163,39 +163,10 @@ function removeCrop() {
 					Alternatively:  
 					</Col>
 					<Col>
-					<Dropdown 
-						as={ButtonGroup}
-					>
-
-						<Dropdown.Toggle>
-							Select
-						</Dropdown.Toggle>
-							<Dropdown.Menu>
-
-							<Dropdown.Divider />
-							<Dropdown.Divider />
-								{Object.entries(opts).map(options => ( // Map state options to multi-select
-									<span key={options[0]}>
-										<Dropdown.ItemText>
-											<b>{options[0]}</b>
-										</Dropdown.ItemText>
-											{options[1].map(d => ( // Map each category's options
-												<Dropdown.Item
-												value={d}
-												key={d} 
-												name="costs"
-												type="select"
-												onChange=
-												{(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
-													{d}
-												</Dropdown.Item>
-												))}
-										<Dropdown.Divider />
-										<Dropdown.Divider />
-									</span>
-								))}
-							</Dropdown.Menu>
-					</Dropdown>
+						<DDSelect
+						options={opts}
+						method={props.method}
+						setMethod={props.setMethod}/>
 					</Col>
 				</Row>
 

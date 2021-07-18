@@ -17,8 +17,8 @@ class Chart extends Component {
         let data = require('./data.json')
 		console.log(data);
 		const margin = {top: 20, right: 20, bottom: 30, left: 200},
-    	width = 960 - margin.left - margin.right,
-    	height = 500 - margin.top - margin.bottom;
+    	width = 1024 - margin.left - margin.right,
+    	height = 600 - margin.top - margin.bottom;
 
 		var x = d3.scaleLinear()
 		.range([0,width])
@@ -54,6 +54,7 @@ class Chart extends Component {
 		.attr("y", function(d) { return y(d.Method); }) 
 		//.attr("height", ((height - (margin.top + margin.bottom)) / data.length))
       	.attr("height", y.bandwidth())
+      	.attr("stroke", "#000000")
 		.attr("fill", "green");
 
 		svg.append("g")

@@ -2,17 +2,13 @@
 import React from 'react';
 import { ButtonGroup, Form, Dropdown, DropdownButton } from 'react-bootstrap';
 
-
-
 function DDSelect(props) {
-
 
 let method = [];
 
 
-// Adjust internal method
+// Adjust internal method list and pass state up
 function adjustMethods(target) {
-	
 	method.indexOf(target.value) > -1 ?
 		method = method.filter((d) => target.value !== d) :
 		method.push(target.value);
@@ -26,13 +22,17 @@ return (
 		<DropdownButton 
 		id="dropdown-basic-button" 
 		title="Select"
-		drop={"up"}
->
-		<Dropdown.Divider />
-		<Dropdown.Divider />
+		drop={"up"}>
+
+
 			{Object.entries(props.options).map(opts => ( // Map state options to multi-select
+				
+
 				<span key={opts[0]}>
+
+				<Dropdown.Divider />
 				<b>{opts[0]}</b>
+				<Dropdown.Divider/>
 				{opts[1].map(d => ( // Map each category's options
 					<Form.Check
 					value={d}
@@ -44,8 +44,7 @@ return (
 					onChange={(event) => {adjustMethods(event.target)}}
 					/>
 				))}
-				<Dropdown.Divider />
-				<Dropdown.Divider />
+
 
 				</span>
 			))}

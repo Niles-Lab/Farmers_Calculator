@@ -1,10 +1,11 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Chart from "./viz/Chart.jsx"
-
+import handleViewport from 'react-in-viewport';
 
 function Home(props) {
 
+    const ViewportBlock = handleViewport(handleViewport(Chart));
 
 	return (
 
@@ -23,6 +24,21 @@ Vestibulum molestie risus consectetur dui venenatis lobortis. Curabitur ultrices
 			</p>
 			<p>
 Phasellus ut elit nisi. Nulla tempor, dui id dapibus porta, nisl leo viverra nisi, ac ultricies enim lectus condimentum leo. Etiam non odio non tortor scelerisque sollicitudin eget et ante. Praesent eu nisi pharetra, sagittis diam ac, dapibus dolor. Mauris elementum imperdiet porta. Nunc pulvinar congue nunc eu ornare. Praesent malesuada nibh orci, in scelerisque felis luctus et. Etiam non metus ac est porta pulvinar. Duis porttitor, ex eu efficitur imperdiet, elit tortor interdum libero, id lobortis magna turpis sed libero. Maecenas viverra euismod maximus. Curabitur lacinia est id elit dictum feugiat.
+			</p>
+			<p>
+Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.
+			</p>
+			<p>
+Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.
+			</p>
+			<p>
+Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.
+			</p>
+			<p>
+Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.
+			</p>
+			<p>
+Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.
 			</p>
 			<p>
 Nullam sem nisi, eleifend vitae consequat dapibus, scelerisque a est. Vivamus nulla dui, dignissim at massa a, vestibulum pellentesque neque. Nulla id iaculis magna. Nam a nisi gravida nunc accumsan commodo et sit amet orci. Nunc congue, neque eget blandit iaculis, nulla mauris posuere nibh, eget finibus sapien diam sed nisl. Aliquam neque felis, facilisis in pulvinar at, ullamcorper ultricies libero. Nunc auctor vel leo nec condimentum. Aliquam nec odio nec mi mollis ultrices. Vestibulum porta quis arcu vel luctus. Quisque commodo sollicitudin justo, vitae congue elit vehicula semper. Sed eget volutpat nibh. Integer eget suscipit nisi. Aliquam id urna lectus. Maecenas ut massa volutpat, faucibus dolor vitae, lobortis diam. Donec eget purus aliquet, suscipit lacus a, imperdiet massa.

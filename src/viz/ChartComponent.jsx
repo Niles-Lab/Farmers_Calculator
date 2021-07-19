@@ -1,20 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, {Component} from 'react';
 import { Container } from 'react-bootstrap';
 import * as d3 from "d3";
 
 
-
-function Chart(props) {
-
-
-	useEffect(() => {
-
-		drawChart();
-
-	});
+class Chart extends Component {
 
 
-	function drawChart() {
+
+	componentDidMount() {
+		// // Safeguard for browsers not supporting Observer API - for viewport detection
+		// require('intersection-observer');
+		this.drawChart();
+	}
+
+	drawChart() {
 
 
 
@@ -79,18 +78,19 @@ function Chart(props) {
 		.attr("width", d => x(d.Value))
 		.delay((d,i) => (i*100))
 
+		//selection.attr("property", (d,i) => {})
 	}
 
-
+	render() {
 		return (
 
-
+		<>
 		<div id="cht">
 
 		</div>
+		</>
 
-
-		)
+		)}
 }
 
 export default Chart;

@@ -30,7 +30,7 @@ function Chart(props) {
 
 
 
-	
+	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
 
 		drawChart();
@@ -38,11 +38,8 @@ function Chart(props) {
 
 	});
 
+	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {
-
-
-
-
 		const svg = d3.select("#cht").selectAll("svg").selectAll("g");
 
 		// Animate graph on page load
@@ -54,6 +51,7 @@ function Chart(props) {
 		.delay((d,i) => (i*100))
 
 	}
+	// Change all bar widths to 0 via webkit transition for un-loading effect
 	function unfillChart() {
 
 		const svg = d3.select("#cht").selectAll("svg");
@@ -70,11 +68,9 @@ function Chart(props) {
 
 
 	}
+	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-
-
-        // GHG Mitigaton(tCO2e/yr)
 		const svg = d3.select("#cht")
 		.append("svg")
 		.attr("width",width)
@@ -110,6 +106,22 @@ function Chart(props) {
       	.attr("stroke", "green")
 		.attr("fill", "lightgreen");
 
+		svg.append("text")
+			.attr("class", "x label")
+			.attr("text-anchor", "end")
+			.attr("x", width / 2)
+			.attr("y", height + 6)
+			.attr("dx", ".75em")
+			.text("GHG Mitigaton(tCO2e/yr)")
+
+		svg.append("text")
+		    .attr("class", "y label")
+		    .attr("text-anchor", "end")
+		    .attr("x", -height / 3)
+		    .attr("y", -margin.left)
+		    .attr("dy", ".75em")
+		    .attr("transform", "rotate(-90)")
+		    .text("Method");
 
 
 	}
@@ -118,7 +130,7 @@ function Chart(props) {
 		return (
 
 
-		<div id="cht">
+		<div id="cht" className="m-5">
 			<ViewportBlock onEnterViewport={() => {fillChart()}} onLeaveViewport={() => {unfillChart()}} />
 		</div>
 

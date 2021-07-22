@@ -87,7 +87,7 @@ function Chart(props) {
 
 
 		<div id="cht">
-
+		    <ViewportBlock onEnterViewport={() => console.log('enter')} onLeaveViewport={() => console.log('leave')} />
 		</div>
 
 

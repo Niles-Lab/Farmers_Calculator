@@ -1,11 +1,11 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Chart from "./viz/Chart.jsx"
-import handleViewport from 'react-in-viewport';
+
 
 function Home(props) {
 
-    const ViewportBlock = handleViewport(handleViewport(Chart));
+
 
 	return (
 

@@ -13,7 +13,18 @@ const Block = (props: { inViewport: boolean }) => {
   );
 };
 
+
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
+// Define data and constants
+const data = require('./data.json')
+const margin = {top: 20, right: 20, bottom: 20, left: 180},
+width = 1024 - (margin.right+margin.left),
+height = 600 - margin.top - margin.bottom;
+let x = d3.scaleLinear()
+.range([0,width-((margin.right+margin.left))])
+
+let y = d3.scaleBand()
+.range([height-margin.top-margin.bottom, 0])
 
 function Chart(props) {
 
@@ -22,31 +33,48 @@ function Chart(props) {
 	
 	useEffect(() => {
 
-		//drawChart();
+		drawChart();
+		fillChart();
 
 	});
 
+	function fillChart() {
 
+
+
+
+		const svg = d3.select("#cht").selectAll("svg").selectAll("g");
+
+		// Animate graph on page load
+		svg.selectAll("rect")
+		.transition()
+		.duration(600)
+		.attr("x", d => x(0))
+		.attr("width", d => x(d.Value))
+		.delay((d,i) => (i*100))
+
+	}
+	function unfillChart() {
+
+		const svg = d3.select("#cht").selectAll("svg");
+		var x = d3.scaleLinear()
+		.range([0,width-((margin.right+margin.left))])
+
+		// Un-draw chart on scrollout
+		svg.selectAll("rect")
+		.transition()
+		.duration(100)
+		.attr("x", d => x(0))
+		.attr("width", d => x(0))
+		.delay((d,i) => (i*100))
+
+
+	}
 	function drawChart() {
 
 
 
         // GHG Mitigaton(tCO2e/yr)
-
-        // Define data and constants
-        let data = require('./data.json')
-
-		const margin = {top: 20, right: 20, bottom: 20, left: 180},
-    	width = 1024 - (margin.right+margin.left),
-    	height = 600 - margin.top - margin.bottom;
-
-		var x = d3.scaleLinear()
-		.range([0,width-((margin.right+margin.left))])
-
-		var y = d3.scaleBand()
-		.range([height-margin.top-margin.bottom, 0])
-
-
 		const svg = d3.select("#cht")
 		.append("svg")
 		.attr("width",width)
@@ -56,10 +84,19 @@ function Chart(props) {
 			"translate(" + margin.left + "," + margin.top + ")");
 
 
-
 	  x.domain([0, d3.max(data, function(d){ return d.Value; })])
 	  y.domain(data.map(function(d) { return d.Method; }));
 
+		svg.append("g")
+			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
+			.call(d3.axisBottom(x))
+			.selectAll("text")
+		    .style("font-weight", "bold");
+
+		svg.append("g")
+			.call(d3.axisLeft(y))
+			.selectAll("text")
+		    .style("font-weight", "bold");
 
 		svg.selectAll("bar")
 		.data(data)
@@ -73,24 +110,7 @@ function Chart(props) {
       	.attr("stroke", "green")
 		.attr("fill", "lightgreen");
 
-		svg.append("g")
-			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
-			.call(d3.axisBottom(x))
-			.selectAll("text")
-		    .style("font-weight", "bold");
 
-		svg.append("g")
-			.call(d3.axisLeft(y))
-			.selectAll("text")
-		    .style("font-weight", "bold");
-
-		// Animate graph on page load
-		svg.selectAll("rect")
-		.transition()
-		.duration(800)
-		.attr("x", d => x(0))
-		.attr("width", d => x(d.Value))
-		.delay((d,i) => (i*100))
 
 	}
 
@@ -99,7 +119,7 @@ function Chart(props) {
 
 
 		<div id="cht">
-			<ViewportBlock onEnterViewport={() => {drawChart()}} onLeaveViewport={() => console.log('leave')} />
+			<ViewportBlock onEnterViewport={() => {fillChart()}} onLeaveViewport={() => {unfillChart()}} />
 		</div>
 
 

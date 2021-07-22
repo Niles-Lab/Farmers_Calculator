@@ -3,14 +3,26 @@ import { Container } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
+const Block = (props: { inViewport: boolean }) => {
+  const { inViewport, forwardedRef } = props;
+
+  return (
+    <div className="viewport-block" ref={forwardedRef}>
+
+    </div>
+  );
+};
+
+const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 
 function Chart(props) {
 
 
 
+	
 	useEffect(() => {
 
-		drawChart();
+		//drawChart();
 
 	});
 
@@ -87,7 +99,7 @@ function Chart(props) {
 
 
 		<div id="cht">
-
+			<ViewportBlock onEnterViewport={() => {drawChart()}} onLeaveViewport={() => console.log('leave')} />
 		</div>
 
 

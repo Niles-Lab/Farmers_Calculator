@@ -1,20 +1,8 @@
-// This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React from 'react';
 import { Accordion, Card } from 'react-bootstrap';
+import CountyMap from "./viz/CountyMap.jsx"
 
 function TextAccordion(props) {
-
-let method = [];
-
-
-// Adjust internal method list and pass state up
-function adjustMethods(target) {
-	method.indexOf(target.value) > -1 ?
-		method = method.filter((d) => target.value !== d) :
-		method.push(target.value);
-
-	props.setMethod(method);
-}
 
 return (
 
@@ -60,6 +48,7 @@ return (
          						Hopefully, this will help to preseve the trade, create sustainable change,
          						and enhance the success of small, medium, and beginning farms.
 
+         						<CountyMap />
 
 								<br/><br/>
 								https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT

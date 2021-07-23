@@ -34,7 +34,6 @@ function Chart(props) {
 	useEffect(() => {
 
 		drawChart();
-		fillChart();
 
 	});
 

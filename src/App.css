@@ -1,6 +1,7 @@
 Nav {
   background-color: rgba(220, 220, 220, 0.5);
 }
+
 div {
   display: flex;
   flex-direction: column;
@@ -44,4 +45,9 @@ td {
 #cht {
   overflow: auto;
   font-weigth: bold;
+}
+
+.card-body {
+
+  background-color: rgba(0, 113, 85, 0.3);  
 }

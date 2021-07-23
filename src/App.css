@@ -51,11 +51,3 @@ td {
 
   background-color: rgba(0, 113, 85, 0.3);  
 }
-.map {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  grid-column-start: 2;
-  grid-row-start: 2;
-  border: 1px solid black;
-}

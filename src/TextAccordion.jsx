@@ -1,5 +1,5 @@
 import React from 'react';
-import { Accordion, Card } from 'react-bootstrap';
+import { Accordion, Card, Row, Col } from 'react-bootstrap';
 import CountyMap from "./viz/CountyMap.jsx"
 
 function TextAccordion(props) {
@@ -38,21 +38,26 @@ return (
                             <Accordion.Collapse eventKey="1">
                             
                                 <Card.Body>
-         						Approximately 20% of Vermont is farmland. Across many different techniques and lifestyles, agriculture is among the state's largest exports.
-         						While many people are aware of the dangers presented by climate change, there are very few accessible options to personally explore and tackle this issue.
-         						However, this task is increasinly imperative as the quality of land and natural beauty of the state is threatened.
-         						<br/><br/>
-         						The goal of our research is to understand the local perceptions, concerns, experience and needs of farmers in Vermont.
 
-         						This will help us to identify resource needs for this community, what information they need to make informed decisions on adaptation practices, and how to effectively translate research on these resources.
-         						Hopefully, this will help to preseve the trade, create sustainable change,
-         						and enhance the success of small, medium, and beginning farms.
+                                <Row>
 
-         						<CountyMap />
+                                <Col>
+                                Approximately 20% of Vermont is farmland. Across many different techniques and lifestyles, agriculture is among the state's largest exports.
+                                While many people are aware of the dangers presented by climate change, there are very few accessible options to personally explore and tackle this issue.
+                                However, this task is increasinly imperative as the quality of land and natural beauty of the state is threatened.
+                                <br/><br/>
+                                The goal of our research is to understand the local perceptions, concerns, experience and needs of farmers in Vermont.
 
+                                This will help us to identify resource needs for this community, what information they need to make informed decisions on adaptation practices, and how to effectively translate research on these resources.
+                                Hopefully, this will help to preseve the trade, create sustainable change,
+                                and enhance the success of small, medium, and beginning farms.
 								<br/><br/>
 								https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT
-
+                                </Col>
+                                <Col>
+                                <CountyMap />
+                                </Col>
+                                </Row>
                                 </Card.Body>
                             
                             </Accordion.Collapse>

@@ -7,7 +7,9 @@ function TextAccordion(props) {
 return (
 
             <>
+                <CountyMap />
                 <div>
+
                     <Accordion>
                         <Card border="success" defaultActiveKey="0" flush>
                             <Accordion.Toggle as={Card.Header} eventKey="0">
@@ -55,7 +57,7 @@ return (
 								https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT
                                 </Col>
                                 <Col>
-                                <CountyMap />
+{/*                                <CountyMap />*/}
                                 </Col>
                                 </Row>
                                 </Card.Body>

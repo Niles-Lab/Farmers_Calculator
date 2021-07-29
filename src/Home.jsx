@@ -2,6 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Chart from "./viz/Chart.jsx"
 import TextAccordion from "./TextAccordion.jsx"
+import CountyMap from "./viz/CountyMap.jsx"
 
 function Home(props) {
 

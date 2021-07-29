@@ -3,16 +3,6 @@ import { Container } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
-
-//create your forceUpdate hook
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
-}
-
-// Only update the chart twice after loading
-let rerender = 0;
-
 const Block = (props: { inViewport: boolean }) => {
   const { inViewport, forwardedRef } = props;
 
@@ -22,6 +12,13 @@ const Block = (props: { inViewport: boolean }) => {
     </div>
   );
 };
+
+
+//create your forceUpdate hook
+function useForceUpdate(){
+    const [value, setValue] = useState(0); // integer state
+    return () => setValue(value => value + 1); // update the state to force render
+}
 
 
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
@@ -41,13 +38,8 @@ let y = d3.scaleBand()
 
 function PriceChart(props) {
 
-  const forceUpdate = useForceUpdate();
 
-	// Render and fill chart on page load, regardless of viewport
-	useEffect(() => {
-		drawChart();
-		populateChart();
-	}, []);
+  const forceUpdate = useForceUpdate();
 
 	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {
@@ -93,24 +85,11 @@ function PriceChart(props) {
 		.delay((d,i) => (i*100))
 
 	}
-	function populateChart() {
-
-		if(rerender > 1) return;
-
-		rerender++;
-		//const svg = cht;
-		const svg = d3.select("#pcht").selectAll("svg").selectAll("g");
-
-		svg.selectAll(".title")
-		.call(wrap,(width-margin.left-margin.right))
-
-		svg.selectAll(".left-axis")
-		.call(wrap, margin.left)
-
-
-	}
 	// Create and label axes of chart, append rectangles with 0 width
-	function drawChart() {
+
+	// Render and fill chart on page load, regardless of viewport
+	useEffect(() => {
+
 
 		const svg = d3.select("#pcht")
 		.append("svg")
@@ -120,11 +99,44 @@ function PriceChart(props) {
 		.attr("transform",
 			"translate(" + margin.left + "," + margin.top + ")");
 
+
 	  // x.domain([0, d3.max(data, function(d){ return d.Value; })])
 	  x.domain([0, 75])
 	  y.domain(data.map(function(d) { return d.Title; }));
 
+		svg.append("g")
+			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
+			.call(d3.axisBottom(x))
+			.selectAll("text")
+		    .style("font-weight", "bold");
 
+		svg.append("g")
+			.call(d3.axisLeft(y))
+			.selectAll("text")
+		    .style("font-weight", "bold")
+		    .attr("transform", "translate(-10,-10)")
+		    .attr("dy", 0)
+		    .attr("y", 0)
+				.style("white-space", "normal")
+				.style("word-break", "break-all")
+		    .call(wrap, margin.left);
+
+		svg.append("g")
+			.call(d3.axisRight)
+
+		// Title of chart
+		svg.append("text")
+			.attr("class", "title")
+			.attr("text-anchor", "start")
+			.attr("x", width/2)
+			.attr("y", -margin.top/2)
+			.attr("dx", -margin.left/2)
+			.attr("dy", 0)
+			.style("font-weight", "bold")
+			.style("white-space", "normal")
+			.style("word-break", "break-all")
+			.text("Percent of Global Consumers Willing to Pay Higher-than-Average Prices For Products with Select Attributes (2018)")
+			.call(wrap, (width-margin.left-margin.right));
 
 
 		var gradient = svg.append("defs")
@@ -157,8 +169,9 @@ function PriceChart(props) {
 		.attr("y", function(d) { return y(d.Title); }) 
       	.attr("height", y.bandwidth())
       	.attr("stroke", "green")
-    .on("mouseover", mouseOver)
+    .on("mouseover", forceUpdate)
 		.attr("fill", "url(#bg-gradient)");
+
 
 		// Append labels to bars
 		svg.selectAll(".text")
@@ -171,34 +184,6 @@ function PriceChart(props) {
 		.style("font-weight", "bold")
 		.style("opacity", 0)
 		.text(d => d.Value + "%")
-
-		svg.append("g")
-			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
-			.call(d3.axisBottom(x))
-			.selectAll("text")
-		    .style("font-weight", "bold");
-
-		svg.append("g")
-			.call(d3.axisLeft(y))
-			.selectAll("text")
-			.attr("class", "left-axis")
-		    .style("font-weight", "bold")
-		    .attr("transform", "translate(-10,-10)")
-		    .attr("dy", 0)
-		    .attr("y", 0);
-
-		// Title of chart
-		svg.append("text")
-			.attr("class", "title")
-			.attr("text-anchor", "start")
-			.attr("x", width/2)
-			.attr("y", -margin.top/2)
-			.attr("dx", -margin.left/2)
-			.attr("dy", 0)
-			.style("font-weight", "bold")
-			.style("white-space", "normal")
-			.style("word-break", "break-all")
-			.text("Percent of Global Consumers Willing to Pay Higher-than-Average Prices For Products with Select Attributes (2018)");
 
 		// svg.append("text")
 		// 	.attr("class", "x label")
@@ -217,7 +202,8 @@ function PriceChart(props) {
 		//     .attr("transform", "rotate(-90)")
 		//     .call(wrap, 86.67);
 
-	}
+
+	});
 
 let mouseOver = function(d) {
   console.log("Abcd");
@@ -251,7 +237,7 @@ function wrap(text, width) {
 
 
 		<div id="pcht" className="m-5">
-			<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />
+			<ViewportBlock onEnterViewport={() => {fillChart()}} onLeaveViewport={() => {unfillChart()}} />
 
 		</div>
 

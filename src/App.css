@@ -46,8 +46,24 @@ td {
   overflow: auto;
   font-weigth: bold;
 }
-
+#pcht {
+  overflow: auto;
+  white-space: normal;
+  font-weigth: bold;
+}
 .card-body {
-
   background-color: rgba(0, 113, 85, 0.3);  
+}
+#boundbox {
+
+}
+g > text {
+  word-break: break-all !important;
+  white-space: normal !important;
+    display:  flex;
+} 
+g > text > tspan {
+  word-break: break-all !important;
+  white-space: normal !important;
+  display:  flex;
 }

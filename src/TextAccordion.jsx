@@ -1,6 +1,7 @@
 import React from 'react';
 import { Accordion, Card, Row, Col } from 'react-bootstrap';
 import CountyMap from "./viz/CountyMap.jsx"
+import PriceChart from "./viz/PriceChart.jsx"
 
 function TextAccordion(props) {
 
@@ -11,11 +12,30 @@ return (
                 <div>
 
                     <Accordion>
-                        <Card border="success" defaultActiveKey="0">
+
+                        <Card border="success">
+
                             <Accordion.Toggle as={Card.Header} eventKey="0">
-                                What is Cost Benefit Analysis?
+                                Economic Viability
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
+                                <Card.Body>
+
+                                     When talking about approaches to consumer-facing farms, it is often thought that sustainable switches will be funded only by government incentives, leaving a defecit in a farm's income for certain arbitrary consumer preferences.
+                                     However, studies show that consumers will pay more to support farms that create sustainable change. 
+                                    
+
+                                    <PriceChart />
+
+
+                                </Card.Body>
+                            </Accordion.Collapse>
+                        </Card>
+                        <Card border="success">
+                            <Accordion.Toggle as={Card.Header} eventKey="1">
+                                What is Cost Benefit Analysis?
+                            </Accordion.Toggle>
+                            <Accordion.Collapse eventKey="1">
 
                             	<Card.Body>
                             		CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
@@ -34,10 +54,10 @@ return (
                         </Card>
 
                         <Card border="success">
-                            <Accordion.Toggle as={Card.Header} eventKey="1">
+                            <Accordion.Toggle as={Card.Header} eventKey="2">
                                 Our Mission
                             </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="1">
+                            <Accordion.Collapse eventKey="2">
                             
                                 <Card.Body>
 

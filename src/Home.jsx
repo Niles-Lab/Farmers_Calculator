@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 import Chart from "./viz/Chart.jsx"
+import PriceChart from "./viz/PriceChart.jsx"
 import TextAccordion from "./TextAccordion.jsx"
-import CountyMap from "./viz/CountyMap.jsx"
 
 function Home(props) {
 
@@ -13,7 +13,7 @@ function Home(props) {
 		<>
 
 		<Container className="box my-5">
-
+			<PriceChart />
 		<TextAccordion />
 			<p>Welcome Home!</p>
 			<p>

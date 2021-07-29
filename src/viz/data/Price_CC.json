@@ -1,0 +1,26 @@
+[
+  {
+    "Title": "Has high-quality/safety standards (e.g. organic, antibiotic free, hormone free, non-GMO)",
+    "Value": 49
+  },
+  {
+    "Title": "Provides superior function or performance (e.g. sulfate-free, hormone free, minerals)",
+    "Value": 46
+  },
+  {
+    "Title": "Contains organic/all-natural ingredients (e.g. organic, all-natural, no artificial ingredients, preservative-free)",
+    "Value": 41
+  },
+  {
+    "Title": "Contains environmentally friendly/sustainable materials (e.g. BPA-free, compostable or plantable packaging, reusable)",
+    "Value": 38
+  },
+  {
+    "Title": "Offers/does something no other product on the market provides (e.g. made from waste/recycled products, edible packaging)",
+    "Value": 37
+  },
+  {
+    "Title": "Delivers on social responsibility claims (e.g. freerange, pasture-raised, humane)",
+    "Value": 30
+  }
+]

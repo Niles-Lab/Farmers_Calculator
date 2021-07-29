@@ -1,0 +1,112 @@
+[
+  {
+    "Form": "Agriculture",
+    "Method": "Daily Manure Management",
+    "Value": 144132
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "Riparian Buffer",
+    "Value": 39805
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "Convert to Perennial",
+    "Value": 406022
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "Amend w/ Manure",
+    "Value": 55112
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "Biochar",
+    "Value": 568898
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "Cover crops",
+    "Value": 24161
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "Reduced tillage",
+    "Value": 13423
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "No-till from Reduced",
+    "Value": 13994
+  },
+  {
+    "Form": "Agriculture",
+    "Method": "No-till from Intensive",
+    "Value": 32755
+  },
+  {
+    "Form": "Forestry",
+    "Method": "Avoided Conversion - Developed",
+    "Value": 685428
+  },
+  {
+    "Form": "Forestry",
+    "Method": "Avoided Conversion - Crop",
+    "Value": 200155
+  },
+  {
+    "Form": "Forestry",
+    "Method": "Afforestation",
+    "Value": 759617
+  },
+  {
+    "Form": "Forestry",
+    "Method": "35% CC, plant, 20% set aside",
+    "Value": 3195906
+  },
+  {
+    "Form": "Forestry",
+    "Method": "35% CC, plant, 10% set aside",
+    "Value": 2766020
+  },
+  {
+    "Form": "Forestry",
+    "Method": "20% set-aside",
+    "Value": 1159547
+  },
+  {
+    "Form": "Forestry",
+    "Method": "10% set-aside",
+    "Value": 493224
+  },
+  {
+    "Form": "Forestry",
+    "Method": "50% CC, plant",
+    "Value": 3516260
+  },
+  {
+    "Form": "Forestry",
+    "Method": "35% CC, plant",
+    "Value": 2453073
+  },
+  {
+    "Form": "Forestry",
+    "Method": "50% Clearcut(CC)",
+    "Value": 165926
+  },
+  {
+    "Form": "Forestry",
+    "Method": "35% Clearcut(CC)",
+    "Value": 0
+  },
+  {
+    "Form": "Forestry",
+    "Method": "Min 100 years",
+    "Value": 830094
+  },
+  {
+    "Form": "Forestry",
+    "Method": "Min 85 years",
+    "Value": 0
+  }
+]

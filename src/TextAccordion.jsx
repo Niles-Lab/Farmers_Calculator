@@ -7,11 +7,11 @@ function TextAccordion(props) {
 return (
 
             <>
-                <CountyMap />
+
                 <div>
 
                     <Accordion>
-                        <Card border="success" defaultActiveKey="0" flush>
+                        <Card border="success" defaultActiveKey="0">
                             <Accordion.Toggle as={Card.Header} eventKey="0">
                                 What is Cost Benefit Analysis?
                             </Accordion.Toggle>
@@ -57,7 +57,7 @@ return (
 								https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT
                                 </Col>
                                 <Col>
-{/*                                <CountyMap />*/}
+                                <CountyMap />
                                 </Col>
                                 </Row>
                                 </Card.Body>

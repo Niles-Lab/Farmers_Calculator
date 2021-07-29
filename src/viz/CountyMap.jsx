@@ -39,10 +39,10 @@ useEffect(() => {
   const svg = d3.select("#vt-map")
     .append("svg")
     .attr("preserveAspectRatio", "none")
-    //.attr("viewBox", "0 0 10000 10000");
+    .attr("viewBox", "0 0 500 500")
     //.attr("viewBox", "500 475 50 50");
-    // .attr("width",width)
-    // .attr("height",height);
+    .attr("width",width)
+    .attr("height",height);
 
 
 // Define projection and map generation
@@ -52,18 +52,18 @@ useEffect(() => {
       .translate([width/2, height/2])
       .center([-82.5, 43.85]);
 
-//   // projection.fitExtent(
-//   //       [
-//   //         [0,0],
-//   //         [width/2, height/2],
+  // projection.fitExtent(
+  //       [
+  //         [0,0],
+  //         [width/2, height/2],
 
-//   //       ],
-//   //       usGeoData
-//   //       )
+  //       ],
+  //       usGeoData
+  //       )
    projection.fitSize([width,height],usGeoData);
 
 
-   const path = d3.geoPath().projection(projection);
+  const path = d3.geoPath().projection(projection);
 
   let mouseOver = function(d) {
     console.log(d3.select(d.target).attr("county"));

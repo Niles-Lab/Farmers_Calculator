@@ -1,0 +1,82 @@
+[
+  {
+    "Status": "Family or Individual",
+    "Year": 2002,
+    "Value": 5716
+  },
+  {
+    "Status": "Family or Individual",
+    "Year": 2007,
+    "Value": 5848
+  },
+  {
+    "Status": "Family or Individual",
+    "Year": 2012,
+    "Value": 6043
+  },
+  {
+    "Status": "Family or Individual",
+    "Year": 2017,
+    "Value": 5485
+  },
+  {
+    "Status": "Partnership",
+    "Year": 2002,
+    "Value": 483
+  },
+  {
+    "Status": "Partnership",
+    "Year": 2007,
+    "Value": 608
+  },
+  {
+    "Status": "Partnership",
+    "Year": 2012,
+    "Value": 695
+  },
+  {
+    "Status": "Partnership",
+    "Year": 2017,
+    "Value": 681
+  },
+  {
+    "Status": "Corporation",
+    "Year": 2002,
+    "Value": 281
+  },
+  {
+    "Status": "Corporation",
+    "Year": 2007,
+    "Value": 400
+  },
+  {
+    "Status": "Corporation",
+    "Year": 2012,
+    "Value": 486
+  },
+  {
+    "Status": "Corporation",
+    "Year": 2017,
+    "Value": 513
+  },
+  {
+    "Status": "Other - estate or trust, prison farm, grazing association, American Indian Reservation, etc.",
+    "Year": 2002,
+    "Value": 91
+  },
+  {
+    "Status": "Other - estate or trust, prison farm, grazing association, American Indian Reservation, etc.",
+    "Year": 2007,
+    "Value": 128
+  },
+  {
+    "Status": "Other - estate or trust, prison farm, grazing association, American Indian Reservation, etc.",
+    "Year": 2012,
+    "Value": 114
+  },
+  {
+    "Status": "Other - estate or trust, prison farm, grazing association, American Indian Reservation, etc.",
+    "Year": 2017,
+    "Value": 129
+  }
+]

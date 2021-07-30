@@ -1,14 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
-
-
-//create your forceUpdate hook
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
-}
 
 // Only update the chart twice after loading
 let rerender = 0;
@@ -43,13 +36,13 @@ let y = d3.scaleBand()
 
 function PriceChart(props) {
 
-  const forceUpdate = useForceUpdate();
+
 
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
 		drawChart();
 		populateChart();
-	}, []);
+	});
 
 	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {
@@ -202,6 +195,7 @@ function PriceChart(props) {
 			.style("font-weight", "bold")
 			.text("Percent of Global Consumers Willing to Pay Higher-than-Average Prices For Products with Select Attributes (2018)");
 
+		// Subtitle under chart
 		svg.append("a")
 			.attr("href", "https://agriculture.vermont.gov/sites/agriculture/files/doc_library/Vermont%20Agriculture%20and%20Food%20System%20Plan%202020.pdf")
 			.attr("target", "_blank")

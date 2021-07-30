@@ -20,24 +20,24 @@ const Block = (props: { inViewport: boolean }) => {
 
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
-const data = require('./data/Price_CC.json')
+const data = require('./data/LegalStatus.json')
 // const margin = {top: 50, right: 20, bottom: 20, left: 200},
 // width = 1024 - (margin.right+margin.left),
 // height = 500 - (margin.top+margin.bottom);
 const margin = {top: 50, right: 20, bottom: 20, left: 280},
 width = 1000 - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
-let x = d3.scaleLinear()
+
+let x = d3.scaleBand()
 .range([0,width-((margin.right+margin.left))])
 
-let y = d3.scaleBand()
+let y = d3.scaleLinear()
 .range([height-margin.top-margin.bottom, 0])
 
 
 
 function DotPlotFarm(props) {
 
-  const forceUpdate = useForceUpdate();
 
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
@@ -48,7 +48,7 @@ function DotPlotFarm(props) {
 	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {
 
-		const svg = d3.select("#pcht").selectAll("svg").selectAll("g");
+		const svg = d3.select("#dcht").selectAll("svg").selectAll("g");
 
 		// Animate graph on page load
 		svg.selectAll("rect")
@@ -69,7 +69,7 @@ function DotPlotFarm(props) {
 	// Change all bar widths to 0 via webkit transition for un-loading effect
 	function unfillChart() {
 
-		const svg = d3.select("#pcht").selectAll("svg");
+		const svg = d3.select("#dcht").selectAll("svg");
 		var x = d3.scaleLinear()
 		.range([0,width-((margin.right+margin.left))])
 
@@ -95,21 +95,21 @@ function DotPlotFarm(props) {
 
 		rerender++;
 		//const svg = cht;
-		const svg = d3.select("#pcht").selectAll("svg").selectAll("g");
+		const svg = d3.select("#dcht").selectAll("svg").selectAll("g");
 
 		svg.selectAll(".title")
 		.call(wrap,(width-margin.right))
 		// .call(wrap,(width-margin.left-margin.right))
 
-		svg.selectAll(".left-axis")
-		.call(wrap, margin.left)
+		svg.selectAll(".bottom-axis")
+		.call(wrap, 50)
 
 
 	}
 	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-		const svg = d3.select("#pcht")
+		const svg = d3.select("#dcht")
 		.append("svg")
 		.attr("width",width)
 		.attr("height",height+30)
@@ -117,44 +117,43 @@ function DotPlotFarm(props) {
 		.attr("transform",
 			"translate(" + margin.left + "," + margin.top + ")");
 
-	  // x.domain([0, d3.max(data, function(d){ return d.Value; })])
-	  x.domain([0, 75])
-	  y.domain(data.map(function(d) { return d.Title; }));
+	  x.domain(data.map(function(d) { return d.Status; }));
+	  y.domain([0, d3.max(data, function(d){ return d.Value; })]);
 
-
-
-
-		var gradient = svg.append("defs")
-			.append("linearGradient")
-			.attr("id", "bg-gradient")
-			.attr("x1", "0")
-			.attr("x2", "1")
-			.attr("y1", "0")
-			.attr("y2", "1.5")
-
-
-		// Define gradient starts and stops
-		gradient.append("stop")
-			.attr("stop-color", "#9ebcda")
-			.attr("offset", "0")
-
-		gradient.append("stop")
-			.attr("stop-color", "lightgreen")
-			.attr("offset", "1")
 
 		// Add bars to chart
-		svg.selectAll("bar")
+		svg.selectAll("line")
 		.data(data)
 		.enter()
-		.append("rect")
-		.attr("class", "bar")
-		.attr("x", function(d) { return x(0); })
-		.attr("width", function(d) { return x(0); })
-		.attr("y", function(d) { return y(d.Title); }) 
-      	.attr("height", y.bandwidth())
-      	.attr("stroke", "green")
-    .on("mouseover", mouseOver)
+		.append("line")
+		.attr("class", "bottom-axis")
+		.attr("stroke", "#aaa")
+		// .attr("transform",
+		// 	d => "translate(" + x(d.Status) + "," + 0 + ")")
+		.attr("x", d => x(d.Status))
+		//.attr("dx", 0)
+    .attr("y1", 0)
+    .attr("y2", height-(margin.top+margin.bottom))
 		.attr("fill", "url(#bg-gradient)");
+		// .attr("x", function(d) { return x(0); })
+		// .attr("width", function(d) { return x(0); })
+		// .attr("y", function(d) { return y(d.Title); }) 
+  //     	.attr("height", y.bandwidth())
+  //     	.attr("stroke", "green")
+  //   .on("mouseover", mouseOver)
+
+
+
+		svg.selectAll("circle")
+		.selectAll("circle")
+		//.data(d => d3.cross(keys, [d]))
+		.data(data)
+		.join("circle")
+		  .attr("cx", ([k, d]) => x(d[k]))
+      //.attr("fill", ([k]) => color(k))
+      .attr("r", 3.5);
+
+
 
 		// Append labels to bars
 		svg.selectAll(".text")
@@ -162,11 +161,11 @@ function DotPlotFarm(props) {
 		.enter()
 		.append("text")
 		.attr("class", "label")
-		.attr("y", d => y(d.Title) + y.bandwidth()/2)
-		.attr("x", d => x(d.Value) + 10)
+		.attr("y", 0)
+		.attr("x", d => x(d.Status))
 		.style("font-weight", "bold")
 		.style("opacity", 0)
-		.text(d => d.Value + "%")
+		.text(d => d.Value)
 
 		svg.append("g")
 			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
@@ -178,10 +177,10 @@ function DotPlotFarm(props) {
 			.call(d3.axisLeft(y))
 			.selectAll("text")
 			.attr("class", "left-axis")
-		    .style("font-weight", "bold")
-		    .attr("transform", "translate(-10,-10)")
-		    .attr("dy", 0)
-		    .attr("y", 0);
+	    .style("font-weight", "bold") 
+	    .attr("transform", "translate(-10,-10)")
+	    .attr("dy", 0)
+	    .attr("y", 0);
 
 
 
@@ -191,13 +190,14 @@ function DotPlotFarm(props) {
 			.attr("text-anchor", "start")
 			.attr("x", 0)
 			.attr("y", -margin.top/2)
-			.attr("dx", -margin.left)
+			.attr("dx", 0)
 			.attr("dy", 0)
 			.style("font-weight", "bold")
-			.text("Percent of Global Consumers Willing to Pay Higher-than-Average Prices For Products with Select Attributes (2018)");
+			.text("Vermont Farms by Legal Status");
 
+		// Subtitle under chart
 		svg.append("a")
-			.attr("href", "https://agriculture.vermont.gov/sites/agriculture/files/doc_library/Vermont%20Agriculture%20and%20Food%20System%20Plan%202020.pdf")
+			.attr("href", "https://www.nass.usda.gov/Publications/AgCensus/2017/Full_Report/Volume_1,_Chapter_1_State_Level/Vermont/vtv1.pdf")
 			.attr("target", "_blank")
 			.append("text")
 			.style("font-size", "12px")
@@ -205,7 +205,25 @@ function DotPlotFarm(props) {
 			.attr("y", 0)
 			.attr("dx", -margin.left/4)
 			.attr("dy", height-margin.bottom-10)
-			.text("Data sourced from Vermont Agricultural and Food System Plan 2020");
+			.text("Data sourced from 2017 Vermont Census Report");
+
+			var gradient = svg.append("defs")
+			.append("linearGradient")
+			.attr("id", "bg-gradient")
+			.attr("x1", "0")
+			.attr("x2", "1")
+			.attr("y1", "0")
+			.attr("y2", "1.5")
+
+		// Define gradient starts and stops
+		gradient.append("stop")
+			.attr("stop-color", "#9ebcda")
+			.attr("offset", "0")
+
+		gradient.append("stop")
+			.attr("stop-color", "lightgreen")
+			.attr("offset", "1")
+
 
 //-(height+margin.bottom)
 
@@ -261,7 +279,7 @@ function wrap(text, width) {
 		return (
 
 
-		<div id="pcht" className="m-3">
+		<div id="dcht" className="m-3">
 			<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />
 
 		</div>

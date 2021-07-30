@@ -2,7 +2,7 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Chart from "./viz/Chart.jsx"
 import TextAccordion from "./TextAccordion.jsx"
-import PriceChart from "./viz/PriceChart.jsx"
+import DotPlotFarm from "./viz/DotPlotFarm.jsx"
 function Home(props) {
 
 
@@ -12,7 +12,7 @@ function Home(props) {
 		<>
 
 		<Container className="box my-5">
-
+			<DotPlotFarm/>
 			<TextAccordion />
 		</Container>
 

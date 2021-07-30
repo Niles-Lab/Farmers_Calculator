@@ -27,10 +27,12 @@ const Block = (props: { inViewport: boolean }) => {
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
 const data = require('./data/Price_CC.json')
-const margin = {top: 50, right: 20, bottom: 20, left: 200},
-width = 1024 - (margin.right+margin.left),
+// const margin = {top: 50, right: 20, bottom: 20, left: 200},
+// width = 1024 - (margin.right+margin.left),
+// height = 500 - (margin.top+margin.bottom);
+const margin = {top: 50, right: 20, bottom: 20, left: 250},
+width = 1000 - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
-
 let x = d3.scaleLinear()
 .range([0,width-((margin.right+margin.left))])
 
@@ -151,7 +153,6 @@ function PriceChart(props) {
 		.enter()
 		.append("rect")
 		.attr("class", "bar")
-		.classed('filled', true)
 		.attr("x", function(d) { return x(0); })
 		.attr("width", function(d) { return x(0); })
 		.attr("y", function(d) { return y(d.Title); }) 
@@ -200,6 +201,7 @@ function PriceChart(props) {
 			.style("word-break", "break-all")
 			.text("Percent of Global Consumers Willing to Pay Higher-than-Average Prices For Products with Select Attributes (2018)");
 
+		// Optional axis labels
 		// svg.append("text")
 		// 	.attr("class", "x label")
 		// 	.attr("text-anchor", "end")
@@ -220,9 +222,10 @@ function PriceChart(props) {
 	}
 
 let mouseOver = function(d) {
-  console.log("Abcd");
+
 }
 
+// Mike Bostock's long label wrap example - thanks Mike!
 function wrap(text, width) {
   text.each(function() {
     var text = d3.select(this),

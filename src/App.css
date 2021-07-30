@@ -54,16 +54,6 @@ td {
 .card-body {
   background-color: rgba(0, 113, 85, 0.3);  
 }
-#boundbox {
-
-}
-g > text {
-  word-break: break-all !important;
-  white-space: normal !important;
-    display:  flex;
-} 
-g > text > tspan {
-  word-break: break-all !important;
-  white-space: normal !important;
-  display:  flex;
+.boundbox {
+  display: flex;
 }

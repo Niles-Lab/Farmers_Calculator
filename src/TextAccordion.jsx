@@ -24,11 +24,17 @@ return (
                                      When talking about approaches to consumer-facing farms, it is often thought that sustainable switches will be funded only by government incentives, leaving a defecit in a farm's income for certain arbitrary consumer preferences.
                                      However, studies show that consumers will pay more to support farms that create sustainable change.
                                      <br/>
-                                     What's more, advertising quality of life increases given to a farmer by certain practices may drive consumers to spend more. 
-                                    
-                                    <div className="boundbox">
-                                    <PriceChart />
-                                    </div>
+                                     <Row>
+                                     <Col>
+
+                                     <PriceChart />
+
+                                     </Col>                                    
+                                     <Col>
+                                        What's more, advertising quality of life increases given to a farmer by certain practices may drive consumers to spend more, supporting an increase in quality of product, profit and practices. 
+                                    </Col>
+
+                                    </Row>
 
                                 </Card.Body>
                             </Accordion.Collapse>

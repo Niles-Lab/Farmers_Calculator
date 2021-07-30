@@ -4,12 +4,6 @@ import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
 
-//create your forceUpdate hook
-function useForceUpdate(){
-    const [value, setValue] = useState(0); // integer state
-    return () => setValue(value => value + 1); // update the state to force render
-}
-
 // Only update the chart twice after loading
 let rerender = 0;
 
@@ -41,7 +35,7 @@ let y = d3.scaleBand()
 
 
 
-function PriceChart(props) {
+function DotPlotFarm(props) {
 
   const forceUpdate = useForceUpdate();
 
@@ -276,4 +270,4 @@ function wrap(text, width) {
 		)
 }
 
-export default PriceChart;
+export default DotPlotFarm;

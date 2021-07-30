@@ -16,7 +16,7 @@ return (
                         <Card border="success">
 
                             <Accordion.Toggle as={Card.Header} eventKey="0">
-                                Economic Viability
+                                Individual Empowerment
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>

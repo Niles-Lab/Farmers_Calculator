@@ -21,9 +21,7 @@ const Block = (props: { inViewport: boolean }) => {
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
 const data = require('./data/LegalStatus.json')
-// const margin = {top: 50, right: 20, bottom: 20, left: 200},
-// width = 1024 - (margin.right+margin.left),
-// height = 500 - (margin.top+margin.bottom);
+
 const margin = {top: 50, right: 20, bottom: 20, left: 280},
 width = 1000 - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
@@ -34,7 +32,18 @@ let x = d3.scaleBand()
 let y = d3.scaleLinear()
 .range([height-margin.top-margin.bottom, 0])
 
+const maxSize = d3.max(data, d => d.Year);
+const minSize = 5;
 
+const maxVal = d3.max(data, d => d.Value)
+const maxVals = d3.rollup(data, v => d3.sum(v, d => d.Value), d => d.Year); // Total farms by year
+//let percentage = (d) => ((d.Value / maxVals[d.Year]) * 100);
+
+// What percentage is this value compared to the others from its year?
+function percentage(d) {
+	//Array.from(maxVals.keys()).indexOf(d.Year)
+	return ((d.Value / maxVals.get(d.Year)) * 100);
+}
 
 function DotPlotFarm(props) {
 
@@ -51,17 +60,18 @@ function DotPlotFarm(props) {
 		const svg = d3.select("#dcht").selectAll("svg").selectAll("g");
 
 		// Animate graph on page load
-		svg.selectAll("rect")
+		svg.selectAll("circle")
 		.transition()
 		.duration(600)
-		.attr("x", d => x(0))
+		.style("opacity", 0.8)
+		.attr("cy", d => y(percentage(d)))
 		.attr("width", d => x(d.Value))
 		.delay((d,i) => (i*100))
 
 		// Animate rectangle labels on page load
-		svg.selectAll(".label")
+		svg.selectAll("line")
 		.transition()
-		.duration(600)
+		.duration(40)
 		.style("opacity", 1)
 		.delay((d,i) => (i*100))
 
@@ -70,21 +80,20 @@ function DotPlotFarm(props) {
 	function unfillChart() {
 
 		const svg = d3.select("#dcht").selectAll("svg");
-		var x = d3.scaleLinear()
-		.range([0,width-((margin.right+margin.left))])
+
 
 		// Un-draw chart on scrollout
-		svg.selectAll("rect")
+		svg.selectAll("circle")
 		.transition()
 		.duration(100)
-		.attr("x", d => x(0))
-		.attr("width", d => x(0))
+		.attr("cy", d => height-(margin.top+margin.bottom))
+		.style("opacity", 0)
 		.delay((d,i) => (i*100))
 
 		// Un-draw rectangle labels
-		svg.selectAll(".label")
+		svg.selectAll("line")
 		.transition()
-		.duration(100)
+		.duration(10)
 		.style("opacity", 0)
 		.delay((d,i) => (i*100))
 
@@ -101,8 +110,8 @@ function DotPlotFarm(props) {
 		.call(wrap,(width-margin.right))
 		// .call(wrap,(width-margin.left-margin.right))
 
-		svg.selectAll(".bottom-axis")
-		.call(wrap, 50)
+		// svg.selectAll(".bottom-axis")
+		// .call(wrap, 200)
 
 
 	}
@@ -117,8 +126,8 @@ function DotPlotFarm(props) {
 		.attr("transform",
 			"translate(" + margin.left + "," + margin.top + ")");
 
-	  x.domain(data.map(function(d) { return d.Status; }));
-	  y.domain([0, d3.max(data, function(d){ return d.Value; })]);
+	  x.domain(data.map(d => d.Status));
+	  y.domain([0, 100]);
 
 
 		// Add bars to chart
@@ -126,32 +135,24 @@ function DotPlotFarm(props) {
 		.data(data)
 		.enter()
 		.append("line")
-		.attr("class", "bottom-axis")
 		.attr("stroke", "#aaa")
-		// .attr("transform",
-		// 	d => "translate(" + x(d.Status) + "," + 0 + ")")
-		.attr("x", d => x(d.Status))
-		//.attr("dx", 0)
+		.attr("x1", d => x(d.Status)+50)
+		.attr("x2", d => x(d.Status)+50)
     .attr("y1", 0)
-    .attr("y2", height-(margin.top+margin.bottom))
-		.attr("fill", "url(#bg-gradient)");
-		// .attr("x", function(d) { return x(0); })
-		// .attr("width", function(d) { return x(0); })
-		// .attr("y", function(d) { return y(d.Title); }) 
-  //     	.attr("height", y.bandwidth())
-  //     	.attr("stroke", "green")
+    .attr("y2", height-(margin.top+margin.bottom));
   //   .on("mouseover", mouseOver)
 
 
-
-		svg.selectAll("circle")
-		.selectAll("circle")
-		//.data(d => d3.cross(keys, [d]))
-		.data(data)
+	  svg.selectAll("circle")
+	  .data(data)
 		.join("circle")
-		  .attr("cx", ([k, d]) => x(d[k]))
-      //.attr("fill", ([k]) => color(k))
-      .attr("r", 3.5);
+		  .attr("fill", "#32a852")
+		  .attr("r", 10)
+			.style("opacity", 0)
+		  .attr("stroke", "black")
+		  .attr("cx", d => x(d.Status)+50)
+    	.attr("cy", height-(margin.top+margin.bottom));
+		  //.attr("cy", d => y(d.Value));
 
 
 
@@ -169,6 +170,7 @@ function DotPlotFarm(props) {
 
 		svg.append("g")
 			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
+			.attr("class", "bottom-axis")
 			.call(d3.axisBottom(x))
 			.selectAll("text")
 		    .style("font-weight", "bold");
@@ -177,12 +179,10 @@ function DotPlotFarm(props) {
 			.call(d3.axisLeft(y))
 			.selectAll("text")
 			.attr("class", "left-axis")
-	    .style("font-weight", "bold") 
+	    .style("font-weight", "bold")
 	    .attr("transform", "translate(-10,-10)")
 	    .attr("dy", 0)
 	    .attr("y", 0);
-
-
 
 		// Title of chart
 		svg.append("text")
@@ -193,7 +193,7 @@ function DotPlotFarm(props) {
 			.attr("dx", 0)
 			.attr("dy", 0)
 			.style("font-weight", "bold")
-			.text("Vermont Farms by Legal Status");
+			.text("Percent of Vermont Farms by Legal Status");
 
 		// Subtitle under chart
 		svg.append("a")
@@ -202,9 +202,7 @@ function DotPlotFarm(props) {
 			.append("text")
 			.style("font-size", "12px")
 			.attr("x", 0)
-			.attr("y", 0)
-			.attr("dx", -margin.left/4)
-			.attr("dy", height-margin.bottom-10)
+			.attr("y", height-margin.bottom-10)
 			.text("Data sourced from 2017 Vermont Census Report");
 
 			var gradient = svg.append("defs")

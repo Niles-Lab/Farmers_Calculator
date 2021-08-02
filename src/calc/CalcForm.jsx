@@ -79,7 +79,6 @@ function removeCrop() {
 				<h1>Calculator</h1>
 				<hr />
 			
-
 				{
 				// Numerical input
 				}
@@ -89,21 +88,20 @@ function removeCrop() {
 					<Col>
 						<Dropdown>
 						<Dropdown.Toggle
+						  className="acreDrop"
 						  align="end"
-						  id="dropdown-basic">
+						  id="dropdown-basic"
+						  variant="secondary">
 						  {props.unit}
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
-						  <Dropdown.Item eventKey="1" value="Acres" onClick={e => props.setUnit(e.target.innerHTML)}>Acres</Dropdown.Item>
-						  <Dropdown.Item eventKey="2" value="Hectare" 
+						  <Dropdown.Item eventKey="1" onClick={e => props.setUnit(e.target.innerHTML)}>Acres</Dropdown.Item>
+						  <Dropdown.Item eventKey="2"
 						  onClick={e => props.setUnit(e.target.innerHTML)}>Hectares</Dropdown.Item>	
 						</Dropdown.Menu>
 						</Dropdown>
 					</Col>
-{/*					<Col>
-						Acres:
-					</Col>
-*/}					<Col>
+					<Col>
 					<Form.Control
 						placeholder="..."
 						name="land"

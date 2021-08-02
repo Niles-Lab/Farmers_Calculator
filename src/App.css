@@ -56,3 +56,12 @@ td {
 .boundbox {
   display: flex;
 }
+.acreDrop, .acreDrop:hover, .acreDrop:active {
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;
+    color: black;
+}

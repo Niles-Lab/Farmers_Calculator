@@ -61,12 +61,12 @@ return (
 										eventKey={tab}
 										title={tab}
 										key={tab}
-										hidden={method.indexOf(tab) > -1 ? false : true}
+										// hidden={method.indexOf(tab) > -1 ? false : true}
 										disabled={method.indexOf(tab) > -1 ? false : true}>
 
 										<Calculator
 											options={options}
-											land={land}
+											land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
 											dairy={dairy}
 											acres={unit}
 											crops={crops}

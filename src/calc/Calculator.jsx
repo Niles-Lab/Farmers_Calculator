@@ -84,7 +84,6 @@ constructor(props) {
 	super(props);
 	//this.handleChange = this.handleChange.bind(this);
 	this.prop = this.props;
-	this.prop.land = this.prop.unit === "Acres" ? parseFloat(this.prop.land) : parseFloat(this.prop.land) * 2.47105;
 }
 
 genKey() {
@@ -98,9 +97,7 @@ genKey() {
 render() {
 
 	this.prop = this.props;
-	let land = this.prop.unit === "Acres" ? parseFloat(this.prop.land) : parseFloat(this.prop.land) * 2.47105;
-	//this.prop.land = land;
-	const rows = this.calculate(land, 2);
+	const rows = this.calculate(this.prop.land, 2);
 
 	return (
 

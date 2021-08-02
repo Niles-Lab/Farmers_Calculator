@@ -34,7 +34,7 @@ let y = d3.scaleLinear()
 
 // Data for legend
 const years = d3.group(data, d => d.Year);
-const legendX = parseFloat((width * (5/6))-margin.left-margin.right);
+const legendX = parseFloat((width)-margin.left-margin.right-margin.right);
 const legendY = parseFloat(margin.top);
 let offset = 0;
 
@@ -45,7 +45,7 @@ const minSize = 5;
 const maxSize = 10;
 const maxYear = d3.max(data, d => d.Year);
 const yearColors = d3.scaleOrdinal().domain(years)
-	.range(["red", "green", "blue", "yellow"]);
+	.range(["red", "green", "brown", "yellow"]);
 
 
 const maxVal = d3.max(data, d => d.Value)
@@ -78,16 +78,20 @@ function DotPlotFarm(props) {
 		.duration(600)
 		.style("opacity", 0.8)
 		.attr("cy", d => y(percentage(d)))
-		.attr("r", d => (((maxYear - d.Year) / yearRange) * maxSize)+ minSize)
-		//.attr("fill", )
-		.delay((d,i) => (i*100))
+		.delay((d,i) => (i*100));
 
 		// Animate rectangle labels on page load
 		svg.selectAll("line")
 		.transition()
 		.duration(40)
 		.style("opacity", 1)
-		.delay((d,i) => (i*100))
+		.delay((d,i) => (i*100));
+
+		svg.selectAll(".legend")
+		.transition()
+		.duration(500)
+		.style("opacity", 1)
+		.delay((d,i) => (i*100));
 
 	}
 	// Change all bar widths to 0 via webkit transition for un-loading effect
@@ -110,6 +114,12 @@ function DotPlotFarm(props) {
 		.duration(10)
 		.style("opacity", 0)
 		.delay((d,i) => (i*100))
+
+		svg.selectAll(".legend")
+		.transition()
+		.duration(10)
+		.style("opacity", 0)
+		.delay((d,i) => (i*100));
 
 	}
 	function populateChart() {
@@ -145,11 +155,8 @@ function DotPlotFarm(props) {
 
 		// Create graph legend
 		const legend = svg.append("g")
-			.attr("width", "10%")
-			.attr("height", "10%")
-			.attr("x", width/2)
-			.attr("y", height/3)
-		.attr("class", "legend");
+		.attr("class", "legend")
+		.style("opacity", 0);
 
 		// Add arc shape for legend
 		legend.selectAll("path")
@@ -163,8 +170,8 @@ function DotPlotFarm(props) {
 			.attr("d", d3.arc()
 				.innerRadius(5)
 				.outerRadius(10)
-				.startAngle(3.14)
-				.endAngle(6.28)
+				.startAngle(3.14 * (3/4))
+				.endAngle(3.14 * 2)
 				)
 			.attr("fill", d => yearColors(d[0]));
 
@@ -194,10 +201,10 @@ function DotPlotFarm(props) {
 	  svg.selectAll("circle")
 	  .data(data)
 		.join("circle")
-			.attr("fill", d => yearColors(d[0]))
-		  .attr("r", 10)
+			.attr("fill", d => yearColors(d.Year))
+		  //.attr("r", 10)
+			.attr("r", d => (((maxYear - d.Year) / yearRange) * maxSize)+ minSize)
 			.style("opacity", 0)
-		  .attr("stroke", "black")
 		  .attr("cx", d => x(d.Status)+50)
     	.attr("cy", height-(margin.top+margin.bottom));
 
@@ -213,7 +220,7 @@ function DotPlotFarm(props) {
 		.style("opacity", 0)
 		.text(d => d.Value)
 
-
+		// Append bottom axis line to graph
 		svg.append("g")
 			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
 			.call(d3.axisBottom(x))
@@ -222,6 +229,7 @@ function DotPlotFarm(props) {
 				.style("overflow", "hidden")
 		    .style("font-weight", "bold");
 
+		// Append left axis line to graph
 		svg.append("g")
 			.call(d3.axisLeft(y))
 			.selectAll("text")
@@ -268,9 +276,6 @@ function DotPlotFarm(props) {
 		gradient.append("stop")
 			.attr("stop-color", "lightgreen")
 			.attr("offset", "1")
-
-
-//-(height+margin.bottom)
 
 		// Optional axis labels
 		// svg.append("text")

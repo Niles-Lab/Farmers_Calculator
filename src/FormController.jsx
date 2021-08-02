@@ -20,7 +20,7 @@ const forceUpdate = React.useCallback(() => updateState({}), []);
 
 
 let data = {
-	acres: 0,
+	unit: "Acres",
 	land: 0,
 	method: [],
 	selected: [],
@@ -29,9 +29,9 @@ let data = {
 
 const [land, setLand] = useState(data.land);
 const [dairy, setDairy] = useState(data.dairy);
-const [acres, setAcres] = useState(data.acres);
 const [crops, setCrops] = useState(data.crops);
 const [method, setMethod] = useState(data.method);
+const [unit, setUnit] = useState(data.unit);
 
 return (
 
@@ -45,8 +45,8 @@ return (
 						setLand={setLand}
 						dairy={dairy}
 						setDairy={setDairy}
-						acres={acres}
-						setAcres={setAcres}
+						unit={unit}
+						setUnit={setUnit}
 						crops={crops}
 						setCrops={setCrops}
 						method={method}
@@ -68,7 +68,7 @@ return (
 											options={options}
 											land={land}
 											dairy={dairy}
-											acres={acres}
+											acres={unit}
 											crops={crops}
 											method={tab}/>
 									</Tab>

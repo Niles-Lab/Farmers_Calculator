@@ -12,9 +12,9 @@ class Calculator extends React.Component {
 // Main method for calculations - this should be called on render to calculate all table cells
 // Each individual calculation method will output a tuple of [Title(Unit), Value With Project(WP), Value Without Project(WOP)]
 // e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
-calculate(acres, yrs) {
+calculate(land, yrs) {
 	var rows = [
-	this.totalProjArea(acres),
+	this.totalProjArea(land),
 	this.totalManualLand(),
 	this.costPer(),
 	this.costPerYr(yrs),
@@ -39,7 +39,7 @@ totalManualLand() {
 	return ["Inputted Land", land.toFixed(2), 0];
 }
 costPer() {
-	return ["Cost Per " + "Tree", (this.prop.acres * 5).toFixed(2), (this.prop.acres * 3).toFixed(2)];
+	return ["Cost Per " + "Tree", (this.prop.land * 5).toFixed(2), (this.prop.land * 3).toFixed(2)];
 }
 costPerYr(yrs) {
 	const costs = this.costPer();
@@ -84,6 +84,7 @@ constructor(props) {
 	super(props);
 	//this.handleChange = this.handleChange.bind(this);
 	this.prop = this.props;
+	this.prop.land = this.prop.unit === "Acres" ? parseFloat(this.prop.land) : parseFloat(this.prop.land) * 2.47105;
 }
 
 genKey() {
@@ -97,8 +98,9 @@ genKey() {
 render() {
 
 	this.prop = this.props;
-	const rows = this.calculate(this.prop.acres, 2);
-
+	let land = this.prop.unit === "Acres" ? parseFloat(this.prop.land) : parseFloat(this.prop.land) * 2.47105;
+	//this.prop.land = land;
+	const rows = this.calculate(land, 2);
 
 	return (
 

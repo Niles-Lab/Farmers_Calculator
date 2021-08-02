@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Col, Row, Container, Button } from 'react-bootstrap';
+import { Form, Col, Row, Container, Button, Dropdown } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import DDSelect from './DDSelect.jsx'
 
@@ -17,7 +17,7 @@ const opts = { // Calculate Options for "Category": ["Methods..."]
 		"Climate": ["Method C-1", "Method C-2"], 
 		"Other": ["Support Local Music", "Irrigation"]
 	};
-
+let units = ["Acres", "Hectares"];
 
 function handleCropChange(event) { // Special handler for the CropInput Component
 	const target = event.target;
@@ -72,7 +72,6 @@ function removeCrop() {
 	
 }
 
-
 	return (
 		<Container>
 			<Form className="box">
@@ -86,26 +85,25 @@ function removeCrop() {
 				}
 
 				<Row>
+
 					<Col>
+						<Dropdown>
+						<Dropdown.Toggle
+						  align="end"
+						  id="dropdown-basic">
+						  {props.unit}
+						</Dropdown.Toggle>
+						<Dropdown.Menu>
+						  <Dropdown.Item eventKey="1" value="Acres" onClick={e => props.setUnit(e.target.innerHTML)}>Acres</Dropdown.Item>
+						  <Dropdown.Item eventKey="2" value="Hectare" 
+						  onClick={e => props.setUnit(e.target.innerHTML)}>Hectares</Dropdown.Item>	
+						</Dropdown.Menu>
+						</Dropdown>
+					</Col>
+{/*					<Col>
 						Acres:
 					</Col>
-					<Col>
-						<Form.Control
-							placeholder="..."
-							name="acres"
-							min="0"
-							type="number"
-							step="0.1"
-							value={props.acres}
-							onChange = {(event) => {props.setAcres(event.target.value)}} />
-					</Col>
-				</Row>
-
-				<Row>
-					<Col>
-						Another Input:
-					</Col>
-					<Col>
+*/}					<Col>
 					<Form.Control
 						placeholder="..."
 						name="land"

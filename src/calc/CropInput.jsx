@@ -60,7 +60,7 @@ render() {
 			</Form.Control>
 		</Col>
 		<Col>
-			<span>Acres of...</span>
+			<span>{this.props.unit} of...</span>
 		</Col>
 		<Col>
 			<Form.Control

@@ -21,7 +21,7 @@ const forceUpdate = React.useCallback(() => updateState({}), []);
 
 let data = {
 	unit: "Acres",
-	land: 0,
+	land: 120,
 	method: [],
 	selected: [],
 	crops: []

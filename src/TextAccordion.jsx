@@ -2,6 +2,7 @@ import React from 'react';
 import { Accordion, Card, Row, Col } from 'react-bootstrap';
 import CountyMap from "./viz/CountyMap.jsx"
 import PriceChart from "./viz/PriceChart.jsx"
+import DotPlotFarm from "./viz/DotPlotFarm.jsx"
 
 function TextAccordion(props) {
 
@@ -21,19 +22,28 @@ return (
                             <Accordion.Collapse eventKey="0">
                                 <Card.Body>
 
-                                     When talking about approaches to consumer-facing farms, it is often thought that sustainable switches will be funded only by government incentives, leaving a defecit in a farm's income for certain arbitrary consumer preferences.
-                                     However, studies show that consumers will pay more to support farms that create sustainable change.
-                                     <br/>
+
+
                                      <Row>
-                                     <Col>
-
-                                     <PriceChart />
-
-                                     </Col>                                    
-                                     <Col>
-                                        What's more, advertising quality of life increases given to a farmer by certain practices may drive consumers to spend more, supporting an increase in quality of product, profit and practices. 
-                                    </Col>
-
+                                         <Col>
+                                            <PriceChart />
+                                         </Col>                                    
+                                         <Col>
+                                            When talking about approaches to consumer-facing farms, it is often thought that sustainable switches will be funded only by government incentives, leaving a defecit in a farm's income for certain arbitrary consumer preferences.
+                                            However, studies show that consumers will pay more to support farms that create sustainable change.
+                                            <br/><br/>
+                                            What's more, advertising quality of life increases(such as no pesticides keeping the soil more fertile) by certain practices may drive consumers to spend more, supporting an increase in quality of product, profit and practices. 
+                                        </Col>
+                                    </Row>
+                                    Some more filler text
+                                    <Row>
+                                        <Col>
+                                            Another common struggle for individual and beginning farms is the threat of well-established, larger farms in the area. Some may find it difficult to compete with corporate entities that have ubiquitous funding.
+                                            However, Vermont is known for its natural beauty and ubiquitous community. Investing in sustainable practices not only keeps Vermont ahead of corporate farms, but drives adaptation and growth among other local farms.
+                                        </Col>
+                                        <Col>
+                                            <DotPlotFarm/>
+                                        </Col>
                                     </Row>
 
                                 </Card.Body>

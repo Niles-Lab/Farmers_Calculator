@@ -32,8 +32,16 @@ let x = d3.scaleBand()
 let y = d3.scaleLinear()
 .range([height-margin.top-margin.bottom, 0])
 
-const maxSize = d3.max(data, d => d.Year);
+// Range of highest to lowest year, used for circle sizing
+const maxSize = d3.max(data, d => d.Year) - d3.min(data, d => d.Year);
 const minSize = 5;
+
+// Data for legend
+const years = d3.group(data, d => d.Year);
+console.log(years.get("2002"))
+const legendX = parseFloat((width * (5/6))-margin.left-margin.right);
+const legendY = parseFloat(margin.top);
+let offset = 0;
 
 const maxVal = d3.max(data, d => d.Value)
 const maxVals = d3.rollup(data, v => d3.sum(v, d => d.Value), d => d.Year); // Total farms by year
@@ -110,8 +118,8 @@ function DotPlotFarm(props) {
 		.call(wrap,(width-margin.right))
 		// .call(wrap,(width-margin.left-margin.right))
 
-		// svg.selectAll(".bottom-axis")
-		// .call(wrap, 200)
+		svg.selectAll(".bottom-axis")
+		.call(wrap, 150)
 
 
 	}
@@ -129,8 +137,40 @@ function DotPlotFarm(props) {
 	  x.domain(data.map(d => d.Status));
 	  y.domain([0, 100]);
 
+		// Create graph legend
+		const legend = svg.append("g")
+			.attr("width", "10%")
+			.attr("height", "10%")
+			.attr("x", width/2)
+			.attr("y", height/3)
+		.attr("class", "legend");
 
-		// Add bars to chart
+		// Add arc shape for legend
+		legend.selectAll("path")
+		.data(years)
+		.join("path")
+			.call(d => console.log())
+			// Manually add offset based on index of year
+			// Oh boy is this some spaghetti
+			.attr("transform", d => "translate(" + parseFloat(legendX-5) + "," + parseFloat((legendY-5) + parseFloat(((Array.from(years.keys()).indexOf(d[0]))) * 20)) + ")")
+			.attr("d", d3.arc()
+				.innerRadius(5)
+				.outerRadius(10)
+				.startAngle(3.14)
+				.endAngle(6.28)
+				)
+			.attr("fill", "green");
+
+		// Add legend text
+		legend.selectAll("text")
+		.data(years)
+		.join("text")
+			.text(d => d[0])
+			.attr("x", legendX)
+			.attr("y", legendY)
+
+
+		// Add axis bars to chart
 		svg.selectAll("line")
 		.data(data)
 		.enter()
@@ -142,19 +182,16 @@ function DotPlotFarm(props) {
     .attr("y2", height-(margin.top+margin.bottom));
   //   .on("mouseover", mouseOver)
 
-
 	  svg.selectAll("circle")
 	  .data(data)
 		.join("circle")
-		  .attr("fill", "#32a852")
+		  .attr("fill", "lightgreen")
 		  .attr("r", 10)
 			.style("opacity", 0)
 		  .attr("stroke", "black")
 		  .attr("cx", d => x(d.Status)+50)
     	.attr("cy", height-(margin.top+margin.bottom));
 		  //.attr("cy", d => y(d.Value));
-
-
 
 		// Append labels to bars
 		svg.selectAll(".text")
@@ -168,11 +205,13 @@ function DotPlotFarm(props) {
 		.style("opacity", 0)
 		.text(d => d.Value)
 
+
 		svg.append("g")
 			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
-			.attr("class", "bottom-axis")
 			.call(d3.axisBottom(x))
 			.selectAll("text")
+				.attr("class", "bottom-axis")
+				.style("overflow", "hidden")
 		    .style("font-weight", "bold");
 
 		svg.append("g")

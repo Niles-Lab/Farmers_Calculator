@@ -16,7 +16,7 @@ const Block = (props: { inViewport: boolean }) => {
 
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
-const data = require('./data.json')
+const data = require('./data/altmethods.json')
 const margin = {top: 20, right: 20, bottom: 20, left: 180},
 width = 1024 - (margin.right+margin.left),
 height = 600 - margin.top - margin.bottom;

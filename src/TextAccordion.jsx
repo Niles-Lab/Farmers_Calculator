@@ -21,8 +21,12 @@ return (
                             <Accordion.Collapse eventKey="4">
 
                                 <Card.Body>
-                                    <CropLossTM />
-                                    CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
+                                    <Row>
+                                        <Col>
+                                            <CropLossTM />
+                                        </Col>
+                                        <Col>
+                                                                                CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
                                     Identifying a long-term problem, assessing multiple strategies, and identifying the costs and benefits presented by each are among the steps taken to find the most efficient solution
                                     on a case-by-case basis.
 
@@ -32,6 +36,11 @@ return (
 
                                     For example, imposing new laws and regulations on trade may have financial benefits, but will assuredly affect the livelihoods of many individuals. This "social cost" should be
                                     accounted for in CBA.
+                                        </Col>
+
+                                    </Row>
+
+
                                 </Card.Body>
                             
                             </Accordion.Collapse>

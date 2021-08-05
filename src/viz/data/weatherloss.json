@@ -1,0 +1,26 @@
+[
+  {
+    "Cause": "Drought",
+    "Value": 38.1
+  },
+  {
+    "Cause": "Heat",
+    "Value": 10.7
+  },
+  {
+    "Cause": "Excess Moisture",
+    "Value": 33.8
+  },
+  {
+    "Cause": "Frost/Freeze",
+    "Value": 13.4
+  },
+  {
+    "Cause": "Hail",
+    "Value": 1.7
+  },
+  {
+    "Cause": "Other",
+    "Value": 2.3
+  }
+]

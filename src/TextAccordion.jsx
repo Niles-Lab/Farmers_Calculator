@@ -3,7 +3,7 @@ import { Accordion, Card, Row, Col } from 'react-bootstrap';
 import CountyMap from "./viz/CountyMap.jsx"
 import PriceChart from "./viz/PriceChart.jsx"
 import DotPlotFarm from "./viz/DotPlotFarm.jsx"
-import CropLossPie from "./viz/CropLossPie.jsx"
+import CropLossTM from "./viz/CropLossTM.jsx"
 
 function TextAccordion(props) {
 
@@ -15,13 +15,13 @@ return (
 
                     <Accordion>
                         <Card border="success">
-                            <Accordion.Toggle as={Card.Header} eventKey="1">
+                            <Accordion.Toggle as={Card.Header} eventKey="4">
                                 Local Threat of Climate Change
                             </Accordion.Toggle>
-                            <Accordion.Collapse eventKey="1">
+                            <Accordion.Collapse eventKey="4">
 
                                 <Card.Body>
-                                    <CropLossPie />
+                                    <CropLossTM />
                                     CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
                                     Identifying a long-term problem, assessing multiple strategies, and identifying the costs and benefits presented by each are among the steps taken to find the most efficient solution
                                     on a case-by-case basis.

@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Container } from 'react-bootstrap';
+import React, { useEffect } from 'react';
+
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
@@ -36,7 +36,6 @@ let y = d3.scaleLinear()
 const years = d3.group(data, d => d.Year);
 const legendX = parseFloat((width)-margin.left-margin.right-margin.right);
 const legendY = parseFloat(margin.top);
-let offset = 0;
 
 
 // Range of highest to lowest year, used for circle sizing
@@ -45,10 +44,8 @@ const minSize = 5;
 const maxSize = 10;
 const maxYear = d3.max(data, d => d.Year);
 const yearColors = d3.scaleOrdinal().domain(years)
-	.range(["red", "green", "brown", "yellow"]);
+	.range(["Maroon", "DarkSeaGreen", "CornflowerBlue", "BlanchedAlmond"]);
 
-
-const maxVal = d3.max(data, d => d.Value)
 const maxVals = d3.rollup(data, v => d3.sum(v, d => d.Value), d => d.Year); // Total farms by year
 //let percentage = (d) => ((d.Value / maxVals[d.Year]) * 100);
 
@@ -65,7 +62,7 @@ function DotPlotFarm(props) {
 	useEffect(() => {
 		drawChart();
 		populateChart();
-	}, []);
+	});
 
 	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {
@@ -127,12 +124,11 @@ function DotPlotFarm(props) {
 		if(rerender > 1) return;
 
 		rerender++;
-		//const svg = cht;
+
 		const svg = d3.select("#dcht").selectAll("svg").selectAll("g");
 
 		svg.selectAll(".title")
 		.call(wrap,(width-margin.right))
-		// .call(wrap,(width-margin.left-margin.right))
 
 		svg.selectAll(".bottom-axis")
 		.call(wrap, 150)
@@ -162,7 +158,6 @@ function DotPlotFarm(props) {
 		legend.selectAll("path")
 		.data(years)
 		.join("path")
-			.call(d => console.log(d[0]))
 			// Manually add offset based on index of year
 			// Oh boy is this some spaghetti
 			// Note - 20 is the offset in this case, as each index is multiplied by 20
@@ -195,7 +190,6 @@ function DotPlotFarm(props) {
 		.attr("x2", d => x(d.Status)+50)
     .attr("y1", 0)
     .attr("y2", height-(margin.top+margin.bottom));
-  //   .on("mouseover", mouseOver)
 
  		// Add circles to bars
 	  svg.selectAll("circle")
@@ -277,29 +271,8 @@ function DotPlotFarm(props) {
 			.attr("stop-color", "lightgreen")
 			.attr("offset", "1")
 
-		// Optional axis labels
-		// svg.append("text")
-		// 	.attr("class", "x label")
-		// 	.attr("text-anchor", "end")
-		// 	.attr("x", width / 2)
-		// 	.attr("y", height + 6)
-		// 	.attr("dx", ".75em")
-		// 	.text("")
-
-		// svg.append("text")
-		//     .attr("class", "y label")
-		//     .attr("text-anchor", "end")
-		//     .attr("x", -height / 3)
-		//     .attr("y", -margin.left)
-		//     .attr("dy", ".75em")
-		//     .attr("transform", "rotate(-90)")
-		//     .call(wrap, 86.67);
-
 	}
 
-let mouseOver = function(d) {
-
-}
 
 // Mike Bostock's long label wrap example - thanks Mike!
 function wrap(text, width) {

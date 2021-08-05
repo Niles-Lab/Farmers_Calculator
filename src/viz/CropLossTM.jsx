@@ -15,16 +15,18 @@ const Block = (props: { inViewport: boolean }) => {
 
 
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
+
 // Define data and constants
 const data = require('./data/weatherloss.json')
 const margin = {top: 20, right: 20, bottom: 20, left: 20},
 width = 500 - (margin.right+margin.left),
 height = 600 - (margin.top+margin.bottom);
+
 let domain = d3.group(data, d => d.Cause);
 let color = d3.scaleOrdinal().domain(domain)
 	.range(["Maroon", "DarkSeaGreen", "BlanchedAlmond", "Salmon", "lightblue", "CornflowerBlue"]);
 
-function CropLossPie(props) {
+function CropLossTM(props) {
 
 
 
@@ -37,64 +39,73 @@ function CropLossPie(props) {
 
 	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {
-		const svg = d3.select("#piecht").selectAll("svg").selectAll("g");
+		const svg = d3.select("#treecht").selectAll("svg").selectAll("g");
 
 		// Animate graph on page load
-		svg.selectAll("path")
-		.transition()
-		.duration(600)
-		.attr("opacity", 0.7)
-		.delay((d,i) => (i*100))
+		// svg.selectAll("rect")
+		// .transition()
+		// .duration(600)
+		// .attr("opacity", 0.7)
+		// .delay((d,i) => (i*100))
 
 	}
 	// Change all bar widths to 0 via webkit transition for un-loading effect
 	function unfillChart() {
 
-		const svg = d3.select("#piecht").selectAll("svg").selectAll("g");
+		const svg = d3.select("#treecht").selectAll("svg").selectAll("g");
 
 		// Un-draw chart on scrollout
-		svg.selectAll("path")
-		.transition()
-		.duration(100)
-		.attr("opacity", 0)
-		.delay((d,i) => (i*100))
+		// svg.selectAll("rect")
+		// .transition()
+		// .duration(100)
+		// .attr("opacity", 0)
+		// .delay((d,i) => (i*100))
 
 
 	}
 	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-		const radius = Math.min(width, height) / 2;
-		const arc = d3.arc()
-							.innerRadius(0)
-							.outerRadius(radius);
-		let pie = d3.pie().value(d => d.Value);
-		const data_ready = pie(data);
 
-		const svg = d3.select("#piecht")
+	const data_ready = {
+	    children: data.map(item => ({Cause: item.Cause, Value: item.Value}))
+	};
+
+		var root = d3.hierarchy(data_ready).sum(d => d.Value).sort((a,b) => b.Value - a.Value);
+
+
+		d3.treemap()
+			.size([width, height])
+			.padding(2)
+			(root);
+
+		const svg = d3.select("#treecht")
 		.append("svg")
-		.attr("width",width)
-		.attr("height",height);
+			.attr("width",width + margin.left + margin.right)
+			.attr("height",height + margin.top + margin.bottom)
+		.data(root.leaves())
+		.join("g")
+	  	.attr("transform",
+	        d => "translate(" + d.x0 + "," + d.y0 + ")");
 
-		svg.append("g")
-			.attr("stroke", "white")
-    	.attr("transform", "translate(" + width / 2 + "," + ((height / 2)) + ")")
-			.selectAll("path")
-				.data(data_ready)
-				.join("path")
-					.attr("fill", d => color(d.data.Cause))
-					.attr("d", arc)
-					.attr("opacity", 0);
+		svg.selectAll("rect")
+				.data(root.leaves())
+				.join("rect")
+	  		.attr("transform",
+	        d => "translate(" + d.x0 + "," + d.y0 + ")")
+				.attr("width", d => d.x1 - d.x0)
+				.attr("height", d => d.y1 - d.y0)
+				.attr("fill", d => color(d.data.Cause));
 
-		svg.select("g")
-		.selectAll("text")
-			.data(data_ready)
+		svg.selectAll("text")
+			.data(root.leaves())
 			.join("text")
 				.attr("stroke", "none")
-				.text(d => d.data.Cause)
+				.text(d => (d.data.Cause + "\n" + d.data.Value + "%"))
+				.attr("x", function(d){ return d.x0+20})
+      	.attr("y", function(d){ return d.y0+20})
 		    .style("font-weight", "bold")
- 			 	.attr("transform", d => "translate(" + arc.centroid(d) + ")")
-		    .style("text-anchor", "middle");
+		    .style("text-anchor", "start");
 
 		svg.append("text")
 			.attr("class", "title")
@@ -145,7 +156,7 @@ function CropLossPie(props) {
 		return (
 
 
-		<div id="piecht" className="m-5">
+		<div id="treecht" className="m-5">
 			<ViewportBlock onEnterViewport={() => {fillChart()}} onLeaveViewport={() => {unfillChart()}} />
 {/*			<ViewportBlock />*/}
 		</div>
@@ -154,4 +165,4 @@ function CropLossPie(props) {
 		)
 }
 
-export default CropLossPie;
+export default CropLossTM;

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button, Offcanvas } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
 
 function Sources(props) {
 
@@ -17,7 +17,7 @@ function Sources(props) {
 			<Button variant="primary" onClock={handleShow}>
 				Offcanvas
 			</Button>
-
+{/*
 			<Offcanvas show={show} onHide={handleClose}>
 				<Offcanvas.Header closeButton>
 		          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
@@ -26,7 +26,7 @@ function Sources(props) {
 		          Some text as placeholder. In real life you can have the elements you
 		          have chosen. Like, text, images, lists, etc.
 		        </Offcanvas.Body>
-			</Offcanvas>
+			</Offcanvas>*/}
 		</Container>
 		</>
 

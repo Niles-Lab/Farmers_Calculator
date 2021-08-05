@@ -2,7 +2,6 @@ import React from 'react';
 import { Container } from 'react-bootstrap';
 import Chart from "./viz/Chart.jsx"
 import TextAccordion from "./TextAccordion.jsx"
-import Sources from "./Sources.jsx"
 
 function Home(props) {
 

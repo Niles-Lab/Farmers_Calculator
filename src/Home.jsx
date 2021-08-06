@@ -11,7 +11,7 @@ function Home(props) {
 
 		<>
 
-		<Container className="box my-5">
+		<Container className="box my-5 maindiv">
 
 			<TextAccordion />
 		</Container>

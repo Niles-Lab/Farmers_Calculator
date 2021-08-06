@@ -13,12 +13,15 @@ return (
 
                 <div>
 
+
+
                     <Accordion>
-                        <Card border="success">
+                        <Accordion.Item eventKey="0">
+                            <Card border="success">
                             <Accordion.Header as={Card.Header} eventKey="0">
                                 Local Threat of Climate Change
                             </Accordion.Header>
-                            <Accordion.Body eventKey="0">
+                            <Accordion.Body>
 
                                     <Card.Body>
                                         <Container>
@@ -44,11 +47,13 @@ return (
 
                             </Accordion.Body>
                                 </Card> 
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="1">
                         <Card border="success">
-                        <Accordion.Header as={Card.Header} eventKey="1">
+                        <Accordion.Header as={Card.Header}>
                             Individual Empowerment
                         </Accordion.Header>
-                        <Accordion.Body eventKey="1">
+                        <Accordion.Body>
                                 <Card.Body>
                                     <Container>
                                      <Row>
@@ -83,11 +88,13 @@ return (
 
                         </Accordion.Body>
                             </Card>
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="2">
                         <Card border="success">
-                            <Accordion.Header as={Card.Header} eventKey="2">
+                            <Accordion.Header as={Card.Header}>
                                 What is Cost Benefit Analysis?
                             </Accordion.Header>
-                            <Accordion.Body eventKey="2">
+                            <Accordion.Body>
 
                                 <Card.Body>
                                     CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
@@ -106,12 +113,13 @@ return (
 
                             </Card>  
 
-
+                        </Accordion.Item>
+                        <Accordion.Item eventKey="3">
                             <Card border="success">   
-                            <Accordion.Header as={Card.Header} eventKey="3">
+                            <Accordion.Header as={Card.Header}>
                                 Our Mission
                             </Accordion.Header>
-                            <Accordion.Body eventKey="3"y>
+                            <Accordion.Body>
                 
                                 <Card.Body>
                                 <Container>
@@ -138,7 +146,8 @@ return (
                                 </Card.Body>
             
                             </Accordion.Body>
-                            </Card>      
+                            </Card>
+                        </Accordion.Item>      
                     </Accordion>
                 </div>
             </>

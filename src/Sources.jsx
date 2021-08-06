@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Container, Button } from 'react-bootstrap';
+import { Container, Button, Offcanvas } from 'react-bootstrap';
+import CropLossTM from "./viz/CropLossTM.jsx"
 
 function Sources(props) {
 
@@ -12,22 +13,20 @@ function Sources(props) {
 	return (
 
 		<>
-
-		<Container className="box my-5">
-			<Button variant="primary" onClock={handleShow}>
+			<Button variant="primary" onClick={handleShow}>
 				Offcanvas
 			</Button>
-{/*
-			<Offcanvas show={show} onHide={handleClose}>
+
+			<Offcanvas show={show} onHide={handleClose} placement="start">
 				<Offcanvas.Header closeButton>
 		          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
 		        </Offcanvas.Header>
 		        <Offcanvas.Body>
+
 		          Some text as placeholder. In real life you can have the elements you
 		          have chosen. Like, text, images, lists, etc.
 		        </Offcanvas.Body>
-			</Offcanvas>*/}
-		</Container>
+			</Offcanvas>
 		</>
 
 		)

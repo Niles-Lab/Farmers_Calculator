@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { Container } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
@@ -41,7 +40,7 @@ function CropLossTM(props) {
 
 	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {
-		const svg = d3.select("#treecht").selectAll("svg").selectAll("g");
+		//const svg = d3.select("#treecht").selectAll("svg").selectAll("g");
 
 		// Animate graph on page load
 		// svg.selectAll("rect")
@@ -55,7 +54,7 @@ function CropLossTM(props) {
 	// Change all bar widths to 0 via webkit transition for un-loading effect
 	function unfillChart() {
 
-		const svg = d3.select("#treecht").selectAll("svg").selectAll("g");
+		//const svg = d3.select("#treecht").selectAll("svg").selectAll("g");
 
 		// Un-draw chart on scrollout
 		// svg.selectAll("rect")
@@ -70,7 +69,7 @@ function CropLossTM(props) {
 	// This is the bit about React and D3 both wanting to control the DOM
 	// Call this up to two times on rendering of the graph
 	function populateChart() {
-		if(rerender > 1) return;
+		if(rerender > 0) return;
 		d3.select(".title")
 		.call(wrap, width);
 		rerender++;

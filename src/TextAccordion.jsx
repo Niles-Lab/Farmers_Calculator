@@ -15,7 +15,7 @@ return (
                 <Accordion.Item eventKey="0">
                     <Card>
                     <Accordion.Header as={Card.Header} eventKey="0">
-                        Local Threat of Climate Change
+                        Local Climate Change
                     </Accordion.Header>
                     <Accordion.Body>
 

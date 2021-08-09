@@ -1,7 +1,8 @@
 import React from 'react';
-import { Container } from 'react-bootstrap';
-import Chart from "./viz/Chart.jsx"
+import { Container, Col, Row } from 'react-bootstrap';
+
 import TextAccordion from "./TextAccordion.jsx"
+import MainContent from "./MainContent.jsx"
 import Sources from "./Sources.jsx"
 
 function Home(props) {
@@ -12,14 +13,23 @@ function Home(props) {
 
 		<>
 			<Sources />
-		<Container className="box my-5 maindiv">
+		<Container className="box maindiv">
+			<Row>
+			<Col>
+				a sdjkflhasjdf
+			</Col>
+			<Col>
+				<MainContent />
+			</Col>
+			<Col>
+				asdfasdfasdgasdfgsadf
+			</Col>
+			</Row>
+{/*			<TextAccordion />*/}
 
-			<TextAccordion />
 		</Container>
 
-		<Container className="box my-5">
-			<Chart />
-		</Container>
+
 
 		</>
 

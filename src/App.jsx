@@ -9,10 +9,10 @@ import FormController from './FormController.jsx'
 import LoremIpsum from './LoremIpsum.jsx'
 
 function App() {
-
+// style={{ backgroundImage: `url(${background})` }}
   return (
 
-    <span className="App" style={{ backgroundImage: `url(${background})` }}>
+    <span className="App">
 
         <Navigation />
 

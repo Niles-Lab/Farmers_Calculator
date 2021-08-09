@@ -6,19 +6,15 @@ import DotPlotFarm from "./viz/DotPlotFarm.jsx"
 import CropLossTM from "./viz/CropLossTM.jsx"
 import Chart from "./viz/Chart.jsx"
 
-function TextAccordion(props) {
+function MainContent(props) {
 
 return (
 
 
         <div className="maindiv">
-            <Accordion>
-                <Accordion.Item eventKey="0">
+
                     <Card>
-                    <Accordion.Header as={Card.Header} eventKey="0">
-                        Local Climate Change
-                    </Accordion.Header>
-                    <Accordion.Body>
+
 
                             <Card.Body>
                                 <Container>
@@ -41,15 +37,11 @@ return (
                                 </Row>
                                 </Container>
                             </Card.Body>
-                    </Accordion.Body>
+
                     </Card> 
-                </Accordion.Item>
-                <Accordion.Item eventKey="1">
+
                     <Card>
-                    <Accordion.Header as={Card.Header}>
-                        Individual Empowerment
-                    </Accordion.Header>
-                    <Accordion.Body>
+
                         <Card.Body>
                             <Container>
                              <Row>
@@ -79,15 +71,10 @@ return (
                             </Row>
                             </Container>
                         </Card.Body>  
-                    </Accordion.Body>
+
                     </Card>
-                </Accordion.Item>
-                <Accordion.Item eventKey="2">
+
                     <Card>
-                        <Accordion.Header as={Card.Header}>
-                            What is Cost Benefit Analysis?
-                        </Accordion.Header>
-                        <Accordion.Body>
 
                             <Card.Body>
                                 CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
@@ -101,17 +88,11 @@ return (
                                 For example, imposing new laws and regulations on trade may have financial benefits, but will assuredly affect the livelihoods of many individuals. This "social cost" should be
                                 accounted for in CBA.
                             </Card.Body>
-                  
-                        </Accordion.Body>
+
                     </Card>  
-                </Accordion.Item>
-                <Accordion.Item eventKey="3">
+
                     <Card>   
-                        <Accordion.Header as={Card.Header}>
-                            Our Mission
-                        </Accordion.Header>
-                        <Accordion.Body>
-            
+
                             <Card.Body>
                             <Container>
                                 <Row>
@@ -135,15 +116,13 @@ return (
                                 <Chart />
                             </Container>
                             </Card.Body>
-        
-                        </Accordion.Body>
+
                     </Card>
-                </Accordion.Item>      
-            </Accordion>
+
         </div>
 
 
 
 )
 }
-export default TextAccordion;
+export default MainContent;

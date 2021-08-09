@@ -1,18 +1,18 @@
-Nav {
-  border-bottom: 1px solid black;
+
+.mainnav {
   background-color: #006e53;
   width: 100%;
 }
-
-.navbar {
-
-
+#sectionnav {
+  margin-top: 20%;
+  flex-direction: column !important;
+}
+.test {
+  display: flex;
 }
 .logos {
   background-color: rgba(220, 220, 220, 0.8);
   align-items: center;
-  height: 100%;
-  
 }
 div {
   display: flex;
@@ -44,10 +44,6 @@ td {
   margin-bottom: 1vh;
   margin: 1vh;
 }
-
-.box {
-  background-color: rgba(220, 220, 220, 0.8);  
-}
 .sel {
   display: block;
 }
@@ -58,10 +54,6 @@ td {
 #pcht {
   overflow: auto;
   font-weigth: bold;
-}
-
-.boundbox {
-  display: flex;
 }
 .acreDrop, .acreDrop:hover, .acreDrop:active {
     background-color: Transparent;
@@ -79,9 +71,6 @@ td {
   display: block;
   border: 0px;
 }
-.card-header {
-  padding: 0px;
-}
-.maindiv {
-  padding: 0px;
+.box {
+  background-color: rgba(220, 220, 220, 0.8);
 }

@@ -22,8 +22,8 @@ const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
 const data = require('./data/LegalStatus.json')
 
-const margin = {top: 50, right: 20, bottom: 20, left: 280},
-width = 1000 - (margin.right+margin.left),
+const margin = {top: 50, right: 20, bottom: 20, left: 20},
+width = 500,
 height = 500 - (margin.top+margin.bottom);
 
 let x = d3.scaleBand()
@@ -34,7 +34,7 @@ let y = d3.scaleLinear()
 
 // Data for legend
 const years = d3.group(data, d => d.Year);
-const legendX = parseFloat((width)-margin.left-margin.right-margin.right);
+const legendX = parseFloat((width)-margin.left-margin.right);
 const legendY = parseFloat(margin.top);
 
 
@@ -121,7 +121,7 @@ function DotPlotFarm(props) {
 	}
 	function populateChart() {
 
-		if(rerender > 1) return;
+		if(rerender > 0) return;
 
 		rerender++;
 
@@ -144,7 +144,8 @@ function DotPlotFarm(props) {
 		.attr("height",height+30)
 		.append("g")
 		.attr("transform",
-			"translate(" + margin.left + "," + margin.top + ")");
+			// "translate(" + margin.left + "," + margin.top + ")");
+			"translate(0," + margin.top + ")");
 
 	  x.domain(data.map(d => d.Status));
 	  y.domain([0, 100]);
@@ -287,7 +288,7 @@ function wrap(text, width) {
         dy = parseFloat(text.attr("dy")),
         tspan = text.text(null).append("tspan").attr("x", 1).attr("y", y).attr("dy", dy + "em");
     while (word = words.pop()) {
-      line.push(word);
+      line.push(word + " ");
       tspan.text(line.join(" "));
       if (tspan.node().getComputedTextLength() > width) {
         line.pop();

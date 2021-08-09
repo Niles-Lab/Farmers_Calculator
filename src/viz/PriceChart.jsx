@@ -90,7 +90,7 @@ function PriceChart(props) {
 	}
 	function populateChart() {
 
-		if(rerender > 1) return;
+		if(rerender > 0) return;
 
 		rerender++;
 		//const svg = cht;
@@ -263,7 +263,6 @@ function wrap(text, width) {
 
 		<div id="pcht" className="m-3">
 			<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />
-
 		</div>
 
 

@@ -15,9 +15,12 @@ return (
 
                     <Card>
 
+                        <hr/>
+                        <Card.Title>Local Effects of Climate Change</Card.Title>
+                        <hr/>
 
                             <Card.Body>
-                                <Container>
+
                                 <Row>
                                     <Col>
                                         <CropLossTM />
@@ -35,27 +38,26 @@ return (
                                         accounted for in CBA.
                                     </Col>
                                 </Row>
-                                </Container>
+
                             </Card.Body>
 
                     </Card> 
 
-                    <Card>
+                    <Card variant="light" bg="light">
 
+                        <hr/>
+                        <Card.Title>Individual Action</Card.Title>
+                        <hr/>
+                    
                         <Card.Body>
-                            <Container>
                              <Row>
-                                 <Col>
                                     <PriceChart />
-                                 </Col>                                    
-                                 <Col>
+                                
                                     When talking about approaches to consumer-facing farms, it is often thought that sustainable switches will be funded only by government incentives, leaving a defecit in a farm's income for certain arbitrary consumer preferences.
                                     However, studies show that consumers will pay more to support farms that create sustainable change.
                                     <br/><br/>
                                     What's more, advertising quality of life increases(such as no pesticides keeping the soil more fertile) by certain practices may drive consumers to spend more, supporting an increase in quality of product, profit and practices. 
-                                </Col>
                             </Row>
-
                             <Row>
                                 Some more filler text
                             </Row>
@@ -69,12 +71,12 @@ return (
                                     <DotPlotFarm/>
                                 </Col>
                             </Row>
-                            </Container>
                         </Card.Body>  
-
                     </Card>
-
                     <Card>
+                        <hr/>
+                        <Card.Title>What is Cost Benefit Analysis?</Card.Title>
+                        <hr/>
 
                             <Card.Body>
                                 CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
@@ -91,8 +93,12 @@ return (
 
                     </Card>  
 
-                    <Card>   
+                    <Card variant="light" bg="light">   
 
+                        <hr/>
+                        <Card.Title>Our Mission</Card.Title>
+                        <hr/>
+                    
                             <Card.Body>
                             <Container>
                                 <Row>

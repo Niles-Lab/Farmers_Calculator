@@ -1,5 +1,3 @@
-
-
 import React from 'react';
 import { Nav, Navbar, NavDropdown, Image, Col, Row } from 'react-bootstrap';
 import umaine from './images/umaine.png';
@@ -9,11 +7,11 @@ const Navigation = () => {
 
     return (
     <>
-      <Navbar collapseOnSelect expand="sm" variant="dark">
+      <Navbar collapseOnSelect expand="sm" variant="dark" className="mainnav">
           <Navbar.Brand href="/">UVM/Umaine for Farmers</Navbar.Brand>
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
-              <Nav>
+              <Nav className="mr-auto">
                 <Nav.Link href="/FormController">Calculator</Nav.Link>
                 <Nav.Link href="/LoremIpsum">Resources</Nav.Link>
                 <NavDropdown title="Dropdown" id="basic-nav-dropdown">
@@ -27,14 +25,12 @@ const Navigation = () => {
             </Navbar.Collapse>
 
           <Nav className="logos">
-
               <Navbar.Brand>
                 <a href="https://uvm.edu/" rel="noreferrer" target="_blank"><Image src={uvm} width="100%"/></a>
               </Navbar.Brand>
               <Navbar.Brand>
                 <a href="https://umaine.edu/" rel="noreferrer" target="_blank"><Image src={umaine} width="100%"/></a>
               </Navbar.Brand>
-
           </Nav>
 
       </Navbar>    

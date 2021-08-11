@@ -1,14 +1,19 @@
-import React from 'react';
+import { React, useRef, forwardedRef } from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
-import CountyMap from "./viz/CountyMap.jsx"
-import PriceChart from "./viz/PriceChart.jsx"
-import DotPlotFarm from "./viz/DotPlotFarm.jsx"
-import CropLossTM from "./viz/CropLossTM.jsx"
-import Chart from "./viz/Chart.jsx"
+import CountyMap from "../viz/CountyMap.jsx"
+import PriceChart from "../viz/PriceChart.jsx"
+import DotPlotFarm from "../viz/DotPlotFarm.jsx"
+import CropLossTM from "../viz/CropLossTM.jsx"
+import Chart from "../viz/Chart.jsx"
 
-function MainContent(props) {
+const MainContent = forwardedRef((props, ref) => {
+
+const scroll = (ref) => ref.current.scrollIntoView()
+const ref4 = props.refs[3];
+
 
 return (
+
 
 
         <div className="maindiv">
@@ -19,7 +24,7 @@ return (
                         <Card.Title>Local Effects of Climate Change</Card.Title>
                         <hr/>
 
-                            <Card.Body>
+                            <Card.Body ref={props.refs[0]}>
 
                                 <Row>
                                     <Col>
@@ -96,7 +101,7 @@ return (
                     <Card variant="light" bg="light">   
 
                         <hr/>
-                        <Card.Title>Our Mission</Card.Title>
+                        <Card.Title ref={scroll}>Our Mission</Card.Title>
                         <hr/>
                     
                             <Card.Body>
@@ -130,5 +135,5 @@ return (
 
 
 )
-}
+});
 export default MainContent;

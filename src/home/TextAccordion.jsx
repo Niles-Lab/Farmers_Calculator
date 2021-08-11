@@ -1,10 +1,10 @@
 import React from 'react';
 import { Accordion, Card, Row, Col, Container } from 'react-bootstrap';
-import CountyMap from "./viz/CountyMap.jsx"
-import PriceChart from "./viz/PriceChart.jsx"
-import DotPlotFarm from "./viz/DotPlotFarm.jsx"
-import CropLossTM from "./viz/CropLossTM.jsx"
-import Chart from "./viz/Chart.jsx"
+import CountyMap from "../viz/CountyMap.jsx"
+import PriceChart from "../viz/PriceChart.jsx"
+import DotPlotFarm from "../viz/DotPlotFarm.jsx"
+import CropLossTM from "../viz/CropLossTM.jsx"
+import Chart from "../viz/Chart.jsx"
 
 function TextAccordion(props) {
 

@@ -1,15 +1,28 @@
 import React, { useRef } from 'react';
-import { Container, Col, Row, Navbar, Nav } from 'react-bootstrap';
+import { Container, Col, Row, Navbar, Nav, Button } from 'react-bootstrap';
 
-import TextAccordion from "./TextAccordion.jsx"
-import MainContent from "./MainContent.jsx"
-import Sources from "./Sources.jsx"
+import TextAccordion from "./home/TextAccordion.jsx"
+import MainContent from "./home/MainContent.jsx"
+import Sources from "./home/Sources.jsx"
 
-
+const scrollTo = (d) => console.log(d.current);
 function Home(props) {
 
+const idxs = [0,1,2,3];
+
 const navs = ["Local Effects of Climate Change", "Individual Action", "What is CBA?", "Resources"];
-let refs = [];
+
+const ref1 = useRef(null);
+const ref2 = useRef(null);
+const ref3 = useRef(null);
+const ref4 = useRef(null);
+let refs = [ref1, ref2, ref3, ref4];
+
+const executeScroll = (ref) => scrollTo(ref);
+
+const onClick = () => {
+	ref3.scrollIntoView({block: 'end', behavior: 'smooth'});
+}
 
 	return (
 
@@ -20,10 +33,10 @@ let refs = [];
 				<Navbar collapseOnSelect expand="sm" variant="light">
 		            <Navbar.Collapse id="responsive-navbar-nav">
 		              <Nav id="sectionnav">
-		              	{navs.map(d => (
-		              		<Nav.Link href="./LoremIpsum">
-		              		{d}
-		              		</Nav.Link>
+		              	{idxs.map(d => (
+		              		<Button onClick={onClick}>
+		              		{navs[d]}
+		              		</Button>
 
 		              		))}
 		              </Nav>
@@ -31,7 +44,7 @@ let refs = [];
 		        </Navbar>
 			</Col>
 			<Col className="box">
-				<MainContent />
+				<MainContent refProp={ref3} refs={refs} />
 			</Col>
 			<Col>
 

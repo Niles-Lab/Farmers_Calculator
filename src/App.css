@@ -15,8 +15,6 @@
   align-items: center;
 }
 div {
-  display: flex;
-  flex-direction: column;
   text-align: center;
 }
 hr {

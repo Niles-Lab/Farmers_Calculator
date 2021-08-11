@@ -1,4 +1,4 @@
-import { React, useRef, forwardedRef } from 'react';
+import { React } from 'react';
 import { Card, Row, Col, Container } from 'react-bootstrap';
 import CountyMap from "../viz/CountyMap.jsx"
 import PriceChart from "../viz/PriceChart.jsx"
@@ -6,10 +6,10 @@ import DotPlotFarm from "../viz/DotPlotFarm.jsx"
 import CropLossTM from "../viz/CropLossTM.jsx"
 import Chart from "../viz/Chart.jsx"
 
-const MainContent = forwardedRef((props, ref) => {
+const MainContent = (props, ref) => {
 
-const scroll = (ref) => ref.current.scrollIntoView()
-const ref4 = props.refs[3];
+//const scroll = (ref) => props.refProp.scrollIntoView()
+//const ref4 = props.refs[3];
 
 
 return (
@@ -21,10 +21,10 @@ return (
                     <Card>
 
                         <hr/>
-                        <Card.Title>Local Effects of Climate Change</Card.Title>
+                        <Card.Title id="0">Local Effects of Climate Change</Card.Title>
                         <hr/>
 
-                            <Card.Body ref={props.refs[0]}>
+                            <Card.Body>
 
                                 <Row>
                                     <Col>
@@ -51,7 +51,7 @@ return (
                     <Card variant="light" bg="light">
 
                         <hr/>
-                        <Card.Title>Individual Action</Card.Title>
+                        <Card.Title id="1">Individual Action</Card.Title>
                         <hr/>
                     
                         <Card.Body>
@@ -80,7 +80,7 @@ return (
                     </Card>
                     <Card>
                         <hr/>
-                        <Card.Title>What is Cost Benefit Analysis?</Card.Title>
+                        <Card.Title id="2">What is Cost Benefit Analysis?</Card.Title>
                         <hr/>
 
                             <Card.Body>
@@ -101,7 +101,7 @@ return (
                     <Card variant="light" bg="light">   
 
                         <hr/>
-                        <Card.Title ref={scroll}>Our Mission</Card.Title>
+                        <Card.Title id="3">Our Mission</Card.Title>
                         <hr/>
                     
                             <Card.Body>
@@ -135,5 +135,5 @@ return (
 
 
 )
-});
+}
 export default MainContent;

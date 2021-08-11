@@ -1,4 +1,6 @@
-
+html {
+  scroll-behavior: smooth;
+}
 .mainnav {
   background-color: #006e53;
   width: 100%;

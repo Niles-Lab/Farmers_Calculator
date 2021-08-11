@@ -42,7 +42,7 @@ function PriceChart(props) {
 	useEffect(() => {
 		drawChart();
 		populateChart();
-	});
+	}, []);
 
 	// Fill the chart with data by changing the width of all bars via webkit animation
 	function fillChart() {

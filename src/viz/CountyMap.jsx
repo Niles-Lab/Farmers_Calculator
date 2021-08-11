@@ -116,7 +116,7 @@ useEffect(() => {
   //             className="states"
   //     />})
 
-})
+}, []);
 
 return (
 

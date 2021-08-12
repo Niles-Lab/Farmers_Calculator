@@ -18,7 +18,7 @@ const Block = (props: { inViewport: boolean }) => {
 };
 
 
-const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
+
 // Define data and constants
 const data = require('./data/LegalStatus.json')
 
@@ -57,6 +57,8 @@ function percentage(d) {
 
 function DotPlotFarm(props) {
 
+
+	const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
@@ -303,10 +305,10 @@ function wrap(text, width) {
 		return (
 
 
-		<div id="dcht" className="m-3">
-			<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />
+			<div id="dcht" className="m-3">
+					<ViewportBlock id="dcht" onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />
+			</div>
 
-		</div>
 
 
 		)

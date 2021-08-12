@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Button, Offcanvas } from 'react-bootstrap';
 import CropLossTM from "../viz/CropLossTM.jsx"
+import CalcForm from "../calc/CalcForm.jsx"
 
-function Sources({name, ...props}) {
+function CalcShow({name, ...props}) {
 
   const [show, setShow] = useState(false);
 
@@ -22,15 +23,8 @@ function Sources({name, ...props}) {
 		          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
 		        </Offcanvas.Header>
 		        <Offcanvas.Body>
-		          Some text as placeholder. In real life you can have the elements you
-		          have chosen. Like, text, images, lists, etc.
-		          <br/>
-		          <br/>
-		          <br/>
-		          <br/>
-		          <br/>
-		          <br/>
-		          <br/>
+											<CalcForm
+												{...props} />
 		        </Offcanvas.Body>
 			</Offcanvas>
 		</>
@@ -38,4 +32,4 @@ function Sources({name, ...props}) {
 		)
 }
 
-export default Sources;
+export default CalcShow;

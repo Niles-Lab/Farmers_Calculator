@@ -3,7 +3,7 @@ import { Container, Col, Row, Navbar, Nav, Button } from 'react-bootstrap';
 
 import TextAccordion from "./home/TextAccordion.jsx"
 import MainContent from "./home/MainContent.jsx"
-import Sources from "./home/Sources.jsx"
+
 
 function Home(props) {
 
@@ -12,7 +12,6 @@ const navs = ["Local Effects of Climate Change", "Individual Action", "What is C
 	return (
 
 		<>
-		<Sources placement={"top"} name={"end"} backdrop={true} scroll={false} />
 		<Row className="maindiv">
 			<Col>
 				<Navbar collapseOnSelect expand="sm" variant="light">

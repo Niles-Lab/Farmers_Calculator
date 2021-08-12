@@ -24,7 +24,7 @@ const Navigation = () => {
               </Nav>
             </Navbar.Collapse>
 
-          <Nav className="logos">
+          <Nav className="logos d-none d-sm-block">
               <Navbar.Brand>
                 <a href="https://uvm.edu/" rel="noreferrer" target="_blank"><Image src={uvm} width="100%"/></a>
               </Navbar.Brand>

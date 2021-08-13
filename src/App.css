@@ -21,22 +21,20 @@ div {
   text-align: center;
 }
 
-tr {
-  min-width: 100%;
-  display: inline-flex;
-}  
-td {
-  min-width: 33.3%;
-}
 .table {
+  margin-left: auto;
+  margin-right: auto;
   overflow: auto;
-  display: block;
-  overflow-wrap: anywhere;
-  position:  relative;
-  table-layout: auto;
-  max-height: 80vh;
+  max-width: 90vw;
+  justify-content: flex-end;
 }
 
+td, th {
+  min-width: 6vw;
+  max-width: 6vw;
+  width: 6vw;
+  overflow: hidden;
+}
 .row {
   flex-direction: row;
   margin-top: 1vh;

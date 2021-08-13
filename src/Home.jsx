@@ -14,7 +14,7 @@ const navs = ["Local Effects of Climate Change", "Individual Action", "What is C
 		<>
 		<Row className="maindiv">
 			<Col>
-				<Navbar collapseOnSelect expand="sm" variant="light">
+				<Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-5">
 		            <Navbar.Collapse id="responsive-navbar-nav">
 		              <Nav id="sectionnav">
 		              	{navs.map((d, idx) => (

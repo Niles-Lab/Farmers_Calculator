@@ -1,26 +1,9 @@
 import React from "react"
 import { Table } from 'react-bootstrap';
 
-const yrs = 2;
 
-const opts = ["WP", "WOP"];
-
-const labels = ["",
-				"Area", 
-				"Inputted Land", 
-				"Cost Per...", 
-				"Cost Per...(" + yrs + " yrs)", 
-				"Return Per...", 
-				"Return Per...(" + yrs + " yrs)", 
-				"Profit Per...", 
-				"Profit Per...(" + yrs + " yrs)", 
-				"Total Cost",
-				"Total Cost...(" + yrs + " yrs)",
-				"Total Revenue",
-				"Total Revenue...(" + yrs + " yrs)",
-				"NPV"]
-
-
+const opts = ["", "WP", "WOP"];
+let keyCount = 0;
 
 class Calculator extends React.Component {
 
@@ -53,48 +36,48 @@ calculate(land, yrs) {
 totalManualLand() {
 	let land = 0;
 	this.props.crops.forEach(crop => land += parseFloat(crop.amount))
-	return [land.toFixed(2), 0];
+	return ["Inputted Land", land.toFixed(2), 0];
 }
 costPer() {
-	return [(this.prop.land * 5).toFixed(2), (this.prop.land * 3).toFixed(2)];
+	return ["Cost Per " + "Tree", (this.prop.land * 5).toFixed(2), (this.prop.land * 3).toFixed(2)];
 }
 costPerYr(yrs) {
 	const costs = this.costPer();
-	return [(costs[0] * 365).toFixed(2), 0];
+	return [costs[0] + "(" + yrs + " yrs)", (costs[1] * 365).toFixed(2), (costs[2] * 365).toFixed(2)];
 }
 returnPer() {
-	return [100, 100];
+	return ["Return Per " + "Tree", 100, 100];
 }
 returnPerYr(yrs) {
 	const costs = this.returnPer();
-	return [costs[0] * 365, costs[1] * 365];
+	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
 }
 profitPer() {
-	return [100, 100];
+	return ["Profie Per " + "Tree", 100, 100];
 }
 profitPerYr(yrs) {
 	const costs = this.profitPer();
-	return [costs[0] * 365, costs[1] * 365];
+	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
 }
 totalProjArea(area) {
-	return [area, area];
+	return ["Area", area, area];
 }
 totalCost() {
-	return [100, 100];
+	return ["Total Cost", 100, 100];
 }
 totalCostYr(yrs) {
 	const costs = this.totalCost();
-	return [costs[0] * 365, costs[1] * 365];
+	return [costs[0] + "(" + yrs + " yrs)", costs[1] * 365, costs[2] * 365];
 }
 totalRevenue(yrs) {
-	return [101010, 100000];
+	return ["Total Revenue", 100000, 100000];
 }
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
 // NPV = PV(B) - PV(C)
 npv() {
 	var revenue = this.totalRevenue();
 	var cost = this.totalCost();
-	return [revenue[0]-cost[0], revenue[1]-cost[1]];
+	return ["NPV", revenue[1]-cost[1], revenue[2]-cost[2]];
 }
 
 constructor(props) {
@@ -103,7 +86,9 @@ constructor(props) {
 	this.prop = this.props;
 }
 
-
+genKey() {
+	return keyCount++;
+}
 
 // handleChange(event) {
 
@@ -117,48 +102,27 @@ render() {
 	return (
 
 		<>
-			<Table className="box" className="mt-5" responsive="lg" flush striped bordered hover>
+			<Table className="box" responsive="lg" striped bordered hover>
 				<thead>
-
+					<tr>
+					{opts.map(opt => (
+						<td key={opts.indexOf(opt)}>{opt}</td>
+						))}
+					</tr>
 				</thead>
 				<tbody>
-						<tr>
-							<td></td>
-
-							<tr>
-							{labels.map((label,idx) => (
-								
-									<th key={idx}>
-										{label}
-									</th>
-								
-								))}
-							</tr>
-
+					{rows.map(row => (
+						<tr key={'r'+rows.indexOf(row)}>
+						{row.map(col => (
+								<td key={this.genKey()}>{col}</td>
+							))}
 						</tr>
-						{this.props.options.map((opt,i) => (
-							<tr key={i}>
-								<td>
-								{opt}
-								</td>
-									{opts.map((wp,j) => (
-									<tr>
-										<td>{wp}</td>
-										{rows.map((row,k) => (
-
-											<td key={k}>
-												{row[j]}
-											</td>
-
-											))}
-									</tr>
-									))}
-							</tr>
-
 						))}
 				</tbody>
 			</Table>
 		</>
+
+
 
 		)
 }

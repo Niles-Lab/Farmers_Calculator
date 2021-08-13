@@ -5,7 +5,7 @@ import CalcForm from "../calc/CalcForm.jsx"
 
 function CalcShow({name, ...props}) {
 
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const toggleShow = () => setShow(d => !d);
@@ -14,11 +14,11 @@ function CalcShow({name, ...props}) {
 	return (
 
 		<>
-			<h1 bg="secondary" onClick={toggleShow}>
+			<Button bg="secondary" onClick={toggleShow}>
 				Show Calculator
-			</h1>
+			</Button>
 
-			<Offcanvas show={show} onHide={handleClose} {...props}>
+			<Offcanvas className="my-5" show={show} onHide={handleClose} {...props}>
 				<hr className="my-0" />
 		        <Offcanvas.Body>
 											<CalcForm

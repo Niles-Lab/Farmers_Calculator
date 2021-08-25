@@ -21,7 +21,7 @@ const start = 'start';
 
 let data = {
 	unit: "Acres",
-	land: 120,
+	land: 123,
 	method: [],
 	selected: [],
 	crops: []
@@ -76,14 +76,6 @@ return (
 									</Tab>
 									))}
 							</Tabs>*/}
-							<Calculator
-								options={options}
-								land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
-								dairy={dairy}
-								acres={unit}
-								crops={crops}/>
-
-
 						<CalcShow backdrop={false} scroll={true} placement={start}
 						onChange={() => forceUpdate()}
 						options={options}
@@ -98,6 +90,12 @@ return (
 						method={method}
 						setMethod={setMethod} />
 
+						<Calculator
+							options={options}
+							land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
+							dairy={dairy}
+							acres={unit}
+							crops={crops}/>
 
 		</>
 

@@ -26,46 +26,32 @@ function CalcShow({name, ...props}) {
 	return (
 
 		<>
-{/*			<Button bg="secondary" onClick={toggleShow}>
-				Show Calculator
-			</Button>
-
-			<Offcanvas className="my-5" show={show} onHide={handleClose} {...props}>
-				<hr className="my-0" />
-		        <Offcanvas.Body>
-											<CalcForm
-												{...props} />
-		        </Offcanvas.Body>
-			</Offcanvas>*/}
-        <button
-          id="menu-button"
+			<div className="stickyleft"
+					id="menu-button"
           aria-label="Menu"
           aria-controls="menu"
           aria-expanded={show}
-          onClick={toggleShow}
-        >
-          Click here
-        </button>
+          onClick={toggleShow}>
+				<BsChevronDoubleRight />
+				<BsChevronDoubleRight />
+			</div>
+
+
         <OffCanvas
         	height={"100%"}
-mainContainerSelector={"#menu-button"}
+
+					// mainContainerSelector={"#menu-button"}
         	style={style}
           isOpen={show}
           onClose={handleClose}
           labelledby="menu-button"
         >
 					<CalcForm
+        	marginTop={"10vh"}
 						handleClose={handleClose}
 						{...props} />    	
         </OffCanvas>
-			<div className="stickyleft">
-				<BsChevronDoubleRight
-				  id="menu-button"
-          aria-label="Menu"
-          aria-controls="menu"
-          aria-expanded={show}
-          onClick={toggleShow} />
-			</div>
+
 		</>
 
 		)

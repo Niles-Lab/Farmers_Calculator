@@ -62,12 +62,9 @@ td, th {
     outline:none;
     color: black;
 }
-.offcanvas {
-
-}
 .stickyleft {
   position: absolute;
+  flex-direction: column;
   height: 20vh;
-  vertical-align: middle;
   border: 1px solid black;
 }

@@ -9,7 +9,10 @@ html {
   margin-top: 20%;
   flex-direction: column !important;
 }
-
+#overlay {
+  background: black;
+  color: red;
+}
 .logos {
   background-color: rgba(220, 220, 220, 0.8);
   align-items: center;
@@ -26,7 +29,7 @@ div {
   margin-right: auto;
   overflow: auto;
   max-width: 90vw;
-  justify-content: flex-end;
+
 }
 
 td, th {
@@ -63,9 +66,6 @@ td, th {
     overflow: hidden;
     outline:none;
     color: black;
-}
-.box {
-  background-color: rgba(220, 220, 220, 0.8);
 }
 .offcanvas {
 

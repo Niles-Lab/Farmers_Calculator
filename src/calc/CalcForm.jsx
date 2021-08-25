@@ -2,6 +2,7 @@ import React from "react";
 import { Form, Col, Row, Container, Button, Dropdown } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import DDSelect from './DDSelect.jsx'
+import { BsXSquareFill, BsX } from "react-icons/bs";
 
 let MAX_CROPS = 10;
 
@@ -74,9 +75,14 @@ function removeCrop() {
 
 	return (
 		<Container>
-			<Form className="box">
+			<Form>
 			<Form.Group>
-				<h1>Calculator</h1>
+
+				<h1>Calculator <BsX onClick={props.handleClose} /></h1>
+
+
+
+
 				<hr />
 			
 				{

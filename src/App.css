@@ -9,10 +9,6 @@ html {
   margin-top: 20%;
   flex-direction: column !important;
 }
-#overlay {
-  background: black;
-  color: red;
-}
 .logos {
   background-color: rgba(220, 220, 220, 0.8);
   align-items: center;
@@ -31,7 +27,6 @@ div {
   max-width: 90vw;
 
 }
-
 td, th {
   min-width: 6vw;
   max-width: 6vw;
@@ -69,4 +64,10 @@ td, th {
 }
 .offcanvas {
 
+}
+.stickyleft {
+  position: absolute;
+  height: 20vh;
+  vertical-align: middle;
+  border: 1px solid black;
 }

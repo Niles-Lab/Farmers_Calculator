@@ -1,8 +1,10 @@
 import React, { useState, useEffect, Fragment } from 'react';
-import { Container, Button, CloseButton } from 'react-bootstrap';
+import { Container, Button } from 'react-bootstrap';
+import { BsXSquareFill, BsChevronDoubleRight } from "react-icons/bs";
 import CropLossTM from "../viz/CropLossTM.jsx"
 import OffCanvas from 'react-aria-offcanvas'
 import CalcForm from "../calc/CalcForm.jsx"
+
 
 function CalcShow({name, ...props}) {
 
@@ -11,7 +13,8 @@ function CalcShow({name, ...props}) {
 			background: "none"
 		},
 		content: {
-  		background: "rgba(220, 220, 220, 0.8)"
+  		background: "rgba(220, 220, 220, 0.8)",
+  		minWidth: "25%"
 		}
 	}
   const [show, setShow] = useState(false);
@@ -34,7 +37,6 @@ function CalcShow({name, ...props}) {
 												{...props} />
 		        </Offcanvas.Body>
 			</Offcanvas>*/}
-
         <button
           id="menu-button"
           aria-label="Menu"
@@ -46,18 +48,24 @@ function CalcShow({name, ...props}) {
         </button>
         <OffCanvas
         	height={"100%"}
-        	width={"25%"}
+mainContainerSelector={"#menu-button"}
         	style={style}
           isOpen={show}
           onClose={handleClose}
           labelledby="menu-button"
         >
-          <button onClick={handleClose}>Close</button>
-          <CloseButton />
-											<CalcForm
-												{...props} />    	
+					<CalcForm
+						handleClose={handleClose}
+						{...props} />    	
         </OffCanvas>
-
+			<div className="stickyleft">
+				<BsChevronDoubleRight
+				  id="menu-button"
+          aria-label="Menu"
+          aria-controls="menu"
+          aria-expanded={show}
+          onClick={toggleShow} />
+			</div>
 		</>
 
 		)

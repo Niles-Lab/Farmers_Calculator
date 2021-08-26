@@ -12,34 +12,27 @@ const navs = ["Local Effects of Climate Change", "Individual Action", "What is C
 	return (
 
 		<>
-		<Row className="maindiv">
-			<Col>
-				<Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-5">
-		            <Navbar.Collapse id="responsive-navbar-nav">
-		              <Nav id="sectionnav">
-		              	{navs.map((d, idx) => (
-		              		<Nav.Link href={"#" + idx}>
-		              		{d}
-		              		</Nav.Link>
-		              		))}
-		              </Nav>
-		            </Navbar.Collapse>
-		        </Navbar>
-			</Col>
-			<Col className="box">
-				<MainContent sections={navs} />
-			</Col>
-			<Col>
+			<Row>
+				<Col>
+					<Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-5">
+			            <Navbar.Collapse id="responsive-navbar-nav">
+			              <Nav id="sectionnav">
+			              	{navs.map((d, idx) => (
+			              		<Nav.Link href={"#" + idx}>
+			              		{d}
+			              		</Nav.Link>
+			              		))}
+			              </Nav>
+			            </Navbar.Collapse>
+			        </Navbar>
+				</Col>
+				<Col>
+					<MainContent sections={navs} />
+				</Col>
+				<Col>
 
-			</Col>
-
-
-{/*			<TextAccordion />*/}
-
+				</Col>
 			</Row>
-
-
-
 		</>
 
 		)

@@ -1,11 +1,12 @@
 import { React } from 'react';
-import { Card, Row, Col, Container, Navbar, Nav, ListGroup } from 'react-bootstrap';
+import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
 import CountyMap from "./viz/CountyMap.jsx"
 import PriceChart from "./viz/PriceChart.jsx"
 import DotPlotFarm from "./viz/DotPlotFarm.jsx"
 import CropLossTM from "./viz/CropLossTM.jsx"
 import Chart from "./viz/Chart.jsx"
 import { BsCheck } from "react-icons/bs";
+import mental_map from './images/mental_map.png';
 
 const Perceptions = (props, ref) => {
 
@@ -19,9 +20,9 @@ return (
         <div>
         <Row>
             <Col>
-                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-5">
+                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
-                      <Nav id="sectionnav">
+                      <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (
                             <Nav.Link href={"#" + idx}>
                             {d}
@@ -34,10 +35,9 @@ return (
             <Col>
                     <Card>
 
-                        <hr/>
-                        <Card.Title id="0">Project Proposal</Card.Title>
 
-                            <h4></h4>
+                        <Card.Title id="0" className="mt-5"></Card.Title>
+
                             <blockquote className="blockquote mb-0 mx-5">
                               <p>
                               <em>
@@ -75,19 +75,34 @@ return (
                         <hr/>
                     
                         <Card.Body>
+                        <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
                             <Row>
                                 <Col>
                                 <ListGroup>
-                                  <ListGroup.Item variant="success"><b>5-Stage Research Goals</b></ListGroup.Item>
-                                  <ListGroup.Item> Assess farmer/agricultural advisor perceptions of Climate Change</ListGroup.Item>
-                                  <ListGroup.Item>Understand educational needs and learning styles with focus groups</ListGroup.Item>
-                                  <ListGroup.Item>Develop tools, resources and information to understand and plan for climate change</ListGroup.Item>
-                                  <ListGroup.Item>Work with community partners for outreach and evaluation of materials with small and medium farmers in Maine and Vermont</ListGroup.Item>
-                                  <ListGroup.Item>Expand the project through partnership with the USDA Northeast Climate Hub</ListGroup.Item>  
+                                  <ListGroup.Item variant="success">5-Stage Research Goals</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="#l0"> Assess farmer/agricultural advisor perceptions of Climate Change</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="#l1">Understand educational needs and learning styles with focus groups</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="#l2">Develop tools, resources and information to understand and plan for climate change</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="#l3">Work with community partners for outreach and evaluation of materials with small and medium farmers in Maine and Vermont</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="#l4">Expand the project through partnership with the USDA Northeast Climate Hub</ListGroup.Item>  
                                 </ListGroup>
                                 </Col>
-                                <Col></Col>
+                                <Col>      
+                                    <Tab.Content>
+                                        <Tab.Pane eventKey="#l0">
+                                          <Image src={mental_map} fluid />
+                                          <cite>Aggregated farmer mental model of the concepts and relationships mentioned by ≥ 10% of farmer
+                                            participants (n = 33); “Relationship Mentions” and “Concept Mentions” reflect the percentage of farmers who
+                                            included that relationship or concept in their mental model; color indicates the concept category</cite>
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="#l1">
+                                          <Image src="https://via.placeholder.com/1000" fluid />
+
+                                        </Tab.Pane>
+                                  </Tab.Content>
+                                </Col>
                             </Row>
+                        </Tab.Container>
                         </Card.Body>  
                     </Card>
                     <Card>

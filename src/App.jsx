@@ -6,8 +6,8 @@ import './App.css';
 import Home from './Home.jsx'
 import Navigation from './Navigation.jsx'
 import FormController from './FormController.jsx'
-import LoremIpsum from './LoremIpsum.jsx'
-import Perceptions from './Perceptions.jsx'
+import Resources from './Resources.jsx'
+import Research from './Research.jsx'
 
 function App() {
 // style={{ backgroundImage: `url(${background})` }}
@@ -19,8 +19,8 @@ function App() {
 
         <Switch>
           <Route path='/FormController' component={FormController}/>
-          <Route path='/LoremIpsum' component={LoremIpsum}/>
-          <Route path='/Perceptions' component={Perceptions}/>
+          <Route path='/Resources' component={Resources}/>
+          <Route path='/Research' component={Research}/>
           <Route path='/' component={Home}/>
         </Switch>
 

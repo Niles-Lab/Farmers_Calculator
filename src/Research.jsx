@@ -96,8 +96,16 @@ return (
                                             included that relationship or concept in their mental model; color indicates the concept category</cite>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="#l1">
-                                          <Image src="https://via.placeholder.com/1000" fluid />
-
+                                          <Image src="https://placekitten.com/g/1000" fluid />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="#l2">
+                                          <Image src="https://placekitten.com/g/800" fluid />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="#l3">
+                                          <Image src="https://placekitten.com/g/700" fluid />
+                                        </Tab.Pane>
+                                        <Tab.Pane eventKey="#l4">
+                                          <Image src="https://placekitten.com/g/810" fluid />
                                         </Tab.Pane>
                                   </Tab.Content>
                                 </Col>
@@ -148,7 +156,7 @@ return (
                                     https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT
                                     </Col>
                                     <Col>
-                                        <CountyMap />
+                                  
                                     </Col>
                                 </Row>
                                 <Chart />

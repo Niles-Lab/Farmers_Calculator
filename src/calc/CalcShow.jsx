@@ -26,14 +26,15 @@ function CalcShow({name, ...props}) {
 	return (
 
 		<>
-			<div className="stickyleft"
+			<div className="stickyleft rounded-right"
 					id="menu-button"
           aria-label="Menu"
           aria-controls="menu"
           aria-expanded={show}
           onClick={toggleShow}>
-				<BsChevronDoubleRight />
-				<BsChevronDoubleRight />
+				<BsChevronDoubleRight className="white" />
+
+				<h5 className="sideways">Show Calculator</h5>
 			</div>
 
 

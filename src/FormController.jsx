@@ -18,7 +18,7 @@ const [, updateState] = React.useState();
 const forceUpdate = React.useCallback(() => updateState({}), []);
 const start = 'start';
 
-
+// Default values for calculator
 let data = {
 	unit: "Acres",
 	land: 123,
@@ -37,6 +37,8 @@ return (
 
 		<>
 
+
+						{/*Calculator Input UI*/}
 						<CalcShow backdrop={false} scroll={true} placement={start}
 						onChange={() => forceUpdate()}
 						options={options}
@@ -51,6 +53,7 @@ return (
 						method={method}
 						setMethod={setMethod} />
 
+						{/*Calculator Output Table*/}
 						<Calculator
 							options={options}
 							land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}

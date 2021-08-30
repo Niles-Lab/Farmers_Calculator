@@ -39,18 +39,17 @@ function CalcShow({name, ...props}) {
 
 
         <OffCanvas
-        	height={"100%"}
-
-					// mainContainerSelector={"#menu-button"}
-        	style={style}
+          height={"100%"}
+		  // mainContainerSelector={"#menu-button"}
+          style={style}
           isOpen={show}
           onClose={handleClose}
           labelledby="menu-button"
         >
-					<CalcForm
+			<CalcForm
         	marginTop={"10vh"}
-						handleClose={handleClose}
-						{...props} />    	
+			handleClose={handleClose}
+			{...props} />    	
         </OffCanvas>
 
 		</>

@@ -24,7 +24,7 @@ let data = {
 	land: 123,
 	method: [],
 	selected: [],
-	crops: []
+	crops: [{ type: "Unknown", amount: 0, idx: 0 }]
 };	
 
 const [land, setLand] = useState(data.land);
@@ -37,45 +37,6 @@ return (
 
 		<>
 
-{/*			<Row>
-				<Col className="my-5" sm={6}>
-					<CalcForm
-						onChange={() => forceUpdate()}
-						options={options}
-						land={land}
-						setLand={setLand}
-						dairy={dairy}
-						setDairy={setDairy}
-						unit={unit}
-						setUnit={setUnit}
-						crops={crops}
-						setCrops={setCrops}
-						method={method}
-						setMethod={setMethod} />
-				</Col>
-				<Col sm={6}>
-				</Col>
-			</Row>*/}
-
-{/*							<Tabs>
-								{options.map(tab => (
-									<Tab 
-										eventKey={tab}
-										title={tab}
-										key={tab}
-										// hidden={method.indexOf(tab) > -1 ? false : true}
-										disabled={method.indexOf(tab) > -1 ? false : true}>
-
-										<Calculator
-											options={options}
-											land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
-											dairy={dairy}
-											acres={unit}
-											crops={crops}
-											method={tab}/>
-									</Tab>
-									))}
-							</Tabs>*/}
 						<CalcShow backdrop={false} scroll={true} placement={start}
 						onChange={() => forceUpdate()}
 						options={options}

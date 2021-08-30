@@ -80,9 +80,6 @@ function removeCrop() {
 
 				<h1>Calculator <BsX onClick={props.handleClose} /></h1>
 
-
-
-
 				<hr />
 			
 				{

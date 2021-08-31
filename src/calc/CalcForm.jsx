@@ -74,7 +74,7 @@ function removeCrop() {
 }
 
 	return (
-		<Container>
+		<Container className="calc">
 			<Form>
 			<Form.Group>
 

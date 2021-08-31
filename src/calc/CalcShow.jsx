@@ -26,17 +26,17 @@ function CalcShow({name, ...props}) {
 	return (
 
 		<>
-			<div className="stickyleft rounded-right"
-					id="menu-button"
-          aria-label="Menu"
-          aria-controls="menu"
-          aria-expanded={show}
-          onClick={toggleShow}>
-				<BsChevronDoubleRight className="white" />
 
-				<h5 className="sideways">Show Calculator</h5>
-			</div>
+				<div className="stickyleft rounded-right"
+						id="menu-button"
+	          aria-label="Menu"
+	          aria-controls="menu"
+	          aria-expanded={show}
+	          onClick={toggleShow}>
+					<BsChevronDoubleRight className="white" />
 
+					<h5 className="sideways">Show Calculator</h5>
+				</div>
 
         <OffCanvas
           height={"100%"}
@@ -46,11 +46,11 @@ function CalcShow({name, ...props}) {
           onClose={handleClose}
           labelledby="menu-button"
         >
-			<CalcForm
-        	marginTop={"10vh"}
-			handleClose={handleClose}
-			{...props} />    	
-        </OffCanvas>
+
+					<CalcForm
+					handleClose={handleClose}
+					{...props} />    	
+      	</OffCanvas>
 
 		</>
 

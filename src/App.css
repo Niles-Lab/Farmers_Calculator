@@ -69,6 +69,7 @@ td, th {
   width: 7vh;
   transform: translate(0, 15vh);
   background-color: rgba(0, 110, 82, 0.8);
+  cursor: pointer;
 }
 .sideways {
   transform:  translateX(-50%) translateY(-50%) rotate(-90deg);
@@ -81,4 +82,10 @@ td, th {
 }
 .white {
   color: #fff;
+}
+.calc {
+  position: relative;
+  top: 5%;
+  width: 100%;
+  padding: 0;
 }

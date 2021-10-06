@@ -1,6 +1,5 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState } from 'react';
-import { Row, Col, Container, Tabs, Tab } from 'react-bootstrap';
 import CalcForm from "./calc/CalcForm.jsx"
 import Calculator from "./calc/Calculator.jsx"
 import CalcShow from "./calc/CalcShow.jsx"
@@ -22,16 +21,38 @@ const start = 'start';
 let data = {
 	unit: "Acres",
 	land: 123,
+	length: 10,
 	method: [],
 	selected: [],
 	crops: [{ type: "Unknown", amount: 0, idx: 0 }]
 };	
+
+// let silvoptions = [
+// 	{grazingRevenue: [450, "$", "Grazing Revenue"]},
+// 	{grazingBaseCost: [9.50, "$", "Grazing Cost"]},
+// 	{treeSpacing: [30, "ft", "Tree Spacing"]},
+// 	{treePlanted: [48, "tr/acre", "Trees Per Acre"]},
+// 	{treeCost: [2.50, "$/yr", "Tree Cost"]},
+// 	{treeCropYield: ["$5", "$/unit", "Tree Crop Yield"]},
+// 	{productivity: [80, "%", "Effective Property"]}
+// ]
+let silvoptions = [
+	[450, "$", "Grazing Revenue"],
+	[9.50, "$", "Grazing Cost"],
+	[30, "ft", "Tree Spacing"],
+	[48, "tr/acre", "Trees Per Acre"],
+	[2.50, "$/yr", "Tree Cost"],
+	[5, "$/unit", "Tree Crop Yield"],
+	[80, "%", "Effective Property"]
+]
 
 const [land, setLand] = useState(data.land);
 const [dairy, setDairy] = useState(data.dairy);
 const [crops, setCrops] = useState(data.crops);
 const [method, setMethod] = useState(data.method);
 const [unit, setUnit] = useState(data.unit);
+
+const [silvoPasture, setSilvopasture] = useState(silvoptions);
 
 return (
 
@@ -51,7 +72,11 @@ return (
 						crops={crops}
 						setCrops={setCrops}
 						method={method}
-						setMethod={setMethod} />
+						setMethod={setMethod}
+						silvoPasture={silvoPasture}
+						setSilvopasture={setSilvopasture}
+
+						 />
 
 						{/*Calculator Output Table*/}
 						<Calculator

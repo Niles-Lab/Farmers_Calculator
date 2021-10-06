@@ -35,6 +35,12 @@ function handleCropChange(event) { // Special handler for the CropInput Componen
 
 }
 
+function handleChange(event,idx) {
+
+	props.silvoPasture[idx][0] = event.target.value;
+	props.setSilvopasture(props.silvoPasture);
+
+}
 
 	return (
 <Accordion.Item eventKey="0">
@@ -43,54 +49,28 @@ function handleCropChange(event) { // Special handler for the CropInput Componen
 	</Accordion.Header>
 	<Accordion.Body>
 	<Form>
-		<Form.Group>
-			<Row>
-				<Col>
-				Length of Project(Yrs)
+		{props.silvoPasture.map((opt,idx) => (
+			<Form.Group>
+				<Row>
+					<Col>
+						{opt[2]}
+					</Col>
+					<Col>
+					<Form.Control
+						key={idx}
+						placeholder="..."
+						name={opt[2]}
+						min={opt[0]*10}
+						type="number"
+						step={1}
+						idx={idx}
+						value={opt[0]}
+						onChange = {(event) => {handleChange(event,idx)}} />
 				</Col>
-				<Col>
-				<Form.Control
-					placeholder="..."
-					name="land"
-					min="0"
-					type="number"
-					step="0.1"
-					value={props.land}
-					onChange = {(event) => {props.setLand(event.target.value)}} />
-				</Col>
-			</Row>
-			<Row>
-				<Col>
-				Tree Spacing(ft)
-				</Col>
-				<Col>
-				<Form.Control
-					placeholder="..."
-					name="land"
-					min="0"
-					type="number"
-					step="0.1"
-					value={props.land}
-					onChange = {(event) => {props.setLand(event.target.value)}} />
-				</Col>
-			</Row>
+				</Row>
+			</Form.Group>
 
-			<Row>
-				<Col>
-				Length of Project(Yrs)
-				</Col>
-				<Col>
-				<Form.Control
-					placeholder="..."
-					name="land"
-					min="0"
-					type="number"
-					step="0.1"
-					value={props.land}
-					onChange = {(event) => {props.setLand(event.target.value)}} />
-				</Col>
-			</Row>
-		</Form.Group>
+			))}
 	</Form>
 	</Accordion.Body>
 </Accordion.Item>

@@ -1,16 +1,19 @@
+/**
+ * 
+ * CalcFormAll - demo model to include multiple method calculator options in one module
+ * 
+ **/
+
 import React from "react";
-import { Form, Col, Row, Container, Button, Dropdown } from 'react-bootstrap';
+import { Form, Col, Row, Container, Button, Dropdown, Accordion } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import DDSelect from './DDSelect.jsx'
 import { BsXSquareFill, BsX } from "react-icons/bs";
+import SilvopastureCalc from './SilvopastureCalc.jsx';
 
 let MAX_CROPS = 10;
 
-
-
-
 function CalcForm(props) {
-
 
 // Global variables for option selections
 const opts = { // Calculate Options for "Category": ["Methods..."]
@@ -76,9 +79,8 @@ function removeCrop() {
 	return (
 		<Container className="calc">
 			<Form>
+			
 			<Form.Group>
-
-				<h1>Calculator <BsX onClick={props.handleClose} /></h1>
 
 				<hr />
 			
@@ -119,6 +121,24 @@ function removeCrop() {
 					</Col>
 				</Row>
 
+
+				<Row>
+					<Col>
+					Length of Project(Yrs)
+					</Col>
+					<Col>
+					<Form.Control
+						placeholder="..."
+						name="land"
+						min="0"
+						type="number"
+						step="0.1"
+						value={props.land}
+						onChange = {(event) => {props.setLand(event.target.value)}} />
+					</Col>
+				</Row>
+
+
 				{
 				// Check box
 				}
@@ -140,7 +160,7 @@ function removeCrop() {
 				{
 				// Multi-select for different techniques
 				}
-				<Row className="sel">
+{/*				<Row className="sel">
 				<Form.Group>
 					<Form.Label>Calculate Costs For:</Form.Label>
 				
@@ -156,9 +176,11 @@ function removeCrop() {
 						))}
 					</Form.Control>
 				</Form.Group>
-				</Row>
+				</Row>*/}
 
-				<Row>
+
+
+{/*				<Row>
 					<Col>
 					Alternatively:  
 					</Col>
@@ -168,7 +190,8 @@ function removeCrop() {
 						method={props.method}
 						setMethod={props.setMethod}/>
 					</Col>
-				</Row>
+				</Row>*/}
+
 
 				<Form.Label>I Own...</Form.Label>
 
@@ -189,11 +212,23 @@ function removeCrop() {
 						{props.crops.map(cr => ( // Map Variate Crop Inputs
 							<CropInput unit={props.unit} onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
 						))}
-					</Container>	
-				
+					</Container>
+
+
+				<Accordion flush defaultActiveKey="0">
+
+					<SilvopastureCalc {...props} />
+
+				</Accordion>
+			
+
 
 			</Form.Group>
+
+
+
 			</Form>
+			
 
 		
 		</Container>

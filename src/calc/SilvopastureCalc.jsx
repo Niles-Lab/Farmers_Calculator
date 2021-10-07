@@ -5,9 +5,8 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Button, Dropdown, Accordion, Card } from 'react-bootstrap';
+import { Form, Col, Row, Container, Accordion } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
-import DDSelect from './DDSelect.jsx'
 import { BsXSquareFill, BsX } from "react-icons/bs";
 
 let MAX_CROPS = 10;
@@ -35,12 +34,18 @@ function handleCropChange(event) { // Special handler for the CropInput Componen
 
 }
 
-function handleChange(event,idx) {
+function handleChange(event,key,value) {
 
-	props.silvoPasture[idx][0] = event.target.value;
-	props.setSilvopasture(props.silvoPasture);
+	let opts = props.silvoPasture;
+
+	opts[key][0] = parseFloat(event.target.value);
+	
+	props.setSilvopasture(silvoPasture => ({
+		...props.silvoPasture
+	}));
 
 }
+
 
 	return (
 <Accordion.Item eventKey="0">
@@ -49,23 +54,23 @@ function handleChange(event,idx) {
 	</Accordion.Header>
 	<Accordion.Body>
 	<Form>
-		{props.silvoPasture.map((opt,idx) => (
+
+		{Object.entries(props.silvoPasture).map(([key,value]) => (
 			<Form.Group>
 				<Row>
 					<Col>
-						{opt[2]}
+						{value[2]}
 					</Col>
 					<Col>
 					<Form.Control
-						key={idx}
 						placeholder="..."
-						name={opt[2]}
-						min={opt[0]*10}
+						name={value[2]}
 						type="number"
-						step={1}
-						idx={idx}
-						value={opt[0]}
-						onChange = {(event) => {handleChange(event,idx)}} />
+						min={0}
+						step={0.5}
+						key={key}
+						value={props.silvoPasture[key][0]}
+						onChange = {(event) => {handleChange(event,key,value)}} />
 				</Col>
 				</Row>
 			</Form.Group>

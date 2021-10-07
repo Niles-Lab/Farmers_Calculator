@@ -5,7 +5,7 @@ import './App.css';
 
 import Home from './Home.jsx'
 import Navigation from './Navigation.jsx'
-import FormController from './FormController.jsx'
+import FormController from './calc/FormController.jsx'
 import Resources from './Resources.jsx'
 import Research from './Research.jsx'
 

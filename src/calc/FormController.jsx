@@ -1,8 +1,8 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState } from 'react';
-import CalcForm from "./calc/CalcForm.jsx"
-import Calculator from "./calc/Calculator.jsx"
-import CalcShow from "./calc/CalcShow.jsx"
+import CalcForm from "./CalcForm.jsx"
+import Calculator from "./Calculator.jsx"
+import CalcShow from "./CalcShow.jsx"
 
 function FormController() {
 
@@ -36,6 +36,18 @@ let data = {
 // 	{treeCropYield: ["$5", "$/unit", "Tree Crop Yield"]},
 // 	{productivity: [80, "%", "Effective Property"]}
 // ]
+
+// let silvoptions = {
+// 	grazingRevenue: [450, "$", "Grazing Revenue"],
+// 	grazingCost: [9.50, "$", "Grazing Cost"],
+// 	treeSpacing: [30, "ft", "Tree Spacing"],
+// 	treesPerAcre: [48, "tr/acre", "Trees Per Acre"],
+// 	treeCost: [2.50, "$/yr", "Tree Cost"],
+// 	treeCropYield: [5, "$/unit", "Tree Crop Yield"],
+// 	effectiveProperty: [80, "%", "Effective Property"]
+// }
+
+
 let silvoptions = [
 	[450, "$", "Grazing Revenue"],
 	[9.50, "$", "Grazing Cost"],
@@ -45,6 +57,7 @@ let silvoptions = [
 	[5, "$/unit", "Tree Crop Yield"],
 	[80, "%", "Effective Property"]
 ]
+
 
 const [land, setLand] = useState(data.land);
 const [dairy, setDairy] = useState(data.dairy);

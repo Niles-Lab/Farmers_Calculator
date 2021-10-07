@@ -209,7 +209,7 @@ function removeCrop() {
 					    </Row>
 
 					<Container>
-						{props.crops.map(cr => ( // Map Variate Crop Inputs
+						{props.crops.map(cr => ( // Map Various Crop Inputs
 							<CropInput unit={props.unit} onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
 						))}
 					</Container>

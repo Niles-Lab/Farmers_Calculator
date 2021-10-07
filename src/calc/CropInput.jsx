@@ -17,10 +17,6 @@ state = {
 	invalid: false
 };	
 
-
-
-
-
 handleChange(event) {
 
 

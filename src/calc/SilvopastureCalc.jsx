@@ -5,34 +5,13 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Accordion } from 'react-bootstrap';
+import { Form, Card, Col, Row, Button, Container, Accordion, InputGroup } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import { BsXSquareFill, BsX } from "react-icons/bs";
 
 let MAX_CROPS = 10;
 
-function CalcForm(props) {
-
-function handleCropChange(event) { // Special handler for the CropInput Component
-	const target = event.target;
-	const name = target.name;
-	const idx = target.attributes.idx.value;
-	let value = target.value;
-
-	if(event.target.type === "number") { // Handle UI for negative crop input value
-		const val = parseFloat(value);
-		if(isNaN(val) || val <= 0) {
-			value = 0;
-		}
-
-	}
-
-	props.crops[idx][name] = value; // Set dictionary value from master record of crops
-
-	props.setCrops(props.crops);
-	props.onChange();
-
-}
+function SilvopastureCalc(props) {
 
 function handleChange(event,key,value) {
 
@@ -49,11 +28,36 @@ function handleChange(event,key,value) {
 
 	return (
 <Accordion.Item eventKey="0">
-	<Accordion.Header eventKey="0">
+	<Card>
+{/*	<Card.Header as={Accordion.Header} eventKey="0">*/}
+	<Accordion.Header as={Card}>
 		Silvopasture Options
 	</Accordion.Header>
+{/*	<Accordion.Toggle as={Card.Header} eventKey="0">
+		
+	</Accordion.Toggle>*/}
+{/*	</Card.Header>*/}
 	<Accordion.Body>
 	<Form>
+
+		{
+		// Check box
+		}
+
+		<Row>
+			<Col>
+				Apple Tree
+			</Col>
+			<Col>
+			<Form.Control
+				name="dairy"
+				type="checkbox"
+				value={props.dairy}
+				onChange={(event) => {props.setDairy(event.target.checked)}} />
+
+			</Col>
+		</Row>
+
 
 		{Object.entries(props.silvoPasture).map(([key,value]) => (
 			<Form.Group>
@@ -62,6 +66,8 @@ function handleChange(event,key,value) {
 						{value[2]}
 					</Col>
 					<Col>
+					<InputGroup className="mb-1">
+
 					<Form.Control
 						placeholder="..."
 						name={value[2]}
@@ -71,6 +77,8 @@ function handleChange(event,key,value) {
 						key={key}
 						value={props.silvoPasture[key][0]}
 						onChange = {(event) => {handleChange(event,key,value)}} />
+					<InputGroup.Text>{value[1]}</InputGroup.Text>
+				  </InputGroup>
 				</Col>
 				</Row>
 			</Form.Group>
@@ -78,8 +86,9 @@ function handleChange(event,key,value) {
 			))}
 	</Form>
 	</Accordion.Body>
+	</Card>
 </Accordion.Item>
 		)
 }
 
-export default CalcForm;
+export default SilvopastureCalc;

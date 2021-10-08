@@ -14,19 +14,20 @@ function Resources(props) {
 
 		<Container className="my-5">
 		<Row>
-			<h1 className="mb-0">Climate Resources</h1>
+			<h1 className="mb-0">Research</h1>
 		</Row>
 		<hr/>
 		<Row>
-			<Resource format={"Academic Paper"}
+			<Resource format={"Academic Paper"} download
 			link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
 			description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
 
 			<br/>
 
-			<Resource format={"Academic Paper"}
-			link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
-			description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
+			<Resource format={"Virtual Tour"}
+			link={"https://www.climatehubs.usda.gov/hubs/northeast/project/agroforestry-angus-glen"}
+			description={"Agroforestry Angus Glen Farms, NY (USDA Northeast Climate Hub)"} />
+
 		</Row>
 		</Container>
 
@@ -35,7 +36,7 @@ function Resources(props) {
 
 			<Container>
 			<Row>
-				<h1>Research</h1>
+				<h1>Silvopasture</h1>
 			</Row>
 			<hr/>
 			<Row>
@@ -45,24 +46,16 @@ function Resources(props) {
 
 				<br/>
 
-				<Card style={{ width: '18rem' }} className="mx-auto">
-				  <Card.Body>
-				    <Card.Title className="mb-0">Academic Paper</Card.Title>
-					<cite>19 April 2021</cite><br/>
-				    <Card.Text>
-				      Climate change in the context of whole-farming
-						systems: opportunities for improved outreach
-				    </Card.Text>
-				    <Row>
-					    <Col>
-							<Link to="/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf" target="_blank">View<br/><BsBoxArrowUpRight/></Link>
-						</Col>
-						<Col>
-							<Link to="/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf" target="_blank" download>Download<BsDownload/></Link>
-					  	</Col>
-				  	</Row>
-				  </Card.Body>
-				</Card>
+
+			<Resource format={"Virtual Tour"}
+			link={"https://www.climatehubs.usda.gov/hubs/northeast/project/agroforestry-angus-glen"}
+			description={"Agroforestry Angus Glen Farms, NY (USDA Northeast Climate Hub)"} />
+
+			<br/>
+
+			<Resource format={"Virtual Tour"}
+			link={"https://www.climatehubs.usda.gov/hubs/northeast/project/dickinson-college-farms-silvopasture"}
+			description={"Dickinson College’s Farm Silvopasture PA (USDA Northeast Climate Hub)"} />
 				
 			</Row>
 			</Container>

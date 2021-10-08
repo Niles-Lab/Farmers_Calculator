@@ -78,6 +78,7 @@ function removeCrop() {
 
 	return (
 		<Container className="calc">
+			<h1>Calculator <BsX onClick={props.handleClose} /></h1>
 			<Form>
 			
 			<Form.Group>
@@ -89,7 +90,6 @@ function removeCrop() {
 				}
 
 				<Row>
-
 					<Col>
 						<Dropdown>
 						<Dropdown.Toggle
@@ -135,25 +135,6 @@ function removeCrop() {
 						step="0.1"
 						value={props.land}
 						onChange = {(event) => {props.setLand(event.target.value)}} />
-					</Col>
-				</Row>
-
-
-				{
-				// Check box
-				}
-
-				<Row>
-					<Col>
-						Dairy:
-					</Col>
-					<Col>
-					<Form.Control
-						name="dairy"
-						type="checkbox"
-						value={props.dairy}
-						onChange={(event) => {props.setDairy(event.target.checked)}} />
-
 					</Col>
 				</Row>
 

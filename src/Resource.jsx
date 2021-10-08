@@ -16,6 +16,12 @@ import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 function Resource(props) {
 
 
+	const download = () => {
+		<Col>
+			<Link to={{pathname: props.link}} target="_blank" download={props.download}>Download <BsDownload/></Link>
+		</Col>
+	}
+
 	return (
 	<>
 		<Card style={{ width: '18rem' }} className="mx-auto">
@@ -27,11 +33,16 @@ function Resource(props) {
 		    </Card.Text>
 		    <Row className="mx-auto">
 			    <Col>
-				<Link to={props.link} target="_blank">View <BsBoxArrowUpRight/></Link>
+				<Link to={{pathname: props.link}} target="_blank">View <BsBoxArrowUpRight/></Link>
 				</Col>
+
+			{props.download ? (
 				<Col>
-					<Link to={props.link} target="_blank" download>Download <BsDownload/></Link>
-			  	</Col>
+					<Link to={{pathname: props.link}} target="_blank" download={props.download}>Download <BsDownload/></Link>
+				</Col>
+
+		) : null}
+
 		  	</Row>
 		  </Card.Body>
 		</Card>

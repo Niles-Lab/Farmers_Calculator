@@ -14,10 +14,7 @@ const MainContent = (props, ref) => {
 
 return (
 
-
-
         <div>
-
                     <Card>
 
                         <hr/>

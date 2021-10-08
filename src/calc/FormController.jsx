@@ -27,15 +27,6 @@ let data = {
 	crops: [{ type: "Unknown", amount: 0, idx: 0 }]
 };	
 
-// let silvoptions = [
-// 	{grazingRevenue: [450, "$", "Grazing Revenue"]},
-// 	{grazingBaseCost: [9.50, "$", "Grazing Cost"]},
-// 	{treeSpacing: [30, "ft", "Tree Spacing"]},
-// 	{treePlanted: [48, "tr/acre", "Trees Per Acre"]},
-// 	{treeCost: [2.50, "$/yr", "Tree Cost"]},
-// 	{treeCropYield: ["$5", "$/unit", "Tree Crop Yield"]},
-// 	{productivity: [80, "%", "Effective Property"]}
-// ]
 
 // let silvoptions = {
 // 	grazingRevenue: [450, "$", "Grazing Revenue"],

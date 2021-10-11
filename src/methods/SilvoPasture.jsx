@@ -8,7 +8,15 @@ import React from "react";
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
 import { BsXSquareFill, BsX } from "react-icons/bs";
 
+function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  return images;
+}
 
+const images = importAll(require.context('../images/silvopasture/', false, /\.(png|jpe?g|svg)$/));
+
+console.log(Object.entries(images));
 function Silvopasture(props) {
 
 
@@ -25,7 +33,7 @@ function Silvopasture(props) {
                             <Card.Body>
                                 <Row>
                                     <Col>
-Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
+										Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
                                     </Col>
                                     <Col>
    
@@ -35,6 +43,24 @@ Silvopasture is an agroforestry system that combines well-managed woodlands and 
                             </Card.Body>
 
                     </Card> 
+
+
+                    <Carousel>
+                    	{Object.entries(images).map(d => (
+
+                    		<Carousel.Item>
+                    			<img
+                    				className="d-block w-100"
+                    				src={d[1].default} 
+                    				alt={d[0]}/>
+                    		</Carousel.Item>
+
+
+                    		))}
+                    </Carousel>
+
+                    
+             		<img src={images['image-000']} />
 
                     <Card variant="light" bg="light">
 

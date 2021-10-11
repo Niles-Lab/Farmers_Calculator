@@ -196,11 +196,14 @@ function removeCrop() {
 					</Container>
 
 
-				<Accordion flush defaultActiveKey="0">
+					{/* Custom Calculator input here */}
 
 					<SilvopastureCalc {...props} />
 
-				</Accordion>
+					<SilvopastureCalc {...props} />
+
+					<SilvopastureCalc {...props} />
+
 			
 
 

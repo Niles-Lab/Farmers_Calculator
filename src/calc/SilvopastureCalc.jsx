@@ -30,47 +30,25 @@ function handleChange(event,key,value) {
 
 }
 
-// function CustomToggle({ children, eventKey }) {
-//   const decoratedOnClick = useAccordionButton(eventKey, () =>
-//     console.log('totally custom!'),
-//   );
-
-//   return (
-//     <button
-//       type="button"
-//       style={{ backgroundColor: 'pink' }}
-//       onClick={decoratedOnClick}
-//     >
-//       {children}
-//     </button>
-//   );
-// }	<CustomToggle />
-
 	return (
-<Accordion.Item eventKey="0">
 
-	<Card>
+
+	<Card style={{"background-color": "rgba(255,255,255,0.2)"}}>
 
 
 		
     <Button
+    variant="success"
     onClick={() => spSetOpen(!spOpen)}
     aria-controls="silvoPasture-collapse"
     aria-expanded={spOpen}
   	>
-  	Silvopasture Options
+  	More Silvopasture Options
   	</Button>
 
 
-{/*    <Collapse in={spOpen} as={Card}>*/}
-     <Fade in={spOpen} as={Card}>
-
-
-
-
-	<Accordion.Body>
-
-	<Form>
+    <Collapse in={spOpen}>
+    <Form >
 
 		{
 		// Check box
@@ -117,13 +95,8 @@ function handleChange(event,key,value) {
 
 			))}
 	</Form>
-	</Accordion.Body>
-
-	</Fade>
-{/*    </Collapse>*/}
-
+    </Collapse>
 	</Card>
-</Accordion.Item>
 		)
 }
 

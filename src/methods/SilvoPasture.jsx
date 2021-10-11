@@ -5,7 +5,7 @@
  **/
 
 import React from "react";
-import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
+import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
 import { BsXSquareFill, BsX } from "react-icons/bs";
 
 
@@ -38,44 +38,44 @@ Silvopasture is an agroforestry system that combines well-managed woodlands and 
 
                     <Card variant="light" bg="light">
 
-                        <hr/>
-                        <Card.Title id="1">Project Goals</Card.Title>
-                        <hr/>
+      
+                        <Card.Title id="1" className="mt-4">Benefits and Costs</Card.Title>
                     
                         <Card.Body>
                         <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
                             <Row>
-                                <Col>
+                                <Col>      
                                 <ListGroup>
-                                  <ListGroup.Item variant="success">5-Stage Research Goals</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="#l0"> Assess farmer/agricultural advisor perceptions of Climate Change</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="#l1">Understand educational needs and learning styles with focus groups</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="#l2">Develop tools, resources and information to understand and plan for climate change</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="#l3">Work with community partners for outreach and evaluation of materials with small and medium farmers in Maine and Vermont</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="#l4">Expand the project through partnership with the USDA Northeast Climate Hub</ListGroup.Item>  
+                                  <ListGroup.Item variant="success"></ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Increased stocking capacity (when expanding grazing into wooded areas)</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Increased utilization of woodland</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Cost-effective vegetation control</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Diversified farm products and income</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Improved animal performance through greater comfort with shelter and shade</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Improved animal health through diversified diets</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Balancing of seasonal forage growth and increased forage availability during droughts</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Creation of high-value wildlife habitat</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Improved tree health and performance</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Improved soil health</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Improved water retention and quality</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Carbon sequestration</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Beneficial farm aesthetics</ListGroup.Item>   
                                 </ListGroup>
                                 </Col>
                                 <Col>      
-                                    <Tab.Content>
-                                        <Tab.Pane eventKey="#l0">
-                    
-                                          <cite>Aggregated farmer mental model of the concepts and relationships mentioned by ≥ 10% of farmer
-                                            participants (n = 33); “Relationship Mentions” and “Concept Mentions” reflect the percentage of farmers who
-                                            included that relationship or concept in their mental model; color indicates the concept category</cite>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="#l1">
-                                          <Image src="https://placekitten.com/g/1000" fluid />
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="#l2">
-                                          <Image src="https://placekitten.com/g/800" fluid />
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="#l3">
-                                          <Image src="https://placekitten.com/g/700" fluid />
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="#l4">
-                                          <Image src="https://placekitten.com/g/810" fluid />
-                                        </Tab.Pane>
-                                  </Tab.Content>
+                      			<ListGroup>
+                                  <ListGroup.Item variant="danger"></ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Livestock exposure to toxic plants, predators, parasites, diseases, physical hazards, hunters</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Silvopasture establishment and maintenance costs, time, and labor</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Managers’ lack of silvopasture management experience and knowledge </ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Reduced mobility of farm equipment in grazing areas</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Undesirable vegetation, including invasive plants</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Soil degradation and compaction</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Decreased water retention and qualitys</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Carbon release</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Damage to tree roots, bark, and branches</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Implementation of silvopasture may impact farms’ Current Use designation and enrollment</ListGroup.Item>  
+                                </ListGroup>
                                 </Col>
                             </Row>
                         </Tab.Container>
@@ -104,28 +104,13 @@ Silvopasture is an agroforestry system that combines well-managed woodlands and 
                     <Card variant="light" bg="light">   
 
                         <hr/>
-                        <Card.Title id="3">Our Mission</Card.Title>
+                        <Card.Title id="3">Additional Resources</Card.Title>
                         <hr/>
                     
                             <Card.Body>
                             <Container>
-                                <Row>
-                                    <Col>
-                                    Approximately 20% of Vermont is farmland. Across many different techniques and lifestyles, agriculture is among the state's largest exports.
-                                    While many people are aware of the dangers presented by climate change, there are very few accessible options to personally explore and tackle this issue.
-                                    However, this task is increasinly imperative as the quality of land and natural beauty of the state is threatened.
-                                    <br/><br/>
-                                    The goal of our research is to understand the local perceptions, concerns, experience and needs of farmers in Vermont.
-
-                                    This will help us to identify resource needs for this community, what information they need to make informed decisions on adaptation practices, and how to effectively translate research on these resources.
-                                    Hopefully, this will help to preseve the trade, create sustainable change,
-                                    and enhance the success of small, medium, and beginning farms.
-                                    <br/><br/>
-                                    https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT
-                                    </Col>
-                                    <Col>
-                                  
-                                    </Col>
+                                <Row className="text-center">
+                                	Interested in silvopasture?&nbsp;<a href="./formcontroller">Check out our economic tool</a>&nbsp;to determine your potential costs and revenue. See what silvopasture looks like &nbsp;<a href="./resources">here</a>.
                                 </Row>
              
                             </Container>

@@ -4,14 +4,19 @@
  * 
  **/
 
-import React from "react";
-import { Form, Card, Col, Row, Button, Container, Accordion, InputGroup } from 'react-bootstrap';
+import { React, useState } from "react";
+import { ListGroup, Form, Card, Col, Row, Button, Container, Accordion, Collapse, InputGroup, Fade } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import { BsXSquareFill, BsX } from "react-icons/bs";
 
 let MAX_CROPS = 10;
 
+
+
 function SilvopastureCalc(props) {
+
+
+const [spOpen, spSetOpen] = useState(false);
 
 function handleChange(event,key,value) {
 
@@ -25,19 +30,46 @@ function handleChange(event,key,value) {
 
 }
 
+// function CustomToggle({ children, eventKey }) {
+//   const decoratedOnClick = useAccordionButton(eventKey, () =>
+//     console.log('totally custom!'),
+//   );
+
+//   return (
+//     <button
+//       type="button"
+//       style={{ backgroundColor: 'pink' }}
+//       onClick={decoratedOnClick}
+//     >
+//       {children}
+//     </button>
+//   );
+// }	<CustomToggle />
 
 	return (
 <Accordion.Item eventKey="0">
+
 	<Card>
-{/*	<Card.Header as={Accordion.Header} eventKey="0">*/}
-	<Accordion.Header as={Card}>
-		Silvopasture Options
-	</Accordion.Header>
-{/*	<Accordion.Toggle as={Card.Header} eventKey="0">
+
+
 		
-	</Accordion.Toggle>*/}
-{/*	</Card.Header>*/}
+    <Button
+    onClick={() => spSetOpen(!spOpen)}
+    aria-controls="silvoPasture-collapse"
+    aria-expanded={spOpen}
+  	>
+  	Silvopasture Options
+  	</Button>
+
+
+{/*    <Collapse in={spOpen} as={Card}>*/}
+     <Fade in={spOpen} as={Card}>
+
+
+
+
 	<Accordion.Body>
+
 	<Form>
 
 		{
@@ -86,6 +118,10 @@ function handleChange(event,key,value) {
 			))}
 	</Form>
 	</Accordion.Body>
+
+	</Fade>
+{/*    </Collapse>*/}
+
 	</Card>
 </Accordion.Item>
 		)

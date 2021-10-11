@@ -27,7 +27,7 @@ function Resource(props) {
 		<Card style={{ width: '18rem' }} className="mx-auto">
 		  <Card.Body>
 		    <Card.Title className="mb-0">{props.format}</Card.Title>
-			<cite>19 April 2021</cite><br/>
+			<cite>{props.date}</cite><br/>
 		    <Card.Text>
 		      {props.description}
 		    </Card.Text>
@@ -36,12 +36,14 @@ function Resource(props) {
 				<Link to={{pathname: props.link}} target="_blank">View <BsBoxArrowUpRight/></Link>
 				</Col>
 
-			{props.download ? (
+
+			{	// Optional inclusion of download button for resource
+				props.download ? (
 				<Col>
 					<Link to={{pathname: props.link}} target="_blank" download={props.download}>Download <BsDownload/></Link>
 				</Col>
 
-		) : null}
+			) : null}
 
 		  	</Row>
 		  </Card.Body>

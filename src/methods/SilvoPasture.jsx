@@ -1,63 +1,31 @@
-import { React } from 'react';
+/**
+ * 
+ * SilvopastureCalc - particular calculator component for Silvopasture data collection
+ * 
+ **/
+
+import React from "react";
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
-import CountyMap from "./viz/CountyMap.jsx"
-import PriceChart from "./viz/PriceChart.jsx"
-import DotPlotFarm from "./viz/DotPlotFarm.jsx"
-import CropLossTM from "./viz/CropLossTM.jsx"
-import Chart from "./viz/Chart.jsx"
-import { BsCheck } from "react-icons/bs";
-import mental_map from './images/mental_map.png';
-
-const Research = (props, ref) => {
-
-//const scroll = (ref) => props.refProp.scrollIntoView()
-//const ref4 = props.refs[3];
-const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
-
-return (
+import { BsXSquareFill, BsX } from "react-icons/bs";
 
 
-        <div>
+function Silvopasture(props) {
+
+
+	return (
+		<>
         <Row>
             <Col>
-                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
-                    <Navbar.Collapse id="responsive-navbar-nav">
-                      <Nav id="sectionnav" className="mx-auto">
-                        {navs.map((d, idx) => (
-                            <Nav.Link href={"#" + idx}>
-                            {d}
-                            </Nav.Link>
-                            ))}
-                      </Nav>
-                    </Navbar.Collapse>
-                </Navbar>
+
             </Col>
-            <Col>
+            <Col xs={7}>
                     <Card>
+                        <Card.Title id="0" className="mt-5">Silvopasture</Card.Title>
 
-
-                        <Card.Title id="0" className="mt-5"></Card.Title>
-
-                            <blockquote className="blockquote mb-0 mx-5">
-                              <p>
-                              <em>
-                                {' '}
-                                The long term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United States(specifically Maine and Vermont) by developing climate change resources that consider farmer&#39;s own 
-                                perceptions, concerns, experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region and the unique climate change challenges facing the Northeast. 
-                                {' '}
-                              </em>
-                              </p>
-
-                              <footer className="blockquote-footer">
-                                    <a target="_blank" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
-                                        <cite>USDA Grant Summary</cite>
-                                    </a>
-                              </footer>
-                            </blockquote>
                             <Card.Body>
                                 <Row>
                                     <Col>
-
+Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
                                     </Col>
                                     <Col>
    
@@ -90,7 +58,7 @@ return (
                                 <Col>      
                                     <Tab.Content>
                                         <Tab.Pane eventKey="#l0">
-                                          <Image src={mental_map} fluid />
+                    
                                           <cite>Aggregated farmer mental model of the concepts and relationships mentioned by ≥ 10% of farmer
                                             participants (n = 33); “Relationship Mentions” and “Concept Mentions” reflect the percentage of farmers who
                                             included that relationship or concept in their mental model; color indicates the concept category</cite>
@@ -159,10 +127,9 @@ return (
                                   
                                     </Col>
                                 </Row>
-                                <Chart />
+             
                             </Container>
                             </Card.Body>
-
                     </Card>
 
             </Col>
@@ -170,10 +137,8 @@ return (
 
             </Col>
         </Row>
-        </div>
-
-
-
-)
+	</>
+		)
 }
-export default Research;
+
+export default Silvopasture;

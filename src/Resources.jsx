@@ -19,15 +19,11 @@ function Resources(props) {
 		<hr/>
 		<Row>
 			<Resource format={"Academic Paper"} download
+			date={"19 April 2021"}
 			link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
 			description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
 
-			<br/>
-
-			<Resource format={"Virtual Tour"}
-			link={"https://www.climatehubs.usda.gov/hubs/northeast/project/agroforestry-angus-glen"}
-			description={"Agroforestry Angus Glen Farms, NY (USDA Northeast Climate Hub)"} />
-
+		
 		</Row>
 		</Container>
 
@@ -41,6 +37,7 @@ function Resources(props) {
 			<hr/>
 			<Row>
 			<Resource format={"Academic Paper"}
+			date={"19 April 2021"}
 			link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
 			description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
 

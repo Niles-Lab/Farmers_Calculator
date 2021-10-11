@@ -15,8 +15,8 @@ const Navigation = () => {
                 <Nav.Link href="/Research">Research</Nav.Link>
                 <Nav.Link href="/FormController">Calculator</Nav.Link>
                 <Nav.Link href="/Resources">Resources</Nav.Link>
-                <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                <NavDropdown title="Methods" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/SilvoPasture">Silvopasture</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                   <NavDropdown.Divider />

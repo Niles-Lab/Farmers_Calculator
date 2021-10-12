@@ -1,6 +1,5 @@
 import { React } from 'react';
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
-import CountyMap from "./viz/CountyMap.jsx"
 import PriceChart from "./viz/PriceChart.jsx"
 import DotPlotFarm from "./viz/DotPlotFarm.jsx"
 import CropLossTM from "./viz/CropLossTM.jsx"

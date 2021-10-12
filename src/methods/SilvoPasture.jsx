@@ -16,7 +16,8 @@ function importAll(r) {
   return images;
 }
 
-const images = importAll(require.context('../images/silvopasture/', false, /\.(png|jpe?g|svg)$/));
+const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
+const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 function Silvopasture(props) {
 
@@ -79,7 +80,7 @@ function Silvopasture(props) {
                     </Card>  
 
                     <Carousel>
-                    	{Object.entries(images).map(d => (
+                    	{Object.entries(pe).map(d => (
 
                     		<Carousel.Item>
                     			<img

@@ -1,6 +1,5 @@
 import React from 'react';
 import { Accordion, Card, Row, Col, Container } from 'react-bootstrap';
-import CountyMap from "../viz/CountyMap.jsx"
 import PriceChart from "../viz/PriceChart.jsx"
 import DotPlotFarm from "../viz/DotPlotFarm.jsx"
 import CropLossTM from "../viz/CropLossTM.jsx"
@@ -128,9 +127,7 @@ return (
                                     <br/><br/>
                                     https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT
                                     </Col>
-                                    <Col>
-                                        <CountyMap />
-                                    </Col>
+
                                 </Row>
                                 <Chart />
                             </Container>

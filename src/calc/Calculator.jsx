@@ -1,5 +1,6 @@
 import React from "react"
 import { Table } from 'react-bootstrap';
+import SilvoGraph from './SilvoGraph.jsx'
 
 const yrs = 2;
 
@@ -99,15 +100,8 @@ npv() {
 
 constructor(props) {
 	super(props);
-	//this.handleChange = this.handleChange.bind(this);
 	this.prop = this.props;
 }
-
-
-
-// handleChange(event) {
-
-// }
 
 render() {
 
@@ -117,6 +111,7 @@ render() {
 	return (
 
 		<>
+			<SilvoGraph {...this.props} />
 			<Table className="box" className="mt-5" responsive="lg" flush striped bordered hover>
 				<thead>
 

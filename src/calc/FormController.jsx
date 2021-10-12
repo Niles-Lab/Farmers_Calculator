@@ -24,7 +24,8 @@ let data = {
 	length: 10,
 	method: [],
 	selected: [],
-	crops: [{ type: "Unknown", amount: 0, idx: 0 }]
+	crops: [{ type: "Unknown", amount: 0, idx: 0 }],
+	length: 20
 };	
 
 
@@ -41,8 +42,9 @@ let data = {
 
 let silvoptions = [
 	[450, "$", "Grazing Revenue"],
-	[9.50, "$", "Grazing Cost"],
+	[300, "$", "Base Grazing Cost"],
 	[30, "ft", "Tree Spacing"],
+	[9.5, "$", "Tree Planting Cost"],
 	[48, "tr/acre", "Trees Per Acre"],
 	[2.50, "$/yr", "Tree Cost"],
 	[5, "$/unit", "Tree Crop Yield"],
@@ -55,6 +57,8 @@ const [dairy, setDairy] = useState(data.dairy);
 const [crops, setCrops] = useState(data.crops);
 const [method, setMethod] = useState(data.method);
 const [unit, setUnit] = useState(data.unit);
+// Length of project(yrs)
+const [length, setLength] = useState(data.length);
 
 const [silvoPasture, setSilvopasture] = useState(silvoptions);
 
@@ -77,6 +81,8 @@ return (
 						setCrops={setCrops}
 						method={method}
 						setMethod={setMethod}
+						length={length}
+						setLength={setLength}
 						silvoPasture={silvoPasture}
 						setSilvopasture={setSilvopasture}
 
@@ -88,7 +94,8 @@ return (
 							land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
 							dairy={dairy}
 							acres={unit}
-							crops={crops}/>
+							crops={crops}
+							silvoPasture={silvoptions}/>
 
 		</>
 

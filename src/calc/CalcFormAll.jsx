@@ -124,7 +124,7 @@ function removeCrop() {
 
 				<Row>
 					<Col>
-					Length of Project(Yrs)
+						Length of Project(Yrs)
 					</Col>
 					<Col>
 					<Form.Control
@@ -132,9 +132,9 @@ function removeCrop() {
 						name="land"
 						min="0"
 						type="number"
-						step="0.1"
-						value={props.land}
-						onChange = {(event) => {props.setLand(event.target.value)}} />
+						step="0.5"
+						value={props.length}
+						onChange = {(event) => {props.setLength(event.target.value)}} />
 					</Col>
 				</Row>
 

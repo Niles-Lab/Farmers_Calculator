@@ -33,7 +33,7 @@ function handleChange(event,key,value) {
 	return (
 
 
-	<Card style={{"background-color": "rgba(255,255,255,0.2)"}}>
+	<Card style={{"backgroundColor": "rgba(255,255,255,0.2)"}}>
 
 
 		
@@ -70,7 +70,7 @@ function handleChange(event,key,value) {
 
 
 		{Object.entries(props.silvoPasture).map(([key,value]) => (
-			<Form.Group>
+			<Form.Group key={key}>
 				<Row>
 					<Col>
 						{value[2]}

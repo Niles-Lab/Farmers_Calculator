@@ -243,10 +243,10 @@ for(var i=0;i<props.length;i++) {
 			.attr("text-anchor", "start")
 			.attr("x", 0)
 			.attr("y", -margin.top/2)
-			.attr("dx", -margin.left)
+			.attr("dx", margin.right)
 			.attr("dy", 0)
 			.style("font-weight", "bold")
-			.text("Percent of Global Consumers Willing to Pay Higher-than-Average Prices For Products with Select Attributes (2018)");
+			.text("Silvopasture Cash Flow($/Acre)");
 
 		// Subtitle under chart
 		svg.append("a")

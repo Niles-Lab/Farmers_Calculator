@@ -103,8 +103,7 @@ return (
 
 
 		<>
-			<SilvoGraph {...props} />
-			<Table className="box" className="mt-5" responsive="lg" flush striped bordered hover>
+			<Table className="box" className="mt-5" responsive="lg" striped bordered hover>
 				<thead>
 
 				</thead>
@@ -129,7 +128,7 @@ return (
 								{opt}
 								</td>
 									{opts.map((wp,j) => (
-									<tr>
+									<tr key={wp+"-"+(i+j+1)}>
 										<td>{wp}</td>
 										{rows.map((row,k) => (
 
@@ -145,6 +144,7 @@ return (
 						))}
 				</tbody>
 			</Table>
+			<SilvoGraph {...props} />
 		</>
 
 )

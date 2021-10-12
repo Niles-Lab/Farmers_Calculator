@@ -30,7 +30,7 @@ const Block = (props: { inViewport: boolean }) => {
 // ]
 // ]
 
-console.log(this.props);
+
 
 
 
@@ -59,7 +59,6 @@ let data = [];
 
 
 
-console.log(data);
 
 function SilvoGraph(props) {
 
@@ -74,7 +73,6 @@ for(var i=0;i<props.length;i++) {
 	})
 
 }
-
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
 		drawChart();
@@ -154,7 +152,7 @@ for(var i=0;i<props.length;i++) {
 			"translate(" + margin.left + "," + margin.top + ")");
 
 	  // x.domain([0, d3.max(data, function(d){ return d.Value; })])
-	  x.domain(d3.extent(props.length))
+	  x.domain([0,props.length]);
 	  y.domain([0,2000]);
 
 

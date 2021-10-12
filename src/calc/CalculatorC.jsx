@@ -23,87 +23,95 @@ const labels = ["",
 
 
 
-function Calculator(props) {
+class Calculator extends React.Component {
 
 
 
 // Main method for calculations - this should be called on render to calculate all table cells
 // Each individual calculation method will output a tuple of [Title(Unit), Value With Project(WP), Value Without Project(WOP)]
 // e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
-function calculate(land, yrs) {
+calculate(land, yrs) {
 	var rows = [
-	totalProjArea(land),
-	totalManualLand(),
-	costPer(),
-	costPerYr(yrs),
-	returnPer(),
-	returnPerYr(yrs),
-	profitPer(),
-	profitPerYr(yrs),
-	totalCost(),
-	totalCostYr(yrs),
-	totalRevenue(),
-	totalRevenue(yrs),
-	npv()
+	this.totalProjArea(land),
+	this.totalManualLand(),
+	this.costPer(),
+	this.costPerYr(yrs),
+	this.returnPer(),
+	this.returnPerYr(yrs),
+	this.profitPer(),
+	this.profitPerYr(yrs),
+	this.totalCost(),
+	this.totalCostYr(yrs),
+	this.totalRevenue(),
+	this.totalRevenue(yrs),
+	this.npv()
 	];
 
 	return rows;
 }
 
 
-function totalManualLand() {
+totalManualLand() {
 	let land = 0;
-	props.crops.forEach(crop => land += parseFloat(crop.amount))
+	this.props.crops.forEach(crop => land += parseFloat(crop.amount))
 	return [land.toFixed(2), 0];
 }
-function costPer() {
-	return [(props.land * 5).toFixed(2), (props.land * 3).toFixed(2)];
+costPer() {
+	return [(this.prop.land * 5).toFixed(2), (this.prop.land * 3).toFixed(2)];
 }
-function costPerYr(yrs) {
-	const costs = costPer();
+costPerYr(yrs) {
+	const costs = this.costPer();
 	return [(costs[0] * 365).toFixed(2), 0];
 }
-function returnPer() {
+returnPer() {
 	return [100, 100];
 }
-function returnPerYr(yrs) {
-	const costs = returnPer();
+returnPerYr(yrs) {
+	const costs = this.returnPer();
 	return [costs[0] * 365, costs[1] * 365];
 }
-function profitPer() {
+profitPer() {
 	return [100, 100];
 }
-function profitPerYr(yrs) {
-	const costs = profitPer();
+profitPerYr(yrs) {
+	const costs = this.profitPer();
 	return [costs[0] * 365, costs[1] * 365];
 }
-function totalProjArea(area) {
+totalProjArea(area) {
 	return [area, area];
 }
-function totalCost() {
+totalCost() {
 	return [100, 100];
 }
-function totalCostYr(yrs) {
-	const costs = totalCost();
+totalCostYr(yrs) {
+	const costs = this.totalCost();
 	return [costs[0] * 365, costs[1] * 365];
 }
-function totalRevenue(yrs) {
+totalRevenue(yrs) {
 	return [101010, 100000];
 }
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
 // NPV = PV(B) - PV(C)
-function npv() {
-	var revenue = totalRevenue();
-	var cost = totalCost();
+npv() {
+	var revenue = this.totalRevenue();
+	var cost = this.totalCost();
 	return [revenue[0]-cost[0], revenue[1]-cost[1]];
 }
 
-const rows = calculate(props.land, 2);
-return (
+constructor(props) {
+	super(props);
+	this.prop = this.props;
+}
 
+render() {
+
+	this.prop = this.props;
+	const rows = this.calculate(this.prop.land, 2);
+
+	return (
 
 		<>
-			<SilvoGraph {...props} />
+			<SilvoGraph {...this.props} />
 			<Table className="box" className="mt-5" responsive="lg" flush striped bordered hover>
 				<thead>
 
@@ -123,7 +131,7 @@ return (
 							</tr>
 
 						</tr>
-						{props.options.map((opt,i) => (
+						{this.props.options.map((opt,i) => (
 							<tr key={i}>
 								<td>
 								{opt}
@@ -147,7 +155,8 @@ return (
 			</Table>
 		</>
 
-)
+		)
+}
 
 
 }

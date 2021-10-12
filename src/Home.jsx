@@ -1,7 +1,6 @@
 import React from 'react';
-import { Container, Col, Row, Navbar, Nav, Button } from 'react-bootstrap';
+import { Col, Row, Navbar, Nav } from 'react-bootstrap';
 
-import TextAccordion from "./home/TextAccordion.jsx"
 import MainContent from "./home/MainContent.jsx"
 
 

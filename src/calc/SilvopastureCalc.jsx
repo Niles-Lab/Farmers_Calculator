@@ -41,9 +41,8 @@ function handleChange(event,key,value) {
     variant="success"
     onClick={() => spSetOpen(!spOpen)}
     aria-controls="silvoPasture-collapse"
-    aria-expanded={spOpen}
-  	>
-  	More Silvopasture Options
+    aria-expanded={spOpen}>
+  		More Silvopasture Options
   	</Button>
 
 

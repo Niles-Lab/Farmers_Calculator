@@ -8,6 +8,8 @@ import React from "react";
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
 import { BsXSquareFill, BsX } from "react-icons/bs";
 
+const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
+
 function importAll(r) {
   let images = {};
   r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
@@ -16,7 +18,6 @@ function importAll(r) {
 
 const images = importAll(require.context('../images/silvopasture/', false, /\.(png|jpe?g|svg)$/));
 
-console.log(Object.entries(images));
 function Silvopasture(props) {
 
 
@@ -27,23 +28,55 @@ function Silvopasture(props) {
 
             </Col>
             <Col xs={7}>
+
+
+                    {/* Tabbed view of method variants */}
                     <Card>
-                        <Card.Title id="0" className="mt-5">Silvopasture</Card.Title>
 
-                            <Card.Body>
-                                <Row>
-                                    <Col>
-										Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
-                                    </Col>
-                                    <Col>
-   
-                                    </Col>
-                                </Row>
+                        <Image src="../images/silvopasture/cover.jpg" />
+                    
+                    <Card.Body>
 
-                            </Card.Body>
+                        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+                          <Row>
+                            <Col sm={3}>
+                              <Nav variant="pills" className="flex-column">
+                                {variants.map((d,idx) => (
+                                    <Nav.Item>
 
-                    </Card> 
+                                        <Nav.Link eventKey={idx} variant="success">
+                                            {d}
+                                        </Nav.Link>
 
+                                    </Nav.Item>
+                                    ))}
+                              </Nav>
+                            </Col>
+                            <Col sm={9}>
+                              <Tab.Content>
+                                <Tab.Pane eventKey="0">
+
+                                    <hr/>
+                                    <Card.Title id="2">What is Silvopasture?</Card.Title>
+                                    <hr/>
+
+                                    Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
+                                    
+                                    
+
+                                </Tab.Pane>
+                                <Tab.Pane eventKey="1">
+                                  adfasdf
+                                </Tab.Pane>
+                              </Tab.Content>
+                            </Col>
+                          </Row>
+                        </Tab.Container>
+
+
+                    </Card.Body>
+
+                    </Card>  
 
                     <Carousel>
                     	{Object.entries(images).map(d => (
@@ -58,9 +91,6 @@ function Silvopasture(props) {
 
                     		))}
                     </Carousel>
-
-                    
-             		<img src={images['image-000']} />
 
                     <Card variant="light" bg="light">
 
@@ -107,25 +137,6 @@ function Silvopasture(props) {
                         </Tab.Container>
                         </Card.Body>  
                     </Card>
-                    <Card>
-                        <hr/>
-                        <Card.Title id="2">What is Cost Benefit Analysis?</Card.Title>
-                        <hr/>
-
-                            <Card.Body>
-                                CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
-                                Identifying a long-term problem, assessing multiple strategies, and identifying the costs and benefits presented by each are among the steps taken to find the most efficient solution
-                                on a case-by-case basis.
-                                <br/><br/>
-                                In a constantly changing world with data becoming evermore present, preparation and adaptation is necessary for the survival and evolution of many trades.
-                                Another goal of CBA is to find a solution that not only evolves a trade, but creates the most utility for society. Often times, there are external factors and outcomes
-                                beyond the purview of a study. These may not have an explicit numerical value, but are nonetheless important to consider and prioritize in a CBA.
-                                <br/><br/>
-                                For example, imposing new laws and regulations on trade may have financial benefits, but will assuredly affect the livelihoods of many individuals. This "social cost" should be
-                                accounted for in CBA.
-                            </Card.Body>
-
-                    </Card>  
 
                     <Card variant="light" bg="light">   
 

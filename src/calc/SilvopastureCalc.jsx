@@ -5,13 +5,7 @@
  **/
 
 import { React, useState } from "react";
-import { ListGroup, Form, Card, Col, Row, Button, Container, Accordion, Collapse, InputGroup, Fade } from 'react-bootstrap';
-import CropInput from './CropInput.jsx'
-import { BsXSquareFill, BsX } from "react-icons/bs";
-
-let MAX_CROPS = 10;
-
-
+import { Form, Card, Col, Row, Button, Collapse, InputGroup } from 'react-bootstrap';
 
 function SilvopastureCalc(props) {
 

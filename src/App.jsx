@@ -1,6 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
-import background from './images/background_1.jpg';
 import './App.css';
 
 import Home from './Home.jsx'

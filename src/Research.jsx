@@ -1,10 +1,6 @@
 import { React } from 'react';
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
-import PriceChart from "./viz/PriceChart.jsx"
-import DotPlotFarm from "./viz/DotPlotFarm.jsx"
-import CropLossTM from "./viz/CropLossTM.jsx"
 import Chart from "./viz/Chart.jsx"
-import { BsCheck } from "react-icons/bs";
 import mental_map from './images/mental_map.png';
 
 const Research = (props, ref) => {

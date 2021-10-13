@@ -5,8 +5,7 @@
  **/
 
 import React from "react";
-import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
-import { BsXSquareFill, BsX } from "react-icons/bs";
+import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 
@@ -17,7 +16,7 @@ function importAll(r) {
 }
 
 const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
-const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
+//const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 function Silvopasture(props) {
 

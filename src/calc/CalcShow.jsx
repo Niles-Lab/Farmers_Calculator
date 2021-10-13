@@ -6,10 +6,8 @@
 *  
 **/
 
-import React, { useState, useEffect, Fragment } from 'react';
-import { Container, Button } from 'react-bootstrap';
-import { BsXSquareFill, BsChevronDoubleRight } from "react-icons/bs";
-import CropLossTM from "../viz/CropLossTM.jsx"
+import React, { useState, Fragment } from 'react';
+import { BsChevronDoubleRight } from "react-icons/bs";
 import OffCanvas from 'react-aria-offcanvas'
 import CalcForm from "../calc/CalcForm.jsx"
 import CalcFormAll from "../calc/CalcFormAll.jsx"

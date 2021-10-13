@@ -19,20 +19,16 @@ const Block = (props: { inViewport: boolean }) => {
 // FOR REFERENCE - Here are the options provided in props.silvoPasture
 // These must be referenced by index
 // let silvoptions = [
-// 	[450, "$", "Grazing Revenue"],
-// 	[300, "$", "Base Grazing Cost"],
-// 	[30, "ft", "Tree Spacing"],
-// 	[9.5, "$", "Tree Planting Cost"],
-// 	[48, "tr/acre", "Trees Per Acre"],
-// 	[2.50, "$/yr", "Tree Cost"],
-// 	[5, "$/unit", "Tree Crop Yield"],
-// 	[80, "%", "Effective Property"]
+	// [450, "$", "Grazing Revenue"],
+	// [300, "$", "Base Grazing Cost"],
+	// [30, "ft", "Tree Spacing"],
+	// [9.5, "$", "Tree Planting Cost"],
+	// [48, "tr/acre", "Trees Per Acre"],
+	// [2.50, "$/yr", "Tree Maintenance Cost"],
+	// [2, "units/tree", "Tree Crop Yield"],
+	// [80, "%", "Effective Property"],
+	// [5, "$/unit", "Tree Crop Price"]
 // ]
-// ]
-
-
-
-
 
 
 // At what age is a tree mature enough to start producing profits
@@ -41,6 +37,8 @@ const maturingYears = 10;
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
 
+// How many sq ft in an acre
+const acreFt = 43560;
 
 // const margin = {top: 50, right: 20, bottom: 20, left: 200},
 // width = 1024 - (margin.right+margin.left),
@@ -52,31 +50,54 @@ height = 500 - (margin.top+margin.bottom);
 let x = d3.scaleLinear()
 .range([0,width-((margin.right+margin.left))])
 
-let y = d3.scaleBand()
-.range([height-margin.top-margin.bottom, 0])
+let y = d3.scaleLinear()
+.range([height-margin.top-margin.bottom,0])
+//let y = d3.scaleBand()
+//.range([height-margin.top-margin.bottom, 0])
 
 let data = [];
 
-
-
-
 function SilvoGraph(props) {
 
+// Derive calculated values from props
 let netRevenue = props.silvoPasture[0][0] - props.silvoPasture[1][0];
 let productivity = props.silvoPasture[7][0] / 100;
 
-for(var i=0;i<props.length;i++) {
+// Read other props in for easier access
+let plantingCost = props.silvoPasture[3][0];
+let maintenance = props.silvoPasture[5][0];
+let cropPrice = props.silvoPasture[8][0];
+let treeYield = props.silvoPasture[6][0];
+let treeSpacing = props.silvoPasture[2][0];
 
+//let treesPerAcre = props.silvoPasture[4][0];
+let treesPerAcre = acreFt / (treeSpacing ** 2);
+
+
+// Map each data point with:
+// x -> year
+// y -> revenue from trees
+d3.range(1, props.length).forEach(d =>
 	data.push({
-		year: i,
-		revenue: (() => i >= maturingYears ? netRevenue*productivity : 0)
-	})
+		year: d,
+		revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
+		cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
 
-}
+	}));
+
+
+// for(var i=0;i<props.length;i++) {
+
+// 	data.push({
+// 		year: i,
+// 		revenue: (() => i >= maturingYears ? netRevenue*productivity : 0)
+// 	})
+
+// }
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
 		drawChart();
-		populateChart();
+		//populateChart();
 	}, []);
 
 	// Fill the chart with data by changing the width of all bars via webkit animation
@@ -151,9 +172,8 @@ for(var i=0;i<props.length;i++) {
 		.attr("transform",
 			"translate(" + margin.left + "," + margin.top + ")");
 
-	  // x.domain([0, d3.max(data, function(d){ return d.Value; })])
 	  x.domain([0,props.length]);
-	  y.domain([0,2000]);
+	  y.domain([0,1000]);
 
 
 		var gradient = svg.append("defs")
@@ -166,24 +186,24 @@ for(var i=0;i<props.length;i++) {
 
 
 		// Define gradient starts and stops
-		// gradient.append("stop")
-		// 	.attr("stop-color", "#9ebcda")
-		// 	.attr("offset", "0")
+		gradient.append("stop")
+			.attr("stop-color", "#9ebcda")
+			.attr("offset", "0")
 
-		// gradient.append("stop")
-		// 	.attr("stop-color", "lightgreen")
-		// 	.attr("offset", "1")
+		gradient.append("stop")
+			.attr("stop-color", "lightgreen")
+			.attr("offset", "1")
 
-		// Add bars to chart
+		//Add bars to chart
 		// svg.selectAll("bar")
 		// .data(data)
 		// .enter()
 		// .append("rect")
 		// .attr("class", "bar")
-		// .attr("x", function(d) { return x(0); })
-		// .attr("width", function(d) { return x(0); })
-		// .attr("y", function(d) { return y(d.Title); }) 
-  //     	.attr("height", y.bandwidth())
+		// .attr("x", function(d) { return x(d.year); })
+		// .attr("y", function(d) { return y(height-margin.top-margin.bottom); })
+		// .attr("height", function(d) { return y(d.revenue); })
+		// .attr("width", 5) 
   //     	.attr("stroke", "green")
   //   .on("mouseover", mouseOver)
 		// .attr("fill", "url(#bg-gradient)");
@@ -194,27 +214,27 @@ for(var i=0;i<props.length;i++) {
 		// .enter()
 		// .append("text")
 		// .attr("class", "label")
-		// .attr("y", d => y(d.Title) + y.bandwidth()/2)
-		// .attr("x", d => x(d.Value) + 10)
+		// .attr("y", d => y(d.revenue))
+		// .attr("x", d => x(d.year))
 		// .style("font-weight", "bold")
-		// .style("opacity", 0)
-		// .text(d => d.Value + "%")
+		// .style("opacity", 1)
+		// .text(d => d.revenue + "%")
 
 
-    const lineRev = d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y(d.revenue))
-    	.curve(d3.curveCatmullRom.alpha(0.5));
+    // const lineRev = (d) => d3.line()
+    // 	.x(d => x(d.year))
+    // 	.y(d => y(d.revenue))
+    // 	.curve(d3.curveCatmullRom.alpha(0.5));
 
 		svg.selectAll("bar")
 		.data(data)
 		.enter()
 		.append("rect")
 		.attr("class", "bar")
-		.attr("x", function(d) { return x(0); })
-		.attr("width", function(d) { return x(0); })
-		.attr("y", function(d) { return y(d.Title); }) 
-      	.attr("height", y.bandwidth())
+		.attr("x", function(d) { return x(d.year); })
+		.attr("width", 5)
+		.attr("y", function(d) { return y(d.Revenue); }) 
+      	.attr("height", d => y(0) - y(d.revenue))
       	.attr("stroke", "green")
     .on("mouseover", mouseOver)
 		.attr("fill", "url(#bg-gradient)");
@@ -222,20 +242,38 @@ for(var i=0;i<props.length;i++) {
 
 		svg.append("g")
 			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
-			.call(d3.axisBottom(x))
-			.selectAll("text")
-		    .style("font-weight", "bold");
+			.call(d3.axisBottom(x));
+			// .selectAll("text")
+		 //    .style("font-weight", "bold");
 
 		svg.append("g")
-			.call(d3.axisLeft(y))
-			.selectAll("text")
-			.attr("class", "left-axis")
-		    .style("font-weight", "bold")
-		    .attr("transform", "translate(-10,-10)")
-		    .attr("dy", 0)
-		    .attr("y", 0);
+			.call(d3.axisLeft(y));
+			// .selectAll("text")
+			// .attr("class", "left-axis")
+		 //    .style("font-weight", "bold")
+		 //    .attr("transform", "translate(-10,-10)")
+		 //    .attr("dy", 0)
+		 //    .attr("y", 0);
 
+    // // Add the line
+    // svg.append("path")
+    //   .data(data)
+    //   .attr("fill", "none")
+    //   .attr("stroke", "steelblue")
+    //   .attr("stroke-width", 1.5)
+    //   .attr("d", d => lineRev(d))
 
+    // Add the line
+    // svg.append("path")
+    //   .datum(data)
+    //   .attr("fill", "none")
+    //   .attr("stroke", "steelblue")
+    //   .attr("stroke-width", 1.5)
+    //   .attr("d", d3.line()
+    //     .x(function(d) { return xS(d.year) })
+    //     .y(function(d) { return yS(d.revenue) })
+    //     .curve(d3.curveCatmullRom.alpha(0.5))
+    //     )
 
 		// Title of chart
 		svg.append("text")

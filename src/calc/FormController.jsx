@@ -46,9 +46,10 @@ let silvoptions = [
 	[30, "ft", "Tree Spacing"],
 	[9.5, "$", "Tree Planting Cost"],
 	[48, "tr/acre", "Trees Per Acre"],
-	[2.50, "$/yr", "Tree Cost"],
-	[5, "$/unit", "Tree Crop Yield"],
-	[80, "%", "Effective Property"]
+	[2.50, "$/yr", "Tree Maintenance Cost"],
+	[2, "units/tree", "Tree Crop Yield"],
+	[80, "%", "Effective Property"],
+	[5, "$/unit", "Tree Crop Price"]
 ]
 
 
@@ -57,6 +58,7 @@ const [dairy, setDairy] = useState(data.dairy);
 const [crops, setCrops] = useState(data.crops);
 const [method, setMethod] = useState(data.method);
 const [unit, setUnit] = useState(data.unit);
+
 // Length of project(yrs)
 const [length, setLength] = useState(data.length);
 
@@ -95,6 +97,7 @@ return (
 							dairy={dairy}
 							acres={unit}
 							crops={crops}
+							length={length}
 							silvoPasture={silvoptions}/>
 
 		</>

@@ -1,6 +1,5 @@
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
-import { Link } from 'react-router-dom';
+import { Container, Row } from 'react-bootstrap';
 import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import Resource from "./Resource.jsx"
 

@@ -77,7 +77,7 @@ let treesPerAcre = acreFt / (treeSpacing ** 2);
 // Map each data point with:
 // x -> year
 // y -> revenue from trees
-d3.range(1, props.length).forEach(d =>
+d3.range(1, props.length+1).forEach(d =>
 	data.push({
 		year: d,
 		revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
@@ -172,7 +172,7 @@ d3.range(1, props.length).forEach(d =>
 		.attr("transform",
 			"translate(" + margin.left + "," + margin.top + ")");
 
-	  x.domain([0,props.length]);
+	  x.domain([0,props.length+1]);
 	  y.domain([0,1000]);
 
 
@@ -231,9 +231,9 @@ d3.range(1, props.length).forEach(d =>
 		.enter()
 		.append("rect")
 		.attr("class", "bar")
-		.attr("x", function(d) { return x(d.year); })
+		.attr("x", function(d) { return x(d.year)-2.5; })
 		.attr("width", 5)
-		.attr("y", function(d) { return y(d.Revenue); }) 
+		.attr("y", function(d) { return y(d.revenue); }) 
       	.attr("height", d => y(0) - y(d.revenue))
       	.attr("stroke", "green")
     .on("mouseover", mouseOver)

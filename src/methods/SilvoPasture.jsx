@@ -20,7 +20,6 @@ const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png
 
 function Silvopasture(props) {
 
-
 	return (
 		<>
         <Row>

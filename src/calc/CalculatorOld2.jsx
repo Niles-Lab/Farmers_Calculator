@@ -2,54 +2,29 @@ import React from "react"
 import { Table } from 'react-bootstrap';
 import SilvoGraph from './SilvoGraph.jsx'
 import SilvoBar from './SilvoBar.jsx'
-import * as d3 from "d3";
 
 const yrs = 2;
 
 const opts = ["WP", "WOP"];
 
-// const labels = ["",
-// 				"Return Per...", 
-// 				"Return Per...(" + yrs + " yrs)", 
-// 				"Profit Per...", 
-// 				"Profit Per...(" + yrs + " yrs)", 
-// 				"Total Cost",
-// 				"Total Cost...(" + yrs + " yrs)",
-// 				"Total Revenue",
-// 				"Total Revenue...(" + yrs + " yrs)",
-// 				"NPV"]
-
-
-const labels = ["Per Acre", 
-				"Total Area"]
-
-
+const labels = ["",
+				"Area", 
+				"Inputted Land", 
+				"Cost Per...", 
+				"Cost Per...(" + yrs + " yrs)", 
+				"Return Per...", 
+				"Return Per...(" + yrs + " yrs)", 
+				"Profit Per...", 
+				"Profit Per...(" + yrs + " yrs)", 
+				"Total Cost",
+				"Total Cost...(" + yrs + " yrs)",
+				"Total Revenue",
+				"Total Revenue...(" + yrs + " yrs)",
+				"NPV"]
 
 
 
 function Calculator(props) {
-
-// How many sq ft in an acre
-const acreFt = 43560;
-
-// At what age is a tree mature enough to start producing profits
-const maturingYears = 10;
-
-
-// Derive calculated values from props
-let netRevenue = props.silvoPasture[0][0] - props.silvoPasture[1][0];
-let productivity = props.silvoPasture[7][0] / 100;
-
-// Read other props in for easier access
-let plantingCost = props.silvoPasture[3][0];
-let maintenance = props.silvoPasture[5][0];
-let cropPrice = props.silvoPasture[8][0];
-let treeYield = props.silvoPasture[6][0];
-let treeSpacing = props.silvoPasture[2][0];
-
-//let treesPerAcre = props.silvoPasture[4][0];
-let treesPerAcre = acreFt / (treeSpacing ** 2);
-
 
 
 
@@ -58,6 +33,10 @@ let treesPerAcre = acreFt / (treeSpacing ** 2);
 // e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
 function calculate(land, yrs) {
 	var rows = [
+	totalProjArea(land),
+	totalManualLand(),
+	costPer(),
+	costPerYr(yrs),
 	returnPer(),
 	returnPerYr(yrs),
 	profitPer(),
@@ -116,32 +95,9 @@ function totalRevenue(yrs) {
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
 // NPV = PV(B) - PV(C)
 function npv() {
-
-	let data = [];
-
-	d3.range(1, props.length+1).forEach(d =>
-		data.push({
-			year: d,
-			revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
-			cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
-	}));
-
-
-	let npvr = 0;
-	let npvc = 0;
-
-	
-	for(var i = 0; i<data.length;i++) {
-		npvr += (data[i].revenue/((1+props.rate)**i));
-		npvc += (data[i].cost/((1+props.rate)**i));
-	}
-
-
-
-	return [npvr,npvc];
-	// var revenue = totalRevenue();
-	// var cost = totalCost();
-	// return [revenue[0]-cost[0], revenue[1]-cost[1]];
+	var revenue = totalRevenue();
+	var cost = totalCost();
+	return [revenue[0]-cost[0], revenue[1]-cost[1]];
 }
 
 

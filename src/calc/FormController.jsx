@@ -25,7 +25,8 @@ let data = {
 	method: [],
 	selected: [],
 	crops: [{ type: "Unknown", amount: 0, idx: 0 }],
-	length: 20
+	length: 20,
+	rate: 0.05
 };	
 
 
@@ -52,6 +53,9 @@ let silvoptions = [
 	[5, "$/unit", "Tree Crop Price"]
 ]
 
+
+// Discount rate for NPV
+const [rate, setRate] = useState(data.rate);
 
 const [land, setLand] = useState(data.land);
 const [dairy, setDairy] = useState(data.dairy);
@@ -98,6 +102,7 @@ return (
 							acres={unit}
 							crops={crops}
 							length={length}
+							rate={rate}
 							silvoPasture={silvoptions}/>
 
 		</>

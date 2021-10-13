@@ -1,6 +1,7 @@
 import React from "react"
 import { Table } from 'react-bootstrap';
 import SilvoGraph from './SilvoGraph.jsx'
+import SilvoBar from './SilvoBar.jsx'
 
 const yrs = 2;
 
@@ -145,6 +146,7 @@ return (
 				</tbody>
 			</Table>
 			<SilvoGraph {...props} />
+			<SilvoBar {...props} />
 		</>
 
 )

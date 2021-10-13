@@ -6,15 +6,15 @@ import handleViewport from 'react-in-viewport';
 // Only update the chart twice after loading
 let rerender = 0;
 
-// const Block = (props: { inViewport: boolean }) => {
-//   const { inViewport, forwardedRef } = props;
+const Block = (props: { inViewport: boolean }) => {
+  const { inViewport, forwardedRef } = props;
 
-//   return (
-//     <div className="viewport-block" ref={forwardedRef}>
+  return (
+    <div className="viewport-block" ref={forwardedRef}>
 
-//     </div>
-//   );
-// };
+    </div>
+  );
+};
 
 // FOR REFERENCE - Here are the options provided in props.silvoPasture
 // These must be referenced by index
@@ -34,7 +34,7 @@ let rerender = 0;
 // At what age is a tree mature enough to start producing profits
 const maturingYears = 10;
 
-// const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
+const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
 
 // How many sq ft in an acre
@@ -55,9 +55,9 @@ let y = d3.scaleLinear()
 //let y = d3.scaleBand()
 //.range([height-margin.top-margin.bottom, 0])
 
-const data = [];
+let data = [];
 
-function SilvoGraph(props) {
+function SilvoBar(props) {
 
 // Derive calculated values from props
 let netRevenue = props.silvoPasture[0][0] - props.silvoPasture[1][0];
@@ -74,10 +74,16 @@ let treeSpacing = props.silvoPasture[2][0];
 let treesPerAcre = acreFt / (treeSpacing ** 2);
 
 
+// Map each data point with:
+// x -> year
+// y -> revenue from trees
+d3.range(1, props.length+1).forEach(d =>
+	data.push({
+		year: d,
+		revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
+		cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
 
-
-const legendX = parseFloat((width)-margin.left-margin.right);
-const legendY = parseFloat(margin.top);
+	}));
 
 
 // for(var i=0;i<props.length;i++) {
@@ -90,18 +96,6 @@ const legendY = parseFloat(margin.top);
 // }
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
-
-		// Map each data point with:
-		// x -> year
-		// y -> revenue from trees
-		d3.range(1, props.length+1).forEach(d =>
-			data.push({
-				year: d,
-				revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
-				cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
-		}));
-
-		// Draw physical chart
 		drawChart();
 		//populateChart();
 	}, []);
@@ -156,7 +150,7 @@ const legendY = parseFloat(margin.top);
 
 		rerender++;
 		//const svg = cht;
-		const svg = d3.select("#pgcht").selectAll("svg").selectAll("g");
+		const svg = d3.select("#pcht").selectAll("svg").selectAll("g");
 
 		svg.selectAll(".title")
 		.call(wrap,(width-margin.right))
@@ -170,7 +164,7 @@ const legendY = parseFloat(margin.top);
 	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-		const svg = d3.select("#pgcht")
+		const svg = d3.select("#pcht")
 		.append("svg")
 		.attr("width",width)
 		.attr("height",height+30)
@@ -200,24 +194,18 @@ const legendY = parseFloat(margin.top);
 			.attr("stop-color", "lightgreen")
 			.attr("offset", "1")
 
-
-		// Append labels to bars
-		// svg.selectAll(".text")
-		// .data(data)
-		// .enter()
-		// .append("text")
-		// .attr("class", "label")
-		// .attr("y", d => y(d.revenue))
-		// .attr("x", d => x(d.year))
-		// .style("font-weight", "bold")
-		// .style("opacity", 1)
-		// .text(d => d.revenue + "%")
-
-
-    	const lineRev = d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y(d.revenue))
-    	.curve(d3.curveMonotoneX);
+		svg.selectAll("bar")
+		.data(data)
+		.enter()
+		.append("rect")
+		.attr("class", "bar")
+		.attr("x", function(d) { return x(d.year)-2.5; })
+		.attr("width", 5)
+		.attr("y", function(d) { return y(d.revenue); }) 
+      	.attr("height", d => y(0) - y(d.revenue))
+      	.attr("stroke", "green")
+    .on("mouseover", mouseOver)
+		.attr("fill", "url(#bg-gradient)");
 
 
 		svg.append("g")
@@ -235,33 +223,25 @@ const legendY = parseFloat(margin.top);
 		 //    .attr("dy", 0)
 		 //    .attr("y", 0);
 
+    // // Add the line
+    // svg.append("path")
+    //   .data(data)
+    //   .attr("fill", "none")
+    //   .attr("stroke", "steelblue")
+    //   .attr("stroke-width", 1.5)
+    //   .attr("d", d => lineRev(d))
 
-
-      svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("fill", "none")
-      .attr("stroke", "steelblue")
-      .attr("stroke-width", 6)
-      .attr("opacity", 0.5)
-      .attr("d", d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y(d.revenue))
-    	.curve(d3.curveMonotoneX));
-
-
-      svg.append("path")
-      .datum(data)
-      .attr("class", "line")
-      .attr("fill", "none")
-      .attr("stroke", "red")
-      .attr("stroke-width", 6)
-      .attr("opacity", 0.5)
-      .attr("d", d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y(d.cost))
-    	.curve(d3.curveMonotoneX));
-
+    // Add the line
+    // svg.append("path")
+    //   .datum(data)
+    //   .attr("fill", "none")
+    //   .attr("stroke", "steelblue")
+    //   .attr("stroke-width", 1.5)
+    //   .attr("d", d3.line()
+    //     .x(function(d) { return xS(d.year) })
+    //     .y(function(d) { return yS(d.revenue) })
+    //     .curve(d3.curveCatmullRom.alpha(0.5))
+    //     )
 
 		// Title of chart
 		svg.append("text")
@@ -340,12 +320,12 @@ function wrap(text, width) {
 		return (
 
 
-		<div id="pgcht" className="m-3">
-			{/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
+		<div id="pcht" className="m-3">
+			<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />
 		</div>
 
 
 		)
 }
 
-export default SilvoGraph;
+export default SilvoBar;

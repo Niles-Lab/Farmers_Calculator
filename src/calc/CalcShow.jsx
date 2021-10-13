@@ -5,7 +5,6 @@
 * Child: Calcform
 *  
 **/
-
 import React, { useState, Fragment } from 'react';
 import { BsChevronDoubleRight } from "react-icons/bs";
 import OffCanvas from 'react-aria-offcanvas'
@@ -57,6 +56,7 @@ function CalcShow({name, ...props}) {
 					<CalcFormAll
 					handleClose={handleClose}
 					{...props} />    	
+
       	</OffCanvas>
 
 		</>

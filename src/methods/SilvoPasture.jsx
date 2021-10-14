@@ -6,6 +6,7 @@
 
 import React from "react";
 import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
+import ReactBootstrapSlider from 'react-bootstrap-slider';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 
@@ -14,6 +15,8 @@ function importAll(r) {
   r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
   return images;
 }
+
+let timeSl = 2;
 
 const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 //const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
@@ -29,11 +32,23 @@ function Silvopasture(props) {
             <Col xs={7}>
 
 
+
                     {/* Tabbed view of method variants */}
                     <Card>
 
                         <Image src="../images/silvopasture/cover.jpg" />
                     
+                    <ReactBootstrapSlider
+                        value={timeSl}
+                        //change={this.changeValue}
+                        //slideStop={this.changeValue}
+                        step={1}
+                        max={1}
+                        min={3}
+                        orientation="vertical"
+                        reversed={true}
+                        disabled="disabled" />
+
                     <Card.Body>
 
                         <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -61,8 +76,7 @@ function Silvopasture(props) {
 
                                     Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
                                     
-                                    
-
+                            
                                 </Tab.Pane>
                                 <Tab.Pane eventKey="1">
                                   adfasdf

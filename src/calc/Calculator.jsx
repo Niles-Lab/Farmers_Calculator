@@ -113,7 +113,7 @@ function setView(event) {
 let rendered;
 if(viewAsGraph) {
 
-rendered = 
+//rendered = 
 
 
 }

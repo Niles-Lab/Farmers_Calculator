@@ -64,19 +64,19 @@ function calculate(land, yrs) {
 	return rows;
 }
 
+// Create data per year for returns/costs
+let data = [];
+
+d3.range(1, props.length+1).forEach(d =>
+	data.push({
+		year: d,
+		revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
+		cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
+}));
+
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
 // NPV = PV(B) - PV(C)
 function npv() {
-
-	let data = [];
-
-	d3.range(1, props.length+1).forEach(d =>
-		data.push({
-			year: d,
-			revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
-			cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
-	}));
-
 
 	let npvr = 0;
 	let npvc = 0;
@@ -87,22 +87,36 @@ function npv() {
 		npvc += (data[i].cost/((1+props.rate)**i));
 	}
 
-
-
 	return [
 
 	["Revenue", npvr],
 	["Costs", npvc]
 
 	];
-	// var revenue = totalRevenue();
-	// var cost = totalCost();
-	// return [revenue[0]-cost[0], revenue[1]-cost[1]];
 }
 
 
 const rows = calculate(props.land, 2);
 
+// Set table / graph view for output
+let viewAsGraph = true;
+function setView(event) {
+	let thisView = event.target.innerHTML;
+	viewAsGraph = !viewAsGraph;
+	let view = (viewAsGraph ? "View as Table" : "View as Graph");
+
+	event.target.innerHTML = view;
+	//view = (thisView === "View as Table") ? "View as Graph" : "View as Table";
+	return view;
+}
+
+let rendered;
+if(viewAsGraph) {
+
+rendered = 
+
+
+}
 
 return (
 
@@ -115,13 +129,45 @@ return (
 			<Col xs={6}>
 
 			<Card>
-				<cite>View as Table</cite>
+				<a style={{'cursor': 'pointer'}} onClick={e => setView(e)}>View as Table</a>
+
+
+				{viewAsGraph ? (
+					
 
 				<SilvoGraph width={graphWidth} {...props} />
-				<SilvoBar width={graphWidth} {...props} />
-				<SilvoBar width={graphWidth} {...props} />
-				<SilvoBar width={graphWidth} {...props} />
-				<SilvoBar width={graphWidth} {...props} />
+				// <SilvoBar width={graphWidth} {...props} />
+				// <SilvoBar width={graphWidth} {...props} />
+				// <SilvoBar width={graphWidth} {...props} />
+				// <SilvoBar width={graphWidth} {...props} />
+				)
+					:
+
+
+				(<Table bordered striped hover>
+					<thead>
+						<tr>
+							<td>Year</td>
+							<td>Revenue</td>
+							<td>Cost</td>
+						</tr>
+					</thead>
+					<tbody>
+				{data.map((d,idx) => (
+					<tr key={idx}>
+						<td>{d.year}</td>
+						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
+						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
+					</tr>
+
+					))}
+					</tbody>
+				</Table>)
+
+
+				}
+
+
 
 
 

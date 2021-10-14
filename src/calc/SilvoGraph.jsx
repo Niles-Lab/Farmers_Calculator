@@ -166,8 +166,8 @@ const legendY = parseFloat(margin.top);
 		.attr("height",height+30)
 		.append("g")
 		.attr("transform",
-			"translate(" + margin.left + "," + margin.top + ")")
-		.on("movemove", event => mousemove(event));
+			"translate(" + margin.left + "," + margin.top + ")");
+		//.on("movemove", event => mousemove(event));
 
 	  x.domain([0,props.length+1]);
 	  y.domain([0,1000]);
@@ -253,66 +253,67 @@ const legendY = parseFloat(margin.top);
 			.attr("dy", height-margin.bottom-10)
 			.text("Data sourced from Vermont Agricultural and Food System Plan 2020");
 
-  svg
-    .append('rect')
-    .style("fill", "none")
-    .style("pointer-events", "all")
-    .attr('width', width)
-    .attr('height', height)
-    .on('mouseover', mouseover)
-    .on('mousemove', d => {
+  // svg
+  //   .append('rect')
+  //   .style("fill", "none")
+  //   .style("pointer-events", "all")
+  //   .attr('width', width)
+  //   .attr('height', height)
+  //   .on('mouseover', mouseover)
+  //   .on('mousemove', d => {
+	   
+	 //    // recover coordinate we need
+	 //    //var x0 = x.invert(d3.pointer(d)[0]);
+	 //    var x0 = x.invert(d.pageX - document.getElementById("pgcht").getBoundingClientRect().x + 10);
+	 //    var i = bisect(data, x0, 1);
+	    
+	 //    var selectedData = data[i];
+	 //    focus
+	 //      .attr("cx", x(selectedData.year))
+	 //      .attr("cy", y(selectedData.revenue))
+	 //    focusText
+	 //      .html("x:" + selectedData.year + "  -  " + "y:" + selectedData.revenue)
+	 //      .attr("x", x(selectedData.year)+15)
+	 //      .attr("y", y(selectedData.revenue))
 
-	    // recover coordinate we need
-	    var x0 = x.invert(d3.pointer(d)[0]);
-	    //var x0 = x.invert(d.pageX - document.getElementById("pgcht").getBoundingClientRect().x + 10);
-	    var i = bisect(data, x0, 1);
-	    var selectedData = data[i];
-	    focus
-	      .attr("cx", x(selectedData.year))
-	      .attr("cy", y(selectedData.revenue))
-	    focusText
-	      .html("x:" + selectedData.year + "  -  " + "y:" + selectedData.revenue)
-	      .attr("x", x(selectedData.year)+15)
-	      .attr("y", y(selectedData.revenue))
 
-
-    	})
-    .on('mouseout', mouseout);
+  //   	})
+  //   .on('mouseout', mouseout);
 
   // This allows to find the closest X index of the mouse:
-  var bisect = d3.bisector(function(d) { return d.x; }).left;
+  // var bisect = d3.bisector(function(d) { return d.x; }).left;
 
-  // Create the circle that travels along the curve of chart
-  var focus = svg
-    .append('g')
-    .append('circle')
-      .style("fill", "none")
-      .attr("stroke", "black")
-      .attr('r', 8.5)
-      .style("opacity", 0)
+  // // Create the circle that travels along the curve of chart
+  // var focus = svg
+  //   .append('g')
+  //   .append('circle')
+  //     .style("fill", "none")
+  //     .attr("stroke", "black")
+  //     .attr('r', 8.5)
+  //     .style("opacity", 0)
 
-  // Create the text that travels along the curve of chart
-  var focusText = svg
-    .append('g')
-    .append('text')
-      .style("opacity", 0)
-      .attr("text-anchor", "left")
-      .attr("alignment-baseline", "middle")
+  // // Create the text that travels along the curve of chart
+  // var focusText = svg
+  //   .append('g')
+  //   .append('text')
+  //     .style("opacity", 0)
+  //     .attr("text-anchor", "left")
+  //     .attr("alignment-baseline", "middle")
 
 
-  // What happens when the mouse move -> show the annotations at the right positions.
-  function mouseover() {
-    focus.style("opacity", 1)
-    focusText.style("opacity",1)
-  }
+  // // What happens when the mouse move -> show the annotations at the right positions.
+  // function mouseover() {
+  //   focus.style("opacity", 1)
+  //   focusText.style("opacity",1)
+  // }
 
-  function mousemove() {
+  // function mousemove() {
 
-    }
-  function mouseout() {
-    focus.style("opacity", 0)
-    focusText.style("opacity", 0)
-  }
+  //   }
+  // function mouseout() {
+  //   focus.style("opacity", 0)
+  //   focusText.style("opacity", 0)
+  // }
 
 
 //-(height+margin.bottom)
@@ -335,11 +336,123 @@ const legendY = parseFloat(margin.top);
 		//     .attr("transform", "rotate(-90)")
 		//     .call(wrap, 86.67);
 
-	}
 
-let mouseOver = function(d) {
+
+
+
+
+
+
+
+
+    // var mouseG = svg.append("g")
+    //   .attr("class", "mouse-effects");
+
+    // mouseG.append("path")
+    //   .attr("class", "mouse-line")
+    //   .style("stroke", "black")
+    //   .style("stroke-width", "1px")
+    //   .style("opacity", "0");
+      
+    // var lines = document.getElementsByClassName('line');
+
+    // var mousePerLine = mouseG.selectAll('.mouse-per-line')
+    //   .data(data)
+    //   .enter()
+    //   .append("g")
+    //   .attr("class", "mouse-per-line");
+
+    // mousePerLine.append("circle")
+    //   .attr("r", 7)
+    //   .style("stroke", function(d) {
+    //     return "red";
+    //   })
+    //   .style("fill", "none")
+    //   .style("stroke-width", "1px")
+    //   .style("opacity", "0");
+
+    // mousePerLine.append("text")
+    //   .attr("transform", "translate(10,3)");
+
+    // mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
+    //   .attr('width', width) // can't catch mouse events on a g element
+    //   .attr('height', height)
+    //   .attr('fill', 'none')
+    //   .attr('pointer-events', 'all')
+    //   .on('mouseout', function() { // on mouse out hide line, circles and text
+    //     d3.select(".mouse-line")
+    //       .style("opacity", "0");
+    //     d3.selectAll(".mouse-per-line circle")
+    //       .style("opacity", "0");
+    //     d3.selectAll(".mouse-per-line text")
+    //       .style("opacity", "0");
+    //   })
+    //   .on('mouseover', function() { // on mouse in show line, circles and text
+    //     d3.select(".mouse-line")
+    //       .style("opacity", "1");
+    //     d3.selectAll(".mouse-per-line circle")
+    //       .style("opacity", "1");
+    //     d3.selectAll(".mouse-per-line text")
+    //       .style("opacity", "1");
+    //   })
+    //   .on('mousemove', function(d) { // mouse moving over canvas
+    //     var mouse = d3.pointer(d);
+    //     d3.select(".mouse-line")
+    //       .attr("d", function() {
+    //         var d = "M" + mouse[0] + "," + height;
+    //         d += " " + mouse[0] + "," + 0;
+    //         return d;
+    //       });
+
+    //     d3.selectAll(".mouse-per-line")
+    //       .attr("transform", function(d, i) {
+    //         console.log(width/mouse[0])
+    //         var xDate = x.invert(mouse[0]),
+    //             bisect = d3.bisector(function(d) { return d.date; }).right;
+    //             let idx = bisect(d.values, xDate);
+            
+    //         var beginning = 0,
+    //             end = lines[i].getTotalLength(),
+    //             target = null;
+
+    //         while (true){
+    //           target = Math.floor((beginning + end) / 2);
+    //           let pos = lines[i].getPointAtLength(target);
+    //           if ((target === end || target === beginning) && pos.x !== mouse[0]) {
+    //               break;
+    //           }
+    //           if (pos.x > mouse[0])      end = target;
+    //           else if (pos.x < mouse[0]) beginning = target;
+    //           else break; //position found
+    //         }
+            
+    //         d3.select(this).select('text')
+    //           .text(y.invert(d3.pointer(d)[1]).toFixed(2));
+              
+    //         return "translate(" + mouse[0] + "," + mouse[1] +")";
+    //       });
+    //   });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
+
+// let mouseOver = function(d) {
+
+// }
 
 // Mike Bostock's long label wrap example - thanks Mike!
 function wrap(text, width) {

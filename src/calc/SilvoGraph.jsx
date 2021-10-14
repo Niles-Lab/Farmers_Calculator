@@ -48,7 +48,7 @@ const data = [];
 function SilvoGraph(props) {
 
 
-const margin = {top: 50, right: 20, bottom: 20, left: 30},
+const margin = {top: 50, right: 20, bottom: 20, left: 40},
 width = props.width - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
 
@@ -173,12 +173,6 @@ const legendY = parseFloat(margin.top);
 	  y.domain([0,1000]);
 
 
-    	const lineRev = d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y(d.revenue))
-    	.curve(d3.curveMonotoneX);
-
-
 		svg.append("g")
 			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
 			.call(d3.axisBottom(x));
@@ -266,7 +260,23 @@ const legendY = parseFloat(margin.top);
     .attr('width', width)
     .attr('height', height)
     .on('mouseover', mouseover)
-    .on('mousemove', mousemove)
+    .on('mousemove', d => {
+
+	    // recover coordinate we need
+	    var x0 = x.invert(d3.pointer(d)[0]);
+	    //var x0 = x.invert(d.pageX - document.getElementById("pgcht").getBoundingClientRect().x + 10);
+	    var i = bisect(data, x0, 1);
+	    var selectedData = data[i];
+	    focus
+	      .attr("cx", x(selectedData.year))
+	      .attr("cy", y(selectedData.revenue))
+	    focusText
+	      .html("x:" + selectedData.year + "  -  " + "y:" + selectedData.revenue)
+	      .attr("x", x(selectedData.year)+15)
+	      .attr("y", y(selectedData.revenue))
+
+
+    	})
     .on('mouseout', mouseout);
 
   // This allows to find the closest X index of the mouse:
@@ -296,20 +306,8 @@ const legendY = parseFloat(margin.top);
     focusText.style("opacity",1)
   }
 
+  function mousemove() {
 
-
-  function mousemove(event) {
-    // recover coordinate we need
-    var x0 = x.invert(d3.pointer(event)[0]);
-    var i = bisect(data, x0, 1);
-    var selectedData = data[i]
-    focus
-      .attr("cx", x(selectedData.x))
-      .attr("cy", y(selectedData.y))
-    focusText
-      .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
-      .attr("x", x(selectedData.x)+15)
-      .attr("y", y(selectedData.y))
     }
   function mouseout() {
     focus.style("opacity", 0)

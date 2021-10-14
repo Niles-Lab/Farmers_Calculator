@@ -120,7 +120,7 @@ function removeCrop() {
 					</Col>
 				</Row>
 
-
+				{/* MAX LENGTH = 100 */}
 				<Row>
 					<Col>
 						Length of Project(Yrs)
@@ -132,8 +132,8 @@ function removeCrop() {
 						min="0"
 						type="number"
 						step="0.5"
-						value={props.length}
-						onChange = {(event) => {props.setLength(event.target.value)}} />
+						value={props.length % 100}
+						onChange = {(event) => {props.setLength(event.target.value % 100)}} />
 					</Col>
 				</Row>
 
@@ -196,10 +196,6 @@ function removeCrop() {
 
 
 					{/* Custom Calculator input here */}
-
-					<SilvopastureCalc {...props} />
-
-					<SilvopastureCalc {...props} />
 
 					<SilvopastureCalc {...props} />
 

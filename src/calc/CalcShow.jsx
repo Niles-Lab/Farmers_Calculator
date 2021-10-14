@@ -31,7 +31,7 @@ function CalcShow({name, ...props}) {
 
 	return (
 
-		<>
+		<div style={{'position': 'sticky', 'top': 0}}>
 
 				<div className="stickyleft rounded-right"
 						id="menu-button"
@@ -59,7 +59,7 @@ function CalcShow({name, ...props}) {
 
       	</OffCanvas>
 
-		</>
+		</div>
 
 		)
 }

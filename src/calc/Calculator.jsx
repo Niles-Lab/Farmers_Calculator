@@ -111,20 +111,25 @@ return (
 		<Row className="mt-5">
 			<Col xs={3}>
 
-
 			</Col>
-
-			<Col xs={6} style={{display: 'flex', justifyContent: 'center'}}>
+			<Col xs={6}>
 
 			<Card>
-		<Row>
-			<Col xs={7}>
+				<cite>View as Table</cite>
+
 				<SilvoGraph width={graphWidth} {...props} />
 				<SilvoBar width={graphWidth} {...props} />
-			</Col>
-			<Col xs={2}>
+				<SilvoBar width={graphWidth} {...props} />
+				<SilvoBar width={graphWidth} {...props} />
+				<SilvoBar width={graphWidth} {...props} />
 
-				<Table className="my-3" hover>
+
+
+			</Card>
+			</Col>
+			<Col>
+				<Container className="mt-5 pt-5" style={{'position': 'sticky', 'top': 0}}>
+				<Table hover>
 					<thead>
 						<tr>
 						{labels.map((label,idx) => (
@@ -147,14 +152,8 @@ return (
 							))}
 
 					</tbody>
-				</Table>	
-
-			</Col>
-		</Row>
-			</Card>
-			</Col>
-			<Col>
-
+				</Table>
+				</Container>
 			</Col>
 		</Row>
 

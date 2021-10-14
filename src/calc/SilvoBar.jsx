@@ -40,11 +40,15 @@ const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // How many sq ft in an acre
 const acreFt = 43560;
 
-// const margin = {top: 50, right: 20, bottom: 20, left: 200},
-// width = 1024 - (margin.right+margin.left),
-// height = 500 - (margin.top+margin.bottom);
-const margin = {top: 50, right: 20, bottom: 20, left: 280},
-width = 1000 - (margin.right+margin.left),
+
+
+
+let data = [];
+
+function SilvoBar(props) {
+
+const margin = {top: 50, right: 20, bottom: 20, left: 50},
+width = props.width - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
 
 let x = d3.scaleLinear()
@@ -55,9 +59,6 @@ let y = d3.scaleLinear()
 //let y = d3.scaleBand()
 //.range([height-margin.top-margin.bottom, 0])
 
-let data = [];
-
-function SilvoBar(props) {
 
 // Derive calculated values from props
 let netRevenue = props.silvoPasture[0][0] - props.silvoPasture[1][0];
@@ -124,7 +125,7 @@ d3.range(1, props.length+1).forEach(d =>
 	// Change all bar widths to 0 via webkit transition for un-loading effect
 	function unfillChart() {
 
-		// const svg = d3.select("#pcht").selectAll("svg");
+		// const svg = d3.select("#pbcht").selectAll("svg");
 		// var x = d3.scaleLinear()
 		// .range([0,width-((margin.right+margin.left))])
 
@@ -150,7 +151,7 @@ d3.range(1, props.length+1).forEach(d =>
 
 		rerender++;
 		//const svg = cht;
-		const svg = d3.select("#pcht").selectAll("svg").selectAll("g");
+		const svg = d3.select("#pbcht").selectAll("svg").selectAll("g");
 
 		svg.selectAll(".title")
 		.call(wrap,(width-margin.right))
@@ -164,7 +165,7 @@ d3.range(1, props.length+1).forEach(d =>
 	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-		const svg = d3.select("#pcht")
+		const svg = d3.select("#pbcht")
 		.append("svg")
 		.attr("width",width)
 		.attr("height",height+30)
@@ -320,7 +321,7 @@ function wrap(text, width) {
 		return (
 
 
-		<div id="pcht" className="m-3">
+		<div id="pbcht">
 			<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />
 		</div>
 

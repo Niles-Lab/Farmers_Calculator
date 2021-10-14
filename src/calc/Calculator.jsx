@@ -1,5 +1,5 @@
 import React from "react"
-import { Table } from 'react-bootstrap';
+import { Table, Container, Col, Row, Card } from 'react-bootstrap';
 import SilvoGraph from './SilvoGraph.jsx'
 import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";
@@ -20,12 +20,12 @@ const opts = ["WP", "WOP"];
 // 				"NPV"]
 
 
-const labels = ["Per Acre", 
+const labels = ["", "Per Acre", 
 				"Total Area"]
 
 
-
-
+// D3 visualization graph width
+const graphWidth = 800;
 
 function Calculator(props) {
 
@@ -58,59 +58,10 @@ let treesPerAcre = acreFt / (treeSpacing ** 2);
 // e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
 function calculate(land, yrs) {
 	var rows = [
-	returnPer(),
-	returnPerYr(yrs),
-	profitPer(),
-	profitPerYr(yrs),
-	totalCost(),
-	totalCostYr(yrs),
-	totalRevenue(),
-	totalRevenue(yrs),
 	npv()
 	];
 
 	return rows;
-}
-
-
-function totalManualLand() {
-	let land = 0;
-	props.crops.forEach(crop => land += parseFloat(crop.amount))
-	return [land.toFixed(2), 0];
-}
-function costPer() {
-	return [(props.land * 5).toFixed(2), (props.land * 3).toFixed(2)];
-}
-function costPerYr(yrs) {
-	const costs = costPer();
-	return [(costs[0] * 365).toFixed(2), 0];
-}
-function returnPer() {
-	return [100, 100];
-}
-function returnPerYr(yrs) {
-	const costs = returnPer();
-	return [costs[0] * 365, costs[1] * 365];
-}
-function profitPer() {
-	return [100, 100];
-}
-function profitPerYr(yrs) {
-	const costs = profitPer();
-	return [costs[0] * 365, costs[1] * 365];
-}
-function totalProjArea(area) {
-	return [area, area];
-}
-function totalCost() {
-	return [100, 100];
-}
-function totalCostYr(yrs) {
-	const costs = totalCost();
-	return [costs[0] * 365, costs[1] * 365];
-}
-function totalRevenue(yrs) {
-	return [101010, 100000];
 }
 
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
@@ -138,63 +89,77 @@ function npv() {
 
 
 
-	return [npvr,npvc];
+	return [
+
+	["Revenue", npvr],
+	["Costs", npvc]
+
+	];
 	// var revenue = totalRevenue();
 	// var cost = totalCost();
 	// return [revenue[0]-cost[0], revenue[1]-cost[1]];
 }
 
 
-
 const rows = calculate(props.land, 2);
+
+
 return (
 
 
-		<>
-			<Table className="box" className="mt-5" responsive="lg" striped bordered hover>
-				<thead>
 
-				</thead>
-				<tbody>
+		<Row className="mt-5">
+			<Col xs={3}>
+
+
+			</Col>
+
+			<Col xs={6} style={{display: 'flex', justifyContent: 'center'}}>
+
+			<Card>
+		<Row>
+			<Col xs={7}>
+				<SilvoGraph width={graphWidth} {...props} />
+				<SilvoBar width={graphWidth} {...props} />
+			</Col>
+			<Col xs={2}>
+
+				<Table className="my-3" hover>
+					<thead>
 						<tr>
-							<td></td>
-
+						{labels.map((label,idx) => (
+							
+								<th key={idx}>
+									{label}
+								</th>
+							
+							))}
+						</tr>		
+					</thead>
+					<tbody>
+						{npv().map(d => (
 							<tr>
-							{labels.map((label,idx) => (
-								
-									<th key={idx}>
-										{label}
-									</th>
-								
-								))}
+								{console.log(d)}
+								<td>{d[0]}</td>
+								<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
+								<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
 							</tr>
 
-						</tr>
-						{props.options.map((opt,i) => (
-							<tr key={i}>
-								<td>
-								{opt}
-								</td>
-									{opts.map((wp,j) => (
-									<tr key={wp+"-"+(i+j+1)}>
-										<td>{wp}</td>
-										{rows.map((row,k) => (
+							))}
 
-											<td key={k}>
-												{row[j]}
-											</td>
+					</tbody>
+				</Table>	
 
-											))}
-									</tr>
-									))}
-							</tr>
+			</Col>
+		</Row>
+			</Card>
+			</Col>
+			<Col>
 
-						))}
-				</tbody>
-			</Table>
-			<SilvoGraph {...props} />
-			<SilvoBar {...props} />
-		</>
+			</Col>
+		</Row>
+
+
 
 )
 

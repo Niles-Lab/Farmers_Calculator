@@ -40,11 +40,16 @@ const maturingYears = 10;
 // How many sq ft in an acre
 const acreFt = 43560;
 
-// const margin = {top: 50, right: 20, bottom: 20, left: 200},
-// width = 1024 - (margin.right+margin.left),
-// height = 500 - (margin.top+margin.bottom);
-const margin = {top: 50, right: 20, bottom: 20, left: 280},
-width = 1000 - (margin.right+margin.left),
+
+
+
+const data = [];
+
+function SilvoGraph(props) {
+
+
+const margin = {top: 50, right: 20, bottom: 20, left: 30},
+width = props.width - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
 
 let x = d3.scaleLinear()
@@ -54,10 +59,6 @@ let y = d3.scaleLinear()
 .range([height-margin.top-margin.bottom,0])
 //let y = d3.scaleBand()
 //.range([height-margin.top-margin.bottom, 0])
-
-const data = [];
-
-function SilvoGraph(props) {
 
 // Derive calculated values from props
 let netRevenue = props.silvoPasture[0][0] - props.silvoPasture[1][0];
@@ -74,20 +75,9 @@ let treeSpacing = props.silvoPasture[2][0];
 let treesPerAcre = acreFt / (treeSpacing ** 2);
 
 
-
-
 const legendX = parseFloat((width)-margin.left-margin.right);
 const legendY = parseFloat(margin.top);
 
-
-// for(var i=0;i<props.length;i++) {
-
-// 	data.push({
-// 		year: i,
-// 		revenue: (() => i >= maturingYears ? netRevenue*productivity : 0)
-// 	})
-
-// }
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
 
@@ -176,42 +166,11 @@ const legendY = parseFloat(margin.top);
 		.attr("height",height+30)
 		.append("g")
 		.attr("transform",
-			"translate(" + margin.left + "," + margin.top + ")");
+			"translate(" + margin.left + "," + margin.top + ")")
+		.on("movemove", event => mousemove(event));
 
 	  x.domain([0,props.length+1]);
 	  y.domain([0,1000]);
-
-
-		var gradient = svg.append("defs")
-			.append("linearGradient")
-			.attr("id", "bg-gradient")
-			.attr("x1", "0")
-			.attr("x2", "1")
-			.attr("y1", "0")
-			.attr("y2", "1.5")
-
-
-		// Define gradient starts and stops
-		gradient.append("stop")
-			.attr("stop-color", "#9ebcda")
-			.attr("offset", "0")
-
-		gradient.append("stop")
-			.attr("stop-color", "lightgreen")
-			.attr("offset", "1")
-
-
-		// Append labels to bars
-		// svg.selectAll(".text")
-		// .data(data)
-		// .enter()
-		// .append("text")
-		// .attr("class", "label")
-		// .attr("y", d => y(d.revenue))
-		// .attr("x", d => x(d.year))
-		// .style("font-weight", "bold")
-		// .style("opacity", 1)
-		// .text(d => d.revenue + "%")
 
 
     	const lineRev = d3.line()
@@ -286,6 +245,64 @@ const legendY = parseFloat(margin.top);
 			.attr("dy", height-margin.bottom-10)
 			.text("Data sourced from Vermont Agricultural and Food System Plan 2020");
 
+  svg
+    .append('rect')
+    .style("fill", "none")
+    .style("pointer-events", "all")
+    .attr('width', width)
+    .attr('height', height)
+    .on('mouseover', mouseover)
+    .on('mousemove', mousemove)
+    .on('mouseout', mouseout);
+
+  // This allows to find the closest X index of the mouse:
+  var bisect = d3.bisector(function(d) { return d.x; }).left;
+
+  // Create the circle that travels along the curve of chart
+  var focus = svg
+    .append('g')
+    .append('circle')
+      .style("fill", "none")
+      .attr("stroke", "black")
+      .attr('r', 8.5)
+      .style("opacity", 0)
+
+  // Create the text that travels along the curve of chart
+  var focusText = svg
+    .append('g')
+    .append('text')
+      .style("opacity", 0)
+      .attr("text-anchor", "left")
+      .attr("alignment-baseline", "middle")
+
+
+  // What happens when the mouse move -> show the annotations at the right positions.
+  function mouseover() {
+    focus.style("opacity", 1)
+    focusText.style("opacity",1)
+  }
+
+
+
+  function mousemove(event) {
+    // recover coordinate we need
+    var x0 = x.invert(d3.pointer(event)[0]);
+    var i = bisect(data, x0, 1);
+    var selectedData = data[i]
+    focus
+      .attr("cx", x(selectedData.x))
+      .attr("cy", y(selectedData.y))
+    focusText
+      .html("x:" + selectedData.x + "  -  " + "y:" + selectedData.y)
+      .attr("x", x(selectedData.x)+15)
+      .attr("y", y(selectedData.y))
+    }
+  function mouseout() {
+    focus.style("opacity", 0)
+    focusText.style("opacity", 0)
+  }
+
+
 //-(height+margin.bottom)
 
 		// Optional axis labels
@@ -340,7 +357,7 @@ function wrap(text, width) {
 		return (
 
 
-		<div id="pgcht" className="m-3">
+		<div id="pgcht">
 			{/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
 		</div>
 

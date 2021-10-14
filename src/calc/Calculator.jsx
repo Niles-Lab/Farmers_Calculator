@@ -137,9 +137,8 @@ return (
 						</tr>		
 					</thead>
 					<tbody>
-						{npv().map(d => (
-							<tr>
-								{console.log(d)}
+						{npv().map((d,idx) => (
+							<tr key={idx}>
 								<td>{d[0]}</td>
 								<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
 								<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>

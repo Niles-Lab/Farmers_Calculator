@@ -195,7 +195,7 @@ const legendY = parseFloat(margin.top);
 		 //    .attr("y", 0);
 
 
-
+		 	// Revenue Line
       svg.append("path")
       .datum(data)
       .attr("class", "line")
@@ -208,7 +208,7 @@ const legendY = parseFloat(margin.top);
     	.y(d => y(d.revenue))
     	.curve(d3.curveMonotoneX));
 
-
+      // Costs line
       svg.append("path")
       .datum(data)
       .attr("class", "line")
@@ -220,6 +220,20 @@ const legendY = parseFloat(margin.top);
     	.x(d => x(d.year))
     	.y(d => y(d.cost))
     	.curve(d3.curveMonotoneX));
+
+      // Trend Line
+      svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("fill", "none")
+      .attr("stroke", "orange")
+      .attr("stroke-width", 6)
+      .attr("opacity", 0.5)
+      .attr("d", d3.line()
+    	.x(d => x(d.year))
+    	.y(d => y((d.cost + d.revenue) / 2))
+    	.curve(d3.curveMonotoneX));
+
 
 
 		// Title of chart

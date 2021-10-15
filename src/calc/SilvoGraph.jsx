@@ -3,18 +3,7 @@ import React, { useEffect } from 'react';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
-// Only update the chart twice after loading
-let rerender = 0;
 
-// const Block = (props: { inViewport: boolean }) => {
-//   const { inViewport, forwardedRef } = props;
-
-//   return (
-//     <div className="viewport-block" ref={forwardedRef}>
-
-//     </div>
-//   );
-// };
 
 // FOR REFERENCE - Here are the options provided in props.silvoPasture
 // These must be referenced by index
@@ -96,67 +85,8 @@ const legendY = parseFloat(margin.top);
 		//populateChart();
 	}, []);
 
-	// Fill the chart with data by changing the width of all bars via webkit animation
-	function fillChart() {
-
-		// const svg = d3.select("#scht").selectAll("svg").selectAll("g");
-
-		// // Animate graph on page load
-		// svg.selectAll("rect")
-		// .transition()
-		// .duration(600)
-		// .attr("x", d => x(0))
-		// .attr("width", d => x(d.Value))
-		// .delay((d,i) => (i*100))
-
-		// // Animate rectangle labels on page load
-		// svg.selectAll(".label")
-		// .transition()
-		// .duration(600)
-		// .style("opacity", 1)
-		// .delay((d,i) => (i*100))
-
-	}
-	// Change all bar widths to 0 via webkit transition for un-loading effect
-	function unfillChart() {
-
-		// const svg = d3.select("#pcht").selectAll("svg");
-		// var x = d3.scaleLinear()
-		// .range([0,width-((margin.right+margin.left))])
-
-		// // Un-draw chart on scrollout
-		// svg.selectAll("rect")
-		// .transition()
-		// .duration(100)
-		// .attr("x", d => x(0))
-		// .attr("width", d => x(0))
-		// .delay((d,i) => (i*100))
-
-		// // Un-draw rectangle labels
-		// svg.selectAll(".label")
-		// .transition()
-		// .duration(100)
-		// .style("opacity", 0)
-		// .delay((d,i) => (i*100))
-
-	}
-	function populateChart() {
-
-		if(rerender > 0) return;
-
-		rerender++;
-		//const svg = cht;
-		const svg = d3.select("#pgcht").selectAll("svg").selectAll("g");
-
-		svg.selectAll(".title")
-		.call(wrap,(width-margin.right))
-		// .call(wrap,(width-margin.left-margin.right))
-
-		svg.selectAll(".left-axis")
-		.call(wrap, margin.left)
 
 
-	}
 	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 

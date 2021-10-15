@@ -38,16 +38,7 @@ function Silvopasture(props) {
 
                         <Image src="../images/silvopasture/cover.jpg" />
                     
-                    <ReactBootstrapSlider
-                        value={timeSl}
-                        //change={this.changeValue}
-                        //slideStop={this.changeValue}
-                        step={1}
-                        max={1}
-                        min={3}
-                        orientation="vertical"
-                        reversed={true}
-                        disabled="disabled" />
+
 
                     <Card.Body>
 
@@ -56,7 +47,7 @@ function Silvopasture(props) {
                             <Col sm={3}>
                               <Nav variant="pills" className="flex-column">
                                 {variants.map((d,idx) => (
-                                    <Nav.Item>
+                                    <Nav.Item key={idx}>
 
                                         <Nav.Link eventKey={idx} variant="success">
                                             {d}
@@ -92,9 +83,9 @@ function Silvopasture(props) {
                     </Card>  
 
                     <Carousel>
-                    	{Object.entries(pe).map(d => (
+                    	{Object.entries(pe).map((d,idx) => (
 
-                    		<Carousel.Item>
+                    		<Carousel.Item key={"crsl"+idx}>
                     			<img
                     				className="d-block w-100"
                     				src={d[1].default} 
@@ -150,6 +141,20 @@ function Silvopasture(props) {
                         </Tab.Container>
                         </Card.Body>  
                     </Card>
+
+
+                    <ReactBootstrapSlider
+                        style={{'width': '100px', 'height': '100px'}}
+                        value={timeSl}
+                        //change={this.changeValue}
+                        //slideStop={this.changeValue}
+                        step={1}
+                        max={1}
+                        min={3}
+                        orientation="vertical"
+                        reversed={true}
+                        //disabled="disabled"
+                        />
 
                     <Card variant="light" bg="light">   
 

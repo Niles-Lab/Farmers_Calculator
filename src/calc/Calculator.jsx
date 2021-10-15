@@ -137,7 +137,7 @@ return (
 
 				<SilvoGraph width={graphWidth} {...props} />
 				// <SilvoBar width={graphWidth} {...props} />
-				// <SilvoBar width={graphWidth} {...props} />
+				//<SilvoBar width={graphWidth} {...props} />
 				// <SilvoBar width={graphWidth} {...props} />
 				// <SilvoBar width={graphWidth} {...props} />
 				)

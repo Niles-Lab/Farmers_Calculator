@@ -23,34 +23,61 @@ const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png
 
 let timeSl;
 
+// Marks on slider for concrete images
+let marks = [];
 
+let peCount = Object.entries(pe).length;
+
+let def = [1];
+
+for(var h=0;h<peCount;h++) {
+
+    def.push(0);
+
+    marks.push({
+       value: h/(peCount-1),
+       label: "img " + (parseInt(h)+1)
+    });
+}
+console.log(marks);
 
 
 function Silvopasture(props) {
 
-    const [opacity, setOpacity] = useState([1,0,0,0,0,0]);
+    const [opacity, setOpacity] = useState(def);
 
 
 
     function handleChange(event,idx) {
         
+        // Value from slider
         timeSl = event.target.value;
         
         // Number of pictures to divide into
-        let divs = (Object.entries(pe).length)-1;
+        let divs = (peCount)-1;
+
+        // Scaled number with range
+        let scaled = idx*divs;
 
         // Local copy of opacity array
         let opac = {opacity};
 
         // Which element should be entirely opaque
-        let visible = (Math.round(idx*divs));
+        let visible = (Math.round(scaled));
 
-
+        // Iterate to update opacity of each image
         Object.entries(pe).forEach((d,idx) => {
-            //this.opacity[idx] = 1
 
             opac[idx] = 0;
-            // if(Math.floor())
+
+            // These two opacity values will be modified
+            let floor = Math.floor(scaled);
+            let ceil = Math.ceil(scaled);
+
+            // Set accordingly to opacity layering
+            opac[floor] = ceil-scaled;
+            opac[ceil] = scaled-floor;
+
 
             });
             opac[visible] = 1;
@@ -73,8 +100,9 @@ function Silvopasture(props) {
                   <Box sx={{ width: 250 }}>
                     <Slider
                         getAriaLabel={() => 'Note Range'}
-                        value={timeSl}
+                        defaultValue={timeSl}
                         min={0}
+                        marks={marks}
                         max={1}
                         step={0.01}
                         style={{position: "relative"}}

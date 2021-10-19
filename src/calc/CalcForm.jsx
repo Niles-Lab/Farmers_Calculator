@@ -2,7 +2,7 @@ import React from "react";
 import { Form, Col, Row, Container, Button, Dropdown } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
 import DDSelect from './DDSelect.jsx'
-import { BsXSquareFill, BsX } from "react-icons/bs";
+import { BsX } from "react-icons/bs";
 
 let MAX_CROPS = 10;
 

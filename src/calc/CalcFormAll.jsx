@@ -7,7 +7,7 @@
 import React from "react";
 import { Form, Col, Row, Container, Button, Dropdown } from 'react-bootstrap';
 import CropInput from './CropInput.jsx'
-import { BsXSquareFill, BsX } from "react-icons/bs";
+import { BsX } from "react-icons/bs";
 import SilvopastureCalc from './SilvopastureCalc.jsx';
 
 let MAX_CROPS = 10;
@@ -15,11 +15,11 @@ let MAX_CROPS = 10;
 function CalcForm(props) {
 
 // Global variables for option selections
-const opts = { // Calculate Options for "Category": ["Methods..."]
-		"Livestock": ["Method L-1", "Method L-2"], 
-		"Climate": ["Method C-1", "Method C-2"], 
-		"Other": ["Support Local Music", "Irrigation"]
-	};
+// const opts = { // Calculate Options for "Category": ["Methods..."]
+// 		"Livestock": ["Method L-1", "Method L-2"], 
+// 		"Climate": ["Method C-1", "Method C-2"], 
+// 		"Other": ["Support Local Music", "Irrigation"]
+// 	};
 let units = ["Acres", "Hectares"];
 
 function handleCropChange(event) { // Special handler for the CropInput Component

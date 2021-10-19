@@ -1,6 +1,5 @@
 import React from 'react';
 import { Container, Row } from 'react-bootstrap';
-import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import Resource from "./Resource.jsx"
 
 function Resources(props) {

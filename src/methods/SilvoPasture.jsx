@@ -4,12 +4,14 @@
  * 
  **/
 
-import React, { useState } from 'react';
-import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
+import React, { useState, useRef } from 'react';
+import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
+
+
 
 function importAll(r) {
   let images = {};
@@ -45,7 +47,8 @@ console.log(marks);
 function Silvopasture(props) {
 
     const [opacity, setOpacity] = useState(def);
-
+    const [show, setShow] = useState(false);
+    const target = useRef(null);
 
 
     function handleChange(event,idx) {
@@ -97,8 +100,18 @@ function Silvopasture(props) {
             <Col xs={7}>
 
 
+              {/* Tooltip */}
+              <Overlay target={target.current} show={show} placement="top">
+                {(props) => (
+                  <Tooltip id="overlay-example" {...props}>
+                    Drag me!
+                  </Tooltip>
+                )}
+              </Overlay>
+
                   <Box sx={{ width: 250 }}>
                     <Slider
+                        ref={target} onClick={() => setShow(!show)}
                         getAriaLabel={() => 'Note Range'}
                         defaultValue={timeSl}
                         min={0}
@@ -112,7 +125,7 @@ function Silvopasture(props) {
                   </Box>
 
 
-                  <Box style={{'minHeight': '100%'}}>
+                  <Box style={{'minHeight': '50%'}}>
 
                         {Object.entries(pe).map((d,idx) => (
 

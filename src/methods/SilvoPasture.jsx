@@ -4,9 +4,10 @@
  * 
  **/
 
-import React from "react";
+import React, { useState } from 'react';
 import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel } from 'react-bootstrap';
-import ReactBootstrapSlider from 'react-bootstrap-slider';
+import Slider from '@mui/material/Slider';
+import Box from '@mui/material/Box';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 
@@ -16,12 +17,49 @@ function importAll(r) {
   return images;
 }
 
-let timeSl = 2;
-
 const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 //const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
+
+let timeSl;
+
+
+
+
 function Silvopasture(props) {
+
+    const [opacity, setOpacity] = useState([1,0,0,0,0,0]);
+
+
+
+    function handleChange(event,idx) {
+        
+        timeSl = event.target.value;
+        
+        // Number of pictures to divide into
+        let divs = (Object.entries(pe).length)-1;
+
+        // Local copy of opacity array
+        let opac = {opacity};
+
+        // Which element should be entirely opaque
+        let visible = (Math.round(idx*divs));
+
+
+        Object.entries(pe).forEach((d,idx) => {
+            //this.opacity[idx] = 1
+
+            opac[idx] = 0;
+            // if(Math.floor())
+
+            });
+            opac[visible] = 1;
+            setOpacity(opac);
+
+    }
+
+
+
 
 	return (
 		<>
@@ -32,12 +70,42 @@ function Silvopasture(props) {
             <Col xs={7}>
 
 
+                  <Box sx={{ width: 250 }}>
+                    <Slider
+                        getAriaLabel={() => 'Note Range'}
+                        value={timeSl}
+                        min={0}
+                        max={1}
+                        step={0.01}
+                        style={{position: "relative"}}
+                        onChange={(event,idx) => {handleChange(event,idx)}}
+                    />
+
+                  </Box>
+
+
+                  <Box style={{'minHeight': '100%'}}>
+
+                        {Object.entries(pe).map((d,idx) => (
+
+
+                                <img
+                                    className="d-block w-100"
+                                    style={{'position': 'absolute', 'opacity': opacity[idx]}}
+                                    src={d[1].default} 
+                                    alt={d[0]}/>
+
+
+                            ))}
+                  </Box>
+
 
                     {/* Tabbed view of method variants */}
                     <Card>
 
-                        <Image src="../images/silvopasture/cover.jpg" />
-                    
+{/*                        <Image src={require('../images/silvopasture/pe/image-001.jpg')} />
+                        <img src={require('../images/silvopasture/pe/image-001.jpg')} />
+                        <Image src={require('../images/silvopasture/cover.jpg')} />*/}
 
 
                     <Card.Body>
@@ -82,7 +150,7 @@ function Silvopasture(props) {
 
                     </Card>  
 
-                    <Carousel>
+{/*                    <Carousel>
                     	{Object.entries(pe).map((d,idx) => (
 
                     		<Carousel.Item key={"crsl"+idx}>
@@ -94,7 +162,7 @@ function Silvopasture(props) {
 
 
                     		))}
-                    </Carousel>
+                    </Carousel>*/}
 
                     <Card variant="light" bg="light">
 
@@ -142,19 +210,6 @@ function Silvopasture(props) {
                         </Card.Body>  
                     </Card>
 
-
-                    <ReactBootstrapSlider
-                        style={{'width': '100px', 'height': '100px'}}
-                        value={timeSl}
-                        //change={this.changeValue}
-                        //slideStop={this.changeValue}
-                        step={1}
-                        max={1}
-                        min={3}
-                        orientation="vertical"
-                        reversed={true}
-                        //disabled="disabled"
-                        />
 
                     <Card variant="light" bg="light">   
 

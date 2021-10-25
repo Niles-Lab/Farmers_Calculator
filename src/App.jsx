@@ -8,6 +8,7 @@ import FormController from './calc/FormController.jsx'
 import Resources from './Resources.jsx'
 import SilvoPasture from './methods/SilvoPasture.jsx'
 import Research from './Research.jsx'
+import Extras from './home/Extras.jsx'
 
 function App() {
 // style={{ backgroundImage: `url(${background})` }}
@@ -23,7 +24,7 @@ function App() {
           <Route path='/Research' component={Research}/>
           <Route path='/SilvoPasture' component={SilvoPasture}/>
           <Route path='/Research' component={Research}/>
-          <Route path='/Research' component={Research}/>
+          <Route path='/Extras' component={Extras}/>
           <Route path='/' component={Home}/>
         </Switch>
 

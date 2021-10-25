@@ -8,6 +8,7 @@ import React, { useState, useRef } from 'react';
 import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
+import FormController from './../calc/FormController';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 
@@ -38,10 +39,9 @@ for(var h=0;h<peCount;h++) {
 
     marks.push({
        value: h/(peCount-1),
-       label: "img " + (parseInt(h)+1)
+       //label: "img " + (parseInt(h)+1)
     });
 }
-console.log(marks);
 
 
 function Silvopasture(props) {
@@ -94,22 +94,28 @@ function Silvopasture(props) {
 	return (
 		<>
         <Row>
-            <Col>
 
+
+            <Col>
+                    
             </Col>
             <Col xs={7}>
+
 
 
               {/* Tooltip */}
               <Overlay target={target.current} show={show} placement="top">
                 {(props) => (
-                  <Tooltip id="overlay-example" {...props}>
+                  <Tooltip id="overlay-example" {...props} arrow>
                     Drag me!
                   </Tooltip>
                 )}
               </Overlay>
 
+
                   <Box sx={{ width: 250 }}>
+
+                    Slide to change!
                     <Slider
                         ref={target} onClick={() => setShow(!show)}
                         getAriaLabel={() => 'Note Range'}
@@ -122,8 +128,8 @@ function Silvopasture(props) {
                         onChange={(event,idx) => {handleChange(event,idx)}}
                     />
 
-                  </Box>
 
+                  </Box>
 
                   <Box style={{'minHeight': '50%'}}>
 

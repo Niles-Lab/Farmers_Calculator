@@ -14,13 +14,16 @@ const Navigation = () => {
               <Nav className="mr-auto">
                 <Nav.Link href="/research">Research</Nav.Link>
                 <Nav.Link href="/formcontroller">Calculator</Nav.Link>
-                <Nav.Link href="/resources">Resources</Nav.Link>
+{/*                <Nav.Link href="/resources">Resources</Nav.Link>*/}
+                <Nav.Link href="/silvopasture">Silvopasture</Nav.Link>
+                
+
                 <NavDropdown title="Practices" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/silvopasture">Silvopasture</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+                  <NavDropdown.Item href="/extras">Extras</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
             </Navbar.Collapse>

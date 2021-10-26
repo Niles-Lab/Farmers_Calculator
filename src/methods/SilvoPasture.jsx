@@ -37,6 +37,27 @@ let peCount = Object.entries(pe).length;
 
 let def = [0];
 
+
+function createMarks(arr) {
+
+
+    Object.entries(arr).forEach(d => {
+        
+        def.push(0);
+
+        marks.push({
+           value: h/(peCount-1),
+           //label: "img " + (parseInt(h)+1)
+        });
+
+    });
+for(var h=0;h<peCount;h++) {
+
+
+}
+
+    
+}
 for(var h=0;h<peCount;h++) {
 
     def.push(0);
@@ -67,8 +88,8 @@ function Silvopasture(props) {
     // arr - what array of images are we modifying
     function handleChange(event,idx, arr) {
         
-        console.log(Array.from(Array(active.length), (_, index) => (index/active.length) + (1/active.length)));
-        console.log(active.length);
+        console.log(Array.from(Array(Object.entries(active).length), (_, index) => (index/Object.entries(active).length) + (1/Object.entries(active).length)));
+        console.log(active);
 
         // Value from slider
         timeSl = event.target.value;
@@ -199,7 +220,7 @@ function Silvopasture(props) {
                                 defaultValue={timeSl}
                                 min={0}
                                 //marks={() => { return  }}
-                                marks={Array.from(Array(active.length), (_, index) => (index/active.length) + (1/active.length))}
+                                marks={Array.from(Array(Object.entries(active).length), (_, index) => (index/Object.entries(active).length) + (1/Object.entries(active).length))}
                                 max={1}
                                 step={0.01}
                                 style={{position: "relative"}}

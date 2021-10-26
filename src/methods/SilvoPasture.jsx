@@ -17,8 +17,7 @@ const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 function importAll(r) {
   let images = {};
   r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-  console.log(images);
-  return images;
+  return Object.entries(images);
 }
 
 // Pasture Enrichment Images
@@ -38,38 +37,21 @@ let peCount = Object.entries(pe).length;
 let def = [0];
 
 
-function createMarks(arr) {
+// for(var h=0;h<peCount;h++) {
 
+//     def.push(0);
 
-    Object.entries(arr).forEach(d => {
-        
-        def.push(0);
-
-        marks.push({
-           value: h/(peCount-1),
-           //label: "img " + (parseInt(h)+1)
-        });
-
-    });
-for(var h=0;h<peCount;h++) {
-
-
-}
-
-    
-}
-for(var h=0;h<peCount;h++) {
-
-    def.push(0);
-
-    marks.push({
-       value: h/(peCount-1),
-       //label: "img " + (parseInt(h)+1)
-    });
-}
+//     marks.push({
+//        value: h/(active.length-1),
+//        //label: "img " + (parseInt(h)+1)
+//     });
+// }
 
 
 function Silvopasture(props) {
+
+    // What value the opacity slider is at
+    const [timeSl, setTimeSl] = useState(0);
 
     // Which image array is active?
     const [active, setActive] = useState(pe);
@@ -83,17 +65,37 @@ function Silvopasture(props) {
     // Also for overlay/tooltip
     const target = useRef(null);
 
+    // Create an updated array for slider marks
+    function createMarks(arr) {
+
+        marks = [];
+
+        def[0] = 1;
+
+        arr.forEach((d,idx) => {
+            
+            def.push(0);
+
+            marks.push({
+               value: idx/(arr.length-1),
+               //label: "img " + (parseInt(h)+1)
+            });
+
+        });
+
+        return marks;
+       
+    }
+
     // event - mouesevent
     // idx - slider index
     // arr - what array of images are we modifying
-    function handleChange(event,idx, arr) {
+    function handleChange(event,idx) {
         
-        console.log(Array.from(Array(Object.entries(active).length), (_, index) => (index/Object.entries(active).length) + (1/Object.entries(active).length)));
-        console.log(active);
 
         // Value from slider
-        timeSl = event.target.value;
-        
+        setTimeSl(event.target.value);
+
         // Number of pictures to divide into
         let divs = (peCount)-1;
 
@@ -108,7 +110,7 @@ function Silvopasture(props) {
 
 
         // Iterate to update opacity of each image
-        Object.entries(active).forEach((d,idx) => {
+        active.forEach((d,idx) => {
 
             opac[idx] = 0;
 
@@ -145,7 +147,7 @@ function Silvopasture(props) {
 
                     <Card.Body>
 
-                        <Tab.Container id="left-tabs-example" defaultActiveKey="first">
+                        <Tab.Container defaultActiveKey="0">
                           <Row>
                             <Col sm={3}>
                               <Nav variant="pills" className="flex-column">
@@ -153,7 +155,6 @@ function Silvopasture(props) {
                                     <Nav.Item key={idx}>
 
                                         <Nav.Link eventKey={idx} variant="success" onClick={function(d) {
-
                                             // Manually set active image set on select
                                             if(idx === 0) setActive(pe);
                                             if(idx === 1) setActive(pe);
@@ -215,16 +216,14 @@ function Silvopasture(props) {
 
                             Slide to change!
                             <Slider
-                                ref={target} onClick={() => setShow(!show)}
                                 getAriaLabel={() => 'Image Slider'}
-                                defaultValue={timeSl}
                                 min={0}
-                                //marks={() => { return  }}
-                                marks={Array.from(Array(Object.entries(active).length), (_, index) => (index/Object.entries(active).length) + (1/Object.entries(active).length))}
+                                marks={createMarks(active)}
                                 max={1}
                                 step={0.01}
+                                value={timeSl}
                                 style={{position: "relative"}}
-                                onChange={(event,idx) => {handleChange(event,idx, active)}}
+                                onChange={(event,idx) => handleChange(event,idx)}
                             /> 
 
 
@@ -233,7 +232,8 @@ function Silvopasture(props) {
                           <Box style={{'minHeight': '500px','position': 'relative'}}>
 
                                 {/* Map the active image set to screen */}
-                                {Object.entries(active).map((d,idx) => (
+                                {active.map((d,idx) => (
+
                                         <img
                                             className="d-block w-100"
                                             style={{'position': 'absolute', 'opacity': opacity[idx]}}

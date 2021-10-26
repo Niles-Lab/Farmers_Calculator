@@ -44,7 +44,7 @@ return (
                               </p>
 
                               <footer className="blockquote-footer">
-                                    <a target="_blank" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
+                                    <a target="_blank" rel="noreferrer" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
                                         <cite>USDA Grant Summary</cite>
                                     </a>
                               </footer>

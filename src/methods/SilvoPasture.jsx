@@ -53,6 +53,9 @@ for(var h=0;h<peCount;h++) {
 
 function Silvopasture(props) {
 
+    // Which image array is active?
+    const [active, setActive] = useState(pe);
+
     // Opacity container for images
     const [opacity, setOpacity] = useState(def);
 
@@ -62,8 +65,10 @@ function Silvopasture(props) {
     // Also for overlay/tooltip
     const target = useRef(null);
 
-
-    function handleChange(event,idx) {
+    // event - mouesevent
+    // idx - slider index
+    // arr - what array of images are we modifying
+    function handleChange(event,idx, arr) {
         
         console.log(event.target)
 
@@ -83,7 +88,7 @@ function Silvopasture(props) {
         let visible = (Math.round(scaled));
 
         // Iterate to update opacity of each image
-        Object.entries(pe).forEach((d,idx) => {
+        Object.entries(active).forEach((d,idx) => {
 
             opac[idx] = 0;
 
@@ -127,7 +132,11 @@ function Silvopasture(props) {
                                 {variants.map((d,idx) => (
                                     <Nav.Item key={idx}>
 
-                                        <Nav.Link eventKey={idx} variant="success">
+                                        <Nav.Link eventKey={idx} variant="success" onClick={function(d,idx) {
+                                            if(idx == 0) setActive(pe);
+                                            if(idx == 1) setActive(pe);
+                                            if(idx == 2) setActive(fc);
+                                        }}>
                                             {d}
                                         </Nav.Link>
 
@@ -192,7 +201,7 @@ function Silvopasture(props) {
                                 max={1}
                                 step={0.01}
                                 style={{position: "relative"}}
-                                onChange={(event,idx) => {handleChange(event,idx)}}
+                                onChange={(event,idx) => {handleChange(event,idx, active)}}
                             /> 
 
 

@@ -27,9 +27,6 @@ const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png
 // Forest Conversion Images
 const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
-// What tab is active
-let active;
-
 // What value the slider is at, for image opacity filtering
 let timeSl;
 
@@ -70,7 +67,8 @@ function Silvopasture(props) {
     // arr - what array of images are we modifying
     function handleChange(event,idx, arr) {
         
-        console.log(event.target)
+        console.log(Array.from(Array(active.length), (_, index) => (index/active.length) + (1/active.length)));
+        console.log(active.length);
 
         // Value from slider
         timeSl = event.target.value;
@@ -86,6 +84,7 @@ function Silvopasture(props) {
 
         // Which element should be entirely opaque
         let visible = (Math.round(scaled));
+
 
         // Iterate to update opacity of each image
         Object.entries(active).forEach((d,idx) => {
@@ -132,10 +131,12 @@ function Silvopasture(props) {
                                 {variants.map((d,idx) => (
                                     <Nav.Item key={idx}>
 
-                                        <Nav.Link eventKey={idx} variant="success" onClick={function(d,idx) {
-                                            if(idx == 0) setActive(pe);
-                                            if(idx == 1) setActive(pe);
-                                            if(idx == 2) setActive(fc);
+                                        <Nav.Link eventKey={idx} variant="success" onClick={function(d) {
+
+                                            // Manually set active image set on select
+                                            if(idx === 0) setActive(pe);
+                                            if(idx === 1) setActive(pe);
+                                            if(idx === 2) setActive(fc);
                                         }}>
                                             {d}
                                         </Nav.Link>
@@ -197,7 +198,8 @@ function Silvopasture(props) {
                                 getAriaLabel={() => 'Image Slider'}
                                 defaultValue={timeSl}
                                 min={0}
-                                marks={marks}
+                                //marks={() => { return  }}
+                                marks={Array.from(Array(active.length), (_, index) => (index/active.length) + (1/active.length))}
                                 max={1}
                                 step={0.01}
                                 style={{position: "relative"}}
@@ -209,15 +211,8 @@ function Silvopasture(props) {
                         {/* Fading images accompanying slider */}
                           <Box style={{'minHeight': '500px','position': 'relative'}}>
 
-                                {Object.entries(pe).map((d,idx) => (
-                                        <img
-                                            className="d-block w-100"
-                                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
-                                            src={d[1].default} 
-                                            alt={d[0]}/>
-                                    ))}
-
-                                {Object.entries(fc).map((d,idx) => (
+                                {/* Map the active image set to screen */}
+                                {Object.entries(active).map((d,idx) => (
                                         <img
                                             className="d-block w-100"
                                             style={{'position': 'absolute', 'opacity': opacity[idx]}}

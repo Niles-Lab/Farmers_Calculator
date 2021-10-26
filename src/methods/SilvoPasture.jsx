@@ -17,13 +17,20 @@ const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 function importAll(r) {
   let images = {};
   r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  console.log(images);
   return images;
 }
 
+// Pasture Enrichment Images
 const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
-//const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
+// Forest Conversion Images
+const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
+// What tab is active
+let active;
+
+// What value the slider is at, for image opacity filtering
 let timeSl;
 
 // Marks on slider for concrete images
@@ -31,7 +38,7 @@ let marks = [];
 
 let peCount = Object.entries(pe).length;
 
-let def = [1];
+let def = [0];
 
 for(var h=0;h<peCount;h++) {
 
@@ -46,13 +53,20 @@ for(var h=0;h<peCount;h++) {
 
 function Silvopasture(props) {
 
+    // Opacity container for images
     const [opacity, setOpacity] = useState(def);
+
+    // Show state for overlay/tooltip
     const [show, setShow] = useState(false);
+
+    // Also for overlay/tooltip
     const target = useRef(null);
 
 
     function handleChange(event,idx) {
         
+        console.log(event.target)
+
         // Value from slider
         timeSl = event.target.value;
         
@@ -89,8 +103,6 @@ function Silvopasture(props) {
     }
 
 
-
-
 	return (
 		<>
         <Row>
@@ -103,57 +115,8 @@ function Silvopasture(props) {
 
 
 
-              {/* Tooltip */}
-              <Overlay target={target.current} show={show} placement="top">
-                {(props) => (
-                  <Tooltip id="overlay-example" {...props} arrow>
-                    Drag me!
-                  </Tooltip>
-                )}
-              </Overlay>
-
-
-                  <Box sx={{ width: 250 }}>
-
-                    Slide to change!
-                    <Slider
-                        ref={target} onClick={() => setShow(!show)}
-                        getAriaLabel={() => 'Note Range'}
-                        defaultValue={timeSl}
-                        min={0}
-                        marks={marks}
-                        max={1}
-                        step={0.01}
-                        style={{position: "relative"}}
-                        onChange={(event,idx) => {handleChange(event,idx)}}
-                    />
-
-
-                  </Box>
-
-                  <Box style={{'minHeight': '50%'}}>
-
-                        {Object.entries(pe).map((d,idx) => (
-
-
-                                <img
-                                    className="d-block w-100"
-                                    style={{'position': 'absolute', 'opacity': opacity[idx]}}
-                                    src={d[1].default} 
-                                    alt={d[0]}/>
-
-
-                            ))}
-                  </Box>
-
-
                     {/* Tabbed view of method variants */}
                     <Card>
-
-{/*                        <Image src={require('../images/silvopasture/pe/image-001.jpg')} />
-                        <img src={require('../images/silvopasture/pe/image-001.jpg')} />
-                        <Image src={require('../images/silvopasture/cover.jpg')} />*/}
-
 
                     <Card.Body>
 
@@ -174,6 +137,7 @@ function Silvopasture(props) {
                             </Col>
                             <Col sm={9}>
                               <Tab.Content>
+                                {/*Silvopasture Tab*/}
                                 <Tab.Pane eventKey="0">
 
                                     <hr/>
@@ -184,32 +148,80 @@ function Silvopasture(props) {
                                     
                             
                                 </Tab.Pane>
+                                {/*Pasture Enrichment Tab*/}
                                 <Tab.Pane eventKey="1">
                                   adfasdf
                                 </Tab.Pane>
+
+                                {/*Forest Enrichment Tab*/}
+                                <Tab.Pane eventKey="2">
+
+                                    <hr/>
+                                    <Card.Title id="2">Forest Enrichment</Card.Title>
+                                    <hr/>
+
+                                    Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
+                            
+                                </Tab.Pane>
+
+
                               </Tab.Content>
                             </Col>
                           </Row>
                         </Tab.Container>
 
+                    {/* Tooltip */}
+ {/*                     <Overlay target={target.current} show={show} placement="top">
+                        {(props) => (
+                          <Tooltip id="overlay-example" {...props} arrow>
+                            Drag me!
+                          </Tooltip>
+                        )}
+                      </Overlay>*/}
+
+
+                          <Box sx={{ width: 250 }}>
+
+                            Slide to change!
+                            <Slider
+                                ref={target} onClick={() => setShow(!show)}
+                                getAriaLabel={() => 'Image Slider'}
+                                defaultValue={timeSl}
+                                min={0}
+                                marks={marks}
+                                max={1}
+                                step={0.01}
+                                style={{position: "relative"}}
+                                onChange={(event,idx) => {handleChange(event,idx)}}
+                            /> 
+
+
+                          </Box>
+                        {/* Fading images accompanying slider */}
+                          <Box style={{'minHeight': '500px','position': 'relative'}}>
+
+                                {Object.entries(pe).map((d,idx) => (
+                                        <img
+                                            className="d-block w-100"
+                                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
+                                            src={d[1].default} 
+                                            alt={d[0]}/>
+                                    ))}
+
+                                {Object.entries(fc).map((d,idx) => (
+                                        <img
+                                            className="d-block w-100"
+                                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
+                                            src={d[1].default} 
+                                            alt={d[0]}/>
+                                    ))}
+
+                          </Box>
+
 
                     </Card.Body>
 
                     </Card>  
-
-{/*                    <Carousel>
-                    	{Object.entries(pe).map((d,idx) => (
-
-                    		<Carousel.Item key={"crsl"+idx}>
-                    			<img
-                    				className="d-block w-100"
-                    				src={d[1].default} 
-                    				alt={d[0]}/>
-                    		</Carousel.Item>
-
-
-                    		))}
-                    </Carousel>*/}
 
                     <Card variant="light" bg="light">
 

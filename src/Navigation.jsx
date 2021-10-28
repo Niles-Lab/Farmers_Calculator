@@ -13,8 +13,9 @@ const Navigation = () => {
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav className="mr-auto">
                 <Nav.Link href="/silvopasture">Silvopasture</Nav.Link>
-                <Nav.Link href="/silvopasture">Irrigation</Nav.Link>
-                <Nav.Link href="/silvopasture">Tarping</Nav.Link>
+                <Nav.Link href="/irrigation">Irrigation</Nav.Link>
+                <Nav.Link href="/tarping">Tarping</Nav.Link>
+
                 <Nav.Link href="/research">Research</Nav.Link>
                 
 {/*                <Nav.Link href="/resources">Resources</Nav.Link>*/}

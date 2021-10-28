@@ -1,6 +1,6 @@
 /**
  * 
- * Silvopasture - Cover Page for Silvopasture adaptation method
+ * Tarping - Cover Page for Tarping adaptation method
  * 
  **/
 
@@ -10,7 +10,7 @@ import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import FormController from './../calc/FormController';
 
-const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
+const variants = ["Overview", "Ponds", "Tarping"];
 
 
 
@@ -20,14 +20,10 @@ function importAll(r) {
   return Object.entries(images);
 }
 
-// Silvopasture Cover Image(s)
-const sp = importAll(require.context('../images/silvopasture/sp', false, /\.(png|jpe?g|svg)$/));
+// Tarping Cover Image(s)
+const sp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
 
-// Pasture Enrichment Images
-const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
-// Forest Conversion Images
-const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 // What value the slider is at, for image opacity filtering
 let timeSl;
@@ -35,12 +31,10 @@ let timeSl;
 // Marks on slider for concrete images
 let marks = [];
 
-let peCount = Object.entries(pe).length;
-
 let def = [0];
 
 
-function Silvopasture(props) {
+function Tarping(props) {
 
     // What value the opacity slider is at
     const [timeSl, setTimeSl] = useState(0);
@@ -148,9 +142,9 @@ function Silvopasture(props) {
 
                                         <Nav.Link eventKey={idx} variant="success" onClick={function(d) {
                                             // Manually set active image set on select
-                                            if(idx === 0) setActive(sp);
-                                            if(idx === 1) setActive(pe);
-                                            if(idx === 2) setActive(fc);
+                                            // if(idx === 0) setActive(sp);
+                                            // if(idx === 1) setActive(pd);
+                                            // if(idx === 2) setActive(ig);
                                         }}>
                                             {d}
                                         </Nav.Link>
@@ -161,36 +155,44 @@ function Silvopasture(props) {
                             </Col>
                             <Col sm={9}>
                               <Tab.Content>
-                                {/*Silvopasture Tab*/}
+                                {/*Tarping Tab*/}
                                 <Tab.Pane eventKey="0">
 
                                     <hr/>
-                                    <Card.Title id="2">What is Silvopasture?</Card.Title>
+                                    <Card.Title id="2">What is Tarping?</Card.Title>
                                     <hr/>
 
-                                    Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
-                                    
-                            
+                                        Ponds can be a useful climate change adaptation tool. They help provide 
+                                        Tarping water during dry periods, and serve as landscape storage for
+                                         excess water and runoff during heavy precipitation events. 
+                                        <br />
+                                        <br />
+                                        As climate change increases the frequency and severity of extreme
+                                         weather patterns, such as heat and drought interspersed with heavy 
+                                         precipitation events, the need for and benefits of Tarping are 
+                                         likely to increase. 
+
+
                                 </Tab.Pane>
                                 {/*Pasture Enrichment Tab*/}
                                 <Tab.Pane eventKey="1">
 
                                     <hr/>
-                                    <Card.Title id="2">Pasture Enrichment</Card.Title>
+                                    <Card.Title id="2">Ponds</Card.Title>
                                     <hr/>
 
-                                  Pasture enrichment involves adding trees into the pasture area.
+                                  Pairing ponds with an Tarping system can help balance these cycles of water surplus and scarcity by collecting and storing runoff for later use as Tarping during hot, dry periods. 
                                 </Tab.Pane>
 
                                 {/*Forest Conversion Tab*/}
                                 <Tab.Pane eventKey="2">
 
                                     <hr/>
-                                    <Card.Title id="2">Forest Conversion</Card.Title>
+                                    <Card.Title id="2">Tarping</Card.Title>
                                     <hr/>
 
-                                     In forest conversion, trees are thinned in uniform, patch, or irregular patterns, and pasture species are seeded. A variation of forest conversion is when forests are thinned along a field edge, creating “open field edge” silvopasture.
-                            
+                                     
+                                Use of Tarping can prevent crop losses, support crop yield and quality, and allow for the production of a greater variety of crops. Even in areas where crops have historically been produced without supplemental Tarping (e.g. the Northeast United States), the economic benefits of using Tarping are now clear.
                                 </Tab.Pane>
 
 
@@ -256,34 +258,20 @@ function Silvopasture(props) {
                                 <Col>      
                                 <ListGroup>
                                   <ListGroup.Item variant="success"></ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Increased stocking capacity (when expanding grazing into wooded areas)</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Increased utilization of woodland</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Cost-effective vegetation control</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Diversified farm products and income</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Improved animal performance through greater comfort with shelter and shade</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Improved animal health through diversified diets</ListGroup.Item> 
-                                  <ListGroup.Item variant="light" action href="">Balancing of seasonal forage growth and increased forage availability during droughts</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Creation of high-value wildlife habitat</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Improved tree health and performance</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Improved soil health</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Improved water retention and quality</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Carbon sequestration</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Beneficial farm aesthetics</ListGroup.Item>   
+                                  <ListGroup.Item variant="light" action href="">Improves crop quality, consistency, and yield</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Supports the production of a greater variety of crops</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Prevents crop losses</ListGroup.Item> 
                                 </ListGroup>
                                 </Col>
                                 <Col>      
                       			<ListGroup>
                                   <ListGroup.Item variant="danger"></ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Livestock exposure to toxic plants, predators, parasites, diseases, physical hazards, hunters</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Silvopasture establishment and maintenance costs, time, and labor</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Managers’ lack of silvopasture management experience and knowledge </ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Reduced mobility of farm equipment in grazing areas</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Undesirable vegetation, including invasive plants</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Soil degradation and compaction</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Decreased water retention and qualitys</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Carbon release</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Damage to tree roots, bark, and branches</ListGroup.Item>  
-                                  <ListGroup.Item variant="light" action href="">Implementation of silvopasture may impact farms’ Current Use designation and enrollment</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Upfront investment required to install pond Tarping system</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Ongoing maintenance and labor costs for pond and Tarping system </ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Ponds require specific site conditions and are not possible or suitable for all farms</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Must comply with state and federal regulations regarding water usage for pond installation</ListGroup.Item>
+
+
                                 </ListGroup>
                                 </Col>
                             </Row>
@@ -301,7 +289,7 @@ function Silvopasture(props) {
                             <Card.Body>
                             <Container>
                                 <Row className="text-center">
-                                	Interested in silvopasture?&nbsp;<a href="./formcontroller">Check out our economic tool</a>&nbsp;to determine your potential costs and revenue. See what silvopasture looks like &nbsp;<a href="./resources">here</a>.
+                                	Interested in Tarping?&nbsp;<a href="./formcontroller">Check out our economic tool</a>&nbsp;to determine your potential costs and revenue. See what Tarping looks like &nbsp;<a href="./resources">here</a>.
                                 </Row>
              
                             </Container>
@@ -317,4 +305,4 @@ function Silvopasture(props) {
 		)
 }
 
-export default Silvopasture;
+export default Tarping;

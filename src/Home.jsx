@@ -7,7 +7,8 @@ import MainContent from "./home/MainContent.jsx"
 function Home(props) {
 
 //const navs = ["Local Effects of Climate Change", "Individual Action", "What is CBA?", "Our Mission"];
-const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
+//const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
+const navs = ["Project Description", "The Problem", "The Focus"]
 
 	return (
 

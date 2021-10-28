@@ -55,6 +55,34 @@ function Resources(props) {
 			</Row>
 			</Container>
 
+			<Container>
+			<Row>
+				<h1>Irrigation</h1>
+			</Row>
+			<hr/>
+			<Row>
+			<Resource format={"External Link"}
+			date={"Updated November 2018"}
+			link={"https://www.uvm.edu/climatefarming/sites/default/files/files/uvm_dripirrigation.pdf"}
+			description={"Getting Started with Drip Irrigation - University of Vermont Extension, Rachel Schattman and Chloe Boutelle"} />
+
+				<br/>
+
+
+			<Resource format={"External Link"}
+			link={"https://www.uvm.edu/sites/default/files/media/irrigation_case_study_intervale_july_2017_0.pdf"}
+			date={"Summer 2017"}
+			description={"Irrigation Case Study by Andy Jones"} />
+
+			<br/>
+
+			<Resource format={"Virtual Tour"}
+			link={"https://www.climatehubs.usda.gov/hubs/northeast/project/dickinson-college-farms-silvopasture"}
+			description={"Dickinson College’s Farm Silvopasture PA (USDA Northeast Climate Hub)"} />
+				
+			</Row>
+			</Container>
+
 
 		</>
 		)

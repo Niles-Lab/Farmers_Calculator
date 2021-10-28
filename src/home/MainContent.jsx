@@ -1,4 +1,4 @@
-import { React } from 'react';
+import { React, useState } from 'react';
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
 import PriceChart from "../viz/PriceChart.jsx"
 import DotPlotFarm from "../viz/DotPlotFarm.jsx"
@@ -6,7 +6,90 @@ import CropLossTM from "../viz/CropLossTM.jsx"
 import Chart from "../viz/Chart.jsx"
 import mental_map from './../images/mental_map.png';
 
+
+import Box from '@mui/material/Box';
+import Stepper from '@mui/material/Stepper';
+import Step from '@mui/material/Step';
+import StepLabel from '@mui/material/StepLabel';
+import StepContent from '@mui/material/StepContent';
+import Button from '@mui/material/Button';
+import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
+
+
+// export default function VerticalLinearStepper() {
+//   const [activeStep, setActiveStep] = React.useState(0);
+
+//   const handleNext = () => {
+//     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+//   };
+
+//   const handleBack = () => {
+//     setActiveStep((prevActiveStep) => prevActiveStep - 1);
+//   };
+
+//   const handleReset = () => {
+//     setActiveStep(0);
+//   };
+
+// }
+
+
+
+
+
 const MainContent = (props, ref) => {
+
+const [activeStep, setActiveStep] = useState(0);
+  const handleNext = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const handleBack = () => {
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
+  };
+
+  const handleReset = () => {
+    setActiveStep(0);
+  };
+
+const steps = [
+  {
+    label: 'Project Description',
+    description: `In an era of climate change and risk, 
+        there has been an increasing focus on the development of climate resources and information for farmers to help them 
+        plan for future changes. Despite the increasing availability of information, many of these resources remain broad and 
+        often untargeted to specific populations. As the needs of farmers differ based on several criteria, including level 
+        of experience and farm type, and many resources are not geared towards farmer-identified learning and resource needs. 
+        While the availability of climate resources may be growing, there are few resources and information targeted 
+        towards specific farming populations, such as small, medium and beginning farmers in New England. There is a great 
+        need for resources developed in concert with the core beliefs, perceptions, and planning needs of these specific 
+        farmer groups. This project investigated farmer and agricultural expert perspectives of climate change and their 
+        management concerns to develop, pilot, and disseminate climate-planning resources specific to farm size and level 
+        of farmer experience and in direct response to these farmers’ expressed needs.`,
+  },
+  {
+    label: 'The Problem',
+    description: 'It is now acknowledged that climate change is one of the greatest environmental threats for future generations, and that it will impact agriculture in the U.S. As a result, small, medium and beginning farmers and ranchers will face unique production challenges which will require a targeted set of resources. These resources must be designed with farm scale and size as well as farmer experience level in mind. ',
+  },
+  {
+    label: 'The Focus',
+    description: `
+        The long-term goal of this project is to assess the 
+        varying climate perspectives of small, medium, and beginning farmers and ranchers, and agricultural 
+        extension and advisors to develop, pilot and implement targeted climate change resources and planning 
+        tools specific to the unique experiences and needs of farmers in Maine and Vermont. Based on input 
+        from farmers in Vermont and Maine and an assessment of existing resources and research,  the research 
+        team developed economic and visualization tools for three agricultural practices (silvopasture,
+         irrigation, and tarping) as well as accompanying overview briefs with additional resources. 
+
+
+    `,
+  },
+];
+
+
+
 
 //const scroll = (ref) => props.refProp.scrollIntoView()
 //const ref4 = props.refs[3];
@@ -15,30 +98,78 @@ const MainContent = (props, ref) => {
 return (
 
 
-        <div>
+<>
+
+
+    <Box className="w-100" >
+      <Stepper activeStep={activeStep} orientation="vertical">
+        {steps.map((step, index) => (
+          <Step key={step.label}>
+            <StepLabel
+              optional={
+                index === 2 ? (
+                  <Typography variant="caption">Last step</Typography>
+                ) : null
+              }
+            >
+              {step.label}
+            </StepLabel>
+            <StepContent>
+              <Typography>{step.description}</Typography>
+              <Box sx={{ mb: 2 }}>
+                <div>
+                  <Button
+                    variant="contained"
+                    onClick={handleNext}
+                    sx={{ mt: 1, mr: 1 }}
+                  >
+                    {index === steps.length - 1 ? 'Finish' : 'Continue'}
+                  </Button>
+                  <Button
+                    disabled={index === 0}
+                    onClick={handleBack}
+                    sx={{ mt: 1, mr: 1 }}
+                  >
+                    Back
+                  </Button>
+                </div>
+              </Box>
+            </StepContent>
+          </Step>
+        ))}
+      </Stepper>
+      {activeStep === steps.length && (
+        <Paper square elevation={0} sx={{ p: 3 }}>
+          <Typography>All steps completed - you&apos;re finished</Typography>
+          <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
+            Reset
+          </Button>
+        </Paper>
+      )}
+    </Box>
+
+
+
+
+{/*        <div>
         <Row>
 
             <Col>
                     <Card>
 
+                        <hr/>
+                        <Card.Title id="1">Project Description</Card.Title>
+                        <hr/>
 
-                        <Card.Title id="0" className="mt-5"></Card.Title>
+                        <Card.Title id="0"></Card.Title>
 
                             <blockquote className="blockquote mb-0 mx-5">
-                              <p>
-                              <em>
-                                {' '}
-                                The long term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United States(specifically Maine and Vermont) by developing climate change resources that consider farmer&#39;s own 
-                                perceptions, concerns, experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region and the unique climate change challenges facing the Northeast. 
-                                {' '}
-                              </em>
-                              </p>
+                              
+                                <h4><b></b></h4>
 
-                              <footer className="blockquote-footer">
-                                    <a target="_blank" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
-                                        <cite>USDA Grant Summary</cite>
-                                    </a>
-                              </footer>
+                             
+
+   
                             </blockquote>
                             <Card.Body>
                                 <Row>
@@ -156,10 +287,10 @@ return (
 
             </Col>
         </Row>
-        </div>
+        </div>*/}
 
+</>
 
-
-)
+);
 }
 export default MainContent;

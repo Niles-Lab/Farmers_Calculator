@@ -2,6 +2,9 @@ import { React } from 'react';
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
 import Chart from "./viz/Chart.jsx"
 import mental_map from './images/mental_map.png';
+import code from './images/code.png';
+import focus_group from './images/focus_group.png';
+
 
 const Research = (props, ref) => {
 
@@ -27,13 +30,12 @@ return (
                     </Navbar.Collapse>
                 </Navbar>
             </Col>
-            <Col>
-                    <Card>
+            <Col xs={6}>
+   
 
 
-                        <Card.Title id="0" className="mt-5"></Card.Title>
 
-                            <blockquote className="blockquote mb-0 mx-5">
+                            <blockquote className="blockquote mt-5 mb-0 mx-5">
                               <p>
                               <em>
                                 {' '}
@@ -49,7 +51,7 @@ return (
                                     </a>
                               </footer>
                             </blockquote>
-                            <Card.Body>
+
                                 <Row>
                                     <Col>
 
@@ -59,17 +61,14 @@ return (
                                     </Col>
                                 </Row>
 
-                            </Card.Body>
 
-                    </Card> 
 
-                    <Card variant="light" bg="light">
 
                         <hr/>
                         <Card.Title id="1">Project Goals</Card.Title>
                         <hr/>
                     
-                        <Card.Body>
+
                         <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
                             <Row>
                                 <Col>
@@ -91,10 +90,41 @@ return (
                                             included that relationship or concept in their mental model; color indicates the concept category</cite>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="#l1">
-                                          <Image src="https://placekitten.com/g/1000" fluid />
+                                          <Image src={focus_group} fluid />
+
+                                          <cite>
+
+                                              Farmer focus groups were conducted in the winter of 2019-2020 in Maine, Vermont, 
+                                              and New Hampshire to pilot and gather feedback on several climate change 
+                                              adaptation resources, including virtual tours, a climate change resource database,
+                                              visualizations of climate change adaptation practices, and an economic tool to aid
+                                               farmers in budgeting and planning for climate change adaption.
+
+                                            <br />
+                                                Twenty-eight farmers
+                                               from across New England (Vermont, Maine, Massachusetts, and New York) provided 
+                                               feedback on these tools through small group discussions and surveys. 
+
+                                          </cite>
+
+
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="#l2">
-                                          <Image src="https://placekitten.com/g/800" fluid />
+                                          <Image src={code} fluid />
+                                          <cite>
+                                            Based on interviews, feedback from 
+                                            focus groups, a review of New England farmers’ plans for 
+                                            climate change adaptation, and an assessment of resources, the research team identified agricultural 
+                                            practices and tools that are of particular need and interest to New England farmers. 
+
+                                            <br /><br />
+                                            Visualization and economic
+                                             tools and an overview brief with additional resources were developed 
+                                             for each practice area and shared with the New England farming 
+                                                community through webinars, workshops, and regional conferences
+                                                 in winter 2021-2022.
+
+                                          </cite>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="#l3">
                                           <Image src="https://placekitten.com/g/700" fluid />
@@ -106,59 +136,8 @@ return (
                                 </Col>
                             </Row>
                         </Tab.Container>
-                        </Card.Body>  
-                    </Card>
-                    <Card>
-                        <hr/>
-                        <Card.Title id="2">What is Cost Benefit Analysis?</Card.Title>
-                        <hr/>
 
-                            <Card.Body>
-                                CBA, or Cost Benefit Analysis, is a tool to identify problems, solutions, and strategies for overcoming challenges given limited resources.
-                                Identifying a long-term problem, assessing multiple strategies, and identifying the costs and benefits presented by each are among the steps taken to find the most efficient solution
-                                on a case-by-case basis.
-                                <br/><br/>
-                                In a constantly changing world with data becoming evermore present, preparation and adaptation is necessary for the survival and evolution of many trades.
-                                Another goal of CBA is to find a solution that not only evolves a trade, but creates the most utility for society. Often times, there are external factors and outcomes
-                                beyond the purview of a study. These may not have an explicit numerical value, but are nonetheless important to consider and prioritize in a CBA.
-                                <br/><br/>
-                                For example, imposing new laws and regulations on trade may have financial benefits, but will assuredly affect the livelihoods of many individuals. This "social cost" should be
-                                accounted for in CBA.
-                            </Card.Body>
 
-                    </Card>  
-
-                    <Card variant="light" bg="light">   
-
-                        <hr/>
-                        <Card.Title id="3">Our Mission</Card.Title>
-                        <hr/>
-                    
-                            <Card.Body>
-                            <Container>
-                                <Row>
-                                    <Col>
-                                    Approximately 20% of Vermont is farmland. Across many different techniques and lifestyles, agriculture is among the state's largest exports.
-                                    While many people are aware of the dangers presented by climate change, there are very few accessible options to personally explore and tackle this issue.
-                                    However, this task is increasinly imperative as the quality of land and natural beauty of the state is threatened.
-                                    <br/><br/>
-                                    The goal of our research is to understand the local perceptions, concerns, experience and needs of farmers in Vermont.
-
-                                    This will help us to identify resource needs for this community, what information they need to make informed decisions on adaptation practices, and how to effectively translate research on these resources.
-                                    Hopefully, this will help to preseve the trade, create sustainable change,
-                                    and enhance the success of small, medium, and beginning farms.
-                                    <br/><br/>
-                                    https://www.nass.usda.gov/Quick_Stats/Ag_Overview/stateOverview.php?state=VERMONT
-                                    </Col>
-                                    <Col>
-                                  
-                                    </Col>
-                                </Row>
-                                <Chart />
-                            </Container>
-                            </Card.Body>
-
-                    </Card>
 
             </Col>
             <Col>

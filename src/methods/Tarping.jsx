@@ -10,7 +10,7 @@ import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import FormController from './../calc/FormController';
 
-const variants = ["Overview", "Ponds", "Tarping"];
+const variants = ["Overview", "Benefits", "More"];
 
 
 
@@ -162,15 +162,18 @@ function Tarping(props) {
                                     <Card.Title id="2">What is Tarping?</Card.Title>
                                     <hr/>
 
-                                        Ponds can be a useful climate change adaptation tool. They help provide 
-                                        Tarping water during dry periods, and serve as landscape storage for
-                                         excess water and runoff during heavy precipitation events. 
+                                        Tarping is the practice of applying tarps to the soil surface and removing 
+                                        them prior to planting to manage or terminate weeds, crops, and cover crops, 
+                                        aiding the transition between cash crops with minimal to no soil disturbance.
+
                                         <br />
                                         <br />
-                                        As climate change increases the frequency and severity of extreme
-                                         weather patterns, such as heat and drought interspersed with heavy 
-                                         precipitation events, the need for and benefits of Tarping are 
-                                         likely to increase. 
+                                        The use of tarps to terminate cover crops in no-till and reduced tillage 
+                                         systems allows farms to achieve the benefits of integrating these practices 
+                                         without specialized equipment or the application of herbicides. 
+                                        <br />
+                                        <br />  
+                                         Given the logistical challenges of moving, securing, and storing the tarps, they are typically used on small farm operations of less than 5 acres.
 
 
                                 </Tab.Pane>
@@ -178,21 +181,31 @@ function Tarping(props) {
                                 <Tab.Pane eventKey="1">
 
                                     <hr/>
-                                    <Card.Title id="2">Ponds</Card.Title>
+                                    <Card.Title id="2">Benefits</Card.Title>
                                     <hr/>
 
-                                  Pairing ponds with an Tarping system can help balance these cycles of water surplus and scarcity by collecting and storing runoff for later use as Tarping during hot, dry periods. 
+                                    Tarping may also reduce the need to use farm equipment which can 
+                                    be helpful in periods of rainy and wet periods when the soil is 
+                                    too wet to work. The potential to eliminate use of machinery to 
+                                    terminate cover crops or incorporate biomass may also be beneficial
+                                     in a more variable climate as it allows farmers greater flexibility
+                                      in the timing of cover crop termination.
+
                                 </Tab.Pane>
 
                                 {/*Forest Conversion Tab*/}
                                 <Tab.Pane eventKey="2">
 
                                     <hr/>
-                                    <Card.Title id="2">Tarping</Card.Title>
+                                    <Card.Title id="2">More</Card.Title>
                                     <hr/>
 
-                                     
-                                Use of Tarping can prevent crop losses, support crop yield and quality, and allow for the production of a greater variety of crops. Even in areas where crops have historically been produced without supplemental Tarping (e.g. the Northeast United States), the economic benefits of using Tarping are now clear.
+                                This practice offers numerous climate change adaptation benefits. 
+                                Tarping can help facilitate no-till, reduced tillage, and cover cropping, 
+                                all of which build soil health and improve water holding capacity. Tarping 
+                                can also facilitate the use of cover crop residue as a mulch for cash crops
+                                 which helps to conserve moisture, increase water infiltration, prevent surface
+                                  runoff, and protect soil from erosion. 
                                 </Tab.Pane>
 
 
@@ -258,18 +271,27 @@ function Tarping(props) {
                                 <Col>      
                                 <ListGroup>
                                   <ListGroup.Item variant="success"></ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Improves crop quality, consistency, and yield</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Supports the production of a greater variety of crops</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Prevents crop losses</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Eliminates the need for herbicides and/or specialized equipment like a roller-crimper</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Provides flexibility in the timing of cover crop termination</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Augments the weed suppression provided by cover crop residue</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">May support long-term soil health goals, like protecting soil organic matter and building soil structure. Supporting soil health can also improve water holding capacity.</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Eliminates the need for field passes (especially beneficial when soils are too wet to operate equipment) </ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Reduces soil erosion</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Supports use of cover crops, some of which may add valuable nitrogen and reduce future need for fertilizer </ListGroup.Item> 
                                 </ListGroup>
                                 </Col>
                                 <Col>      
                       			<ListGroup>
                                   <ListGroup.Item variant="danger"></ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Upfront investment required to install pond Tarping system</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Ongoing maintenance and labor costs for pond and Tarping system </ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Ponds require specific site conditions and are not possible or suitable for all farms</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Must comply with state and federal regulations regarding water usage for pond installation</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Logistical challenges associated with handling tarps, including moving, securing, and storing tarps</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Scale-limited due to above challenges</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Ecological footprint of tarp material manufacturing</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Concerns associated with the disposal of plastic once it is no longer fit for use</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Concerns regarding release of microplastics into soil as tarps wear over time</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Loose tarps can become a hazard to farm equipment, animals, and people</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Pooling of water on and around edges of tarp</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">May create habitat for rodents, increasing this pest population and predators such as snakes</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Reusing tarps may introduce soil-borne diseases into uninfected fields if moving from an infected field</ListGroup.Item>
 
 
                                 </ListGroup>

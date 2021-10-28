@@ -1,4 +1,4 @@
-import React from "react"
+import { React, useState } from "react"
 import { Table, Container, Col, Row, Card } from 'react-bootstrap';
 import SilvoGraph from './SilvoGraph.jsx'
 import SilvoBar from './SilvoBar.jsx'
@@ -7,6 +7,10 @@ import * as d3 from "d3";
 const yrs = 2;
 
 const opts = ["WP", "WOP"];
+
+
+
+
 
 // const labels = ["",
 // 				"Return Per...", 
@@ -21,7 +25,7 @@ const opts = ["WP", "WOP"];
 
 
 const labels = ["", "Per Acre", 
-				"Total Area"]
+				"Total Area"];
 
 
 // D3 visualization graph width
@@ -89,8 +93,8 @@ function npv() {
 
 	return [
 
-	["Revenue", npvr],
-	["Costs", npvc]
+		["Revenue", npvr],
+		["Costs", npvc]
 
 	];
 }
@@ -106,7 +110,7 @@ function setView(event) {
 	let view = (viewAsGraph ? "View as Table" : "View as Graph");
 
 	event.target.innerHTML = view;
-	//view = (thisView === "View as Table") ? "View as Graph" : "View as Table";
+
 	return view;
 }
 
@@ -118,15 +122,16 @@ if(viewAsGraph) {
 
 }
 
+// Optional table view
+const [tableView, setTableView] = useState(0);
+
 return (
 
+	
 
+		<Row className="mt-2">
 
-		<Row className="mt-5">
-			<Col xs={3}>
-
-			</Col>
-			<Col xs={6}>
+			<Col xs={12}>
 
 			<Card>
 				<a style={{'cursor': 'pointer'}} onClick={e => setView(e)}>View as Table</a>
@@ -169,11 +174,9 @@ return (
 
 
 
-
-
 			</Card>
 			</Col>
-			<Col>
+{/*			<Col xs={3}  style={{'transform': 'translate(30vw,-60vh)'}}>
 				<Container className="mt-5 pt-5" style={{'position': 'sticky', 'top': 0}}>
 				<Table hover>
 					<thead>
@@ -200,7 +203,7 @@ return (
 					</tbody>
 				</Table>
 				</Container>
-			</Col>
+			</Col>*/}
 		</Row>
 
 

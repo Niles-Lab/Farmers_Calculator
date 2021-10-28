@@ -292,6 +292,9 @@ function Silvopasture(props) {
                     </Card>
 
 
+                {/* Calculator */}
+                <FormController />
+
                     <Card variant="light" bg="light">   
 
                         <hr/>

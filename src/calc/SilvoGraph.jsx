@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-
+import { Table, Container, Col, Row, Card } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
@@ -29,7 +29,8 @@ const maturingYears = 10;
 // How many sq ft in an acre
 const acreFt = 43560;
 
-
+const labels = ["", "Per Acre", 
+        "Total Area"];
 
 
 const data = [];
@@ -66,6 +67,36 @@ let treesPerAcre = acreFt / (treeSpacing ** 2);
 
 const legendX = parseFloat((width)-margin.left-margin.right);
 const legendY = parseFloat(margin.top);
+
+
+
+
+// Net Present Value(NPV) = Benefits(B) - Costs(C)
+// NPV = PV(B) - PV(C)
+function npv() {
+
+  let npvr = 0;
+  let npvc = 0;
+
+  
+  for(var i = 0; i<data.length;i++) {
+    npvr += (data[i].revenue/((1+props.rate)**i));
+    npvc += (data[i].cost/((1+props.rate)**i));
+  }
+
+  return [
+
+  ["Revenue", npvr],
+  ["Costs", npvc]
+
+  ];
+}
+
+
+
+
+
+
 
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
@@ -411,11 +442,39 @@ function wrap(text, width) {
 
 		return (
 
+      <>
 
+    {/* Render graph */}
 		<div id="pgcht">
 			{/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
 		</div>
 
+    {/* Table accompanying graph */}
+    <Table hover className="float-right" style={{'position': 'absolute', 'maxWidth': '20%', 'right': '0'}}>
+      <thead>
+        <tr>
+        {labels.map((label,idx) => (
+          
+            <th key={idx}>
+              {label}
+            </th>
+          
+          ))}
+        </tr>   
+      </thead>
+      <tbody>
+        {npv().map((d,idx) => (
+          <tr key={idx}>
+            <td>{d[0]}</td>
+            <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
+            <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
+          </tr>
+
+          ))}
+
+      </tbody>
+    </Table>
+    </>
 
 		)
 }

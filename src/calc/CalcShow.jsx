@@ -5,11 +5,10 @@
 * Child: Calcform
 *  
 **/
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { BsChevronDoubleRight } from "react-icons/bs";
-import OffCanvas from 'react-aria-offcanvas'
-import CalcForm from "../calc/CalcForm.jsx"
-import CalcFormAll from "../calc/CalcFormAll.jsx"
+import OffCanvas from 'react-aria-offcanvas';
+import CalcFormAll from "../calc/CalcFormAll.jsx";
 
 
 function CalcShow({name, ...props}) {

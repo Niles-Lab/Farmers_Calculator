@@ -1,15 +1,10 @@
 import { React, useState } from "react"
-import { Table, Container, Col, Row, Card } from 'react-bootstrap';
+import { Table, Col, Row, Card } from 'react-bootstrap';
 import SilvoGraph from './SilvoGraph.jsx'
-import SilvoBar from './SilvoBar.jsx'
+//import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";
 
 const yrs = 2;
-
-const opts = ["WP", "WOP"];
-
-
-
 
 
 // const labels = ["",
@@ -24,8 +19,8 @@ const opts = ["WP", "WOP"];
 // 				"NPV"]
 
 
-const labels = ["", "Per Acre", 
-				"Total Area"];
+// const labels = ["", "Per Acre", 
+// 				"Total Area"];
 
 
 // D3 visualization graph width
@@ -115,12 +110,7 @@ function setView(event) {
 }
 
 let rendered;
-if(viewAsGraph) {
 
-//rendered = 
-
-
-}
 
 // Optional table view
 const [tableView, setTableView] = useState(0);

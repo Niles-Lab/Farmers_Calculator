@@ -100,6 +100,7 @@ function removeCrop() {
 						<Dropdown.Menu>
 							{units.map(item => (
 								<Dropdown.Item
+									key={item}
 									onClick={e => props.setUnit(e.target.innerHTML)}>
 									{item}
 								</Dropdown.Item>
@@ -187,7 +188,7 @@ function removeCrop() {
 
 					<Container>
 						{props.crops.map(cr => ( // Map Variate Crop Inputs
-							<CropInput unit={props.unit} onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
+							<CropInput key={cr} unit={props.unit} onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
 						))}
 					</Container>	
 				

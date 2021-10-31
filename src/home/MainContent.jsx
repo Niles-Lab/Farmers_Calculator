@@ -1,10 +1,10 @@
 import { React, useState } from 'react';
-import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
-import PriceChart from "../viz/PriceChart.jsx"
-import DotPlotFarm from "../viz/DotPlotFarm.jsx"
-import CropLossTM from "../viz/CropLossTM.jsx"
-import Chart from "../viz/Chart.jsx"
-import mental_map from './../images/mental_map.png';
+// import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
+// import PriceChart from "../viz/PriceChart.jsx"
+// import DotPlotFarm from "../viz/DotPlotFarm.jsx"
+// import CropLossTM from "../viz/CropLossTM.jsx"
+// import Chart from "../viz/Chart.jsx"
+// import mental_map from './../images/mental_map.png';
 
 
 import Box from '@mui/material/Box';

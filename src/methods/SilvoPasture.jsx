@@ -209,10 +209,11 @@ function Silvopasture(props) {
                       </Overlay>*/}
 
 
-                          <Box sx={{ width: 250 }}>
+                          <Box sx={{ width: 250 }} >
 
                             Slide to change!
                             <Slider
+                                hidden = {() => console.log(active.length)}
                                 getAriaLabel={() => 'Image Slider'}
                                 min={0}
                                 marks={createMarks(active)}
@@ -232,6 +233,7 @@ function Silvopasture(props) {
                                 {active.map((d,idx) => (
 
                                         <img
+                                            key={d+idx}
                                             className="d-block w-100"
                                             style={{'position': 'absolute', 'opacity': opacity[idx]}}
                                             src={d[1].default} 

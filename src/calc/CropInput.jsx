@@ -9,7 +9,7 @@ class CalcForm extends React.Component {
 
 
 // Global variables for option selections
-options = ["Land", "Vegetables", "Hay", "Livestock", "Dairy", "Maple", "Hay", "Perennials", "Annuals"];
+options = ["Land", "Vegetables", "Hay", "Livestock", "Dairy", "Maple", "Perennials", "Annuals"];
 
 state = {
 	type: "Unknown",

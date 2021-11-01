@@ -132,6 +132,7 @@ return (
 							<td>Year</td>
 							<td>Revenue</td>
 							<td>Cost</td>
+							<td>Value</td>
 						</tr>
 					</thead>
 					<tbody>
@@ -140,6 +141,7 @@ return (
 						<td>{d.year}</td>
 						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
 						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
+						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
 					</tr>
 
 					))}

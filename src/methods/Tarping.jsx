@@ -31,7 +31,7 @@ let timeSl;
 // Marks on slider for concrete images
 let marks = [];
 
-let def = [0];
+let def = [1];
 
 
 function Tarping(props) {
@@ -224,10 +224,13 @@ function Tarping(props) {
                       </Overlay>*/}
 
 
-                          <Box sx={{ width: 250 }}>
-
+                     {active.length > 1 && 
+                          <Box sx={{ width: 250 }} className={() => active.length <= 1 ? 'd-none' : 'd-none'}>
+ 
                             Slide to change!
+           
                             <Slider
+
                                 getAriaLabel={() => 'Image Slider'}
                                 min={0}
                                 marks={createMarks(active)}
@@ -236,10 +239,12 @@ function Tarping(props) {
                                 value={timeSl}
                                 style={{position: "relative"}}
                                 onChange={(event,idx) => handleChange(event,idx)}
-                            /> 
+                            />
 
-
+ 
                           </Box>
+                           }
+                          
                         {/* Fading images accompanying slider */}
                           <Box style={{'minHeight': '500px','position': 'relative'}}>
 

@@ -208,15 +208,11 @@ function Silvopasture(props) {
                         )}
                       </Overlay>*/}
 
-
+                     {active.length > 1 && 
                           <Box sx={{ width: 250 }} className={() => active.length <= 1 ? 'd-none' : 'd-none'}>
-
-
-                      {active.length > 1 && 
-                          <>
+ 
                             Slide to change!
            
-
                             <Slider
 
                                 getAriaLabel={() => 'Image Slider'}
@@ -229,9 +225,9 @@ function Silvopasture(props) {
                                 onChange={(event,idx) => handleChange(event,idx)}
                             />
 
-                          </>   
-                           }
+ 
                           </Box>
+                           }
 
 
 

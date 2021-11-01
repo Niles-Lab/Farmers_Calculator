@@ -209,11 +209,16 @@ function Silvopasture(props) {
                       </Overlay>*/}
 
 
-                          <Box sx={{ width: 250 }} >
+                          <Box sx={{ width: 250 }} className={() => active.length <= 1 ? 'd-none' : 'd-none'}>
 
+
+                      {active.length > 1 && 
+                          <>
                             Slide to change!
+           
+
                             <Slider
-                                hidden = {() => console.log(active.length)}
+
                                 getAriaLabel={() => 'Image Slider'}
                                 min={0}
                                 marks={createMarks(active)}
@@ -222,10 +227,15 @@ function Silvopasture(props) {
                                 value={timeSl}
                                 style={{position: "relative"}}
                                 onChange={(event,idx) => handleChange(event,idx)}
-                            /> 
+                            />
 
-
+                          </>   
+                           }
                           </Box>
+
+
+
+
                         {/* Fading images accompanying slider */}
                           <Box style={{'minHeight': '500px','position': 'relative'}}>
 

@@ -37,7 +37,7 @@ let marks = [];
 
 let peCount = Object.entries(pe).length;
 
-let def = [0];
+let def = [1];
 
 
 function Silvopasture(props) {
@@ -247,7 +247,8 @@ function Silvopasture(props) {
                                             className="d-block w-100"
                                             style={{'position': 'absolute', 'opacity': opacity[idx]}}
                                             src={d[1].default} 
-                                            alt={d[0]}/>
+                                            alt={d[0]}
+                                            />
                                     ))}
 
                           </Box>

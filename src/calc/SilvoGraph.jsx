@@ -454,7 +454,6 @@ function wrap(text, width) {
       <thead>
         <tr>
         {labels.map((label,idx) => (
-          
             <th key={idx}>
               {label}
             </th>

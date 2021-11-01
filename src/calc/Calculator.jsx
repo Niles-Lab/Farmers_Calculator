@@ -97,23 +97,9 @@ function npv() {
 
 const rows = calculate(props.land, 2);
 
-// Set table / graph view for output
-let viewAsGraph = true;
-function setView(event) {
-	let thisView = event.target.innerHTML;
-	viewAsGraph = !viewAsGraph;
-	let view = (viewAsGraph ? "View as Table" : "View as Graph");
-
-	event.target.innerHTML = view;
-
-	return view;
-}
-
-let rendered;
-
 
 // Optional table view
-const [tableView, setTableView] = useState(0);
+const [tableView, setTableView] = useState(true);
 
 return (
 
@@ -124,10 +110,11 @@ return (
 			<Col xs={12}>
 
 			<Card>
-				<a style={{'cursor': 'pointer'}} onClick={e => setView(e)}>View as Table</a>
+				{tableView}
+				<h4 style={{'cursor': 'pointer'}} onClick={() => setTableView(!tableView)}>View as {tableView ? "Table": "Graph"}</h4>
 
 
-				{viewAsGraph ? (
+				{tableView ? (
 					
 
 				<SilvoGraph width={graphWidth} {...props} />
@@ -159,9 +146,7 @@ return (
 					</tbody>
 				</Table>)
 
-
 				}
-
 
 
 			</Card>

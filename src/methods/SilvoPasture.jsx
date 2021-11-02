@@ -35,8 +35,7 @@ let timeSl;
 // Marks on slider for concrete images
 let marks = [];
 
-let peCount = Object.entries(pe).length;
-
+// Initial opacity state for the fist slider image
 let def = [1];
 
 
@@ -61,8 +60,6 @@ function Silvopasture(props) {
     function createMarks(arr) {
 
         marks = [];
-
-        def[0] = 1;
 
         arr.forEach((d,idx) => {
             

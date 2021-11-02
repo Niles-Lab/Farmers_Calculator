@@ -20,8 +20,11 @@ function importAll(r) {
   return Object.entries(images);
 }
 
-// Tarping Cover Image(s)
-const sp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
+// Tarping image slides
+const tp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
+
+// Tarping cover image is just the first from our one set
+const sp = [tp[0]];
 
 
 
@@ -31,6 +34,7 @@ let timeSl;
 // Marks on slider for concrete images
 let marks = [];
 
+// Initial opacity state for the fist slider image
 let def = [1];
 
 
@@ -55,8 +59,6 @@ function Tarping(props) {
     function createMarks(arr) {
 
         marks = [];
-
-        def[0] = 1;
 
         arr.forEach((d,idx) => {
             
@@ -141,10 +143,14 @@ function Tarping(props) {
                                     <Nav.Item key={idx}>
 
                                         <Nav.Link eventKey={idx} variant="success" onClick={function(d) {
+           
                                             // Manually set active image set on select
-                                            // if(idx === 0) setActive(sp);
-                                            // if(idx === 1) setActive(pd);
-                                            // if(idx === 2) setActive(ig);
+                                            // This method only has one set of images, so we'll use the first as the 'cover'
+                                             if(idx === 0) setActive(sp);
+                                             else {
+                                                setActive(tp);
+                                            }
+           
                                         }}>
                                             {d}
                                         </Nav.Link>
@@ -250,7 +256,6 @@ function Tarping(props) {
 
                                 {/* Map the active image set to screen */}
                                 {active.map((d,idx) => (
-
                                         <img
                                             className="d-block w-100"
                                             style={{'position': 'absolute', 'opacity': opacity[idx]}}

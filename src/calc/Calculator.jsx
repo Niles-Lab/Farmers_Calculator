@@ -110,45 +110,16 @@ return (
 			<Col xs={12}>
 
 			<Card>
-				{tableView}
-				<h4 style={{'cursor': 'pointer'}} onClick={() => setTableView(!tableView)}>View as {tableView ? "Table": "Graph"}</h4>
 
 
-				{tableView ? (
-					
 
 				<SilvoGraph width={graphWidth} {...props} />
-				// <SilvoBar width={graphWidth} {...props} />
+{/*				// <SilvoBar width={graphWidth} {...props} />
 				//<SilvoBar width={graphWidth} {...props} />
 				// <SilvoBar width={graphWidth} {...props} />
-				// <SilvoBar width={graphWidth} {...props} />
-				)
-					:
+				// <SilvoBar width={graphWidth} {...props} />*/}
 
 
-				(<Table bordered striped hover>
-					<thead>
-						<tr>
-							<td>Year</td>
-							<td>Revenue</td>
-							<td>Cost</td>
-							<td>Value</td>
-						</tr>
-					</thead>
-					<tbody>
-				{data.map((d,idx) => (
-					<tr key={idx}>
-						<td>{d.year}</td>
-						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
-						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
-						<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
-					</tr>
-
-					))}
-					</tbody>
-				</Table>)
-
-				}
 
 
 			</Card>

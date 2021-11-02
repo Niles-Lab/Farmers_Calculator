@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
@@ -20,6 +20,9 @@ import handleViewport from 'react-in-viewport';
 // ]
 
 
+
+
+
 // At what age is a tree mature enough to start producing profits
 const maturingYears = 10;
 
@@ -35,7 +38,13 @@ const labels = ["", "Per Acre",
 
 const data = [];
 
+
+
 function SilvoGraph(props) {
+
+
+// Optional table view
+const [tableView, setTableView] = useState(false);
 
 
 const margin = {top: 50, right: 20, bottom: 20, left: 40},
@@ -70,7 +79,6 @@ const legendY = parseFloat(margin.top);
 
 
 
-
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
 // NPV = PV(B) - PV(C)
 function npv() {
@@ -91,9 +99,6 @@ function npv() {
 
   ];
 }
-
-
-
 
 
 
@@ -404,13 +409,7 @@ function npv() {
 
 
 
-
-
-
-
-
 }
-
 // let mouseOver = function(d) {
 
 // }
@@ -444,35 +443,93 @@ function wrap(text, width) {
 
       <>
 
-    {/* Render graph */}
-		<div id="pgcht">
-			{/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
-		</div>
+      <h4 style={{'cursor': 'pointer'}} onClick={() => setTableView(!tableView)}>View as {tableView ? "Graph": "Table"}</h4>
 
-    {/* Table accompanying graph */}
-    <Table hover className="float-right" style={{'position': 'absolute', 'maxWidth': '20%', 'right': '0'}}>
-      <thead>
-        <tr>
-        {labels.map((label,idx) => (
-            <th key={idx}>
-              {label}
-            </th>
-          
-          ))}
-        </tr>   
-      </thead>
-      <tbody>
-        {npv().map((d,idx) => (
-          <tr key={idx}>
-            <td>{d[0]}</td>
-            <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
-            <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
-          </tr>
+      <div id="pgcht" hidden={tableView}>
+        {/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
 
-          ))}
 
-      </tbody>
-    </Table>
+      {/* Table accompanying graph */}
+      <Table hover className="float-right" style={{'position': 'absolute', 'maxWidth': '20%', 'right': '0'}}>
+        <thead>
+          <tr>
+          {labels.map((label,idx) => (
+              <th key={idx}>
+                {label}
+              </th>
+            
+            ))}
+          </tr>   
+        </thead>
+        <tbody>
+          {npv().map((d,idx) => (
+            <tr key={idx}>
+              <td>{d[0]}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
+            </tr>
+
+            ))}
+
+        </tbody>
+      </Table>
+
+      </div>
+
+
+
+{ tableView ? (
+
+
+      <Table bordered striped hover size={'sm'}>
+            <thead>
+
+
+          {npv().map((d,idx) => (
+            <tr key={idx}>
+              <th>{d[0]}</th>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
+              <td></td>
+            </tr>
+
+            ))}
+              <tr>
+                <td>Year</td>
+                <td>Revenue</td>
+                <td>Cost</td>
+                <td>Value</td>
+              </tr>
+            </thead>
+            <tbody>
+          {data.map((d,idx) => (
+            <tr key={idx}>
+              <td>{d.year}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
+            </tr>
+
+            ))}
+            </tbody>
+      </Table>
+
+
+  ) : null
+
+}
+
+
+
+
+
+
+
+  
+
+
+
+
     </>
 
 		)

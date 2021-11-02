@@ -71,7 +71,7 @@ return (
 
                         <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
                             <Row>
-                                <Col>
+                                <Col xs={5}>
                                 <ListGroup>
                                   <ListGroup.Item variant="success">5-Stage Research Goals</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="#l0"> Assess farmer/agricultural advisor perceptions of Climate Change</ListGroup.Item>

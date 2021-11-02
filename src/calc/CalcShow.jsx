@@ -36,18 +36,16 @@ function CalcShow({name, ...props}) {
 						id="menu-button"
 	          aria-label="Menu"
 	          aria-controls="menu"
-		  			style={{'zIndex': '2'}}
 	          aria-expanded={show}
 	          onClick={toggleShow}>
 					<BsChevronDoubleRight className="white" />
 
-					<h5 className="sideways" style={{'zIndex': '5'}}>Show Calculator</h5>
+					<h5 className="sideways">Show Calculator</h5>
 				</div>
 
         <OffCanvas
           height={"100%"}
 		  // mainContainerSelector={"#menu-button"}
-		  		style={{'zIndex': '2'}}
           style={style}
           isOpen={show}
           onClose={handleClose}
@@ -55,7 +53,6 @@ function CalcShow({name, ...props}) {
         >
 
 					<CalcFormAll
-					style={{'zIndex': '1'}}
 					handleClose={handleClose}
 					{...props} />    	
 

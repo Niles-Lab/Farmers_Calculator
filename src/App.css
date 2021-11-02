@@ -67,7 +67,9 @@ td, th {
   flex-direction: column;
   min-height: 20vh;
   width: 7vh;
-  transform: translate(0, 15vh);
+  transform: translate(-22.5vw);
+  left: 0;
+  right: auto;
   background-color: rgba(0, 110, 82, 0.8);
   cursor: pointer;
 }

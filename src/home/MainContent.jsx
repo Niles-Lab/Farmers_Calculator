@@ -105,15 +105,16 @@ return (
       <Stepper activeStep={activeStep} orientation="vertical">
         {steps.map((step, index) => (
           <Step key={step.label}>
-            <StepLabel
-              optional={
-                index === 2 ? (
-                  <Typography variant="caption">Last step</Typography>
-                ) : null
-              }
-            >
-              {step.label}
-            </StepLabel>
+            
+            {/* <StepLabel
+            //   optional={
+            //     index === 2 ? (
+            //       <Typography variant="caption">Last step</Typography>
+            //     ) : null
+            //   }
+            // >
+            //   {step.label}
+            // </StepLabel>*/}
             <StepContent>
               <Typography>{step.description}</Typography>
               <Box sx={{ mb: 2 }}>
@@ -138,14 +139,14 @@ return (
           </Step>
         ))}
       </Stepper>
-      {activeStep === steps.length && (
+{/*      {activeStep === steps.length && (
         <Paper square elevation={0} sx={{ p: 3 }}>
           <Typography>All steps completed - you&apos;re finished</Typography>
           <Button onClick={handleReset} sx={{ mt: 1, mr: 1 }}>
             Reset
           </Button>
         </Paper>
-      )}
+      )}*/}
     </Box>
 
 

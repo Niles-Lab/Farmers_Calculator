@@ -127,7 +127,7 @@ function Silvopasture(props) {
             <Col>
                     
             </Col>
-            <Col xs={7}>
+            <Col md={7}>
 
 
 
@@ -138,7 +138,7 @@ function Silvopasture(props) {
 
                         <Tab.Container defaultActiveKey="0">
                           <Row>
-                            <Col sm={3}>
+                            <Col md={3}>
                               <Nav variant="pills" className="flex-column">
                                 {variants.map((d,idx) => (
                                     <Nav.Item key={idx}>
@@ -156,7 +156,7 @@ function Silvopasture(props) {
                                     ))}
                               </Nav>
                             </Col>
-                            <Col sm={9}>
+                            <Col md={9}>
                               <Tab.Content>
                                 {/*Silvopasture Tab*/}
                                 <Tab.Pane eventKey="0">

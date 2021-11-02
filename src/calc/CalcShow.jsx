@@ -23,10 +23,10 @@ function CalcShow({name, ...props}) {
   		minWidth: "25%"
 		}
 	}
-  const [show, setShow] = useState(false);
+  // const [show, setShow] = useState(false);
 
-  const handleClose = () => setShow(false);
-  const toggleShow = () => setShow(d => !d);
+  // const handleClose = () => setShow(false);
+  // const toggleShow = () => setShow(d => !d);
 
 
 	return (
@@ -47,31 +47,16 @@ function CalcShow({name, ...props}) {
 				</div>*/}
 
 
-				<Button
-				onClick={toggleShow}
-				style={{'float':'right'}}>Show Calculator</Button>
-
-
-
-
-				<Button 
-				style={{'float':'right'}}
-				onClick={() => props.setTableView(!props.tableView)}>
-				View as {props.tableView ? "Graph": "Table"}</Button>
-
-
-
         <OffCanvas
           height={"100%"}
-		  // mainContainerSelector={"#menu-button"}
           style={style}
-          isOpen={show}
-          onClose={handleClose}
+          isOpen={props.show}
+          onClose={props.handleClose}
           labelledby="menu-button"
         >
 
 					<CalcFormAll
-					handleClose={handleClose}
+
 					{...props} />    	
 
       	</OffCanvas>

@@ -1,5 +1,6 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState } from 'react';
+import { Button, Row, Col } from 'react-bootstrap';
 import CalcForm from "./CalcForm.jsx"
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
@@ -77,11 +78,53 @@ const [silvoPasture, setSilvopasture] = useState(silvoptions);
 // Optional table view
 const [tableView, setTableView] = useState(false);
 
+// Interaction for OffCanvas Elements
+const [show, setShow] = useState(false);
+const toggleShow = () => setShow(d => !d);
+const handleClose = () => setShow(false);
 
 
 return (
 
 		<>
+
+		<Row>
+			<Col xs={10}>
+
+
+				{/*Calculator Output Table*/}
+				<Calculator
+					options={options}
+					land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
+					dairy={dairy}
+					acres={unit}
+					crops={crops}
+					length={length}
+					rate={rate}
+					tableView={tableView}
+					silvoPasture={silvoptions}/>
+
+			</Col>
+			<Col xs={2} className="my-5">
+
+				<Button
+				className="my-3"
+				onClick={toggleShow}
+				>Show Calculator</Button>
+
+
+
+				<Button 
+				onClick={() => setTableView(!tableView)}>
+				View as {tableView ? "Graph": "Table"}</Button>
+
+			</Col>
+
+
+
+		</Row>
+
+
 
 
 
@@ -103,25 +146,18 @@ return (
 						setLength={setLength}
 						silvoPasture={silvoPasture}
 						setSilvopasture={setSilvopasture}
+						
 						tableView={tableView} 
 						setTableView={setTableView}
-
+						show={show}
+						setShow={setShow}
+						handleClose={handleClose}
 						 />
 
 
 
 
-						{/*Calculator Output Table*/}
-						<Calculator
-							options={options}
-							land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
-							dairy={dairy}
-							acres={unit}
-							crops={crops}
-							length={length}
-							rate={rate}
-							tableView={tableView}
-							silvoPasture={silvoptions}/>
+
 
 		</>
 

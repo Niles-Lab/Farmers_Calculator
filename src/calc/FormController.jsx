@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import CalcForm from "./CalcForm.jsx"
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
+import CalcFormAll from "./CalcFormAll.jsx"
 
 function FormController() {
 
@@ -68,9 +69,15 @@ const [length, setLength] = useState(data.length);
 
 const [silvoPasture, setSilvopasture] = useState(silvoptions);
 
+// const [calcShow, setCalcShow] = useState(false);
+// const [show, setShow] = useState(false);
+// const handleClose = () => setShow(false);
+
+
 return (
 
 		<>
+
 
 
 						{/*Calculator Input UI*/}
@@ -93,6 +100,9 @@ return (
 						setSilvopasture={setSilvopasture}
 
 						 />
+
+
+
 
 						{/*Calculator Output Table*/}
 						<Calculator

@@ -8,6 +8,7 @@
 import React, { useState } from 'react';
 import { BsChevronDoubleRight } from "react-icons/bs";
 import OffCanvas from 'react-aria-offcanvas';
+import { Button } from 'react-bootstrap';
 import CalcFormAll from "../calc/CalcFormAll.jsx";
 
 
@@ -32,7 +33,7 @@ function CalcShow({name, ...props}) {
 
 		<div style={{'position': 'sticky', 'top': 0}}>
 
-				<div className="stickyleft rounded-right"
+{/*				<div className="stickyleft rounded-right"
 						id="menu-button"
 	          aria-label="Menu"
 	          aria-controls="menu"
@@ -41,7 +42,10 @@ function CalcShow({name, ...props}) {
 					<BsChevronDoubleRight className="white" />
 
 					<h5 className="sideways">Show Calculator</h5>
-				</div>
+				</div>*/}
+				<Button
+				onClick={toggleShow}>Show Calculator</Button>
+
 
         <OffCanvas
           height={"100%"}

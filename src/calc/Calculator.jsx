@@ -112,7 +112,6 @@ return (
 			<Card>
 
 
-
 				<SilvoGraph width={graphWidth} {...props} tableView={tableView} setTableView={setTableView} />
 {/*				// <SilvoBar width={graphWidth} {...props} />
 				//<SilvoBar width={graphWidth} {...props} />

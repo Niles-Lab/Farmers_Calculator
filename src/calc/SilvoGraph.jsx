@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, Button } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
@@ -43,8 +43,7 @@ const data = [];
 function SilvoGraph(props) {
 
 
-// Optional table view
-const [tableView, setTableView] = useState(false);
+
 
 
 const margin = {top: 50, right: 20, bottom: 20, left: 40},
@@ -208,16 +207,16 @@ function npv() {
 			.text("Silvopasture Cash Flow($/Acre)");
 
 		// Subtitle under chart
-		svg.append("a")
-			.attr("href", "https://agriculture.vermont.gov/sites/agriculture/files/doc_library/Vermont%20Agriculture%20and%20Food%20System%20Plan%202020.pdf")
-			.attr("target", "_blank")
-			.append("text")
-			.style("font-size", "12px")
-			.attr("x", 0)
-			.attr("y", 0)
-			.attr("dx", -margin.left/4)
-			.attr("dy", height-margin.bottom-10)
-			.text("Data sourced from Vermont Agricultural and Food System Plan 2020");
+		// svg.append("a")
+		// 	.attr("href", "https://agriculture.vermont.gov/sites/agriculture/files/doc_library/Vermont%20Agriculture%20and%20Food%20System%20Plan%202020.pdf")
+		// 	.attr("target", "_blank")
+		// 	.append("text")
+		// 	.style("font-size", "12px")
+		// 	.attr("x", 0)
+		// 	.attr("y", 0)
+		// 	.attr("dx", -margin.left/4)
+		// 	.attr("dy", height-margin.bottom-10)
+		// 	.text("Data sourced from Vermont Agricultural and Food System Plan 2020");
 
   // svg
   //   .append('rect')
@@ -443,9 +442,9 @@ function wrap(text, width) {
 
       <>
 
-      <h4 style={{'cursor': 'pointer'}} onClick={() => setTableView(!tableView)}>View as {tableView ? "Graph": "Table"}</h4>
+      <Button onClick={() => props.setTableView(!props.tableView)}>View as {props.tableView ? "Graph": "Table"}</Button>
 
-      <div id="pgcht" hidden={tableView}>
+      <div id="pgcht" hidden={props.tableView}>
         {/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
 
 
@@ -478,7 +477,7 @@ function wrap(text, width) {
 
 
 
-{ tableView ? (
+{ props.tableView ? (
 
 
       <Table bordered striped hover size={'sm'}>

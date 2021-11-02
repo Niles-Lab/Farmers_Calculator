@@ -99,7 +99,7 @@ const rows = calculate(props.land, 2);
 
 
 // Optional table view
-const [tableView, setTableView] = useState(true);
+const [tableView, setTableView] = useState(false);
 
 return (
 
@@ -113,7 +113,7 @@ return (
 
 
 
-				<SilvoGraph width={graphWidth} {...props} />
+				<SilvoGraph width={graphWidth} {...props} tableView={tableView} setTableView={setTableView} />
 {/*				// <SilvoBar width={graphWidth} {...props} />
 				//<SilvoBar width={graphWidth} {...props} />
 				// <SilvoBar width={graphWidth} {...props} />
@@ -124,34 +124,7 @@ return (
 
 			</Card>
 			</Col>
-{/*			<Col xs={3}  style={{'transform': 'translate(30vw,-60vh)'}}>
-				<Container className="mt-5 pt-5" style={{'position': 'sticky', 'top': 0}}>
-				<Table hover>
-					<thead>
-						<tr>
-						{labels.map((label,idx) => (
-							
-								<th key={idx}>
-									{label}
-								</th>
-							
-							))}
-						</tr>		
-					</thead>
-					<tbody>
-						{npv().map((d,idx) => (
-							<tr key={idx}>
-								<td>{d[0]}</td>
-								<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
-								<td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
-							</tr>
 
-							))}
-
-					</tbody>
-				</Table>
-				</Container>
-			</Col>*/}
 		</Row>
 
 

@@ -8,7 +8,7 @@
 import React, { useState } from 'react';
 import { BsChevronDoubleRight } from "react-icons/bs";
 import OffCanvas from 'react-aria-offcanvas';
-import { Button } from 'react-bootstrap';
+import { Button, Row } from 'react-bootstrap';
 import CalcFormAll from "../calc/CalcFormAll.jsx";
 
 
@@ -31,9 +31,11 @@ function CalcShow({name, ...props}) {
 
 	return (
 
-		<div style={{'position': 'sticky', 'top': 0}}>
+		<div>
 
-{/*				<div className="stickyleft rounded-right"
+{/*				
+				CUSTOM BUTTON TOGGLE ON LEFT OF SCREEN
+				<div className="stickyleft rounded-right"
 						id="menu-button"
 	          aria-label="Menu"
 	          aria-controls="menu"
@@ -43,8 +45,20 @@ function CalcShow({name, ...props}) {
 
 					<h5 className="sideways">Show Calculator</h5>
 				</div>*/}
+
+
 				<Button
-				onClick={toggleShow}>Show Calculator</Button>
+				onClick={toggleShow}
+				style={{'float':'right'}}>Show Calculator</Button>
+
+
+
+
+				<Button 
+				style={{'float':'right'}}
+				onClick={() => props.setTableView(!props.tableView)}>
+				View as {props.tableView ? "Graph": "Table"}</Button>
+
 
 
         <OffCanvas

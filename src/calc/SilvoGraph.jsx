@@ -442,8 +442,6 @@ function wrap(text, width) {
 
       <>
 
-      <Button onClick={() => props.setTableView(!props.tableView)}>View as {props.tableView ? "Graph": "Table"}</Button>
-
       <div id="pgcht" hidden={props.tableView}>
         {/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
 

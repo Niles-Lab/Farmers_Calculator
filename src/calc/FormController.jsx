@@ -74,6 +74,11 @@ const [silvoPasture, setSilvopasture] = useState(silvoptions);
 // const handleClose = () => setShow(false);
 
 
+// Optional table view
+const [tableView, setTableView] = useState(false);
+
+
+
 return (
 
 		<>
@@ -98,6 +103,8 @@ return (
 						setLength={setLength}
 						silvoPasture={silvoPasture}
 						setSilvopasture={setSilvopasture}
+						tableView={tableView} 
+						setTableView={setTableView}
 
 						 />
 
@@ -113,6 +120,7 @@ return (
 							crops={crops}
 							length={length}
 							rate={rate}
+							tableView={tableView}
 							silvoPasture={silvoptions}/>
 
 		</>

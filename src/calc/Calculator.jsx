@@ -98,8 +98,6 @@ function npv() {
 const rows = calculate(props.land, 2);
 
 
-// Optional table view
-const [tableView, setTableView] = useState(false);
 
 return (
 
@@ -112,7 +110,7 @@ return (
 			<Card>
 
 
-				<SilvoGraph width={graphWidth} {...props} tableView={tableView} setTableView={setTableView} />
+				<SilvoGraph width={graphWidth} {...props} />
 {/*				// <SilvoBar width={graphWidth} {...props} />
 				//<SilvoBar width={graphWidth} {...props} />
 				// <SilvoBar width={graphWidth} {...props} />

@@ -66,8 +66,7 @@ function Silvopasture(props) {
             def.push(0);
 
             marks.push({
-               value: idx/(arr.length-1),
-               //label: "img " + (parseInt(h)+1)
+               value: idx/(arr.length-1)
             });
 
         });
@@ -127,7 +126,7 @@ function Silvopasture(props) {
             <Col>
                     
             </Col>
-            <Col md={7}>
+            <Col md={8}>
 
 
 
@@ -295,6 +294,10 @@ function Silvopasture(props) {
                     </Card>
 
 
+
+                <hr/>
+                    <Card.Title id="2">Silvopasture Economic Tool</Card.Title>
+                <hr/>
                 {/* Calculator */}
                 <FormController />
 
@@ -307,7 +310,7 @@ function Silvopasture(props) {
                             <Card.Body>
                             <Container>
                                 <Row className="text-center">
-                                	Interested in silvopasture?&nbsp;<a href="./formcontroller">Check out our economic tool</a>&nbsp;to determine your potential costs and revenue. See what silvopasture looks like &nbsp;<a href="./resources">here</a>.
+                                	Interested in silvopasture? View additional resources&nbsp;<a href="./resources">here</a>.
                                 </Row>
              
                             </Container>

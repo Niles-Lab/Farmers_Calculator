@@ -6,7 +6,7 @@ import Home from './Home.jsx'
 import Navigation from './Navigation.jsx'
 import FormController from './calc/FormController.jsx'
 import Resources from './Resources.jsx'
-import SilvoPasture from './methods/SilvoPasture.jsx'
+import Silvopasture from './methods/Silvopasture.jsx'
 import Irrigation from './methods/Irrigation.jsx'
 import Tarping from './methods/Tarping.jsx'
 import Research from './Research.jsx'
@@ -27,7 +27,7 @@ function App() {
 
 
           {/* Import method paths */}
-          <Route path='/SilvoPasture' component={SilvoPasture}/>
+          <Route path='/Silvopasture' component={Silvopasture}/>
           <Route path='/Irrigation' component={Irrigation}/>
           <Route path='/Tarping' component={Tarping}/>
 

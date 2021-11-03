@@ -126,7 +126,7 @@ function Tarping(props) {
             <Col>
                     
             </Col>
-            <Col xs={7}>
+            <Col xs={8}>
 
 
 

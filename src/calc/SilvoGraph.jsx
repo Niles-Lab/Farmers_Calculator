@@ -46,7 +46,7 @@ function SilvoGraph(props) {
 
 
 
-const margin = {top: 50, right: 20, bottom: 20, left: 40},
+const margin = {top: 50, right: 20, bottom: 20, left: 50},
 width = props.width - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
 
@@ -206,6 +206,29 @@ function npv() {
 			.style("font-weight", "bold")
 			.text("Silvopasture Cash Flow($/Acre)");
 
+
+
+    //Optional axis labels
+    svg.append("text")
+      .attr("class", "x label")
+      .attr("text-anchor", "end")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("dx", width/2)
+      .attr("dy", height-margin.bottom)
+      .text("Project Year");
+
+
+    svg.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("x", -(height/2)+margin.bottom+margin.top)
+        .attr("y", -margin.left/2-4)
+        .attr("transform", "rotate(-90)")
+        .text("Revenue($)");
+
+
+
 		// Subtitle under chart
 		// svg.append("a")
 		// 	.attr("href", "https://agriculture.vermont.gov/sites/agriculture/files/doc_library/Vermont%20Agriculture%20and%20Food%20System%20Plan%202020.pdf")
@@ -283,23 +306,7 @@ function npv() {
 
 //-(height+margin.bottom)
 
-		// Optional axis labels
-		// svg.append("text")
-		// 	.attr("class", "x label")
-		// 	.attr("text-anchor", "end")
-		// 	.attr("x", width / 2)
-		// 	.attr("y", height + 6)
-		// 	.attr("dx", ".75em")
-		// 	.text("")
 
-		// svg.append("text")
-		//     .attr("class", "y label")
-		//     .attr("text-anchor", "end")
-		//     .attr("x", -height / 3)
-		//     .attr("y", -margin.left)
-		//     .attr("dy", ".75em")
-		//     .attr("transform", "rotate(-90)")
-		//     .call(wrap, 86.67);
 
 
 

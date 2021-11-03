@@ -18,7 +18,7 @@ return (
         <div>
         <Row>
             <Col>
-                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+{/*                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (
@@ -28,9 +28,9 @@ return (
                             ))}
                       </Nav>
                     </Navbar.Collapse>
-                </Navbar>
+                </Navbar>*/}
             </Col>
-            <Col xs={6}>
+            <Col xs={8}>
    
 
 

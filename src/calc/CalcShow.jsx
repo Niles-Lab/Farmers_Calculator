@@ -48,6 +48,7 @@ function CalcShow({name, ...props}) {
 
 
         <OffCanvas
+
           height={"100%"}
           style={style}
           isOpen={props.show}

@@ -5,14 +5,14 @@
  **/
 
 import React, { useState, useRef } from 'react';
-import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
+import { Card, Row, Col, Container, Nav, Navbar, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import FormController from './../calc/FormController';
 
 const variants = ["Overview", "Benefits", "More"];
 
-
+const navs = ["Overview", "Visualizations", "Economic Tool"]; 
 
 function importAll(r) {
   let images = {};
@@ -124,7 +124,17 @@ function Tarping(props) {
 
 
             <Col>
-                    
+                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                      <Nav id="sectionnav" className="mx-auto">
+                        {navs.map((d, idx) => (
+                            <Nav.Link href={"#" + idx}>
+                            {d}
+                            </Nav.Link>
+                            ))}
+                      </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
             </Col>
             <Col xs={8}>
 

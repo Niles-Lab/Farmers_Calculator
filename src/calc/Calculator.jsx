@@ -101,28 +101,20 @@ const rows = calculate(props.land, 2);
 
 return (
 
-	
-
-		<Row className="mt-2">
-
-			<Col xs={12}>
-
-			<Card>
 
 
-				<SilvoGraph width={graphWidth} {...props} />
-{/*				// <SilvoBar width={graphWidth} {...props} />
+		<SilvoGraph width={graphWidth} {...props} />
+
+
+
+				// <SilvoGraph width={graphWidth} {...props} />
+				// <SilvoBar width={graphWidth} {...props} />
 				//<SilvoBar width={graphWidth} {...props} />
 				// <SilvoBar width={graphWidth} {...props} />
-				// <SilvoBar width={graphWidth} {...props} />*/}
+				// <SilvoBar width={graphWidth} {...props} />
 
 
 
-
-			</Card>
-			</Col>
-
-		</Row>
 
 
 

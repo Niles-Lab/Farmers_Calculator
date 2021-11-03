@@ -21,7 +21,7 @@ const Navigation = () => {
 {/*                <Nav.Link href="/resources">Resources</Nav.Link>*/}
                 
 
-                <NavDropdown title="Practices" id="basic-nav-dropdown">
+                <NavDropdown title="Other" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/formcontroller">Calculator</NavDropdown.Item>
                   <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>
                   <NavDropdown.Divider />

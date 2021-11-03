@@ -65,7 +65,7 @@ return (
 
 
                         <hr/>
-                        <Card.Title id="1">Project Goals</Card.Title>
+                        <Card.Title id="1">Project Phases</Card.Title>
                         <hr/>
                     
 
@@ -73,12 +73,10 @@ return (
                             <Row>
                                 <Col xs={5}>
                                 <ListGroup>
-                                  <ListGroup.Item variant="success">5-Stage Research Goals</ListGroup.Item>
+                                  <ListGroup.Item variant="success">3 Project Phases</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="#l0"> Assess farmer/agricultural advisor perceptions of Climate Change</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="#l1">Understand educational needs and learning styles with focus groups</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="#l2">Develop tools, resources and information to understand and plan for climate change</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="#l3">Work with community partners for outreach and evaluation of materials with small and medium farmers in Maine and Vermont</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="#l4">Expand the project through partnership with the USDA Northeast Climate Hub</ListGroup.Item>  
                                 </ListGroup>
                                 </Col>
                                 <Col>      
@@ -125,12 +123,6 @@ return (
                                                  in winter 2021-2022.
 
                                           </cite>
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="#l3">
-                                          <Image src="https://placekitten.com/g/700" fluid />
-                                        </Tab.Pane>
-                                        <Tab.Pane eventKey="#l4">
-                                          <Image src="https://placekitten.com/g/810" fluid />
                                         </Tab.Pane>
                                   </Tab.Content>
                                 </Col>

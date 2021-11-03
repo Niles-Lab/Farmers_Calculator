@@ -46,7 +46,7 @@ function Resources(props) {
 			link={"https://www.climatehubs.usda.gov/hubs/northeast/project/agroforestry-angus-glen"}
 			description={"Agroforestry Angus Glen Farms, NY (USDA Northeast Climate Hub)"} />
 
-			<br/>
+				<br/>
 
 			<Resource format={"Virtual Tour"}
 			link={"https://www.climatehubs.usda.gov/hubs/northeast/project/dickinson-college-farms-silvopasture"}

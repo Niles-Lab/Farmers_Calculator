@@ -204,6 +204,47 @@ function Irrigation(props) {
                           </Row>
                         </Tab.Container>
 
+
+                    <Card variant="light" bg="light">
+
+      
+                        <Card.Title id="1" className="mt-4">Benefits and Costs</Card.Title>
+                    
+                        <Card.Body>
+                        <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
+                            <Row>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="success"></ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Improves crop quality, consistency, and yield</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Supports the production of a greater variety of crops</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Prevents crop losses</ListGroup.Item> 
+                                </ListGroup>
+                                </Col>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="danger"></ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Upfront investment required to install pond irrigation system</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Ongoing maintenance and labor costs for pond and irrigation system </ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Ponds require specific site conditions and are not possible or suitable for all farms</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Must comply with state and federal regulations regarding water usage for pond installation</ListGroup.Item>
+
+
+                                </ListGroup>
+                                </Col>
+                            </Row>
+                        </Tab.Container>
+                        </Card.Body>  
+                    </Card>
+
+
+
+
+
+
+
+
+
                     {/* Tooltip */}
  {/*                     <Overlay target={target.current} show={show} placement="top">
                         {(props) => (
@@ -255,37 +296,7 @@ function Irrigation(props) {
 
                     </Card>  
 
-                    <Card variant="light" bg="light">
 
-      
-                        <Card.Title id="1" className="mt-4">Benefits and Costs</Card.Title>
-                    
-                        <Card.Body>
-                        <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
-                            <Row>
-                                <Col>      
-                                <ListGroup>
-                                  <ListGroup.Item variant="success"></ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Improves crop quality, consistency, and yield</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Supports the production of a greater variety of crops</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Prevents crop losses</ListGroup.Item> 
-                                </ListGroup>
-                                </Col>
-                                <Col>      
-                      			<ListGroup>
-                                  <ListGroup.Item variant="danger"></ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Upfront investment required to install pond irrigation system</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Ongoing maintenance and labor costs for pond and irrigation system </ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Ponds require specific site conditions and are not possible or suitable for all farms</ListGroup.Item>
-                                  <ListGroup.Item variant="light" action href="">Must comply with state and federal regulations regarding water usage for pond installation</ListGroup.Item>
-
-
-                                </ListGroup>
-                                </Col>
-                            </Row>
-                        </Tab.Container>
-                        </Card.Body>  
-                    </Card>
 
 
                     <Card variant="light" bg="light">   

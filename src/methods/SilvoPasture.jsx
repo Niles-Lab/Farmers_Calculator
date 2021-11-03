@@ -226,9 +226,6 @@ function Silvopasture(props) {
                           </Box>
                            }
 
-
-
-
                         {/* Fading images accompanying slider */}
                           <Box style={{'minHeight': '500px','position': 'relative'}}>
 

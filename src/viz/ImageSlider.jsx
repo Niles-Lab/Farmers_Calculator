@@ -83,23 +83,24 @@ function ImageSlider(props) {
         // Which element should be entirely opaque
         let visible = (Math.round(scaled));
 
+        // These two opacity values will be modified
+        let floor = Math.floor(scaled);
+        let ceil = Math.ceil(scaled);
+
 
         // Iterate to update opacity of each image
         active.forEach((d,idx) => {
 
             opac[idx] = 0;
 
-            // These two opacity values will be modified
-            let floor = Math.floor(scaled);
-            let ceil = Math.ceil(scaled);
 
             // Set accordingly to opacity layering
-            opac[floor] = ceil-scaled;
-            opac[ceil] = scaled-floor;
+            opac[floor] = (ceil-scaled)+0.2;
+            opac[ceil] = (scaled-floor);
 
 
             });
-            opac[visible] = 1;
+            if(parseFloat(scaled-floor)%floor == 0 || scaled == 0) opac[visible] = 1;
             setOpacity(opac);
 
     }

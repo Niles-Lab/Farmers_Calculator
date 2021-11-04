@@ -37,7 +37,7 @@ const pe2 = importAll(require.context('../images/silvopasture/pe2', false, /\.(p
 const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 const groups = [pe,pe2,fc];
-
+const labels = ["Pasture Enrichment", "Example 2", "Forest Conversion"];
 
 
 
@@ -47,14 +47,7 @@ let def = [1];
 
 function Silvopasture(props) {
 
-    // What value the opacity slider is at
-    const [timeSl, setTimeSl] = useState(0);
 
-    // Which image array is active?
-    const [active, setActive] = useState(sp);
-
-    // Opacity container for images
-    const [opacity, setOpacity] = useState(def);
 
 
 	return (
@@ -139,7 +132,7 @@ function Silvopasture(props) {
                         </Tab.Container>
                           
 
-                        <ImageSlider groups={groups} id="a1" />
+                        <ImageSlider groups={groups} labels={labels} id="a1" />
 
                     </Card.Body>
 

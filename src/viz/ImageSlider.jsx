@@ -107,8 +107,32 @@ function ImageSlider(props) {
 
 	return (
 		<>
-            <Row>
-                    <Col xs={12} md={11} className="p-0 m-0">
+
+                    <Row className="p-0 m-0 d-flex align-items-end">
+                    <Col xs={6} className="bottom-0 end-0">
+                    <ButtonToolbar aria-label="Slideshow Selection Toolbar">
+                      <ButtonGroup className="mt-5">
+
+                        <ListGroup.Item>Select Image Group</ListGroup.Item>
+                        {props.labels.map((d,idx) => (
+                                <Button
+                                    key={d+idx}
+                                    className="flat-butt"
+                                    eventKey={idx} onClick={function(d) {
+                                            // Manually set active image set on select
+                                            setActive(props.groups[idx]);
+
+                                            // Reset opacity / slider settings
+                                            setTimeSl(0);
+                                            setOpacity(() => {def[0]=1; return def;});
+                                        }}
+                                    >{d}</Button>
+                            ))}
+
+                      </ButtonGroup>
+                    </ButtonToolbar>
+                    </Col>
+                    <Col xs={6}>
                      {active.length > 1 && 
 
                         <Box sx={{ width: 250 }}>
@@ -127,8 +151,11 @@ function ImageSlider(props) {
                             />
                         </Box>
                             
-
                            }
+
+                    </Col>
+                    </Row>
+
 
                         {/* Fading images accompanying slider */}
                           <Box style={{'minHeight': '500px','position': 'relative'}}>
@@ -146,32 +173,9 @@ function ImageSlider(props) {
                                     ))}
 
                           </Box>
-                    </Col>
-                    <Col xs={12} md={1} className="p-0 m-0">
-                    <ButtonToolbar aria-label="Slideshow Selection Toolbar">
-                      <ButtonGroup vertical className="mt-5">
 
-                        <ListGroup.Item>Select Image Group</ListGroup.Item>
-                        {props.groups.map((d,idx) => (
-                                <Button
-                                    key={d+idx}
-                                    className="d-block w-100"
-                                    eventKey={idx} onClick={function(d) {
-                                            // Manually set active image set on select
-                                            setActive(props.groups[idx]);
 
-                                            // Reset opacity / slider settings
-                                            setTimeSl(0);
-                                            setOpacity(() => {def[0]=1; return def;});
-                                        }}
-                                    >{idx}</Button>
-                            ))}
 
-                      </ButtonGroup>
-                    </ButtonToolbar>
-                    </Col>
-
-            </Row>
 	</>
 		)
 }

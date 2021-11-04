@@ -6,11 +6,13 @@
 
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image, Carousel, Overlay, Tooltip, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
+import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
+import ImageSlider from './../viz/ImageSlider';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 
@@ -31,8 +33,8 @@ const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png
 // Forest Conversion Images
 const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
-// What value the slider is at, for image opacity filtering
-// let timeSl;
+const groups = [sp,pe,fc];
+
 
 // Marks on slider for concrete images
 let marks = [];
@@ -52,8 +54,7 @@ function Silvopasture(props) {
     // Opacity container for images
     const [opacity, setOpacity] = useState(def);
 
-    // Show state for overlay/tooltip
-    const [show, setShow] = useState(false);
+
 
     // Also for overlay/tooltip
     const target = useRef(null);
@@ -148,6 +149,7 @@ function Silvopasture(props) {
                     <Card.Body>
 
                         <Tab.Container defaultActiveKey="0">
+
                           <Row>
                             <Col md={3}>
                               <Nav variant="pills" className="flex-column">
@@ -211,53 +213,9 @@ function Silvopasture(props) {
                             </Col>
                           </Row>
                         </Tab.Container>
+                          
 
-                    <ButtonToolbar aria-label="Slideshow Selection Toolbar">
-
-                      <ButtonGroup className="ml-5 float-right align-right">
-                        Select Images&nbsp;
-                        <Button>1</Button> <Button>2</Button> <Button>3</Button> <Button>4</Button>
-                      </ButtonGroup>
-                    </ButtonToolbar>
-
-                     {active.length > 1 && 
-                          <Box sx={{ width: 250 }}>
- 
-                            Slide to change!
-           
-                            <Slider
-
-                                getAriaLabel={() => 'Image Slider'}
-                                min={0}
-                                marks={createMarks(active)}
-                                max={1}
-                                step={0.01}
-                                value={timeSl}
-                                style={{position: "relative"}}
-                                onChange={(event,idx) => handleChange(event,idx)}
-                            />
-
- 
-                          </Box>
-                           }
-
-                        {/* Fading images accompanying slider */}
-                          <Box style={{'minHeight': '500px','position': 'relative'}}>
-
-                                {/* Map the active image set to screen */}
-                                {active.map((d,idx) => (
-
-                                        <img
-                                            key={d+idx}
-                                            className="d-block w-100"
-                                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
-                                            src={d[1].default} 
-                                            alt={d[0]}
-                                            />
-                                    ))}
-
-                          </Box>
-
+                        <ImageSlider />
 
                     </Card.Body>
 
@@ -353,6 +311,7 @@ function Silvopasture(props) {
 
             </Col>
         </Row>
+
 	</>
 		)
 }

@@ -12,7 +12,7 @@ function Press(props) {
 		<Container className="my-5">
 			<Row>
 				<Col></Col>
-					<Col><Card.Title>Coming Soon!</Card.Title></Col>
+					<Col><Card.Title>Coming Soon! For University Articles / Press Releases</Card.Title></Col>
 				<Col></Col>
 			</Row>
 		</Container>

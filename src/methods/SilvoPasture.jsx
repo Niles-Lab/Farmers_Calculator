@@ -30,14 +30,16 @@ const sp = importAll(require.context('../images/silvopasture/sp', false, /\.(png
 // Pasture Enrichment Images
 const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
+// Pasture Enrichment Images 2
+const pe2 = importAll(require.context('../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
+
 // Forest Conversion Images
 const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
-const groups = [sp,pe,fc];
+const groups = [pe,pe2,fc];
 
 
-// Marks on slider for concrete images
-let marks = [];
+
 
 // Initial opacity state for the fist slider image
 let def = [1];
@@ -53,72 +55,6 @@ function Silvopasture(props) {
 
     // Opacity container for images
     const [opacity, setOpacity] = useState(def);
-
-
-
-    // Also for overlay/tooltip
-    const target = useRef(null);
-
-    // Create an updated array for slider marks
-    function createMarks(arr) {
-
-        marks = [];
-
-        arr.forEach((d,idx) => {
-            
-            def.push(0);
-
-            marks.push({
-               value: idx/(arr.length-1)
-            });
-
-        });
-
-        return marks;
-       
-    }
-
-    // event - mouesevent
-    // idx - slider index
-    // arr - what array of images are we modifying
-    function handleChange(event,idx) {
-        
-
-        // Value from slider
-        setTimeSl(event.target.value);
-
-        // Number of pictures to divide into
-        let divs = (active.length)-1;
-
-        // Scaled number with range
-        let scaled = idx*divs;
-
-        // Local copy of opacity array
-        let opac = {opacity};
-
-        // Which element should be entirely opaque
-        let visible = (Math.round(scaled));
-
-
-        // Iterate to update opacity of each image
-        active.forEach((d,idx) => {
-
-            opac[idx] = 0;
-
-            // These two opacity values will be modified
-            let floor = Math.floor(scaled);
-            let ceil = Math.ceil(scaled);
-
-            // Set accordingly to opacity layering
-            opac[floor] = ceil-scaled;
-            opac[ceil] = scaled-floor;
-
-
-            });
-            opac[visible] = 1;
-            setOpacity(opac);
-
-    }
 
 
 	return (
@@ -141,8 +77,6 @@ function Silvopasture(props) {
             </Col>
             <Col md={8}>
 
-
-
                     {/* Tabbed view of method variants */}
                     <Card id="a0">
 
@@ -156,17 +90,7 @@ function Silvopasture(props) {
                                 {variants.map((d,idx) => (
                                     <Nav.Item key={idx}>
 
-                                        <Nav.Link eventKey={idx} variant="success" onClick={function(d) {
-                                            // Manually set active image set on select
-                                            if(idx === 0) setActive(sp);
-                                            if(idx === 1) setActive(pe);
-                                            if(idx === 2) setActive(fc);
-
-                                            // Reset opacity / slider settings
-                                            setTimeSl(0);
-                                            setOpacity(() => {let opac = opacity; opac[0] = 1; return opac;});
-
-                                        }}>
+                                        <Nav.Link eventKey={idx} variant="success">
                                             {d}
                                         </Nav.Link>
 
@@ -215,7 +139,7 @@ function Silvopasture(props) {
                         </Tab.Container>
                           
 
-                        <ImageSlider />
+                        <ImageSlider groups={groups} id="a1" />
 
                     </Card.Body>
 
@@ -224,7 +148,7 @@ function Silvopasture(props) {
                     <Card variant="light" bg="light">
 
       
-                        <Card.Title id="a1" className="mt-4">Benefits and Costs</Card.Title>
+                        <Card.Title className="mt-4">Benefits and Costs</Card.Title>
 
 
                           <Alert variant={'info'} className="px-5 mx-5 mb-0">

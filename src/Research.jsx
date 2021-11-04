@@ -1,6 +1,5 @@
 import { React } from 'react';
-import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
-import Chart from "./viz/Chart.jsx"
+import { Card, Row, Col, ListGroup, Tab, Image } from 'react-bootstrap';
 import mental_map from './images/mental_map.png';
 import code from './images/code.png';
 import focus_group from './images/focus_group.png';
@@ -10,7 +9,7 @@ const Research = (props, ref) => {
 
 //const scroll = (ref) => props.refProp.scrollIntoView()
 //const ref4 = props.refs[3];
-const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
+//const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
 
 return (
 

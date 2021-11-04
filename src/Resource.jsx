@@ -9,18 +9,13 @@
 
 
 import React from 'react';
-import { Container, Row, Col, Card } from 'react-bootstrap';
+import { Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 
 function Resource(props) {
 
 
-	const download = () => {
-		<Col>
-			<Link to={{pathname: props.link}} target="_blank" download={props.download}>Download <BsDownload/></Link>
-		</Col>
-	}
 
 	return (
 	<>

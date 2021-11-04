@@ -5,7 +5,7 @@
  **/
 
 import React, { useState, useRef } from 'react';
-import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
+import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import FormController from './../calc/FormController';

@@ -1,5 +1,4 @@
-import { React, useState } from "react"
-import { Table, Col, Row, Card } from 'react-bootstrap';
+import { React } from "react"
 import SilvoGraph from './SilvoGraph.jsx'
 //import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";
@@ -55,13 +54,13 @@ let treesPerAcre = acreFt / (treeSpacing ** 2);
 // Main method for calculations - this should be called on render to calculate all table cells
 // Each individual calculation method will output a tuple of [Title(Unit), Value With Project(WP), Value Without Project(WOP)]
 // e.g costPerTree() may return ["Cost Per Tree", "$5", "$2"]
-function calculate(land, yrs) {
-	var rows = [
-	npv()
-	];
+// function calculate(land) {
+// 	var rows = [
+// 	npv()
+// 	];
 
-	return rows;
-}
+// 	return rows;
+// }
 
 // Create data per year for returns/costs
 let data = [];
@@ -95,27 +94,13 @@ function npv() {
 }
 
 
-const rows = calculate(props.land, 2);
+
 
 
 
 return (
 
-
-
 		<SilvoGraph width={graphWidth} {...props} />
-
-
-
-				// <SilvoGraph width={graphWidth} {...props} />
-				// <SilvoBar width={graphWidth} {...props} />
-				//<SilvoBar width={graphWidth} {...props} />
-				// <SilvoBar width={graphWidth} {...props} />
-				// <SilvoBar width={graphWidth} {...props} />
-
-
-
-
 
 
 )

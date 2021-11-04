@@ -1,7 +1,6 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState } from 'react';
 import { Button, Row, Col } from 'react-bootstrap';
-import CalcForm from "./CalcForm.jsx"
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
 
@@ -23,7 +22,6 @@ const start = 'start';
 let data = {
 	unit: "Acres",
 	land: 123,
-	length: 10,
 	method: [],
 	selected: [],
 	crops: [{ type: "Unknown", amount: 0, idx: 0 }],

@@ -13,26 +13,8 @@ import Step from '@mui/material/Step';
 import StepLabel from '@mui/material/StepLabel';
 import StepContent from '@mui/material/StepContent';
 import Button from '@mui/material/Button';
-import Paper from '@mui/material/Paper';
+//import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
-
-
-// export default function VerticalLinearStepper() {
-//   const [activeStep, setActiveStep] = React.useState(0);
-
-//   const handleNext = () => {
-//     setActiveStep((prevActiveStep) => prevActiveStep + 1);
-//   };
-
-//   const handleBack = () => {
-//     setActiveStep((prevActiveStep) => prevActiveStep - 1);
-//   };
-
-//   const handleReset = () => {
-//     setActiveStep(0);
-//   };
-
-// }
 
 
 

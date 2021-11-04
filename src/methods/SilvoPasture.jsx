@@ -4,12 +4,9 @@
  * 
  **/
 
-import React, { useState, useRef } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image, Button } from 'react-bootstrap';
-import Slider from '@mui/material/Slider';
-import Box from '@mui/material/Box';
-import Typography from '@mui/material/Typography';
+import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image } from 'react-bootstrap';
 import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
@@ -36,13 +33,9 @@ const pe2 = importAll(require.context('../images/silvopasture/pe2', false, /\.(p
 // Forest Conversion Images
 const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
+// Groups and labels for ImageSlider
 const groups = [pe,pe2,fc];
 const labels = ["Pasture Enrichment", "Example 2", "Forest Conversion"];
-
-
-
-// Initial opacity state for the fist slider image
-let def = [1];
 
 
 function Silvopasture(props) {
@@ -60,7 +53,7 @@ function Silvopasture(props) {
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (
-                            <Nav.Link href={"#a" + idx}>
+                            <Nav.Link key={d+idx} href={"#a" + idx}>
                             {d}
                             </Nav.Link>
                             ))}
@@ -217,7 +210,9 @@ function Silvopasture(props) {
 
             {/* Tabbed view of method variants */}
             <Card id="a1">
-
+            <hr/>
+            <Card.Title id="2">Visualizations</Card.Title>
+            <hr/>
             <Card.Body>
 
                 <ImageSlider groups={groups} labels={labels} id="a1" />

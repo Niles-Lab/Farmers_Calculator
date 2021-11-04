@@ -5,22 +5,20 @@
  * 
  **/
 
-import React, { useState, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Row, Col, ListGroup, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 
-const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 
-const navs = ["Overview", "Visualizations", "Economic Tool"]; 
-
-function importAll(r) {
-  let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-  return Object.entries(images);
-}
+// Optional method to import all files from a directory
+// Used for displaying images in each group
+// function importAll(r) {
+//   let images = {};
+//   r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+//   return Object.entries(images);
+// }
 
 
 
@@ -100,7 +98,7 @@ function ImageSlider(props) {
 
 
             });
-            if(parseFloat(scaled-floor)%floor == 0 || scaled == 0) opac[visible] = 1;
+            if(parseFloat(scaled-floor)%floor === 0 || scaled === 0) opac[visible] = 1;
             setOpacity(opac);
 
     }
@@ -119,7 +117,7 @@ function ImageSlider(props) {
                         <Button
                             key={d+idx}
                             className="flat-butt"
-                            eventKey={idx} onClick={function(d) {
+                            onClick={function(d) {
                                     // Manually set active image set on select
                                     setActive(props.groups[idx]);
 

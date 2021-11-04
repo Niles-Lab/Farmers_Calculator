@@ -109,7 +109,7 @@ function ImageSlider(props) {
 		<>
 
                     <Row className="p-0 m-0 d-flex align-items-end">
-                    <Col xs={8}>
+                    <Col xs={8} className="ml-0 pl-0">
                     <ButtonToolbar aria-label="Slideshow Selection Toolbar">
                       <ButtonGroup className="mt-5">
 
@@ -132,7 +132,7 @@ function ImageSlider(props) {
                       </ButtonGroup>
                     </ButtonToolbar>
                     </Col>
-                    <Col xs={4}>
+                    <Col xs={4} className="pr-5 d-flex justify-content-end">
                      {active.length > 1 && 
 
                         <Box sx={{ width: 250 }}>

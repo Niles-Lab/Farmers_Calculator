@@ -70,73 +70,72 @@ function Silvopasture(props) {
             </Col>
             <Col md={8}>
 
-                    {/* Tabbed view of method variants */}
-                    <Card id="a0">
+                {/* Tabbed view of method variants */}
+                <Card id="a0">
 
-                    <Card.Body>
-
-                        <Tab.Container defaultActiveKey="0">
-
-                          <Row>
-                            <Col md={3}>
-                              <Nav variant="pills" className="flex-column">
-                                {variants.map((d,idx) => (
-                                    <Nav.Item key={idx}>
-
-                                        <Nav.Link eventKey={idx} variant="success">
-                                            {d}
-                                        </Nav.Link>
-
-                                    </Nav.Item>
-                                    ))}
-                              </Nav>
-                            </Col>
-                            <Col md={9}>
-                              <Tab.Content>
-                                {/*Silvopasture Tab*/}
-                                <Tab.Pane eventKey="0">
-
-                                    <hr/>
-                                    <Card.Title id="2">What is Silvopasture?</Card.Title>
-                                    <hr/>
-
-                                    Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products on the same parcel of land
-                                    
-                            
-                                </Tab.Pane>
-                                {/*Pasture Enrichment Tab*/}
-                                <Tab.Pane eventKey="1">
-
-                                    <hr/>
-                                    <Card.Title id="2">Pasture Enrichment</Card.Title>
-                                    <hr/>
-
-                                  Pasture enrichment involves adding trees into the pasture area.
-                                </Tab.Pane>
-
-                                {/*Forest Conversion Tab*/}
-                                <Tab.Pane eventKey="2">
-
-                                    <hr/>
-                                    <Card.Title id="2">Forest Conversion</Card.Title>
-                                    <hr/>
-
-                                     In forest conversion, trees are thinned in uniform, patch, or irregular patterns, and pasture species are seeded. A variation of forest conversion is when forests are thinned along a field edge, creating “open field edge” silvopasture.
-                            
-                                </Tab.Pane>
+                <Card.Body>
 
 
-                              </Tab.Content>
-                            </Col>
-                          </Row>
-                        </Tab.Container>
-                          
+                <hr/>
+                <Card.Title id="2">What is Silvopasture?</Card.Title>
+                <hr/>
+                <Row>
+                <Col xs={12} md={6}>
+                <Alert variant={'info'}>
+                    Two approaches to silvopasture are pasture enrichment and forest conversion. Pasture
+                    enrichment involves adding trees into the pasture area. In forest conversion, trees are
+                    thinned in uniform, patch, or irregular patterns, and pasture species are seeded. A
+                    variation of forest conversion is when forests are thinned along a field edge, creating
+                    “open field edge” silvopasture. Additional approaches to silvopasture include introducing
+                    livestock into orchards and maple sugarbush forests, and the creation of outdoor living
+                    barns. Living barns are high density stands of trees, often conifers, planted into pastures
+                    primarily to provide shelter.
+                </Alert>
 
-                        <ImageSlider groups={groups} labels={labels} id="a1" />
 
-                    </Card.Body>
+                <Alert variant={'secondary'}>
+Silvopasture offers numerous climate change adaptation benefits that address
+challenges such as increased frequency and severity of weather extremes (i.e. drought,
+heat, and heavy rains). Combining woodland with pasture provides shade and protection
+for livestock, may enhance carbon sequestration, and can improve water filtration and
+retention.
+<br/><br/>
+Skilled and active management of pasture and woodland together with sound livestock
+husbandry are essential to achieving a sustainable and successful silvopasture system.
+                </Alert>
 
-                    </Card>  
+
+
+
+
+
+
+                </Col>
+                <Col xs={12} md={6}>
+                    <Image
+                    className="d-block w-100"
+                    src={sp[0][1].default} 
+
+                    />
+                <Alert variant={'info'} className={"mt-5"}>
+                     Silvopasture systems are diverse and varied and can be designed to meet farmers’
+                    unique goals and complement existing and desired farm characteristics. Accounting for
+                    these goals and local conditions can help determine which approach to establishing
+                    silvopasture is appropriate for each farm. Considerations include the desired
+                    composition of forage, tree and livestock species, and what forest and livestock products
+                    will be produced.
+                </Alert>
+                </Col>
+                </Row>
+                </Card.Body>
+
+                </Card>
+
+
+
+
+
+
                     <Card variant="light" bg="light">
 
       
@@ -210,6 +209,18 @@ function Silvopasture(props) {
                         </Tab.Container>
                         </Card.Body>  
                     </Card>
+ 
+
+            {/* Tabbed view of method variants */}
+            <Card id="a1">
+
+            <Card.Body>
+
+                <ImageSlider groups={groups} labels={labels} id="a1" />
+
+            </Card.Body>
+
+            </Card>  
                     <Card variant="light" bg="light">
 
       

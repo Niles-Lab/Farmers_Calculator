@@ -106,55 +106,55 @@ function ImageSlider(props) {
 
 
 	return (
-		<>
+	<>
 
-                    <Row className="p-0 m-0 d-flex align-items-end">
-                    <Col xs={8} className="ml-0 pl-0">
-                    <ButtonToolbar aria-label="Slideshow Selection Toolbar">
-                      <ButtonGroup className="mt-5">
+        <Row className="p-0 m-0 d-flex align-items-end">
+        <Col xs={8} className="ml-0 pl-0">
+            <ButtonToolbar aria-label="Slideshow Selection Toolbar">
+              <ButtonGroup className="mt-5">
 
-                        <ListGroup.Item>Select Image Group</ListGroup.Item>
-                        {props.labels.map((d,idx) => (
-                                <Button
-                                    key={d+idx}
-                                    className="flat-butt"
-                                    eventKey={idx} onClick={function(d) {
-                                            // Manually set active image set on select
-                                            setActive(props.groups[idx]);
+                <ListGroup.Item>Select Image Group</ListGroup.Item>
+                {props.labels.map((d,idx) => (
+                        <Button
+                            key={d+idx}
+                            className="flat-butt"
+                            eventKey={idx} onClick={function(d) {
+                                    // Manually set active image set on select
+                                    setActive(props.groups[idx]);
 
-                                            // Reset opacity / slider settings
-                                            setTimeSl(0);
-                                            setOpacity(() => {def[0]=1; return def;});
-                                        }}
-                                    >{d}</Button>
-                            ))}
+                                    // Reset opacity / slider settings
+                                    setTimeSl(0);
+                                    setOpacity(() => {def[0]=1; return def;});
+                                }}
+                            >{d}</Button>
+                    ))}
 
-                      </ButtonGroup>
-                    </ButtonToolbar>
-                    </Col>
-                    <Col xs={4} className="pr-5 d-flex justify-content-end">
-                     {active.length > 1 && 
+              </ButtonGroup>
+            </ButtonToolbar>
+        </Col>
+        <Col xs={4} className="pr-5 d-flex justify-content-end">
+         {active.length > 1 && 
 
-                        <Box sx={{ width: 250 }}>
-                            <Typography gutterBottom>Slide to change</Typography>
-                        
-                            <Slider
+            <Box sx={{ width: 250 }}>
+                <Typography gutterBottom>Slide to change</Typography>
+            
+                <Slider
 
-                                getAriaLabel={() => 'Image Slider'}
-                                min={0}
-                                marks={createMarks(active)}
-                                max={1}
-                                step={0.01}
-                                value={timeSl}
-                                style={{position: "relative"}}
-                                onChange={(event,idx) => handleChange(event,idx)}
-                            />
-                        </Box>
-                            
-                           }
+                    getAriaLabel={() => 'Image Slider'}
+                    min={0}
+                    marks={createMarks(active)}
+                    max={1}
+                    step={0.01}
+                    value={timeSl}
+                    style={{position: "relative"}}
+                    onChange={(event,idx) => handleChange(event,idx)}
+                />
+            </Box>
+                
+               }
 
-                    </Col>
-                    </Row>
+        </Col>
+        </Row>
 
 
                         {/* Fading images accompanying slider */}

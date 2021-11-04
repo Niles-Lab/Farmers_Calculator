@@ -160,6 +160,10 @@ function Tarping(props) {
                                              else {
                                                 setActive(tp);
                                             }
+                                            
+                                            // Reset opacity / slider settings
+                                            setTimeSl(0);
+                                            setOpacity(() => {let opac = opacity; opac[0] = 1; return opac;});
            
                                         }}>
                                             {d}

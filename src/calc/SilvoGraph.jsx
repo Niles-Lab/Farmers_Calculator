@@ -46,7 +46,7 @@ function SilvoGraph(props) {
 
 
 
-const margin = {top: 50, right: 20, bottom: 20, left: 50},
+const margin = {top: 50, right: 20, bottom: 30, left: 50},
 width = props.width - (margin.right+margin.left),
 height = 500 - (margin.top+margin.bottom);
 

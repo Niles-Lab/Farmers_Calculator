@@ -73,7 +73,7 @@ return (
                             <Row>
                                 <Col xs={5}>
                                 <ListGroup>
-                                  <ListGroup.Item variant="success">3 Project Phases</ListGroup.Item>
+                                  <ListGroup.Item variant="success"></ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="#l0"> Assess farmer/agricultural advisor perceptions of Climate Change</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="#l1">Understand educational needs and learning styles with focus groups</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="#l2">Develop tools, resources and information to understand and plan for climate change</ListGroup.Item>

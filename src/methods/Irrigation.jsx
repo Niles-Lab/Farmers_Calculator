@@ -148,6 +148,12 @@ function Irrigation(props) {
                                             if(idx === 0) setActive(sp);
                                             if(idx === 1) setActive(pd);
                                             if(idx === 2) setActive(ig);
+
+
+                                            // Reset opacity / slider settings
+                                            setTimeSl(0);
+                                            setOpacity(() => {let opac = opacity; opac[0] = 1; return opac;});
+                                            
                                         }}>
                                             {d}
                                         </Nav.Link>
@@ -240,19 +246,6 @@ function Irrigation(props) {
 
 
 
-
-
-
-
-
-                    {/* Tooltip */}
- {/*                     <Overlay target={target.current} show={show} placement="top">
-                        {(props) => (
-                          <Tooltip id="overlay-example" {...props} arrow>
-                            Drag me!
-                          </Tooltip>
-                        )}
-                      </Overlay>*/}
 
 
                      {active.length > 1 && 

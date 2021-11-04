@@ -10,7 +10,8 @@ import Silvopasture from './methods/Silvopasture.jsx'
 import Irrigation from './methods/Irrigation.jsx'
 import Tarping from './methods/Tarping.jsx'
 import Research from './Research.jsx'
-import Extras from './home/Extras.jsx'
+import Extras from './other/Extras.jsx'
+import Press from './other/Press.jsx'
 
 function App() {
 // style={{ backgroundImage: `url(${background})` }}
@@ -21,7 +22,6 @@ function App() {
         <Navigation />
 
         <Switch>
-          <Route path='/FormController' component={FormController}/>
           <Route path='/Resources' component={Resources}/>
           <Route path='/Research' component={Research}/>
 
@@ -32,6 +32,7 @@ function App() {
           <Route path='/Tarping' component={Tarping}/>
 
           <Route path='/Research' component={Research}/>
+          <Route path='/Press' component={Press}/>
           <Route path='/Extras' component={Extras}/>
           <Route path='/' component={Home}/>
         </Switch>

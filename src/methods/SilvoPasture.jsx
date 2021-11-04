@@ -5,9 +5,11 @@
  **/
 
 import React, { useState, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
+import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
@@ -30,7 +32,7 @@ const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png
 const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 // What value the slider is at, for image opacity filtering
-let timeSl;
+// let timeSl;
 
 // Marks on slider for concrete images
 let marks = [];
@@ -147,6 +149,11 @@ function Silvopasture(props) {
                                             if(idx === 0) setActive(sp);
                                             if(idx === 1) setActive(pe);
                                             if(idx === 2) setActive(fc);
+
+                                            // Reset opacity / slider settings
+                                            setTimeSl(0);
+                                            setOpacity(() => {let opac = opacity; opac[0] = 1; return opac;});
+
                                         }}>
                                             {d}
                                         </Nav.Link>
@@ -309,8 +316,16 @@ function Silvopasture(props) {
                     
                             <Card.Body>
                             <Container>
-                                <Row className="text-center">
-                                	Interested in silvopasture? View additional resources&nbsp;<a href="./resources">here</a>.
+                                <Row className="text-center align-center">
+                                	<Col></Col>
+                                    <Col xs={8}>
+                                    Interested in Silvopasture? View additional resources&nbsp;<a href="./resources">Here</a>.
+
+                                    View our brief&nbsp;<Link to={{pathname: 
+                                        "/resources/Silvopasture Two-Pager.pdf"
+                                    }} target="_blank">Here <BsBoxArrowUpRight/></Link>
+                                    </Col>
+                                    <Col></Col>
                                 </Row>
              
                             </Container>

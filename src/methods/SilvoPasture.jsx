@@ -6,7 +6,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
+import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image, Carousel, Overlay, Tooltip, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
@@ -14,7 +14,7 @@ import FormController from './../calc/FormController';
 
 const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
 
-
+const navs = ["Overview", "Visualizations", "Economic Tool"]; 
 
 function importAll(r) {
   let images = {};
@@ -126,14 +126,24 @@ function Silvopasture(props) {
 
 
             <Col>
-                    
+                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                      <Nav id="sectionnav" className="mx-auto">
+                        {navs.map((d, idx) => (
+                            <Nav.Link href={"#a" + idx}>
+                            {d}
+                            </Nav.Link>
+                            ))}
+                      </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
             </Col>
             <Col md={8}>
 
 
 
                     {/* Tabbed view of method variants */}
-                    <Card>
+                    <Card id="a0">
 
                     <Card.Body>
 
@@ -202,17 +212,16 @@ function Silvopasture(props) {
                           </Row>
                         </Tab.Container>
 
-                    {/* Tooltip */}
- {/*                     <Overlay target={target.current} show={show} placement="top">
-                        {(props) => (
-                          <Tooltip id="overlay-example" {...props} arrow>
-                            Drag me!
-                          </Tooltip>
-                        )}
-                      </Overlay>*/}
+                    <ButtonToolbar aria-label="Slideshow Selection Toolbar">
+
+                      <ButtonGroup className="ml-5 float-right align-right">
+                        Select Images&nbsp;
+                        <Button>1</Button> <Button>2</Button> <Button>3</Button> <Button>4</Button>
+                      </ButtonGroup>
+                    </ButtonToolbar>
 
                      {active.length > 1 && 
-                          <Box sx={{ width: 250 }} className={() => active.length <= 1 ? 'd-none' : 'd-none'}>
+                          <Box sx={{ width: 250 }}>
  
                             Slide to change!
            
@@ -257,8 +266,15 @@ function Silvopasture(props) {
                     <Card variant="light" bg="light">
 
       
-                        <Card.Title id="1" className="mt-4">Benefits and Costs</Card.Title>
-                    
+                        <Card.Title id="a1" className="mt-4">Benefits and Costs</Card.Title>
+
+
+                          <Alert variant={'info'} className="px-5 mx-5 mb-0">
+                            Before installing silvopasture systems, trade-offs should be carefully considered. It may not be
+                            possible to realize all or even some of these potential benefits, while potential challenges may
+                            be mitigated through management and/or silvopasture system design.
+                          </Alert>
+
                         <Card.Body>
                         <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
                             <Row>
@@ -303,7 +319,7 @@ function Silvopasture(props) {
 
 
                 <hr/>
-                    <Card.Title id="2">Silvopasture Economic Tool</Card.Title>
+                    <Card.Title id="a2">Silvopasture Economic Tool</Card.Title>
                 <hr/>
                 {/* Calculator */}
                 <FormController />

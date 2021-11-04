@@ -244,12 +244,8 @@ function Irrigation(props) {
                     </Card>
 
 
-
-
-
-
                      {active.length > 1 && 
-                          <Box sx={{ width: 250 }} className={() => active.length <= 1 ? 'd-none' : 'd-none'}>
+                          <Box sx={{ width: 250 }}>
  
                             Slide to change!
            

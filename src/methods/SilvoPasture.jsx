@@ -6,7 +6,7 @@
 
 import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
+import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image, Button } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -77,8 +77,12 @@ function Silvopasture(props) {
 
 
                 <hr/>
-                <Card.Title id="2">What is Silvopasture?</Card.Title>
+                <Card.Title id="2">Silvopasture</Card.Title>
                 <hr/>
+                <Alert variant={'warning'} className="mx-4">
+                    Silvopasture is an agroforestry system that combines well-managed woodlands and
+                    pastures to generate both livestock and forest products on the same parcel of land
+                </Alert>
                 <Row>
                 <Col xs={12} md={6}>
                 <Alert variant={'info'}>
@@ -93,15 +97,15 @@ function Silvopasture(props) {
                 </Alert>
 
 
-                <Alert variant={'secondary'}>
-Silvopasture offers numerous climate change adaptation benefits that address
-challenges such as increased frequency and severity of weather extremes (i.e. drought,
-heat, and heavy rains). Combining woodland with pasture provides shade and protection
-for livestock, may enhance carbon sequestration, and can improve water filtration and
-retention.
-<br/><br/>
-Skilled and active management of pasture and woodland together with sound livestock
-husbandry are essential to achieving a sustainable and successful silvopasture system.
+                <Alert variant={'danger'}>
+                    Silvopasture offers numerous climate change adaptation benefits that address
+                    challenges such as increased frequency and severity of weather extremes (i.e. drought,
+                    heat, and heavy rains). Combining woodland with pasture provides shade and protection
+                    for livestock, may enhance carbon sequestration, and can improve water filtration and
+                    retention.
+                    <br/><br/>
+                    Skilled and active management of pasture and woodland together with sound livestock
+                    husbandry are essential to achieving a sustainable and successful silvopasture system.
                 </Alert>
 
 
@@ -117,7 +121,7 @@ husbandry are essential to achieving a sustainable and successful silvopasture s
                     src={sp[0][1].default} 
 
                     />
-                <Alert variant={'info'} className={"mt-5"}>
+                <Alert variant={'success'} className={"mt-5"}>
                      Silvopasture systems are diverse and varied and can be designed to meet farmers’
                     unique goals and complement existing and desired farm characteristics. Accounting for
                     these goals and local conditions can help determine which approach to establishing
@@ -138,9 +142,9 @@ husbandry are essential to achieving a sustainable and successful silvopasture s
 
                     <Card variant="light" bg="light">
 
-      
-                        <Card.Title className="mt-4">Components of Silvopasture</Card.Title>
-
+                        <hr/>
+                        <Card.Title>Components of Silvopasture</Card.Title>
+                        <hr/>
 
                           <Alert variant={'info'} className="px-5 mx-5 mb-0">
                             Components of Northeast Silvopasture systems may include but are not limited to these elements
@@ -223,9 +227,9 @@ husbandry are essential to achieving a sustainable and successful silvopasture s
             </Card>  
                     <Card variant="light" bg="light">
 
-      
-                        <Card.Title className="mt-4">Benefits and Costs</Card.Title>
-
+                    <hr/>
+                        <Card.Title>Benefits and Costs</Card.Title>
+                    <hr/>
 
                           <Alert variant={'info'} className="px-5 mx-5 mb-0">
                             Before installing silvopasture systems, trade-offs should be carefully considered. It may not be

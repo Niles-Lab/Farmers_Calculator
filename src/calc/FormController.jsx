@@ -4,7 +4,7 @@ import { Button, Row, Col } from 'react-bootstrap';
 import CalcForm from "./CalcForm.jsx"
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
-import CalcFormAll from "./CalcFormAll.jsx"
+
 
 function FormController() {
 

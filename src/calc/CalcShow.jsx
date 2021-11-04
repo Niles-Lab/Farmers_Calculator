@@ -9,7 +9,7 @@ import React, { useState } from 'react';
 import { BsChevronDoubleRight } from "react-icons/bs";
 import OffCanvas from 'react-aria-offcanvas';
 import { Button, Row } from 'react-bootstrap';
-import CalcFormAll from "../calc/CalcFormAll.jsx";
+import CalcForm from "../calc/CalcForm.jsx";
 
 
 function CalcShow({name, ...props}) {
@@ -56,7 +56,7 @@ function CalcShow({name, ...props}) {
           labelledby="menu-button"
         >
 
-					<CalcFormAll
+					<CalcForm
 
 					{...props} />    	
 

@@ -137,7 +137,79 @@ function Silvopasture(props) {
                     </Card.Body>
 
                     </Card>  
+                    <Card variant="light" bg="light">
 
+      
+                        <Card.Title className="mt-4">Components of Silvopasture</Card.Title>
+
+
+                          <Alert variant={'info'} className="px-5 mx-5 mb-0">
+                            Components of Northeast Silvopasture systems may include but are not limited to these elements
+                          </Alert>
+
+                        <Card.Body>
+                        <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
+                            <Row>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="info">Tree Species</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Oaks</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Maples</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Fruit Trees</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Eastern White Pine</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Hickories</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Eastern Hemlock</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Commercial Nut Trees</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Black Locust</ListGroup.Item>  
+
+
+                                </ListGroup>
+                                </Col>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="success">Forest Products</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Firewood</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Sawtimber</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Fence Posts</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Scion Wood</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Fruit</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Nuts</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Maple Sap</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Tree Nursery</ListGroup.Item>
+
+                                </ListGroup>
+                                </Col>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="danger">Livestock Species</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Cattle (beef, dairy)</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Goats (meat, dairy)</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Pigs</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Sheep (meat, fiber)</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Chicken (meat, eggs)</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Turkeys</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Horses</ListGroup.Item>  
+
+
+                                </ListGroup>
+                                </Col>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="secondary">Forages</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Red Clover</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">White Clover</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Orchardgrass</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Bentgrasses</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Fescues</ListGroup.Item>  
+                                  <ListGroup.Item variant="light" action href="">Timothy</ListGroup.Item> 
+                                  <ListGroup.Item variant="light" action href="">Ryegrasses</ListGroup.Item>  
+
+                                </ListGroup>
+                                </Col>
+                            </Row>
+                        </Tab.Container>
+                        </Card.Body>  
+                    </Card>
                     <Card variant="light" bg="light">
 
       

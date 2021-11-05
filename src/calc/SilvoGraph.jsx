@@ -35,8 +35,6 @@ const acreFt = 43560;
 const labels = ["", "Per Acre", 
         "Total Area"];
 
-let data = [];
-
 
 
 function SilvoGraph(props) {
@@ -71,6 +69,7 @@ let treeSpacing = props.silvoPasture[2][0];
 //let treesPerAcre = props.silvoPasture[4][0];
 let treesPerAcre = acreFt / (treeSpacing ** 2);
 
+let data = [];
 
 const legendX = parseFloat((width)-margin.left-margin.right);
 const legendY = parseFloat(margin.top);
@@ -100,7 +99,7 @@ function npv() {
 
 
 
-data = [];
+
 
 
 
@@ -111,7 +110,7 @@ data = [];
 
 
 
-  data = [];
+  //data = [];
 
 		// Map each data point with:
 		// x -> year
@@ -125,8 +124,8 @@ data = [];
 
 		// Draw physical chart
 		drawChart();
-	// 	//populateChart();
-	 });
+
+	 }, []);
 
 
 
@@ -134,56 +133,63 @@ data = [];
 	function drawChart() {
 
 
+    const margin = {top: 50, right: 20, bottom: 30, left: 50},
+    width = props.width - (margin.right+margin.left),
+    height = 500 - (margin.top+margin.bottom);
 
-		let svg; 
+    data = [];
 
-    if($("#pgcht > svg").length == 0) {
+    // Map each data point with:
+    // x -> year
+    // y -> revenue from trees
+    d3.range(1, props.length+1).forEach(d =>
+      data.push({
+        year: d,
+        revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
+        cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
+    }));
+
+    let x = d3.scaleLinear()
+    .range([0,width-((margin.right+margin.left))])
+
+    let y = d3.scaleLinear()
+    .range([height-margin.top-margin.bottom,0])
+
+    x.domain([0,props.length+1]);
+    y.domain([0,1000]);
 
 
-     svg = d3.select("#pgcht")
+
+    // Create the X axis:
+    let svg = d3.select("#pgcht")
     .append("svg")
     .attr("width",width)
     .attr("height",height+30)
     .append("g")
+    .attr("class", "main")
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
-    //.on("movemove", event => mousemove(event));     
+    //.on("movemove", event => mousemove(event));    
 
+    //let svg = d3.select("#pgcht").select("svg");
+
+
+
+    svg.selectAll("*").remove();
 
     svg.append("g")
       .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
       .call(d3.axisBottom(x));
-      // .selectAll("text")
-     //    .style("font-weight", "bold");
 
     svg.append("g")
       .call(d3.axisLeft(y));
-      // .selectAll("text")
-      // .attr("class", "left-axis")
-     //    .style("font-weight", "bold")
-     //    .attr("transform", "translate(-10,-10)")
-     //    .attr("dy", 0)
-     //    .attr("y", 0);
-
-
-
-
-    // Title of chart
-    svg.append("text")
-      .attr("class", "title")
-      .attr("text-anchor", "start")
-      .attr("x", 0)
-      .attr("y", -margin.top/2)
-      .attr("dx", margin.right)
-      .attr("dy", 0)
-      .style("font-weight", "bold")
-      .text("Silvopasture Cash Flow($/Acre)");
 
 
 
     //Optional axis labels
     svg.append("text")
       .attr("class", "x label")
+      .style("font-weight", "bold")
       .attr("text-anchor", "end")
       .attr("x", 0)
       .attr("y", 0)
@@ -194,6 +200,7 @@ data = [];
 
     svg.append("text")
         .attr("class", "y label")
+        .style("font-weight", "bold")
         .attr("text-anchor", "end")
         .attr("x", -(height/2)+margin.bottom+margin.top)
         .attr("y", -margin.left/2-4)
@@ -201,24 +208,7 @@ data = [];
         .text("Revenue($)");
 
 
-
-
-
-
-    } else svg = d3.select("#pgcht").select("svg");
-
-    console.log(svg);
-
-	  x.domain([0,props.length+1]);
-	  y.domain([0,1000]);
-
-
-    svg.selectAll("path").remove();
-
-
-
-
-		 	// Revenue Line
+      // Revenue Line
       svg.append("path")
       .datum(data)
       .attr("class", "line")
@@ -227,9 +217,9 @@ data = [];
       .attr("stroke-width", 6)
       .attr("opacity", 0.5)
       .attr("d", d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y(d.revenue))
-    	.curve(d3.curveMonotoneX));
+      .x(d => x(d.year))
+      .y(d => y(d.revenue))
+      .curve(d3.curveMonotoneX));
 
       // Costs line
       svg.append("path")
@@ -240,9 +230,9 @@ data = [];
       .attr("stroke-width", 6)
       .attr("opacity", 0.5)
       .attr("d", d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y(d.cost))
-    	.curve(d3.curveMonotoneX));
+      .x(d => x(d.year))
+      .y(d => y(d.cost))
+      .curve(d3.curveMonotoneX));
 
       // Trend Line
       svg.append("path")
@@ -253,13 +243,110 @@ data = [];
       .attr("stroke-width", 6)
       .attr("opacity", 0.5)
       .attr("d", d3.line()
-    	.x(d => x(d.year))
-    	.y(d => y((d.cost + d.revenue) / 2))
-    	.curve(d3.curveMonotoneX));
+      .x(d => x(d.year))
+      .y(d => y((d.cost + d.revenue) / 2))
+      .curve(d3.curveMonotoneX));
+
+
+
+}
+
+
+update(data);
+		// let svg; 
+
+  //   if($("#pgcht > svg").length == 0) {
+
+
+  //    svg = d3.select("#pgcht")
+  //   .append("svg")
+  //   .attr("width",width)
+  //   .attr("height",height+30)
+  //   .append("g")
+  //   .attr("transform",
+  //     "translate(" + margin.left + "," + margin.top + ")");
+  //   //.on("movemove", event => mousemove(event));     
 
 
 
 
+
+
+
+  //   // Title of chart
+  //   svg.append("text")
+  //     .attr("class", "title")
+  //     .attr("text-anchor", "start")
+  //     .attr("x", 0)
+  //     .attr("y", -margin.top/2)
+  //     .attr("dx", margin.right)
+  //     .attr("dy", 0)
+  //     .style("font-weight", "bold")
+  //     .text("Silvopasture Cash Flow($/Acre)");
+
+
+
+
+
+
+
+
+
+  //   } else svg = d3.select("#pgcht").select("svg");
+
+
+
+	  // x.domain([0,props.length+1]);
+	  // y.domain([0,1000]);
+
+
+    
+
+
+
+
+		 	// // Revenue Line
+    //   svg.append("path")
+    //   .datum(data)
+    //   .attr("class", "line")
+    //   .attr("fill", "none")
+    //   .attr("stroke", "steelblue")
+    //   .attr("stroke-width", 6)
+    //   .attr("opacity", 0.5)
+    //   .attr("d", d3.line()
+    // 	.x(d => x(d.year))
+    // 	.y(d => y(d.revenue))
+    // 	.curve(d3.curveMonotoneX));
+
+    //   // Costs line
+    //   svg.append("path")
+    //   .datum(data)
+    //   .attr("class", "line")
+    //   .attr("fill", "none")
+    //   .attr("stroke", "red")
+    //   .attr("stroke-width", 6)
+    //   .attr("opacity", 0.5)
+    //   .attr("d", d3.line()
+    // 	.x(d => x(d.year))
+    // 	.y(d => y(d.cost))
+    // 	.curve(d3.curveMonotoneX));
+
+    //   // Trend Line
+    //   svg.append("path")
+    //   .datum(data)
+    //   .attr("class", "line")
+    //   .attr("fill", "none")
+    //   .attr("stroke", "orange")
+    //   .attr("stroke-width", 6)
+    //   .attr("opacity", 0.5)
+    //   .attr("d", d3.line()
+    // 	.x(d => x(d.year))
+    // 	.y(d => y((d.cost + d.revenue) / 2))
+    // 	.curve(d3.curveMonotoneX));
+
+
+
+      //update(data);
 
 
 
@@ -449,10 +536,152 @@ data = [];
 
 
 
-}
 // let mouseOver = function(d) {
 
 // }
+
+
+// Update domain, range and data on change
+function update(data) {
+
+
+
+    // Map each data point with:
+    // x -> year
+    // y -> revenue from trees
+    d3.range(1, props.length+1).forEach(d =>
+      data.push({
+        year: d,
+        revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
+        cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
+    }));
+
+
+
+    x.domain([0,props.length+1]);
+    y.domain([0,1000]);
+
+
+
+    let svg = d3.select("#pgcht").select("svg").select(".main");
+
+    console.log(svg);
+
+    svg.selectAll("*").remove();
+    svg.append("g")
+      .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
+      .call(d3.axisBottom(x));
+
+    svg.append("g")
+      .call(d3.axisLeft(y));
+
+
+
+    //Optional axis labels
+    svg.append("text")
+      .attr("class", "x label")
+      .style("font-weight", "bold")
+      .attr("text-anchor", "end")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("dx", width/2)
+      .attr("dy", height-margin.bottom)
+      .text("Project Year");
+
+
+    svg.append("text")
+        .attr("class", "y label")
+        .style("font-weight", "bold")
+        .attr("text-anchor", "end")
+        .attr("x", -(height/2)+margin.bottom+margin.top)
+        .attr("y", -margin.left/2-4)
+        .attr("transform", "rotate(-90)")
+        .text("Revenue($)");
+
+
+      // Revenue Line
+      svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("fill", "none")
+      .attr("stroke", "steelblue")
+      .attr("stroke-width", 6)
+      .attr("opacity", 0.5)
+      .attr("d", d3.line()
+      .x(d => x(d.year))
+      .y(d => y(d.revenue))
+      .curve(d3.curveMonotoneX));
+
+      // Costs line
+      svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("fill", "none")
+      .attr("stroke", "red")
+      .attr("stroke-width", 6)
+      .attr("opacity", 0.5)
+      .attr("d", d3.line()
+      .x(d => x(d.year))
+      .y(d => y(d.cost))
+      .curve(d3.curveMonotoneX));
+
+      // Trend Line
+      svg.append("path")
+      .datum(data)
+      .attr("class", "line")
+      .attr("fill", "none")
+      .attr("stroke", "orange")
+      .attr("stroke-width", 6)
+      .attr("opacity", 0.5)
+      .attr("d", d3.line()
+      .x(d => x(d.year))
+      .y(d => y((d.cost + d.revenue) / 2))
+      .curve(d3.curveMonotoneX));
+
+
+
+
+  // x.domain([0,props.length+1]);
+  // x.domain([0, d3.max(data, function(d) { return d.ser1 }) ]);
+  // svg.selectAll(".myXaxis").transition()
+  //   .duration(3000)
+  //   .call(xAxis);
+
+  // // create the Y axis
+  // y.domain([0, d3.max(data, function(d) { return d.ser2  }) ]);
+  // svg.selectAll(".myYaxis")
+  //   .transition()
+  //   .duration(3000)
+  //   .call(yAxis);
+
+  // // Create a update selection: bind to the new data
+  // var u = svg.selectAll(".lineTest")
+  //   .data([data], function(d){ return d.ser1 });
+
+  // // Updata the line
+  // u
+  //   .enter()
+  //   .append("path")
+  //   .attr("class","lineTest")
+  //   .merge(u)
+  //   .transition()
+  //   .duration(3000)
+  //   .attr("d", d3.line()
+  //     .x(function(d) { return x(d.ser1); })
+  //     .y(function(d) { return y(d.ser2); }))
+  //     .attr("fill", "none")
+  //     .attr("stroke", "steelblue")
+  //     .attr("stroke-width", 2.5)
+}
+
+
+
+
+
+
+
+
+
 
 // Mike Bostock's long label wrap example - thanks Mike!
 function wrap(text, width) {

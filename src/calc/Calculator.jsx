@@ -27,6 +27,8 @@ const graphWidth = 800;
 
 function Calculator(props) {
 
+console.log(props);
+
 // How many sq ft in an acre
 const acreFt = 43560;
 
@@ -34,19 +36,34 @@ const acreFt = 43560;
 const maturingYears = 10;
 
 
-// Derive calculated values from props
-let netRevenue = props.silvoPasture[0][0] - props.silvoPasture[1][0];
-let productivity = props.silvoPasture[7][0] / 100;
+// // Derive calculated values from props
+// let netRevenue = props.silvoPasture[0][0] - props.silvoPasture[1][0];
+// let productivity = props.silvoPasture[7][0] / 100;
 
-// Read other props in for easier access
-let plantingCost = props.silvoPasture[3][0];
-let maintenance = props.silvoPasture[5][0];
-let cropPrice = props.silvoPasture[8][0];
-let treeYield = props.silvoPasture[6][0];
-let treeSpacing = props.silvoPasture[2][0];
+// // Read other props in for easier access
+// let plantingCost = props.silvoPasture[3][0];
+// let maintenance = props.silvoPasture[5][0];
+// let cropPrice = props.silvoPasture[8][0];
+// let treeYield = props.silvoPasture[6][0];
+// let treeSpacing = props.silvoPasture[2][0];
+
+
+
+// Derive calculated values from props
+let netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
+let productivity = props.sp.effectiveProperty[0] / 100;
+
+// // Read other props in for easier access
+// let plantingCost = props.silvoPasture.treePlantingCost[0];
+// let maintenance = props.silvoPasture.treeMaintenanceCost[0];
+// let cropPrice = props.silvoPasture[8][0];
+// let treeYield = props.silvoPasture[6][0];
+// let treeSpacing = props.silvoPasture[2][0];
+
+
 
 //let treesPerAcre = props.silvoPasture[4][0];
-let treesPerAcre = acreFt / (treeSpacing ** 2);
+let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
 
 
 
@@ -68,8 +85,8 @@ let data = [];
 d3.range(1, props.length+1).forEach(d =>
 	data.push({
 		year: d,
-		revenue: (parseInt(d) >= maturingYears ? (treesPerAcre*cropPrice*treeYield) : 0) + netRevenue*productivity,
-		cost: (parseInt(d) === 1 ? treesPerAcre*plantingCost : treesPerAcre * maintenance)
+		revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre*props.sp.cropPrice*props.sp.treeYield) : 0) + netRevenue*productivity,
+		cost: (parseInt(d) === 1 ? treesPerAcre*props.sp.plantingCost : props.sp.treesPerAcre * props.sp.treeMaintenance)
 }));
 
 // Net Present Value(NPV) = Benefits(B) - Costs(C)

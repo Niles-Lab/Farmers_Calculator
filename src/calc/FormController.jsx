@@ -30,28 +30,31 @@ let data = {
 };	
 
 
-// let silvoptions = {
-// 	grazingRevenue: [450, "$", "Grazing Revenue"],
-// 	grazingCost: [9.50, "$", "Grazing Cost"],
-// 	treeSpacing: [30, "ft", "Tree Spacing"],
-// 	treesPerAcre: [48, "tr/acre", "Trees Per Acre"],
-// 	treeCost: [2.50, "$/yr", "Tree Cost"],
-// 	treeCropYield: [5, "$/unit", "Tree Crop Yield"],
-// 	effectiveProperty: [80, "%", "Effective Property"]
-// }
+let silvoptions = {
+	grazingRevenue: [450, "$", "Grazing Revenue"],
+	baseGrazingCost: [300, "$", "Base Grazing Cost"],
+	treeSpacing: [30, "ft", "Tree Spacing"],
+	treePlantingCost: [9.5, "$", "Tree Planting Cost"],
+	treesPerAcre: [48, "tr/acre", "Trees Per Acre"],
+	treeCost: [2.50, "$/yr", "Tree Maintenance Cost"],
+	treeCropYield: [5, "$/unit", "Tree Crop Yield"],
+	treeCropPrice: [5, "$/unit", "Tree Crop Price"],
+	effectiveProperty: [80, "%", "Effective Property"]
+}
 
 
-let silvoptions = [
-	[450, "$", "Grazing Revenue"],
-	[300, "$", "Base Grazing Cost"],
-	[30, "ft", "Tree Spacing"],
-	[9.5, "$", "Tree Planting Cost"],
-	[48, "tr/acre", "Trees Per Acre"],
-	[2.50, "$/yr", "Tree Maintenance Cost"],
-	[2, "units/tree", "Tree Crop Yield"],
-	[80, "%", "Effective Property"],
-	[5, "$/unit", "Tree Crop Price"]
-]
+// let silvoptions = [
+// 	[450, "$", "Grazing Revenue"],
+// 	[300, "$", "Base Grazing Cost"],
+// 	[30, "ft", "Tree Spacing"],
+// 	[9.5, "$", "Tree Planting Cost"],
+// 	[48, "tr/acre", "Trees Per Acre"],
+// 	[2.50, "$/yr", "Tree Maintenance Cost"],
+// 	[2, "units/tree", "Tree Crop Yield"],
+// 	[80, "%", "Effective Property"],
+// 	[5, "$/unit", "Tree Crop Price"]
+// ]
+
 
 
 // Discount rate for NPV
@@ -66,7 +69,7 @@ const [unit, setUnit] = useState(data.unit);
 // Length of project(yrs)
 const [length, setLength] = useState(data.length);
 
-const [silvoPasture, setSilvopasture] = useState(silvoptions);
+const [sp, setSP] = useState(silvoptions);
 
 // const [calcShow, setCalcShow] = useState(false);
 // const [show, setShow] = useState(false);
@@ -84,80 +87,80 @@ const handleClose = () => setShow(false);
 
 return (
 
-		<>
+	<>
 
-		<Row>
-			<Col xs={10}>
-
-
-				{/*Calculator Output Table*/}
-				<Calculator
-					options={options}
-					land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
-					dairy={dairy}
-					acres={unit}
-					crops={crops}
-					length={length}
-					rate={rate}
-					tableView={tableView}
-					silvoPasture={silvoptions}/>
-
-			</Col>
-			<Col xs={2} className="my-5">
-
-				<Button
-				className="my-3"
-				onClick={toggleShow}
-				>Show Calculator</Button>
+	<Row>
+		<Col xs={10}>
 
 
+			{/*Calculator Output Table*/}
+			<Calculator
+				options={options}
+				land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
+				dairy={dairy}
+				acres={unit}
+				crops={crops}
+				length={length}
+				rate={rate}
+				tableView={tableView}
+				sp={sp} />
 
-				<Button 
-				onClick={() => setTableView(!tableView)}>
-				View as {tableView ? "Graph": "Table"}</Button>
+		</Col>
+		<Col xs={2} className="my-5">
 
-			</Col>
+			<Button
+			className="my-3"
+			onClick={toggleShow}
+			>Show Calculator</Button>
 
 
 
-		</Row>
+			<Button 
+			onClick={() => setTableView(!tableView)}>
+			View as {tableView ? "Graph": "Table"}</Button>
+
+		</Col>
 
 
 
-
-
-						{/*Calculator Input UI*/}
-						<CalcShow backdrop={false} scroll={true} placement={start}
-						onChange={() => forceUpdate()}
-						options={options}
-						land={land}
-						setLand={setLand}
-						dairy={dairy}
-						setDairy={setDairy}
-						unit={unit}
-						setUnit={setUnit}
-						crops={crops}
-						setCrops={setCrops}
-						method={method}
-						setMethod={setMethod}
-						length={length}
-						setLength={setLength}
-						silvoPasture={silvoPasture}
-						setSilvopasture={setSilvopasture}
-						
-						tableView={tableView} 
-						setTableView={setTableView}
-						show={show}
-						setShow={setShow}
-						handleClose={handleClose}
-						 />
+	</Row>
 
 
 
 
 
+		{/*Calculator Input UI*/}
+		<CalcShow backdrop={false} scroll={true} placement={start}
+		onChange={() => forceUpdate()}
+		options={options}
+		land={land}
+		setLand={setLand}
+		dairy={dairy}
+		setDairy={setDairy}
+		unit={unit}
+		setUnit={setUnit}
+		crops={crops}
+		setCrops={setCrops}
+		method={method}
+		setMethod={setMethod}
+		length={length}
+		setLength={setLength}
+		sp={sp}
+		setSP={setSP}
+		
+		tableView={tableView} 
+		setTableView={setTableView}
+		show={show}
+		setShow={setShow}
+		handleClose={handleClose}
+		 />
 
-		</>
+
+
+
+
+
+	</>
 
 
 )

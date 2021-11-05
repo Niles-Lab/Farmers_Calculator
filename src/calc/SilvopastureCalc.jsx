@@ -31,7 +31,7 @@ function handleChange(event,key,value) {
 
 
 		
-    <Button
+{/*    <Button
     variant="success"
     onClick={() => spSetOpen(!spOpen)}
     aria-controls="silvoPasture-collapse"
@@ -88,7 +88,7 @@ function handleChange(event,key,value) {
 
 			))}
 	</Form>
-    </Collapse>
+    </Collapse>*/}
 	</Card>
 		)
 }

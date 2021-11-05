@@ -138,6 +138,8 @@ data = [];
 		let svg; 
 
     if($("#pgcht > svg").length == 0) {
+
+
      svg = d3.select("#pgcht")
     .append("svg")
     .attr("width",width)
@@ -146,28 +148,74 @@ data = [];
     .attr("transform",
       "translate(" + margin.left + "," + margin.top + ")");
     //.on("movemove", event => mousemove(event));     
+
+
+    svg.append("g")
+      .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
+      .call(d3.axisBottom(x));
+      // .selectAll("text")
+     //    .style("font-weight", "bold");
+
+    svg.append("g")
+      .call(d3.axisLeft(y));
+      // .selectAll("text")
+      // .attr("class", "left-axis")
+     //    .style("font-weight", "bold")
+     //    .attr("transform", "translate(-10,-10)")
+     //    .attr("dy", 0)
+     //    .attr("y", 0);
+
+
+
+
+    // Title of chart
+    svg.append("text")
+      .attr("class", "title")
+      .attr("text-anchor", "start")
+      .attr("x", 0)
+      .attr("y", -margin.top/2)
+      .attr("dx", margin.right)
+      .attr("dy", 0)
+      .style("font-weight", "bold")
+      .text("Silvopasture Cash Flow($/Acre)");
+
+
+
+    //Optional axis labels
+    svg.append("text")
+      .attr("class", "x label")
+      .attr("text-anchor", "end")
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("dx", width/2)
+      .attr("dy", height-margin.bottom)
+      .text("Project Year");
+
+
+    svg.append("text")
+        .attr("class", "y label")
+        .attr("text-anchor", "end")
+        .attr("x", -(height/2)+margin.bottom+margin.top)
+        .attr("y", -margin.left/2-4)
+        .attr("transform", "rotate(-90)")
+        .text("Revenue($)");
+
+
+
+
+
+
     } else svg = d3.select("#pgcht").select("svg");
+
+    console.log(svg);
 
 	  x.domain([0,props.length+1]);
 	  y.domain([0,1000]);
 
 
-    //svg.selectAll("*").remove();
+    svg.selectAll("path").remove();
 
-		svg.append("g")
-			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
-			.call(d3.axisBottom(x));
-			// .selectAll("text")
-		 //    .style("font-weight", "bold");
 
-		svg.append("g")
-			.call(d3.axisLeft(y));
-			// .selectAll("text")
-			// .attr("class", "left-axis")
-		 //    .style("font-weight", "bold")
-		 //    .attr("transform", "translate(-10,-10)")
-		 //    .attr("dy", 0)
-		 //    .attr("y", 0);
 
 
 		 	// Revenue Line
@@ -211,37 +259,7 @@ data = [];
 
 
 
-		// Title of chart
-		svg.append("text")
-			.attr("class", "title")
-			.attr("text-anchor", "start")
-			.attr("x", 0)
-			.attr("y", -margin.top/2)
-			.attr("dx", margin.right)
-			.attr("dy", 0)
-			.style("font-weight", "bold")
-			.text("Silvopasture Cash Flow($/Acre)");
 
-
-
-    //Optional axis labels
-    svg.append("text")
-      .attr("class", "x label")
-      .attr("text-anchor", "end")
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("dx", width/2)
-      .attr("dy", height-margin.bottom)
-      .text("Project Year");
-
-
-    svg.append("text")
-        .attr("class", "y label")
-        .attr("text-anchor", "end")
-        .attr("x", -(height/2)+margin.bottom+margin.top)
-        .attr("y", -margin.left/2-4)
-        .attr("transform", "rotate(-90)")
-        .text("Revenue($)");
 
 
 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
-
+import $ from 'jquery';
 
 
 // FOR REFERENCE - Here are the options provided in props.silvoPasture
@@ -35,8 +35,7 @@ const acreFt = 43560;
 const labels = ["", "Per Acre", 
         "Total Area"];
 
-
-const data = [];
+let data = [];
 
 
 
@@ -101,9 +100,18 @@ function npv() {
 
 
 
+data = [];
+
+
+
+
 
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
+
+
+
+  data = [];
 
 		// Map each data point with:
 		// x -> year
@@ -117,26 +125,34 @@ function npv() {
 
 		// Draw physical chart
 		drawChart();
-		//populateChart();
-	}, []);
+	// 	//populateChart();
+	 });
 
 
 
 	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-		const svg = d3.select("#pgcht")
-		.append("svg")
-		.attr("width",width)
-		.attr("height",height+30)
-		.append("g")
-		.attr("transform",
-			"translate(" + margin.left + "," + margin.top + ")");
-		//.on("movemove", event => mousemove(event));
+
+
+		let svg; 
+
+    if($("#pgcht > svg").length == 0) {
+     svg = d3.select("#pgcht")
+    .append("svg")
+    .attr("width",width)
+    .attr("height",height+30)
+    .append("g")
+    .attr("transform",
+      "translate(" + margin.left + "," + margin.top + ")");
+    //.on("movemove", event => mousemove(event));     
+    } else svg = d3.select("#pgcht").select("svg");
 
 	  x.domain([0,props.length+1]);
 	  y.domain([0,1000]);
 
+
+    //svg.selectAll("*").remove();
 
 		svg.append("g")
 			.attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")

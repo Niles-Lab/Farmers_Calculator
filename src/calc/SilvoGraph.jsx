@@ -56,15 +56,10 @@ let y = d3.scaleLinear()
 //.range([height-margin.top-margin.bottom, 0])
 
 // Derive calculated values from props
-let netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
+let netRevenue;
 let productivity = props.sp.effectiveProperty[0] / 100;
 
 // // Read other props in for easier access
-// let plantingCost = props.silvoPasture[3][0];
-// let maintenance = props.silvoPasture[5][0];
-// let cropPrice = props.silvoPasture[8][0];
-// let treeYield = props.silvoPasture[6][0];
-// let treeSpacing = props.silvoPasture[2][0];
 
 //let treesPerAcre = props.silvoPasture[4][0];
 let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
@@ -110,17 +105,7 @@ function npv() {
 
 
 
-  //data = [];
 
-		// Map each data point with:
-		// x -> year
-		// y -> revenue from trees
-		d3.range(1, props.length+1).forEach(d =>
-			data.push({
-				year: d,
-				revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0]*props.sp.treeCropYield[0]) : 0) + netRevenue*productivity,
-				cost: (parseInt(d) === 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
-		}));
 
 
     console.log(data);
@@ -144,11 +129,12 @@ function npv() {
     // Map each data point with:
     // x -> year
     // y -> revenue from trees
-    d3.range(1, props.length+1).forEach(d =>
+    netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
+    d3.range(0, props.length+1).forEach(d =>
       data.push({
         year: d,
-        revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0]*props.sp.treeCropYield[0]) : 0) + netRevenue*productivity,
-        cost: (parseInt(d) === 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
+        revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
+        cost: (parseInt(d) <= 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
     }));
 
     let x = d3.scaleLinear()
@@ -547,16 +533,19 @@ update(data);
 function update(data) {
 
 
+    data = [];
 
     // Map each data point with:
     // x -> year
     // y -> revenue from trees
-    d3.range(1, props.length+1).forEach(d =>
+    netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
+    d3.range(0, props.length+1).forEach(d =>
       data.push({
         year: d,
-        revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0]*props.sp.treeCropYield[0]) : 0) + netRevenue*productivity,
-        cost: (parseInt(d) === 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
+        revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
+        cost: (parseInt(d) <= 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
     }));
+    console.log(data);
 
 
 

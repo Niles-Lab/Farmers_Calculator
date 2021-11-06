@@ -37,7 +37,7 @@ let silvoptions = {
 	treePlantingCost: [9.5, "$", "Tree Planting Cost"],
 	treesPerAcre: [48, "tr/acre", "Trees Per Acre"],
 	treeCost: [2.50, "$/yr", "Tree Maintenance Cost"],
-	treeCropYield: [5, "$/unit", "Tree Crop Yield"],
+	treeCropYield: [2, "$/unit", "Tree Crop Yield"],
 	treeCropPrice: [5, "$/unit", "Tree Crop Price"],
 	effectiveProperty: [80, "%", "Effective Property"]
 }

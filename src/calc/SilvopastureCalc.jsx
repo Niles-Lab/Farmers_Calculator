@@ -14,12 +14,12 @@ const [spOpen, spSetOpen] = useState(false);
 
 function handleChange(event,key,value) {
 
-	let opts = props.silvoPasture;
+	let opts = props.sp;
 
 	opts[key][0] = parseFloat(event.target.value);
 	
-	props.setSilvopasture(silvoPasture => ({
-		...props.silvoPasture
+	props.setSP(sp => ({
+		...props.sp
 	}));
 
 }
@@ -31,7 +31,7 @@ function handleChange(event,key,value) {
 
 
 		
-{/*    <Button
+    <Button
     variant="success"
     onClick={() => spSetOpen(!spOpen)}
     aria-controls="silvoPasture-collapse"
@@ -41,13 +41,13 @@ function handleChange(event,key,value) {
 
 
     <Collapse in={spOpen}>
-    <Form >
+    <Form>
 
 		{
 		// Check box
 		}
 
-		<Row>
+
 			<Col>
 				Apple Tree
 			</Col>
@@ -59,16 +59,16 @@ function handleChange(event,key,value) {
 				onChange={(event) => {props.setDairy(event.target.checked)}} />
 
 			</Col>
-		</Row>
 
 
-		{Object.entries(props.silvoPasture).map(([key,value]) => (
+
+		{Object.entries(props.sp).map(([key,value]) => (
 			<Form.Group key={key}>
 				<Row>
 					<Col>
 						{value[2]}
 					</Col>
-					<Col>
+				<Col>
 					<InputGroup className="mb-1">
 
 					<Form.Control
@@ -78,7 +78,7 @@ function handleChange(event,key,value) {
 						min={0}
 						step={0.5}
 						key={key}
-						value={props.silvoPasture[key][0]}
+						value={props.sp[key][0]}
 						onChange = {(event) => {handleChange(event,key,value)}} />
 					<InputGroup.Text>{value[1]}</InputGroup.Text>
 				  </InputGroup>
@@ -88,7 +88,7 @@ function handleChange(event,key,value) {
 
 			))}
 	</Form>
-    </Collapse>*/}
+    </Collapse>
 	</Card>
 		)
 }

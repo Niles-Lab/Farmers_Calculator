@@ -130,11 +130,11 @@ function removeCrop() {
 					<Form.Control
 						placeholder="..."
 						name="land"
-						min="0"
+						min="1"
 						type="number"
-						step="0.5"
-						value={props.length % 100}
-						onChange = {(event) => {props.setLength(event.target.value % 100)}} />
+						step="1"
+						value={props.length}
+						onChange = {(event) => {props.setLength(event.target.value)}} />
 					</Col>
 				</Row>
 

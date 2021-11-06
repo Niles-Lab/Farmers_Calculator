@@ -130,7 +130,7 @@ function npv() {
     // x -> year
     // y -> revenue from trees
     netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
-    d3.range(0, props.length+1).forEach(d =>
+    d3.range(0, parseInt(props.length)+1).forEach(d =>
       data.push({
         year: d,
         revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
@@ -143,7 +143,7 @@ function npv() {
     let y = d3.scaleLinear()
     .range([height-margin.top-margin.bottom,0])
 
-    x.domain([0,props.length+1]);
+    x.domain([0,parseInt(props.length)+1]);
     y.domain([0,1000]);
 
 
@@ -283,58 +283,6 @@ update(data);
   //   } else svg = d3.select("#pgcht").select("svg");
 
 
-
-	  // x.domain([0,props.length+1]);
-	  // y.domain([0,1000]);
-
-
-    
-
-
-
-
-		 	// // Revenue Line
-    //   svg.append("path")
-    //   .datum(data)
-    //   .attr("class", "line")
-    //   .attr("fill", "none")
-    //   .attr("stroke", "steelblue")
-    //   .attr("stroke-width", 6)
-    //   .attr("opacity", 0.5)
-    //   .attr("d", d3.line()
-    // 	.x(d => x(d.year))
-    // 	.y(d => y(d.revenue))
-    // 	.curve(d3.curveMonotoneX));
-
-    //   // Costs line
-    //   svg.append("path")
-    //   .datum(data)
-    //   .attr("class", "line")
-    //   .attr("fill", "none")
-    //   .attr("stroke", "red")
-    //   .attr("stroke-width", 6)
-    //   .attr("opacity", 0.5)
-    //   .attr("d", d3.line()
-    // 	.x(d => x(d.year))
-    // 	.y(d => y(d.cost))
-    // 	.curve(d3.curveMonotoneX));
-
-    //   // Trend Line
-    //   svg.append("path")
-    //   .datum(data)
-    //   .attr("class", "line")
-    //   .attr("fill", "none")
-    //   .attr("stroke", "orange")
-    //   .attr("stroke-width", 6)
-    //   .attr("opacity", 0.5)
-    //   .attr("d", d3.line()
-    // 	.x(d => x(d.year))
-    // 	.y(d => y((d.cost + d.revenue) / 2))
-    // 	.curve(d3.curveMonotoneX));
-
-
-
-      //update(data);
 
 
 
@@ -539,7 +487,7 @@ function update(data) {
     // x -> year
     // y -> revenue from trees
     netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
-    d3.range(0, props.length+1).forEach(d =>
+    d3.range(0, parseInt(props.length)+1).forEach(d =>
       data.push({
         year: d,
         revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
@@ -549,7 +497,7 @@ function update(data) {
 
 
 
-    x.domain([0,props.length+1]);
+    x.domain([0,parseInt(props.length)+1]);
     y.domain([0,1000]);
 
 

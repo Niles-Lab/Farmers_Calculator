@@ -35,7 +35,7 @@ const acreFt = 43560;
 const labels = ["", "Per Acre", 
         "Total Area"];
 
-
+let range = 1000;
 
 function SilvoGraph(props) {
 
@@ -114,11 +114,6 @@ function npv() {
 	useEffect(() => {
 
 
-
-
-
-
-    console.log(data);
 		// Draw physical chart
 		drawChart();
 
@@ -153,8 +148,10 @@ function npv() {
     let y = d3.scaleLinear()
     .range([height-margin.top-margin.bottom,0])
 
+
+    // Create range and domain arbitrarily
     x.domain([0,parseInt(props.length)+1]);
-    y.domain([0,1000]);
+    y.domain([0,range]);
 
 
 
@@ -169,7 +166,8 @@ function npv() {
       "translate(" + margin.left + "," + margin.top + ")");
     //.on("movemove", event => mousemove(event));    
 
-    //let svg = d3.select("#pgcht").select("svg");
+
+
 
 
 
@@ -217,7 +215,9 @@ function npv() {
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y(d.revenue))
-      .curve(d3.curveMonotoneX));
+      .curve(d3.curveBasis));
+      //.curve(d3.curveCatmullRom));
+      //.curve(d3.curveMonotoneX));
 
       // Costs line
       svg.append("path")
@@ -230,7 +230,9 @@ function npv() {
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y(d.cost))
-      .curve(d3.curveMonotoneX));
+      .curve(d3.curveBasis));
+      //.curve(d3.curveCatmullRom));
+      //.curve(d3.curveMonotoneX));
 
       // Trend Line
       svg.append("path")
@@ -243,9 +245,32 @@ function npv() {
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y((d.cost + d.revenue) / 2))
-      .curve(d3.curveMonotoneX));
+      .curve(d3.curveBasis));
+      //.curve(d3.curveCatmullRom));
+      //.curve(d3.curveMonotoneX));
 
 
+      // Tree Matured Line
+      svg.append("svg:line")
+      .attr("class", "line")
+      .attr("x1", x(maturingYears))
+      .attr("x2", x(maturingYears))
+      .attr("y1", y(range))
+      .attr("y2", y(0))
+      .style("stroke-width", 2)
+      .style("stroke", "black")
+      .style("stroke-dasharray", ("5, 5"));
+
+      // Tree Matured Label
+      svg.append("text")
+        .attr("class", "lalel")
+        .attr("text-anchor", "start")
+        .attr("x", 0)
+        .attr("y", (height/3)-margin.top-margin.bottom+20)
+        .attr("dx", (width/2)-margin.left-margin.right+20)
+        .attr("dy", 0)
+        .style("font-weight", "bold")
+        .text("Trees Matured");
 
 }
 
@@ -491,6 +516,9 @@ update(data);
 function update(data) {
 
 
+    let svg = d3.select("#pgcht").select("svg").select(".main");
+
+
     data = [];
 
     // Map each data point with:
@@ -503,20 +531,35 @@ function update(data) {
         revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
         cost: (parseInt(d) <= 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
     }));
-    console.log(data);
 
 
+    let largest = 0;
+
+    let currRange = 1500;
+    console.log(currRange);
+
+    data.forEach(d => {
+      if(d.revenue >= largest) largest = d.revenue;
+      if(d.cost >= largest) largest = d.cost;
+    });
+
+    // Resize graph if largest value exceeds current domain
+    if(range <= largest) {
+      y.domain([0,largest*1.25]);
+    } else {
+      y.domain([0,range]);
+    }
 
     x.domain([0,parseInt(props.length)+1]);
-    y.domain([0,1000]);
+    
 
 
 
-    let svg = d3.select("#pgcht").select("svg").select(".main");
 
-    console.log(svg);
+
 
     svg.selectAll("*").remove();
+
     svg.append("g")
       .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
       .call(d3.axisBottom(x));
@@ -559,7 +602,9 @@ function update(data) {
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y(d.revenue))
-      .curve(d3.curveMonotoneX));
+      .curve(d3.curveBasis));
+      //.curve(d3.curveCatmullRom));
+      //.curve(d3.curveMonotoneX));
 
       // Costs line
       svg.append("path")
@@ -572,7 +617,9 @@ function update(data) {
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y(d.cost))
-      .curve(d3.curveMonotoneX));
+      .curve(d3.curveBasis));
+      //.curve(d3.curveCatmullRom));
+      //.curve(d3.curveMonotoneX));
 
       // Trend Line
       svg.append("path")
@@ -585,10 +632,31 @@ function update(data) {
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y((d.cost + d.revenue) / 2))
-      .curve(d3.curveMonotoneX));
+      .curve(d3.curveBasis));
+      //.curve(d3.curveCatmullRom));
+      //.curve(d3.curveMonotoneX));
 
+      // Tree Matured Line
+      svg.append("svg:line")
+      .attr("class", "line")
+      .attr("x1", x(maturingYears))
+      .attr("x2", x(maturingYears))
+      .attr("y1", y(range))
+      .attr("y2", y(0))
+      .style("stroke-width", 2)
+      .style("stroke", "black")
+      .style("stroke-dasharray", ("5, 5"));
 
-
+      // Tree Matured Label
+      svg.append("text")
+        .attr("class", "lalel")
+        .attr("text-anchor", "start")
+        .attr("x", 0)
+        .attr("y", (height/3)-margin.top-margin.bottom+20)
+        .attr("dx", (width/2)-margin.left-margin.right+20)
+        .attr("dy", 0)
+        .style("font-weight", "bold")
+        .text("Trees Matured");
 
   // x.domain([0,props.length+1]);
   // x.domain([0, d3.max(data, function(d) { return d.ser1 }) ]);

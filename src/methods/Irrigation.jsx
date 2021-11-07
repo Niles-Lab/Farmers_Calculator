@@ -5,14 +5,17 @@
  **/
 
 import React, { useState, useRef } from 'react';
-import { Card, Row, Col, Container, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
+import { Alert, Card, Row, Col, Navbar,Container, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
+import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import FormController from './../calc/FormController';
+import ImageSlider from './../viz/ImageSlider';
 
 const variants = ["Overview", "Ponds", "Irrigation"];
 
-
+const navs = ["Overview", "Visualizations", "Economic Tool"]; 
 
 function importAll(r) {
   let images = {};
@@ -29,94 +32,15 @@ const pd = importAll(require.context('../images/irrigation/pd/', false, /\.(png|
 // Irrigation images
 const ig = importAll(require.context('../images/irrigation/ig/', false, /\.(png|jpe?g|svg)$/));
 
-// What value the slider is at, for image opacity filtering
-let timeSl;
+let groups = [ig, pd];
 
-// Marks on slider for concrete images
-let marks = [];
-
-// Initial opacity state for the fist slider image
-let def = [1];
+let labels = ["Irrigation", "Irrigation With Ponds"];
 
 
 function Irrigation(props) {
 
-    // What value the opacity slider is at
-    const [timeSl, setTimeSl] = useState(0);
-
-    // Which image array is active?
-    const [active, setActive] = useState(sp);
-
-    // Opacity container for images
-    const [opacity, setOpacity] = useState(def);
-
-    // Show state for overlay/tooltip
-    const [show, setShow] = useState(false);
-
-    // Also for overlay/tooltip
-    const target = useRef(null);
-
-    // Create an updated array for slider marks
-    function createMarks(arr) {
-
-        marks = [];
-
-        arr.forEach((d,idx) => {
-            
-            def.push(0);
-
-            marks.push({
-               value: idx/(arr.length-1),
-               //label: "img " + (parseInt(h)+1)
-            });
-
-        });
-
-        return marks;
-       
-    }
-
-    // event - mouesevent
-    // idx - slider index
-    // arr - what array of images are we modifying
-    function handleChange(event,idx) {
-        
-
-        // Value from slider
-        setTimeSl(event.target.value);
-
-        // Number of pictures to divide into
-        let divs = (active.length)-1;
-
-        // Scaled number with range
-        let scaled = idx*divs;
-
-        // Local copy of opacity array
-        let opac = {opacity};
-
-        // Which element should be entirely opaque
-        let visible = (Math.round(scaled));
 
 
-        // Iterate to update opacity of each image
-        active.forEach((d,idx) => {
-
-            opac[idx] = 0;
-
-            // These two opacity values will be modified
-            let floor = Math.floor(scaled);
-            let ceil = Math.ceil(scaled);
-
-            // Set accordingly to opacity layering
-            opac[floor] = ceil-scaled;
-            opac[ceil] = scaled-floor;
-
-
-            });
-            opac[visible] = 1;
-            setOpacity(opac);
-
-    }
 
 
 	return (
@@ -125,92 +49,63 @@ function Irrigation(props) {
 
 
             <Col>
-                    
+                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+                    <Navbar.Collapse id="responsive-navbar-nav">
+                      <Nav id="sectionnav" className="mx-auto">
+                        {navs.map((d, idx) => (
+                            <Nav.Link key={d+idx} href={"#a" + idx}>
+                            {d}
+                            </Nav.Link>
+                            ))}
+                      </Nav>
+                    </Navbar.Collapse>
+                </Navbar>
             </Col>
             <Col xs={8}>
 
 
 
-                    {/* Tabbed view of method variants */}
-                    <Card>
+                <Card id="a0">
 
-                    <Card.Body>
-
-                        <Tab.Container defaultActiveKey="0">
-                          <Row>
-                            <Col sm={3}>
-                              <Nav variant="pills" className="flex-column">
-                                {variants.map((d,idx) => (
-                                    <Nav.Item key={idx}>
-
-                                        <Nav.Link eventKey={idx} variant="success" onClick={function(d) {
-                                            // Manually set active image set on select
-                                            if(idx === 0) setActive(sp);
-                                            if(idx === 1) setActive(pd);
-                                            if(idx === 2) setActive(ig);
+                <Card.Body>
 
 
-                                            // Reset opacity / slider settings
-                                            setTimeSl(0);
-                                            setOpacity(() => {let opac = opacity; opac[0] = 1; return opac;});
-                                            
-                                        }}>
-                                            {d}
-                                        </Nav.Link>
+                <hr/>
+                <Card.Title id="2">Irrigation</Card.Title>
+                <hr/>
 
-                                    </Nav.Item>
-                                    ))}
-                              </Nav>
-                            </Col>
-                            <Col sm={9}>
-                              <Tab.Content>
-                                {/*Irrigation Tab*/}
-                                <Tab.Pane eventKey="0">
+                <Row>
+                <Col xs={12} md={6}>
 
-                                    <hr/>
-                                    <Card.Title id="2">What is Irrigation?</Card.Title>
-                                    <hr/>
+                <Alert variant={'warning'}>
+                    Ponds can be a useful climate change adaptation tool. They help provide irrigation water during dry periods, and serve as landscape storage a reservoir for excess water and runoff during heavy precipitation events. 
+                </Alert>
 
-                                        Ponds can be a useful climate change adaptation tool. They help provide 
-                                        irrigation water during dry periods, and serve as landscape storage for
-                                         excess water and runoff during heavy precipitation events. 
-                                        <br />
-                                        <br />
-                                        As climate change increases the frequency and severity of extreme
-                                         weather patterns, such as heat and drought interspersed with heavy 
-                                         precipitation events, the need for and benefits of irrigation are 
-                                         likely to increase. 
+                <Alert variant={'info'}>
+                   Use of irrigation can prevent crop losses, support crop yield and quality, and allow for the production of a greater variety of crops. Even in areas where crops have historically been produced without supplemental irrigation (e.g. the Northeast United States), the economic benefits of using irrigation are now clear.
+                </Alert>
 
 
-                                </Tab.Pane>
-                                {/*Pasture Enrichment Tab*/}
-                                <Tab.Pane eventKey="1">
-
-                                    <hr/>
-                                    <Card.Title id="2">Ponds</Card.Title>
-                                    <hr/>
-
-                                  Pairing ponds with an irrigation system can help balance these cycles of water surplus and scarcity by collecting and storing runoff for later use as irrigation during hot, dry periods. 
-                                </Tab.Pane>
-
-                                {/*Forest Conversion Tab*/}
-                                <Tab.Pane eventKey="2">
-
-                                    <hr/>
-                                    <Card.Title id="2">Irrigation</Card.Title>
-                                    <hr/>
-
-                                     
-                                Use of irrigation can prevent crop losses, support crop yield and quality, and allow for the production of a greater variety of crops. Even in areas where crops have historically been produced without supplemental irrigation (e.g. the Northeast United States), the economic benefits of using irrigation are now clear.
-                                </Tab.Pane>
+                <Alert variant={'danger'}>
+                    As climate change increases the frequency and severity of extreme weather patterns, such as heat and drought interspersed with heavy precipitation events, the need for and benefits of irrigation are likely to increase. 
+                </Alert>
 
 
-                              </Tab.Content>
-                            </Col>
-                          </Row>
-                        </Tab.Container>
 
 
+                </Col>
+                <Col xs={12} md={6}>
+                    <Image
+                    className="d-block w-100"
+                    src={sp[0][1].default} 
+
+                    />
+                <Alert variant={'success'} className={"mt-5"}>
+Use of irrigation can prevent crop losses, support crop yield and quality, and allow for the production of a greater variety of crops. Even in areas where crops have historically been produced without supplemental irrigation (e.g. the Northeast United States), the economic benefits of using irrigation are now clear.                </Alert>
+
+                </Col>
+                </Row>
+                </Card.Body>
                     <Card variant="light" bg="light">
 
       
@@ -243,50 +138,57 @@ function Irrigation(props) {
                         </Card.Body>  
                     </Card>
 
+            {/* Tabbed view of method variants */}
+            <Card id="a1">
+            <hr/>
+            <Card.Title id="2">Visualizations</Card.Title>
+            <hr/>
+            <Card.Body>
 
-                     {active.length > 1 && 
-                          <Box sx={{ width: 250 }}>
- 
-                            Slide to change!
-           
-                            <Slider
+                <ImageSlider groups={groups} labels={labels} id="a1" />
 
-                                getAriaLabel={() => 'Image Slider'}
-                                min={0}
-                                marks={createMarks(active)}
-                                max={1}
-                                step={0.01}
-                                value={timeSl}
-                                style={{position: "relative"}}
-                                onChange={(event,idx) => handleChange(event,idx)}
-                            />
+            </Card.Body>
 
- 
-                          </Box>
-                           }
-                           
-                        {/* Fading images accompanying slider */}
-                          <Box style={{'minHeight': '500px','position': 'relative'}}>
+            </Card>  
+                 <Card variant="light" bg="light">
 
-                                {/* Map the active image set to screen */}
-                                {active.map((d,idx) => (
-
-                                        <img
-                                            className="d-block w-100"
-                                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
-                                            src={d[1].default} 
-                                            alt={d[0]}/>
-                                    ))}
-
-                          </Box>
-
-
-                    </Card.Body>
-
-                    </Card>  
+      
+                        <Card.Title id="1" className="mt-4">Benefits and Costs</Card.Title>
+                    
+                        <Card.Body>
+                        <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
+                            <Row>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="success"></ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Improves crop quality, consistency, and yield</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Supports the production of a greater variety of crops</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Prevents crop losses</ListGroup.Item> 
+                                </ListGroup>
+                                </Col>
+                                <Col>      
+                                <ListGroup>
+                                  <ListGroup.Item variant="danger"></ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Upfront investment required to install pond irrigation system</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Ongoing maintenance and labor costs for pond and irrigation system </ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Ponds require specific site conditions and are not possible or suitable for all farms</ListGroup.Item>
+                                  <ListGroup.Item variant="light" action href="">Must comply with state and federal regulations regarding water usage for pond installation</ListGroup.Item>
 
 
+                                </ListGroup>
+                                </Col>
+                            </Row>
+                        </Tab.Container>
+                        </Card.Body>  
+                    </Card>
 
+
+                </Card>
+                <hr/>
+                    <Card.Title id="a2">Irrigation Economic Tool</Card.Title>
+                <hr/>
+                {/* Calculator */}
+                <FormController />
 
                     <Card variant="light" bg="light">   
 
@@ -296,8 +198,16 @@ function Irrigation(props) {
                     
                             <Card.Body>
                             <Container>
-                                <Row className="text-center">
-                                	Interested in Irrigation?&nbsp;<a href="./formcontroller">Check out our economic tool</a>&nbsp;to determine your potential costs and revenue. See what Irrigation looks like &nbsp;<a href="./resources">here</a>.
+                                <Row className="text-center align-center">
+                                    <Col></Col>
+                                    <Col xs={8}>
+                                    Interested in Irrigation? View additional resources&nbsp;<a href="./resources">Here</a>.
+
+                                    View our brief&nbsp;<Link to={{pathname: 
+                                        "/resources/Pond and Irrigation Two-Pager.pdf"
+                                    }} target="_blank">Here <BsBoxArrowUpRight/></Link>
+                                    </Col>
+                                    <Col></Col>
                                 </Row>
              
                             </Container>

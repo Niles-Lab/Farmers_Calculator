@@ -215,7 +215,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                                     Interested in Tarping? View additional resources&nbsp;<a href="./resources">Here</a>.
 
                                     View our brief&nbsp;<Link to={{pathname: 
-                                        "/resources/Silvopasture Two-Pager.pdf"
+                                        "/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"
                                     }} target="_blank">Here <BsBoxArrowUpRight/></Link>
                                     </Col>
                                     <Col></Col>

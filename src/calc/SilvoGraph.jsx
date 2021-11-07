@@ -70,6 +70,16 @@ const legendX = parseFloat((width)-margin.left-margin.right);
 const legendY = parseFloat(margin.top);
 
 
+// Map each data point with:
+// x -> year
+// y -> revenue from trees
+netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
+d3.range(1, parseInt(props.length)+1).forEach(d =>
+  data.push({
+    year: d,
+    revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
+    cost: (parseInt(d) <= 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
+}));
 
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
 // NPV = PV(B) - PV(C)
@@ -130,7 +140,7 @@ function npv() {
     // x -> year
     // y -> revenue from trees
     netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
-    d3.range(0, parseInt(props.length)+1).forEach(d =>
+    d3.range(1, parseInt(props.length)+1).forEach(d =>
       data.push({
         year: d,
         revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),

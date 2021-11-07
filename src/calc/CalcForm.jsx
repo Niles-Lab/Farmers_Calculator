@@ -84,6 +84,28 @@ function removeCrop() {
 
 				<hr />
 			
+
+
+
+
+				{/* MAX LENGTH = 100 */}
+				<Row>
+					<Col>
+						Length of Project(Yrs)
+					</Col>
+					<Col>
+					<Form.Control
+						placeholder="..."
+						name="land"
+						min="1"
+						type="number"
+						step="1"
+						value={props.length}
+						onChange = {(event) => {props.setLength(event.target.value)}} />
+					</Col>
+				</Row>
+
+			
 				{
 				// Numerical input
 				}
@@ -121,22 +143,7 @@ function removeCrop() {
 					</Col>
 				</Row>
 
-				{/* MAX LENGTH = 100 */}
-				<Row>
-					<Col>
-						Length of Project(Yrs)
-					</Col>
-					<Col>
-					<Form.Control
-						placeholder="..."
-						name="land"
-						min="1"
-						type="number"
-						step="1"
-						value={props.length}
-						onChange = {(event) => {props.setLength(event.target.value)}} />
-					</Col>
-				</Row>
+
 
 				{
 				// Multi-select for different techniques

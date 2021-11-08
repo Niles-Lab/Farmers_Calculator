@@ -6,8 +6,8 @@ import Home from './Home.jsx'
 import Navigation from './Navigation.jsx'
 import FormController from './calc/FormController.jsx'
 import Resources from './Resources.jsx'
-import Silvopasture from './%PUBLIC_URL%/methods/Silvopasture.jsx'
-import Irrigation from './%PUBLIC_URL%/methods/Irrigation.jsx'
+import Silvopasture from './methods/Silvopasture.jsx'
+import Irrigation from './methods/Irrigation.jsx'
 import Tarping from './methods/Tarping.jsx'
 import Research from './Research.jsx'
 import Extras from './other/Extras.jsx'
@@ -22,18 +22,18 @@ function App() {
         <Navigation />
 
         <Switch>
-          <Route path='/Resources' component={Resources}/>
-          <Route path='/Research' component={Research}/>
+          <Route path='/%PUBLIC_URL%/Resources' component={Resources}/>
+          <Route path='/%PUBLIC_URL%/Research' component={Research}/>
 
 
           {/* Import method paths */}
-          <Route path='/Silvopasture' component={Silvopasture}/>
-          <Route path='/Irrigation' component={Irrigation}/>
-          <Route path='/Tarping' component={Tarping}/>
+          <Route path='/%PUBLIC_URL%/Silvopasture' component={Silvopasture}/>
+          <Route path='/%PUBLIC_URL%/Irrigation' component={Irrigation}/>
+          <Route path='/%PUBLIC_URL%/Tarping' component={Tarping}/>
 
-          <Route path='/Research' component={Research}/>
-          <Route path='/Press' component={Press}/>
-          <Route path='/Extras' component={Extras}/>
+
+          <Route path='/%PUBLIC_URL%/Press' component={Press}/>
+          <Route path='/%PUBLIC_URL%/Extras' component={Extras}/>
           <Route path='/' component={Home}/>
         </Switch>
 

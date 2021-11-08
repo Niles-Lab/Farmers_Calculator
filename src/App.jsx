@@ -29,7 +29,7 @@ function App() {
           {/* Import method paths */}
           <Route path='/%PUBLIC_URL%/Silvopasture' component={Silvopasture}/>
           <Route path='/%PUBLIC_URL%/Irrigation' component={Irrigation}/>
-          <Route path='/%PUBLIC_URL%/Tarping' component={Tarping}/>
+          <Route path='/Tarping' component={Tarping}/>
 
 
           <Route path='/%PUBLIC_URL%/Press' component={Press}/>

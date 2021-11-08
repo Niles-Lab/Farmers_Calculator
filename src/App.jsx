@@ -22,18 +22,18 @@ function App() {
         <Navigation />
 
         <Switch>
-          <Route path='/%PUBLIC_URL%/Resources' component={Resources}/>
-          <Route path='/%PUBLIC_URL%/Research' component={Research}/>
+          <Route path='/Resources' component={Resources}/>
+          <Route path='/Research' component={Research}/>
 
 
           {/* Import method paths */}
-          <Route path='/%PUBLIC_URL%/Silvopasture' component={Silvopasture}/>
-          <Route path='/%PUBLIC_URL%/Irrigation' component={Irrigation}/>
+          <Route path='/Silvopasture' component={Silvopasture}/>
+          <Route path='/Irrigation' component={Irrigation}/>
           <Route path='/Tarping' component={Tarping}/>
 
 
-          <Route path='/%PUBLIC_URL%/Press' component={Press}/>
-          <Route path='/%PUBLIC_URL%/Extras' component={Extras}/>
+          <Route path='/Press' component={Press}/>
+          <Route path='/Extras' component={Extras}/>
           <Route path='/' component={Home}/>
         </Switch>
 

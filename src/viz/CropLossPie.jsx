@@ -46,6 +46,13 @@ function CropLossPie(props) {
 		.attr("opacity", 0.7)
 		.delay((d,i) => (i*100))
 
+		// Animate graph on page load
+		svg.selectAll("text")
+		.transition()
+		.duration(600)
+		.attr("opacity", 0.7)
+		.delay((d,i) => (i*100))
+
 	}
 	// Change all bar widths to 0 via webkit transition for un-loading effect
 	function unfillChart() {
@@ -59,6 +66,12 @@ function CropLossPie(props) {
 		.attr("opacity", 0)
 		.delay((d,i) => (i*100))
 
+		// Un-draw chart on scrollout
+		svg.selectAll("text")
+		.transition()
+		.duration(100)
+		.attr("opacity", 0)
+		.delay((d,i) => (i*100))
 
 	}
 	// Create and label axes of chart, append rectangles with 0 width

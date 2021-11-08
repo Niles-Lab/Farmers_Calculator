@@ -4,6 +4,9 @@ import PriceChart from "../viz/PriceChart.jsx"
 import DotPlotFarm from "../viz/DotPlotFarm.jsx"
 import CropLossTM from "../viz/CropLossTM.jsx"
 import Chart from "../viz/Chart.jsx"
+import CropLossPie from "../viz/CropLossPie.jsx"
+import PrecipitationChart from "../viz/PrecipitationChart.jsx"
+
 
 const MainContent = (props, ref) => {
 
@@ -18,6 +21,7 @@ return (
     </Col>
     <Col>
         <div>
+                    <h1>THIS IS A DEPRECATED PAGE / USED FOR VISUALIZATION PLACEHOLDERS</h1>
                     <Card>
 
                         <hr/>
@@ -25,7 +29,6 @@ return (
                         <hr/>
 
                             <Card.Body>
-
                                 <Row>
                                     <Col>
                                         <CropLossTM />
@@ -41,6 +44,13 @@ return (
                                         <br/><br/>
                                         For example, imposing new laws and regulations on trade may have financial benefits, but will assuredly affect the livelihoods of many individuals. This "social cost" should be
                                         accounted for in CBA.
+                                    </Col>
+                                </Row>
+
+                                <Row>
+
+                                    <Col>
+                                        <CropLossPie />
                                     </Col>
                                 </Row>
 

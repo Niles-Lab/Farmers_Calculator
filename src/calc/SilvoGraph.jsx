@@ -255,8 +255,8 @@ function npv() {
       .attr("class", "line")
       .attr("x1", x(maturingYears))
       .attr("x2", x(maturingYears))
-      .attr("y1", y(range))
-      .attr("y2", y(0))
+      .attr("y1", y(0))
+      .attr("y2", y(range))
       .style("stroke-width", 2)
       .style("stroke", "black")
       .style("stroke-dasharray", ("5, 5"));
@@ -536,7 +536,6 @@ function update(data) {
     let largest = 0;
 
     let currRange = 1500;
-    console.log(currRange);
 
     data.forEach(d => {
       if(d.revenue >= largest) largest = d.revenue;
@@ -546,6 +545,7 @@ function update(data) {
     // Resize graph if largest value exceeds current domain
     if(range <= largest) {
       y.domain([0,largest*1.25]);
+      range = largest*1.25;
     } else {
       y.domain([0,range]);
     }
@@ -641,8 +641,8 @@ function update(data) {
       .attr("class", "line")
       .attr("x1", x(maturingYears))
       .attr("x2", x(maturingYears))
-      .attr("y1", y(range))
-      .attr("y2", y(0))
+      .attr("y1", y(0))
+      .attr("y2", y(range))
       .style("stroke-width", 2)
       .style("stroke", "black")
       .style("stroke-dasharray", ("5, 5"));
@@ -658,18 +658,7 @@ function update(data) {
         .style("font-weight", "bold")
         .text("Trees Matured");
 
-  // x.domain([0,props.length+1]);
-  // x.domain([0, d3.max(data, function(d) { return d.ser1 }) ]);
-  // svg.selectAll(".myXaxis").transition()
-  //   .duration(3000)
-  //   .call(xAxis);
 
-  // // create the Y axis
-  // y.domain([0, d3.max(data, function(d) { return d.ser2  }) ]);
-  // svg.selectAll(".myYaxis")
-  //   .transition()
-  //   .duration(3000)
-  //   .call(yAxis);
 
   // // Create a update selection: bind to the new data
   // var u = svg.selectAll(".lineTest")

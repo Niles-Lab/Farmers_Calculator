@@ -134,7 +134,7 @@ return (
 {steps[activeStep].description}
 </Box>*/}
 
-    <Box sx={{ width: '100%' }}>
+{/*    <Box sx={{ width: '100%' }}>
       <Stepper nonLinear activeStep={activeStep}>
         {steps.map((label, index) => (
           <Step key={label} completed={completed[index]}>
@@ -192,7 +192,7 @@ return (
 
 
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
+<br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>*/}
                     <Card>
 
                         <hr/>
@@ -201,16 +201,7 @@ return (
 
   
 
-                            <strong>In an era of climate change and risk,</strong>there has been an increasing focus on the development of climate resources and information for farmers to help them 
-                            plan for future changes. Despite the increasing availability of information, many of these resources remain broad and 
-                            often untargeted to specific populations. As the needs of farmers differ based on several criteria, including level 
-                            of experience and farm type, and many resources are not geared towards farmer-identified learning and resource needs. 
-                            While the availability of climate resources may be growing, there are few resources and information targeted 
-                            towards specific farming populations, such as small, medium and beginning farmers in New England. There is a great 
-                            need for resources developed in concert with the core beliefs, perceptions, and planning needs of these specific 
-                            farmer groups. This project investigated farmer and agricultural expert perspectives of climate change and their 
-                            management concerns to develop, pilot, and disseminate climate-planning resources specific to farm size and level 
-                            of farmer experience and in direct response to these farmers’ expressed needs.
+                            In an era of climate change and risk, there has been an increasing focus on the development of climate resources and information for farmers to help them plan for future changes. While the availability of climate resources may be growing, there are few resources and information targeted towards specific farming populations, such as small, medium and beginning farmers in New England. There is also a need for resources developed in concert with the core beliefs, perceptions, and planning needs of these specific farmer groups. This project investigated farmer and agricultural expert perspectives of climate change and their management concerns and developed, piloted, and disseminated climate-planning resources specific to farm size and level of farmer experience, and in direct response to these farmers’ expressed needs.
 
                              
 

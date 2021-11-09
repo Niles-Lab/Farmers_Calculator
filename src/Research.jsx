@@ -3,7 +3,7 @@ import { Card, Row, Col, ListGroup, Tab, Image } from 'react-bootstrap';
 import mental_map from './images/mental_map.png';
 import code from './images/code.png';
 import focus_group from './images/focus_group.png';
-
+import research_graph from './images/research_graph.png'
 
 const Research = (props, ref) => {
 
@@ -81,19 +81,32 @@ return (
                                 <Col>      
                                     <Tab.Content>
                                         <Tab.Pane eventKey="#l0">
-                                          <Image style={{'maxWidth': '50%'}} className="float-right" src={mental_map} fluid />
-                                          <cite>Aggregated farmer mental model of the concepts and relationships mentioned by ≥ 10% of farmer
-                                            participants (n = 33); “Relationship Mentions” and “Concept Mentions” reflect the percentage of farmers who
-                                            included that relationship or concept in their mental model; color indicates the concept category</cite>
-                                        
-                                            <br /><br /><br />
+                                        <Row>
+                                        <Col xs={8}>
+                                          <Image src={research_graph} fluid />
+                                        </Col>
+                                        <Col>
+                                        <br /><br /><br />
+                                          <cite>Graph showing the percent of respondents who mentioned a
+                                            concept or outcome for a given farm during mental model exercise,
+                                            separated by occupation. Statistically signicant mention scores are
+                                            noted with an asterisk (*). (X squared =4.27, p=0.039). </cite>
+                                        </Col>
+                                        </Row>
+                                        <Row>
+                                            
                                             Successful climate adaptation will depend in part on communication between farmers and outreach professionals that is framed by farmers’ perceptions and values. Differences between these stakeholder perceptions were identified by conducting mental modeling interviews with 33 small- to medium-scale farmers in Maine and Vermont, as well as 16 outreach professionals.  Farmers were asked to construct mental models of their farming systems, while outreach professionals were asked to construct models of a farming system they typically work with. Three key differences arose between the mental models: 1) farmers mentioned community well-being, public education, and farm success significantly more than did outreach professionals; 2) quality of life, community well-being, environmental stewardship, and farm success were more influential in the farmer mental model, and 3) climate was a direct driver of yields and product quality in the outreach professional model, but was only indirectly connected to these factors in the farmer model. The importance of social dimensions in farmers’ mental models suggests that climate change communication and adaptation outreach should consider how adaptation strategies, practices, tools, and resources may affect social outcomes, which may be critical for farmers prior to adoption.
-
+                                        </Row>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="#l1">
-                                          <Image style={{'maxWidth': '50%'}} className="float-right"  src={focus_group} fluid />
-                                          <cite>Focus Group Summary Image</cite><br /><br />
+                                        <Row className="d-flex justify-content-center">
 
+                                          <Image src={focus_group} fluid />
+                                          <cite>Focus Group Summary Image</cite>
+
+
+                                        </Row>
+                                        <Row>
                                               Farmer focus groups were conducted in the winter of 2019-2020 in Maine, Vermont, and New Hampshire 
                                               to pilot and gather feedback on several climate change adaptation resources, including virtual tours, 
                                               a climate change resource database, visualizations of climate change adaptation practices, and an 
@@ -103,14 +116,20 @@ return (
                                                 Twenty-eight 
                                               farmers from across New England (Vermont, Maine, Massachusetts, and New York) provided feedback 
                                               on these tools through small group discussions and surveys.  
-
+                                        </Row>
                                           
 
 
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="#l2">
-                                          <Image style={{'maxWidth': '50%'}} className="float-right"  src={code} fluid />
+                                        <Row className="d-flex justify-content-center">
+
+                                          <Image src={code} fluid />
                                           <cite></cite>
+
+
+                                        </Row>
+                                        <Row>
                                           Based on farmer and agricultural expert interviews, farmer feedback from the focus groups,
                                            a review of New England farmers’ plans and needs for climate change adaptation, and an 
                                            assessment of available climate change adaptation resources, the research team 
@@ -122,18 +141,12 @@ return (
                                             Visualization and economic tools and an overview brief with 
                                             additional resources were developed for each practice area and shared with the New England
                                             farming community through webinars, workshops, and regional conferences in winter 2021-2022.
+                                        </Row>
+                                          
 
-{/*                                            Based on interviews, feedback from 
-                                            focus groups, a review of New England farmers’ plans for 
-                                            climate change adaptation, and an assessment of resources, the research team identified agricultural 
-                                            practices and tools that are of particular need and interest to New England farmers. 
 
-                                            <br /><br />
-                                            Visualization and economic
-                                             tools and an overview brief with additional resources were developed 
-                                             for each practice area and shared with the New England farming 
-                                                community through webinars, workshops, and regional conferences
-                                                 in winter 2021-2022.*/}
+
+
 
 
                                         </Tab.Pane>

@@ -198,6 +198,23 @@ Use of irrigation can prevent crop losses, support crop yield and quality, and a
                     
                             <Card.Body>
                             <Container>
+                    <Row>
+
+                        <ListGroup>
+                            <ListGroup.Item variant="info"></ListGroup.Item>
+                            <ListGroup.Item variant="light" action href="https://www.uvm.edu/climatefarming/sites/default/files/files/uvm_dripirrigation.pdf">Getting started with drip irrigation: components and costs (University of Vermont Extension, Rachel Schattman and Chloe Boutelle, Updated November 2018)</ListGroup.Item> 
+                            <ListGroup.Item variant="light" action href="https://www.climatehubs.usda.gov/hubs/northeast/topic/irrigation-pays-protecting-crop-revenues">Irrigation pays protecting crop revenues (USDA Northeast Climate Hub)
+Benefits of Irrigation: Intervale Community Farm 
+</ListGroup.Item> 
+                            <ListGroup.Item variant="light" action href="https://www.uvm.edu/sites/default/files/media/IrrigationCaseStudy_Feb2018_cmyk_bleed.pdf">Partial Budget (USDA Northeast Climate Hub and University of Vermont Extension, September 2017) 
+                            </ListGroup.Item> 
+                            <ListGroup.Item variant="light" action href="https://www.uvm.edu/sites/default/files/media/irrigation_case_study_intervale_july_2017_0.pdf">Case Study (Andy Jones, September 2017)
+                            Benefits of Irrigation: Intervale Community Farm 
+                            </ListGroup.Item> 
+                        </ListGroup>
+
+
+                    </Row>
                                 <Row className="text-center align-center">
                                     <Col></Col>
                                     <Col xs={8}>

@@ -124,7 +124,7 @@ return (
                                         <Tab.Pane eventKey="#l2">
                                         <Row className="d-flex justify-content-center">
 
-                                          <Image src={code} fluid />
+                                          <Image src={code} className="w-75" fluid />
                                           <cite></cite>
 
 

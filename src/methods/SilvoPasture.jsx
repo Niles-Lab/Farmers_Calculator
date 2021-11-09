@@ -326,7 +326,6 @@ function Silvopasture(props) {
                             <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/agroforestrynotes/an29s07.pdf">Agroforestry Notes: Silvopasture Water and Fencing Systems for Cattle (USDA National Agroforestry Center, February 2005)</ListGroup.Item> 
                             <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/workingtrees/brochures/wts.pdf">Silvopasture: An Agroforestry Practice (USDA National Agroforestry Center)</ListGroup.Item> 
                             <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/topics/water-quality.php">Water Quality (USDA National Agroforestry Center)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href=""></ListGroup.Item>  
                         </ListGroup>
                     </Col>
                     </Row>

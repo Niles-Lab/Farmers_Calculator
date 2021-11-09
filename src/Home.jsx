@@ -15,7 +15,7 @@ const navs = ["Project Description", "The Problem", "The Focus"]
 		<>
 			<Row>
 				<Col>
-					<Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-5">
+{/*					<Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-5">
 			            <Navbar.Collapse id="responsive-navbar-nav">
 			              <Nav id="sectionnav" className="mx-auto">
 			              	{navs.map((d, idx) => (
@@ -25,7 +25,7 @@ const navs = ["Project Description", "The Problem", "The Focus"]
 			              		))}
 			              </Nav>
 			            </Navbar.Collapse>
-			        </Navbar>
+			        </Navbar>*/}
 				</Col>
 				<Col xs={8} className="px-5 mx-5">
 					<MainContent sections={navs} />

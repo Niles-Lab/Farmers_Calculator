@@ -81,8 +81,8 @@ return (
                                 <Col>      
                                     <Tab.Content>
                                         <Tab.Pane eventKey="#l0">
-                                        <Row>
-                                        <Col xs={8}>
+                                        <Row className="d-flex justify-content-center">
+    {/*                                    <Col xs={8}>
                                           <Image src={research_graph} fluid />
                                         </Col>
                                         <Col>
@@ -91,11 +91,45 @@ return (
                                             concept or outcome for a given farm during mental model exercise,
                                             separated by occupation. Statistically signicant mention scores are
                                             noted with an asterisk (*). (X squared =4.27, p=0.039). </cite>
-                                        </Col>
+                                        </Col>*/}
+
+                                        <Image src={research_graph} className={"w-75"} fluid />
+                                        <cite>Graph showing the percent of respondents who mentioned a
+                                            concept or outcome for a given farm during mental model exercise,
+                                            separated by occupation. Statistically signicant mention scores are
+                                            noted with an asterisk (*). (X squared =4.27, p=0.039). </cite>
+
                                         </Row>
+
                                         <Row>
                                             
-                                            Successful climate adaptation will depend in part on communication between farmers and outreach professionals that is framed by farmers’ perceptions and values. Differences between these stakeholder perceptions were identified by conducting mental modeling interviews with 33 small- to medium-scale farmers in Maine and Vermont, as well as 16 outreach professionals.  Farmers were asked to construct mental models of their farming systems, while outreach professionals were asked to construct models of a farming system they typically work with. Three key differences arose between the mental models: 1) farmers mentioned community well-being, public education, and farm success significantly more than did outreach professionals; 2) quality of life, community well-being, environmental stewardship, and farm success were more influential in the farmer mental model, and 3) climate was a direct driver of yields and product quality in the outreach professional model, but was only indirectly connected to these factors in the farmer model. The importance of social dimensions in farmers’ mental models suggests that climate change communication and adaptation outreach should consider how adaptation strategies, practices, tools, and resources may affect social outcomes, which may be critical for farmers prior to adoption.
+                                            Successful climate adaptation will depend in part on communication
+                                             between farmers and outreach professionals that is framed by farmers’ 
+                                             perceptions and values. Differences between these stakeholder perceptions
+                                              were identified by conducting mental modeling interviews with 33 small- to
+                                               medium-scale farmers in Maine and Vermont, as well as 16 outreach professionals.
+
+                                            <br/><br/>
+                                            Farmers were asked to construct mental models of their farming systems, 
+                                            while outreach professionals were asked to construct models of a farming
+                                             system they typically work with. 
+
+                                         Three key differences arose between 
+                                         the mental models: 
+                                         <br/>
+                                         1) farmers mentioned community well-being, public 
+                                    education, and farm success significantly more than did outreach professionals; 
+                                        <br/>
+                                    2) quality of life, community
+                                     well-being, environmental stewardship, and farm success were more influential in the farmer mental model 
+                                        <br/>
+                                        3)
+                                      climate was a direct driver of yields and product quality in the outreach professional model, but was only 
+                                      indirectly connected to these factors in the farmer model. 
+                                        <br/><br/>
+                                      The importance of social dimensions in farmers’ mental models suggests that climate change communication and adaptation outreach should consider how adaptation 
+                                      strategies, practices, tools, and resources may affect social outcomes, which may be critical for farmers prior
+                                       to adoption.
                                         </Row>
                                         </Tab.Pane>
                                         <Tab.Pane eventKey="#l1">

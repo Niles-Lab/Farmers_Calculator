@@ -48,7 +48,7 @@ function Irrigation(props) {
         <Row>
 
 
-            <Col>
+            <Col xs={2}>
                 <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
@@ -61,7 +61,7 @@ function Irrigation(props) {
                     </Navbar.Collapse>
                 </Navbar>
             </Col>
-            <Col xs={8}>
+            <Col xs={10} lg={8}>
 
 
 
@@ -237,7 +237,7 @@ Benefits of Irrigation: Intervale Community Farm
                     </Card>
 
             </Col>
-            <Col>
+            <Col xs={0} lg={2}>
 
             </Col>
         </Row>

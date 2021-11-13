@@ -59,7 +59,7 @@ function Tarping(props) {
                     </Navbar.Collapse>
                 </Navbar>
             </Col>
-            <Col xs={8}>
+            <Col xs={10} md={8}>
 
 
 
@@ -267,7 +267,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                     </Card>
 
             </Col>
-            <Col xs={1} lg={2}>
+            <Col xs={0} lg={2}>
 
             </Col>
         </Row>

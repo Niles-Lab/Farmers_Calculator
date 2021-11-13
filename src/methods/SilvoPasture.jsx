@@ -48,7 +48,7 @@ function Silvopasture(props) {
         <Row>
 
 
-            <Col>
+            <Col xs={2}>
                 <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
@@ -61,7 +61,7 @@ function Silvopasture(props) {
                     </Navbar.Collapse>
                 </Navbar>
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={10} lg={8}>
 
                 {/* Tabbed view of method variants */}
                 <Card id="a0">
@@ -348,7 +348,7 @@ function Silvopasture(props) {
                     </Card>
 
             </Col>
-            <Col>
+            <Col xs={0} lg={2}>
 
             </Col>
         </Row>

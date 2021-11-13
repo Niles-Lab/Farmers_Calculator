@@ -4,7 +4,7 @@
  * 
  **/
 
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Alert, Card, Row, Col, Container, Nav, Navbar, ListGroup, Tab, Image, Carousel, Overlay, Tooltip } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
@@ -46,7 +46,7 @@ function Tarping(props) {
         <Row>
 
 
-            <Col>
+            <Col xs={2}>
                 <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
@@ -196,7 +196,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                     <Card.Title id="a2">Tarping Economic Tool</Card.Title>
                 <hr/>
                 {/* Calculator */}
-                <FormController />
+                {/*<FormController />*/}
 
 
 
@@ -267,7 +267,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                     </Card>
 
             </Col>
-            <Col>
+            <Col xs={1} lg={2}>
 
             </Col>
         </Row>

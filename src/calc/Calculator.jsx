@@ -1,4 +1,4 @@
-import { React } from "react"
+import React from "react"
 import SilvoGraph from './SilvoGraph.jsx'
 //import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";

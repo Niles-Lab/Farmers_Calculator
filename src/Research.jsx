@@ -1,4 +1,4 @@
-import { React } from 'react';
+import React from 'react';
 import { Card, Row, Col, ListGroup, Tab, Image } from 'react-bootstrap';
 import mental_map from './images/mental_map.png';
 import code from './images/code.png';

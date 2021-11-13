@@ -1,4 +1,4 @@
-import { React, useState } from 'react';
+import React, { useState } from 'react';
 import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
 // import PriceChart from "../viz/PriceChart.jsx"
 // import DotPlotFarm from "../viz/DotPlotFarm.jsx"

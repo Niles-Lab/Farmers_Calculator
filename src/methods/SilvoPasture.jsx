@@ -22,16 +22,16 @@ function importAll(r) {
 }
 
 // Silvopasture Cover Image(s)
-const sp = importAll(require.context('../images/silvopasture/sp', false, /\.(png|jpe?g|svg)$/));
+const sp = importAll(require.context('./../images/silvopasture/sp', false, /\.(png|jpe?g|svg)$/));
 
 // Pasture Enrichment Images
-const pe = importAll(require.context('../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
+const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
 // Pasture Enrichment Images 2
-const pe2 = importAll(require.context('../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
+const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
-const fc = importAll(require.context('../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
+const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 // Groups and labels for ImageSlider
 const groups = [pe,pe2,fc];

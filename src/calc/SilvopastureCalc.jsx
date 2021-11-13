@@ -4,7 +4,7 @@
  * 
  **/
 
-import { React, useState } from "react";
+import React, { useState } from "react";
 import { Form, Card, Col, Row, Button, Collapse, InputGroup } from 'react-bootstrap';
 
 function SilvopastureCalc(props) {

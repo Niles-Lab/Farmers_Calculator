@@ -22,12 +22,12 @@ const yrs = 2;
 // 				"Total Area"];
 
 
-// D3 visualization graph width
-const graphWidth = 800;
 
 function Calculator(props) {
 
-console.log(props);
+// D3 visualization graph width
+const graphWidth = 800;
+//const graphWidth = this.sizeRef.current.offsetWidth;
 
 // How many sq ft in an acre
 const acreFt = 43560;
@@ -61,11 +61,8 @@ let productivity = props.sp.effectiveProperty[0] / 100;
 // let treeSpacing = props.silvoPasture[2][0];
 
 
-
 //let treesPerAcre = props.silvoPasture[4][0];
 let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
-
-
 
 
 // Main method for calculations - this should be called on render to calculate all table cells
@@ -111,14 +108,9 @@ function npv() {
 }
 
 
-
-
-
-
 return (
 
-		<SilvoGraph width={graphWidth} {...props} />
-
+	<SilvoGraph width={graphWidth} {...props} />
 
 )
 

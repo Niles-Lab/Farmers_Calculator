@@ -1,5 +1,5 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Button, Row, Col } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
@@ -16,6 +16,7 @@ const options = ["Method A", "Method B", "Compounded"];
 // Forced update - implemented for adding and removing crops
 const [, updateState] = React.useState();
 const forceUpdate = React.useCallback(() => updateState({}), []);
+// const sizeRef = React.createRef();
 const start = 'start';
 
 // Default values for calculator
@@ -90,7 +91,7 @@ return (
 	<>
 
 	<Row>
-		<Col xs={10}>
+		<Col xs={10} className="p-0">
 
 
 			{/*Calculator Output Table*/}
@@ -106,16 +107,17 @@ return (
 				sp={sp} />
 
 		</Col>
-		<Col xs={2} className="my-5">
+		<Col xs={2} className="ml-0 pl-0 my-5">
 
 			<Button
-			className="my-3"
+			className="my-3 mx-auto w-100"
 			onClick={toggleShow}
 			>Show Calculator</Button>
 
 
 
 			<Button 
+			className="mx-auto w-100"
 			onClick={() => setTableView(!tableView)}>
 			View as {tableView ? "Graph": "Table"}</Button>
 

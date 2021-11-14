@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { Table, Button } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
@@ -40,11 +40,11 @@ let range = 1000;
 function SilvoGraph(props) {
 
 
+const sizeRef = useRef(null);
 
-
-
-const margin = {top: 50, right: 20, bottom: 30, left: 50},
-width = props.width - (margin.right+margin.left),
+// Update margin once size ref is created
+const margin = {top: 50, right: 20, bottom: 30, left: 40},
+width = props.width - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
 let x = d3.scaleLinear()
@@ -104,19 +104,17 @@ function npv() {
 }
 
 
-
-
-
-
-
-
-
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
 
+    // Update margin once size ref is created
+    const margin = {top: 50, right: 20, bottom: 30, left: 40},
+    width = props.width - margin.right - margin.left,
+    height = 500 - (margin.top+margin.bottom);
 
 		// Draw physical chart
 		drawChart();
+
 
 	 }, []);
 
@@ -125,10 +123,6 @@ function npv() {
 	// Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-
-    const margin = {top: 50, right: 20, bottom: 30, left: 50},
-    width = props.width - (margin.right+margin.left),
-    height = 500 - (margin.top+margin.bottom);
 
     data = [];
 
@@ -519,7 +513,6 @@ function update(data) {
 
     let svg = d3.select("#pgcht").select("svg").select(".main");
 
-
     data = [];
 
     // Map each data point with:
@@ -553,11 +546,6 @@ function update(data) {
 
     x.domain([0,parseInt(props.length)+1]);
     
-
-
-
-
-
 
     svg.selectAll("*").remove();
 
@@ -719,12 +707,12 @@ function wrap(text, width) {
 
       <>
 
-      <div id="pgcht" hidden={props.tableView}>
+      <div id="pgcht" hidden={props.tableView} ref={sizeRef}>
         {/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
 
 
       {/* Table accompanying graph */}
-      <Table hover className="float-right" style={{'position': 'absolute', 'maxWidth': '20%', 'right': '0'}}>
+{/*      <Table hover className="float-right" style={{'position': 'absolute', 'maxWidth': '20%', 'right': '0'}}>
         <thead>
           <tr>
           {labels.map((label,idx) => (
@@ -746,7 +734,7 @@ function wrap(text, width) {
             ))}
 
         </tbody>
-      </Table>
+      </Table>*/}
 
       </div>
 

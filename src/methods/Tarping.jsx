@@ -59,7 +59,7 @@ function Tarping(props) {
                     </Navbar.Collapse>
                 </Navbar>
             </Col>
-            <Col xs={10} md={8}>
+            <Col xs={10} lg={8}>
 
 
 

@@ -15,7 +15,7 @@ import ImageSlider from './../viz/ImageSlider';
 
 const variants = ["Overview", "Ponds", "Irrigation"];
 
-const navs = ["Overview", "Visualizations", "Economic Tool"]; 
+const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
 function importAll(r) {
   let images = {};
@@ -198,7 +198,7 @@ function Irrigation(props) {
                     <Card variant="light" bg="light">   
 
                         <hr/>
-                        <Card.Title id="3">Additional Resources</Card.Title>
+                        <Card.Title id="a3">Additional Resources</Card.Title>
                         <hr/>
                     
                             <Card.Body>

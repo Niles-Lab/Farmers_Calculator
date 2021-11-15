@@ -11,9 +11,7 @@ import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
 
-const variants = ["Silvopasture", "Pasture Enrichment", "Forest Conversion"];
-
-const navs = ["Overview", "Visualizations", "Economic Tool"]; 
+const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
 function importAll(r) {
   let images = {};
@@ -27,15 +25,22 @@ const sp = importAll(require.context('./../images/silvopasture/sp', false, /\.(p
 // Pasture Enrichment Images
 const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
+// Forest Conversion Images
+const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
+
 // Pasture Enrichment Images 2
 const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
+
+// Forest Conversion Images
+const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
+
 
 // Forest Conversion Images
 const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 // Groups and labels for ImageSlider
-const groups = [pe,pe2,fc];
-const labels = ["Pasture Enrichment 1", "Pasture Enrichment 2", "Forest Conversion"];
+const groups = [pe,av1,pe2,av2];
+const labels = ["Pasture Enrichment 1", "Aerial View 1", "Pasture Enrichment 2", "Aerial View 2"];
 
 
 function Silvopasture(props) {
@@ -63,7 +68,7 @@ function Silvopasture(props) {
             </Col>
             <Col xs={10} lg={8}>
 
-                {/* Tabbed view of method variants */}
+
                 <Card id="a0">
 
                 <Card.Body>
@@ -284,7 +289,7 @@ function Silvopasture(props) {
                     <Card variant="light" bg="light">   
 
                         <hr/>
-                        <Card.Title id="3">Additional Resources</Card.Title>
+                        <Card.Title id="a3">Additional Resources</Card.Title>
                         <hr/>
                     
 

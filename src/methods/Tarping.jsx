@@ -15,7 +15,7 @@ import ImageSlider from './../viz/ImageSlider';
 
 const variants = ["Overview", "Benefits", "More"];
 
-const navs = ["Overview", "Visualizations", "Economic Tool"]; 
+const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
 function importAll(r) {
   let images = {};
@@ -204,7 +204,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                     <Card variant="light" bg="light">   
 
                         <hr/>
-                        <Card.Title id="3">Additional Resources</Card.Title>
+                        <Card.Title id="a3">Additional Resources</Card.Title>
                         <hr/>
                     
                     <Row>

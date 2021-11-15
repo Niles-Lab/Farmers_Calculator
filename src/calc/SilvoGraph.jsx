@@ -43,7 +43,7 @@ function SilvoGraph(props) {
 const sizeRef = useRef(null);
 
 // Update margin once size ref is created
-const margin = {top: 50, right: 20, bottom: 30, left: 40},
+const margin = {top: 50, right: 20, bottom: 30, left: 30},
 width = props.width - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
@@ -158,11 +158,8 @@ function npv() {
     .append("g")
     .attr("class", "main")
     .attr("transform",
-      "translate(" + margin.left + "," + margin.top + ")");
+      "translate(" + margin.left*2 + "," + margin.top + ")");
     //.on("movemove", event => mousemove(event));    
-
-
-
 
 
 
@@ -173,6 +170,7 @@ function npv() {
       .call(d3.axisBottom(x));
 
     svg.append("g")
+
       .call(d3.axisLeft(y));
 
 
@@ -194,7 +192,7 @@ function npv() {
         .style("font-weight", "bold")
         .attr("text-anchor", "end")
         .attr("x", -(height/2)+margin.bottom+margin.top)
-        .attr("y", -margin.left/2-4)
+        .attr("y", -margin.left)
         .attr("transform", "rotate(-90)")
         .text("Revenue($)");
 
@@ -575,7 +573,7 @@ function update(data) {
         .style("font-weight", "bold")
         .attr("text-anchor", "end")
         .attr("x", -(height/2)+margin.bottom+margin.top)
-        .attr("y", -margin.left/2-4)
+        .attr("y", -margin.left)
         .attr("transform", "rotate(-90)")
         .text("Revenue($)");
 

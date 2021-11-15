@@ -132,7 +132,7 @@ return (
 
 
 		{/*Calculator Input UI*/}
-		<CalcShow backdrop={false} scroll={true} placement={start}
+		<CalcShow
 		onChange={() => forceUpdate()}
 		options={options}
 		land={land}
@@ -156,10 +156,6 @@ return (
 		setShow={setShow}
 		handleClose={handleClose}
 		 />
-
-
-
-
 
 
 	</>

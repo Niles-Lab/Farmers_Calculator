@@ -12,10 +12,14 @@ html {
 .logos {
   background-color: rgba(220, 220, 220, 0.8);
   align-items: center;
-}
-img {
   min-width: 200px;
+
 }
+.logos > span > a > img {
+  min-width: 200px;
+  max-width: 250px; 
+}
+
 div {
   text-align: center;
 }

@@ -20,7 +20,6 @@ const Navigation = () => {
                 
 {/*                <Nav.Link href="/resources">Resources</Nav.Link>*/}
                 
-
                 <NavDropdown title="Other" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/press">Press</NavDropdown.Item>
                   <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>

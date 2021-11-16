@@ -40,11 +40,11 @@ let range = 1000;
 function SilvoGraph(props) {
 
 
-const sizeRef = useRef(null);
+const sizeRef = useRef(800);
 
 // Update margin once size ref is created
 const margin = {top: 50, right: 20, bottom: 30, left: 30},
-width = props.width - margin.right - margin.left,
+width = sizeRef.current.offsetWidth - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
 let x = d3.scaleLinear()
@@ -107,6 +107,14 @@ function npv() {
 	// Render and fill chart on page load, regardless of viewport
 	useEffect(() => {
 
+
+    function handleResize() {
+      setDimensions({
+        height: window.innerHeight,
+        width: window.innerWidth
+      })
+    }
+
     // Update margin once size ref is created
     const margin = {top: 50, right: 20, bottom: 30, left: 40},
     width = props.width - margin.right - margin.left,
@@ -120,7 +128,8 @@ function npv() {
 
 
 
-	// Create and label axes of chart, append rectangles with 0 width
+
+  // Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
 
@@ -260,7 +269,7 @@ function npv() {
         .attr("text-anchor", "start")
         .attr("x", 0)
         .attr("y", (height/3)-margin.top-margin.bottom+20)
-        .attr("dx", (width/2)-margin.left-margin.right+20)
+        .attr("dx", x(maturingYears)+5)
         .attr("dy", 0)
         .style("font-weight", "bold")
         .text("Trees Matured");
@@ -508,8 +517,12 @@ update(data);
 // Update domain, range and data on change
 function update(data) {
 
+    const margin = {top: 50, right: 20, bottom: 30, left: 30},
+    width = sizeRef.current.offsetWidth - margin.right - margin.left,
+    height = 500 - (margin.top+margin.bottom);
 
     let svg = d3.select("#pgcht").select("svg").select(".main");
+    svg.attr("width", width);
 
     data = [];
 
@@ -640,7 +653,7 @@ function update(data) {
         .attr("text-anchor", "start")
         .attr("x", 0)
         .attr("y", (height/3)-margin.top-margin.bottom+20)
-        .attr("dx", (width/2)-margin.left-margin.right+20)
+        .attr("dx", x(maturingYears)+5)
         .attr("dy", 0)
         .style("font-weight", "bold")
         .text("Trees Matured");
@@ -755,10 +768,10 @@ function wrap(text, width) {
 
             ))}
               <tr>
-                <td>Year</td>
-                <td>Revenue</td>
-                <td>Cost</td>
-                <td>Value</td>
+                <th>Year</th>
+                <th>Revenue</th>
+                <th>Cost</th>
+                <th>Value</th>
               </tr>
             </thead>
             <tbody>
@@ -785,14 +798,10 @@ function wrap(text, width) {
 
 
 
-  
-
-
-
-
     </>
 
 		)
+
 }
 
 export default SilvoGraph;

@@ -40,7 +40,7 @@ const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(p
 
 // Groups and labels for ImageSlider
 const groups = [pe,av1,pe2,av2];
-const labels = ["Pasture Enrichment 1", "Aerial View 1", "Pasture Enrichment 2", "Aerial View 2"];
+const labels = ["Pasture Enrichment 1", "Aerial View", "Pasture Enrichment 2", "Aerial View"];
 
 
 function Silvopasture(props) {

@@ -10,7 +10,7 @@ const Research = (props, ref) => {
 
 //const scroll = (ref) => props.refProp.scrollIntoView()
 //const ref4 = props.refs[3];
-const navs = ["Research", "Phase 1 - Interviews", "Phase 2 - Focus Groups", "Phase 3 - Tools", "Resources"];
+const navs = ["Research", "Phase 1 - Interviews", "Phase 2 - Focus Groups", "Phase 3 - Tools", "Publications"];
 
 return (
 
@@ -175,7 +175,7 @@ return (
                 <Container className="my-5 text-center">
 
                 <hr/>
-                    <Card.Title className="mb-0 text-center" id="4">Resources</Card.Title>
+                    <Card.Title className="mb-0 text-center" id="4">Publications</Card.Title>
                 <hr/>
 
                 <Row>

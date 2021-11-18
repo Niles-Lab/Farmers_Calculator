@@ -30,14 +30,14 @@ return (
                     </Navbar.Collapse>
                 </Navbar>
             </Col>
-            <Col xs={12} md={8}>
+            <Col xs={12} md={8} id="0">
    
-                    <hr/>
+{/*                    <hr/>
                         <Card.Title className="mb-0 text-center" id="0">Overview</Card.Title>
-                    <hr/>
+                    <hr/>*/}
 
 
-                            <blockquote className="blockquote mt-5 mb-0 mx-5">
+                            <blockquote className="blockquote mt-5 mb-0 ">
 
 
                 <Alert variant={'info'} className="mx-4">
@@ -47,11 +47,11 @@ return (
                     perceptions, concerns, experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region and the unique climate change challenges facing the Northeast. 
 
                   </em>
-                      <footer className="blockquote-footer">
-                            <a target="_blank" rel="noreferrer" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
-                                <cite>USDA Grant Summary</cite>
-                            </a>
-                      </footer>
+                  <footer className="blockquote-footer">
+                        <a target="_blank" rel="noreferrer" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
+                            <cite>USDA Grant Summary</cite>
+                        </a>
+                  </footer>
                 </Alert>
 
 

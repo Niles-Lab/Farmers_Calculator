@@ -16,11 +16,12 @@ function CalcShow({name, ...props}) {
 
 	const style = {
 		overlay: {
-			//background: "none"
+			background: "none"
 		},
 		content: {
-  		//background: "rgba(255, 255, 255, 1)",
-  		//background: "rgba(220, 220, 220, 0.8)",
+  		//background: "rgba(255, 255, 4, 1)",
+  		background: "rgba(220, 220, 220, 1)",
+  		//background: "#FFFFFF",
   		minWidth: "25%"
 		}
 	}
@@ -49,7 +50,8 @@ function CalcShow({name, ...props}) {
 
 
         <OffCanvas
- 					backdrop={false} scroll={true} placement={"start"}
+
+ 					placement={"start"}
           height={"100%"}
           style={style}
           isOpen={props.show}

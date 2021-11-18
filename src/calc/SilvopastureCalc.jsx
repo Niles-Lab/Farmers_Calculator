@@ -32,7 +32,6 @@ function handleChange(event,key,value) {
 
 		
     <Button
-    variant="success"
     onClick={() => spSetOpen(!spOpen)}
     aria-controls="silvoPasture-collapse"
     aria-expanded={spOpen}>

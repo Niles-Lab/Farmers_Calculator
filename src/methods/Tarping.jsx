@@ -47,7 +47,7 @@ function Tarping(props) {
 
 
             <Col xs={2}>
-                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+                <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (

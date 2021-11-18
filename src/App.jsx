@@ -40,7 +40,7 @@ function App() {
         </Switch>
 
 
-        <Navbar bg={"light"}>
+        <Navbar bg={"light"} className="mt-5">
             <Navbar.Brand><Image src={nifa} width="100%"/></Navbar.Brand>
             <Nav className="ml-auto">
             <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>

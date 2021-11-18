@@ -20,9 +20,6 @@ import $ from 'jquery';
 // ]
 
 
-
-
-
 // At what age is a tree mature enough to start producing profits
 const maturingYears = 10;
 
@@ -40,11 +37,11 @@ let range = 1000;
 function SilvoGraph(props) {
 
 
-const sizeRef = useRef(800);
+const sizeRef = useRef(d3.select("#pgcht"));
 
 // Update margin once size ref is created
 const margin = {top: 50, right: 20, bottom: 30, left: 30},
-width = sizeRef.current.offsetWidth - margin.right - margin.left,
+width = 800 - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
 let x = d3.scaleLinear()
@@ -108,16 +105,16 @@ function npv() {
 	useEffect(() => {
 
 
-    function handleResize() {
-      setDimensions({
-        height: window.innerHeight,
-        width: window.innerWidth
-      })
-    }
+    // function handleResize() {
+    //   setDimensions({
+    //     height: window.innerHeight,
+    //     width: window.innerWidth
+    //   })
+    // }
 
     // Update margin once size ref is created
-    const margin = {top: 50, right: 20, bottom: 30, left: 40},
-    width = props.width - margin.right - margin.left,
+    const margin = {top: 50, right: 20, bottom: 30, left: 30},
+    width = sizeRef.current.offsetWidth - margin.right - margin.left,
     height = 500 - (margin.top+margin.bottom);
 
 		// Draw physical chart
@@ -169,7 +166,6 @@ function npv() {
     .attr("transform",
       "translate(" + margin.left*2 + "," + margin.top + ")");
     //.on("movemove", event => mousemove(event));    
-
 
 
     svg.selectAll("*").remove();
@@ -278,250 +274,23 @@ function npv() {
 
 
 update(data);
-		// let svg; 
 
-  //   if($("#pgcht > svg").length == 0) {
 
 
-  //    svg = d3.select("#pgcht")
-  //   .append("svg")
-  //   .attr("width",width)
-  //   .attr("height",height+30)
-  //   .append("g")
-  //   .attr("transform",
-  //     "translate(" + margin.left + "," + margin.top + ")");
-  //   //.on("movemove", event => mousemove(event));     
 
 
-
-
-
-
-
-  //   // Title of chart
-  //   svg.append("text")
-  //     .attr("class", "title")
-  //     .attr("text-anchor", "start")
-  //     .attr("x", 0)
-  //     .attr("y", -margin.top/2)
-  //     .attr("dx", margin.right)
-  //     .attr("dy", 0)
-  //     .style("font-weight", "bold")
-  //     .text("Silvopasture Cash Flow($/Acre)");
-
-
-
-
-
-
-
-
-
-  //   } else svg = d3.select("#pgcht").select("svg");
-
-
-
-
-
-		// Subtitle under chart
-		// svg.append("a")
-		// 	.attr("href", "https://agriculture.vermont.gov/sites/agriculture/files/doc_library/Vermont%20Agriculture%20and%20Food%20System%20Plan%202020.pdf")
-		// 	.attr("target", "_blank")
-		// 	.append("text")
-		// 	.style("font-size", "12px")
-		// 	.attr("x", 0)
-		// 	.attr("y", 0)
-		// 	.attr("dx", -margin.left/4)
-		// 	.attr("dy", height-margin.bottom-10)
-		// 	.text("Data sourced from Vermont Agricultural and Food System Plan 2020");
-
-  // svg
-  //   .append('rect')
-  //   .style("fill", "none")
-  //   .style("pointer-events", "all")
-  //   .attr('width', width)
-  //   .attr('height', height)
-  //   .on('mouseover', mouseover)
-  //   .on('mousemove', d => {
-	   
-	 //    // recover coordinate we need
-	 //    //var x0 = x.invert(d3.pointer(d)[0]);
-	 //    var x0 = x.invert(d.pageX - document.getElementById("pgcht").getBoundingClientRect().x + 10);
-	 //    var i = bisect(data, x0, 1);
-	    
-	 //    var selectedData = data[i];
-	 //    focus
-	 //      .attr("cx", x(selectedData.year))
-	 //      .attr("cy", y(selectedData.revenue))
-	 //    focusText
-	 //      .html("x:" + selectedData.year + "  -  " + "y:" + selectedData.revenue)
-	 //      .attr("x", x(selectedData.year)+15)
-	 //      .attr("y", y(selectedData.revenue))
-
-
-  //   	})
-  //   .on('mouseout', mouseout);
-
-  // This allows to find the closest X index of the mouse:
-  // var bisect = d3.bisector(function(d) { return d.x; }).left;
-
-  // // Create the circle that travels along the curve of chart
-  // var focus = svg
-  //   .append('g')
-  //   .append('circle')
-  //     .style("fill", "none")
-  //     .attr("stroke", "black")
-  //     .attr('r', 8.5)
-  //     .style("opacity", 0)
-
-  // // Create the text that travels along the curve of chart
-  // var focusText = svg
-  //   .append('g')
-  //   .append('text')
-  //     .style("opacity", 0)
-  //     .attr("text-anchor", "left")
-  //     .attr("alignment-baseline", "middle")
-
-
-  // // What happens when the mouse move -> show the annotations at the right positions.
-  // function mouseover() {
-  //   focus.style("opacity", 1)
-  //   focusText.style("opacity",1)
-  // }
-
-  // function mousemove() {
-
-  //   }
-  // function mouseout() {
-  //   focus.style("opacity", 0)
-  //   focusText.style("opacity", 0)
-  // }
-
-
-//-(height+margin.bottom)
-
-
-
-
-
-
-
-
-
-
-
-
-    // var mouseG = svg.append("g")
-    //   .attr("class", "mouse-effects");
-
-    // mouseG.append("path")
-    //   .attr("class", "mouse-line")
-    //   .style("stroke", "black")
-    //   .style("stroke-width", "1px")
-    //   .style("opacity", "0");
-      
-    // var lines = document.getElementsByClassName('line');
-
-    // var mousePerLine = mouseG.selectAll('.mouse-per-line')
-    //   .data(data)
-    //   .enter()
-    //   .append("g")
-    //   .attr("class", "mouse-per-line");
-
-    // mousePerLine.append("circle")
-    //   .attr("r", 7)
-    //   .style("stroke", function(d) {
-    //     return "red";
-    //   })
-    //   .style("fill", "none")
-    //   .style("stroke-width", "1px")
-    //   .style("opacity", "0");
-
-    // mousePerLine.append("text")
-    //   .attr("transform", "translate(10,3)");
-
-    // mouseG.append('svg:rect') // append a rect to catch mouse movements on canvas
-    //   .attr('width', width) // can't catch mouse events on a g element
-    //   .attr('height', height)
-    //   .attr('fill', 'none')
-    //   .attr('pointer-events', 'all')
-    //   .on('mouseout', function() { // on mouse out hide line, circles and text
-    //     d3.select(".mouse-line")
-    //       .style("opacity", "0");
-    //     d3.selectAll(".mouse-per-line circle")
-    //       .style("opacity", "0");
-    //     d3.selectAll(".mouse-per-line text")
-    //       .style("opacity", "0");
-    //   })
-    //   .on('mouseover', function() { // on mouse in show line, circles and text
-    //     d3.select(".mouse-line")
-    //       .style("opacity", "1");
-    //     d3.selectAll(".mouse-per-line circle")
-    //       .style("opacity", "1");
-    //     d3.selectAll(".mouse-per-line text")
-    //       .style("opacity", "1");
-    //   })
-    //   .on('mousemove', function(d) { // mouse moving over canvas
-    //     var mouse = d3.pointer(d);
-    //     d3.select(".mouse-line")
-    //       .attr("d", function() {
-    //         var d = "M" + mouse[0] + "," + height;
-    //         d += " " + mouse[0] + "," + 0;
-    //         return d;
-    //       });
-
-    //     d3.selectAll(".mouse-per-line")
-    //       .attr("transform", function(d, i) {
-    //         console.log(width/mouse[0])
-    //         var xDate = x.invert(mouse[0]),
-    //             bisect = d3.bisector(function(d) { return d.date; }).right;
-    //             let idx = bisect(d.values, xDate);
-            
-    //         var beginning = 0,
-    //             end = lines[i].getTotalLength(),
-    //             target = null;
-
-    //         while (true){
-    //           target = Math.floor((beginning + end) / 2);
-    //           let pos = lines[i].getPointAtLength(target);
-    //           if ((target === end || target === beginning) && pos.x !== mouse[0]) {
-    //               break;
-    //           }
-    //           if (pos.x > mouse[0])      end = target;
-    //           else if (pos.x < mouse[0]) beginning = target;
-    //           else break; //position found
-    //         }
-            
-    //         d3.select(this).select('text')
-    //           .text(y.invert(d3.pointer(d)[1]).toFixed(2));
-              
-    //         return "translate(" + mouse[0] + "," + mouse[1] +")";
-    //       });
-    //   });
-
-
-
-
-
-
-
-
-
-
-
-// let mouseOver = function(d) {
-
-// }
 
 
 // Update domain, range and data on change
 function update(data) {
 
+    let svg = d3.select("#pgcht").select("svg").select(".main");
+
     const margin = {top: 50, right: 20, bottom: 30, left: 30},
     width = sizeRef.current.offsetWidth - margin.right - margin.left,
     height = 500 - (margin.top+margin.bottom);
 
-    let svg = d3.select("#pgcht").select("svg").select(".main");
+
     svg.attr("width", width);
 
     data = [];

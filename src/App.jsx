@@ -8,7 +8,7 @@ import nifa from "./images/nifa-color.svg";
 import Home from './Home.jsx'
 import Navigation from './Navigation.jsx'
 import FormController from './calc/FormController.jsx'
-import Resources from './Resources.jsx'
+
 import Silvopasture from './methods/Silvopasture.jsx'
 import Irrigation from './methods/Irrigation.jsx'
 import Tarping from './methods/Tarping.jsx'
@@ -24,7 +24,7 @@ function App() {
         <Navigation />
 
         <Switch>
-          <Route path='/Resources' component={Resources}/>
+
           <Route path='/Research' component={Research}/>
 
 

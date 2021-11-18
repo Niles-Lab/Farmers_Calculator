@@ -145,43 +145,10 @@ function removeCrop() {
 
 
 
-				{
-				// Multi-select for different techniques
-				}
-{/*				<Row className="sel">
-				<Form.Group>
-					<Form.Label>Calculate Costs For:</Form.Label>
-				
-					<Form.Control as="select" multiple
-						className="sel"
-						name="method"
-						type="select"
-						onChange={(event) => {props.setMethod(Array.from(event.target.options).filter(d => d.selected === true).map(s => s.value))}}>
-						{props.options.map(option => ( // Map state options to multi-select
-							<option key={option} value={option}>
-								{option}
-							</option>
-						))}
-					</Form.Control>
-				</Form.Group>
-				</Row>*/}
 
 
-
-{/*				<Row>
-					<Col>
-					Alternatively:  
-					</Col>
-					<Col>
-						<DDSelect
-						options={opts}
-						method={props.method}
-						setMethod={props.setMethod}/>
-					</Col>
-				</Row>*/}
-
-
-				<Form.Label>I Own...</Form.Label>
+{/* Add and remove different acres */}
+{/*				<Form.Label>I Own...</Form.Label>
 
 						<Row>
 							<Col>
@@ -200,7 +167,7 @@ function removeCrop() {
 						{props.crops.map((cr,idx) => ( // Map Various Crop Inputs
 							<CropInput key={cr+idx} unit={props.unit} onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
 						))}
-					</Container>
+					</Container>*/}
 
 
 					{/* Custom Calculator input here */}

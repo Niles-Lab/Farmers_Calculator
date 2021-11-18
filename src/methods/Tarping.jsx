@@ -69,21 +69,25 @@ function Tarping(props) {
                 <hr/>
                 <Card.Title id="2">Tarping</Card.Title>
                 <hr/>
-                <Alert variant={'warning'} className="mx-4">
+                <Alert variant={'info'} className="mx-4">
                     Tarping is the practice of applying tarps to the soil surface and removing them prior to planting to manage or terminate weeds, crops, and cover crops, aiding the transition between cash crops with minimal to no soil disturbance. The use of tarps to terminate cover crops in no-till and reduced tillage systems allows farms to achieve the benefits of integrating these practices without specialized equipment or the application of herbicides. 
                 </Alert>
+
+
                 <Row>
                 <Col xs={12} md={6}>
-                <Alert variant={'info'}>
+{/*                <Alert variant={'info'}>
                     This practice offers numerous climate change adaptation benefits. Tarping can help facilitate no-till, reduced tillage, and cover cropping, all of which build soil health and improve water holding capacity. Tarping can also facilitate the use of cover crop residue as a mulch for cash crops which helps to conserve moisture, increase water infiltration, prevent surface runoff, and protect soil from erosion. 
-                </Alert>
+                </Alert>*/}
+                    This practice offers numerous climate change adaptation benefits. Tarping can help facilitate no-till, reduced tillage, and cover cropping, all of which build soil health and improve water holding capacity. Tarping can also facilitate the use of cover crop residue as a mulch for cash crops which helps to conserve moisture, increase water infiltration, prevent surface runoff, and protect soil from erosion. 
 
 
-                <Alert variant={'danger'}>
+{/*                <Alert variant={'danger'}>
                     Given the logistical challenges of moving, securing, and storing the tarps, 
                     they are typically used on small farm operations of less than 5 acres.
-                </Alert>
-
+                </Alert>*/}
+                    Given the logistical challenges of moving, securing, and storing the tarps, 
+                    they are typically used on small farm operations of less than 5 acres.
 
                 <hr/>
                 <Card.Title id="2">General Logistics of Tarping</Card.Title>
@@ -115,13 +119,18 @@ function Tarping(props) {
                 </Col>
                 <Col xs={12} md={6}>
                     <Image
-                    className="d-block w-100"
+                    className="d-block w-100 mb-3"
                     src={sp[0][1].default} 
 
                     />
-                <Alert variant={'success'} className={"mt-5"}>
+
+
+{/*                <Alert variant={'success'} className={"mt-5"}>
 Tarping may also reduce the need to use farm equipment which can be helpful in periods of rainy and wet periods when the soil is too wet to work. The potential to eliminate use of machinery to terminate cover crops or incorporate biomass may also be beneficial in a more variable climate as it allows farmers greater flexibility in the timing of cover crop termination.
-                </Alert>
+                </Alert>*/}
+Tarping may also reduce the need to use farm equipment which can be helpful in periods of rainy and wet periods when the soil is too wet to work. The potential to eliminate use of machinery to terminate cover crops or incorporate biomass may also be beneficial in a more variable climate as it allows farmers greater flexibility in the timing of cover crop termination.
+
+
 
                 </Col>
                 </Row>

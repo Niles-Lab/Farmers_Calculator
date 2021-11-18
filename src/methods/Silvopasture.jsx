@@ -77,13 +77,15 @@ function Silvopasture(props) {
                 <hr/>
                 <Card.Title id="2">Silvopasture</Card.Title>
                 <hr/>
-                <Alert variant={'warning'} className="mx-4">
+                <Alert variant={'info'} className="mx-4">
                     Silvopasture is an agroforestry system that combines well-managed woodlands and
                     pastures to generate both livestock and forest products on the same parcel of land
                 </Alert>
+
+
                 <Row>
                 <Col xs={12} md={6}>
-                <Alert variant={'info'}>
+{/*                <Alert variant={'info'}>*/}
                     Two approaches to silvopasture are pasture enrichment and forest conversion. Pasture
                     enrichment involves adding trees into the pasture area. In forest conversion, trees are
                     thinned in uniform, patch, or irregular patterns, and pasture species are seeded. A
@@ -92,10 +94,10 @@ function Silvopasture(props) {
                     livestock into orchards and maple sugarbush forests, and the creation of outdoor living
                     barns. Living barns are high density stands of trees, often conifers, planted into pastures
                     primarily to provide shelter.
-                </Alert>
+ {/*               </Alert>*/}
+                <br/><br/>
 
-
-                <Alert variant={'danger'}>
+{/*                <Alert variant={'danger'}>*/}
                     Silvopasture offers numerous climate change adaptation benefits that address
                     challenges such as increased frequency and severity of weather extremes (i.e. drought,
                     heat, and heavy rains). Combining woodland with pasture provides shade and protection
@@ -104,7 +106,7 @@ function Silvopasture(props) {
                     <br/><br/>
                     Skilled and active management of pasture and woodland together with sound livestock
                     husbandry are essential to achieving a sustainable and successful silvopasture system.
-                </Alert>
+{/*                </Alert>*/}
 
 
 
@@ -115,18 +117,18 @@ function Silvopasture(props) {
                 </Col>
                 <Col xs={12} md={6}>
                     <Image
-                    className="d-block w-100"
+                    className="d-block w-100 mb-4"
                     src={sp[0][1].default} 
 
                     />
-                <Alert variant={'success'} className={"mt-5"}>
+{/*                <Alert variant={'success'} className={"mt-5"}>*/}
                      Silvopasture systems are diverse and varied and can be designed to meet farmers’
                     unique goals and complement existing and desired farm characteristics. Accounting for
                     these goals and local conditions can help determine which approach to establishing
                     silvopasture is appropriate for each farm. Considerations include the desired
                     composition of forage, tree and livestock species, and what forest and livestock products
                     will be produced.
-                </Alert>
+{/*                </Alert>*/}
                 </Col>
                 </Row>
                 </Card.Body>
@@ -294,12 +296,7 @@ function Silvopasture(props) {
                     
 
           
-         
-        
-        
-        
-        
-        
+      
         
         
                         

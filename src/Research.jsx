@@ -1,15 +1,16 @@
 import React from 'react';
-import { Card, Row, Col, ListGroup, Tab, Image } from 'react-bootstrap';
+import { Container, Card, Row, Col, ListGroup, Tab, Image, Navbar, Nav } from 'react-bootstrap';
 import mental_map from './images/mental_map.png';
 import code from './images/code.png';
 import focus_group from './images/focus_group.png';
 import research_graph from './images/research_graph.png'
+import Resource from "./Resource.jsx"
 
 const Research = (props, ref) => {
 
 //const scroll = (ref) => props.refProp.scrollIntoView()
 //const ref4 = props.refs[3];
-//const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
+const navs = ["Research", " Phase 1 - Interviews", " Phase 2 - Focus Groups", "Resources"];
 
 return (
 
@@ -17,7 +18,7 @@ return (
         <div>
         <Row>
             <Col>
-{/*                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (
@@ -27,7 +28,7 @@ return (
                             ))}
                       </Nav>
                     </Navbar.Collapse>
-                </Navbar>*/}
+                </Navbar>
             </Col>
             <Col xs={12} md={8}>
    
@@ -188,6 +189,19 @@ return (
                                 </Col>
                             </Row>
                         </Tab.Container>
+
+                <Container className="my-5  text-center">
+                <Row>
+                    <h1 className="mb-0 text-center" id="3">Resources</h1>
+                </Row>
+                <hr/>
+                <Row>
+                    <Resource format={"Academic Paper"} download
+                    date={"19 April 2021"}
+                    link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
+                    description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
+                </Row>
+                </Container>
 
 
 

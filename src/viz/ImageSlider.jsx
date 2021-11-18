@@ -6,7 +6,7 @@
  **/
 
 import React, { useState } from 'react';
-import { Row, Col, ListGroup, ButtonToolbar, ButtonGroup, Button } from 'react-bootstrap';
+import { Row, Col, ListGroup, ButtonToolbar, ButtonGroup, Button, Image } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -112,7 +112,7 @@ function ImageSlider(props) {
             <ButtonToolbar aria-label="Slideshow Selection Toolbar">
               <ButtonGroup className="mt-5">
 
-                <ListGroup.Item>Select Image Group</ListGroup.Item>
+                <ListGroup.Item>Select Images</ListGroup.Item>
                 {props.labels.map((d,idx) => (
                         <Button
                             key={d+idx}
@@ -135,7 +135,7 @@ function ImageSlider(props) {
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>
-                <Typography gutterBottom>Slide to change</Typography>
+                <Typography gutterBottom>Slide to see more</Typography>
             
                 <Slider
 
@@ -157,12 +157,12 @@ function ImageSlider(props) {
 
 
                         {/* Fading images accompanying slider */}
-                          <Box style={{'minHeight': '500px','position': 'relative'}}>
+                          <Box className="position-relative w-100 mb-5 pb-5" style={{'height': '600px', 'overflow': 'visible'}}>
 
                                 {/* Map the active image set to screen */}
                                 {active.map((d,idx) => (
 
-                                        <img
+                                        <Image
                                             key={d+idx}
                                             className="d-block w-100"
                                             style={{'position': 'absolute', 'opacity': opacity[idx]}}

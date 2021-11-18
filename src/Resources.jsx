@@ -20,8 +20,6 @@ function Resources(props) {
 			date={"19 April 2021"}
 			link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
 			description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
-
-		
 		</Row>
 		</Container>
 

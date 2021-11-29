@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
+import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image, Alert } from 'react-bootstrap';
 // import PriceChart from "../viz/PriceChart.jsx"
 // import DotPlotFarm from "../viz/DotPlotFarm.jsx"
 // import CropLossTM from "../viz/CropLossTM.jsx"
@@ -119,7 +119,7 @@ const steps = [
 return (
 
 
-<div className="px-5 mx-5">
+<div className="px-5 mx-5 my-5">
 
 {/*<Stepper activeStep={0} alternativeLabel>
   {steps.map((d,idx) => (
@@ -193,43 +193,41 @@ return (
 
 
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>*/}
-                    <Card>
 
-                        <hr/>
-                        <Card.Title id="0">Project Description</Card.Title>
-                        <hr/>
+
+
 
   
-
+                        <Alert>
                             In an era of climate change and risk, there has been an increasing focus on the development of climate resources and information for farmers to help them plan for future changes. While the availability of climate resources may be growing, there are few resources and information targeted towards specific farming populations, such as small, medium and beginning farmers in New England. There is also a need for resources developed in concert with the core beliefs, perceptions, and planning needs of these specific farmer groups. This project investigated farmer and agricultural expert perspectives of climate change and their management concerns and developed, piloted, and disseminated climate-planning resources specific to farm size and level of farmer experience, and in direct response to these farmers’ expressed needs.
-
+                        </Alert>
                              
 
 
 
-                    </Card> 
+    
 
     
-                    <Card>
+
                         <hr/>
-                        <Card.Title id="1">The Problem</Card.Title>
+                        {/*<Card.Title id="1">The Problem</Card.Title>*/}
                         <hr/>
 
-                            <Card.Body>
+                            <Alert>
                                 It is now acknowledged that climate change is one of the greatest environmental threats 
                                 for future generations, and that it will impact agriculture in the U.S. As a result, 
                                     small, medium and beginning farmers and ranchers will face unique production 
                                 challenges which will require a targeted set of resources. These resources must be 
                                 designed with farm scale and size as well as farmer experience level in mind.
-                            </Card.Body>
+                            </Alert>
 
-                    </Card>  
-                    <Card>
+
+
                         <hr/>
-                        <Card.Title id="2">The Focus</Card.Title>
+                        {/*<Card.Title id="2">The Focus</Card.Title>*/}
                         <hr/>
 
-                            <Card.Body>
+                        <Alert>
                             The long-term goal of this project is to assess the 
                             varying climate perspectives of small, medium, and beginning farmers and ranchers, and agricultural 
                             extension and advisors to develop, pilot and implement targeted climate change resources and planning 
@@ -237,9 +235,8 @@ return (
                             from farmers in Vermont and Maine and an assessment of existing resources and research,  the research 
                             team developed economic and visualization tools for three agricultural practices (silvopasture,
                              irrigation, and tarping) as well as accompanying overview briefs with additional resources.
-                            </Card.Body>
+                        </Alert>
 
-                    </Card> 
 
 
  

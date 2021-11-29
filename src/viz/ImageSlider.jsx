@@ -109,7 +109,7 @@ function ImageSlider(props) {
 
         <Row className="p-0 m-0 d-flex">
         <Col xs={12} lg={8} className="ml-0 pl-0 align-items-end">
-            <ButtonToolbar aria-label="Slideshow Selection Toolbar">
+{/*            <ButtonToolbar aria-label="Slideshow Selection Toolbar">
               <ButtonGroup className="mt-5">
 
                 <ListGroup.Item>Select Images</ListGroup.Item>
@@ -129,7 +129,18 @@ function ImageSlider(props) {
                     ))}
 
               </ButtonGroup>
-            </ButtonToolbar>
+            </ButtonToolbar>*/}
+            <>
+
+            {/* Map the active image set to screen */}
+{/*            {props.lbls.map((d,idx) => (
+
+                {d}
+
+
+                ))}  */}             
+
+            </>
         </Col>
         <Col xs={12} lg={4} m className="pr-5 d-flex justify-content-end align-items-end order-sm-first order-lg-last">
          {active.length > 1 && 

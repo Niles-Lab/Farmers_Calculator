@@ -31,6 +31,8 @@ const sp = [tp[0]];
 let groups = [tp];
 
 let labels = ["Tarping"];
+let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
+"Ponds": ["Ex One", "Ex Two", "Ex Three"]}
 
 
 function Tarping(props) {

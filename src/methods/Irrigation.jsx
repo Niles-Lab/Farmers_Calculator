@@ -34,7 +34,10 @@ const ig = importAll(require.context('../images/irrigation/ig/', false, /\.(png|
 
 let groups = [ig, pd];
 
+
 let labels = ["Irrigation", "Irrigation With Ponds"];
+let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
+"Ponds": ["Ex One", "Ex Two", "Ex Three"]}
 
 
 function Irrigation(props) {
@@ -173,7 +176,7 @@ function Irrigation(props) {
             <hr/>
             <Card.Body>
 
-                <ImageSlider groups={groups} labels={labels} id="a1" />
+                <ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />
 
             </Card.Body>
 

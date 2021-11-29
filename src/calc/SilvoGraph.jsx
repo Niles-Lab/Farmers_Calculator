@@ -1,8 +1,8 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { Table, Button } from 'react-bootstrap';
+import React, { useEffect, useRef } from 'react';
+import { Table } from 'react-bootstrap';
 import * as d3 from "d3";
-import handleViewport from 'react-in-viewport';
-import $ from 'jquery';
+//import handleViewport from 'react-in-viewport';
+//import $ from 'jquery';
 
 
 // FOR REFERENCE - Here are the options provided in props.silvoPasture
@@ -59,12 +59,12 @@ let productivity = props.sp.effectiveProperty[0] / 100;
 // // Read other props in for easier access
 
 //let treesPerAcre = props.silvoPasture[4][0];
-let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
+//let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
 
 let data = [];
 
-const legendX = parseFloat((width)-margin.left-margin.right);
-const legendY = parseFloat(margin.top);
+// const legendX = parseFloat((width)-margin.left-margin.right);
+// const legendY = parseFloat(margin.top);
 
 
 // Map each data point with:

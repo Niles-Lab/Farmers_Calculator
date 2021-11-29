@@ -7,7 +7,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image } from 'react-bootstrap';
-import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
+import { BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
 
@@ -36,13 +36,13 @@ const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.
 
 
 // Forest Conversion Images
-const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
+//const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 // Groups and labels for ImageSlider
 const groups = [pe,av1,pe2,av2];
 const labels = ["Pasture Enrichment 1", "Aerial View", "Pasture Enrichment 2", "Aerial View"];
-let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
-"Ponds": ["Ex One", "Ex Two", "Ex Three"]}
+//let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
+//"Ponds": ["Ex One", "Ex Two", "Ex Three"]}
 
 
 function Silvopasture(props) {

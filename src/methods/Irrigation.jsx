@@ -4,16 +4,12 @@
  * 
  **/
 
-import React, { useState, useRef } from 'react';
+//import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Alert, Card, Row, Col, Navbar,Container, Nav, ListGroup, Tab, Image } from 'react-bootstrap';
-import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
-import Slider from '@mui/material/Slider';
-import Box from '@mui/material/Box';
+import { BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
-
-const variants = ["Overview", "Ponds", "Irrigation"];
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 

@@ -4,14 +4,12 @@
  * 
  **/
 
-import React, { useState } from 'react';
+//import React, { useState } from 'react';
 import { Alert, Card, Row, Col, Container, Nav, Navbar, ListGroup, Tab, Image} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
-import FormController from './../calc/FormController';
+import { BsBoxArrowUpRight } from "react-icons/bs";
+//import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
-
-const variants = ["Overview", "Benefits", "More"];
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 

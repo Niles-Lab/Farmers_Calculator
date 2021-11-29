@@ -20,7 +20,9 @@ function App() {
 // style={{ backgroundImage: `url(${background})` }}
   return (
 
-    <span className="App">
+    <>
+    <span className="App pb-5 mb-5 overflow-auto">
+
         <Navigation />
 
         <Switch>
@@ -39,14 +41,17 @@ function App() {
           <Route path='/' component={Home}/>
         </Switch>
 
+    </span>
+    <div className="footer mt-5 position-relative clearfix fixed-bottom">
 
-        <Navbar sticky={"bottom"} bg={"light"} className="w-100 mt-5">
+        <Navbar bg={"light"}>
             <Navbar.Brand><Image src={nifa} width="100%"/></Navbar.Brand>
             <Nav className="ml-auto">
             <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
             </Nav>
         </Navbar>
-    </span>
+    </div>
+    </>
   );
 }
 

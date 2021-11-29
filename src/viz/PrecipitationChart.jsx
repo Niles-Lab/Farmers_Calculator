@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
-import { Container } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
-const Block = (props: { inViewport: boolean }) => {
-  const { inViewport, forwardedRef } = props;
+// const Block = (props: { inViewport: boolean }) => {
+//   const { inViewport, forwardedRef } = props;
 
-  return (
-    <div className="viewport-block" ref={forwardedRef}>
+//   return (
+//     <div className="viewport-block" ref={forwardedRef}>
 
-    </div>
-  );
-};
+//     </div>
+//   );
+// };
 
 
 const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);

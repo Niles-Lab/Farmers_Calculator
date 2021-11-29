@@ -5,8 +5,6 @@ import DotPlotFarm from "../viz/DotPlotFarm.jsx"
 import CropLossTM from "../viz/CropLossTM.jsx"
 import Chart from "../viz/Chart.jsx"
 import CropLossPie from "../viz/CropLossPie.jsx"
-import PrecipitationChart from "../viz/PrecipitationChart.jsx"
-
 
 const MainContent = (props, ref) => {
 

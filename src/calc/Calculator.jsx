@@ -3,8 +3,6 @@ import SilvoGraph from './SilvoGraph.jsx'
 //import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";
 
-const yrs = 2;
-
 
 // const labels = ["",
 // 				"Return Per...", 
@@ -88,24 +86,24 @@ d3.range(1, props.length+1).forEach(d =>
 
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
 // NPV = PV(B) - PV(C)
-function npv() {
+// function npv() {
 
-	let npvr = 0;
-	let npvc = 0;
+// 	let npvr = 0;
+// 	let npvc = 0;
 
 	
-	for(var i = 0; i<data.length;i++) {
-		npvr += (data[i].revenue/((1+props.rate)**i));
-		npvc += (data[i].cost/((1+props.rate)**i));
-	}
+// 	for(var i = 0; i<data.length;i++) {
+// 		npvr += (data[i].revenue/((1+props.rate)**i));
+// 		npvc += (data[i].cost/((1+props.rate)**i));
+// 	}
 
-	return [
+// 	return [
 
-		["Revenue", npvr],
-		["Costs", npvc]
+// 		["Revenue", npvr],
+// 		["Costs", npvc]
 
-	];
-}
+// 	];
+// }
 
 
 return (

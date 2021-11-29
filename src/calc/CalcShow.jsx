@@ -5,10 +5,11 @@
 * Child: Calcform
 *  
 **/
-import React, { useState } from 'react';
-import { BsChevronDoubleRight } from "react-icons/bs";
+
+//import React, { useState } from 'react';
+//import { BsChevronDoubleRight } from "react-icons/bs";
 import OffCanvas from 'react-aria-offcanvas';
-import { Button, Row } from 'react-bootstrap';
+//import { Button, Row } from 'react-bootstrap';
 import CalcForm from "../calc/CalcForm.jsx";
 
 

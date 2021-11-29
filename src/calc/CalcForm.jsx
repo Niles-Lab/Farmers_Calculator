@@ -5,12 +5,12 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Button, Dropdown } from 'react-bootstrap';
-import CropInput from './CropInput.jsx'
+import { Form, Col, Row, Container, Dropdown } from 'react-bootstrap';
+//import CropInput from './CropInput.jsx'
 import { BsX } from "react-icons/bs";
 import SilvopastureCalc from './SilvopastureCalc.jsx';
 
-let MAX_CROPS = 10;
+// let MAX_CROPS = 10;
 
 function CalcForm(props) {
 
@@ -22,58 +22,58 @@ function CalcForm(props) {
 // 	};
 let units = ["Acres", "Hectares"];
 
-function handleCropChange(event) { // Special handler for the CropInput Component
-	const target = event.target;
-	const name = target.name;
-	const idx = target.attributes.idx.value;
-	let value = target.value;
+// function handleCropChange(event) { // Special handler for the CropInput Component
+// 	const target = event.target;
+// 	const name = target.name;
+// 	const idx = target.attributes.idx.value;
+// 	let value = target.value;
 
-	if(event.target.type === "number") { // Handle UI for negative crop input value
-		const val = parseFloat(value);
-		if(isNaN(val) || val <= 0) {
-			value = 0;
-		}
+// 	if(event.target.type === "number") { // Handle UI for negative crop input value
+// 		const val = parseFloat(value);
+// 		if(isNaN(val) || val <= 0) {
+// 			value = 0;
+// 		}
 
-	}
+// 	}
 
-	props.crops[idx][name] = value; // Set dictionary value from master record of crops
+// 	props.crops[idx][name] = value; // Set dictionary value from master record of crops
 
-	props.setCrops(props.crops);
-	props.onChange();
+// 	props.setCrops(props.crops);
+// 	props.onChange();
 
-}
+// }
 
-// Handler for the "Add" button for particular land use input
-// Adds a null crop to the end of the crop model array, updates the view and scrolls to the bottom
-function addCrop() {
-	let len;
-	if((len = props.crops.length) >= MAX_CROPS) { // Max of 10 crops
-		return;
-	}
+// // Handler for the "Add" button for particular land use input
+// // Adds a null crop to the end of the crop model array, updates the view and scrolls to the bottom
+// function addCrop() {
+// 	let len;
+// 	if((len = props.crops.length) >= MAX_CROPS) { // Max of 10 crops
+// 		return;
+// 	}
 
-	props.crops.push({ type: "Unknown", amount: 0, idx: len });
-	props.setCrops(props.crops);
+// 	props.crops.push({ type: "Unknown", amount: 0, idx: len });
+// 	props.setCrops(props.crops);
 
-}
+// }
 
-// Handler for "Remove" button for particular land use input
-// Splices the last index from the crop model array, updates the view and scrolls up
-function removeCrop() {
+// // Handler for "Remove" button for particular land use input
+// // Splices the last index from the crop model array, updates the view and scrolls up
+// function removeCrop() {
 	
-	let len;
-	if((len = props.crops.length) <= 1) {
-		return;
-	}
-	props.crops.splice(len-1,1);
-	props.setCrops(props.crops);
+// 	let len;
+// 	if((len = props.crops.length) <= 1) {
+// 		return;
+// 	}
+// 	props.crops.splice(len-1,1);
+// 	props.setCrops(props.crops);
 
-	// Scrolling functionality for inputs
-	// window.scrollTo({
-	// 	behavior: "smooth",
-	// 	top: 0
-	// });
+// 	// Scrolling functionality for inputs
+// 	// window.scrollTo({
+// 	// 	behavior: "smooth",
+// 	// 	top: 0
+// 	// });
 	
-}
+// }
 
 	return (
 		<Container className="calc">

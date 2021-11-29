@@ -1,20 +1,19 @@
 import React, { useEffect } from 'react';
-import { Container } from 'react-bootstrap';
 import * as d3 from "d3";
 import handleViewport from 'react-in-viewport';
 
-const Block = (props: { inViewport: boolean }) => {
-  const { inViewport, forwardedRef } = props;
+// const Block = (props: { inViewport: boolean }) => {
+//   const { inViewport, forwardedRef } = props;
 
-  return (
-    <div className="viewport-block" ref={forwardedRef}>
+//   return (
+//     <div className="viewport-block" ref={forwardedRef}>
 
-    </div>
-  );
-};
+//     </div>
+//   );
+// };
 
 
-const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
+//const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
 const data = require('./data/weatherloss.json')
 const margin = {top: 20, right: 20, bottom: 20, left: 20},
@@ -159,7 +158,7 @@ function CropLossPie(props) {
 
 
 		<div id="piecht" className="m-5">
-			<ViewportBlock onEnterViewport={() => {fillChart()}} onLeaveViewport={() => {unfillChart()}} />
+{/*			<ViewportBlock onEnterViewport={() => {fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
 {/*			<ViewportBlock />*/}
 		</div>
 

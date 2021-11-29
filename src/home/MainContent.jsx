@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image, Alert } from 'react-bootstrap';
+import { Alert, Card, Container, Row, Col } from 'react-bootstrap';
 // import PriceChart from "../viz/PriceChart.jsx"
 // import DotPlotFarm from "../viz/DotPlotFarm.jsx"
 // import CropLossTM from "../viz/CropLossTM.jsx"
@@ -7,15 +7,15 @@ import { Card, Row, Col, Container, Navbar, Nav, ListGroup, Tab, Image, Alert } 
 // import mental_map from './../images/mental_map.png';
 
 
-import Box from '@mui/material/Box';
-import Stepper from '@mui/material/Stepper';
-import Step from '@mui/material/Step';
-import StepLabel from '@mui/material/StepLabel';
-import StepContent from '@mui/material/StepContent';
-import Button from '@mui/material/Button';
+// import Box from '@mui/material/Box';
+// import Stepper from '@mui/material/Stepper';
+// import Step from '@mui/material/Step';
+// import StepLabel from '@mui/material/StepLabel';
+// import StepContent from '@mui/material/StepContent';
+// import Button from '@mui/material/Button';
 //import Paper from '@mui/material/Paper';
-import Typography from '@mui/material/Typography';
-import StepButton from '@mui/material/StepButton';
+// import Typography from '@mui/material/Typography';
+// import StepButton from '@mui/material/StepButton';
 
 
 
@@ -196,7 +196,6 @@ return (
 
 
 
-
   
                         <Alert>
                             In an era of climate change and risk, there has been an increasing focus on the development of climate resources and information for farmers to help them plan for future changes. While the availability of climate resources may be growing, there are few resources and information targeted towards specific farming populations, such as small, medium and beginning farmers in New England. There is also a need for resources developed in concert with the core beliefs, perceptions, and planning needs of these specific farmer groups. This project investigated farmer and agricultural expert perspectives of climate change and their management concerns and developed, piloted, and disseminated climate-planning resources specific to farm size and level of farmer experience, and in direct response to these farmers’ expressed needs.
@@ -237,9 +236,61 @@ return (
                              irrigation, and tarping) as well as accompanying overview briefs with additional resources.
                         </Alert>
 
+                <hr/>
+                <Card.Title>Quick Links</Card.Title>
+                <hr/>
+                <Container>
 
+                  <Row>
+                    <Col xs={8} className="d-flex text-start">
+                      Silvopasture
+                    </Col>
+                    <Col xs={2}>
+                      <a href="/Silvopasture/#a2">
+                      Economic Tool
+                      </a>
+                    </Col>
+                    <Col xs={2}>
+                      <a href="/Silvopasture/#a1">
+                      Visualizations
+                      </a>
+                    </Col>
+                  </Row>
+                  <hr/>
+                  <Row>
+                    <Col xs={8} className="d-flex text-start">
+                      Tarping
+                    </Col>
+                    <Col xs={2}>
+                      <a href="/Tarping/#a2">
+                      Economic Tool
+                      </a>
+                    </Col>
+                    <Col xs={2}>
+                      <a href="/Tarping/#a1">
+                      Visualizations
+                      </a>
+                    </Col>
+                  </Row>
+                  <hr/>
+                  <Row>
+                    <Col xs={8} className="d-flex text-start">
+                      Irrigation
+                    </Col>
+                    <Col xs={2}>
+                      <a href="/Irrigation/#a2">
+                      Economic Tool
+                      </a>
+                    </Col>
+                    <Col xs={2}>
+                      <a href="/Irrigation/#a1">
+                      Visualizations
+                      </a>
+                    </Col>
+                  </Row>
+                </Container>
 
- 
+ <br/><br/><br/><br/>
 
 
 </div>

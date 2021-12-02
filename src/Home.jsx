@@ -27,7 +27,7 @@ const navs = ["Project Description", "The Problem", "The Focus"]
 			            </Navbar.Collapse>
 			        </Navbar>*/}
 				</Col>
-				<Col xs={8} className="px-5 mx-5">
+				<Col xs={8}>
 					<MainContent sections={navs} />
 				</Col>
 				<Col>

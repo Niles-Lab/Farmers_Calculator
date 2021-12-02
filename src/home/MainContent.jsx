@@ -23,7 +23,7 @@ import { Alert, Card, Container, Row, Col } from 'react-bootstrap';
 const MainContent = (props, ref) => {
 
 
-
+const practices = ["Silvopasture", "Tarping", "Irrigation"];
 
 
 const [activeStep, setActiveStep] = useState(0);
@@ -195,7 +195,9 @@ return (
 <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>*/}
 
 
-
+                <hr/>
+                <Card.Title>Projct Overview</Card.Title>
+                <hr/>
   
                         <Alert>
                             In an era of climate change and risk, there has been an increasing focus on the development of climate resources and information for farmers to help them plan for future changes. While the availability of climate resources may be growing, there are few resources and information targeted towards specific farming populations, such as small, medium and beginning farmers in New England. There is also a need for resources developed in concert with the core beliefs, perceptions, and planning needs of these specific farmer groups. This project investigated farmer and agricultural expert perspectives of climate change and their management concerns and developed, piloted, and disseminated climate-planning resources specific to farm size and level of farmer experience, and in direct response to these farmers’ expressed needs.
@@ -241,56 +243,31 @@ return (
                 <hr/>
                 <Container>
 
-                  <Row>
-                    <Col xs={8} className="d-flex text-start">
-                      Silvopasture
-                    </Col>
-                    <Col xs={2}>
-                      <a href="/Silvopasture/#a2">
-                      Economic Tool
-                      </a>
-                    </Col>
-                    <Col xs={2}>
-                      <a href="/Silvopasture/#a1">
-                      Visualizations
-                      </a>
-                    </Col>
-                  </Row>
-                  <hr/>
-                  <Row>
-                    <Col xs={8} className="d-flex text-start">
-                      Tarping
-                    </Col>
-                    <Col xs={2}>
-                      <a href="/Tarping/#a2">
-                      Economic Tool
-                      </a>
-                    </Col>
-                    <Col xs={2}>
-                      <a href="/Tarping/#a1">
-                      Visualizations
-                      </a>
-                    </Col>
-                  </Row>
-                  <hr/>
-                  <Row>
-                    <Col xs={8} className="d-flex text-start">
-                      Irrigation
-                    </Col>
-                    <Col xs={2}>
-                      <a href="/Irrigation/#a2">
-                      Economic Tool
-                      </a>
-                    </Col>
-                    <Col xs={2}>
-                      <a href="/Irrigation/#a1">
-                      Visualizations
-                      </a>
-                    </Col>
-                  </Row>
+                  {practices.map(d => (
+                    <>
+
+                    <Row>
+                      <Col xs={8} className="d-flex text-start">
+                        {d}
+                      </Col>
+                      <Col xs={2}>
+                        <a href={"/" + d + "/#a2"}>
+                        Economic Tool
+                        </a>
+                      </Col>
+                      <Col xs={2}>
+                        <a href={"/" + d + "/#a2"}>
+                        Visualizations
+                        </a>
+                      </Col>
+                    <hr/>
+                    </Row>
+                    <hr/>
+                    </>
+                  ))}
+
                 </Container>
 
- <br/><br/><br/><br/>
 
 
 </div>

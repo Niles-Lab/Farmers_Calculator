@@ -6,7 +6,7 @@
  **/
 
 import React, { useState } from 'react';
-import { Row, Col, ListGroup, ButtonToolbar, ButtonGroup, Button, Image } from 'react-bootstrap';
+import { Row, Col, ListGroup, ButtonToolbar, ButtonGroup, Button, Image, Card } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -109,6 +109,30 @@ function ImageSlider(props) {
 
         <Row className="p-0 m-0 d-flex">
         <Col xs={12} lg={8} className="ml-0 pl-0 align-items-end">
+
+        {props.lbls && 
+            <>
+
+            {/* Map the active image set to screen */}
+            {props.lbls.map((arr,idx) => (
+
+                <>
+                {arr.map((lbl,idy) => (
+
+                <Card.title key={idy*idx}
+                className="d-block w-100"
+                style={{'position': 'absolute', 'opacity': opacity[idy]}}>
+                    {lbl}
+                </Card.title>
+
+
+                ))}
+                </>
+
+                ))}   
+            </>
+
+        }
 {/*            <ButtonToolbar aria-label="Slideshow Selection Toolbar">
               <ButtonGroup className="mt-5">
 
@@ -132,13 +156,7 @@ function ImageSlider(props) {
             </ButtonToolbar>*/}
             <>
 
-            {/* Map the active image set to screen */}
-{/*            {props.lbls.map((d,idx) => (
-
-                {d}
-
-
-                ))}  */}             
+          
 
             </>
         </Col>

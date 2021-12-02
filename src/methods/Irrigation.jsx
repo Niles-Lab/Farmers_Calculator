@@ -32,8 +32,12 @@ let groups = [ig, pd];
 
 
 let labels = ["Irrigation", "Irrigation With Ponds"];
-let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
-"Ponds": ["Ex One", "Ex Two", "Ex Three"]}
+let lbls = [
+["Testng One", "Step Two", "And yYp Three"],
+["Ex One", "Ex Two", "Ex Three"],
+["ab", "test"],
+["abc","asfse","fakjsf"]
+];
 
 
 function Irrigation(props) {

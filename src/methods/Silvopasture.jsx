@@ -43,8 +43,12 @@ const groups = [pe,av1,pe2,av2];
 const labels = ["Pasture Enrichment 1", "Aerial View", "Pasture Enrichment 2", "Aerial View"];
 // let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
 // "Ponds": ["Ex One", "Ex Two", "Ex Three"], "ABCD": ["ab", "test"]}
-let lbls = [["Step One", "Step Two", "Step Three"],
-["Ex One", "Ex Two", "Ex Three"],["ab", "test"],["abc","asfse","fakjsf"]];
+let lbls = [
+["Testng One", "Step Two", "And yYp Three"],
+["Ex One", "Ex Two", "Ex Three"],
+["ab", "test"],
+["abc","asfse","fakjsf"]
+];
 
 
 function Silvopasture(props) {

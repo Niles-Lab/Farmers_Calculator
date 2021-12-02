@@ -40,6 +40,7 @@ function ImageSlider(props) {
     // Opacity container for images
     const [opacity, setOpacity] = useState(def);
 
+    const [closest, setClosest] = useState(0)
 
     // Create an updated array for slider marks
     function createMarks(arr) {
@@ -99,6 +100,7 @@ function ImageSlider(props) {
 
             });
             if(parseFloat(scaled-floor)%floor === 0 || scaled === 0) opac[visible] = 1;
+            setClosest(Math.round(scaled));
             setOpacity(opac);
 
     }
@@ -113,23 +115,17 @@ function ImageSlider(props) {
         {props.lbls && 
             <>
 
-            {/* Map the active image set to screen */}
-            {props.lbls.map((arr,idx) => (
+                {/* Map the active image labels */}
+                {props.lbls[props.groups.indexOf(active)].map((lbl,idy) => (
 
-                <>
-                {arr.map((lbl,idy) => (
-
-                <Card.title key={idy*idx}
-                className="d-block w-100"
-                style={{'position': 'absolute', 'opacity': opacity[idy]}}>
+                <Card.Title key={idy}
+                className="pl-5 mb-0 pb-0 pt-3"
+                style={{'position': 'absolute', 'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
-                </Card.title>
-
+                </Card.Title>
 
                 ))}
-                </>
-
-                ))}   
+  
             </>
 
         }

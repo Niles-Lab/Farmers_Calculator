@@ -1,7 +1,7 @@
 import React from 'react';
 import { Nav, Navbar, NavDropdown, Image } from 'react-bootstrap';
 import umaine from './images/umaine.png';
-import uvm from './images/uvm.svg';
+import uvm from './images/uvm.png';
 
 const Navigation = () => {
 
@@ -17,7 +17,7 @@ const Navigation = () => {
                 <Nav.Link href="/tarping">Tarping</Nav.Link>
 
                 <Nav.Link href="/research">Research</Nav.Link>
-                
+                <Nav.Link href="/about">About</Nav.Link>
 {/*                <Nav.Link href="/resources">Resources</Nav.Link>*/}
                 
                 <NavDropdown title="Other" id="basic-nav-dropdown">
@@ -30,10 +30,10 @@ const Navigation = () => {
 
           <Nav className="logos d-none d-sm-block">
               <Navbar.Brand>
-                <a href="https://uvm.edu/" rel="noreferrer" target="_blank"><Image src={uvm} width="100%"/></a>
+                <a href="https://uvm.edu/" rel="noreferrer" target="_blank"><Image src={uvm} width="90%"/></a>
               </Navbar.Brand>
               <Navbar.Brand>
-                <a href="https://umaine.edu/" rel="noreferrer" target="_blank"><Image src={umaine} width="100%"/></a>
+                <a href="https://umaine.edu/" rel="noreferrer" target="_blank"><Image src={umaine} width="90%"/></a>
               </Navbar.Brand>
           </Nav>
 

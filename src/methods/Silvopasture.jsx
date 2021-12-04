@@ -252,7 +252,7 @@ function Silvopasture(props) {
                             <Row>
                                 <Col>      
                                 <ListGroup>
-                                  <ListGroup.Item variant="success"></ListGroup.Item>
+                                  <ListGroup.Item variant="success">Benefits</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Increased stocking capacity (when expanding grazing into wooded areas)</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Increased utilization of woodland</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Cost-effective vegetation control</ListGroup.Item>
@@ -270,7 +270,7 @@ function Silvopasture(props) {
                                 </Col>
                                 <Col>      
                       			<ListGroup>
-                                  <ListGroup.Item variant="danger"></ListGroup.Item>
+                                  <ListGroup.Item variant="danger">Costs</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Livestock exposure to toxic plants, predators, parasites, diseases, physical hazards, hunters</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Silvopasture establishment and maintenance costs, time, and labor</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Managers’ lack of silvopasture management experience and knowledge </ListGroup.Item>

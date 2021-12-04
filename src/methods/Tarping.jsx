@@ -170,7 +170,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                             <Row>
                                 <Col>      
                                 <ListGroup>
-                                  <ListGroup.Item variant="success"></ListGroup.Item>
+                                  <ListGroup.Item variant="success">Benefits</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Eliminates the need for herbicides and/or specialized equipment like a roller-crimper</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Provides flexibility in the timing of cover crop termination</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Augments the weed suppression provided by cover crop residue</ListGroup.Item> 
@@ -182,7 +182,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                                 </Col>
                                 <Col>      
                       			<ListGroup>
-                                  <ListGroup.Item variant="danger"></ListGroup.Item>
+                                  <ListGroup.Item variant="danger">Costs</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Logistical challenges associated with handling tarps, including moving, securing, and storing tarps</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Scale-limited due to above challenges</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Ecological footprint of tarp material manufacturing</ListGroup.Item>

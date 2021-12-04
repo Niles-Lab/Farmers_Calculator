@@ -143,7 +143,7 @@ function Irrigation(props) {
                             <Row>
                                 <Col>      
                                 <ListGroup>
-                                  <ListGroup.Item variant="success"></ListGroup.Item>
+                                  <ListGroup.Item variant="success">Benefits</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Improves crop quality, consistency, and yield</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Supports the production of a greater variety of crops</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Prevents crop losses</ListGroup.Item> 
@@ -153,7 +153,7 @@ function Irrigation(props) {
                                 </Col>
                                 <Col>      
                                 <ListGroup>
-                                  <ListGroup.Item variant="danger"></ListGroup.Item>
+                                  <ListGroup.Item variant="danger">Costs</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Upfront investment required to install pond irrigation system</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Ongoing maintenance and labor costs</ListGroup.Item>
                                   <ListGroup.Item variant="light" action href="">Adequate and reliable water source required, yet are specific to unique farm settings and locations</ListGroup.Item>

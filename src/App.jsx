@@ -15,6 +15,7 @@ import Tarping from './methods/Tarping.jsx'
 import Research from './Research.jsx'
 import Extras from './other/Extras.jsx'
 import Press from './other/Press.jsx'
+import About from './home/About.jsx'
 
 function App() {
 // style={{ backgroundImage: `url(${background})` }}
@@ -36,7 +37,9 @@ function App() {
           <Route path='/Tarping' component={Tarping}/>
 
 
+
           <Route path='/Press' component={Press}/>
+          <Route path='/About' component={About}/>
           <Route path='/Extras' component={Extras}/>
           <Route path='/' component={Home}/>
         </Switch>

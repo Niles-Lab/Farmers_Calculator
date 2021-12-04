@@ -35,7 +35,7 @@ function ImageSlider(props) {
     const [timeSl, setTimeSl] = useState(0);
 
     // Which image array is active?
-    const [active, setActive] = useState(props.groups[0]);
+    const [active, setActive] = useState(props.groups);
 
     // Opacity container for images
     const [opacity, setOpacity] = useState(def);
@@ -109,14 +109,14 @@ function ImageSlider(props) {
 	return (
 	<>
 
-        <Row className="p-0 m-0 d-flex">
+        <Row className="p-0 m-0">
         <Col xs={12} lg={8} className="ml-0 pl-0 align-items-end">
 
         {props.lbls && 
             <>
 
                 {/* Map the active image labels */}
-                {props.lbls[props.groups.indexOf(active)].map((lbl,idy) => (
+                {props.lbls.map((lbl,idy) => (
 
                 <Card.Title key={idy}
                 className="pl-5 mb-0 pb-0 pt-3"
@@ -183,7 +183,7 @@ function ImageSlider(props) {
 
                         {/* Fading images accompanying slider */}
                           <Box className="position-relative w-100 mb-5 pb-5" style={{'height': '600px', 'overflow': 'visible'}}>
-
+                                        {console.log(active)}
                                 {/* Map the active image set to screen */}
                                 {active.map((d,idx) => (
 

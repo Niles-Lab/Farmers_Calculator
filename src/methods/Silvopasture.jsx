@@ -34,7 +34,6 @@ const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.
 // Forest Conversion Images
 const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
 
-
 // Forest Conversion Images
 //const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
@@ -44,7 +43,7 @@ const labels = ["Pasture Enrichment 1", "Aerial View", "Pasture Enrichment 2", "
 // let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
 // "Ponds": ["Ex One", "Ex Two", "Ex Three"], "ABCD": ["ab", "test"]}
 let lbls = [
-["Testng One", "Step Two", "And yYp Three"],
+["Step One", "Step Two", "Step Three"],
 ["Ex One", "Ex Two", "Ex Three"],
 ["ab", "test"],
 ["abc","asfse","fakjsf"]
@@ -230,8 +229,15 @@ function Silvopasture(props) {
             <Card.Title id="2">Visualizations</Card.Title>
             <hr/>
             <Card.Body>
+                {groups.map((e,idz) => (
+                    
+                    <>
+                    
+                    <ImageSlider groups={e} lbls={lbls[idz]} labels={labels} />
+                    <br/><br/><br/><br/><br/><br/>
+                    </>
 
-                <ImageSlider groups={groups} lbls={lbls} labels={labels} id="a1" />
+                    ))}
 
             </Card.Body>
 

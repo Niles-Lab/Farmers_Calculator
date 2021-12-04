@@ -124,9 +124,10 @@ function Silvopasture(props) {
 
                 </Col>
                 <Col xs={12} md={6}>
+
                     <Image
                     className="d-block w-100 mb-4"
-                    src={sp[0][1].default} 
+                    src={pe[0][1].default} 
 
                     />
 {/*                <Alert variant={'success'} className={"mt-5"}>*/}

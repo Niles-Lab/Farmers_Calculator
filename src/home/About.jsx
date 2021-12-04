@@ -42,9 +42,7 @@ return (
 
 
   </Col>
-    <hr/>
-    {/*<Card.Title id="1">The Problem</Card.Title>*/}
-    <hr/>
+
 
     <Alert>
         The tools and resources found on this website were designed to address this gap in resources and respond to farmers’ expressed needs. The economic tools, visualizations, and accompanying overview briefs presented on this website were developed based on input from farmers and technical advisors in Vermont and Maine, and an assessment of existing resources and research. They incorporate farmers’ and agricultural experts’ management concerns and take into account farm scale, regional geographic and climate characteristics, and farmer experience level.

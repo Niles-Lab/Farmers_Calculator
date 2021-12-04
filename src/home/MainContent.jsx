@@ -18,7 +18,7 @@ import { Alert, Card, Container, Row, Col } from 'react-bootstrap';
 // import StepButton from '@mui/material/StepButton';
 
 
-
+const practices = ["Silvopasture", "Tarping", "Irrigation"];
 
 const MainContent = (props, ref) => {
 

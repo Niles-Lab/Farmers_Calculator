@@ -6,7 +6,7 @@
  **/
 
 import React, { useState } from 'react';
-import { Row, Col, ListGroup, ButtonToolbar, ButtonGroup, Button, Image, Card } from 'react-bootstrap';
+import { Container, Row, Col, ListGroup, ButtonToolbar, ButtonGroup, Button, Image, Card } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -109,7 +109,7 @@ function ImageSlider(props) {
 
 
 	return (
-	<>
+	<Container className="position-relative py-5">
 
         <Row className="p-0 m-0">
         <Col xs={12} lg={8} className="ml-0 pl-0 align-items-end">
@@ -219,9 +219,9 @@ function ImageSlider(props) {
 
                           </Box>
 
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
-	</>
+
+	</Container>
 		)
 }
 

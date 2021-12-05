@@ -94,7 +94,7 @@ return (
                         </a>
                       </Col>
                       <Col xs={2}>
-                        <a href={"/" + d + "/#a2"}>
+                        <a href={"/" + d + "/#a1"}>
                         Visualizations
                         </a>
                       </Col>

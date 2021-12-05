@@ -34,9 +34,10 @@ function ImageSlider(props) {
     // What value the opacity slider is at
     const [timeSl, setTimeSl] = useState(0);
 
+
     // Which image array is active?
     const [active, setActive] = useState(props.groups);
-    if(typeof props.groups[0] == 'string') setActive(props.groups[0]);
+    //if(typeof props.groups[0] == 'object') setActive(props.groups[0]);
 
     // Opacity container for images
     const [opacity, setOpacity] = useState(def);
@@ -218,7 +219,7 @@ function ImageSlider(props) {
 
                           </Box>
 
-
+<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 
 	</>
 		)

@@ -30,7 +30,11 @@ let groups = [tp];
 
 let labels = ["Tarping"];
 let lbls = [
-["Testng One", "Step Two", "And yYp Three"],
+["Late August/Early September: plant perennial rye cover crop",
+ "June: Roll down rye using either a lawn roller or a tractor driven roller crimper",
+  "June: Place tarps, secure with sand bags",
+  "June: Remove tarps after two weeks. Plant cash crop of brassica starts",
+  "August/September: Harvest crops, plant cover crop"],
 ["Ex One", "Ex Two", "Ex Three"],
 ["ab", "test"],
 ["abc","asfse","fakjsf"]
@@ -105,8 +109,8 @@ function Tarping(props) {
                     tarps, though this may vary depending on tarp and field size as well as weather
                     conditions.
 
-                    <br/><br/>
-                    <strong>
+{/*                    <br/><br/>*/}
+{/*                    <strong>
                     The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below. 
                     </strong>
                     <br/><br/>
@@ -114,7 +118,7 @@ function Tarping(props) {
                     <p className="text-left"><strong>June:</strong> Roll down rye using either a lawn roller or a tractor driven roller crimper</p>
                     <p className="text-left"><strong>June:</strong> Place tarps, secure with sand bags</p>
                     <p className="text-left"><strong>June:</strong> Remove tarps after two weeks. Plant cash crop of brassica starts</p>
-                    <p className="text-left"><strong>August/September:</strong> Harvest crops, plant cover crop</p>
+                    <p className="text-left"><strong>August/September:</strong> Harvest crops, plant cover crop</p>*/}
 
 
                 </Alert>
@@ -146,9 +150,21 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                     <hr/>
                     <Card.Title id="2">Visualizations</Card.Title>
                     <hr/>
+                <Alert variant={'warning'} className="mx-4">
+                    The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below.
+                </Alert>
                     <Card.Body>
 
-                        <ImageSlider groups={groups} labels={labels} id="a1" />
+                        {/*<ImageSlider groups={groups} labels={labels} id="a1" />*/}
+                        {groups.map((e,idz) => (
+                            
+                            <>
+                            
+                            <ImageSlider groups={e} lbls={lbls[idz]} labels={labels} />
+                            <br/><br/><br/><br/><br/><br/>
+                            </>
+
+                            ))}
 
                     </Card.Body>
 

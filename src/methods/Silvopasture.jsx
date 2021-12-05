@@ -151,7 +151,7 @@ function Silvopasture(props) {
                     <Card variant="light" bg="light">
 
                         <hr/>
-                        <Card.Title>Components of Silvopasture</Card.Title>
+                        <Card.Title>Common Components of Silvopasture</Card.Title>
                         <hr/>
 
                           <Alert variant={'info'} className="px-5 mx-5 mb-0">
@@ -234,7 +234,7 @@ function Silvopasture(props) {
                     <>
                     
                     <ImageSlider groups={e} lbls={lbls[idz]} labels={labels} />
-                    <br/><br/><br/><br/><br/><br/>
+
                     </>
 
                     ))}

@@ -176,7 +176,16 @@ function Irrigation(props) {
             <hr/>
             <Card.Body>
 
-                <ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />
+                {/*<ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />*/}
+                {groups.map((e,idz) => (
+                    
+                    <>
+                    
+                    <ImageSlider groups={e} lbls={lbls[idz]} labels={labels} />
+
+                    </>
+
+                    ))}
 
             </Card.Body>
 

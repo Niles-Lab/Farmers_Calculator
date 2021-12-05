@@ -20,6 +20,8 @@ import * as d3 from "d3";
 // ]
 
 
+
+
 // At what age is a tree mature enough to start producing profits
 const maturingYears = 10;
 
@@ -43,6 +45,17 @@ const sizeRef = useRef(d3.select("#pgcht"));
 const margin = {top: 50, right: 20, bottom: 30, left: 30},
 width = 800 - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
+
+
+// Data for legend
+const lines = ["Revenue", "Costs", "Average"];
+
+const yearColors = d3.scaleOrdinal().domain(lines)
+  .range(["steelblue", "red", "orange"]);
+
+const legendX = parseFloat((width)-margin.left-margin.right-100);
+const legendY = parseFloat(margin.top);
+
 
 let x = d3.scaleLinear()
 .range([0,width-((margin.right+margin.left))])
@@ -182,12 +195,11 @@ function npv() {
 
     //Optional axis labels
     svg.append("text")
-      .attr("class", "x label")
+      .attr("class", "x label position-absolute")
       .style("font-weight", "bold")
       .attr("text-anchor", "end")
-      .attr("x", 0)
+      .attr("x", width/2)
       .attr("y", 0)
-      .attr("dx", width/2)
       .attr("dy", height-margin.bottom)
       .text("Project Year");
 
@@ -269,6 +281,43 @@ function npv() {
         .attr("dy", 0)
         .style("font-weight", "bold")
         .text("Trees Matured");
+
+      // Graph Legend
+
+    const legend = svg.append("g")
+    .attr("class", "legend");
+
+    // Add arc shape for legend
+    legend.selectAll("path")
+    .data(lines)
+    .join("path")
+      // Manually add offset based on index of year
+      // Oh boy is this some spaghetti
+      // Note - 20 is the offset in this case, as each index is multiplied by 20
+      .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-5) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
+      .attr("d", d3.arc()
+        .innerRadius(5)
+        .outerRadius(10)
+        .startAngle(3.14 * (3/4))
+        .endAngle(3.14 * 2)
+        )
+      .attr("fill", d => yearColors(d));
+
+
+    // Add legend text
+    legend.selectAll("text")
+    .data(lines)
+    .join("text")
+      .text(d => d)
+      .attr("x", legendX)
+      // Manually added text offset - see above comment
+      .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)))
+
+
+
+
+
+
 
 }
 
@@ -340,15 +389,13 @@ function update(data) {
 
     //Optional axis labels
     svg.append("text")
-      .attr("class", "x label")
+      .attr("class", "x label position-absolute")
       .style("font-weight", "bold")
       .attr("text-anchor", "end")
-      .attr("x", 0)
+      .attr("x", width/2)
       .attr("y", 0)
-      .attr("dx", width/2)
       .attr("dy", height-margin.bottom)
       .text("Project Year");
-
 
     svg.append("text")
         .attr("class", "y label")
@@ -427,7 +474,34 @@ function update(data) {
         .style("font-weight", "bold")
         .text("Trees Matured");
 
+      const legend = svg.append("g")
+      .attr("class", "legend");
 
+      // Add arc shape for legend
+      legend.selectAll("path")
+      .data(lines)
+      .join("path")
+        // Manually add offset based on index of year
+        // Oh boy is this some spaghetti
+        // Note - 20 is the offset in this case, as each index is multiplied by 20
+        .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-5) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
+        .attr("d", d3.arc()
+          .innerRadius(5)
+          .outerRadius(10)
+          .startAngle(3.14 * (3/4))
+          .endAngle(3.14 * 2)
+          )
+        .attr("fill", d => yearColors(d));
+
+
+      // Add legend text
+      legend.selectAll("text")
+      .data(lines)
+      .join("text")
+        .text(d => d)
+        .attr("x", legendX)
+        // Manually added text offset - see above comment
+        .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)))
 
   // // Create a update selection: bind to the new data
   // var u = svg.selectAll(".lineTest")

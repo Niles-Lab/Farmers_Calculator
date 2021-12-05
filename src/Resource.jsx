@@ -19,7 +19,7 @@ function Resource(props) {
 
 	return (
 	<>
-		<Card style={{ width: '18rem' }} className="mx-auto">
+		<Card style={{ width: '18rem', height: "100%" }} className="mx-auto">
 		  <Card.Body>
 		    <Card.Title className="mb-0">{props.format}</Card.Title>
 			<cite>{props.date}</cite><br/>

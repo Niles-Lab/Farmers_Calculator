@@ -85,31 +85,32 @@ function Silvopasture(props) {
                 <Card.Title id="2">Silvopasture</Card.Title>
                 <hr/>
                 <Alert variant={'info'} className="mx-4">
-                    Silvopasture is an agroforestry system that combines well-managed woodlands and
-                    pastures to generate both livestock and forest products on the same parcel of land
+
+                    Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest 
+                    products on the same parcel of land. Silvopasture systems are diverse and varied and can be designed to meet farmers’ unique
+                     goals and complement existing and desired farm characteristics. This brief focuses on pasture enrichment, which involves adding
+                      trees into the pasture area and is eligible for federal cost-share programs. Silvopasture may also take other forms, such as 
+                      forest conversion in which trees are thinned in uniform, patch, or irregular patterns, and pasture species are seeded, though
+                       farmers should investigate this option with a forester to ensure compliance with current use designations.   
+
+
                 </Alert>
 
 
                 <Row>
                 <Col xs={12} md={6}>
 {/*                <Alert variant={'info'}>*/}
-                    Two approaches to silvopasture are pasture enrichment and forest conversion. Pasture
-                    enrichment involves adding trees into the pasture area. In forest conversion, trees are
-                    thinned in uniform, patch, or irregular patterns, and pasture species are seeded. A
-                    variation of forest conversion is when forests are thinned along a field edge, creating
-                    “open field edge” silvopasture. Additional approaches to silvopasture include introducing
-                    livestock into orchards and maple sugarbush forests, and the creation of outdoor living
-                    barns. Living barns are high density stands of trees, often conifers, planted into pastures
-                    primarily to provide shelter.
+                    Silvopasture offers numerous climate change adaptation benefits that address challenges such as 
+                     increased frequency and severity of weather extremes (i.e. drought, heat, and heavy rains).
+                    Pasture enrichment provides shade and protection for livestock, may 
+                    enhance carbon sequestration, and can improve water filtration and retention. Skilled and 
+                    active management of enriched pastures together with sound livestock husbandry are essential
+                     to achieving a sustainable and successful silvopasture system.
  {/*               </Alert>*/}
                 <br/><br/>
 
 {/*                <Alert variant={'danger'}>*/}
-                    Silvopasture offers numerous climate change adaptation benefits that address
-                    challenges such as increased frequency and severity of weather extremes (i.e. drought,
-                    heat, and heavy rains). Combining woodland with pasture provides shade and protection
-                    for livestock, may enhance carbon sequestration, and can improve water filtration and
-                    retention.
+
                     <br/><br/>
                     Skilled and active management of pasture and woodland together with sound livestock
                     husbandry are essential to achieving a sustainable and successful silvopasture system.
@@ -130,12 +131,7 @@ function Silvopasture(props) {
 
                     />
 {/*                <Alert variant={'success'} className={"mt-5"}>*/}
-                     Silvopasture systems are diverse and varied and can be designed to meet farmers’
-                    unique goals and complement existing and desired farm characteristics. Accounting for
-                    these goals and local conditions can help determine which approach to establishing
-                    silvopasture is appropriate for each farm. Considerations include the desired
-                    composition of forage, tree and livestock species, and what forest and livestock products
-                    will be produced.
+
 {/*                </Alert>*/}
                 </Col>
                 </Row>
@@ -249,9 +245,12 @@ function Silvopasture(props) {
                     <hr/>
 
                           <Alert variant={'info'} className="px-5 mx-5 mb-0">
-                            Before installing silvopasture systems, trade-offs should be carefully considered. It may not be
-                            possible to realize all or even some of these potential benefits, while potential challenges may
-                            be mitigated through management and/or silvopasture system design.
+                            Before installing silvopasture systems, trade-offs 
+                            should be carefully considered. It may not be possible to realize
+                             all or even some of these potential benefits, while potential 
+                             challenges may be mitigated through management and/or 
+                             silvopasture system design. 
+
                           </Alert>
 
                         <Card.Body>
@@ -346,22 +345,7 @@ function Silvopasture(props) {
                         </ListGroup>
                     </Col>
                     </Row>
-                            <Card.Body>
-                            <Container>
-                                <Row className="text-center align-center">
-                                	<Col></Col>
-                                    <Col xs={8}>
-                                    Interested in Silvopasture? View additional resources&nbsp;<a href="./resources">Here</a>.
 
-                                    View our brief&nbsp;<Link to={{pathname: 
-                                        "/resources/Silvopasture Two-Pager.pdf"
-                                    }} target="_blank">Here <BsBoxArrowUpRight/></Link>
-                                    </Col>
-                                    <Col></Col>
-                                </Row>
-             
-                            </Container>
-                            </Card.Body>
                     </Card>
 
             </Col>

@@ -274,23 +274,6 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
 
                     </Row>
 
-
-
-                            <Card.Body>
-                            <Container>
-                                <Row className="text-center align-center">
-                                    <Col></Col>
-                                    <Col xs={8}>
-                                    Interested in Tarping? View additional resources&nbsp;<a href="./resources">Here</a>.
-
-                                    View our brief&nbsp;<Link to={{pathname: 
-                                        "/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"
-                                    }} target="_blank">Here <BsBoxArrowUpRight/></Link>
-                                    </Col>
-                                    <Col></Col>
-                                </Row>
-                            </Container>
-                            </Card.Body>
                     </Card>
 
             </Col>

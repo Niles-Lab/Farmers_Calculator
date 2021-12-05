@@ -16,12 +16,14 @@ const Navigation = () => {
                 <Nav.Link href="/irrigation">Irrigation</Nav.Link>
                 <Nav.Link href="/tarping">Tarping</Nav.Link>
 
-                <Nav.Link href="/research">Research</Nav.Link>
-                <Nav.Link href="/about">About</Nav.Link>
+{/*                <Nav.Link href="/research">Research</Nav.Link>
+                <Nav.Link href="/about">About</Nav.Link>*/}
 {/*                <Nav.Link href="/resources">Resources</Nav.Link>*/}
                 
                 <NavDropdown title="Other" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/press">Press</NavDropdown.Item>
+                  <NavDropdown.Item href="/research">Research</NavDropdown.Item>
+                  <NavDropdown.Item href="/about">About</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/extras">Extras</NavDropdown.Item>
                 </NavDropdown>

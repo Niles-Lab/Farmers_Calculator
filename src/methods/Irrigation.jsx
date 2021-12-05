@@ -255,17 +255,7 @@ function Irrigation(props) {
 
 
                     </Row>
-                                <Row className="text-center align-center">
-                                    <Col></Col>
-                                    <Col xs={8}>
-                                    Interested in Irrigation? View additional resources&nbsp;<a href="./resources">Here</a>.
 
-                                    View our brief&nbsp;<Link to={{pathname: 
-                                        "/resources/Pond and Irrigation Two-Pager.pdf"
-                                    }} target="_blank">Here <BsBoxArrowUpRight/></Link>
-                                    </Col>
-                                    <Col></Col>
-                                </Row>
              
                             </Container>
                             </Card.Body>

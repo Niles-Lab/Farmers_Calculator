@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Image, Container, Col } from 'react-bootstrap';
+import { Navbar, Nav, Image, Container, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -48,21 +48,32 @@ function App() {
 
     </span>
 
-    <Container className="me-auto mx-0 px-0 d-flex align-content-start position-relative clearfix fixed-bottom footer">
-    <Col>
-    <Navbar bg={"light"}>
-        <Navbar.Brand><Image className="w-75" src={uvm} /></Navbar.Brand>
-        <Navbar.Brand><Image className="w-75" src={umaine}/></Navbar.Brand>
-        <Navbar.Brand><Image style={{"width": "200%"}} src={nifa}/></Navbar.Brand>
+    <div className="position-relative clearfix fixed-bottom footer">
+
+
+    <Navbar className="mx-0 px-0" bg={"light"}>
+      <Col className="px-0" xs={2}>
+        <Navbar.Brand><Image className="w-50" src={uvm} /></Navbar.Brand>
+      </Col>
+      <Col className="px-0" xs={2}>
+        <Navbar.Brand><Image className="w-50" src={umaine}/></Navbar.Brand>
+      </Col>
+      <Col className="px-0" xs={2}>        
+        <Navbar.Brand><Image style={{"width": "100%"}} src={nifa}/></Navbar.Brand>
+      </Col>
+
+      <Col className="px-0" xs={2}>
+      </Col>
+      
+      <Col xs={4}>
+        <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
+      </Col>
+{/*    <Nav>
+      <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
+    </Nav>*/}
 
     </Navbar>
-    </Col>
-    <Col className="d-flex align-items-center justify-content-end">
-    <Nav>
-      <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
-    </Nav>
-    </Col>
-    </Container>
+    </div>
 
     </>
   );

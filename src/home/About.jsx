@@ -31,7 +31,7 @@ return (
     className="d-block w-100 mb-4"
     src={cover} />
   </Col>
-  <Col xs={12} md={6} className="mt-5 pt-5">
+  <Col xs={12} md={6} className="">
 
 
     <Alert>

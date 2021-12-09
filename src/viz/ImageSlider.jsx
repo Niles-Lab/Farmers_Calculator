@@ -109,7 +109,7 @@ function ImageSlider(props) {
 
 
 	return (
-	<Container className="position-relative py-5 my-3">
+	<Container className="position-relative my-3">
 
         <Row className="p-0 m-0">
         <Col xs={12} lg={8} className="ml-0 pl-0 align-items-end">

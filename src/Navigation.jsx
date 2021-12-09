@@ -27,6 +27,10 @@ const Navigation = () => {
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/extras">Extras</NavDropdown.Item>
                 </NavDropdown>
+                <NavDropdown title="Tools" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/press">Economic Tools</NavDropdown.Item>
+                  <NavDropdown.Item href="/research">Visualizations</NavDropdown.Item>
+                </NavDropdown>
               </Nav>
             </Navbar.Collapse>
 

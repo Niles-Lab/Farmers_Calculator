@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Table } from 'react-bootstrap';
 import * as d3 from "d3";
 //import handleViewport from 'react-in-viewport';
@@ -29,7 +29,7 @@ const maturingYears = 10;
 // Define data and constants
 
 // How many sq ft in an acre
-const acreFt = 43560;
+//const acreFt = 43560;
 
 const labels = ["", "Per Acre", 
         "Total Area"];
@@ -46,6 +46,7 @@ const margin = {top: 50, right: 20, bottom: 30, left: 30},
 width = 800 - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
+const [pos, setPos] = useState([0,0]);
 
 // Data for legend
 const lines = ["Revenue", "Costs", "Average"];
@@ -53,7 +54,7 @@ const lines = ["Revenue", "Costs", "Average"];
 const yearColors = d3.scaleOrdinal().domain(lines)
   .range(["steelblue", "red", "orange"]);
 
-const legendX = parseFloat((width)-margin.left-margin.right-100);
+const legendX = parseFloat((width)-margin.left-margin.right-140);
 const legendY = parseFloat(margin.top);
 
 
@@ -176,6 +177,9 @@ function npv() {
     .attr("height",height+30)
     .append("g")
     .attr("class", "main")
+    .on("mouseover", (d) => {
+      setPos(d3.pointer(d));
+    })
     .attr("transform",
       "translate(" + margin.left*2 + "," + margin.top + ")");
     //.on("movemove", event => mousemove(event));    
@@ -282,8 +286,8 @@ function npv() {
         .style("font-weight", "bold")
         .text("Trees Matured");
 
-      // Graph Legend
 
+    // Graph Legend
     const legend = svg.append("g")
     .attr("class", "legend");
 
@@ -314,6 +318,16 @@ function npv() {
       .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)))
 
 
+    // Easy Data View Line
+    svg.append("svg:line")
+    .attr("class", "line")
+    .attr("x1", x(pos[0]))
+    .attr("x2", x(pos[0]))
+    .attr("y1", y(0))
+    .attr("y2", y(range))
+    .style("stroke-width", 2)
+    .style("stroke", "black");
+    //.style("stroke-dasharray", ("5, 5"));
 
 
 
@@ -503,24 +517,18 @@ function update(data) {
         // Manually added text offset - see above comment
         .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)))
 
-  // // Create a update selection: bind to the new data
-  // var u = svg.selectAll(".lineTest")
-  //   .data([data], function(d){ return d.ser1 });
 
-  // // Updata the line
-  // u
-  //   .enter()
-  //   .append("path")
-  //   .attr("class","lineTest")
-  //   .merge(u)
-  //   .transition()
-  //   .duration(3000)
-  //   .attr("d", d3.line()
-  //     .x(function(d) { return x(d.ser1); })
-  //     .y(function(d) { return y(d.ser2); }))
-  //     .attr("fill", "none")
-  //     .attr("stroke", "steelblue")
-  //     .attr("stroke-width", 2.5)
+
+          // Easy Data View Line
+    svg.append("svg:line")
+    .attr("class", "line")
+    .attr("x1", x(pos[0]))
+    .attr("x2", x(pos[0]))
+    .attr("y1", y(0))
+    .attr("y2", y(range))
+    .style("stroke-width", 2)
+    .style("stroke", "black");
+
 }
 
 
@@ -562,33 +570,6 @@ function wrap(text, width) {
       <>
 
       <div id="pgcht" hidden={props.tableView} ref={sizeRef}>
-        {/*<ViewportBlock  onEnterViewport={() => {populateChart(); fillChart()}} onLeaveViewport={() => {unfillChart()}} />*/}
-
-
-      {/* Table accompanying graph */}
-{/*      <Table hover className="float-right" style={{'position': 'absolute', 'maxWidth': '20%', 'right': '0'}}>
-        <thead>
-          <tr>
-          {labels.map((label,idx) => (
-              <th key={idx}>
-                {label}
-              </th>
-            
-            ))}
-          </tr>   
-        </thead>
-        <tbody>
-          {npv().map((d,idx) => (
-            <tr key={idx}>
-              <td>{d[0]}</td>
-              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
-              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
-            </tr>
-
-            ))}
-
-        </tbody>
-      </Table>*/}
 
       </div>
 

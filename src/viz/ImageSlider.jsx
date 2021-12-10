@@ -178,7 +178,7 @@ function ImageSlider(props) {
             </>
                     }
         </Col>
-        <Col xs={12} lg={4} m className="pr-5 d-flex justify-content-end align-items-end order-sm-first order-lg-last">
+        <Col xs={12} lg={4} className="pr-5 d-flex justify-content-end align-items-end order-sm-first order-lg-last">
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>

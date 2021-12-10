@@ -230,7 +230,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 	
 	<>
 	
-	<ImageSlider groups={e} lbls={lbls[idz]} labels={labels} />
+	<ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} labels={labels} />
 
 	</>
 

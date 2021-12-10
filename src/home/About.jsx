@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Alert, Card, Container, Row, Col, Image } from 'react-bootstrap';
 import cover from "./../images/cover.jpg";
 

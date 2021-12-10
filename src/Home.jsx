@@ -1,5 +1,5 @@
 import React from 'react';
-import { Col, Row, Navbar, Nav } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 
 import MainContent from "./home/MainContent.jsx"
 

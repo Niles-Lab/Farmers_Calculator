@@ -1,7 +1,5 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown, Image, Row, Col } from 'react-bootstrap';
-import umaine from './images/umaine.png';
-import uvm from './images/uvm.png';
+import { Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap';
 
 const Navigation = () => {
 

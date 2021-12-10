@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Image, Container, Col, Row } from 'react-bootstrap';
+import { Navbar, Nav, Image, Col} from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -10,7 +10,6 @@ import climatehub from './images/climatehub.png';
 import nifa from "./images/nifa-color.svg";
 import Home from './Home.jsx'
 import Navigation from './Navigation.jsx'
-import FormController from './calc/FormController.jsx'
 
 import Silvopasture from './methods/Silvopasture.jsx'
 import Irrigation from './methods/Irrigation.jsx'

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Row, Card, Col, Image, Alert } from 'react-bootstrap';
+import { Container, Row, Card, Col } from 'react-bootstrap';
 import { BsBoxArrowUpRight } from "react-icons/bs";
 
 function Press(props) {

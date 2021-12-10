@@ -21,9 +21,9 @@ const Navigation = () => {
                 <Nav.Link href="/tarping">Tarping</Nav.Link>
 
                 <NavDropdown title="About" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/about">About</NavDropdown.Item>
                   <NavDropdown.Item href="/press">Press</NavDropdown.Item>
                   <NavDropdown.Item href="/research">Research</NavDropdown.Item>
-                  <NavDropdown.Item href="/about">About</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/extras">Extras</NavDropdown.Item>
                 </NavDropdown>

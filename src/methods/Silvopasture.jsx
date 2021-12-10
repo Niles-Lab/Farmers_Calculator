@@ -10,6 +10,7 @@ import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image } 
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
+import ExternalLink from './../other/ExternalLink';
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
@@ -299,52 +300,46 @@ function Silvopasture(props) {
                 <hr/>
                     <Card.Title id="a2">Silvopasture Economic Tool</Card.Title>
                 <hr/>
+
+
                 {/* Calculator */}
                 <FormController />
 
+
+                <hr/>
+                <Card.Title id="a3">Additional Resources</Card.Title>
+                <hr/>
+        
+
                     <Card variant="light" bg="light">   
+  
+                        <Card.Title className="my-3">Virtual Tour and Videos</Card.Title>
 
-                        <hr/>
-                        <Card.Title id="a3">Additional Resources</Card.Title>
-                        <hr/>
-                    
+                        <ExternalLink link={"https://www.climatehubs.usda.gov/hubs/northeast/project/agroforestry-angus-glen"} label={"Agroforestry Angus Glen Farms, NY (USDA Northeast Climate Hub)"} /> 
+                        <ExternalLink link={"https://www.climatehubs.usda.gov/hubs/northeast/project/dickinson-college-farms-silvopasture"} label={"Dickinson College’s Farm Silvopasture PA (USDA Northeast Climate Hub)"} />
 
-          
       
-        
-        
+
+                        <Card.Title className="my-3">Other</Card.Title>
                         
-                    <Row>
-                    <Col>
-                        <ListGroup>
-                            <ListGroup.Item variant="info" href="">Virtual Tour and Videos</ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://www.climatehubs.usda.gov/hubs/northeast/project/agroforestry-angus-glen">Agroforestry Angus Glen Farms, NY (USDA Northeast Climate Hub)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.climatehubs.usda.gov/hubs/northeast/project/dickinson-college-farms-silvopasture">Dickinson College’s Farm Silvopasture PA (USDA Northeast Climate Hub)</ListGroup.Item> 
-                        </ListGroup>
-                        <br/>
-                        <ListGroup>
-                            <ListGroup.Item variant="info" href="">Other</ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://www.aftaweb.org/about/afta.html">Association for Temperate Agroforestry (association promoting the wider adoption of agroforestry by landowners in temperate regions of North America)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.capitalrcd.org/nema-about-us.html">Northeast/Mid-Atlantic Agroforestry (NEMA) Working Group</ListGroup.Item> 
-                        </ListGroup>
-                    </Col>
-                    <Col>
-                        <ListGroup>
-                            <ListGroup.Item variant="info" href="">Factsheets, Guides, Overviews</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://blogs.cornell.edu/ccednrpublications/agroforestry-silvopasture/">A comprehensive collection of silvopasture resources (including economic case studies, powerpoint presentations, workbooks, frameworks for silvopasture planning and implementation, guides, and factsheets) compiled by Cornell Cooperative Extension in the Department of Natural Resources can be found here.</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://cpb-us-w2.wpmucdn.com/www.paulsmiths.edu/dist/e/71/files/2016/06/Photo-Guide-to-Northeastern-United-States-Silvopasture-1lmctmt.pdf">Photo Guide to Northeastern United States Silvopasture (Orefice, Carroll, & Ketner, June 6, 2016)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="http://nmsp.cals.cornell.edu/publications/factsheets/factsheet17.pdf">Nutrient Management for Pastures (Cornell University Cooperative Extension)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/workingtrees/infosheets/WTInfoSheet-AdaptRainIntensity.pdf">Working Trees Info: How Can Agroforestry Help Landowners Adapt to Increased Rain Intensity? (USDA National Agroforestry Center)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/workingtrees/infosheets/AgroforestryIncomeOpps08212012.pdf">Working Trees Info: What Are Agroforestry’s Income Opportunities? (USDA National Agroforestry Center)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/workingtrees/infosheets/HeatStressCattleInfoSheetMay2013.pdf">Working Trees Info: Mitigating Heat Stress in Cattle (USDA National Agroforestry Center)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.climatehubs.usda.gov/hubs/northeast/topic/how-can-agroforestry-support-climate-change-mitigation-northeast">How can Agroforestry support mitigation of climate change? (USDA Northeast Climate Hub)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/agroforestrynotes/an46si09.pdf">Agroforestry Notes: Forest Grazing, Silvopasture, and Turning Livestock into the Woods (USDA National Agroforestry Center, August 2014)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/agroforestrynotes/an29s07.pdf">Agroforestry Notes: Silvopasture Water and Fencing Systems for Cattle (USDA National Agroforestry Center, February 2005)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/assets/documents/workingtrees/brochures/wts.pdf">Silvopasture: An Agroforestry Practice (USDA National Agroforestry Center)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.fs.usda.gov/nac/topics/water-quality.php">Water Quality (USDA National Agroforestry Center)</ListGroup.Item> 
-                        </ListGroup>
-                    </Col>
-                    </Row>
+                        <ExternalLink link={"https://www.aftaweb.org/about/afta.html"} label={"Association for Temperate Agroforestry (association promoting the wider adoption of agroforestry by landowners in temperate regions of North America)"} />
+                        <ExternalLink link={"https://www.capitalrcd.org/nema-about-us.html"} label={"Northeast/Mid-Atlantic Agroforestry (NEMA) Working Group"} />
+
+
+                        <Card.Title className="my-3">Factsheets, Guides, Overviews</Card.Title>
+                        
+                        <ExternalLink link={"https://blogs.cornell.edu/ccednrpublications/agroforestry-silvopasture/"} label={"A comprehensive collection of silvopasture resources (including economic case studies, powerpoint presentations, workbooks, frameworks for silvopasture planning and implementation, guides, and factsheets) compiled by Cornell Cooperative Extension in the Department of Natural Resources can be found here."} />
+                        <ExternalLink link={"https://cpb-us-w2.wpmucdn.com/www.paulsmiths.edu/dist/e/71/files/2016/06/Photo-Guide-to-Northeastern-United-States-Silvopasture-1lmctmt.pdf"} label={"Photo Guide to Northeastern United States Silvopasture (Orefice, Carroll, & Ketner, June 6, 2016)"} />
+                        <ExternalLink link={"http://nmsp.cals.cornell.edu/publications/factsheets/factsheet17.pdf"} label={"Nutrient Management for Pastures (Cornell University Cooperative Extension)"} />
+                        <ExternalLink link={"https://www.fs.usda.gov/nac/assets/documents/workingtrees/infosheets/WTInfoSheet-AdaptRainIntensity.pdf"} label={"Working Trees Info: How Can Agroforestry Help Landowners Adapt to Increased Rain Intensity? (USDA National Agroforestry Center)"} />
+                        <ExternalLink link={"https://www.fs.usda.gov/nac/assets/documents/workingtrees/infosheets/AgroforestryIncomeOpps08212012.pdf"} label={"Working Trees Info: What Are Agroforestry’s Income Opportunities? (USDA National Agroforestry Center)"} />
+                        <ExternalLink link={"https://www.fs.usda.gov/nac/assets/documents/workingtrees/infosheets/HeatStressCattleInfoSheetMay2013.pdf"} label={"Working Trees Info: Mitigating Heat Stress in Cattle (USDA National Agroforestry Center)"} />
+                        <ExternalLink link={"https://www.climatehubs.usda.gov/hubs/northeast/topic/how-can-agroforestry-support-climate-change-mitigation-northeast"} label={"How can Agroforestry support mitigation of climate change? (USDA Northeast Climate Hub)"} />
+                        <ExternalLink link={"https://www.fs.usda.gov/nac/assets/documents/agroforestrynotes/an46si09.pdf"} label={"Agroforestry Notes: Forest Grazing, Silvopasture, and Turning Livestock into the Woods (USDA National Agroforestry Center, August 2014)"} />
+                        <ExternalLink link={"https://www.fs.usda.gov/nac/assets/documents/agroforestrynotes/an29s07.pdf"} label={"Agroforestry Notes: Silvopasture Water and Fencing Systems for Cattle (USDA National Agroforestry Center, February 2005)"} />
+                        <ExternalLink link={"https://www.fs.usda.gov/nac/assets/documents/workingtrees/brochures/wts.pdf"} label={"Silvopasture: An Agroforestry Practice (USDA National Agroforestry Center)"} />
+                        <ExternalLink link={"https://www.fs.usda.gov/nac/topics/water-quality.php"} label={"Water Quality (USDA National Agroforestry Center)"} />
+
 
                     </Card>
 

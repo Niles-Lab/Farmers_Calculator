@@ -9,10 +9,10 @@ const Navigation = () => {
     <>
       <Navbar collapseOnSelect expand="sm" variant="dark" className="mainnav">
         <Col>
-            <Row className="justify-left">
+            <Row className="mb-0 pb-0 ml-3">
               <Navbar.Brand>UVM/Umaine for Farmers</Navbar.Brand>
             </Row>
-            <Row>
+            <Row className="mt-0">
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav>
                 <Nav.Link href="/">Home</Nav.Link>

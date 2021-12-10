@@ -10,6 +10,7 @@ import { Link } from 'react-router-dom';
 import { BsBoxArrowUpRight } from "react-icons/bs";
 //import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
+import ExternalLink from './../other/ExternalLink';
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
@@ -234,52 +235,36 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
                         <Card.Title id="a3">Additional Resources</Card.Title>
                         <hr/>
                     
-                    <Row>
-                    <Col>
-                        <ListGroup>
-                            <ListGroup.Item variant="info" href="">Research</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.cambridge.org/core/journals/renewable-agriculture-and-food-systems/article/abs/investigating-tarps-to-facilitate-organic-notill-cabbage-production-with-highresidue-cover-crops/007DC723EBB8BBF050763E36FB137FCF">Lounsbury NP, Warren ND, Wolfe SD, Smith RG (2018). Investigating tarps to facilitate organic no-till cabbage production with high-residue cover crops. Renewable Agriculture and Food Systems1–7.</ListGroup.Item> 
 
-                        </ListGroup>
 
-                        <br/>
+                    <Card.Title className="my-3">Research</Card.Title>
+                    
+                    <ExternalLink link={"https://www.cambridge.org/core/journals/renewable-agriculture-and-food-systems/article/abs/investigating-tarps-to-facilitate-organic-notill-cabbage-production-with-highresidue-cover-crops/007DC723EBB8BBF050763E36FB137FCF"} label={"Lounsbury NP, Warren ND, Wolfe SD, Smith RG (2018). Investigating tarps to facilitate organic no-till cabbage production with high-residue cover crops. Renewable Agriculture and Food Systems1–7."} />
+  
+                      <Card.Title className="my-3">Books</Card.Title>
+                    
+                    <ExternalLink link={""} label={"Mays, Daniel. The No-Till Organic Vegetable Farm: How to Start and Run a Profitable Market Garden That Builds Health in Soil, Crops, and Communities. Storey Publishing, LLC. November 10, 2020. ISBN-10: 1635861896."} />
 
-                        <ListGroup>
-                            <ListGroup.Item variant="info" href="">Books</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="">Mays, Daniel. The No-Till Organic Vegetable Farm: How to Start and Run a Profitable Market Garden That Builds Health in Soil, Crops, and Communities. Storey Publishing, LLC. November 10, 2020. ISBN-10: 1635861896.</ListGroup.Item> 
+                      <Card.Title className="my-3">Videos</Card.Title>
+                    
+                    <ExternalLink link={"https://www.youtube.com/watch?v=sWDxJhFlGE4"} label={"No-till and Cover Crops in Vegetable Systems with Natalie Lounsbury, Recorded Webinar, April 6, 2020"} />
+                    <ExternalLink link={"https://mediaspace.msu.edu/media/CallingAllFarmersMarch092017/1_xgvmbzio"} label={"Reduced Tillage on Permanent Beds, Webinar in “Reduced Tillage Webinar Series” hosted by Cornell RT, Michigan State University, and the University of Maine. Ryan Maher and Brian Caldwell, Cornell University, Mark Hutton, University of Maine, Thursday, March 9, 2017. "} />
+                    <ExternalLink link={"https://www.youtube.com/watch?v=RgP9W44G5cE&t=16s"} label={"Silage Tarps to Reduce Tillage on Small Farms: Farmer Experiences, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, Dec 20, 2018 "} />
 
-                        </ListGroup>
+                      <Card.Title className="my-3">Guides, Factsheets, Other</Card.Title>
+                    
+                    <ExternalLink link={"https://projects.sare.org/wp-content/uploads/CC_Fact_Sheet_Vegetables_Northern_NE.pdf"} label={"Cover Cropping on Vegetable Farms in Northern New England, UVM Extension"} />
+                    <ExternalLink link={"https://smallfarms.cornell.edu/2019/07/manage-weeds-with-tarping"} label={"Manage Weeds With Tarping, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, July 15, 2019, Ryan Maher"} />
+                    <ExternalLink link={"https://smallfarms.cornell.edu/2019/01/reusable-black-tarps-suppress-weeds-and-make-organic-reduced-tillage-more-viable"} label={"Reusable Black Tarps Suppress Weeds and Make Organic Reduced Tillage More Viable, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, January 14, 2019, Haley Rylander"} />
+                    <ExternalLink link={"https://smallfarms.cornell.edu/2016/10/small-scale-no-till-vegetables-at-seeds-of-solidarity-farm/"} label={"Small Scale No-Till Vegetables at Seeds of Solidarity Farm, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, October 3, 2016, Claire Cekander"} />
+                    <ExternalLink link={"https://smallfarms.cornell.edu/2018/04/take-me-out-to-a-tarped-field-needs-sidebar/"} label={"Take Me Out to a Tarped Field, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, April 6, 2018, Ryan Maher"} />
 
-                        <br/>
-                        <ListGroup>
-                            <ListGroup.Item variant="info" href="">Videos</ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://www.youtube.com/watch?v=sWDxJhFlGE4">No-till and Cover Crops in Vegetable Systems with Natalie Lounsbury, Recorded Webinar, April 6, 2020</ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://mediaspace.msu.edu/media/CallingAllFarmersMarch092017/1_xgvmbzio">Reduced Tillage on Permanent Beds, Webinar in “Reduced Tillage Webinar Series” hosted by Cornell RT, Michigan State University, and the University of Maine. Ryan Maher and Brian Caldwell, Cornell University, Mark Hutton, University of Maine, Thursday, March 9, 2017.</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.youtube.com/watch?v=RgP9W44G5cE&t=16s">Silage Tarps to Reduce Tillage on Small Farms: Farmer Experiences, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, Dec 20, 2018</ListGroup.Item>  
-                        </ListGroup>
-                        
-                    </Col>
-                    <Col>
-                        <ListGroup>
-                            <ListGroup.Item variant="info" href="">Guides, Factsheets, Other</ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://projects.sare.org/wp-content/uploads/CC_Fact_Sheet_Vegetables_Northern_NE.pdf">Cover Cropping on Vegetable Farms in Northern New England, UVM Extension</ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://smallfarms.cornell.edu/2019/07/manage-weeds-with-tarping/">Manage Weeds With Tarping, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, July 15, 2019, Ryan Maher</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://smallfarms.cornell.edu/2019/01/reusable-black-tarps-suppress-weeds-and-make-organic-reduced-tillage-more-viable/">Reusable Black Tarps Suppress Weeds and Make Organic Reduced Tillage More Viable, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, January 14, 2019, Haley Rylander     </ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://smallfarms.cornell.edu/2016/10/small-scale-no-till-vegetables-at-seeds-of-solidarity-farm/">Small Scale No-Till Vegetables at Seeds of Solidarity Farm, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, October 3, 2016, Claire Cekander</ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://smallfarms.cornell.edu/2018/04/take-me-out-to-a-tarped-field-needs-sidebar/">Take Me Out to a Tarped Field, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, April 6, 2018, Ryan Maher</ListGroup.Item>
 
-                        </ListGroup>
-
-                    </Col>
-
-                    </Row>
 
                     </Card>
 
             </Col>
-            <Col xs={0} lg={2}>
 
-            </Col>
         </Row>
 
 	</>

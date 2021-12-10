@@ -52,20 +52,20 @@ function App() {
 
 
     <Navbar className="mx-0 px-0" bg={"light"}>
-      <Col className="px-0" xs={2}>
+      <Col className="px-0" xs={12} md={2}>
         <Navbar.Brand><Image className="w-50" src={uvm} /></Navbar.Brand>
       </Col>
-      <Col className="px-0" xs={2}>
+      <Col className="px-0" xs={12} md={2}>
         <Navbar.Brand><Image className="w-50" src={umaine}/></Navbar.Brand>
       </Col>
-      <Col className="px-0" xs={2}>        
+      <Col className="px-0" xs={12} md={2}>        
         <Navbar.Brand><Image style={{"width": "100%"}} src={nifa}/></Navbar.Brand>
       </Col>
 
-      <Col className="px-0" xs={2}>
+      <Col className="px-0" xs={0} md={2}>
       </Col>
       
-      <Col xs={4}>
+      <Col xs={12} md={4}>
         <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
       </Col>
 {/*    <Nav>

@@ -10,10 +10,10 @@ function ExternalLink(props) {
         <>
         <Row className="px-5 mx-5 d-flex align-content-center justify-content-center">
 
-          <Col xs={10} className="text-center">
+          <Col xs={props.link ? 11 : 12} className="text-center">
             {props.label}
           </Col>
-          <Col xs={2}>
+          <Col xs={1}>
             {props.link &&
             <a className="mx-auto" target="_blank" rel="noreferrer" href={props.link}>
                <BsBoxArrowUpRight />

@@ -6,6 +6,7 @@ import './App.css';
 
 import umaine from './images/umaine.png';
 import uvm from './images/uvm.png';
+import climatehub from './images/climatehub.png';
 import nifa from "./images/nifa-color.svg";
 import Home from './Home.jsx'
 import Navigation from './Navigation.jsx'
@@ -51,26 +52,29 @@ function App() {
     <div className="position-relative clearfix fixed-bottom footer">
 
 
-    <Navbar className="mx-0 px-0" bg={"light"}>
-      <Col className="px-0" xs={12} md={2}>
-        <Navbar.Brand><Image className="w-50" src={uvm} /></Navbar.Brand>
+    <Navbar className="mx-0 px-0 flex-wrap" bg={"light"}>
+      <Col className="px-0" xs={12} md={1}>
+        <Navbar.Brand><Image className="w-75" src={uvm} /></Navbar.Brand>
       </Col>
-      <Col className="px-0" xs={12} md={2}>
-        <Navbar.Brand><Image className="w-50" src={umaine}/></Navbar.Brand>
+      <Col className="px-0" xs={12} md={1}>
+        <Navbar.Brand><Image className="w-75" src={umaine}/></Navbar.Brand>
       </Col>
-      <Col className="px-0" xs={12} md={2}>        
+      <Col className="px-0" xs={12} md={1}>        
         <Navbar.Brand><Image style={{"width": "100%"}} src={nifa}/></Navbar.Brand>
       </Col>
 
-      <Col className="px-0" xs={0} md={2}>
+      <Col className="px-0" xs={12} md={1}>
+        <Navbar.Brand><Image className="w-100" src={climatehub}/></Navbar.Brand>
       </Col>
       
+      <Col className="px-0" xs={0} md={4}>
+
+      </Col>
+
       <Col xs={12} md={4}>
         <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
       </Col>
-{/*    <Nav>
-      <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
-    </Nav>*/}
+
 
     </Navbar>
     </div>

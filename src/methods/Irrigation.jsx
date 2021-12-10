@@ -10,6 +10,7 @@ import { Alert, Card, Row, Col, Navbar,Container, Nav, ListGroup, Tab, Image } f
 import { BsBoxArrowUpRight } from "react-icons/bs";
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
+import ExternalLink from './../other/ExternalLink';
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
@@ -240,18 +241,12 @@ function Irrigation(props) {
                             <Container>
                     <Row>
 
-                        <ListGroup>
-                            <ListGroup.Item variant="info"></ListGroup.Item>
-                            <ListGroup.Item variant="light" action href="https://www.uvm.edu/climatefarming/sites/default/files/files/uvm_dripirrigation.pdf">Getting started with drip irrigation: components and costs (University of Vermont Extension, Rachel Schattman and Chloe Boutelle, Updated November 2018)</ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.climatehubs.usda.gov/hubs/northeast/topic/irrigation-pays-protecting-crop-revenues">Irrigation pays protecting crop revenues (USDA Northeast Climate Hub)
-                        Benefits of Irrigation: Intervale Community Farm 
-                        </ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.uvm.edu/sites/default/files/media/IrrigationCaseStudy_Feb2018_cmyk_bleed.pdf">Partial Budget (USDA Northeast Climate Hub and University of Vermont Extension, September 2017) 
-                            </ListGroup.Item> 
-                            <ListGroup.Item variant="light" action href="https://www.uvm.edu/sites/default/files/media/irrigation_case_study_intervale_july_2017_0.pdf">Case Study (Andy Jones, September 2017)
-                            Benefits of Irrigation: Intervale Community Farm 
-                            </ListGroup.Item> 
-                        </ListGroup>
+
+                        <ExternalLink link={"https://www.uvm.edu/climatefarming/sites/default/files/files/uvm_dripirrigation.pdf"} label={"Getting started with drip irrigation: components and costs (University of Vermont Extension, Rachel Schattman and Chloe Boutelle, Updated November 2018)"} />
+                        <ExternalLink link={"https://www.climatehubs.usda.gov/hubs/northeast/topic/irrigation-pays-protecting-crop-revenues"} label={"Irrigation pays protecting crop revenues (USDA Northeast Climate Hub) Benefits of Irrigation: Intervale Community Farm "} />
+                        <ExternalLink link={"https://www.uvm.edu/sites/default/files/media/IrrigationCaseStudy_Feb2018_cmyk_bleed.pdf"} label={"Partial Budget (USDA Northeast Climate Hub and University of Vermont Extension, September 2017) "} />
+                        <ExternalLink link={"https://www.uvm.edu/sites/default/files/media/irrigation_case_study_intervale_july_2017_0.pdf"} label={"Case Study (Andy Jones, September 2017) Benefits of Irrigation: Intervale Community Farm "} />
+
 
 
                     </Row>

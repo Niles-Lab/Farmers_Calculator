@@ -177,7 +177,7 @@ function npv() {
     .attr("height",height+30)
     .append("g")
     .attr("class", "main")
-    .on("mouseover", (d) => {
+    .on("mousemove", (d) => {
       setPos(d3.pointer(d));
     })
     .attr("transform",
@@ -192,7 +192,6 @@ function npv() {
       .call(d3.axisBottom(x));
 
     svg.append("g")
-
       .call(d3.axisLeft(y));
 
 
@@ -277,7 +276,7 @@ function npv() {
 
       // Tree Matured Label
       svg.append("text")
-        .attr("class", "lalel")
+        .attr("class", "label")
         .attr("text-anchor", "start")
         .attr("x", 0)
         .attr("y", (height/3)-margin.top-margin.bottom+20)
@@ -321,15 +320,23 @@ function npv() {
     // Easy Data View Line
     svg.append("svg:line")
     .attr("class", "line")
-    .attr("x1", x(pos[0]))
-    .attr("x2", x(pos[0]))
+    .attr("x1", pos[0])
+    .attr("x2", pos[0])
     .attr("y1", y(0))
     .attr("y2", y(range))
     .style("stroke-width", 2)
     .style("stroke", "black");
-    //.style("stroke-dasharray", ("5, 5"));
 
-
+    // Floating label on view line
+    svg.append("text")
+      .attr("class", "label")
+      .attr("text-anchor", "start")
+      .attr("x", pos[0])
+      .attr("y", pos[1])
+      .attr("dx", 0)
+      .attr("dy", 0)
+      .style("font-weight", "bold")
+      .text("floating");
 
 
 
@@ -479,7 +486,7 @@ function update(data) {
 
       // Tree Matured Label
       svg.append("text")
-        .attr("class", "lalel")
+        .attr("class", "label")
         .attr("text-anchor", "start")
         .attr("x", 0)
         .attr("y", (height/3)-margin.top-margin.bottom+20)
@@ -519,22 +526,29 @@ function update(data) {
 
 
 
-          // Easy Data View Line
+    // Easy Data View Line
     svg.append("svg:line")
     .attr("class", "line")
-    .attr("x1", x(pos[0]))
-    .attr("x2", x(pos[0]))
+    .attr("x1",  pos[0])
+    .attr("x2",  pos[0])
     .attr("y1", y(0))
     .attr("y2", y(range))
     .style("stroke-width", 2)
     .style("stroke", "black");
 
+    // Floating label on view line
+    svg.append("text")
+      .attr("class", "label")
+      .attr("text-anchor", "start")
+      .attr("x", pos[0])
+      .attr("y", pos[1])
+      .attr("dx", 0)
+      .attr("dy", 0)
+      .style("font-weight", "bold")
+      .text("floating");
+
+
 }
-
-
-
-
-
 
 
 

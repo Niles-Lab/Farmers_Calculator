@@ -40,14 +40,14 @@ function handleChange(event,key,value) {
 
 
     <Collapse in={spOpen}>
-    <Form>
+    <Form className="mt-3">
 
 		{
 		// Check box
 		}
 
 
-			<Col>
+{/*			<Col>
 				Apple Tree
 			</Col>
 			<Col>
@@ -57,8 +57,7 @@ function handleChange(event,key,value) {
 				value={props.dairy}
 				onChange={(event) => {props.setDairy(event.target.checked)}} />
 
-			</Col>
-
+			</Col>*/}
 
 
 		{Object.entries(props.sp).map(([key,value]) => (

@@ -46,7 +46,6 @@ const margin = {top: 50, right: 20, bottom: 30, left: 30},
 width = 800 - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
-const [pos, setPos] = useState([0,0]);
 
 // Data for legend
 const lines = ["Revenue", "Costs", "Average"];
@@ -141,7 +140,7 @@ function npv() {
 
 
 
-    // Create range and domain arbitrarily
+    // Update axes
     x.domain(props.xDom);
     y.domain(props.yDom);
 
@@ -151,51 +150,36 @@ function npv() {
     d3.select("#yAxis")
       .call(d3.axisLeft(y));
 
-    // svg.append("g")
-    //   .attr("id", "yAxis")
-    //   .call(d3.axisLeft(y));
-      // // Revenue Line
-      // svg.append("path")
-      // .datum(props.data)
-      // .attr("class", "line")
-      // .attr("fill", "none")
-      // .attr("stroke", "steelblue")
-      // .attr("stroke-width", 6)
-      // .attr("opacity", 0.5)
-      // .attr("d", d3.line()
-      // .x(d => x(d.year))
-      // .y(d => y(d.revenue))
-      // .curve(d3.curveBasis));
-      // //.curve(d3.curveCatmullRom));
-      // //.curve(d3.curveMonotoneX));
 
-      // // Costs line
-      // svg.append("path")
-      // .datum(props.data)
-      // .attr("class", "line")
-      // .attr("fill", "none")
-      // .attr("stroke", "red")
-      // .attr("stroke-width", 6)
-      // .attr("opacity", 0.5)
-      // .attr("d", d3.line()
-      // .x(d => x(d.year))
-      // .y(d => y(d.cost))
-      // .curve(d3.curveBasis));
-      // //.curve(d3.curveCatmullRom));
-      // //.curve(d3.curveMonotoneX));
+    // Update trees matured line
+    d3.selectAll(".matured")
+      .attr("dx", x(maturingYears)+5)
+      .attr("x1", x(maturingYears))
+      .attr("x2", x(maturingYears));
+  
+    // Update individual lines
+    d3.select("#revenue")
+      .datum(props.data)
+      .attr("d", d3.line()
+      .x(d => x(d.year))
+      .y(d => y(d.revenue))
+      .curve(d3.curveBasis));
 
-      // // Trend Line
-      // svg.append("path")
-      // .datum(props.data)
-      // .attr("class", "line")
-      // .attr("fill", "none")
-      // .attr("stroke", "orange")
-      // .attr("stroke-width", 6)
-      // .attr("opacity", 0.5)
-      // .attr("d", d3.line()
-      // .x(d => x(d.year))
-      // .y(d => y((d.cost + d.revenue) / 2))
-      // .curve(d3.curveBasis));
+
+    d3.select("#cost")
+      .datum(props.data)
+      .attr("d", d3.line()
+      .x(d => x(d.year))
+      .y(d => y(d.cost))
+      .curve(d3.curveBasis));
+
+    d3.select("#trend")
+      .datum(props.data)
+      .attr("d", d3.line()
+      .x(d => x(d.year))
+      .y(d => y((d.cost + d.revenue) / 2))
+      .curve(d3.curveBasis));
+
 
 
 
@@ -217,19 +201,70 @@ function npv() {
     x.domain(props.xDom);
     y.domain(props.yDom);
 
-
+      // .attr("class", "line matured")
+      // .attr("x1", x(maturingYears))
+      // .attr("x2", x(maturingYears))
+      // .attr("y1", y(0))
+      // .attr("y2", y(range))
+      // .style("stroke-width", 2)
+      // .style("stroke", "black")
 
     // Create the X axis:
-    let svg = d3.select("#pgcht")
+    const svg = d3.select("#pgcht")
     .append("svg")
     .attr("width",width)
     .attr("height",height+30)
+    .on("pointerover", d => {
+
+      d3.select("#ttline")
+      .attr("opacity", 1);
+
+      d3.select("#ttlbl")
+      .attr("opacity", 1);
+
+    })
+    .on("pointerout", d => {
+
+      d3.select("#ttline")
+      .attr("opacity", 0);
+
+      d3.select("#ttlbl")
+      .attr("opacity", 0);
+
+    })
+    .on("pointermove", (d) => {
+
+      let position = d3.pointer(d);
+
+      // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
+      // and making sure its positive to convert into an index for data array
+      //let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+margin.left+10))-1]));
+
+
+
+      //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
+      //let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
+
+
+      d3.select("#ttline")
+      .attr("x1", position[0]-(margin.right+margin.left+10))
+      .attr("x2", position[0]-(margin.right+margin.left+10));
+      // .attr("y1", y(minY))
+      // .attr("y2", y(maxY));
+
+      d3.select("#ttlbl")
+      .selectAll("text")
+      .attr("x", position[0]-(margin.right+margin.left))
+      .attr("y", position[1]-30);
+
+
+      //.attr("transform", (d,idx) => "translate(" + position[0]-(margin.right+margin.left)  + "," + parseFloat((idx * 20)) + ")")
+
+    })
     .append("g")
     .attr("class", "main")
 
-    .on("pointermove", (d) => {
-      setPos(d3.pointer(d));
-    })
+
     .attr("transform",
       "translate(" + margin.left*2 + "," + margin.top + ")");
     //.on("movemove", event => mousemove(event));    
@@ -245,6 +280,8 @@ function npv() {
     svg.append("g")
       .attr("id", "yAxis")
       .call(d3.axisLeft(y));
+
+
 
 
 
@@ -273,6 +310,7 @@ function npv() {
       svg.append("path")
       .datum(props.data)
       .attr("class", "line")
+      .attr("id", "revenue")
       .attr("fill", "none")
       .attr("stroke", "steelblue")
       .attr("stroke-width", 6)
@@ -288,6 +326,7 @@ function npv() {
       svg.append("path")
       .datum(props.data)
       .attr("class", "line")
+      .attr("id", "costs")
       .attr("fill", "none")
       .attr("stroke", "red")
       .attr("stroke-width", 6)
@@ -303,6 +342,7 @@ function npv() {
       svg.append("path")
       .datum(props.data)
       .attr("class", "line")
+      .attr("id", "trend")
       .attr("fill", "none")
       .attr("stroke", "orange")
       .attr("stroke-width", 6)
@@ -317,7 +357,7 @@ function npv() {
 
       // Tree Matured Line
       svg.append("svg:line")
-      .attr("class", "line")
+      .attr("class", "line matured")
       .attr("x1", x(maturingYears))
       .attr("x2", x(maturingYears))
       .attr("y1", y(0))
@@ -328,7 +368,7 @@ function npv() {
 
       // Tree Matured Label
       svg.append("text")
-        .attr("class", "label")
+        .attr("class", "label matured")
         .attr("text-anchor", "start")
         .attr("x", 0)
         .attr("y", (height/3)-margin.top-margin.bottom+20)
@@ -336,6 +376,64 @@ function npv() {
         .attr("dy", 0)
         .style("font-weight", "bold")
         .text("Trees Matured");
+
+
+
+    // Easy Data View Line
+    svg.append("svg:line")
+    .attr("class", "line")
+    .attr("id", "ttline")
+    .attr("opacity", 0)
+    .attr("x1", 0)
+    .attr("x2", 0)
+    .attr("y1", y(0))
+    .attr("y2", y(props.range))
+    .style("stroke-width", 2)
+    .style("stroke", "black");
+
+
+    svg.append("g")
+      .attr("class", "tooltip")
+      .attr("id", "ttlbl")
+      .attr("opacity", 0)
+      .attr("x", 0)
+      .attr("y", 0)
+      .attr("dx", 0)
+      .attr("dy", 0)
+      .selectAll("text")
+      .data(lines)
+      .join("text")
+      .style("background-color", "black")
+      .attr("text-anchor", "start")
+      .style("font-weight", "bold")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("padding", "5px")
+      .style("border-radius", "5px")
+      //.attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 20)) + ")")
+      .text(d => d)
+
+
+    // lblBox.selectAll("text")
+    //   .data(lines)
+      // .join("text")
+      // .style("background-color", "black")
+      // .attr("text-anchor", "start")
+      // .style("font-weight", "bold")
+      // .style("border", "solid")
+      // .style("border-width", "2px")
+      // .style("padding", "5px")
+      // .style("border-radius", "5px")
+      //.attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 20)) + ")")
+      // .text(d => d)
+
+
+            // <tr key={idx}>
+            //   <td>{d.year}</td>
+            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
+            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
+            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
+            // </tr>
 
 
     // Graph Legend
@@ -366,248 +464,15 @@ function npv() {
       .text(d => d)
       .attr("x", legendX)
       // Manually added text offset - see above comment
-      .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)))
+      .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)));
 
 
 
 
-
-    const tooltip = svg.append("g")
-    .attr("class", "tooltip")
-    .attr("id", "tooltip");
-
-
-    // Easy Data View Line
-    tooltip.append("svg:line")
-    .attr("class", "line")
-    .attr("x1", pos[0])
-    .attr("x2", pos[0])
-    .attr("y1", y(0))
-    .attr("y2", y(range))
-    .style("stroke-width", 2)
-    .style("stroke", "black");
-
-    // Floating label on view line
-    tooltip.append("text")
-      .attr("class", "label")
-      .attr("id", "ttplbl")
-      .attr("text-anchor", "start")
-      .attr("x", pos[0])
-      .attr("y", pos[1])
-      .attr("dx", 0)
-      .attr("dy", 0)
-      .style("font-weight", "bold")
-      .text("floating");
-
-
-}
-
-
-//update();
-
-
-
-
-
-
-
-// Update domain, range and data on change
-function update(data) {
-
-    let svg = d3.select("#pgcht").select("svg").select(".main");
-
-    const margin = {top: 50, right: 20, bottom: 30, left: 30},
-    width = sizeRef.current.offsetWidth - margin.right - margin.left,
-    height = 500 - (margin.top+margin.bottom);
-
-
-    svg.attr("width", width);
-
-
-
-
-    // data = [];
-
-    // Map each data point with:
-    // x -> year
-    // y -> revenue from trees
-    // netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
-    // d3.range(0, parseInt(props.length)+1).forEach(d =>
-    //   data.push({
-    //     year: d,
-    //     revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
-    //     cost: (parseInt(d) <= 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
-    // }));
-
-
-    // let largest = 0;
-
-    // let currRange = 1500;
-
-    // data.forEach(d => {
-    //   if(d.revenue >= largest) largest = d.revenue;
-    //   if(d.cost >= largest) largest = d.cost;
-    // });
-
-    // // Resize graph if largest value exceeds current domain
-    // if(range <= largest) {
-    //   y.domain([0,largest*1.25]);
-    //   range = largest*1.25;
-    // } else {
-    //   y.domain([0,range]);
-    // }
-
-    // x.domain([0,parseInt(props.length)+1]);
-    
-
-    //svg.selectAll("*").remove();
-
-    svg.append("g")
-      .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
-      .call(d3.axisBottom(x));
-
-    svg.append("g")
-      .call(d3.axisLeft(y));
-
-    console.log(props.xDom);
-
-    //Optional axis labels
-    // svg.append("text")
-    //   .attr("class", "x label position-absolute")
-    //   .style("font-weight", "bold")
-    //   .attr("text-anchor", "end")
-    //   .attr("x", width/2)
-    //   .attr("y", 0)
-    //   .attr("dy", height-margin.bottom)
-    //   .text("Project Year");
-
-    // svg.append("text")
-    //     .attr("class", "y label")
-    //     .style("font-weight", "bold")
-    //     .attr("text-anchor", "end")
-    //     .attr("x", -(height/2)+margin.bottom+margin.top)
-    //     .attr("y", -margin.left)
-    //     .attr("transform", "rotate(-90)")
-    //     .text("Revenue($)");
-
-
-    //   // Revenue Line
-    //   svg.append("path")
-    //   .datum(data)
-    //   .attr("class", "line")
-    //   .attr("fill", "none")
-    //   .attr("stroke", "steelblue")
-    //   .attr("stroke-width", 6)
-    //   .attr("opacity", 0.5)
-    //   .attr("d", d3.line()
-    //   .x(d => x(d.year))
-    //   .y(d => y(d.revenue))
-    //   .curve(d3.curveBasis));
-    //   //.curve(d3.curveCatmullRom));
-    //   //.curve(d3.curveMonotoneX));
-
-    //   // Costs line
-    //   svg.append("path")
-    //   .datum(data)
-    //   .attr("class", "line")
-    //   .attr("fill", "none")
-    //   .attr("stroke", "red")
-    //   .attr("stroke-width", 6)
-    //   .attr("opacity", 0.5)
-    //   .attr("d", d3.line()
-    //   .x(d => x(d.year))
-    //   .y(d => y(d.cost))
-    //   .curve(d3.curveBasis));
-    //   //.curve(d3.curveCatmullRom));
-    //   //.curve(d3.curveMonotoneX));
-
-    //   // Trend Line
-    //   svg.append("path")
-    //   .datum(data)
-    //   .attr("class", "line")
-    //   .attr("fill", "none")
-    //   .attr("stroke", "orange")
-    //   .attr("stroke-width", 6)
-    //   .attr("opacity", 0.5)
-    //   .attr("d", d3.line()
-    //   .x(d => x(d.year))
-    //   .y(d => y((d.cost + d.revenue) / 2))
-    //   .curve(d3.curveBasis));
-    //   //.curve(d3.curveCatmullRom));
-    //   //.curve(d3.curveMonotoneX));
-
-    //   // Tree Matured Line
-    //   svg.append("svg:line")
-    //   .attr("class", "line")
-    //   .attr("x1", x(maturingYears))
-    //   .attr("x2", x(maturingYears))
-    //   .attr("y1", y(0))
-    //   .attr("y2", y(range))
-    //   .style("stroke-width", 2)
-    //   .style("stroke", "black")
-    //   .style("stroke-dasharray", ("5, 5"));
-
-    //   // Tree Matured Label
-    //   svg.append("text")
-    //     .attr("class", "label")
-    //     .attr("text-anchor", "start")
-    //     .attr("x", 0)
-    //     .attr("y", (height/3)-margin.top-margin.bottom+20)
-    //     .attr("dx", x(maturingYears)+5)
-    //     .attr("dy", 0)
-    //     .style("font-weight", "bold")
-    //     .text("Trees Matured");
-
-    //   const legend = svg.append("g")
-    //   .attr("class", "legend");
-
-    //   // Add arc shape for legend
-    //   legend.selectAll("path")
-    //   .data(lines)
-    //   .join("path")
-    //     // Manually add offset based on index of year
-    //     // Oh boy is this some spaghetti
-    //     // Note - 20 is the offset in this case, as each index is multiplied by 20
-    //     .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-5) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
-    //     .attr("d", d3.arc()
-    //       .innerRadius(5)
-    //       .outerRadius(10)
-    //       .startAngle(3.14 * (3/4))
-    //       .endAngle(3.14 * 2)
-    //       )
-    //     .attr("fill", d => yearColors(d));
-
-
-    //   // Add legend text
-    //   legend.selectAll("text")
-    //   .data(lines)
-    //   .join("text")
-    //     .text(d => d)
-    //     .attr("x", legendX)
-    //     // Manually added text offset - see above comment
-    //     .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)))
-
-
-
-
-    const tooltip = svg.select("#tooltip");
-
-
-    // Easy Data View Line
-    tooltip.select(".line")
-    .attr("x1", pos[0])
-    .attr("x2", pos[0])
-    .attr("y1", y(0))
-    .attr("y2", y(range))
-
-    tooltip.select("#ttplbl")
-    .attr("x", pos[0])
-    .attr("y", pos[1])
 
 
 
 }
-
 
 
 
@@ -672,6 +537,7 @@ function wrap(text, width) {
             </thead>
             <tbody>
           {props.data.map((d,idx) => (
+
             <tr key={idx}>
               <td>{d.year}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>

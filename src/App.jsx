@@ -63,7 +63,7 @@ function App() {
       </Col>
 
       <Col className="px-0" xs={12} md={1}>
-        <Navbar.Brand><Image className="w-100" src={climatehub}/></Navbar.Brand>
+        <Navbar.Brand><Image style={{"width": "300%"}} src={climatehub}/></Navbar.Brand>
       </Col>
       
       <Col className="px-0" xs={0} md={4}>

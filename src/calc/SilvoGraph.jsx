@@ -101,9 +101,9 @@ function npv() {
   let npvc = 0;
 
   
-  for(var i = 0; i<data.length;i++) {
-    npvr += (data[i].revenue/((1+props.rate)**i));
-    npvc += (data[i].cost/((1+props.rate)**i));
+  for(var i = 0; i<props.data.length;i++) {
+    npvr += (props.data[i].revenue/((1+props.rate)**i));
+    npvc += (props.data[i].cost/((1+props.rate)**i));
   }
 
   return [
@@ -135,27 +135,76 @@ function npv() {
 		drawChart();
 
 
-	 }, [data]);
+	 }, []);
+
+  useEffect(() => {
 
 
+
+    // Create range and domain arbitrarily
+    x.domain(props.xDom);
+    y.domain(props.yDom);
+
+    d3.select("#xAxis")
+    .call(d3.axisBottom(x));
+
+    d3.select("#yAxis")
+      .call(d3.axisLeft(y));
+
+    // svg.append("g")
+    //   .attr("id", "yAxis")
+    //   .call(d3.axisLeft(y));
+      // // Revenue Line
+      // svg.append("path")
+      // .datum(props.data)
+      // .attr("class", "line")
+      // .attr("fill", "none")
+      // .attr("stroke", "steelblue")
+      // .attr("stroke-width", 6)
+      // .attr("opacity", 0.5)
+      // .attr("d", d3.line()
+      // .x(d => x(d.year))
+      // .y(d => y(d.revenue))
+      // .curve(d3.curveBasis));
+      // //.curve(d3.curveCatmullRom));
+      // //.curve(d3.curveMonotoneX));
+
+      // // Costs line
+      // svg.append("path")
+      // .datum(props.data)
+      // .attr("class", "line")
+      // .attr("fill", "none")
+      // .attr("stroke", "red")
+      // .attr("stroke-width", 6)
+      // .attr("opacity", 0.5)
+      // .attr("d", d3.line()
+      // .x(d => x(d.year))
+      // .y(d => y(d.cost))
+      // .curve(d3.curveBasis));
+      // //.curve(d3.curveCatmullRom));
+      // //.curve(d3.curveMonotoneX));
+
+      // // Trend Line
+      // svg.append("path")
+      // .datum(props.data)
+      // .attr("class", "line")
+      // .attr("fill", "none")
+      // .attr("stroke", "orange")
+      // .attr("stroke-width", 6)
+      // .attr("opacity", 0.5)
+      // .attr("d", d3.line()
+      // .x(d => x(d.year))
+      // .y(d => y((d.cost + d.revenue) / 2))
+      // .curve(d3.curveBasis));
+
+
+
+  }, [data])
 
 
   // Create and label axes of chart, append rectangles with 0 width
 	function drawChart() {
 
-
-    data = [];
-
-    // Map each data point with:
-    // x -> year
-    // y -> revenue from trees
-    netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
-    d3.range(1, parseInt(props.length)+1).forEach(d =>
-      data.push({
-        year: d,
-        revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
-        cost: (parseInt(d) <= 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
-    }));
 
     let x = d3.scaleLinear()
     .range([0,width-((margin.right+margin.left))])
@@ -164,9 +213,9 @@ function npv() {
     .range([height-margin.top-margin.bottom,0])
 
 
-    // Create range and domain arbitrarily
-    x.domain([0,parseInt(props.length)+1]);
-    y.domain([0,range]);
+    // Create domain from props
+    x.domain(props.xDom);
+    y.domain(props.yDom);
 
 
 
@@ -189,10 +238,12 @@ function npv() {
     svg.selectAll("*").remove();
 
     svg.append("g")
+      .attr("id", "xAxis")
       .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
       .call(d3.axisBottom(x));
 
     svg.append("g")
+      .attr("id", "yAxis")
       .call(d3.axisLeft(y));
 
 
@@ -250,7 +301,7 @@ function npv() {
 
       // Trend Line
       svg.append("path")
-      .datum(data)
+      .datum(props.data)
       .attr("class", "line")
       .attr("fill", "none")
       .attr("stroke", "orange")
@@ -352,7 +403,7 @@ function npv() {
 }
 
 
-update(data);
+//update();
 
 
 
@@ -371,6 +422,9 @@ function update(data) {
 
 
     svg.attr("width", width);
+
+
+
 
     // data = [];
 
@@ -408,14 +462,14 @@ function update(data) {
 
     //svg.selectAll("*").remove();
 
-    // svg.append("g")
-    //   .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
-    //   .call(d3.axisBottom(x));
+    svg.append("g")
+      .attr("transform", "translate(0," + (height - margin.bottom - margin.top) + ")")
+      .call(d3.axisBottom(x));
 
-    // svg.append("g")
-    //   .call(d3.axisLeft(y));
+    svg.append("g")
+      .call(d3.axisLeft(y));
 
-
+    console.log(props.xDom);
 
     //Optional axis labels
     // svg.append("text")
@@ -617,7 +671,7 @@ function wrap(text, width) {
               </tr>
             </thead>
             <tbody>
-          {data.map((d,idx) => (
+          {props.data.map((d,idx) => (
             <tr key={idx}>
               <td>{d.year}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>

@@ -236,6 +236,14 @@ function npv() {
 
       let position = d3.pointer(d);
 
+      let idx = Math.floor(x.invert(position[0]-(margin.right+margin.left+10)));
+
+      d3.select("#ttline")
+      .attr("opacity", idx < 0 ? 0 : 1);
+
+      d3.select("#ttlbl")
+      .attr("opacity", idx < 0 ? 0 : 1);
+
       // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
       // and making sure its positive to convert into an index for data array
       //let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+margin.left+10))-1]));
@@ -396,36 +404,22 @@ function npv() {
       .attr("class", "tooltip")
       .attr("id", "ttlbl")
       .attr("opacity", 0)
-      .attr("x", 0)
-      .attr("y", 0)
-      .attr("dx", 0)
-      .attr("dy", 0)
+      //.attr("x", 0)
+      //.attr("y", 0)
       .selectAll("text")
       .data(lines)
       .join("text")
-      .style("background-color", "black")
+      //.style("background-color", "black")
       .attr("text-anchor", "start")
       .style("font-weight", "bold")
-      .style("border", "solid")
-      .style("border-width", "2px")
-      .style("padding", "5px")
-      .style("border-radius", "5px")
-      //.attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 20)) + ")")
-      .text(d => d)
-
-
-    // lblBox.selectAll("text")
-    //   .data(lines)
-      // .join("text")
-      // .style("background-color", "black")
-      // .attr("text-anchor", "start")
-      // .style("font-weight", "bold")
       // .style("border", "solid")
       // .style("border-width", "2px")
-      // .style("padding", "5px")
       // .style("border-radius", "5px")
-      //.attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 20)) + ")")
-      // .text(d => d)
+      .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 20)) + ")")
+      .text(d => d)
+      .raise();
+
+
 
 
             // <tr key={idx}>

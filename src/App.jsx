@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Image, Col} from 'react-bootstrap';
+import { Navbar, Nav, Image, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -48,6 +48,7 @@ function App() {
 
     </span>
 
+    <Row>
     <div className="position-relative clearfix fixed-bottom footer">
 
 
@@ -76,7 +77,11 @@ function App() {
 
 
     </Navbar>
+
+
     </div>
+
+    </Row>
 
     </>
   );

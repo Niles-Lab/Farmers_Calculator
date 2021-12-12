@@ -76,7 +76,7 @@ if(range <= largest) {
 
 return (
 
-	<SilvoGraph width={graphWidth} data={data} xDom={xDom} yDom={yDom} {...props} />
+	<SilvoGraph width={graphWidth} range={range} data={data} xDom={xDom} yDom={yDom} {...props} />
 
 )
 

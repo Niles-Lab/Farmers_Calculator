@@ -76,7 +76,9 @@ const navs = ["Project Description", "The Problem", "The Focus"]
 
             <Row>
               <Col xs={12} lg={8} className="d-flex">
+                <a href={"/" + d}>
                 {d}
+                </a>
               </Col>
               <Col xs={12} lg={2}>
                 <a href={"/" + d + "/#a2"}>

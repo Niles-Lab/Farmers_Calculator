@@ -8,9 +8,9 @@ function ExternalLink(props) {
 	return (
 
         <>
-        <Row className="px-5 mx-5 d-flex align-content-center justify-content-center">
+        <Row className="d-flex justify-content-start mx-5 px-5">
 
-          <Col xs={props.link ? 11 : 12} className="text-center">
+          <Col xs={props.link ? 11 : 12} className="pl-5 text-justify d-flex justify-content-start">
             {props.label}
           </Col>
           <Col xs={1}>

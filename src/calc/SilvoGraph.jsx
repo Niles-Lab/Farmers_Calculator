@@ -47,6 +47,9 @@ width = 800 - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
 
+const [currData, setCurrData] = useState(props.data);
+
+
 // Data for legend
 const lines = ["Revenue", "Cost", "Average"];
 
@@ -139,6 +142,12 @@ function npv() {
   useEffect(() => {
 
 
+    setCurrData(props.data);
+
+
+    d3.select("#pgcht")
+    .select("svg")
+    .on("pointermove", d => pointerMove(d));
 
     // Update axes
     x.domain(props.xDom);
@@ -156,10 +165,12 @@ function npv() {
       .attr("dx", x(maturingYears)+5)
       .attr("x1", x(maturingYears))
       .attr("x2", x(maturingYears));
+
   
     // Update individual lines
     d3.select("#revenue")
       .datum(props.data)
+      .attr("d", null)
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y(d.revenue))
@@ -167,7 +178,9 @@ function npv() {
 
 
     d3.select("#cost")
+      .select(".line")
       .datum(props.data)
+      .attr("d", null)
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y(d.cost))
@@ -175,15 +188,16 @@ function npv() {
 
     d3.select("#trend")
       .datum(props.data)
+      .attr("d", null)
       .attr("d", d3.line()
       .x(d => x(d.year))
       .y(d => y((d.cost + d.revenue) / 2))
       .curve(d3.curveBasis));
 
+    
 
 
-
-  }, [data])
+  }, [props.data])
 
 
   // Create and label axes of chart, append rectangles with 0 width
@@ -209,7 +223,6 @@ function npv() {
     .attr("viewBox", "0 0 " + width + " " + height)
 
     .on("pointerover", d => {
-
       d3.select("#ttline")
       .attr("opacity", 1);
 
@@ -226,59 +239,7 @@ function npv() {
       .attr("opacity", 0);
 
     })
-    .on("pointermove", (d) => {
-
-      let position = d3.pointer(d);
-
-      let bound = x.invert(position[0]-(margin.right+margin.left+10));
-
-      d3.select("#ttline")
-      .attr("opacity", bound <= 0 ? 0 : 1);
-
-      d3.select("#ttlbl")
-      .attr("opacity", bound <= 0 ? 0 : 1);
-
-      // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
-      // and making sure its positive to convert into an index for data array
-      let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+margin.left+10))-1]));
-
-      //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
-      let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
-
-      let paths = d3.selectAll(".line");
-      let revenue = paths.select("#revenue");
-      let cost = paths.select("#costs");
-      let avg = d3.select("#trend");
-
-
-
-      d3.select("#ttline")
-      .attr("x1", position[0]-(margin.right+margin.left+10))
-      .attr("x2", position[0]-(margin.right+margin.left+10));
-      // .attr("y1", y(0))
-      // .attr("y2", y(maxY));
-
-      // Move all elements about graph
-      d3.select("#ttlbl")
-      .selectAll("*")
-      .attr("x", position[0]-(margin.right+margin.left))
-      .attr("y", position[1]-30);
-
-      // Update all tooltip data points
-      d3.select("#ttlbl")
-      .selectAll("text")
-      .text((d,idy) => {
-        let point = props.data[idx];
-        let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : Math.abs(((point.revenue - point.cost) / 2));
-        return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
-      });
-
-
-
-
-      //.attr("transform", (d,idx) => "translate(" + position[0]-(margin.right+margin.left)  + "," + parseFloat((idx * 20)) + ")")
-
-    })
+    .on("pointermove", d => pointerMove(d))
     .append("g")
     .attr("class", "main")
 
@@ -288,7 +249,7 @@ function npv() {
     //.on("movemove", event => mousemove(event));    
 
 
-    svg.selectAll("*").remove();
+    //svg.selectAll("*").remove();
 
     svg.append("g")
       .attr("id", "xAxis")
@@ -379,7 +340,7 @@ function npv() {
       .attr("x1", x(maturingYears))
       .attr("x2", x(maturingYears))
       .attr("y1", y(0))
-      .attr("y2", y(range))
+      .attr("y2", y(props.range))
       .style("stroke-width", 2)
       .style("stroke", "black")
       .style("stroke-dasharray", ("5, 5"));
@@ -475,6 +436,66 @@ function npv() {
 }
 
 
+function pointerMove(d) {
+
+
+      let position = d3.pointer(d);
+
+      let bound = x.invert(position[0]-(margin.right+margin.left+10));
+
+      d3.select("#ttline")
+      .attr("opacity", bound <= 0 ? 0 : 1);
+
+      d3.select("#ttlbl")
+      .attr("opacity", bound <= 0 ? 0 : 1);
+
+      // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
+      // and making sure its positive to convert into an index for data array
+      let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+margin.left+10))-1]));
+      
+      if(idx >= props.length) idx = props.length-1;
+
+      //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
+      let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
+
+
+
+      let paths = d3.selectAll(".line");
+      let revenue = d3.select("#revenue");
+      let cost = d3.select("#costs");
+      let avg = d3.select("#trend");
+
+      d3.select("#ttline")
+      .attr("x1", position[0]-(margin.right+margin.left+10))
+      .attr("x2", position[0]-(margin.right+margin.left+10));
+      // .attr("y1", y(0))
+      // .attr("y2", y(maxY));
+
+      // Move all elements about graph
+      d3.select("#ttlbl")
+      .selectAll("*")
+      .attr("x", position[0]-(margin.right+margin.left))
+      .attr("y", position[1]-30);
+
+      // Update all tooltip data points
+      d3.select("#ttlbl")
+      .selectAll("text")
+      .text((d,idy) => {
+        let point = props.data[idx];
+       //console.log(point);
+        let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : ((point.revenue - point.cost) / 2);
+        return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
+      });
+
+
+
+
+      //.attr("transform", (d,idx) => "translate(" + position[0]-(margin.right+margin.left)  + "," + parseFloat((idx * 20)) + ")")
+
+
+
+
+}
 
 
 // Mike Bostock's long label wrap example - thanks Mike!

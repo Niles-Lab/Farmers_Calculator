@@ -8,15 +8,13 @@ const Navigation = () => {
       <Navbar collapseOnSelect expand="sm" variant="dark" className="mainnav">
         <Col>
             <Row className="mb-0 pb-0 ml-3">
-              <Navbar.Brand>UVM/Umaine for Farmers</Navbar.Brand>
+              <Navbar.Brand>Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>
             </Row>
             <Row className="mt-0">
             <Navbar.Collapse id="responsive-navbar-nav">
               <Nav>
                 <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/silvopasture">Silvopasture</Nav.Link>
-                <Nav.Link href="/irrigation">Irrigation</Nav.Link>
-                <Nav.Link href="/tarping">Tarping</Nav.Link>
+
 
                 <NavDropdown title="About" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/about">About</NavDropdown.Item>
@@ -26,6 +24,11 @@ const Navigation = () => {
                   <NavDropdown.Item href="/extras">Extras</NavDropdown.Item>
                 </NavDropdown>
 
+                <NavDropdown title="Practices" id="basic-nav-dropdown">
+                  <NavDropdown.Item href="/silvopasture">Silvopasture</NavDropdown.Item>
+                  <NavDropdown.Item href="/irrigation">Irrigation</NavDropdown.Item>
+                  <NavDropdown.Item href="/tarping">Tarping</NavDropdown.Item>
+                </NavDropdown>
 
                 <NavDropdown title="Tools" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/Visuals">Visualizations</NavDropdown.Item>

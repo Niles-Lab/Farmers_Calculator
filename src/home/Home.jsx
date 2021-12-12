@@ -1,8 +1,8 @@
 import React from 'react';
 import { Alert, Card, Container, Row, Col, Image } from 'react-bootstrap';
-import ne from "./images/ne.png";
+import ne from "./../images/ne.png";
 
-import MainContent from "./home/MainContent.jsx"
+
 
 const practices = ["Silvopasture", "Tarping", "Irrigation"];
 
@@ -10,7 +10,7 @@ function Home(props) {
 
 //const navs = ["Local Effects of Climate Change", "Individual Action", "What is CBA?", "Our Mission"];
 //const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
-const navs = ["Project Description", "The Problem", "The Focus"]
+const navs = ["Project Description", "The Problem", "The Focus"];
 
 	return (
 

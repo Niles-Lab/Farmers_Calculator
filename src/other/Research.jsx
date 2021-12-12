@@ -1,10 +1,10 @@
 import React from 'react';
-import { Container, Card, Row, Col, ListGroup, Tab, Image, Navbar, Nav, Alert } from 'react-bootstrap';
-import mental_map from './images/mental_map.png';
-import code from './images/code.png';
-import focus_group from './images/focus_group.png';
-import research_graph from './images/research_graph.png'
-import Resource from "./Resource.jsx"
+import { Container, Card, Row, Col, Image, Navbar, Nav, Alert } from 'react-bootstrap';
+//import mental_map from './../images/mental_map.png';
+import code from './../images/code.png';
+import focus_group from './../images/focus_group.png';
+import research_graph from './../images/research_graph.png'
+import Resource from "./../other/Resource.jsx"
 
 const Research = (props, ref) => {
 
@@ -18,7 +18,7 @@ return (
         <div>
         <Row>
             <Col>
-                <Navbar sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+                <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (

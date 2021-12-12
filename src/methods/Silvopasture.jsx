@@ -5,9 +5,8 @@
  **/
 
  import React from 'react';
- import { Link } from 'react-router-dom';
- import { Card, Row, Col, Container, Nav, Navbar, Alert, ListGroup, Tab, Image } from 'react-bootstrap';
- import { BsBoxArrowUpRight } from "react-icons/bs";
+ import { Card, Row, Col, Nav, Navbar, Alert, ListGroup, Tab, Image } from 'react-bootstrap';
+
  import FormController from './../calc/FormController';
  import ImageSlider from './../viz/ImageSlider';
  import ExternalLink from './../other/ExternalLink';
@@ -21,7 +20,7 @@
 }
 
 // Silvopasture Cover Image(s)
-const sp = importAll(require.context('./../images/silvopasture/sp', false, /\.(png|jpe?g|svg)$/));
+//const sp = importAll(require.context('./../images/silvopasture/sp', false, /\.(png|jpe?g|svg)$/));
 
 // Pasture Enrichment Images
 const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));

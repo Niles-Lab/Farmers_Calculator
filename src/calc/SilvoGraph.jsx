@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Table } from 'react-bootstrap';
 import * as d3 from "d3";
 //import handleViewport from 'react-in-viewport';
@@ -31,11 +31,6 @@ const maturingYears = 10;
 // How many sq ft in an acre
 //const acreFt = 43560;
 
-const labels = ["", "Per Acre", 
-        "Total Area"];
-
-let range = 1000;
-
 function SilvoGraph(props) {
 
 
@@ -47,7 +42,6 @@ width = 800 - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
 
-const [currData, setCurrData] = useState(props.data);
 
 
 // Data for legend
@@ -65,34 +59,7 @@ let x = d3.scaleLinear()
 
 let y = d3.scaleLinear()
 .range([height-margin.top-margin.bottom,0])
-//let y = d3.scaleBand()
-//.range([height-margin.top-margin.bottom, 0])
 
-// Derive calculated values from props
-let netRevenue;
-let productivity = props.sp.effectiveProperty[0] / 100;
-
-// // Read other props in for easier access
-
-//let treesPerAcre = props.silvoPasture[4][0];
-//let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
-
-let data = [];
-
-// const legendX = parseFloat((width)-margin.left-margin.right);
-// const legendY = parseFloat(margin.top);
-
-
-// Map each data point with:
-// x -> year
-// y -> revenue from trees
-// netRevenue = props.sp.grazingRevenue[0] - props.sp.baseGrazingCost[0];
-// d3.range(0, parseInt(props.length)+1).forEach(d =>
-//   data.push({
-//     year: d,
-//     revenue: (parseInt(d) >= maturingYears ? (props.sp.treesPerAcre[0]*props.sp.treeCropPrice[0]*props.sp.treeCropYield[0]) : 0) + (netRevenue*productivity),
-//     cost: (parseInt(d) <= 1 ? props.sp.treesPerAcre[0]*props.sp.treePlantingCost[0] : props.sp.treesPerAcre[0] * props.sp.treeCost[0])
-// }));
 
 
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
@@ -129,9 +96,9 @@ function npv() {
     // }
 
     // Update margin once size ref is created
-    const margin = {top: 50, right: 20, bottom: 30, left: 30},
-    width = sizeRef.current.offsetWidth - margin.right - margin.left,
-    height = 500 - (margin.top+margin.bottom);
+    // const margin = {top: 50, right: 20, bottom: 30, left: 30},
+    // width = sizeRef.current.offsetWidth - margin.right - margin.left,
+    // height = 500 - (margin.top+margin.bottom);
 
 		// Draw physical chart
 		drawChart();
@@ -142,8 +109,7 @@ function npv() {
   useEffect(() => {
 
 
-    setCurrData(props.data);
-    console.log(props.data);
+
 
     let svg = d3.select("#pgcht")
     .select("svg")
@@ -506,14 +472,8 @@ function pointerMove(d) {
       if(idx >= props.length) idx = props.length-1;
 
       //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
-      let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
+      //let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
 
-
-
-      let paths = d3.selectAll(".line");
-      let revenue = d3.select("#revenue");
-      let cost = d3.select("#costs");
-      let avg = d3.select("#trend");
 
       d3.select("#ttline")
       .attr("x1", position[0]-(margin.right+margin.left+10))
@@ -549,29 +509,29 @@ function pointerMove(d) {
 
 
 // Mike Bostock's long label wrap example - thanks Mike!
-function wrap(text, width) {
-  text.each(function() {
-    var text = d3.select(this),
-        words = text.text().split(/\s+/).reverse(),
-        word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = 1.0, // ems
-        y = text.attr("y"),
-        dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", 1).attr("y", y).attr("dy", dy + "em");
-    while (word = words.pop()) {
-      line.push(word);
-      tspan.text(line.join(" "));
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop();
-        tspan.text(line.join(" "));
-        line = [word];
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-      }
-    }
-  });
-}
+// function wrap(text, width) {
+//   text.each(function() {
+//     var text = d3.select(this),
+//         words = text.text().split(/\s+/).reverse(),
+//         word,
+//         line = [],
+//         lineNumber = 0,
+//         lineHeight = 1.0, // ems
+//         y = text.attr("y"),
+//         dy = parseFloat(text.attr("dy")),
+//         tspan = text.text(null).append("tspan").attr("x", 1).attr("y", y).attr("dy", dy + "em");
+//     while (word = words.pop()) {
+//       line.push(word);
+//       tspan.text(line.join(" "));
+//       if (tspan.node().getComputedTextLength() > width) {
+//         line.pop();
+//         tspan.text(line.join(" "));
+//         line = [word];
+//         tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+//       }
+//     }
+//   });
+// }
 
 		return (
 

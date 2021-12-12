@@ -31,8 +31,8 @@ const Navigation = () => {
                 </NavDropdown>
 
                 <NavDropdown title="Tools" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/Visuals">Visualizations</NavDropdown.Item>
-                  <NavDropdown.Item href="/Tools">Economic Tools</NavDropdown.Item>
+                  <NavDropdown.Item href="/visualizations">Visualizations</NavDropdown.Item>
+                  <NavDropdown.Item href="/tools">Economic Tools</NavDropdown.Item>
 
                 </NavDropdown>
 

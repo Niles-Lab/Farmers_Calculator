@@ -32,7 +32,7 @@ let productivity = props.sp.effectiveProperty[0] / 100;
 
 
 //let treesPerAcre = props.silvoPasture[4][0];
-let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
+//let treesPerAcre = acreFt / (props.sp.treeSpacing ** 2);
 
 // Create data per year for returns/costs
 let data = [];

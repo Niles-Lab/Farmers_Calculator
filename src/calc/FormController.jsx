@@ -1,5 +1,5 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import { Button, Row, Col } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
@@ -17,7 +17,7 @@ const options = ["Method A", "Method B", "Compounded"];
 const [, updateState] = React.useState();
 const forceUpdate = React.useCallback(() => updateState({}), []);
 // const sizeRef = React.createRef();
-const start = 'start';
+
 
 // Default values for calculator
 let data = {

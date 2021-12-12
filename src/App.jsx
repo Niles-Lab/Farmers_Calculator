@@ -8,15 +8,22 @@ import umaine from './images/umaine.png';
 import uvm from './images/uvm.png';
 import climatehub from './images/climatehub.png';
 import nifa from "./images/nifa-color.svg";
-import Home from './Home.jsx'
+
+import Home from './home/Home.jsx'
+
 import Navigation from './Navigation.jsx'
 
 import Silvopasture from './methods/Silvopasture.jsx'
 import Irrigation from './methods/Irrigation.jsx'
 import Tarping from './methods/Tarping.jsx'
-import Research from './Research.jsx'
+
+import Research from './other/Research.jsx'
 import Extras from './other/Extras.jsx'
 import Press from './other/Press.jsx'
+
+import Visualizations from './other/Visualizations.jsx';
+import Tools from './other/Tools.jsx';
+
 import About from './home/About.jsx'
 
 function App() {
@@ -32,6 +39,8 @@ function App() {
 
           <Route path='/Research' component={Research}/>
 
+          <Route path='/Tools' component={Tools}/>
+          <Route path='/Visualizations' component={Visualizations}/>
 
           {/* Import method paths */}
           <Route path='/Silvopasture' component={Silvopasture}/>

@@ -7,12 +7,6 @@ import cover from "./../images/cover.jpg";
 
 const About = (props, ref) => {
 
-
-
-
-
-
-
 return (
 
 

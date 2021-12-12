@@ -201,14 +201,6 @@ function npv() {
     x.domain(props.xDom);
     y.domain(props.yDom);
 
-      // .attr("class", "line matured")
-      // .attr("x1", x(maturingYears))
-      // .attr("x2", x(maturingYears))
-      // .attr("y1", y(0))
-      // .attr("y2", y(range))
-      // .style("stroke-width", 2)
-      // .style("stroke", "black")
-
 
     const svg = d3.select("#pgcht")
     .append("svg")
@@ -241,10 +233,10 @@ function npv() {
       let bound = x.invert(position[0]-(margin.right+margin.left+10));
 
       d3.select("#ttline")
-      .attr("opacity", bound < 0 ? 0 : 1);
+      .attr("opacity", bound <= 0 ? 0 : 1);
 
       d3.select("#ttlbl")
-      .attr("opacity", bound < 0 ? 0 : 1);
+      .attr("opacity", bound <= 0 ? 0 : 1);
 
       // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
       // and making sure its positive to convert into an index for data array
@@ -258,29 +250,30 @@ function npv() {
       let cost = paths.select("#costs");
       let avg = d3.select("#trend");
 
-      console.log(y(props.data[idx].revenue))
+
 
       d3.select("#ttline")
       .attr("x1", position[0]-(margin.right+margin.left+10))
-      .attr("x2", position[0]-(margin.right+margin.left+10))
-      .attr("y1", y(0))
-      .attr("y2", y(maxY));
+      .attr("x2", position[0]-(margin.right+margin.left+10));
+      // .attr("y1", y(0))
+      // .attr("y2", y(maxY));
 
+      // Move all elements about graph
       d3.select("#ttlbl")
       .selectAll("*")
       .attr("x", position[0]-(margin.right+margin.left))
-      .attr("y", position[1]-30)
+      .attr("y", position[1]-30);
+
+      // Update all tooltip data points
+      d3.select("#ttlbl")
+      .selectAll("text")
       .text((d,idy) => {
+        let point = props.data[idx];
+        let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : Math.abs(((point.revenue - point.cost) / 2));
+        return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
+      });
 
-        return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(props.data[idx].revenue);
-      }); // Although everything is selected, only the text elements have a mutable .text() property
 
-            // <tr key={idx}>
-            //   <td>{d.year}</td>
-            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
-            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
-            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
-            // </tr>
 
 
       //.attr("transform", (d,idx) => "translate(" + position[0]-(margin.right+margin.left)  + "," + parseFloat((idx * 20)) + ")")

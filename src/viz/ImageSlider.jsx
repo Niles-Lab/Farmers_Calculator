@@ -109,10 +109,10 @@ function ImageSlider(props) {
 
 
 	return (
-	<Container className="position-relative my-3">
+	<Container className="position-relative py-5 top-100 w-100 d-block h-auto">
 
-        <Row className="p-0 m-0">
-        <Col xs={12} lg={8} className="ml-0 pl-0 align-items-end">
+        <Row className="mt-5">
+        <Col xs={6} lg={8} className="d-flex ml-0 pl-0 align-items-end">
         {props.lbls &&
             <>
 
@@ -123,8 +123,8 @@ function ImageSlider(props) {
                 {props.lbls.map((lbl,idy) => (
 
                 <Card.Title key={idy}
-                className="pl-5 mb-0 pb-0 pt-3"
-                style={{'position': 'absolute', 'opacity': idy === closest ? 1 : 0}}>
+                className="position-absolute"
+                style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </Card.Title>
 
@@ -178,7 +178,7 @@ function ImageSlider(props) {
             </>
                     }
         </Col>
-        <Col xs={12} lg={4} className="pr-5 d-flex justify-content-end align-items-end order-sm-first order-lg-last">
+        <Col xs={6} lg={4} className="pr-5 d-flex justify-content-end align-items-end order-sm-first order-lg-last">
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>
@@ -202,23 +202,24 @@ function ImageSlider(props) {
         </Col>
         </Row>
 
+        <Row className="mx-0 mb-5">
+        {/* Fading images accompanying slider */}
+          <Box className="position-relative d-flex w-100" style={{'min-height': '600px', 'overflow': 'visible'}}>
+                {/* Map the active image set to screen */}
+                {active.map((d,idx) => (
 
-                        {/* Fading images accompanying slider */}
-                          <Box className="position-relative w-100 mb-5 pb-5" style={{'height': '600px', 'overflow': 'visible'}}>
-                                {/* Map the active image set to screen */}
-                                {active.map((d,idx) => (
+                        <Image
+                            fluid
+                            key={d+idx}
+                            className="d-block w-100"
+                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
+                            src={d[1].default} 
+                            alt={d[0]}
+                            />
+                    ))}
 
-                                        <Image
-                                            key={d+idx}
-                                            className="d-block w-100"
-                                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
-                                            src={d[1].default} 
-                                            alt={d[0]}
-                                            />
-                                    ))}
-
-                          </Box>
-
+          </Box>
+        </Row>
 
 	</Container>
 		)

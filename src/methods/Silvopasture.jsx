@@ -46,7 +46,7 @@ const labels = ["Pasture Enrichment 1", "Aerial View", "Pasture Enrichment 2", "
 let lbls = [
 ["Step One", "Step Two", "Step Three"],
 ["Ex One", "Ex Two", "Ex Three"],
-["ab", "test"],
+["abdffffffffffffffffffffffffffffffffffffffffff", "test"],
 ["abc","asfse","fakjsf"]
 ];
 

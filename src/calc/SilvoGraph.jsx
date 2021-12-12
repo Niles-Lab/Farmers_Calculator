@@ -48,7 +48,7 @@ height = 500 - (margin.top+margin.bottom);
 
 
 // Data for legend
-const lines = ["Revenue", "Costs", "Average"];
+const lines = ["Revenue", "Cost", "Average"];
 
 const yearColors = d3.scaleOrdinal().domain(lines)
   .range(["steelblue", "red", "orange"]);
@@ -209,11 +209,13 @@ function npv() {
       // .style("stroke-width", 2)
       // .style("stroke", "black")
 
-    // Create the X axis:
+
     const svg = d3.select("#pgcht")
     .append("svg")
-    .attr("width",width)
-    .attr("height",height+30)
+    .attr("class", "svg-content-responsive svg-container")
+    .attr("preserveAspectRatio", "xMinYMin meet")
+    .attr("viewBox", "0 0 " + width + " " + height)
+
     .on("pointerover", d => {
 
       d3.select("#ttline")
@@ -236,34 +238,49 @@ function npv() {
 
       let position = d3.pointer(d);
 
-      let idx = Math.floor(x.invert(position[0]-(margin.right+margin.left+10)));
+      let bound = x.invert(position[0]-(margin.right+margin.left+10));
 
       d3.select("#ttline")
-      .attr("opacity", idx < 0 ? 0 : 1);
+      .attr("opacity", bound < 0 ? 0 : 1);
 
       d3.select("#ttlbl")
-      .attr("opacity", idx < 0 ? 0 : 1);
+      .attr("opacity", bound < 0 ? 0 : 1);
 
       // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
       // and making sure its positive to convert into an index for data array
-      //let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+margin.left+10))-1]));
-
-
+      let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+margin.left+10))-1]));
 
       //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
-      //let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
+      let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
 
+      let paths = d3.selectAll(".line");
+      let revenue = paths.select("#revenue");
+      let cost = paths.select("#costs");
+      let avg = d3.select("#trend");
+
+      console.log(y(props.data[idx].revenue))
 
       d3.select("#ttline")
       .attr("x1", position[0]-(margin.right+margin.left+10))
-      .attr("x2", position[0]-(margin.right+margin.left+10));
-      // .attr("y1", y(minY))
-      // .attr("y2", y(maxY));
+      .attr("x2", position[0]-(margin.right+margin.left+10))
+      .attr("y1", y(0))
+      .attr("y2", y(maxY));
 
       d3.select("#ttlbl")
-      .selectAll("text")
+      .selectAll("*")
       .attr("x", position[0]-(margin.right+margin.left))
-      .attr("y", position[1]-30);
+      .attr("y", position[1]-30)
+      .text((d,idy) => {
+
+        return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(props.data[idx].revenue);
+      }); // Although everything is selected, only the text elements have a mutable .text() property
+
+            // <tr key={idx}>
+            //   <td>{d.year}</td>
+            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
+            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
+            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
+            // </tr>
 
 
       //.attr("transform", (d,idx) => "translate(" + position[0]-(margin.right+margin.left)  + "," + parseFloat((idx * 20)) + ")")
@@ -400,34 +417,30 @@ function npv() {
     .style("stroke", "black");
 
 
-    svg.append("g")
-      .attr("class", "tooltip")
+
+    const tooltip = svg.append("g")
       .attr("id", "ttlbl")
-      .attr("opacity", 0)
-      //.attr("x", 0)
-      //.attr("y", 0)
-      .selectAll("text")
+      .attr("opacity", 0);
+
+      tooltip.selectAll("rect")
+      .data(lines)
+      .join("rect")
+      .attr("fill", d => yearColors(d))
+      .attr("opacity", 0.6)
+      .attr("width", d => d.length * 10 + ((": $0.00").length*5))
+      .attr("height", 6)
+      .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 15)) + ")");
+
+      tooltip.selectAll("text")
       .data(lines)
       .join("text")
-      //.style("background-color", "black")
-      .attr("text-anchor", "start")
       .style("font-weight", "bold")
-      // .style("border", "solid")
-      // .style("border-width", "2px")
-      // .style("border-radius", "5px")
-      .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 20)) + ")")
-      .text(d => d)
-      .raise();
-
-
-
-
-            // <tr key={idx}>
-            //   <td>{d.year}</td>
-            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
-            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
-            //   <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
-            // </tr>
+      .style("font-size", 12)
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 15)) + ")")
+      .text(d => d + ": $0.00"); 
 
 
     // Graph Legend

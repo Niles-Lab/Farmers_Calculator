@@ -91,7 +91,7 @@ return (
 	<>
 
 	<Row>
-		<Col xs={10} className="p-0">
+		<Col xs={12} xl={10} className="p-0">
 
 
 			{/*Calculator Output Table*/}
@@ -107,7 +107,7 @@ return (
 				sp={sp} />
 
 		</Col>
-		<Col xs={2} className="ml-0 pl-0 my-5">
+		<Col xs={12} xl={2} className="ml-0 pl-0 my-5">
 
 			<Button
 			className="my-3 mx-auto w-100"

@@ -108,3 +108,16 @@ td, th {
   cursor: pointer;
   outline: 0;
 }
+.svg-container {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+  vertical-align: top;
+  overflow: hidden;
+}
+.svg-content-responsive {
+  display: inline-block;
+
+  top: 10px;
+  left: 0;
+}

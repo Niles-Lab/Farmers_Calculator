@@ -110,12 +110,12 @@ function Silvopasture(props) {
 {/*               </Alert>*/}
 <br/><br/>
 
-{/*                <Alert variant={'danger'}>*/}
+{/*<Alert variant={'danger'}>*/}
 
 <br/><br/>
 Skilled and active management of pasture and woodland together with sound livestock
 husbandry are essential to achieving a sustainable and successful silvopasture system.
-{/*                </Alert>*/}
+{/*</Alert>*/}
 
 
 
@@ -131,9 +131,7 @@ className="d-block w-100 mb-4"
 src={pe[0][1].default} 
 
 />
-{/*                <Alert variant={'success'} className={"mt-5"}>*/}
 
-{/*                </Alert>*/}
 </Col>
 </Row>
 </Card.Body>

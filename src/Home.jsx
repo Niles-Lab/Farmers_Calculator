@@ -35,7 +35,7 @@ const navs = ["Project Description", "The Problem", "The Focus"]
 
 
           <p className="text-start justify-start">
-            Welcome to the *website title*, home to climate change adaptation resources for small, 
+            Welcome to the Climate Adaptation Resources for Northern New England Farmers, home to climate change adaptation resources for small, 
             medium and beginning farmers in northern New England. The climate adaptation resources 
             and tools on this website were created by a team of researchers and agricultural 
             specialists from the University of Maine, the University of Vermont, and the United 

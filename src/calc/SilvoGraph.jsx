@@ -143,11 +143,12 @@ function npv() {
 
 
     setCurrData(props.data);
+    console.log(props.data);
 
-
-    d3.select("#pgcht")
+    let svg = d3.select("#pgcht")
     .select("svg")
-    .on("pointermove", d => pointerMove(d));
+    .on("pointermove", d => pointerMove(d))
+    .select(".main");
 
     // Update axes
     x.domain(props.xDom);
@@ -167,32 +168,81 @@ function npv() {
       .attr("x2", x(maturingYears));
 
   
+
+    svg.selectAll(".data").remove();
+
     // Update individual lines
-    d3.select("#revenue")
-      .datum(props.data)
-      .attr("d", null)
-      .attr("d", d3.line()
-      .x(d => x(d.year))
-      .y(d => y(d.revenue))
-      .curve(d3.curveBasis));
+    // d3.select("#revenue")
+    //   .datum(props.data)
+
+    //   .attr("d", null)
+    //   .attr("d", d3.line()
+    //   .x(d => x(d.year))
+    //   .y(d => y(d.revenue))
+    //   .curve(d3.curveBasis));
 
 
-    d3.select("#cost")
-      .select(".line")
-      .datum(props.data)
-      .attr("d", null)
-      .attr("d", d3.line()
-      .x(d => x(d.year))
-      .y(d => y(d.cost))
-      .curve(d3.curveBasis));
+    // d3.select("#cost")
+    //   .datum(props.data)
+    //   .attr("d", null)
+    //   .attr("d", d3.line()
+    //   .x(d => x(d.year))
+    //   .y(d => y(d.cost))
+    //   .curve(d3.curveBasis));
 
-    d3.select("#trend")
-      .datum(props.data)
-      .attr("d", null)
-      .attr("d", d3.line()
-      .x(d => x(d.year))
-      .y(d => y((d.cost + d.revenue) / 2))
-      .curve(d3.curveBasis));
+    // d3.select("#trend")
+    //   .datum(props.data)
+    //   .attr("d", null)
+    //   .attr("d", d3.line()
+    //   .x(d => x(d.year))
+    //   .y(d => y((d.cost + d.revenue) / 2))
+    //   .curve(d3.curveBasis));
+
+
+    // Revenue Line
+    svg.append("path")
+    .datum(props.data)
+    .attr("class", "line data")
+    .attr("id", "revenue")
+    .attr("fill", "none")
+    .attr("stroke", "steelblue")
+    .attr("stroke-width", 6)
+    .attr("opacity", 0.5)
+    .attr("d", d3.line()
+    .x(d => x(d.year))
+    .y(d => y(d.revenue))
+    .curve(d3.curveBasis));
+
+
+    // Costs line
+    svg.append("path")
+    .datum(props.data)
+    .attr("class", "line data")
+    .attr("id", "costs")
+    .attr("fill", "none")
+    .attr("stroke", "red")
+    .attr("stroke-width", 6)
+    .attr("opacity", 0.5)
+    .attr("d", d3.line()
+    .x(d => x(d.year))
+    .y(d => y(d.cost))
+    .curve(d3.curveBasis));
+
+
+    // Trend Line
+    svg.append("path")
+    .datum(props.data)
+    .attr("class", "line data")
+    .attr("id", "trend")
+    .attr("fill", "none")
+    .attr("stroke", "orange")
+    .attr("stroke-width", 6)
+    .attr("opacity", 0.5)
+    .attr("d", d3.line()
+    .x(d => x(d.year))
+    .y(d => y((d.cost + d.revenue) / 2))
+    .curve(d3.curveBasis));
+
 
     
 
@@ -288,7 +338,7 @@ function npv() {
       // Revenue Line
       svg.append("path")
       .datum(props.data)
-      .attr("class", "line")
+      .attr("class", "line data")
       .attr("id", "revenue")
       .attr("fill", "none")
       .attr("stroke", "steelblue")
@@ -304,7 +354,7 @@ function npv() {
       // Costs line
       svg.append("path")
       .datum(props.data)
-      .attr("class", "line")
+      .attr("class", "line data")
       .attr("id", "costs")
       .attr("fill", "none")
       .attr("stroke", "red")
@@ -320,7 +370,7 @@ function npv() {
       // Trend Line
       svg.append("path")
       .datum(props.data)
-      .attr("class", "line")
+      .attr("class", "line data")
       .attr("id", "trend")
       .attr("fill", "none")
       .attr("stroke", "orange")
@@ -482,7 +532,7 @@ function pointerMove(d) {
       .selectAll("text")
       .text((d,idy) => {
         let point = props.data[idx];
-       //console.log(point);
+
         let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : ((point.revenue - point.cost) / 2);
         return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
       });

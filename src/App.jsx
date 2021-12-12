@@ -53,6 +53,7 @@ function App() {
           <Route path='/About' component={About}/>
           <Route path='/Extras' component={Extras}/>
           <Route path='/' component={Home}/>
+          
         </Switch>
 
     </span>

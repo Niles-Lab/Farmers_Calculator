@@ -5,9 +5,7 @@
  **/
 
 //import React, { useState } from 'react';
-import { Alert, Card, Row, Col, Container, Nav, Navbar, ListGroup, Tab, Image} from 'react-bootstrap';
-import { Link } from 'react-router-dom';
-import { BsBoxArrowUpRight } from "react-icons/bs";
+import { Alert, Card, Row, Col, Nav, Navbar, ListGroup, Tab, Image} from 'react-bootstrap';
 //import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
 import ExternalLink from './../other/ExternalLink';

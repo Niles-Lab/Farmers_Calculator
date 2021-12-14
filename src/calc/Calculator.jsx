@@ -64,8 +64,8 @@ netRevenue = props.opts.grazingRevenue[0] - props.opts.baseGrazingCost[0];
 d3.range(0, parseInt(props.length)+1).forEach(d =>
   data.push({
     year: d,
-    revenue: (parseInt(d) >= maturingYears ? (props.opts.treesPerAcre[0]*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + (netRevenue*productivity),
-    cost: (parseInt(d) <= 1 ? props.opts.treesPerAcre[0]*props.opts.treePlantingCost[0] : props.opts.treesPerAcre[0] * props.opts.treeCost[0])
+    revenue: (parseInt(d) >= maturingYears ? parseFloat(props.opts.treesPerAcre[0]*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity),
+    cost: (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*props.opts.treePlantingCost[0] : props.opts.treesPerAcre[0] * props.opts.treeCost[0])
 }));
 
 } else if(props.method === "irrigation") {
@@ -93,10 +93,10 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 d3.range(0, parseInt(props.length)+1).forEach(d =>
   data.push({
     year: d,
-    revenue: props.opts.baseCropRevenue * productivity,
-    cost: parseInt(d) === 0 ? 1000 : props.opts.maintenanceCost
+    revenue: props.opts.baseCropRevenue[0] * (productivity-1),
+    cost: parseInt(d) === 0 ? (parseFloat(props.opts.sprinklerCount[0]*props.opts.sprinklerCost[0]) + parseFloat(props.opts.pipeLength[0]*props.opts.pipeCost[0]) + parseFloat(props.opts.pumpSize[0]*props.opts.pumpCost[0])): // First year costs
+    props.opts.maintenanceCost[0] // Ongoing maintenance
 }));
-
 
 
 }
@@ -133,13 +133,33 @@ if(range <= largest) {
 }
 
 
+// Net Present Value(NPV) = Benefits(B) - Costs(C)
+// NPV = PV(B) - PV(C)
+function npv() {
 
+  let npvr = 0;
+  let npvc = 0;
 
+  console.log(data);
+  for(var i = 0; i<data.length;i++) {
+    npvr += (data[i].revenue)/(1+props.rate)**(i+1);
+    npvc += (data[i].cost)/(1+props.rate)**(i+1);
+  }
+
+  return [
+
+  ["Revenue", npvr],
+  ["Costs", npvc]
+
+  ];
+}
+console.log(data)
+console.log(npv());
 
 
 return (
 
-	<SilvoGraph width={graphWidth} range={range} data={data} xDom={xDom} yDom={yDom} {...props} />
+	<SilvoGraph npv={npv()} width={graphWidth} range={range} data={data} xDom={xDom} yDom={yDom} {...props} />
 
 )
 

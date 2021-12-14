@@ -550,7 +550,7 @@ function pointerMove(d) {
             <thead>
 
 
-          {npv().map((d,idx) => (
+          {props.npv.map((d,idx) => (
             <tr key={idx}>
               <th>{d[0]}</th>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>

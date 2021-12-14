@@ -20,7 +20,7 @@ function handleChange(event,key,value) {
 
 	opts[key][0] = parseFloat(event.target.value);
 	
-	props.setSP(sp => ({
+	props.setOpts(sp => ({
 		...props.opts
 	}));
 

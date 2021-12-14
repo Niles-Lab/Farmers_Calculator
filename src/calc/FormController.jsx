@@ -22,7 +22,7 @@ const forceUpdate = React.useCallback(() => updateState({}), []);
 // Default values for calculator
 let data = {
 	unit: "Acres",
-	land: 123,
+	land: 10,
 	method: [],
 	selected: [],
 	crops: [{ type: "Unknown", amount: 0, idx: 0 }],
@@ -74,7 +74,6 @@ let tarpoptions = {
 
 
 
-
 // Discount rate for NPV
 const [rate, setRate] = useState(data.rate);
 
@@ -88,14 +87,22 @@ const [unit, setUnit] = useState(data.unit);
 const [length, setLength] = useState(data.length);
 
 // Silvopasture specific options
-const [opts, setOpts] = useState(silvoptions);
+const [opts, setOpts] = useState(() => {
+	if (props.variant === "silvopasture") {
+		return silvoptions;
+	} else if(props.variant === "irrigation") {
+		return irroptions;
+	} else return tarpoptions;
+});
+
+
 
 
 useEffect(() => {
 
-if (method === "silvopasture") {
+if (props.variant === "silvopasture") {
 	setOpts(silvoptions);
-} else if(method === "irrigation") {
+} else if(props.variant === "irrigation") {
 	setOpts(irroptions);
 } else setOpts(tarpoptions);
 
@@ -130,6 +137,7 @@ return (
 				options={options}
 				land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
 				acres={unit}
+				method={method}
 				crops={crops}
 				length={length}
 				rate={rate}

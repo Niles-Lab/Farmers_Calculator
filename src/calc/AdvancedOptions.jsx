@@ -1,25 +1,27 @@
 /**
  * 
- * SilvopastureCalc - particular calculator component for Silvopasture data collection
+ * AdvancedOptions - particular calculator component for Silvopasture data collection
  * 
  **/
 
 import React, { useState } from "react";
 import { Form, Card, Col, Row, Button, Collapse, InputGroup } from 'react-bootstrap';
 
-function SilvopastureCalc(props) {
+function AdvancedOptions(props) {
 
 
-const [spOpen, spSetOpen] = useState(false);
+const [isOpen, setIsOpen] = useState(false);
+let upperCaseMethod = props.method.charAt(0).toUpperCase() + props.method.slice(1);
+
 
 function handleChange(event,key,value) {
 
-	let opts = props.sp;
+	let opts = props.opts;
 
 	opts[key][0] = parseFloat(event.target.value);
 	
 	props.setSP(sp => ({
-		...props.sp
+		...props.opts
 	}));
 
 }
@@ -32,14 +34,14 @@ function handleChange(event,key,value) {
 
 		
     <Button
-    onClick={() => spSetOpen(!spOpen)}
+    onClick={() => setIsOpen(!isOpen)}
     aria-controls="silvoPasture-collapse"
-    aria-expanded={spOpen}>
-  		More Silvopasture Options
+    aria-expanded={isOpen}>
+  		More { upperCaseMethod } Options
   	</Button>
 
 
-    <Collapse in={spOpen}>
+    <Collapse in={isOpen}>
     <Form className="mt-3">
 
 		{
@@ -47,20 +49,7 @@ function handleChange(event,key,value) {
 		}
 
 
-{/*			<Col>
-				Apple Tree
-			</Col>
-			<Col>
-			<Form.Control
-				name="dairy"
-				type="checkbox"
-				value={props.dairy}
-				onChange={(event) => {props.setDairy(event.target.checked)}} />
-
-			</Col>*/}
-
-
-		{Object.entries(props.sp).map(([key,value]) => (
+		{Object.entries(props.opts).map(([key,value]) => (
 			<Form.Group key={key}>
 				<Row>
 					<Col>
@@ -76,7 +65,7 @@ function handleChange(event,key,value) {
 						min={0}
 						step={0.5}
 						key={key}
-						value={props.sp[key][0]}
+						value={props.opts[key][0]}
 						onChange = {(event) => {handleChange(event,key,value)}} />
 					<InputGroup.Text>{value[1]}</InputGroup.Text>
 				  </InputGroup>
@@ -91,4 +80,4 @@ function handleChange(event,key,value) {
 		)
 }
 
-export default SilvopastureCalc;
+export default AdvancedOptions;

@@ -300,7 +300,7 @@ silvopasture system design.
 
 
 {/* Calculator */}
-<FormController />
+<FormController variant={"silvopasture"} />
 
 
 <hr/>

@@ -201,7 +201,7 @@ function Irrigation(props) {
                     <Card.Title id="a2">Irrigation Economic Tool</Card.Title>
                 <hr/>
                 {/* Calculator */}
-                <FormController />
+                <FormController variant={"irrigation"} />
 
                     <Card variant="light" bg="light">   
 

@@ -8,7 +8,7 @@ import React from "react";
 import { Form, Col, Row, Container, Dropdown } from 'react-bootstrap';
 //import CropInput from './CropInput.jsx'
 import { BsX } from "react-icons/bs";
-import SilvopastureCalc from './SilvopastureCalc.jsx';
+import AdvancedOptions from './AdvancedOptions.jsx';
 
 // let MAX_CROPS = 10;
 
@@ -172,7 +172,7 @@ let units = ["Acres", "Hectares"];
 
 					{/* Custom Calculator input here */}
 
-					<SilvopastureCalc {...props} />
+					<AdvancedOptions {...props} />
 
 			
 

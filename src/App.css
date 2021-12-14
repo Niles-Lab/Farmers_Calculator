@@ -121,3 +121,6 @@ td, th {
   top: 10px;
   left: 0;
 }
+.card {
+  border: 0px;
+}

@@ -145,7 +145,7 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
 
 </Card>
 {/* Tabbed view of method variants */}
-<Card id="a1">
+<Card id="a1" bg="light">
 <hr/>
 <Card.Title id="2">Visualizations</Card.Title>
 <hr/>

@@ -137,7 +137,7 @@ function Irrigation(props) {
 
 
             {/* Tabbed view of method variants */}
-            <Card id="a1">
+            <Card id="a1" bg="light">
             <hr/>
             <Card.Title id="2">Visualizations</Card.Title>
             <hr/>

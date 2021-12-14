@@ -581,7 +581,7 @@ function pointerMove(d) {
               <td>{d.year}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
-              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue-d.cost)}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.value)}</td>
             </tr>
 
             ))}

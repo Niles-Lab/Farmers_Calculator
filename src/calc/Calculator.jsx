@@ -45,32 +45,35 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 // }
 
 // Overview of irrigation options
-// let irroptions = {
+// const irroptions = {
 //   baseCropRevenue: [2500, "$/Acre", "Base Crop Revenue"],
 //   baseCropCost: [1500, "$/Acre", "Base Crop Cost"],
 //   sprinklerSpacing: [40, "Ft", "Sprinkler Spacing"],
-//   sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
+//   //sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
 //   sprinklerCost: [62.50, "$/Head", "Sprinkler Cost"],
 //   pipeLength: [1089, "Ft/Ac", "Pipe Length"],
 //   pipeCost: [2.80, "$/Ft", "Pipe Cost"],
 //   pumpSize: [10, "HP", "Pump Size"],
 //   pumpCost: [710, "$/HP", "Pump Cost"],
+//   dailyPumpUse : [8, "Hr/Day", "Daily Pump Use"],
+//   hourlyPump: [90, "Days/Yr", "Hourly Pump"],
+//   dieselCost: [3.40, "$/Gal", "Diesel Fuel Cost"],
 //   maintenanceCost: [100, "$/Acre/Yr", "Maintenance Cost"],
-//   effectiveProperty: [140, "%", "Productivity With Irrigation"]
+//   effectiveProperty: [150, "%", "Productivity With Irrigation"]
 // }
 
-// let tarpoptions = {
+// const tarpoptions = {
 //   baseCropRevenue: [2500, "$", "Base Crop Revenue"],
 //   baseCropCost: [1500, "$", "Base Crop Cost"],
 //   bedSpacing: [8, "Ft", "Bed Spacing"],
 //   tarpLength: [5445, "Ft", "Tarp Length"],
 //   tarpCost: [0.70, "$/Ft", "Tarp Cost"],
+//   tarpLabor: [4, "Hr/Acre", "Tarp Labor"],
+//   tarpLaborCost: [20.00, "$/Hr", "Tarp Labor Cost"],
 //   coverCropCost: [150, "$/Ac", "Cover Crop Cost"], // Effective every OTHER year, starting with 0
 //   maintenanceCost: [50, "$/Acre/Yr", "Maintenance Cost"],
 //   effectiveProperty: [120, "%", "Productivity With Tarp & Cover Crop"]
 // }
-
-
 
 
 // Map each data point with:
@@ -78,7 +81,6 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 // y -> revenue, cost, net gain
 d3.range(0, parseInt(props.length)+1).forEach(d => {
 
-  console.log(props.key);
 
   let rev = 0;
   let cst = 0;
@@ -91,18 +93,36 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
   }
   else if(props.method === "irrigation") {
   
+    let sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
+    let annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
+    let pipeLength = acreFt / props.opts.sprinklerSpacing[0];
+
     rev = props.opts.baseCropRevenue[0] * (productivity-1)
-    cst = parseInt(d) === 0 ? (parseFloat(props.opts.sprinklerCount[0]*props.opts.sprinklerCost[0]) + parseFloat(props.opts.pipeLength[0]*props.opts.pipeCost[0]) + parseFloat(props.opts.pumpSize[0]*props.opts.pumpCost[0])): // First year costs
-    props.opts.maintenanceCost[0]; // Ongoing maintenance    
-  
+    cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
+    props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
+
+
   } else if(props.method === "tarping") {
     
+    let labor = props.opts.tarpLabor[0]*props.opts.tarpLaborCost[0];
+    let cost = 0;
+
+    cost += d === 0 ? (props.opts.tarpLength[0] * props.opts.tarpCost[0]) : 0; // Initial cost, one time only
+    cost += d % 2 === 0 ? labor : props.opts.coverCropCost[0]; // Labor is paid every other year, cover crop cost is paid every other year
+    cost += (d > 0 && (d % 2 === 0)) ? props.opts.maintenanceCost[0] : 0; //
+
+    cst = cost;
+
     rev = props.opts.baseCropRevenue[0] * (productivity-1);
-    cst = (parseInt(d) === 0 ? props.opts.tarpLength[0] * props.opts.tarpCost[0] :
-      props.opts.maintenanceCost[0]) // Ongoing Maintenance
-      + (parseInt(d) % 2 == 0 ? props.opts.coverCropCost[0] : 0); // Is this a maintenance year?
+
+    // cst = ((parseInt(d) === 0 ? props.opts.tarpLength[0] * props.opts.tarpCost[0] : 0) + // Initial Investment
+    //   (parseInt(d) % 2 == 0 ? labor // Ongoing Maintenance
+    //     : props.opts.coverCropCost[0]); // Is this a maintenance year?
 
 
+    // cst = (parseInt(d) === 0 ? props.opts.tarpLength[0] * props.opts.tarpCost[0] :
+    //   props.opts.maintenanceCost[0]) // Ongoing Maintenance
+    //   + (parseInt(d) % 2 == 1 ? props.opts.coverCropCost[0] : 0); // Is this a maintenance year?
 
   }
   

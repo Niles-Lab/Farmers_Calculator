@@ -48,14 +48,16 @@ const irroptions = {
 	baseCropRevenue: [2500, "$/Acre", "Base Crop Revenue"],
 	baseCropCost: [1500, "$/Acre", "Base Crop Cost"],
 	sprinklerSpacing: [40, "Ft", "Sprinkler Spacing"],
-	sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
+	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
 	sprinklerCost: [62.50, "$/Head", "Sprinkler Cost"],
-	pipeLength: [1089, "Ft/Ac", "Pipe Length"],
 	pipeCost: [2.80, "$/Ft", "Pipe Cost"],
 	pumpSize: [10, "HP", "Pump Size"],
 	pumpCost: [710, "$/HP", "Pump Cost"],
+	dailyPumpUse : [8, "Hr/Day", "Daily Pump Use"],
+	hourlyPump: [90, "Days/Yr", "Hourly Pump"],
+	dieselCost: [3.40, "$/Gal", "Diesel Fuel Cost"],
 	maintenanceCost: [100, "$/Acre/Yr", "Maintenance Cost"],
-	effectiveProperty: [140, "%", "Productivity With Irrigation"]
+	effectiveProperty: [150, "%", "Productivity With Irrigation"]
 }
 
 const tarpoptions = {
@@ -64,6 +66,8 @@ const tarpoptions = {
 	bedSpacing: [8, "Ft", "Bed Spacing"],
 	tarpLength: [5445, "Ft", "Tarp Length"],
 	tarpCost: [0.70, "$/Ft", "Tarp Cost"],
+	tarpLabor: [4, "Hr/Acre", "Tarp Labor"],
+	tarpLaborCost: [20.00, "$/Hr", "Tarp Labor Cost"],
 	coverCropCost: [150, "$/Ac", "Cover Crop Cost"], // Effective every OTHER year, starting with 0
 	maintenanceCost: [50, "$/Acre/Yr", "Maintenance Cost"],
 	effectiveProperty: [120, "%", "Productivity With Tarp & Cover Crop"]

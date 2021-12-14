@@ -110,8 +110,11 @@ function ImageSlider(props) {
 
 	return (
 	<Container className="position-relative py-5 top-100 w-100 d-block h-auto">
+        <hr/>        
+        <Card.Title className="mt-5 mb-5">{props.title}</Card.Title>
 
-        <Row className="mt-5">
+        <Row>
+
         <Col xs={6} lg={8} className="d-flex ml-0 pl-0 align-items-end">
         {props.lbls &&
             <>
@@ -140,8 +143,8 @@ function ImageSlider(props) {
                 {props.lbls[props.groups.indexOf(active)].map((lbl,idy) => (
 
                 <Card.Title key={idy}
-                className="pl-5 mb-0 pb-0 pt-3"
-                style={{'position': 'absolute', 'opacity': idy === closest ? 1 : 0}}>
+                className="position-absolute pl-5 mb-0 pb-0 pt-3"
+                style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </Card.Title>
 

@@ -26,27 +26,26 @@
 const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
-const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
+//const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
 
 // Pasture Enrichment Images 2
 const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
-const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
+//const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
 //const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
 
 // Groups and labels for ImageSlider
-const groups = [pe,av1,pe2,av2];
-const labels = ["Pasture Enrichment 1", "Aerial View", "Pasture Enrichment 2", "Aerial View"];
+//const groups = [pe,av1,pe2,av2];
+const groups = [pe, pe2];
+const titles = ["____ trees in cattle pasture", "Pasture Enrichment – Apple orchard in sheep pasture"];
 // let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
 // "Ponds": ["Ex One", "Ex Two", "Ex Three"], "ABCD": ["ab", "test"]}
 let lbls = [
-["Step One", "Step Two", "Step Three"],
-["Ex One", "Ex Two", "Ex Three"],
-["abdffffffffffffffffffffffffffffffffffffffffff", "test"],
-["abc","asfse","fakjsf"]
+["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, and trees are selectively harvested"],
+["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted (density?) in the sheep pasture.","Mature apple trees in the pasture 15-20 years after planting.  "]
 ];
 
 
@@ -227,7 +226,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 	
 	<>
 	
-	<ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} labels={labels} />
+	<ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} title={titles[idz]} />
 
 	</>
 

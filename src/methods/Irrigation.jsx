@@ -32,12 +32,10 @@ const ig = importAll(require.context('../images/irrigation/ig/', false, /\.(png|
 let groups = [ig, pd];
 
 
-let labels = ["Irrigation", "Irrigation With Ponds"];
+const titles = ["Aerial view of a drip irrigation system on a New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a New England vegetable farm"];
 let lbls = [
-["Testng One", "Step Two", "And yYp Three"],
-["Ex One", "Ex Two", "Ex Three"],
-["ab", "test"],
-["abc","asfse","fakjsf"]
+["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to the driplines in fields through an irrigation pipe"],
+["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to a combined drip and sprinkler irrigation system in the vegetable fields through an irrigation pipe"]
 ];
 
 
@@ -148,7 +146,7 @@ function Irrigation(props) {
                     
                     <>
                     
-                    <ImageSlider groups={e} lbls={lbls[idz]} labels={labels} />
+                    <ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} title={titles[idz]} />
 
                     </>
 

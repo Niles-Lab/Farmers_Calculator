@@ -36,13 +36,12 @@ var labels = ["Irrigation", "Irrigation With Ponds"];
 
 
 const irrigation = {
+  titles: ["Aerial view of a drip irrigation system on a New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a New England vegetable farm"],
   images: [ig, pd],
   lbls: [
-    ["Testng One", "Step Two", "And yYp Three"],
-    ["Ex One", "Ex Two", "Ex Three"],
-    ["ab", "test"],
-    ["abc","asfse","fakjsf"]
-    ]
+  ["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to the driplines in fields through an irrigation pipe"],
+  ["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to a combined drip and sprinkler irrigation system in the vegetable fields through an irrigation pipe"]
+  ]
 }
 
 // 
@@ -60,17 +59,15 @@ const sp = [tp[0]];
 
 
 const tarping = {
+  titles: ["Tarping in cover crop and conservation tillage systems"],
   images: [tp],
   lbls: [
-    ["Late August/Early September: plant perennial rye cover crop",
-    "June: Roll down rye using either a lawn roller or a tractor driven roller crimper",
-    "June: Place tarps, secure with sand bags",
-    "June: Remove tarps after two weeks. Plant cash crop of brassica starts",
-    "August/September: Harvest crops, plant cover crop"],
-    ["Ex One", "Ex Two", "Ex Three"],
-    ["ab", "test"],
-    ["abc","asfse","fakjsf"]
-    ]
+["Late August/Early September: plant perennial rye cover crop",
+"June: Roll down rye using either a lawn roller or a tractor driven roller crimper",
+"June: Place tarps, secure with sand bags",
+"June: Remove tarps after two weeks. Plant cash crop of brassica starts",
+"August/September: Harvest crops, plant cover crop"]
+]
 }
 
 // 
@@ -82,13 +79,13 @@ const tarping = {
 const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
-const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
+//const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
 
 // Pasture Enrichment Images 2
 const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
-const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
+//const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
 //const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
@@ -99,13 +96,12 @@ const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.
 
 
 const silvopasture = {
-  images: [pe,av1,pe2,av2],
+  titles: ["____ trees in cattle pasture", "Pasture Enrichment – Apple orchard in sheep pasture"],
+  images: [pe,pe2],
   lbls: [
-    ["Step One", "Step Two", "Step Three"],
-    ["Ex One", "Ex Two", "Ex Three"],
-    ["abdffffffffffffffffffffffffffffffffffffffffff", "test"],
-    ["abc","asfse","fakjsf"]
-    ]
+  ["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, and trees are selectively harvested"],
+  ["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted (density?) in the sheep pasture.","Mature apple trees in the pasture 15-20 years after planting.  "]
+  ]
 }
 
 
@@ -226,7 +222,7 @@ return (
           
 
           
-          <ImageSlider key={e} groups={e} lbls={group.lbls[idz]} labels={labels} />
+          <ImageSlider key={e+idz} groups={e} lbls={group.lbls[idz]} title={group.titles[idz]} />
 
 
 

@@ -27,16 +27,13 @@ const sp = [tp[0]];
 // Collection of elements for ImageSlider
 let groups = [tp];
 
-let labels = ["Tarping"];
+const titles = ["Tarping in cover crop and conservation tillage systems"];
 let lbls = [
 ["Late August/Early September: plant perennial rye cover crop",
 "June: Roll down rye using either a lawn roller or a tractor driven roller crimper",
 "June: Place tarps, secure with sand bags",
 "June: Remove tarps after two weeks. Plant cash crop of brassica starts",
-"August/September: Harvest crops, plant cover crop"],
-["Ex One", "Ex Two", "Ex Three"],
-["ab", "test"],
-["abc","asfse","fakjsf"]
+"August/September: Harvest crops, plant cover crop"]
 ];
 
 
@@ -159,8 +156,8 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
     
     <>
     
-    <ImageSlider groups={e} lbls={lbls[idz]} labels={labels} />
-    <br/><br/><br/><br/><br/><br/>
+    <ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} title={titles[idz]} />
+
     </>
 
     ))}

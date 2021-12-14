@@ -75,7 +75,7 @@ function Silvopasture(props) {
 		<Col xs={10} lg={8}>
 
 
-		<Card id="a0">
+		<Card className="border-0" id="a0">
 
 		<Card.Body>
 
@@ -84,37 +84,33 @@ function Silvopasture(props) {
 		<Card.Title id="2">Silvopasture</Card.Title>
 		<hr/>
 		<Alert variant={'info'} className="mx-4">
-
+		<p>
 		Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest 
 		products on the same parcel of land. Silvopasture systems are diverse and varied and can be designed to meet farmers’ unique
 		goals and complement existing and desired farm characteristics. This brief focuses on pasture enrichment, which involves adding
 		trees into the pasture area and is eligible for federal cost-share programs. Silvopasture may also take other forms, such as 
 		forest conversion in which trees are thinned in uniform, patch, or irregular patterns, and pasture species are seeded, though
 		farmers should investigate this option with a forester to ensure compliance with current use designations.   
-
+		</p>
 
 		</Alert>
 
 
 		<Row>
 		<Col xs={12} md={6}>
-	{/*                <Alert variant={'info'}>*/}
+	<p>
 	Silvopasture offers numerous climate change adaptation benefits that address challenges such as 
 	increased frequency and severity of weather extremes (i.e. drought, heat, and heavy rains).
 	Pasture enrichment provides shade and protection for livestock, may 
 	enhance carbon sequestration, and can improve water filtration and retention. Skilled and 
 	active management of enriched pastures together with sound livestock husbandry are essential
 	to achieving a sustainable and successful silvopasture system.
-{/*               </Alert>*/}
-<br/><br/>
+	</p>
 
-{/*<Alert variant={'danger'}>*/}
-
-<br/><br/>
-Skilled and active management of pasture and woodland together with sound livestock
-husbandry are essential to achieving a sustainable and successful silvopasture system.
-{/*</Alert>*/}
-
+	<p>
+	Skilled and active management of pasture and woodland together with sound livestock
+	husbandry are essential to achieving a sustainable and successful silvopasture system.
+	</p>
 
 
 
@@ -141,7 +137,7 @@ src={pe[0][1].default}
 
 
 
-<Card variant="light" bg="light">
+<Card className="border-0" variant="light" bg="light">
 
 <hr/>
 <Card.Title>Common Components of Silvopasture</Card.Title>
@@ -217,7 +213,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 
 
 {/* Tabbed view of method variants */}
-<Card id="a1">
+<Card className="border-0" id="a1">
 <hr/>
 <Card.Title id="2">Visualizations</Card.Title>
 <hr/>
@@ -235,7 +231,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 </Card.Body>
 
 </Card>  
-<Card variant="light" bg="light">
+<Card className="border-0" variant="light" bg="light">
 
 <hr/>
 <Card.Title>Benefits and Costs</Card.Title>
@@ -307,7 +303,7 @@ silvopasture system design.
 <hr/>
 
 
-<Card variant="light" bg="light">   
+<Card className="border-0" variant="light" bg="light">   
 
 <Card.Title className="my-3">Virtual Tour and Videos</Card.Title>
 

@@ -25,12 +25,12 @@ return (
     className="d-block w-100 mb-4"
     src={cover} />
   </Col>
-  <Col xs={12} md={6} className="">
+  <Col xs={12} md={6} className="pt-5">
 
 
-    <Alert>
+    <p>
       Climate change is one of the greatest environmental threats to future generations, and one that will have significant impacts on US agriculture. There is an increasing focus on the development of climate resources and information to help farmers plan for future changes. While the availability of climate resources may be growing, few are targeted towards small, medium and beginning farmers in New England and the unique production challenges they face. 
-    </Alert>
+    </p>
          
 
 
@@ -38,9 +38,9 @@ return (
   </Col>
 
 
-    <Alert>
+    <p>
         The tools and resources found on this website were designed to address this gap in resources and respond to farmers’ expressed needs. The economic tools, visualizations, and accompanying overview briefs presented on this website were developed based on input from farmers and technical advisors in Vermont and Maine, and an assessment of existing resources and research. They incorporate farmers’ and agricultural experts’ management concerns and take into account farm scale, regional geographic and climate characteristics, and farmer experience level.
-    </Alert>
+    </p>
 
   </Row>
 

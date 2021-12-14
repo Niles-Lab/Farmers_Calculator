@@ -65,7 +65,7 @@ function Tarping(props) {
 
 
 
-        <Card id="a0">
+        <Card className="border-0" id="a0">
 
         <Card.Body>
 
@@ -80,23 +80,22 @@ function Tarping(props) {
 
         <Row>
         <Col xs={12} md={6}>
-{/*                <Alert variant={'info'}>
-            This practice offers numerous climate change adaptation benefits. Tarping can help facilitate no-till, reduced tillage, and cover cropping, all of which build soil health and improve water holding capacity. Tarping can also facilitate the use of cover crop residue as a mulch for cash crops which helps to conserve moisture, increase water infiltration, prevent surface runoff, and protect soil from erosion. 
-        </Alert>*/}
+
+        <p>
         This practice offers numerous climate change adaptation benefits. Tarping can help facilitate no-till, reduced tillage, and cover cropping, all of which build soil health and improve water holding capacity. Tarping can also facilitate the use of cover crop residue as a mulch for cash crops which helps to conserve moisture, increase water infiltration, prevent surface runoff, and protect soil from erosion. 
+        </p>
 
-
-{/*                <Alert variant={'danger'}>
-            Given the logistical challenges of moving, securing, and storing the tarps, 
-            they are typically used on small farm operations of less than 5 acres.
-        </Alert>*/}
+        <p>
         Given the logistical challenges of moving, securing, and storing the tarps, 
         they are typically used on small farm operations of less than 5 acres.
+        </p>
 
         <hr/>
         <Card.Title id="2">General Logistics of Tarping</Card.Title>
         <hr/>
-        <Alert variant={'warning'} className="text-start">
+        
+
+        <p>
         A variety of tarps of varying thickness, material, durability and size can be used for 
         this practice, including landscaping fabric, billboard and silage tarps, with a lifespan
         ranging from 1-8 years. Sandbags and cinder blocks are often used to secure tarps
@@ -104,20 +103,7 @@ function Tarping(props) {
         and people. At least two people are generally needed to apply, remove, and store
         tarps, though this may vary depending on tarp and field size as well as weather
         conditions.
-
-    {/*                    <br/><br/>*/}
-{/*                    <strong>
-            The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below. 
-            </strong>
-            <br/><br/>
-            <p className="text-left"><strong>Late August/Early September:</strong> plant perennial rye cover crop</p>
-            <p className="text-left"><strong>June:</strong> Roll down rye using either a lawn roller or a tractor driven roller crimper</p>
-            <p className="text-left"><strong>June:</strong> Place tarps, secure with sand bags</p>
-            <p className="text-left"><strong>June:</strong> Remove tarps after two weeks. Plant cash crop of brassica starts</p>
-        <p className="text-left"><strong>August/September:</strong> Harvest crops, plant cover crop</p>*/}
-
-
-        </Alert>
+        </p>
 
 
         </Col>
@@ -129,11 +115,9 @@ function Tarping(props) {
         />
 
 
-{/*                <Alert variant={'success'} className={"mt-5"}>
-Tarping may also reduce the need to use farm equipment which can be helpful in periods of rainy and wet periods when the soil is too wet to work. The potential to eliminate use of machinery to terminate cover crops or incorporate biomass may also be beneficial in a more variable climate as it allows farmers greater flexibility in the timing of cover crop termination.
-</Alert>*/}
-Tarping may also reduce the need to use farm equipment which can be helpful in periods of rainy and wet periods when the soil is too wet to work. The potential to eliminate use of machinery to terminate cover crops or incorporate biomass may also be beneficial in a more variable climate as it allows farmers greater flexibility in the timing of cover crop termination.
-
+        <p>
+        Tarping may also reduce the need to use farm equipment which can be helpful in periods of rainy and wet periods when the soil is too wet to work. The potential to eliminate use of machinery to terminate cover crops or incorporate biomass may also be beneficial in a more variable climate as it allows farmers greater flexibility in the timing of cover crop termination.
+        </p>
 
 
 </Col>
@@ -142,11 +126,11 @@ Tarping may also reduce the need to use farm equipment which can be helpful in p
 
 </Card>
 {/* Tabbed view of method variants */}
-<Card id="a1" bg="light">
+<Card className="border-0" id="a1" bg="light">
 <hr/>
 <Card.Title id="2">Visualizations</Card.Title>
 <hr/>
-<Alert variant={'warning'} className="mx-4">
+<Alert variant={'warning'} className="mx-4 mb-0">
 The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below.
 </Alert>
 <Card.Body>
@@ -165,7 +149,7 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 </Card.Body>
 
 </Card>  
-<Card variant="light" bg="light">
+<Card className="border-0" variant="light" bg="light">
 
 
 <hr/>
@@ -224,7 +208,7 @@ Filler Text
 
 
 
-<Card variant="light" bg="light">   
+<Card className="border-0" variant="light" bg="light">   
 
 <hr/>
 <Card.Title id="a3">Additional Resources</Card.Title>

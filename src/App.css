@@ -1,6 +1,9 @@
 html {
   scroll-behavior: smooth;
 }
+p {
+  text-align: justify;
+}
 .mainnav {
   background-color: #006e53;
   width: 100%;
@@ -124,7 +127,4 @@ td, th {
 
   top: 10px;
   left: 0;
-}
-.card {
-  border: 0px;
 }

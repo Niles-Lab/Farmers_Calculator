@@ -474,7 +474,6 @@ function pointerMove(d) {
         return d.length * 10 + ((": $0.00").length*5);
       });
 
-      //console.log(Math.max.apply())
 
       d3.select("#ttline")
       .attr("opacity", bound <= 0 ? 0 : 1);
@@ -498,13 +497,6 @@ function pointerMove(d) {
       // .attr("y1", y(0))
       // .attr("y2", y(maxY));
 
-
-      // // Move all elements about graph
-      // d3.select("#ttlbl")
-      // .selectAll("rect")
-      // .attr("x", position[0]-(margin.right+margin.left))
-      // .attr("y", position[1]-30);
-
       // Move all elements about graph
       d3.select("#ttlbl")
       .selectAll("*")
@@ -520,14 +512,6 @@ function pointerMove(d) {
         let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : (point.value);
         return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
       });
-
-
-
-
-      //.attr("transform", (d,idx) => "translate(" + position[0]-(margin.right+margin.left)  + "," + parseFloat((idx * 20)) + ")")
-
-
-
 
 }
 

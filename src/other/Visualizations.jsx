@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Alert, Card, Container, Row, Col, Image, Tabs, Tab } from 'react-bootstrap';
+import { Alert, Card, Container, Row, Col, Image, Tabs, Tab, Nav, Navbar } from 'react-bootstrap';
 import cover from "./../images/cover.jpg";
 import ImageSlider from "./../viz/ImageSlider.jsx"
 
@@ -119,62 +119,29 @@ const About = (props, ref) => {
 
 var activeKey = 0;
 
-const [group, setGroup] = useState(null);
+const [group, setGroup] = useState(silvopasture);
 
 
 
-const [key, setKey] = useState(0);
+const [key, setKey] = useState("silvopasture");
 
 
+function handleChange(d) {
 
-useEffect(() => {
-
-
-if(key === "tarping") {
-
-
-setGroup(tarping);
-
-
+setGroup(null);
+setKey(d);
+ 
+if(d === "tarping") {
+  setGroup(tarping);
 }
-
-
-else if(key === "irrigation") {
-
-setGroup(irrigation);
-
-
+else if(d === "irrigation") {
+  setGroup(irrigation);
 }
 else {
-
-setGroup(silvopasture);
-
-
-
-
+  setGroup(silvopasture);
 }
 
-console.log(key);
-console.log(group);
-
-console.log(silvopasture);
-console.log(tarping);
-console.log(irrigation);
-
-}, [key])
-
-
-
-
-
-
-
-
-
-
-
-
-
+}
 
 
 
@@ -185,18 +152,13 @@ return (
 <Container fluid >
 
 <Row>
-<Col xs={0} md={2}>
+<Col xs={12} md={2}>
 </Col>
 <Col xs={12} md={8}>
   <hr/>
   <Card.Title id="2">Visualizations</Card.Title>
   <hr/>
-  <Row>
 
-
-
-
-  </Row>
 
 
 
@@ -209,21 +171,44 @@ return (
 </Col>
 </Row>
 
-    <Tabs
+
+
+
+
+
+<Row>
+<Col xs={12} md={2}>
+
+      
+      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="mx-auto text-wrap">
+
+
+
+      <Nav 
+      variant="pills" 
+      className="flex-column text-wrap"
       activeKey={key}
-      onSelect={(k) => setKey(k)}
-      className="mb-3"
-    >
-      <Tab eventKey="silvopasture" title="Silvopasture">
+      onSelect={(k) => handleChange(k)}>
 
-      </Tab>
-      <Tab eventKey="irrigation" title="Irrigation">
+   
+      <Navbar.Brand className="pb-3">Select Visualizations</Navbar.Brand>
 
-      </Tab>
-      <Tab eventKey="tarping" title="Tarping">
+        <Nav.Item>
+          <Nav.Link eventKey="silvopasture">Silvopasture</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="irrigation">Irrigation</Nav.Link>
+        </Nav.Item>
+        <Nav.Item>
+          <Nav.Link eventKey="tarping">Tarping</Nav.Link>
+        </Nav.Item>
+      </Nav>
 
-      </Tab>
-    </Tabs>
+      </Navbar>
+
+
+</Col>
+<Col xs={12} md={8}>
 
 
 
@@ -238,11 +223,11 @@ return (
       {/*<ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />*/}
       {group.images.map((e,idz) => (
           
-          <>
-          
-          <ImageSlider groups={e} lbls={group.lbls[idz]} labels={labels} />
 
-          </>
+          
+          <ImageSlider key={e} groups={e} lbls={group.lbls[idz]} labels={labels} />
+
+
 
           ))}
       </>
@@ -250,6 +235,16 @@ return (
   </Card.Body>
 
   </Card>  
+
+
+
+
+</Col>
+<Col xs={0} md={2}>
+</Col>
+</Row>
+
+
 
 
 

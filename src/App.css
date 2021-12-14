@@ -5,6 +5,10 @@ html {
   background-color: #006e53;
   width: 100%;
 }
+.nav-link.active {
+  background-color: rgba(0, 110, 83, 0.8) !important;
+}
+
 #sectionnav {
   margin-top: 20%;
   flex-direction: column !important;

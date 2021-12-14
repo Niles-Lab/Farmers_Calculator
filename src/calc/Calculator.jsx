@@ -1,5 +1,5 @@
 import React from "react"
-import SilvoGraph from './SilvoGraph.jsx'
+import EconomicTool from './EconomicTool.jsx'
 //import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";
 
@@ -35,6 +35,9 @@ const maturingYears = 10;
 // Create data per year for returns/costs
 let data = [];
 
+// Total profit gained over time
+let totalProfit = 0;
+
 if(props.method === "silvopasture") {
 
 
@@ -61,12 +64,21 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 // x -> year
 // y -> revenue from trees
 netRevenue = props.opts.grazingRevenue[0] - props.opts.baseGrazingCost[0];
-d3.range(0, parseInt(props.length)+1).forEach(d =>
+d3.range(0, parseInt(props.length)+1).forEach(d => {
+
+  let rev = (parseInt(d) >= maturingYears ? parseFloat(props.opts.treesPerAcre[0]*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity);
+  let cst = (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*props.opts.treePlantingCost[0] : props.opts.treesPerAcre[0] * props.opts.treeCost[0])
+
+  totalProfit += rev-cst;
+
+
   data.push({
     year: d,
-    revenue: (parseInt(d) >= maturingYears ? parseFloat(props.opts.treesPerAcre[0]*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity),
-    cost: (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*props.opts.treePlantingCost[0] : props.opts.treesPerAcre[0] * props.opts.treeCost[0])
-}));
+    revenue: rev,
+    cost: cst,
+    value: totalProfit
+  })
+});
 
 } else if(props.method === "irrigation") {
 
@@ -90,24 +102,61 @@ d3.range(0, parseInt(props.length)+1).forEach(d =>
 let netRevenue = props.opts.baseCropRevenue[0] - props.opts.baseCropCost[0];
 let productivity = props.opts.effectiveProperty[0] / 100;
 
-d3.range(0, parseInt(props.length)+1).forEach(d =>
+d3.range(0, parseInt(props.length)+1).forEach(d => {
+  
+  let rev = props.opts.baseCropRevenue[0] * (productivity-1)
+  let cst = parseInt(d) === 0 ? (parseFloat(props.opts.sprinklerCount[0]*props.opts.sprinklerCost[0]) + parseFloat(props.opts.pipeLength[0]*props.opts.pipeCost[0]) + parseFloat(props.opts.pumpSize[0]*props.opts.pumpCost[0])): // First year costs
+    props.opts.maintenanceCost[0]; // Ongoing maintenance
+
+  totalProfit += rev-cst;
+
+
   data.push({
     year: d,
-    revenue: props.opts.baseCropRevenue[0] * (productivity-1),
-    cost: parseInt(d) === 0 ? (parseFloat(props.opts.sprinklerCount[0]*props.opts.sprinklerCost[0]) + parseFloat(props.opts.pipeLength[0]*props.opts.pipeCost[0]) + parseFloat(props.opts.pumpSize[0]*props.opts.pumpCost[0])): // First year costs
-    props.opts.maintenanceCost[0] // Ongoing maintenance
-}));
+    revenue: rev,
+    cost: cst,
+    value: totalProfit
+  })
+}
+);
 
 
 }
 else {
 
-d3.range(0, parseInt(props.length)+1).forEach(d =>
+
+// let tarpoptions = {
+//   baseCropRevenue: [2500, "$", "Base Crop Revenue"],
+//   baseCropCost: [1500, "$", "Base Crop Cost"],
+//   bedSpacing: [8, "Ft", "Bed Spacing"],
+//   tarpLength: [5445, "Ft", "Tarp Length"],
+//   tarpCost: [0.70, "$/Ft", "Tarp Cost"],
+//   coverCropCost: [150, "$/Ac", "Cover Crop Cost"], // Effective every OTHER year, starting with 0
+//   maintenanceCost: [50, "$/Acre/Yr", "Maintenance Cost"],
+//   effectiveProperty: [120, "%", "Productivity With Tarp & Cover Crop"]
+// }
+
+let netRevenue = props.opts.baseCropRevenue[0] - props.opts.baseCropCost[0];
+let productivity = props.opts.effectiveProperty[0] / 100;
+
+
+d3.range(0, parseInt(props.length)+1).forEach((d,idx) => {
+  
+  let rev = props.opts.baseCropRevenue[0] * (productivity-1);
+  let cst = (parseInt(d) === 0 ? props.opts.tarpLength[0] * props.opts.tarpCost[0] :
+    props.opts.maintenanceCost[0]) // Ongoing Maintenance
+    + (parseInt(d) % 2 == 0 ? props.opts.coverCropCost[0] : 0); // Is this a maintenance year?
+
+  totalProfit += rev-cst;
+
+
   data.push({
     year: d,
-    revenue: 34235235,
-    cost: 23523
-}));
+    revenue: rev,
+    cost: cst,
+    value: totalProfit
+  })
+});
 
 }
 
@@ -117,19 +166,20 @@ let largest = 0;
 
 // X / Y Domains
 let xDom = [0,parseInt(props.length)+1];
-let yDom = [0,range];
+let yDom = [-range,range];
 
 data.forEach(d => {
   if(d.revenue >= largest) largest = d.revenue;
   if(d.cost >= largest) largest = d.cost;
+  if(d.value >= largest) largest = d.value;
 });
 
 // Resize graph if largest value exceeds current domain
 if(range <= largest) {
-  yDom = [0,largest*1.25];
   range = largest*1.25;
+  yDom = [-range,range];
 } else {
-  yDom = [0,range];
+  yDom = [-range,range];
 }
 
 
@@ -159,7 +209,7 @@ console.log(npv());
 
 return (
 
-	<SilvoGraph npv={npv()} width={graphWidth} range={range} data={data} xDom={xDom} yDom={yDom} {...props} />
+	<EconomicTool npv={npv()} width={graphWidth} range={range} data={data} xDom={xDom} yDom={yDom} {...props} />
 
 )
 

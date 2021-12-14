@@ -61,15 +61,12 @@ let irroptions = {
 let tarpoptions = {
 	baseCropRevenue: [2500, "$", "Base Crop Revenue"],
 	baseCropCost: [1500, "$", "Base Crop Cost"],
-	sprinklerSpacing: [40, "ft", "Sprinkler Spacing"],
-	sprinklerCount: [9.5, "head/acre", "Sprinkler Count"],
-	sprinklerCost: [48, "$/ft", "Sprinkler Cost"],
-	pipeLength: [2.50, "$/yr", "Pipe Length"],
-	pipeCost: [5, "$/unit", "Pipe Cost"],
-	pumpSize: [10, "HP", "Pump Size"],
-	pumpCost: [10, "$/HP", "Pump Cost"],
-	maintenanceCost: [100, "$/acre/yr", "Maintenance Cost"],
-	effectiveProperty: [140, "%", "Productivity With Irrigation"]
+	bedSpacing: [8, "Ft", "Bed Spacing"],
+	tarpLength: [5445, "Ft", "Tarp Length"],
+	tarpCost: [0.70, "$/Ft", "Tarp Cost"],
+	coverCropCost: [150, "$/Ac", "Cover Crop Cost"], // Effective every OTHER year, starting with 0
+	maintenanceCost: [50, "$/Acre/Yr", "Maintenance Cost"],
+	effectiveProperty: [120, "%", "Productivity With Tarp & Cover Crop"]
 }
 
 

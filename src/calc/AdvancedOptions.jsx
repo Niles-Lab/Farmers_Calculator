@@ -1,6 +1,13 @@
 /**
  * 
- * AdvancedOptions - particular calculator component for Silvopasture data collection
+ * AdvancedOptions - Contains advanced options to fine-tune parameters for each practice - items such as cost/unit or $/unit may live here
+ * A dictionary of arrays is expected in the format of:
+ * value: [default: integer, 
+ * 			unit: string,
+ * 			display name: string]
+ * e.g.
+ * costPerUnit: [5, "$/Unit", "Cost Per Unit"]
+ * 
  * 
  **/
 

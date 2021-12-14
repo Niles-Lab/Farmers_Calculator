@@ -96,7 +96,7 @@ let units = ["Acres", "Hectares"];
 					<Col>
 					<Form.Control
 						placeholder="..."
-						name="land"
+						name="length"
 						min="1"
 						type="number"
 						step="1"
@@ -135,7 +135,7 @@ let units = ["Acres", "Hectares"];
 					<Form.Control
 						placeholder="..."
 						name="land"
-						min="1"
+						min="0"
 						type="number"
 						step="0.1"
 						value={props.land}

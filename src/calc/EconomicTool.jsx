@@ -1,3 +1,6 @@
+
+
+
 import React, { useEffect, useRef } from 'react';
 import { Table } from 'react-bootstrap';
 import * as d3 from "d3";
@@ -31,7 +34,7 @@ const maturingYears = 10;
 // How many sq ft in an acre
 //const acreFt = 43560;
 
-function SilvoGraph(props) {
+function EconomicTool(props) {
 
 
 const sizeRef = useRef(d3.select("#pgcht"));
@@ -45,7 +48,7 @@ height = 500 - (margin.top+margin.bottom);
 
 
 // Data for legend
-const lines = ["Revenue", "Cost", "Average"];
+const lines = ["Revenue", "Cost", "Total Profit"];
 
 const yearColors = d3.scaleOrdinal().domain(lines)
   .range(["steelblue", "red", "orange"]);
@@ -206,7 +209,7 @@ function npv() {
     .attr("opacity", 0.5)
     .attr("d", d3.line()
     .x(d => x(d.year))
-    .y(d => y((d.cost + d.revenue) / 2))
+    .y(d => y(d.value))
     .curve(d3.curveBasis));
 
 
@@ -344,7 +347,7 @@ function npv() {
       .attr("opacity", 0.5)
       .attr("d", d3.line()
       .x(d => x(d.year))
-      .y(d => y((d.cost + d.revenue) / 2))
+      .y(d => y(d.value))
       .curve(d3.curveBasis));
       //.curve(d3.curveCatmullRom));
       //.curve(d3.curveMonotoneX));
@@ -355,7 +358,7 @@ function npv() {
       .attr("class", "line matured")
       .attr("x1", x(maturingYears))
       .attr("x2", x(maturingYears))
-      .attr("y1", y(0))
+      .attr("y1", height-margin.top-margin.bottom)
       .attr("y2", y(props.range))
       .style("stroke-width", 2)
       .style("stroke", "black")
@@ -493,7 +496,7 @@ function pointerMove(d) {
       .text((d,idy) => {
         let point = props.data[idx];
 
-        let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : ((point.revenue - point.cost) / 2);
+        let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : (point.value);
         return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
       });
 
@@ -597,4 +600,4 @@ function pointerMove(d) {
 
 }
 
-export default SilvoGraph;
+export default EconomicTool;

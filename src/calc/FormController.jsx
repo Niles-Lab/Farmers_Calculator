@@ -31,9 +31,9 @@ let data = {
 };	
 
 
-let silvoptions = {
-	grazingRevenue: [450, "$", "Grazing Revenue"],
-	baseGrazingCost: [300, "$", "Base Grazing Cost"],
+const silvoptions = {
+	baseCropRevenue: [450, "$", "Grazing Revenue"],
+	baseCropCost: [300, "$", "Base Grazing Cost"],
 	treeSpacing: [30, "ft", "Tree Spacing"],
 	treePlantingCost: [9.5, "$", "Tree Planting Cost"],
 	treesPerAcre: [48, "Tr/Acre", "Trees Per Acre"],
@@ -44,7 +44,7 @@ let silvoptions = {
 }
 
 
-let irroptions = {
+const irroptions = {
 	baseCropRevenue: [2500, "$/Acre", "Base Crop Revenue"],
 	baseCropCost: [1500, "$/Acre", "Base Crop Cost"],
 	sprinklerSpacing: [40, "Ft", "Sprinkler Spacing"],
@@ -58,7 +58,7 @@ let irroptions = {
 	effectiveProperty: [140, "%", "Productivity With Irrigation"]
 }
 
-let tarpoptions = {
+const tarpoptions = {
 	baseCropRevenue: [2500, "$", "Base Crop Revenue"],
 	baseCropCost: [1500, "$", "Base Crop Cost"],
 	bedSpacing: [8, "Ft", "Bed Spacing"],
@@ -97,6 +97,8 @@ const [opts, setOpts] = useState(() => {
 
 useEffect(() => {
 
+console.log(props.variant);
+
 if (props.variant === "silvopasture") {
 	setOpts(silvoptions);
 } else if(props.variant === "irrigation") {
@@ -106,10 +108,6 @@ if (props.variant === "silvopasture") {
 }, [props.variant]);
 
 
-
-// const [calcShow, setCalcShow] = useState(false);
-// const [show, setShow] = useState(false);
-// const handleClose = () => setShow(false);
 
 
 // Optional table view
@@ -131,6 +129,7 @@ return (
 
 			{/*Calculator Output Table*/}
 			<Calculator
+				key={props.variant}
 				options={options}
 				land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
 				acres={unit}

@@ -185,6 +185,7 @@ return (
 
 
       <Nav 
+      id="navbtns"
       variant="pills" 
       className="flex-column text-wrap"
       activeKey={key}
@@ -194,7 +195,7 @@ return (
       <Navbar.Brand className="pb-3">Select Visualizations</Navbar.Brand>
 
         <Nav.Item>
-          <Nav.Link eventKey="silvopasture">Silvopasture</Nav.Link>
+          <Nav.Link id="navbtns" eventKey="silvopasture">Silvopasture</Nav.Link>
         </Nav.Item>
         <Nav.Item>
           <Nav.Link eventKey="irrigation">Irrigation</Nav.Link>

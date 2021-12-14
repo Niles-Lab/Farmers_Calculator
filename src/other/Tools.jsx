@@ -8,14 +8,8 @@ import FormController from "./../calc/FormController.jsx"
 
 
 
-
-
 const Tools = (props, ref) => {
 
-
-
-
-var activeKey = 0;
 
 const [group, setGroup] = useState(null);
 
@@ -46,11 +40,6 @@ return (
 
 
 
-
-
-
-
-
 </Col>
 <Col xs={0} md={2}>
 </Col>
@@ -70,13 +59,14 @@ return (
 
 
       <Nav 
+      id="navbtns"
       variant="pills" 
       className="flex-column text-wrap"
       activeKey={key}
       onSelect={(k) => setKey(k)}>
 
    
-      <Navbar.Brand className="pb-3">Select Visualizations</Navbar.Brand>
+      <Navbar.Brand className="pb-3">Select Economic Tool</Navbar.Brand>
 
         <Nav.Item>
           <Nav.Link eventKey="silvopasture">Silvopasture</Nav.Link>
@@ -102,7 +92,7 @@ return (
 
   <Card.Body>
 
-      <FormController variant={key} />
+      <FormController key={key} variant={key} />
 
   </Card.Body>
 

@@ -112,7 +112,7 @@ const silvopasture = {
 
 
 
-const About = (props, ref) => {
+const Visualizations = (props, ref) => {
 
 
 
@@ -253,4 +253,4 @@ return (
 
 );
 }
-export default About;
+export default Visualizations;

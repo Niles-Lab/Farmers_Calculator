@@ -176,7 +176,6 @@ let units = ["Acres", "Hectares"];
 
 			
 
-
 			</Form.Group>
 
 

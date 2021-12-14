@@ -184,6 +184,9 @@ return (
 		length={length}
 		setLength={setLength}
 
+		rate={rate}
+		setRate={setRate}
+
 		opts={opts}
 		setOpts={setOpts}
 		

@@ -51,9 +51,27 @@ function handleChange(event,key,value) {
     <Collapse in={isOpen}>
     <Form className="mt-3">
 
-		{
-		// Check box
-		}
+		{/* CBA Discount Rate */}
+		<Row>
+			<Col>
+				Discount Rate
+			</Col>
+		<Col>
+		<InputGroup className="mb-1">
+
+			<Form.Control
+				placeholder="..."
+				name="rate"
+				type="number"
+				min={0}
+				step={0.01}
+				key={"dcRate"}
+				value={props.rate}
+				onChange = {(event) => {props.setRate(event.target.value)}} />
+			<InputGroup.Text>%</InputGroup.Text>
+		  </InputGroup>
+		</Col>
+		</Row>
 
 
 		{Object.entries(props.opts).map(([key,value]) => (
@@ -63,7 +81,7 @@ function handleChange(event,key,value) {
 						{value[2]}
 					</Col>
 				<Col>
-					<InputGroup className="mb-1">
+				<InputGroup className="mb-1">
 
 					<Form.Control
 						placeholder="..."

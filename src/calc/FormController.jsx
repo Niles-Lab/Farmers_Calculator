@@ -77,7 +77,7 @@ const [rate, setRate] = useState(data.rate);
 const [land, setLand] = useState(data.land);
 
 const [crops, setCrops] = useState(data.crops);
-const [method, setMethod] = useState(props.variant); // Silvopasture, Irrigation or Tarping?
+//const [method, setMethod] = useState(props.variant); // Silvopasture, Irrigation or Tarping?
 const [unit, setUnit] = useState(data.unit);
 
 // Length of project(yrs)
@@ -134,7 +134,7 @@ return (
 				options={options}
 				land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
 				acres={unit}
-				method={method}
+				method={props.variant}
 				crops={crops}
 				length={length}
 				rate={rate}
@@ -176,8 +176,8 @@ return (
 		setUnit={setUnit}
 		crops={crops}
 		setCrops={setCrops}
-		method={method}
-		setMethod={setMethod}
+		method={props.variant}
+
 		length={length}
 		setLength={setLength}
 

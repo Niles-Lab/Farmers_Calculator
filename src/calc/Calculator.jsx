@@ -163,24 +163,31 @@ d3.range(0, parseInt(props.length)+1).forEach((d,idx) => {
 
 let range = 1000;
 let largest = 0;
+let smallest = 0;
 
 // X / Y Domains
 let xDom = [0,parseInt(props.length)+1];
 let yDom = [-range,range];
 
 data.forEach(d => {
-  if(d.revenue >= largest) largest = d.revenue;
-  if(d.cost >= largest) largest = d.cost;
-  if(d.value >= largest) largest = d.value;
+
+  let ts = d3.min([d.revenue, d.cost, d.value]);
+  let tl = d3.max([d.revenue, d.cost, d.value]);
+  largest = largest < tl ? tl : largest;
+  smallest = smallest > ts ? ts : smallest;
+  // if(d.revenue >= largest) largest = d.revenue;
+  // if(d.cost >= largest) largest = d.cost;
+  // if(d.value >= largest) largest = d.value;
 });
 
 // Resize graph if largest value exceeds current domain
-if(range <= largest) {
-  range = largest*1.25;
-  yDom = [-range,range];
-} else {
-  yDom = [-range,range];
-}
+// if(range <= largest) {
+//   range = largest*1.25;
+//   yDom = [-range,range];
+// } else {
+//   yDom = [-range,range];
+// }
+yDom = [smallest*1.25, largest*1.25];
 
 
 // Net Present Value(NPV) = Benefits(B) - Costs(C)
@@ -190,7 +197,7 @@ function npv() {
   let npvr = 0;
   let npvc = 0;
 
-  console.log(data);
+
   for(var i = 0; i<data.length;i++) {
     npvr += (data[i].revenue)/(1+props.rate)**(i+1);
     npvc += (data[i].cost)/(1+props.rate)**(i+1);
@@ -203,8 +210,6 @@ function npv() {
 
   ];
 }
-console.log(data)
-console.log(npv());
 
 
 return (

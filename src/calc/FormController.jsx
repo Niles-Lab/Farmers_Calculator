@@ -147,7 +147,7 @@ return (
 			<Button
 			className="my-3 mx-auto w-100"
 			onClick={toggleShow}
-			>Show Calculator</Button>
+			>Show Options</Button>
 
 
 

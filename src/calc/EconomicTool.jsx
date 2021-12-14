@@ -239,8 +239,7 @@ function npv() {
     .append("svg")
     .attr("class", "svg-content-responsive svg-container")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 " + width + " " + height)
-
+    .attr("viewBox", "0 0 " + (width+(margin.left*2)) + " " + (height))
     .on("pointerover", d => {
       d3.select("#ttline")
       .attr("opacity", 1);
@@ -261,10 +260,8 @@ function npv() {
     .on("pointermove", d => pointerMove(d))
     .append("g")
     .attr("class", "main")
-
-
     .attr("transform",
-      "translate(" + margin.left*2 + "," + margin.top + ")");
+      "translate(" + (margin.left*2+margin.right) + "," + margin.top + ")");
     //.on("movemove", event => mousemove(event));    
 
 
@@ -299,9 +296,9 @@ function npv() {
         .style("font-weight", "bold")
         .attr("text-anchor", "end")
         .attr("x", -(height/2)+margin.bottom+margin.top)
-        .attr("y", -margin.left)
+        .attr("y", -margin.left-margin.right)
         .attr("transform", "rotate(-90)")
-        .text("Revenue($)");
+        .text("Revenue ($)");
 
 
       // Revenue Line
@@ -353,16 +350,25 @@ function npv() {
       //.curve(d3.curveMonotoneX));
 
 
+
+
+      // Only render trees matured line for silvopasture method
+      {props.method === "silvopasture" &&
+
       // Tree Matured Line
       svg.append("svg:line")
       .attr("class", "line matured")
       .attr("x1", x(maturingYears))
       .attr("x2", x(maturingYears))
-      .attr("y1", height-margin.top-margin.bottom)
-      .attr("y2", y(props.range))
+      .attr("y1", 0)
+      .attr("y2", height-margin.top-margin.bottom)
       .style("stroke-width", 2)
       .style("stroke", "black")
       .style("stroke-dasharray", ("5, 5"));
+
+      }
+
+      {props.method === "silvopasture" &&
 
       // Tree Matured Label
       svg.append("text")
@@ -374,7 +380,8 @@ function npv() {
         .attr("dy", 0)
         .style("font-weight", "bold")
         .text("Trees Matured");
-
+      
+      }
 
 
     // Easy Data View Line
@@ -384,8 +391,8 @@ function npv() {
     .attr("opacity", 0)
     .attr("x1", 0)
     .attr("x2", 0)
-    .attr("y1", y(0))
-    .attr("y2", y(props.range))
+    .attr("y1", 0)
+    .attr("y2", height-margin.top-margin.bottom)
     .style("stroke-width", 2)
     .style("stroke", "black");
 
@@ -460,7 +467,14 @@ function pointerMove(d) {
 
       let position = d3.pointer(d);
 
-      let bound = x.invert(position[0]-(margin.right+margin.left+10));
+      let bound = position[0]-(margin.right+(margin.left*2))
+
+
+      let maxWidth = d3.max(lines, d => {
+        return d.length * 10 + ((": $0.00").length*5);
+      });
+
+      //console.log(Math.max.apply())
 
       d3.select("#ttline")
       .attr("opacity", bound <= 0 ? 0 : 1);
@@ -470,8 +484,8 @@ function pointerMove(d) {
 
       // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
       // and making sure its positive to convert into an index for data array
-      let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+margin.left+10))-1]));
-      
+      let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+(margin.left*2)))]));
+
       if(idx >= props.length) idx = props.length-1;
 
       //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
@@ -479,15 +493,22 @@ function pointerMove(d) {
 
 
       d3.select("#ttline")
-      .attr("x1", position[0]-(margin.right+margin.left+10))
-      .attr("x2", position[0]-(margin.right+margin.left+10));
+      .attr("x1", position[0]-(margin.right+(margin.left*2)))
+      .attr("x2", position[0]-(margin.right+(margin.left*2)));
       // .attr("y1", y(0))
       // .attr("y2", y(maxY));
+
+
+      // // Move all elements about graph
+      // d3.select("#ttlbl")
+      // .selectAll("rect")
+      // .attr("x", position[0]-(margin.right+margin.left))
+      // .attr("y", position[1]-30);
 
       // Move all elements about graph
       d3.select("#ttlbl")
       .selectAll("*")
-      .attr("x", position[0]-(margin.right+margin.left))
+      .attr("x", position[0]-(margin.right+margin.left) - (maxWidth+position[0] >= width ? maxWidth : 0))
       .attr("y", position[1]-30);
 
       // Update all tooltip data points
@@ -495,7 +516,7 @@ function pointerMove(d) {
       .selectAll("text")
       .text((d,idy) => {
         let point = props.data[idx];
-
+        // Set label accordingly - each data point is in the format of [revenue, cost, value]
         let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : (point.value);
         return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
       });

@@ -44,8 +44,6 @@ const navs = ["Project Description", "The Problem", "The Focus"];
              of Food and Agriculture (award number 2018-68006-28098). 
           </p>
 
-             <br/><br/><br/><br/>
-
             <p>
             The economic tools, visualizations, and resources on this website were designed with and for small, medium, and 
             beginning farmers in New England to address the unique challenges they face in adapting to climate change. These

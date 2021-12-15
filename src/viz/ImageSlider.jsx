@@ -125,11 +125,11 @@ function ImageSlider(props) {
                 {/* Map the active image labels */}
                 {props.lbls.map((lbl,idy) => (
 
-                <Card.Title key={idy}
-                className="position-absolute text-justify"
+                <p key={idy}
+                className="position-absolute text-justify fw-bolder"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
-                </Card.Title>
+                </p>
 
                 ))}
   
@@ -185,7 +185,7 @@ function ImageSlider(props) {
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>
-                <Typography className="text-center" gutterBottom>Slide to see more</Typography>
+                <Typography className="text-center" gutterBottom>Slide to implement practice</Typography>
             
                 <Slider
 

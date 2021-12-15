@@ -129,7 +129,7 @@ return (
 
                     <Row className="d-flex justify-content-center">
 
-                      <Image src={focus_group} fluid />
+                      <Image src={focus_group} className="w-75" fluid />
                       <cite>Focus Group Summary Image</cite>
 
 

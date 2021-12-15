@@ -7,7 +7,7 @@ import './App.css';
 import umaine from './images/umaine.png';
 import uvm from './images/uvm.png';
 import climatehub from './images/climatehub.png';
-import nifa from "./images/nifa-color.svg";
+//import nifa from "./images/nifa-color.svg";
 
 import Home from './home/Home.jsx'
 
@@ -64,17 +64,17 @@ function App() {
 
     <Navbar className="mx-0 px-0 flex-wrap" bg={"light"}>
       <Col className="px-0" xs={12} md={1}>
-        <Navbar.Brand><Image className="w-75" src={uvm} /></Navbar.Brand>
+        <Navbar.Brand><Image responsive className="w-100" src={uvm} /></Navbar.Brand>
       </Col>
       <Col className="px-0" xs={12} md={1}>
-        <Navbar.Brand><Image className="w-75" src={umaine}/></Navbar.Brand>
+        <Navbar.Brand><Image responsive className="w-100" src={umaine}/></Navbar.Brand>
       </Col>
-      <Col className="px-0" xs={12} md={1}>        
+{/*      <Col className="px-0" xs={12} md={1}>        
         <Navbar.Brand><Image style={{"width": "100%"}} src={nifa}/></Navbar.Brand>
-      </Col>
+      </Col>*/}
 
       <Col className="px-0" xs={12} md={1}>
-        <Navbar.Brand><Image style={{"width": "300%"}} src={climatehub}/></Navbar.Brand>
+        <Navbar.Brand><Image responsive style={{"width": "700%"}} src={climatehub}/></Navbar.Brand>
       </Col>
       
       <Col className="px-0" xs={0} md={4}>

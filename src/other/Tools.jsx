@@ -54,19 +54,19 @@ return (
 <Col xs={12} md={2}>
 
       
-      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="mx-auto text-wrap">
+      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
 
 
       <Nav 
       id="navbtns"
       variant="pills" 
-      className="flex-column text-wrap"
+      className="d-block"
       activeKey={key}
       onSelect={(k) => setKey(k)}>
 
    
-      <Navbar.Brand className="pb-3">Select Economic Tool</Navbar.Brand>
+      <Navbar.Brand className="pb-3 mx-auto">Select Economic Tool</Navbar.Brand>
 
         <Nav.Item>
           <Nav.Link eventKey="silvopasture">Silvopasture</Nav.Link>

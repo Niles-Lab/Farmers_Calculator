@@ -176,14 +176,14 @@ return (
 <Col xs={12} md={2}>
 
       
-      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="mx-auto text-wrap">
+      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
 
 
       <Nav 
       id="navbtns"
       variant="pills" 
-      className="flex-column text-wrap"
+      className="flex-column"
       activeKey={key}
       onSelect={(k) => handleChange(k)}>
 

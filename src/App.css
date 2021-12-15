@@ -8,6 +8,7 @@ p {
   background-color: #006e53;
   width: 100%;
 }
+
 #navbtns > div > a.active {
   background-color: rgba(0, 110, 83, 0.8) !important;
 }

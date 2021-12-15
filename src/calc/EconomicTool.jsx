@@ -239,7 +239,7 @@ function npv() {
     .append("svg")
     .attr("class", "svg-content-responsive svg-container")
     .attr("preserveAspectRatio", "xMinYMin meet")
-    .attr("viewBox", "0 0 " + (width+(margin.left*2)) + " " + (height))
+    .attr("viewBox", "0 0 " + (width+(margin.left*2)) + " " + (height+margin.bottom))
     .on("pointerover", d => {
       d3.select("#ttline")
       .attr("opacity", 1);
@@ -282,14 +282,13 @@ function npv() {
 
     //Optional axis labels
     svg.append("text")
-      .attr("class", "x label position-absolute")
+      .attr("class", "x label")
       .style("font-weight", "bold")
       .attr("text-anchor", "end")
       .attr("x", width/2)
       .attr("y", 0)
       .attr("dy", height-margin.bottom)
       .text("Project Year");
-
 
     svg.append("text")
         .attr("class", "y label")

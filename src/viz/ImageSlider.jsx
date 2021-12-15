@@ -126,7 +126,7 @@ function ImageSlider(props) {
                 {props.lbls.map((lbl,idy) => (
 
                 <Card.Title key={idy}
-                className="position-absolute"
+                className="position-absolute text-justify"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </Card.Title>
@@ -143,7 +143,7 @@ function ImageSlider(props) {
                 {props.lbls[props.groups.indexOf(active)].map((lbl,idy) => (
 
                 <Card.Title key={idy}
-                className="position-absolute pl-5 mb-0 pb-0 pt-3"
+                className="text-justify position-absolute pl-5 mb-0 pb-0 pt-3"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </Card.Title>

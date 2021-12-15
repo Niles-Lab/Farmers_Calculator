@@ -166,11 +166,6 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 <Card.Title>Benefits and Costs</Card.Title>
 <hr/>
 
-<Alert variant={'info'} className="px-5 mx-5 mb-0">
-Filler Text
-</Alert>
-
-
 <Card.Body>
 <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
 <Row>

@@ -185,7 +185,7 @@ function ImageSlider(props) {
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>
-                <Typography gutterBottom>Slide to see more</Typography>
+                <Typography className="text-center" gutterBottom>Slide to see more</Typography>
             
                 <Slider
 

@@ -76,6 +76,12 @@ function Irrigation(props) {
                 <Card.Title id="2">Irrigation</Card.Title>
                 <hr/>
 
+                <Image
+                className="d-block w-100 mb-3"
+                src={sp[0][1].default} />
+
+
+
                 <Row>
                 <Col xs={12} md={6}>
 
@@ -85,13 +91,13 @@ function Irrigation(props) {
                     Use of irrigation can prevent crop losses, support crop yield and quality, and allow for the production of a greater variety of crops. Even in areas where crops have historically been produced without supplemental irrigation (e.g. the Northeast United States), the economic benefits of using irrigation are now clear. As climate change increases the frequency and severity of extreme weather patterns, such as heat and drought interspersed with heavy precipitation events, the need for and benefits of irrigation are likely to increase. 
                     </p>
 
-                    <br/>
+
                     
                     <p>
                     Solid set irrigation is a sprinkler system that uses higher pressure and water volume than drip irrigation. It is frequently used on small and medium farms due to its adaptability to a variety of soil and field conditions, the ability to easily automate it, and for its additional use for frost prevention. Due to the high water flow, a substantial water supply, such as that from a pond or large well, is required to support this sprinkler system.
                     </p>
 
-                    <br/>
+
                     
                     <p>
                     Weed control around the sprinkler risers is also needed to maintain their visibility and prevent accidental damage from farm equipment operated nearby. Solid set sprinkler systems may also require close management, ensuring that the rate of application does not exceed the rate of soil absorption to prevent overwatering and subsequent runoff and erosion. Since uniform application of water can be a challenge with sprinklers, attention should be given to all areas of the irrigation system, as some areas may be underwatered while others are overwatered.            
@@ -99,22 +105,13 @@ function Irrigation(props) {
 
                 </Col>
                 <Col xs={12} md={6}>
-
-
-                    <Image
-                    className="d-block w-100 mb-3"
-                    src={sp[0][1].default} 
-
-                    />
-
-
-            
+                    <br/>
 
                     <p>
                     There are a variety of irrigation systems that farmers may consider installing. Two options suitable for small and medium New England farms are drip and solid set sprinkler irrigation. 
                     </p>
                    
-                    <br/>
+
 
                     <p>
                     Drip irrigation brings water to crop root zones through low pressure devices, such as micro spray, bubblers and tape, that are operated just above or directly on the ground, or just under the soil surface. This option works well in orchards and vineyards and in vegetable and flower production. While drip irrigation is easy to install, efficient, effective on sloping fields, and unaffected by wind, it also has high management and maintenance needs, including those related to issues such as clogging and bacterial and algal growth.  

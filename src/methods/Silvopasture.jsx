@@ -83,7 +83,13 @@ function Silvopasture(props) {
 		<hr/>
 		<Card.Title id="2">Silvopasture</Card.Title>
 		<hr/>
-		<Alert variant={'info'} className="mx-4">
+
+		<Image
+		className="d-block w-100 mb-4"
+		src={pe[1][1].default} 
+		/>
+
+
 		<p>
 		Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest 
 		products on the same parcel of land. Silvopasture systems are diverse and varied and can be designed to meet farmers’ unique
@@ -93,12 +99,24 @@ function Silvopasture(props) {
 		farmers should investigate this option with a forester to ensure compliance with current use designations.   
 		</p>
 
-		</Alert>
 
+		<p>
+		Silvopasture offers numerous climate change adaptation benefits that address challenges such as 
+		increased frequency and severity of weather extremes (i.e. drought, heat, and heavy rains).
+		Pasture enrichment provides shade and protection for livestock, may 
+		enhance carbon sequestration, and can improve water filtration and retention. Skilled and 
+		active management of enriched pastures together with sound livestock husbandry are essential
+		to achieving a sustainable and successful silvopasture system.
+		</p>
+
+		<p>
+		Skilled and active management of pasture and woodland together with sound livestock
+		husbandry are essential to achieving a sustainable and successful silvopasture system.
+		</p>
 
 		<Row>
 		<Col xs={12} md={6}>
-	<p>
+{/*	<p>
 	Silvopasture offers numerous climate change adaptation benefits that address challenges such as 
 	increased frequency and severity of weather extremes (i.e. drought, heat, and heavy rains).
 	Pasture enrichment provides shade and protection for livestock, may 
@@ -110,7 +128,7 @@ function Silvopasture(props) {
 	<p>
 	Skilled and active management of pasture and woodland together with sound livestock
 	husbandry are essential to achieving a sustainable and successful silvopasture system.
-	</p>
+	</p>*/}
 
 
 
@@ -118,7 +136,7 @@ function Silvopasture(props) {
 
 
 </Col>
-<Col xs={12} md={6}>
+{/*<Col xs={12} md={6}>
 
 <Image
 className="d-block w-100 mb-4"
@@ -126,7 +144,7 @@ src={pe[0][1].default}
 
 />
 
-</Col>
+</Col>*/}
 </Row>
 </Card.Body>
 

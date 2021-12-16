@@ -113,9 +113,37 @@ function ImageSlider(props) {
         <hr/>        
         <Card.Title className="mt-5 mb-5">{props.title}</Card.Title>
 
-        <Row>
 
-        <Col xs={6} lg={8} className="d-flex ml-0 pl-0 align-items-end">
+
+        <Row className="d-flex order-sm-first order-lg-last">
+
+        <Col xs={6} lg={4} className="pr-5 order-sm-first order-lg-last">
+         {active.length > 1 && 
+
+            <Box sx={{ width: "100%" }}>
+                <Typography className="text-center text-muted" gutterBottom>Slide to Implement Practice</Typography>
+            
+                <Slider
+                    getAriaLabel={() => 'Image Slider'}
+                    min={0}
+                    marks={createMarks(active)}
+                    max={1}
+                    step={0.01}
+                    value={timeSl}
+                    style={{position: "relative"}}
+                    onChange={(event,idx) => handleChange(event,idx)}
+                />
+            </Box>
+                
+               }
+
+        </Col>
+        </Row>
+
+
+
+{/*        <Col xs={6} lg={8} className="d-flex ml-0 pl-0 align-items-end">*/}
+        <Row className="mb-5">
         {props.lbls &&
             <>
 
@@ -180,29 +208,9 @@ function ImageSlider(props) {
 
             </>
                     }
-        </Col>
-        <Col xs={6} lg={4} className="pr-5 d-flex justify-content-end align-items-end order-sm-first order-lg-last">
-         {active.length > 1 && 
-
-            <Box sx={{ width: "100%" }}>
-                <Typography className="text-center text-muted" gutterBottom>Slide to Implement Practice</Typography>
-            
-                <Slider
-                    getAriaLabel={() => 'Image Slider'}
-                    min={0}
-                    marks={createMarks(active)}
-                    max={1}
-                    step={0.01}
-                    value={timeSl}
-                    style={{position: "relative"}}
-                    onChange={(event,idx) => handleChange(event,idx)}
-                />
-            </Box>
-                
-               }
-
-        </Col>
         </Row>
+
+
 
         <Row className="mx-0 mb-5 h-100 position-relative">
         {/* Fading images accompanying slider */}

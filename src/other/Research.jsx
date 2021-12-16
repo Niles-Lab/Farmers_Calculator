@@ -40,18 +40,20 @@ return (
                             <blockquote className="blockquote mt-5 mb-0 ">
 
 
-                <Alert variant={'info'} className="mx-4">
-                  <em>
+                <Alert variant={'success'} className="mx-4">
+                  <em className="small">
 
                     The long term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United States(specifically Maine and Vermont) by developing climate change resources that consider farmer&#39;s own 
                     perceptions, concerns, experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region and the unique climate change challenges facing the Northeast. 
 
                   </em>
-                  <footer className="blockquote-footer">
+                  <small>
+                  <footer className="blockquote-footer small">
                         <a target="_blank" rel="noreferrer" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
                             <cite>USDA Grant Summary</cite>
                         </a>
                   </footer>
+                  </small>
                 </Alert>
 
 

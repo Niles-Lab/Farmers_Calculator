@@ -33,13 +33,14 @@ let data = {
 
 const silvoptions = {
 	baseCropRevenue: 
-	[450, "$", "Pasture Revenue", "", ""],
+	[450, "$", "Pasture Revenue"],
 	baseCropCost: 
-	[300, "$", "Base Pasture Cost", "", ""],
+	[300, "$", "Base Pasture Cost"],
 	treeSpacing: 
-	[30, "ft", "Tree Spacing"],
+	[30, "ft", "Tree Spacing", "Economic Budgeting for Agroforestry Practices(University of Missouri)", "https://extension.missouri.edu/publications/af1006"],
 	treePlantingCost: 
-	[9.5, "$", "Tree Planting Cost"],
+	[9.5, "$", "Tree Planting Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
 	treesPerAcre: 
 	[48, "Tr/Acre", "Trees Per Acre"],
 	treeCost: 
@@ -49,7 +50,7 @@ const silvoptions = {
 	treeCropPrice: 
 	[5, "$/Unit", "Tree Crop Price"],
 	effectiveProperty: 
-	[80, "%", "Effective Property"]
+	[80, "%", "Effective Property", "Mean productivity based on Pent (2020)", "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
 }
 
 
@@ -97,7 +98,7 @@ const tarpoptions = {
 	tarpLaborCost: 
 	[20.00, "$/Hr", "Tarp Labor Cost"],
 	coverCropCost: 
-	[150, "$/Ac", "Cover Crop Cost"], // Effective every OTHER year, starting with 0
+	[150, "$/Ac", "Cover Crop Cost", "Based on NRCS Practice 340, Scenario #57: Cover Crop, 1 ac or less (includes materials + labor)", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"], // Effective every OTHER year, starting with 0
 	maintenanceCost: 
 	[50, "$/Acre/Yr", "Maintenance Cost"],
 	effectiveProperty: 

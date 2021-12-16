@@ -56,10 +56,16 @@ function handleChange(event,key,value) {
 		<Row>
 			<Col>
 				Discount Rate
-			</Col>
-		<Col>
-		<InputGroup className="mb-1">
 
+			  <OverlayTrigger
+			    placement="right"
+			    overlay={<Tooltip>Typical for agricultural financial analyses</Tooltip>}>
+				<span className="ml-1"><BsInfoCircle /></span>
+			  </OverlayTrigger>
+
+			</Col>
+			<Col>
+		<InputGroup>
 			<Form.Control
 				placeholder="..."
 				name="rate"
@@ -71,7 +77,7 @@ function handleChange(event,key,value) {
 				onChange = {(event) => {props.setRate(event.target.value)}} />
 			<InputGroup.Text>%</InputGroup.Text>
 		  </InputGroup>
-		</Col>
+			</Col>
 		</Row>
 
 

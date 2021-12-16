@@ -126,7 +126,7 @@ function ImageSlider(props) {
                 {props.lbls.map((lbl,idy) => (
 
                 <p key={idy}
-                className="position-absolute text-justify fw-bolder"
+                className="position-absolute fw-bolder font-weight-bold"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </p>
@@ -188,7 +188,6 @@ function ImageSlider(props) {
                 <Typography className="text-center" gutterBottom>Slide to implement practice</Typography>
             
                 <Slider
-
                     getAriaLabel={() => 'Image Slider'}
                     min={0}
                     marks={createMarks(active)}
@@ -205,23 +204,25 @@ function ImageSlider(props) {
         </Col>
         </Row>
 
-        <Row className="mx-0 mb-5">
+        <Row className="mx-0 mb-5 h-100 position-relative">
         {/* Fading images accompanying slider */}
-          <Box className="position-relative d-flex w-100" style={{'minHeight': '600px', 'overflow': 'visible'}}>
+        <Container className="w-100 position-relative h-auto" style={{'minHeight': '800px'}}>
+{/*          <Box className="position-relative w-100 h-100" style={{'minHeight': '800px'}}>*/}
                 {/* Map the active image set to screen */}
                 {active.map((d,idx) => (
 
                         <Image
-                            fluid
+                            rounded
                             key={d+idx}
-                            className="d-block w-100"
-                            style={{'position': 'absolute', 'opacity': opacity[idx]}}
+                            className="position-absolute d-block w-100 h-auto"
+                            style={{'opacity': opacity[idx]}}
                             src={d[1].default} 
                             alt={d[0]}
                             />
                     ))}
-
-          </Box>
+{/*
+          </Box>*/}
+        </Container>
         </Row>
 
 	</Container>

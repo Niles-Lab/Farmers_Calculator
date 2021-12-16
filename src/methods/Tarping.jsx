@@ -73,6 +73,7 @@ function Tarping(props) {
         <hr/>
 
         <Image
+        rounded
         className="d-block w-100 mb-3"
         src={tp[1][1].default} 
         />
@@ -80,7 +81,7 @@ function Tarping(props) {
 
 
 
-        <Row>
+        <Row className="d-block">
 
 
         <p>

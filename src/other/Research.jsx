@@ -1,7 +1,7 @@
 import React from 'react';
 import { Container, Card, Row, Col, Image, Navbar, Nav, Alert } from 'react-bootstrap';
 //import mental_map from './../images/mental_map.png';
-import code from './../images/code.png';
+import tools from './../images/tools.png';
 import focus_group from './../images/focus_group.png';
 import research_graph from './../images/research_graph.png'
 import Resource from "./../other/Resource.jsx"
@@ -74,7 +74,7 @@ return (
                         <Col className="mt-5">
                         <Image src={research_graph} className={"w-75"} fluid />
                         <br/>
-                        <cite>Graph showing the percent of respondents who mentioned a
+                        <cite className="text-muted small">Graph showing the percent of respondents who mentioned a
                             concept or outcome for a given farm during mental model exercise,
                             separated by occupation. Statistically signicant mention scores are
                             noted with an asterisk (*). (X squared =4.27, p=0.039). </cite>
@@ -127,12 +127,11 @@ return (
                     <Card.Title className="text-start" id="2">Phase 2 - Focus Groups</Card.Title>
                 <hr/>
 
-                    <Row className="d-flex justify-content-center">
-
+                    <Row className="d-block pb-0 mb-0">
                       <Image src={focus_group} className="w-75" fluid />
-                      <cite>Focus Group Summary Image</cite>
-
-
+                    </Row>
+                    <Row className="d-block mt-0 pt-0 pb-3">
+                      <cite className="text-muted small">Focus Group Summary Image</cite>
                     </Row>
                     <Row>
                         <p>
@@ -153,12 +152,11 @@ return (
                     <Card.Title className="text-start" id="3">Phase 3 - Tools</Card.Title>
                 <hr/>
 
-                    <Row className="d-flex justify-content-center">
-
-                      <Image src={code} className="w-75" fluid />
-                      <cite></cite>
-
-
+                    <Row className="d-block">
+                      <Image src={tools} className="w-75" />
+                    </Row>
+                    <Row className="d-block">
+                      <cite className="text-muted small">Example of Silvopasture Economic Tool</cite>
                     </Row>
                     <Row>
                         <p>

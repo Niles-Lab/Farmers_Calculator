@@ -32,8 +32,8 @@ let data = {
 
 
 const silvoptions = {
-	baseCropRevenue: [450, "$", "Grazing Revenue"],
-	baseCropCost: [300, "$", "Base Grazing Cost"],
+	baseCropRevenue: [450, "$", "Pasture Revenue"],
+	baseCropCost: [300, "$", "Base Pasture Cost"],
 	treeSpacing: [30, "ft", "Tree Spacing"],
 	treePlantingCost: [9.5, "$", "Tree Planting Cost"],
 	treesPerAcre: [48, "Tr/Acre", "Trees Per Acre"],

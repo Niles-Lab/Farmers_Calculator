@@ -23,7 +23,7 @@ function Resource(props) {
 		  <Card.Body>
 		    <Card.Title className="mb-0">{props.format}</Card.Title>
 			<cite>{props.date}</cite><br/>
-		    <Card.Text>
+		    <Card.Text className="text-center">
 		      {props.description}
 		    </Card.Text>
 		    <Row className="mx-auto">

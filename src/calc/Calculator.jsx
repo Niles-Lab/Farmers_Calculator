@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import EconomicTool from './EconomicTool.jsx'
 //import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";

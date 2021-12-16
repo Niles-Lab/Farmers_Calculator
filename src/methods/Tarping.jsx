@@ -14,7 +14,7 @@ const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resourc
 
 function importAll(r) {
   let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
   return Object.entries(images);
 }
 
@@ -22,7 +22,7 @@ function importAll(r) {
 const tp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
 
 // Tarping cover image is just the first from our one set
-const sp = [tp[0]];
+//const sp = [tp[0]];
 
 // Collection of elements for ImageSlider
 let groups = [tp];

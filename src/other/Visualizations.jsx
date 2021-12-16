@@ -6,7 +6,7 @@ import ImageSlider from "./../viz/ImageSlider.jsx"
 
 function importAll(r) {
   let images = {};
-  r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
+  r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
   return Object.entries(images);
 }
 
@@ -105,10 +105,6 @@ const silvopasture = {
 
 const Visualizations = (props, ref) => {
 
-
-
-
-var activeKey = 0;
 
 const [group, setGroup] = useState(silvopasture);
 

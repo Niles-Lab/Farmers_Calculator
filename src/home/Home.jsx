@@ -28,7 +28,6 @@ function Home(props) {
 
 
           <Image
-          responsive
           fluid
           className="position-absolute w-50 d-flex align-content-center"
           style={{"zIndex": -1, "opacity": 0.2, "top": -100, "bottom": 100, "left" : 150}}

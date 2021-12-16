@@ -18,7 +18,6 @@ import Irrigation from './methods/Irrigation.jsx'
 import Tarping from './methods/Tarping.jsx'
 
 import Research from './other/Research.jsx'
-import Extras from './other/Extras.jsx'
 import Press from './other/Press.jsx'
 
 import Visualizations from './other/Visualizations.jsx';
@@ -51,7 +50,7 @@ function App() {
 
           <Route path='/Press' component={Press}/>
           <Route path='/About' component={About}/>
-          <Route path='/Extras' component={Extras}/>
+
           <Route path='/' component={Home}/>
           
         </Switch>

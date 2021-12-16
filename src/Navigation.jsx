@@ -20,8 +20,6 @@ const Navigation = () => {
                   <NavDropdown.Item href="/about">About</NavDropdown.Item>
                   <NavDropdown.Item href="/press">Press</NavDropdown.Item>
                   <NavDropdown.Item href="/research">Research</NavDropdown.Item>
-                  <NavDropdown.Divider />
-                  <NavDropdown.Item href="/extras">Extras</NavDropdown.Item>
                 </NavDropdown>
 
                 <NavDropdown title="Practices" id="basic-nav-dropdown">

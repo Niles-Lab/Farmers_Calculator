@@ -1,22 +1,12 @@
 import React, { useState } from 'react';
 import { Card, Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
-
 import FormController from "./../calc/FormController.jsx"
-
-
-
-
 
 
 const Tools = (props, ref) => {
 
 
 const [key, setKey] = useState("silvopasture");
-
-
-
-
-
 
 
 return (

@@ -31,7 +31,7 @@ function App() {
   return (
 
     <>
-    <span className="App pb-5 mb-5 overflow-auto">
+    <span className="App pb-5 mb-5 d-flex flex-column overflow-auto min-vh-100">
 
         <Navigation />
 
@@ -58,31 +58,43 @@ function App() {
 
     </span>
 
-    <Row>
-    <div className="position-relative clearfix fixed-bottom footer">
+
+    <div className="d-flex flex-column clearfix footer">
 
 
     <Navbar className="mx-0 px-0 flex-wrap" bg={"light"}>
-      <Col className="px-0" xs={12} md={1}>
+{/*      <Col className="px-0" md={1}>
         <Navbar.Brand><Image responsive className="w-100" src={uvm} /></Navbar.Brand>
       </Col>
-      <Col className="px-0" xs={12} md={1}>
+      <Col className="px-0" md={1}>
         <Navbar.Brand><Image responsive className="w-100" src={umaine}/></Navbar.Brand>
       </Col>
-{/*      <Col className="px-0" xs={12} md={1}>        
-        <Navbar.Brand><Image style={{"width": "100%"}} src={nifa}/></Navbar.Brand>
-      </Col>*/}
 
-      <Col className="px-0" xs={12} md={1}>
-        <Navbar.Brand><Image responsive style={{"width": "700%"}} src={climatehub}/></Navbar.Brand>
+      <Col className="px-0" md={1}>
+        <Navbar.Brand><Image fluid className="w-100" style={{"width": "700%"}} src={climatehub}/></Navbar.Brand>
       </Col>
       
       <Col className="px-0" xs={0} md={4}>
 
+      </Col>*/}
+
+      <Col xs={12} lg={2}>
+      <Image fluid className="w-75" src={uvm} />
       </Col>
 
-      <Col xs={12} md={4}>
-        <Nav.Item>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
+      <Col xs={12} lg={2}>
+      <Image fluid className="w-75" src={umaine}/>
+      </Col>
+
+      <Col xs={12} lg={2}>
+      <Image fluid className="w-75" src={climatehub}/>
+      </Col>
+      
+
+
+
+      <Col xs={0} lg={{ span: 3, offset: 3 }}>
+      <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
       </Col>
 
 
@@ -91,7 +103,6 @@ function App() {
 
     </div>
 
-    </Row>
 
     </>
   );

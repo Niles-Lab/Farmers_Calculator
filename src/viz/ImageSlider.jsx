@@ -115,13 +115,13 @@ function ImageSlider(props) {
 
 
 
-        <Row className="d-flex order-sm-first order-lg-last">
+        <Row>
 
-        <Col xs={6} lg={4} className="pr-5 order-sm-first order-lg-last">
+        <Col xs={6} lg={4}>
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>
-                <Typography className="text-center text-muted" gutterBottom>Slide to Implement Practice</Typography>
+                <Typography className="text-center text-muted small" gutterBottom>Slide to Implement Practice</Typography>
             
                 <Slider
                     getAriaLabel={() => 'Image Slider'}

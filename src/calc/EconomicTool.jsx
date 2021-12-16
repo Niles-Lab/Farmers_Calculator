@@ -556,7 +556,11 @@ function pointerMove(d) {
       <Table bordered striped hover size={'sm'}>
             <thead>
 
-
+            <tr>
+              <th>Component</th>
+              <th>Per Acre</th>
+              <th>Total Area</th>
+            </tr>
           {props.npv.map((d,idx) => (
             <tr key={idx}>
               <th>{d[0]}</th>

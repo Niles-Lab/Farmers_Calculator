@@ -23,7 +23,8 @@ function CalcShow({name, ...props}) {
   		//background: "rgba(255, 255, 4, 1)",
   		background: "rgba(220, 220, 220, 1)",
   		//background: "#FFFFFF",
-  		minWidth: "25%"
+  		minWidth: "25%",
+  		maxWidth: "35%"
 		}
 	}
   // const [show, setShow] = useState(false);
@@ -51,7 +52,6 @@ function CalcShow({name, ...props}) {
 
 
         <OffCanvas
-
  					placement={"start"}
           height={"100%"}
           style={style}

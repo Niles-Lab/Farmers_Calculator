@@ -7,8 +7,8 @@ const Navigation = () => {
     <>
       <Navbar collapseOnSelect expand="sm" variant="dark" className="mainnav">
         <Col>
-            <Row className="mb-0 pb-0 ml-3">
-              <Navbar.Brand>Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>
+            <Row className="mb-0 pb-0 ml-3 text-wrap">
+              <Navbar.Brand className="text-wrap">Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>
             </Row>
             <Row className="mt-0">
             <Navbar.Collapse id="responsive-navbar-nav">

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Alert, Card, Container, Row, Col, Image } from 'react-bootstrap';
+import { Card, Container, Row, Col, Image, Table } from 'react-bootstrap';
 import ne from "./../images/ne.png";
 
 
@@ -10,11 +10,11 @@ function Home(props) {
 
 //const navs = ["Local Effects of Climate Change", "Individual Action", "What is CBA?", "Our Mission"];
 //const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
-const navs = ["Project Description", "The Problem", "The Focus"];
+//const navs = ["Project Description", "The Problem", "The Focus"];
 
 	return (
 
-<div className="px-5 my-5">
+  <div className="px-5 my-5">
 
 
         <Row>
@@ -58,27 +58,65 @@ const navs = ["Project Description", "The Problem", "The Focus"];
 
 
 
-    
-
-    
+   
 
 
+        <Container>
 
 
 
+      <Col xs={{ span: 8, offset: 2}}>
         <hr/>
         <Card.Title>Quick Links</Card.Title>
         <hr/>
-        <Container>
+      <Table responsive size={'sm'}>
+            <thead>
 
-          {practices.map(d => (
+            </thead>
+            <tbody>
+          {practices.map((d,idx) => (
+
+            <tr key={idx} className="lead text-reset">
+                
+
+              <th><a href={"/" + d} className="text-decoration-none">
+                {d}
+                </a></th>
+              <td><a href={"/" + d + "/#a2"}>
+                Economic Tool
+                </a></td>
+              <td><a href={"/" + d + "/#a1"}>
+                Visualizations
+                </a></td>
+
+
+            </tr>
+
+
+          ))}
+          </tbody>
+      </Table>
+      </Col>
+
+
+
+
+
+
+
+
+
+{/*          {practices.map(d => (
             <>
 
             <Row>
-              <Col xs={12} lg={8} className="d-flex">
+              <Col xs={12} lg={1} className="d-flex">
                 <a href={"/" + d}>
                 {d}
                 </a>
+              </Col>
+              <Col xs={12} lg={1} className="d-flex">
+
               </Col>
               <Col xs={12} lg={2}>
                 <a href={"/" + d + "/#a2"}>
@@ -94,7 +132,7 @@ const navs = ["Project Description", "The Problem", "The Focus"];
             </Row>
             <hr/>
             </>
-          ))}
+          ))}*/}
 
     </Container>
 

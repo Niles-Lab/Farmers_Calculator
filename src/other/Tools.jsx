@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { Alert, Card, Container, Row, Col, Image, Tabs, Tab, Nav, Navbar } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Card, Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 
 import FormController from "./../calc/FormController.jsx"
 
@@ -11,17 +11,11 @@ import FormController from "./../calc/FormController.jsx"
 const Tools = (props, ref) => {
 
 
-const [group, setGroup] = useState(null);
-
-
-
 const [key, setKey] = useState("silvopasture");
 
 
 
-function handleChange(d) {
 
-}
 
 
 
@@ -53,7 +47,7 @@ return (
 <Row>
 <Col xs={12} md={2}>
 
-      
+      <Navbar.Brand className="ml-0">Select Economic Tool</Navbar.Brand> 
       <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
 
@@ -66,7 +60,7 @@ return (
       onSelect={(k) => setKey(k)}>
 
    
-      <Navbar.Brand className="pb-3 mx-auto">Select Economic Tool</Navbar.Brand>
+
 
         <Nav.Item>
           <Nav.Link eventKey="silvopasture">Silvopasture</Nav.Link>
@@ -108,9 +102,6 @@ return (
 
 
 
-
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </Container>
 
 );

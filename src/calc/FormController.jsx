@@ -32,45 +32,76 @@ let data = {
 
 
 const silvoptions = {
-	baseCropRevenue: [450, "$", "Pasture Revenue"],
-	baseCropCost: [300, "$", "Base Pasture Cost"],
-	treeSpacing: [30, "ft", "Tree Spacing"],
-	treePlantingCost: [9.5, "$", "Tree Planting Cost"],
-	treesPerAcre: [48, "Tr/Acre", "Trees Per Acre"],
-	treeCost: [2.50, "$/yr", "Tree Maintenance Cost"],
-	treeCropYield: [2, "$/Unit", "Tree Crop Yield"],
-	treeCropPrice: [5, "$/Unit", "Tree Crop Price"],
-	effectiveProperty: [80, "%", "Effective Property"]
+	baseCropRevenue: 
+	[450, "$", "Pasture Revenue", "", ""],
+	baseCropCost: 
+	[300, "$", "Base Pasture Cost", "", ""],
+	treeSpacing: 
+	[30, "ft", "Tree Spacing"],
+	treePlantingCost: 
+	[9.5, "$", "Tree Planting Cost"],
+	treesPerAcre: 
+	[48, "Tr/Acre", "Trees Per Acre"],
+	treeCost: 
+	[2.50, "$/yr", "Tree Maintenance Cost"],
+	treeCropYield: 
+	[2, "$/Unit", "Tree Crop Yield"],
+	treeCropPrice: 
+	[5, "$/Unit", "Tree Crop Price"],
+	effectiveProperty: 
+	[80, "%", "Effective Property"]
 }
 
 
 const irroptions = {
-	baseCropRevenue: [2500, "$/Acre", "Base Crop Revenue"],
-	baseCropCost: [1500, "$/Acre", "Base Crop Cost"],
-	sprinklerSpacing: [40, "Ft", "Sprinkler Spacing"],
+	baseCropRevenue: 
+	[2500, "$/Acre", "Base Crop Revenue"],
+	baseCropCost: 
+	[1500, "$/Acre", "Base Crop Cost"],
+	sprinklerSpacing: 
+	[40, "Ft", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
 	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
-	sprinklerCost: [62.50, "$/Head", "Sprinkler Cost"],
-	pipeCost: [2.80, "$/Ft", "Pipe Cost"],
-	pumpSize: [10, "HP", "Pump Size"],
-	pumpCost: [710, "$/HP", "Pump Cost"],
-	dailyPumpUse : [8, "Hr/Day", "Daily Pump Use"],
-	hourlyPump: [90, "Days/Yr", "Hourly Pump"],
-	dieselCost: [3.40, "$/Gal", "Diesel Fuel Cost"],
-	maintenanceCost: [100, "$/Acre/Yr", "Maintenance Cost"],
-	effectiveProperty: [150, "%", "Productivity With Irrigation"]
+	sprinklerCost: 
+	[62.50, "$/Head", "Sprinkler Cost"],
+	pipeCost: 
+	[2.80, "$/Ft", "Pipe Cost", "Based on NRCS Practice 430, Scenario #7: 2\" Surface HDPE Irrigation Pipeline", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
+	pumpSize: 
+	[10, "HP", "Pump Size"],
+	pumpCost: 
+	[710, "$/HP", "Pump Cost", "Diesel Fuel Cost", "NRCS Practice 533, Scenario $5: Electric-powered pump 10-40HP", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
+	dailyPumpUse : 
+	[8, "Hr/Day", "Daily Pump Use"],
+	hourlyPump: 
+	[90, "Days/Yr", "Hourly Pump"],
+	dieselCost: 
+	[3.40, "$/Gal", "Diesel Fuel Cost"],
+	maintenanceCost: 
+	[100, "$/Acre/Yr", "Maintenance Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
+	effectiveProperty: 
+	[150, "%", "Productivity With Irrigation", "Efficiency Based On OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"]
 }
 
 const tarpoptions = {
-	baseCropRevenue: [2500, "$", "Base Crop Revenue"],
-	baseCropCost: [1500, "$", "Base Crop Cost"],
-	bedSpacing: [8, "Ft", "Bed Spacing"],
-	tarpLength: [5445, "Ft", "Tarp Length"],
-	tarpCost: [0.70, "$/Ft", "Tarp Cost"],
-	tarpLabor: [4, "Hr/Acre", "Tarp Labor"],
-	tarpLaborCost: [20.00, "$/Hr", "Tarp Labor Cost"],
-	coverCropCost: [150, "$/Ac", "Cover Crop Cost"], // Effective every OTHER year, starting with 0
-	maintenanceCost: [50, "$/Acre/Yr", "Maintenance Cost"],
-	effectiveProperty: [120, "%", "Productivity With Tarp & Cover Crop"]
+	baseCropRevenue: 
+	[2500, "$", "Base Crop Revenue"],
+	baseCropCost: 
+	[1500, "$", "Base Crop Cost"],
+	bedSpacing: 
+	[8, "Ft", "Bed Spacing"],
+	tarpLength: 
+	[5445, "Ft", "Tarp Length"],
+	tarpCost: 
+	[0.70, "$/Ft", "Tarp Cost"],
+	tarpLabor: 
+	[4, "Hr/Acre", "Tarp Labor"],
+	tarpLaborCost: 
+	[20.00, "$/Hr", "Tarp Labor Cost"],
+	coverCropCost: 
+	[150, "$/Ac", "Cover Crop Cost"], // Effective every OTHER year, starting with 0
+	maintenanceCost: 
+	[50, "$/Acre/Yr", "Maintenance Cost"],
+	effectiveProperty: 
+	[120, "%", "Productivity With Tarp & Cover Crop"]
 }
 
 
@@ -100,8 +131,6 @@ const [opts, setOpts] = useState(() => {
 
 
 useEffect(() => {
-
-console.log(props.variant);
 
 if (props.variant === "silvopasture") {
 	setOpts(silvoptions);

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Navbar, Nav, Image, Col, Row } from 'react-bootstrap';
+import { Navbar, Nav, Image, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';

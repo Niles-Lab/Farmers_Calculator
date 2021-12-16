@@ -41,7 +41,7 @@ const Navigation = () => {
 
             </Row>
         </Col>
-        <Col xs={4}>
+
 {/*          <Nav className="logos d-none d-sm-block">
               <Navbar.Brand>
                 <a href="https://uvm.edu/" rel="noreferrer" target="_blank"><Image src={uvm} width="90%"/></a>
@@ -50,7 +50,7 @@ const Navigation = () => {
                 <a href="https://umaine.edu/" rel="noreferrer" target="_blank"><Image src={umaine} width="90%"/></a>
               </Navbar.Brand>
           </Nav>*/}
-        </Col>
+
       </Navbar>    
     </>
         )

@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import { Alert, Card, Container, Row, Col, Image, Tabs, Tab, Nav, Navbar } from 'react-bootstrap';
-import cover from "./../images/cover.jpg";
+import React, { useState } from 'react';
+import { Card, Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
+//import cover from "./../images/cover.jpg";
 import ImageSlider from "./../viz/ImageSlider.jsx"
 
 
@@ -30,11 +30,6 @@ const pd = importAll(require.context('../images/irrigation/pd/', false, /\.(png|
 const ig = importAll(require.context('../images/irrigation/ig/', false, /\.(png|jpe?g|svg)$/));
 
 
-
-
-var labels = ["Irrigation", "Irrigation With Ponds"];
-
-
 const irrigation = {
   titles: ["Aerial view of a drip irrigation system on a New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a New England vegetable farm"],
   images: [ig, pd],
@@ -53,7 +48,7 @@ const irrigation = {
 const tp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
 
 // Tarping cover image is just the first from our one set
-const sp = [tp[0]];
+//const sp = [tp[0]];
 
 
 
@@ -175,7 +170,8 @@ return (
 <Row>
 <Col xs={12} md={2}>
 
-      
+      <Navbar.Brand>Select Visualizations</Navbar.Brand>
+  
       <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
 
@@ -188,7 +184,6 @@ return (
       onSelect={(k) => handleChange(k)}>
 
    
-      <Navbar.Brand className="pb-3">Select Visualizations</Navbar.Brand>
 
         <Nav.Item>
           <Nav.Link id="navbtns" eventKey="silvopasture">Silvopasture</Nav.Link>

@@ -144,7 +144,11 @@ let units = ["Acres", "Hectares"];
 				</Row>
 
 
+			</Form.Group>
 
+
+
+			</Form>
 
 
 {/* Add and remove different acres */}
@@ -176,11 +180,7 @@ let units = ["Acres", "Hectares"];
 
 			
 
-			</Form.Group>
 
-
-
-			</Form>
 			
 
 		

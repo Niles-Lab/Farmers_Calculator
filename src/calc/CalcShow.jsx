@@ -23,8 +23,7 @@ function CalcShow({name, ...props}) {
   		//background: "rgba(255, 255, 4, 1)",
   		background: "rgba(220, 220, 220, 1)",
   		//background: "#FFFFFF",
-  		minWidth: "25%",
-  		maxWidth: "35%"
+  		minWidth: "35vw",
 		}
 	}
   // const [show, setShow] = useState(false);

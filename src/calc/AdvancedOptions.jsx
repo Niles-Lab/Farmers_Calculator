@@ -12,7 +12,8 @@
  **/
 
 import React, { useState } from "react";
-import { Form, Card, Col, Row, Button, Collapse, InputGroup } from 'react-bootstrap';
+import { Form, Card, Col, Row, Button, Collapse, InputGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { BsInfoCircle } from "react-icons/bs";
 
 function AdvancedOptions(props) {
 
@@ -75,10 +76,23 @@ function handleChange(event,key,value) {
 
 
 		{Object.entries(props.opts).map(([key,value]) => (
+
 			<Form.Group key={key}>
 				<Row>
+					
 					<Col>
 						{value[2]}
+
+						{ props.opts[key].length > 3 &&
+						  <OverlayTrigger
+						  	key={key+"trigger"}
+						    placement="right"
+						    overlay={<Tooltip id={key+"trigger"}>{props.opts[key][3]}</Tooltip>}>
+							<a target="_blank" rel="noopener noreferrer" className="ml-1" href={props.opts[key][4]}><BsInfoCircle /></a>
+						  </OverlayTrigger>
+
+						}
+
 					</Col>
 				<Col>
 				<InputGroup className="mb-1">

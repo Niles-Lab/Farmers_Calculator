@@ -152,7 +152,7 @@ return (
 </Col>
 <Col xs={12} md={8}>
   <hr/>
-  <Card.Title id="2">Visualizations</Card.Title>
+    <h2>Visualizations</h2>
   <hr/>
 
 

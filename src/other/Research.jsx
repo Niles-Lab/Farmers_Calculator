@@ -65,22 +65,28 @@ return (
                     <Card.Title className="text-start" id="1">Phase 1 - Interviews</Card.Title>
                 <hr/>
 
-                <Row>
+                <Row className="d-block">
 
-                    <Col>      
 
-                        <Row className="d-flex justify-content-center">
 
-                        <Col className="mt-5">
-                        <Image src={research_graph} className={"w-75"} fluid />
+
+
+
+
+                        <Image src={research_graph} className={"w-50"} />
                         <br/>
+
+                        <Col  md={{ span: 6, offset: 3 }}>
+
                         <cite className="text-muted small">Graph showing the percent of respondents who mentioned a
                             concept or outcome for a given farm during mental model exercise,
                             separated by occupation. Statistically signicant mention scores are
-                            noted with an asterisk (*). (X squared =4.27, p=0.039). </cite>
+                            noted with an asterisk (*). (X squared =4.27, p=0.039).</cite>
+
                         </Col>
 
-                        <Col>
+                        <Row className="d-block">
+
                         <p>
                         Successful climate adaptation will depend in part on communication
                          between farmers and outreach professionals that is framed by farmers’ 
@@ -101,24 +107,29 @@ return (
                         </p>
 
                         <p>
-                         1) farmers mentioned community well-being, public 
+                        <li>
+                         Farmers mentioned community well-being, public 
                         education, and farm success significantly more than did outreach professionals; 
+                        </li>
                         </p>
                         <p>
-                    2) quality of life, community
+                        <li>
+                    Quality of life, community
                      well-being, environmental stewardship, and farm success were more influential in the farmer mental model 
+                        </li>
                         </p>
                         <p>
-                        3)
-                      climate was a direct driver of yields and product quality in the outreach professional model, but was only 
+                        <li>  
+                      Climate was a direct driver of yields and product quality in the outreach professional model, but was only 
                       indirectly connected to these factors in the farmer model. 
+                        </li>
                         </p>
                         <p>
                       The importance of social dimensions in farmers’ mental models suggests that climate change communication and adaptation outreach should consider how adaptation 
                       strategies, practices, tools, and resources may affect social outcomes, which may be critical for farmers prior
                        to adoption.
                        </p>
-                    </Col>
+
                 </Row>
 
 
@@ -175,7 +186,6 @@ return (
                     </Row>
                                   
 
-                    </Col>
                 </Row>
 
 

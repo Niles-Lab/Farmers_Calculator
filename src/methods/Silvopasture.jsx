@@ -81,10 +81,11 @@ function Silvopasture(props) {
 
 
 		<hr/>
-		<Card.Title id="2">Silvopasture</Card.Title>
+			<h2>Silvopasture</h2>
 		<hr/>
 
 		<Image
+		rounded
 		className="d-block w-100 mb-4"
 		src={pe[1][1].default} 
 		/>

@@ -70,10 +70,11 @@ function Irrigation(props) {
 
 
                 <hr/>
-                <Card.Title id="a0">Irrigation</Card.Title>
+                <h2 id="a0">Irrigation</h2>
                 <hr/>
 
                 <Image
+                rounded
                 className="d-block w-100 mb-3"
                 src={sp[0][1].default} />
 

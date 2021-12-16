@@ -69,7 +69,7 @@ function Tarping(props) {
 
 
         <hr/>
-        <Card.Title id="a0">Tarping</Card.Title>
+        <h2 id="a0">Tarping</h2>
         <hr/>
 
         <Image

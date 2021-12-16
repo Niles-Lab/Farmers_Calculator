@@ -126,7 +126,7 @@ function ImageSlider(props) {
                 {props.lbls.map((lbl,idy) => (
 
                 <p key={idy}
-                className="position-absolute fw-bolder font-weight-bold"
+                className="position-absolute text-muted"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </p>
@@ -185,7 +185,7 @@ function ImageSlider(props) {
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>
-                <Typography className="text-center" gutterBottom>Slide to implement practice</Typography>
+                <Typography className="text-center text-muted" gutterBottom>Slide to Implement Practice</Typography>
             
                 <Slider
                     getAriaLabel={() => 'Image Slider'}

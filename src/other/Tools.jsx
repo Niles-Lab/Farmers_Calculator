@@ -35,7 +35,7 @@ return (
 </Col>
 <Col xs={12} md={8}>
   <hr/>
-  <Card.Title id="2">Economic Tools</Card.Title>
+    <h2>Economic Tools</h2>
   <hr/>
 
 

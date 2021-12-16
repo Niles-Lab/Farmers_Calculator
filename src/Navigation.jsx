@@ -11,7 +11,9 @@ const Navigation = () => {
               <Navbar.Brand className="text-wrap">Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>
             </Row>
             <Row className="mt-0">
+            <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
+
               <Nav>
                 <Nav.Link href="/">Home</Nav.Link>
 
@@ -35,8 +37,8 @@ const Navigation = () => {
                 </NavDropdown>
 
               </Nav>
-            </Navbar.Collapse>
 
+            </Navbar.Collapse>
             </Row>
         </Col>
 

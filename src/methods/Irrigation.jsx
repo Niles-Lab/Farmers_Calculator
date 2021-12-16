@@ -67,13 +67,10 @@ function Irrigation(props) {
 
 
 
-                <Card className="border-0" id="a0">
-
-                <Card.Body>
 
 
                 <hr/>
-                <Card.Title id="2">Irrigation</Card.Title>
+                <Card.Title id="a0">Irrigation</Card.Title>
                 <hr/>
 
                 <Image
@@ -83,9 +80,9 @@ function Irrigation(props) {
 
 
                 <Row>
-                <Col xs={12} md={6}>
 
-                    <br/>
+
+                    <br/><br/>
 
                     <p>
                     Use of irrigation can prevent crop losses, support crop yield and quality, and allow for the production of a greater variety of crops. Even in areas where crops have historically been produced without supplemental irrigation (e.g. the Northeast United States), the economic benefits of using irrigation are now clear. As climate change increases the frequency and severity of extreme weather patterns, such as heat and drought interspersed with heavy precipitation events, the need for and benefits of irrigation are likely to increase. 
@@ -103,8 +100,6 @@ function Irrigation(props) {
                     Weed control around the sprinkler risers is also needed to maintain their visibility and prevent accidental damage from farm equipment operated nearby. Solid set sprinkler systems may also require close management, ensuring that the rate of application does not exceed the rate of soil absorption to prevent overwatering and subsequent runoff and erosion. Since uniform application of water can be a challenge with sprinklers, attention should be given to all areas of the irrigation system, as some areas may be underwatered while others are overwatered.            
                     </p>
 
-                </Col>
-                <Col xs={12} md={6}>
                     <br/>
 
                     <p>
@@ -117,17 +112,14 @@ function Irrigation(props) {
                     Drip irrigation brings water to crop root zones through low pressure devices, such as micro spray, bubblers and tape, that are operated just above or directly on the ground, or just under the soil surface. This option works well in orchards and vineyards and in vegetable and flower production. While drip irrigation is easy to install, efficient, effective on sloping fields, and unaffected by wind, it also has high management and maintenance needs, including those related to issues such as clogging and bacterial and algal growth.  
                     </p>
 
-                </Col>
+
                 </Row>
-                </Card.Body>
 
 
-            {/* Tabbed view of method variants */}
-            <Card className="border-0" id="a1" bg="light">
             <hr/>
-            <Card.Title id="2">Visualizations</Card.Title>
+            <Card.Title id="a1">Visualizations</Card.Title>
             <hr/>
-            <Card.Body>
+
 
                 {/*<ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />*/}
                 {groups.map((e,idz) => (
@@ -140,19 +132,13 @@ function Irrigation(props) {
 
                     ))}
 
-            </Card.Body>
-
-            </Card>  
 
 
-                </Card>
-
-                    <Card className="border-0" variant="light" bg="light">
 
       
                         <Card.Title id="1" className="mt-4">Benefits and Costs</Card.Title>
                     
-                        <Card.Body>
+
                         <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
                             <Row>
                                 <Col>      
@@ -180,8 +166,7 @@ function Irrigation(props) {
                                 </Col>
                             </Row>
                         </Tab.Container>
-                        </Card.Body>  
-                    </Card>
+
                 
                 <hr/>
                     <Card.Title id="a2">Irrigation Economic Tool</Card.Title>
@@ -189,13 +174,13 @@ function Irrigation(props) {
                 {/* Calculator */}
                 <FormController variant={"irrigation"} />
 
-                    <Card className="border-0" variant="light" bg="light">   
+
 
                         <hr/>
                         <Card.Title id="a3">Additional Resources</Card.Title>
                         <hr/>
                     
-                            <Card.Body>
+
                             <Container>
                     <Row>
 
@@ -211,8 +196,7 @@ function Irrigation(props) {
 
              
                             </Container>
-                            </Card.Body>
-                    </Card>
+
 
             </Col>
             <Col xs={0} lg={2}>

@@ -2,7 +2,9 @@ html {
   scroll-behavior: smooth;
 }
 p {
-  text-align: justify;
+  text-align: left;
+  word-break: break-word;
+  overflow-wrap: break-word;
 }
 .mainnav {
   background-color: #006e53;

@@ -65,13 +65,11 @@ function Tarping(props) {
 
 
 
-        <Card className="border-0" id="a0">
 
-        <Card.Body>
 
 
         <hr/>
-        <Card.Title id="2">Tarping</Card.Title>
+        <Card.Title id="a0">Tarping</Card.Title>
         <hr/>
 
         <Image
@@ -83,7 +81,7 @@ function Tarping(props) {
 
 
         <Row>
-        <Col xs={12} md={6}>
+
 
         <p>
         Tarping is the practice of applying tarps to the soil surface and removing them prior to planting to manage or terminate weeds, crops, and cover crops, aiding the transition between cash crops with minimal to no soil disturbance. The use of tarps to terminate cover crops in no-till and reduced tillage systems allows farms to achieve the benefits of integrating these practices without specialized equipment or the application of herbicides. 
@@ -102,8 +100,6 @@ function Tarping(props) {
 
 
 
-        </Col>
-        <Col xs={12} md={6}>
 
 {/*        <Image
         className="d-block w-100 mb-3"
@@ -111,7 +107,7 @@ function Tarping(props) {
         />*/}
 
         <hr/>
-        <Card.Title id="2">General Logistics of Tarping</Card.Title>
+        <Card.Title className="text-center" id="2">General Logistics of Tarping</Card.Title>
         <hr/>
         
 
@@ -130,20 +126,18 @@ function Tarping(props) {
         </p>
 
 
-</Col>
-</Row>
-</Card.Body>
 
-</Card>
+</Row>
+
 {/* Tabbed view of method variants */}
-<Card className="border-0" id="a1" bg="light">
+
 <hr/>
-<Card.Title id="2">Visualizations</Card.Title>
+<Card.Title id="a1">Visualizations</Card.Title>
 <hr/>
+
 <Alert variant={'warning'} className="mx-4 mb-0">
 The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below.
 </Alert>
-<Card.Body>
 
 {/*<ImageSlider groups={groups} labels={labels} id="a1" />*/}
 {groups.map((e,idz) => (
@@ -156,17 +150,14 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
     ))}
 
-</Card.Body>
 
-</Card>  
-<Card className="border-0" variant="light" bg="light">
+
 
 
 <hr/>
 <Card.Title>Benefits and Costs</Card.Title>
 <hr/>
 
-<Card.Body>
 <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
 <Row>
 <Col>      
@@ -199,8 +190,6 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 </Col>
 </Row>
 </Tab.Container>
-</Card.Body>  
-</Card>
 
 
 
@@ -213,7 +202,6 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
 
 
-<Card className="border-0" variant="light" bg="light">   
 
 <hr/>
 <Card.Title id="a3">Additional Resources</Card.Title>
@@ -244,8 +232,6 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 <ExternalLink link={"https://smallfarms.cornell.edu/2018/04/take-me-out-to-a-tarped-field-needs-sidebar/"} label={"Take Me Out to a Tarped Field, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, April 6, 2018, Ryan Maher"} />
 
 
-
-</Card>
 
 </Col>
 

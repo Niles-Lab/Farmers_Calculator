@@ -240,23 +240,23 @@ function npv() {
     .attr("class", "svg-content-responsive svg-container")
     .attr("preserveAspectRatio", "xMinYMin meet")
     .attr("viewBox", "0 0 " + (width+(margin.left*2)) + " " + (height+margin.bottom))
-    .on("pointerover", d => {
-      d3.select("#ttline")
-      .attr("opacity", 1);
+    // .on("pointerover", d => {
+    //   d3.select("#ttline")
+    //   .attr("opacity", 1);
 
-      d3.select("#ttlbl")
-      .attr("opacity", 1);
+    //   d3.select("#ttlbl")
+    //   .attr("opacity", 1);
 
-    })
-    .on("pointerout", d => {
+    // })
+    // .on("pointerout", d => {
 
-      d3.select("#ttline")
-      .attr("opacity", 0);
+    //   d3.select("#ttline")
+    //   .attr("opacity", 0);
 
-      d3.select("#ttlbl")
-      .attr("opacity", 0);
+    //   d3.select("#ttlbl")
+    //   .attr("opacity", 0);
 
-    })
+    // })
     .on("pointermove", d => pointerMove(d))
     .append("g")
     .attr("class", "main")
@@ -466,8 +466,12 @@ function pointerMove(d) {
 
       let position = d3.pointer(d);
 
-      let bound = position[0]-(margin.right+(margin.left*2))
+      let boundX = position[0]-(margin.right+(margin.left*2));
+      let boundY = position[1]-margin.top-margin.bottom;
 
+      let visible = true;
+      if(boundX > (width-margin.right-margin.left) || boundX <= 0) visible = false;
+      if(boundY > height-margin.top-margin.bottom || boundY <= -margin.top) visible = false;
 
       let maxWidth = d3.max(lines, d => {
         return d.length * 10 + ((": $0.00").length*5);
@@ -475,10 +479,11 @@ function pointerMove(d) {
 
 
       d3.select("#ttline")
-      .attr("opacity", bound <= 0 ? 0 : 1);
+      .attr("opacity", visible ? 1 : 0);
+
 
       d3.select("#ttlbl")
-      .attr("opacity", bound <= 0 ? 0 : 1);
+      .attr("opacity", visible ? 1 : 0);
 
       // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
       // and making sure its positive to convert into an index for data array

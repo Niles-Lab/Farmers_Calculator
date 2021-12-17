@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
+import { Card, Container, Row, Col, Nav, Navbar, Alert } from 'react-bootstrap';
 //import cover from "./../images/cover.jpg";
 import ImageSlider from "./../viz/ImageSlider.jsx"
 
@@ -147,7 +147,12 @@ return (
   <hr/>
 
 
-
+<Alert variant={"success"}>
+These visualizations are designed to help the viewer picture how the implementation of a practice appears
+ in the context of a real New England farm. These images depict the different stages of practice implementation
+  and help the viewer anticipate how the implementation of the practice will appear over time and what implications
+   it may have for the farm. Use the slider tool to progress through the images and implement the practice.
+</Alert>
 
 
 
@@ -201,9 +206,6 @@ return (
 
 
 
-  <Card id="a1">
-
-  <Card.Body>
     { group &&
 
 
@@ -220,9 +222,6 @@ return (
           ))}
       </>
     }
-  </Card.Body>
-
-  </Card>  
 
 
 
@@ -235,8 +234,6 @@ return (
 
 
 
-
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
 </Container>
 
 );

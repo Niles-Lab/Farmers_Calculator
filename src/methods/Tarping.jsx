@@ -48,9 +48,9 @@ function Tarping(props) {
         <Row>
 
 
-        <Col xs={2}>
+        <Col xs={0} md={2}>
         <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
-        <Navbar.Collapse id="responsive-navbar-nav">
+
         <Nav id="sectionnav" className="mx-auto">
         {navs.map((d, idx) => (
             <Nav.Link href={"#a" + idx}>
@@ -58,7 +58,7 @@ function Tarping(props) {
             </Nav.Link>
             ))}
         </Nav>
-        </Navbar.Collapse>
+
         </Navbar>
         </Col>
         <Col xs={10} lg={8}>
@@ -85,27 +85,19 @@ function Tarping(props) {
 
 
         <p>
-        Tarping is the practice of applying tarps to the soil surface and removing them prior to planting to manage or terminate weeds, crops, and cover crops, aiding the transition between cash crops with minimal to no soil disturbance. The use of tarps to terminate cover crops in no-till and reduced tillage systems allows farms to achieve the benefits of integrating these practices without specialized equipment or the application of herbicides. 
-        </p>
-
-
-        <p>
-        This practice offers numerous climate change adaptation benefits. Tarping can help facilitate no-till, reduced tillage, and cover cropping, all of which build soil health and improve water holding capacity. Tarping can also facilitate the use of cover crop residue as a mulch for cash crops which helps to conserve moisture, increase water infiltration, prevent surface runoff, and protect soil from erosion. 
+Tarping is the practice of applying tarps to the soil surface and removing them prior to planting to manage or terminate weeds, crops, and cover crops, aiding the transition between cash crops with minimal to no soil disturbance. The use of tarps to terminate cover crops in no-till and reduced tillage systems allows farms to achieve the benefits of integrating these practices without specialized equipment or the application of herbicides. Given the logistical challenges of moving, securing, and storing the tarps, they are typically used on small farm operations of less than 5 acres.
         </p>
 
         <p>
-        Given the logistical challenges of moving, securing, and storing the tarps, 
-        they are typically used on small farm operations of less than 5 acres.
+This practice offers numerous climate change adaptation benefits. Tarping can help facilitate no-till, reduced tillage, and cover cropping, all of which build soil health and improve water holding capacity. Tarping can also facilitate the use of cover crop residue as a mulch for cash crops which helps to conserve moisture, increase water infiltration, prevent surface runoff, and protect soil from erosion. 
+        </p>
+
+        <p>
+Tarping may also reduce the need to use farm equipment which can be helpful in periods of rainy and wet periods when the soil is too wet to work. The potential to eliminate use of machinery to terminate cover crops or incorporate biomass may also be beneficial in a more variable climate as it allows farmers greater flexibility in the timing of cover crop termination.
         </p>
 
 
 
-
-
-{/*        <Image
-        className="d-block w-100 mb-3"
-        src={sp[0][1].default} 
-        />*/}
 
         <hr/>
         <Card.Title className="text-center" id="2">General Logistics of Tarping</Card.Title>
@@ -113,17 +105,11 @@ function Tarping(props) {
         
 
         <p>
-        A variety of tarps of varying thickness, material, durability and size can be used for 
-        this practice, including landscaping fabric, billboard and silage tarps, with a lifespan
-        ranging from 1-8 years. Sandbags and cinder blocks are often used to secure tarps
-        and prevent the tarp from blowing loose and becoming a hazard to equipment, animals
-        and people. At least two people are generally needed to apply, remove, and store
-        tarps, though this may vary depending on tarp and field size as well as weather
-        conditions.
+            A variety of tarps of varying thickness, material, durability and size can be used for this practice, including landscaping fabric, billboard and silage tarps, with a lifespan ranging from 1-8 years. Sandbags and cinder blocks are often used to secure tarps and prevent the tarp from blowing loose and becoming a hazard to equipment, animals and people. At least two people are generally needed to apply, remove, and store tarps, though this may vary depending on tarp and field size as well as weather conditions. 
         </p>
 
         <p>
-        Tarping may also reduce the need to use farm equipment which can be helpful in periods of rainy and wet periods when the soil is too wet to work. The potential to eliminate use of machinery to terminate cover crops or incorporate biomass may also be beneficial in a more variable climate as it allows farmers greater flexibility in the timing of cover crop termination.
+The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below. 
         </p>
 
 
@@ -135,6 +121,14 @@ function Tarping(props) {
 <hr/>
 <Card.Title id="a1">Visualizations</Card.Title>
 <hr/>
+
+
+<Alert variant={"success"}>
+These visualizations are designed to help the viewer picture how the implementation of a practice appears
+ in the context of a real New England farm. These images depict the different stages of practice implementation
+  and help the viewer anticipate how the implementation of the practice will appear over time and what implications
+   it may have for the farm. Use the slider tool to progress through the images and implement the practice.
+</Alert>
 
 <Alert variant={'warning'} className="mx-4 mb-0">
 The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below.
@@ -170,7 +164,7 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 <ListGroup.Item variant="light" action href="">May support long-term soil health goals, like protecting soil organic matter and building soil structure. Supporting soil health can also improve water holding capacity.</ListGroup.Item> 
 <ListGroup.Item variant="light" action href="">Eliminates the need for field passes (especially beneficial when soils are too wet to operate equipment) </ListGroup.Item> 
 <ListGroup.Item variant="light" action href="">Reduces soil erosion</ListGroup.Item> 
-<ListGroup.Item variant="light" action href="">Supports use of cover crops, some of which may add valuable nitrogen and reduce future need for fertilizer </ListGroup.Item> 
+<ListGroup.Item variant="light" action href="">Supports use of cover crops, some of which may add valuable nitrogen and reduce future need for fertilizer</ListGroup.Item> 
 </ListGroup>
 </Col>
 <Col>      

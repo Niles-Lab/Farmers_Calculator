@@ -28,8 +28,8 @@ function Home(props) {
 
 
           <Image
-          fluid
-          className="position-absolute w-50 d-flex align-content-center"
+
+          className="position-absolute w-75 d-flex align-content-center"
           style={{"zIndex": -1, "opacity": 0.2, "top": -100, "bottom": 100, "left" : 150}}
           src={ne} 
           />
@@ -50,9 +50,8 @@ function Home(props) {
             beginning farmers in New England to address the unique challenges they face in adapting to climate change. These
              resources are available for three agricultural practices - silvopasture, irrigation, and tarping - that were 
              identified as areas of particular interest and need among New England farmers. To learn more about each practice
-              area and explore the tools and resources, visit the practice pages. The economic tool and visualizations can also 
-              be accessed on the Tools page. Visit the About page for more information on the purpose and focus of these tools
-               and resources. For an overview of the research and project that generated these resources, visit the Research page. 
+              area and explore the tools and resources, visit the Practices and Tools pages(Quick Links Below). Visit the <a href="/about">About</a> page for more information on the purpose and focus of these tools
+               and resources. For an overview of the research and project that generated these resources, visit the <a href="/research">Research</a> page. 
             </p>
 
 
@@ -75,7 +74,7 @@ function Home(props) {
             <tbody>
           {practices.map((d,idx) => (
 
-            <tr key={idx} className="lead text-reset">
+            <tr key={idx} className="text-reset">
                 
 
               <th><a href={"/" + d} className="text-decoration-none">

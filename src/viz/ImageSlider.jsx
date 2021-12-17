@@ -214,7 +214,7 @@ function ImageSlider(props) {
 
         <Row className="mx-0 mb-5 h-100 position-relative">
         {/* Fading images accompanying slider */}
-        <Container className="w-100 position-relative h-auto" style={{'minHeight': '800px'}}>
+        <Container className="w-100 position-relative h-auto" style={{'minHeight': '700px'}}>
 {/*          <Box className="position-relative w-100 h-100" style={{'minHeight': '800px'}}>*/}
                 {/* Map the active image set to screen */}
                 {active.map((d,idx) => (

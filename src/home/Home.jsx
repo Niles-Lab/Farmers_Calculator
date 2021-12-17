@@ -36,8 +36,7 @@ function Home(props) {
 
 
           <p className="text-start justify-start">
-            Welcome to the Climate Adaptation Resources for Northern New England Farmers, home to climate change adaptation resources for small, 
-            medium and beginning farmers in northern New England. The climate adaptation resources 
+            Welcome to the Climate Adaptation Resources for Northern New England Farmers website. The climate adaptation resources 
             and tools on this website were created by a team of researchers and agricultural 
             specialists from the University of Maine, the University of Vermont, and the United 
             States Department of Agriculture (USDA) Climate Hub from 2019 to 2022 as part of an

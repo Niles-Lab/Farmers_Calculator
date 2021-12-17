@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Card, Container, Row, Col, Nav, Navbar, Alert } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Navbar, Alert } from 'react-bootstrap';
 //import cover from "./../images/cover.jpg";
 import ImageSlider from "./../viz/ImageSlider.jsx"
 
@@ -31,7 +31,7 @@ const ig = importAll(require.context('../images/irrigation/ig/', false, /\.(png|
 
 
 const irrigation = {
-  titles: ["Aerial view of a drip irrigation system on a New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a New England vegetable farm"],
+  titles: ["Aerial view of a drip irrigation system on a small-medium New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a small-medium New England vegetable farm"],
   images: [ig, pd],
   lbls: [
   ["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to the driplines in fields through an irrigation pipe"],
@@ -91,12 +91,12 @@ const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.
 
 
 const silvopasture = {
-  titles: ["____ trees in cattle pasture", "Pasture Enrichment – Apple orchard in sheep pasture"],
+  titles: ["Pasture Enrichment – Black walnut and black locust trees in cattle pasture", "Pasture Enrichment – Apple orchard in sheep pasture"],
   images: [pe,pe2],
   lbls: [
-  ["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, and trees are selectively harvested"],
-  ["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted (density?) in the sheep pasture.","Mature apple trees in the pasture 15-20 years after planting.  "]
-  ]
+["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture approximately 20 years after planting. Cattle graze among the trees, and trees (mostly black locust) are selectively harvested."],
+["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted approximately 15-20 feet apart in the sheep pasture.","Mature apple trees in the pasture 5-15 years after planting."]
+]
 }
 
 

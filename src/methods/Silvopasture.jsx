@@ -40,12 +40,12 @@ const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.
 // Groups and labels for ImageSlider
 //const groups = [pe,av1,pe2,av2];
 const groups = [pe, pe2];
-const titles = ["____ trees in cattle pasture", "Pasture Enrichment – Apple orchard in sheep pasture"];
+const titles = ["Pasture Enrichment – Black walnut and black locust trees in cattle pasture", "Pasture Enrichment – Apple orchard in sheep pasture"];
 // let lbls = {"Irrigation": ["Step One", "Step Two", "Step Three"],
 // "Ponds": ["Ex One", "Ex Two", "Ex Three"], "ABCD": ["ab", "test"]}
 let lbls = [
-["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, and trees are selectively harvested"],
-["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted (density?) in the sheep pasture.","Mature apple trees in the pasture 15-20 years after planting.  "]
+["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture approximately 20 years after planting. Cattle graze among the trees, and trees (mostly black locust) are selectively harvested."],
+["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted approximately 15-20 feet apart in the sheep pasture.","Mature apple trees in the pasture 5-15 years after planting."]
 ];
 
 

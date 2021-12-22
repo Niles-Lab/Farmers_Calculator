@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
-import { Table } from 'react-bootstrap';
+import { Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import * as d3 from "d3";
+import { BsInfoCircle } from "react-icons/bs";
+
 //import handleViewport from 'react-in-viewport';
 //import $ from 'jquery';
 
@@ -45,10 +47,10 @@ height = 500 - (margin.top+margin.bottom);
 
 
 // Data for legend
-const lines = ["Revenue", "Cost", "Total Profit"];
+const lines = ["Annual Revenue", "Annual Cost", "Cumulative Revenue", "Annual Revenue"];
 
 const yearColors = d3.scaleOrdinal().domain(lines)
-  .range(["steelblue", "red", "orange"]);
+  .range(["steelblue", "red", "orange", "green"]);
 
 const legendX = parseFloat((width)-margin.left-margin.right-140);
 const legendY = parseFloat(margin.top);
@@ -177,7 +179,7 @@ let y = d3.scaleLinear()
       //.curve(d3.curveCatmullRom));
       //.curve(d3.curveMonotoneX));
 
-      // Trend Line
+      // Cumulative Trend Line
       svg.append("path")
       .datum(props.data)
       .attr("class", "line data")
@@ -193,6 +195,19 @@ let y = d3.scaleLinear()
       //.curve(d3.curveCatmullRom));
       //.curve(d3.curveMonotoneX));
 
+      // Annual Revenue Line
+      svg.append("path")
+      .datum(props.data)
+      .attr("class", "line data")
+      .attr("id", "trend")
+      .attr("fill", "none")
+      .attr("stroke", "green")
+      .attr("stroke-width", 6)
+      .attr("opacity", 0.5)
+      .attr("d", d3.line()
+      .x(d => x(d.year))
+      .y(d => y(d.revenue + d.cost))
+      .curve(d3.curveBasis)); 
 
 
 
@@ -408,7 +423,7 @@ let y = d3.scaleLinear()
     .curve(d3.curveBasis));
 
 
-    // Trend Line
+    // Cumulative Trend Line
     svg.append("path")
     .datum(props.data)
     .attr("class", "line data")
@@ -420,6 +435,22 @@ let y = d3.scaleLinear()
     .attr("d", d3.line()
     .x(d => x(d.year))
     .y(d => y(d.value))
+    .curve(d3.curveBasis));
+
+
+
+    // Annual Revenue Line
+    svg.append("path")
+    .datum(props.data)
+    .attr("class", "line data")
+    .attr("id", "trend")
+    .attr("fill", "none")
+    .attr("stroke", "orange")
+    .attr("stroke-width", 6)
+    .attr("opacity", 0.5)
+    .attr("d", d3.line()
+    .x(d => x(d.year))
+    .y(d => y(d.revenue + d.cost))
     .curve(d3.curveBasis));
 
 
@@ -546,10 +577,25 @@ function pointerMove(d) {
             </tr>
           {props.npv.map((d,idx) => (
             <tr key={idx}>
-              <th>{d[0]}</th>
+
+              <th>{d[0]}
+
+              {idx == 2 &&
+              <OverlayTrigger
+                key={idx+"trigger"}
+                placement="right"
+                overlay={<Tooltip id={idx+"trigger"}>NPV is the value that revenue and cost in the future 
+              has to the farmer today. The closer that payment occurs to
+              today (i.e. the present) the more value/weight we put on 
+              it. In other words, NPV represents the "time value of money."</Tooltip>}>
+              <span className="ml-1"><BsInfoCircle /></span>
+              </OverlayTrigger>
+              }
+              </th>
+              
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
-              <td></td>
+              
             </tr>
 
             ))}

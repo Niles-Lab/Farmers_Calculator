@@ -178,8 +178,9 @@ function npv() {
 
   return [
 
-  ["Revenue", npvr],
-  ["Costs", npvc]
+  ["PV Benefit", npvr],
+  ["PV Cost", npvc],
+  ["NPV", npvr+npvc]
 
   ];
 }

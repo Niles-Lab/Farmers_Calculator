@@ -88,8 +88,17 @@ function handleChange(event,key,value) {
 					
 					<Col>
 						{value[2]}
+				
+						{ props.opts[key].length === 4 &&
+						  <OverlayTrigger
+						  	key={key+"trigger"}
+						    placement="right"
+						    overlay={<Tooltip id={key+"trigger"}>{props.opts[key][3]}</Tooltip>}>
+							<span className="ml-1"><BsInfoCircle /></span>
+						  </OverlayTrigger>
 
-						{ props.opts[key].length > 3 &&
+						}
+						{ props.opts[key].length === 5 &&
 						  <OverlayTrigger
 						  	key={key+"trigger"}
 						    placement="right"
@@ -98,6 +107,7 @@ function handleChange(event,key,value) {
 						  </OverlayTrigger>
 
 						}
+
 
 					</Col>
 				<Col>

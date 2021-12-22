@@ -1,6 +1,6 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col } from 'react-bootstrap';
+import { Button, Row, Col, Alert } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
 
@@ -33,9 +33,9 @@ let data = {
 
 const silvoptions = {
 	baseCropRevenue: 
-	[450, "$", "Pasture Revenue"],
+	[450, "$", "Base Pasture Revenue", "Assumes area is 100% Pasture"],
 	baseCropCost: 
-	[300, "$", "Base Pasture Cost"],
+	[300, "$", "Base Pasture Cost", "Assumes area is 100% Pasture"],
 	treeSpacing: 
 	[30, "ft", "Tree Spacing", "Economic Budgeting for Agroforestry Practices(University of Missouri)", "https://extension.missouri.edu/publications/af1006"],
 	treePlantingCost: 
@@ -79,7 +79,7 @@ const irroptions = {
 	maintenanceCost: 
 	[100, "$/Acre/Yr", "Maintenance Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
 	effectiveProperty: 
-	[150, "%", "Productivity With Irrigation", "Efficiency Based On OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"]
+	[225, "%", "Productivity With Irrigation", "Efficiency Based On OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"]
 }
 
 const tarpoptions = {
@@ -175,7 +175,7 @@ return (
 				opts={opts} />
 
 		</Col>
-		<Col xs={12} xl={2} className="ml-0 pl-0 my-5">
+		<Col xs={12} xl={2} className="pr-0 my-5">
 
 			<Button
 			className="my-3 mx-auto w-100"
@@ -191,12 +191,22 @@ return (
 
 		</Col>
 
+	</Row>
+	<Row>
 
+	<Alert variant="info" className="mt-5 small">
+		Our team developed an economic tool to assist farmers and their advisors in understanding what 
+		the general costs, revenues and profits may be for a farm that implements different climate 
+		adaptation practices.  A farmer or advisor can input farm-specific data using the calculator 
+		to generate a general understanding of many of the economic costs associated with implementation 
+		of a practice.  Data for the various costs associated with a practice are detailed in a specific 
+		practice, as well as the costs considered.  This tool should be considered a guide towards better
+		 understanding the range of costs for implementation across these practices, and should be used
+		  in conjunction with our other tools and technical advisors to better understand the specific 
+		  opportunities and challenges for implementation on any given farm.
+	</Alert>
 
 	</Row>
-
-
-
 
 
 		{/*Calculator Input UI*/}
@@ -226,7 +236,6 @@ return (
 		setShow={setShow}
 		handleClose={handleClose}
 		 />
-
 
 	</>
 

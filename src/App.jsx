@@ -30,7 +30,7 @@ function App() {
   return (
 
     <>
-    <span className="App pb-5 mb-5 d-flex flex-column overflow-auto min-vh-100">
+    <span className="App d-flex flex-column overflow-auto min-vh-100">
 
         <Navigation />
 

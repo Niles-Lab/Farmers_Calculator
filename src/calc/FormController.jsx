@@ -56,9 +56,9 @@ const silvoptions = {
 
 const irroptions = {
 	baseCropRevenue: 
-	[2500, "$/Acre", "Base Crop Revenue"],
+	[2500, "$/Acre", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
 	baseCropCost: 
-	[1500, "$/Acre", "Base Crop Cost"],
+	[1500, "$/Acre", "Base Crop Cost", "Assumes area is 100% Vegetables"],
 	sprinklerSpacing: 
 	[40, "Ft", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
 	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
@@ -75,18 +75,18 @@ const irroptions = {
 	hourlyPump: 
 	[90, "Days/Yr", "Hourly Pump"],
 	dieselCost: 
-	[3.40, "$/Gal", "Diesel Fuel Cost"],
+	[3.40, "$/Gal", "Diesel Fuel Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
 	maintenanceCost: 
-	[100, "$/Acre/Yr", "Maintenance Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
+	[100, "$/Acre/Yr", "Maintenance Cost"],
 	effectiveProperty: 
-	[225, "%", "Productivity With Irrigation", "Efficiency Based On OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"]
+	[225, "%", "Productivity With Irrigation"]
 }
 
 const tarpoptions = {
 	baseCropRevenue: 
-	[2500, "$", "Base Crop Revenue"],
+	[2500, "$", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
 	baseCropCost: 
-	[1500, "$", "Base Crop Cost"],
+	[1500, "$", "Base Crop Cost", "Assumes area is 100% Vegetables"],
 	bedSpacing: 
 	[8, "Ft", "Bed Spacing"],
 	tarpLength: 
@@ -105,7 +105,7 @@ const tarpoptions = {
 	[120, "%", "Productivity With Tarp & Cover Crop"]
 }
 
-
+//, "Efficiency Based On OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"
 
 // Discount rate for NPV
 const [rate, setRate] = useState(data.rate);

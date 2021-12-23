@@ -129,7 +129,7 @@ d3.range(0, parseInt(props.length)).forEach(d => {
   totalProfit += rev-cst;
 
   data.push({
-    year: d+1,
+    year: d,
     revenue: rev,
     cost: -cst,
     value: totalProfit
@@ -158,7 +158,7 @@ data.forEach(d => {
 
 
 // Resize graph if largest value exceeds current domain
-let xDom = [0,parseInt(props.length)+1];
+let xDom = [0,parseInt(props.length)];
 let yDom = [smallest*1.25, largest*1.25];
 
 

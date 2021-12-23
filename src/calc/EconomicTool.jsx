@@ -47,12 +47,12 @@ height = 500 - (margin.top+margin.bottom);
 
 
 // Data for legend
-const lines = ["Annual Revenue", "Annual Cost", "Annual Revenue", "Cumulative Revenue"];
+const lines = ["Annual Revenue", "Annual Cost", "Annual Profit", "Cumulative Revenue"];
 
 const yearColors = d3.scaleOrdinal().domain(lines)
   .range(["steelblue", "red", "orange", "darkseagreen"]);
 
-const yC = ["steelblue", "red", "orange", "darkseagreen"];
+const yC = ["steelblue", "red", "darkseagreen", "orange"];
 
 const legendX = parseFloat((width)-margin.left-margin.right-140);
 const legendY = parseFloat(margin.top);
@@ -74,12 +74,6 @@ let y = d3.scaleLinear()
 
 
   const drawChart = () => {
-
-    let x = d3.scaleLinear()
-    .range([0,width-((margin.right+margin.left))]);
-
-    let y = d3.scaleLinear()
-    .range([height-margin.top-margin.bottom,0]);
 
 
     // Create domain from props
@@ -596,7 +590,7 @@ function pointerMove(d) {
 
               <th>{d[0]}
 
-              {idx == 2 &&
+              {idx === 2 &&
               <OverlayTrigger
                 key={idx+"trigger"}
                 placement="right"
@@ -626,7 +620,7 @@ function pointerMove(d) {
           {props.data.map((d,idx) => (
 
             <tr key={idx}>
-              <td>{d.year}</td>
+              <td>{parseInt(d.year)+1}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.value)}</td>

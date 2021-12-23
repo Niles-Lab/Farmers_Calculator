@@ -47,10 +47,12 @@ height = 500 - (margin.top+margin.bottom);
 
 
 // Data for legend
-const lines = ["Annual Revenue", "Annual Cost", "Cumulative Revenue", "Annual Revenue"];
+const lines = ["Annual Revenue", "Annual Cost", "Annual Revenue", "Cumulative Revenue"];
 
 const yearColors = d3.scaleOrdinal().domain(lines)
-  .range(["steelblue", "red", "orange", "green"]);
+  .range(["steelblue", "red", "orange", "darkseagreen"]);
+
+const yC = ["steelblue", "red", "orange", "darkseagreen"];
 
 const legendX = parseFloat((width)-margin.left-margin.right-140);
 const legendY = parseFloat(margin.top);
@@ -201,7 +203,7 @@ let y = d3.scaleLinear()
       .attr("class", "line data")
       .attr("id", "trend")
       .attr("fill", "none")
-      .attr("stroke", "green")
+      .attr("stroke", "darkseagreen")
       .attr("stroke-width", 6)
       .attr("opacity", 0.5)
       .attr("d", d3.line()
@@ -267,7 +269,7 @@ let y = d3.scaleLinear()
       tooltip.selectAll("rect")
       .data(lines)
       .join("rect")
-      .attr("fill", d => yearColors(d))
+      .attr("fill", (d,idx) => yC[idx])
       .attr("opacity", 0.6)
       .attr("width", d => d.length * 10 + ((": $0.00").length*5))
       .attr("height", 6)
@@ -445,7 +447,7 @@ let y = d3.scaleLinear()
     .attr("class", "line data")
     .attr("id", "trend")
     .attr("fill", "none")
-    .attr("stroke", "orange")
+    .attr("stroke", "darkseagreen")
     .attr("stroke-width", 6)
     .attr("opacity", 0.5)
     .attr("d", d3.line()
@@ -522,7 +524,7 @@ function pointerMove(d) {
       .text((d,idy) => {
         let point = props.data[idx];
         // Set label accordingly - each data point is in the format of [revenue, cost, value]
-        let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : (point.value);
+        let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : idy === 2 ? (point.revenue + point.cost) : (point.value);
         return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
       });
 

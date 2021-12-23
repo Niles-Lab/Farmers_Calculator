@@ -146,7 +146,7 @@ let y = d3.scaleLinear()
         .attr("x", -(height/2)+margin.bottom+margin.top)
         .attr("y", -margin.left-margin.right)
         .attr("transform", "rotate(-90)")
-        .text("Revenue ($)");
+        .text("Revenue($)");
 
 
       // Revenue Line
@@ -292,21 +292,35 @@ let y = d3.scaleLinear()
     .attr("class", "legend");
 
     // Add arc shape for legend
+    // legend.selectAll("path")
+    // .data(lines)
+    // .join("path")
+    //   // Manually add offset based on index of year
+    //   // Oh boy is this some spaghetti
+    //   // Note - 20 is the offset in this case, as each index is multiplied by 20
+    //   .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-5) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
+    //   .attr("d", d3.arc()
+    //     .innerRadius(0)
+    //     .outerRadius(10)
+    //     .startAngle(Math.PI)
+    //     .endAngle(3.14 * 2)
+    //     )
+    //   .attr("fill", (d,idx) => yC[idx]);
     legend.selectAll("path")
     .data(lines)
-    .join("path")
+    .join("circle")
       // Manually add offset based on index of year
       // Oh boy is this some spaghetti
       // Note - 20 is the offset in this case, as each index is multiplied by 20
-      .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-5) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
-      .attr("d", d3.arc()
-        .innerRadius(5)
-        .outerRadius(10)
-        .startAngle(3.14 * (3/4))
-        .endAngle(3.14 * 2)
-        )
-      .attr("fill", d => yearColors(d));
-
+      .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-10) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
+      // .attr("d", d3.arc()
+      //   .innerRadius(0)
+      //   .outerRadius(10)
+      //   .startAngle(Math.PI)
+      //   .endAngle(3.14 * 2)
+      //   )
+      .attr("r", 8)
+      .attr("fill", (d,idx) => yC[idx]);
 
     // Add legend text
     legend.selectAll("text")

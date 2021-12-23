@@ -75,9 +75,11 @@ function Tarping(props) {
 
         <Image
         rounded
-        className="d-block w-100 mb-3"
+        className="d-block w-100"
         src={sp[0][1].default} 
         />
+        <p className="small mt-0 mb-5 text-center">Tarping at the University of Vermont Horticulture Research and Education Center
+Photo Credit: Stephanie Hurley</p>
 
 
 

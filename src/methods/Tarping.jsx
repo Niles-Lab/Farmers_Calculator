@@ -10,6 +10,7 @@ import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
 import ExternalLink from './../other/ExternalLink';
 
+
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
 function importAll(r) {
@@ -22,7 +23,7 @@ function importAll(r) {
 const tp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
 
 // Tarping cover image is just the first from our one set
-//const sp = [tp[0]];
+const sp = importAll(require.context('../images/tarping/cover', false, /\.(png|jpe?g|svg)$/));
 
 // Collection of elements for ImageSlider
 let groups = [tp];
@@ -75,7 +76,7 @@ function Tarping(props) {
         <Image
         rounded
         className="d-block w-100 mb-3"
-        src={tp[1][1].default} 
+        src={sp[0][1].default} 
         />
 
 

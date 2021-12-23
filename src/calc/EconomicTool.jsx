@@ -506,13 +506,14 @@ function pointerMove(d) {
 
       // Get point on graph by inverting the mouse's x coordinate, converting it to an integer
       // and making sure its positive to convert into an index for data array
-      let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+(margin.left*2)))]));
+      let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+(margin.left*2)))-1]));
 
-      if(idx >= props.length) idx = props.length-1;
+      //if(idx > props.length) idx = props.length-1;
+
 
       //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
       //let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
-
+      console.log(idx);
 
       d3.select("#ttline")
       .attr("x1", position[0]-(margin.right+(margin.left*2)))
@@ -620,7 +621,7 @@ function pointerMove(d) {
           {props.data.map((d,idx) => (
 
             <tr key={idx}>
-              <td>{parseInt(d.year)+1}</td>
+              <td>{d.year}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.value)}</td>

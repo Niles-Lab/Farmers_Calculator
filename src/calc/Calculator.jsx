@@ -79,7 +79,7 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 // Map each data point with:
 // x -> year
 // y -> revenue, cost, net gain
-d3.range(0, parseInt(props.length)+1).forEach(d => {
+d3.range(0, parseInt(props.length)).forEach(d => {
 
 
   let rev = 0;
@@ -129,7 +129,7 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
   totalProfit += rev-cst;
 
   data.push({
-    year: d,
+    year: d+1,
     revenue: rev,
     cost: -cst,
     value: totalProfit

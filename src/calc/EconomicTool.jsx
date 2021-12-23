@@ -600,7 +600,7 @@ function pointerMove(d) {
               <OverlayTrigger
                 key={idx+"trigger"}
                 placement="right"
-                overlay={<Tooltip id={idx+"trigger"}>NPV is the value that revenue and cost in the future 
+                overlay={<Tooltip id={idx+"trigger"}>NPV(Net Present Value) is the value that revenue and cost in the future 
               has to the farmer today. The closer that payment occurs to
               today (i.e. the present) the more value/weight we put on 
               it. In other words, NPV represents the "time value of money."</Tooltip>}>

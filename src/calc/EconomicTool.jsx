@@ -513,7 +513,6 @@ function pointerMove(d) {
 
       //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);
       //let maxY = d3.max([props.data[idx].revenue, props.data[idx].cost]);
-      console.log(idx);
 
       d3.select("#ttline")
       .attr("x1", position[0]-(margin.right+(margin.left*2)))

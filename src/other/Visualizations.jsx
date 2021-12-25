@@ -74,13 +74,13 @@ const tarping = {
 const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
-//const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
+const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
 
 // Pasture Enrichment Images 2
 const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
-//const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
+const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
 
 // Forest Conversion Images
 //const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
@@ -91,12 +91,18 @@ const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.
 
 
 const silvopasture = {
-  titles: ["Pasture Enrichment – Black walnut and black locust trees in cattle pasture", "Pasture Enrichment – Apple orchard in sheep pasture"],
-  images: [pe,pe2],
+  titles: ["Perspective view of black walnut and black locust trees in cattle pasture", 
+  "Aerial view of black walnut trees in pasture",
+  "Perspective view of apple orchard in sheep pasture",
+  "Aerial view of apple orchard in pasture"],
+  images: [pe, av1, pe2, av2],
   lbls: [
 ["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture approximately 20 years after planting. Cattle graze among the trees, and trees (mostly black locust) are selectively harvested."],
-["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted approximately 15-20 feet apart in the sheep pasture.","Mature apple trees in the pasture 5-15 years after planting."]
+["Aerial view of open pasture.","Aerial view of 40 year old black walnut trees planted in pasture. Silvopasture on right depicts selective harvest of black walnut."],
+["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted approximately 15-20 feet apart in the sheep pasture.","Mature apple trees in the pasture 5-15 years after planting."],
+["Aerial view of open pasture.", "Aerial view of apple trees at different maturities planted in adjacent pastures."]
 ]
+
 }
 
 

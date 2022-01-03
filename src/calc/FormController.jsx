@@ -32,6 +32,8 @@ let data = {
 
 
 const silvoptions = {
+	maturingYears:
+	[10, "yrs", "Maturing Years", "How long will these trees take to mature?"],
 	baseCropRevenue: 
 	[450, "$", "Base Pasture Revenue", "Assumes area is 100% Pasture"],
 	baseCropCost: 
@@ -177,17 +179,21 @@ return (
 		</Col>
 		<Col xs={12} xl={2} className="pr-0 my-5">
 
-			<Button
+
+
+			<Button 
 			className="my-3 mx-auto w-100"
+			onClick={() => setTableView(!tableView)}>
+			View as {tableView ? "Graph": "Table"}</Button>
+
+			<Button
+			className="mx-auto w-100"
 			onClick={toggleShow}
 			>Show Options</Button>
 
 
 
-			<Button 
-			className="mx-auto w-100"
-			onClick={() => setTableView(!tableView)}>
-			View as {tableView ? "Graph": "Table"}</Button>
+			
 
 		</Col>
 

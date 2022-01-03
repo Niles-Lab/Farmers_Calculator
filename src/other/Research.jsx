@@ -208,11 +208,14 @@ return (
                     link={"/resources/Pond and Irrigation Two-Pager.pdf"}
                     description={"Brief Irrigation Overview"} />
 
-                    <Resource format={"Practice Overview"} download
-                    link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}
-                    description={"Brief Tarping Overview"} />
+                    
                 </Row>
                 <Row>
+
+<Resource format={"Practice Overview"} download
+                    link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}
+                    description={"Brief Tarping Overview"} />
+                
                     <Resource format={"Academic Paper"} download
                     date={"19 April 2021"}
                     link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}

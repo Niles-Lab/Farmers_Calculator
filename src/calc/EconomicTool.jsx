@@ -25,7 +25,7 @@ import { BsInfoCircle } from "react-icons/bs";
 
 
 // At what age is a tree mature enough to start producing profits
-const maturingYears = 10;
+//const props.opts.maturingYears[0] = 10;
 
 // const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
@@ -213,8 +213,8 @@ let y = d3.scaleLinear()
         // Tree Matured Line
         svg.append("svg:line")
         .attr("class", "line matured")
-        .attr("x1", x(maturingYears))
-        .attr("x2", x(maturingYears))
+        .attr("x1", x(props.opts.maturingYears[0]))
+        .attr("x2", x(props.opts.maturingYears[0]))
         .attr("y1", 0)
         .attr("y2", height-margin.top-margin.bottom)
         .style("stroke-width", 2)
@@ -227,13 +227,14 @@ let y = d3.scaleLinear()
         // Tree Matured Label
         svg.append("text")
           .attr("class", "label matured")
+          .attr("id", "treesMat")
           .attr("text-anchor", "start")
           .attr("x", 0)
           .attr("y", (height/3)-margin.top-margin.bottom+20)
-          .attr("dx", x(maturingYears)+5)
+          .attr("dx", x(props.opts.maturingYears[0])+5)
           .attr("dy", 0)
           .style("font-weight", "bold")
-          .text("Trees Matured"); 
+          .text("Trees Matured Year " + props.opts.maturingYears[0][0]); 
 
 
         }
@@ -272,7 +273,7 @@ let y = d3.scaleLinear()
       tooltip.selectAll("text")
       .data(lines)
       .join("text")
-      .style("font-weight", "bold")
+      //.style("font-weight", "bold")
       .style("font-size", 12)
       .style("border", "solid")
       .style("border-width", "2px")
@@ -364,13 +365,13 @@ let y = d3.scaleLinear()
     d3.select("#yAxis")
       .call(d3.axisLeft(y));
 
-
+    {props.method === "silvopasture" &&
     // Update trees matured line
     d3.selectAll(".matured")
-      .attr("dx", x(maturingYears)+5)
-      .attr("x1", x(maturingYears))
-      .attr("x2", x(maturingYears));
-
+      .attr("dx", x(props.opts.maturingYears[0])+5)
+      .attr("x1", x(props.opts.maturingYears[0]))
+      .attr("x2", x(props.opts.maturingYears[0]));
+    }
   
 
     svg.selectAll(".data").remove();
@@ -401,6 +402,24 @@ let y = d3.scaleLinear()
     //   .x(d => x(d.year))
     //   .y(d => y((d.cost + d.revenue) / 2))
     //   .curve(d3.curveBasis));
+
+
+    // Re-generate 'trees matured' text
+    {props.method === "silvopasture" &&
+
+      svg.select("#treesMat")
+        .attr("class", "label matured")
+        .attr("text-anchor", "start")
+        // .attr("x", 0)
+        // .attr("y", (height/3)-margin.top-margin.bottom+20)
+        // .attr("dx", x(props.opts.maturingYears[0])+5)
+        // .attr("dy", 0)
+        // .style("font-weight", "bold")
+        .text("Trees Matured Year " + props.opts.maturingYears[0]); 
+
+
+    }
+    //
 
 
     // Revenue Line
@@ -533,7 +552,7 @@ function pointerMove(d) {
         let point = props.data[idx];
         // Set label accordingly - each data point is in the format of [revenue, cost, value]
         let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : idy === 2 ? (point.revenue + point.cost) : (point.value);
-        return d + ": " + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
+        return d + ":" + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
       });
 
 }
@@ -576,7 +595,7 @@ function pointerMove(d) {
 
 { props.tableView ? (
 
-
+      <>
       <Table bordered striped hover size={'sm'}>
             <thead>
 
@@ -609,13 +628,17 @@ function pointerMove(d) {
             </tr>
 
             ))}
+          </thead>
+          </Table>
+          <Table bordered striped hover size={'sm'}>
               <tr>
                 <th>Year</th>
                 <th>Revenue</th>
                 <th>Cost</th>
                 <th>Value</th>
+                <th>Cumulative</th>
               </tr>
-            </thead>
+
             <tbody>
           {props.data.map((d,idx) => (
 
@@ -623,13 +646,14 @@ function pointerMove(d) {
               <td>{d.year}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.cost)}</td>
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.revenue + d.cost)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d.value)}</td>
             </tr>
 
             ))}
             </tbody>
       </Table>
-
+      </>
 
   ) : null
 

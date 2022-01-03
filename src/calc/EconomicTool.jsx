@@ -3,31 +3,7 @@ import { Table, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import * as d3 from "d3";
 import { BsInfoCircle } from "react-icons/bs";
 
-//import handleViewport from 'react-in-viewport';
-//import $ from 'jquery';
 
-
-// FOR REFERENCE - Here are the options provided in props.silvoPasture
-// These must be referenced by index
-// let silvoptions = [
-	// [450, "$", "Grazing Revenue"],
-	// [300, "$", "Base Grazing Cost"],
-	// [30, "ft", "Tree Spacing"],
-	// [9.5, "$", "Tree Planting Cost"],
-	// [48, "tr/acre", "Trees Per Acre"],
-	// [2.50, "$/yr", "Tree Maintenance Cost"],
-	// [2, "units/tree", "Tree Crop Yield"],
-	// [80, "%", "Effective Property"],
-	// [5, "$/unit", "Tree Crop Price"]
-// ]
-
-
-
-
-// At what age is a tree mature enough to start producing profits
-//const props.opts.maturingYears[0] = 10;
-
-// const ViewportBlock = handleViewport(Block, /** options: {}, config: {} **/);
 // Define data and constants
 
 // How many sq ft in an acre
@@ -108,10 +84,6 @@ let y = d3.scaleLinear()
     .attr("class", "main")
     .attr("transform",
       "translate(" + (margin.left*2+margin.right) + "," + margin.top + ")");
-    //.on("movemove", event => mousemove(event));    
-
-
-    //svg.selectAll("*").remove();
 
     svg.append("g")
       .attr("id", "xAxis")
@@ -234,7 +206,18 @@ let y = d3.scaleLinear()
           .attr("dx", x(props.opts.maturingYears[0])+5)
           .attr("dy", 0)
           .style("font-weight", "bold")
-          .text("Trees Matured Year " + props.opts.maturingYears[0][0]); 
+          .text("Trees Matured"); 
+
+        svg.append("text")
+          .attr("class", "label matured")
+          .attr("id", "treesMat2")
+          .attr("text-anchor", "start")
+          .attr("x", 0)
+          .attr("y", (height/3)-margin.top-margin.bottom+20)
+          .attr("dx", x(props.opts.maturingYears[0])+5)
+          .attr("dy", "1.2em")
+          .style("font-weight", "bold")
+          .text("Year " + props.opts.maturingYears[0][0]); 
 
 
         }
@@ -256,32 +239,6 @@ let y = d3.scaleLinear()
     .style("stroke", "black");
 
 
-
-    const tooltip = svg.append("g")
-      .attr("id", "ttlbl")
-      .attr("opacity", 0);
-
-      tooltip.selectAll("rect")
-      .data(lines)
-      .join("rect")
-      .attr("fill", (d,idx) => yC[idx])
-      .attr("opacity", 0.6)
-      .attr("width", d => d.length * 10 + ((": $0.00").length*5))
-      .attr("height", 6)
-      .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 15)) + ")");
-
-      tooltip.selectAll("text")
-      .data(lines)
-      .join("text")
-      //.style("font-weight", "bold")
-      .style("font-size", 12)
-      .style("border", "solid")
-      .style("border-width", "2px")
-      .style("border-radius", "5px")
-      .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 15)) + ")")
-      .text(d => d + ": $0.00"); 
-
-
     // Graph Legend
     const legend = svg.append("g")
     .attr("class", "legend");
@@ -301,6 +258,7 @@ let y = d3.scaleLinear()
     //     .endAngle(3.14 * 2)
     //     )
     //   .attr("fill", (d,idx) => yC[idx]);
+
     legend.selectAll("path")
     .data(lines)
     .join("circle")
@@ -308,12 +266,6 @@ let y = d3.scaleLinear()
       // Oh boy is this some spaghetti
       // Note - 20 is the offset in this case, as each index is multiplied by 20
       .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-10) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
-      // .attr("d", d3.arc()
-      //   .innerRadius(0)
-      //   .outerRadius(10)
-      //   .startAngle(Math.PI)
-      //   .endAngle(3.14 * 2)
-      //   )
       .attr("r", 8)
       .attr("fill", (d,idx) => yC[idx]);
 
@@ -328,26 +280,76 @@ let y = d3.scaleLinear()
 
 
 
+
+    const tooltip = svg.append("g")
+      .attr("id", "ttlbl")
+      .attr("opacity", 0);
+
+
+      tooltip.append("rect")
+      //.attr("fill", (d,idx) => yC[idx])
+      .attr("fill", "ghostwhite")
+      .attr("stroke", "black")
+      .attr("stroke-width", "2px")
+      .attr("opacity", 1)
+      //.attr("width", d => d.length * 10 + ((": $0.00").length*5))
+      .attr("width", 80)
+      .attr("height", lines.length * 23)
+      .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
+
+
+    tooltip.selectAll("path")
+    .data(lines)
+    .join("circle")
+      // Manually add offset based on index of year
+      // Oh boy is this some spaghetti
+      // Note - 20 is the offset in this case, as each index is multiplied by 20
+      .attr("transform", (d,idx) => "translate(8," + (parseFloat(idx * 15)-3) + ")")
+      .attr("r", 6)
+      .attr("fill", (d,idx) => yC[idx]);
+
+
+
+      // tooltip.selectAll("rect")
+      // .data(lines)
+      // .join("rect")
+      // .attr("fill", (d,idx) => yC[idx])
+      // .attr("opacity", 0.6)
+      // .attr("width", d => d.length * 10 + ((": $0.00").length*5))
+      // .attr("height", 6)
+      // .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 15)) + ")");
+
+      tooltip.selectAll("text")
+      .data(lines)
+      .join("text")
+      .style("font-size", 12)
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .attr("transform", (d,idx) => "translate(16," + (parseFloat((idx * 15))+1) + ")")
+      .text(d => d + ": $0.00"); 
+
+      tooltip.append("text")
+      .attr("id", "ttlblyear")
+      .style("font-size", 12)
+      .style("font-weight", "bold")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .attr("transform", "translate(16," + parseFloat(-13) + ")")
+      .text("Year 0");
+
+
+
+
+
   }
-
-
-
-
-
-
 
   drawChart();
 
-
-
 	 }, [])
 
-
-
-
   useEffect(() => {
-
-
 
 
     let svg = d3.select("#pgcht")
@@ -410,16 +412,16 @@ let y = d3.scaleLinear()
       svg.select("#treesMat")
         .attr("class", "label matured")
         .attr("text-anchor", "start")
-        // .attr("x", 0)
-        // .attr("y", (height/3)-margin.top-margin.bottom+20)
-        // .attr("dx", x(props.opts.maturingYears[0])+5)
-        // .attr("dy", 0)
-        // .style("font-weight", "bold")
-        .text("Trees Matured Year " + props.opts.maturingYears[0]); 
+        //.attr("dy", "0em")
+        .text("Trees Matured"); 
 
+      svg.select("#treesMat2")
+        .attr("class", "label matured")
+        .attr("text-anchor", "start")
+        .attr("dy", "1.2em")
+        .text("Year " + props.opts.maturingYears[0]); 
 
     }
-    //
 
 
     // Revenue Line
@@ -480,10 +482,7 @@ let y = d3.scaleLinear()
     .attr("d", d3.line()
     .x(d => x(d.year))
     .y(d => y(d.revenue + d.cost))
-    .curve(d3.curveBasis));
-
-
-    
+    .curve(d3.curveBasis));    
 
 
   }, [props.data])
@@ -491,12 +490,7 @@ let y = d3.scaleLinear()
 
 
 
-   
-
-
-
-
-
+  
 
 
 function pointerMove(d) {
@@ -511,10 +505,14 @@ function pointerMove(d) {
       if(boundX > (width-margin.right-margin.left) || boundX <= 0) visible = false;
       if(boundY > height-margin.top-margin.bottom || boundY <= -margin.top) visible = false;
 
-      let maxWidth = d3.max(lines, d => {
-        return d.length * 10 + ((": $0.00").length*5);
-      });
+      // Max width before graph flips, calculated by label + figure amount
+      // let maxWidth = d3.max(lines, d => {
+      //   return d.length * 10 + ((": $0.00").length*5);
+      // });
 
+      let maxWidth = d3.max(lines, d => {
+        return ((": $0.00").length*5);
+      });
 
       d3.select("#ttline")
       .attr("opacity", visible ? 1 : 0);
@@ -542,8 +540,15 @@ function pointerMove(d) {
       // Move all elements about graph
       d3.select("#ttlbl")
       .selectAll("*")
-      .attr("x", position[0]-(margin.right+margin.left) - (maxWidth+position[0] >= width ? maxWidth : 0))
-      .attr("y", position[1]-30);
+      .attr("x", position[0] - (margin.right+margin.left) - (maxWidth+position[0] >= width ? 120 : 15))
+      .attr("y", position[1]-35);
+
+      // And the circles too
+      d3.select("#ttlbl")
+      .selectAll("circle")
+      .attr("cx", position[0] - (margin.right+margin.left) - (maxWidth+position[0] >= width ? 120 : 15))
+      .attr("cy", position[1]-35);
+
 
       // Update all tooltip data points
       d3.select("#ttlbl")
@@ -552,8 +557,12 @@ function pointerMove(d) {
         let point = props.data[idx];
         // Set label accordingly - each data point is in the format of [revenue, cost, value]
         let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : idy === 2 ? (point.revenue + point.cost) : (point.value);
-        return d + ":" + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
+        return new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
+        //return d + ":" + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
       });
+
+      d3.select("#ttlblyear")
+      .text("Year " + props.data[idx].year);
 
 }
 

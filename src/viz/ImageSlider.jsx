@@ -33,7 +33,7 @@ function ImageSlider(props) {
 
     useEffect(() => {
         setHeight();
-    })
+    }, [])
 
     const imgRef = React.useRef(null);
 

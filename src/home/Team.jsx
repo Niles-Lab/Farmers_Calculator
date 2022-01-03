@@ -2,15 +2,23 @@ import React from 'react';
 import { Card, Container, Row, Col, Image } from 'react-bootstrap';
 import cover from "./../images/cover.jpg";
 
+ function importAll(r) {
+  let images = {};
+  r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
+  return Object.entries(images);
+}
+const adlink = <a rel="noreferrer" target="_blank" href='https://forest.umaine.edu/faculty-staff/adam-daigneault/'>here.</a>;
 
 
 let team = [
-  ["adaigneault.jpg", "Dr. Adam Daigneault is an Associate Professor of Forest, Recreation, and Conservation Policy in the University of Maine School of Forest Resources. He received his Ph.D. in Environmental and Natural Resource Economics from The Ohio State University in 2006 and has spent the past 15 years developing quantitative models to assess the impacts of environmental and land use policy on the natural resource sectors. His research focuses on a wide range of issues, including sustainable timber supply, climate change mitigation and adaptation, and valuing ecosystem services. Prior to UMaine, he was a Senior Economist at Landcare Research New Zealand and an Economist for the U.S. Environmental Protection Agency. While in both roles, Dr. Daigneault worked extensively on policy analysis relating to climate change, biofuels, and land use change. Adam is a native Mainer who returned home after several years living and working in Ohio, Oregon, Washington DC, India, and New Zealand.  To see his faculty page, click here."],
+  ["adaigneault.jpg", <p>Dr. Adam Daigneault is an Associate Professor of Forest, Recreation, and Conservation Policy in the University of Maine School of Forest Resources. He received his Ph.D. in Environmental and Natural Resource Economics from The Ohio State University in 2006 and has spent the past 15 years developing quantitative models to assess the impacts of environmental and land use policy on the natural resource sectors. His research focuses on a wide range of issues, including sustainable timber supply, climate change mitigation and adaptation, and valuing ecosystem services. Prior to UMaine, he was a Senior Economist at Landcare Research New Zealand and an Economist for the U.S. Environmental Protection Agency. While in both roles, Dr. Daigneault worked extensively on policy analysis relating to climate change, biofuels, and land use change. Adam is a native Mainer who returned home after several years living and working in Ohio, Oregon, Washington DC, India, and New Zealand.  To see his faculty page, click {adlink}</p>],
   ["rschattman.jpg", "Dr. Rachel E. Schattman is an interdisciplinary agroecologist whose research focuses on climate change adaptation/mitigation, diversified cropping and food systems, food insecurity, and adult learning. She received her M.S. and Ph.D. from the University of Vermont in Natural Resources and Agroecology, respectively. She is an Assistant Professor of Sustainable Agriculture at the University of Maine School of Food and Agriculture, a faculty fellow at the University of Maine Climate Change Institute, and a faculty affiliate of the George J. Mitchell Center for Sustainability Solutions. Dr. Schattman is a co-PI on this project, and is responsible for program evaluation."],
   ["jfaulkner.jpg", "Joshua Faulkner has coordinated the Farming and Climate Change Program in UVM Extension’s Center for Sustainable Agriculture for the past eight years.  He works with farmers across Vermont on best management practices for climate change resilience, with a focus on soil and water resources.  As a part of this project, he contributed to educational resources and presented project outputs to farmer groups in Vermont."]
 
-
 ]
+
+const imgs = importAll(require.context('./../images/team', false, /\.(png|jpe?g|svg)$/));
+console.log(imgs);
 
 const Team = (props, ref) => {
 
@@ -39,15 +47,21 @@ return (
         <span key={d[0]}>
         <Row>
 
-          <Col xs={3} className="d-flex text-start">
+          <Col xs={4} className="d-flex text-start align-items-center">
             <Image 
+              style={{"object-fit": "fit"}}
+              className="my-auto"
+              rounded
+              fluid
               // src={require(`./../images/team/${d[0]}.jpg`)}
-              src={`./../images/team/${d[0]}`}
+              className="d-block"
+              src={imgs.find(i => i[0]===d[0])[1].default}
+
               alt={d[0]}
               />
           </Col>
-          <Col xs={9}>
-            {d[1]}
+          <Col xs={8}>
+            <p>{d[1]}</p>
           </Col>
 
 

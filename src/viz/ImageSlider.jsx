@@ -5,22 +5,12 @@
  * 
  **/
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, Row, Col, Image, Card } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-
-
-// Optional method to import all files from a directory
-// Used for displaying images in each group
-// function importAll(r) {
-//   let images = {};
-//   r.keys().map((item, index) => { images[item.replace('./', '')] = r(item); });
-//   return Object.entries(images);
-// }
-
-
+import * as d3 from "d3";
 
 // Marks on slider for concrete images
 let marks = [];
@@ -30,6 +20,27 @@ let def = [1];
 
 
 function ImageSlider(props) {
+
+
+    function setHeight() {
+      d3.select("#imgContain")
+        .style("height", (imgRef.current ? (imgRef.current.clientHeight+50) : 500))  
+
+      imgStyle = {
+        height: (imgRef.current ? (imgRef.current.clientHeight) : 400)
+        }  
+    }
+
+    useEffect(() => {
+        setHeight();
+    })
+
+    const imgRef = React.useRef(null);
+
+    //console.log(props.groups[0][1].default);
+    var imgStyle = {
+        height: (imgRef.current ? (imgRef.current.clientHeight) : 400)
+    };
 
     // What value the opacity slider is at
     const [timeSl, setTimeSl] = useState(0);
@@ -67,6 +78,7 @@ function ImageSlider(props) {
     // idx - slider index
     // arr - what array of images are we modifying
     function handleChange(event,idx) {
+        
         
 
         // Value from slider
@@ -109,7 +121,7 @@ function ImageSlider(props) {
 
 
 	return (
-	<Container className="position-relative py-5 top-100 w-100 d-block h-auto">
+	<Container className="position-relative py-5 w-100 d-block h-auto">
         <hr/>        
         <Card.Title className="mt-5 mb-5">{props.title}</Card.Title>
 
@@ -207,31 +219,34 @@ function ImageSlider(props) {
           
 
             </>
-                    }
+        }
         </Row>
 
 
-
-        <Row className="mx-0 mb-5 h-100 position-relative">
+         {/*style={{'minHeight': '700px'}}*/}
+        <div onLoad={() => setHeight()} className="m-auto mw-100 position-relative pb-5" id="imgContain" style={imgStyle}>
         {/* Fading images accompanying slider */}
-        <Container className="w-100 position-relative h-auto" style={{'minHeight': '700px'}}>
+
 {/*          <Box className="position-relative w-100 h-100" style={{'minHeight': '800px'}}>*/}
                 {/* Map the active image set to screen */}
+
                 {active.map((d,idx) => (
 
                         <Image
-                            rounded
-                            key={d+idx}
-                            className="position-absolute d-block w-100 h-auto"
-                            style={{'opacity': opacity[idx]}}
-                            src={d[1].default} 
-                            alt={d[0]}
-                            />
+                        rounded
+                        key={d+idx}
+                        ref={imgRef}
+                        onChange={() => setHeight()}
+                        onLoad={() => setHeight()}
+                        className="m-0 p-0 position-absolute d-block h-auto w-100 m-auto"
+                        style={{'opacity': opacity[idx]}}
+                        src={d[1].default} 
+                        alt={d[0]} />
+
                     ))}
 {/*
           </Box>*/}
-        </Container>
-        </Row>
+        </div>
 
 	</Container>
 		)

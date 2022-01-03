@@ -24,6 +24,7 @@ import Visualizations from './other/Visualizations.jsx';
 import Tools from './other/Tools.jsx';
 
 import About from './home/About.jsx'
+import Team from './home/Team.jsx'
 
 function App() {
 // style={{ backgroundImage: `url(${background})` }}
@@ -50,6 +51,7 @@ function App() {
 
           <Route path='/Press' component={Press}/>
           <Route path='/About' component={About}/>
+          <Route path='/team' component={Team}/>
 
           <Route path='/' component={Home}/>
           

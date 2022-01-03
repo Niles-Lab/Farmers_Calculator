@@ -2,6 +2,9 @@ import React from 'react';
 import { Card, Container, Row, Col, Image } from 'react-bootstrap';
 import cover from "./../images/cover.jpg";
 
+import umaine from '../images/umaine.png';
+import uvm from '../images/uvm.png';
+import climatehub from '../images/climatehub.png';
 
 
 
@@ -15,17 +18,36 @@ return (
 <Col xs={0} md={2}>
 </Col>
 <Col xs={12} md={8}>
-    <hr/>
-    <Card.Title>About</Card.Title>
-    <hr/>
+
+
+  <hr/>
+  <Card.Title>Collaborators</Card.Title>
+  <hr/>
+  <Row>
+      <Col xs={12} lg={4}>
+      <Image fluid className="w-75" src={uvm} />
+      </Col>
+
+      <Col xs={12} lg={4}>
+      <Image fluid className="w-75" src={umaine}/>
+      </Col>
+
+      <Col xs={12} lg={4}>
+      <Image fluid className="w-75" src={climatehub}/>
+      </Col>
+  </Row>
+
+    <hr className="mb-2" />
+    <Card.Title>Background</Card.Title>
+    <hr className="mt-2" />
   <Row>
 
   <Col xs={12} md={6}>
     <Image
-    className="d-block w-100 mb-4"
+    className="d-block w-100 mb-2"
     src={cover} />
   </Col>
-  <Col xs={12} md={6} className="pt-5">
+  <Col xs={12} md={6} className="pt-2">
 
 
     <p>
@@ -45,16 +67,11 @@ return (
   </Row>
 
 
-
-
-
-
-
 </Col>
 <Col xs={0} md={2}>
 </Col>
 </Row>
-<br/><br/><br/><br/><br/><br/><br/><br/><br/>
+
 </Container>
 
 );

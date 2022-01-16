@@ -208,6 +208,12 @@ let y = d3.scaleLinear()
           .style("font-weight", "bold")
           .text("Trees Matured"); 
 
+
+
+        }
+      {(props.method === "silvopasture") &&
+
+
         svg.append("text")
           .attr("class", "label matured")
           .attr("id", "treesMat2")
@@ -218,6 +224,7 @@ let y = d3.scaleLinear()
           .attr("dy", "1.2em")
           .style("font-weight", "bold")
           .text("Year " + props.opts.maturingYears[0][0]); 
+
 
 
         }
@@ -416,6 +423,13 @@ let y = d3.scaleLinear()
         .attr("text-anchor", "start")
         //.attr("dy", "0em")
         .text("Trees Matured"); 
+
+
+
+    }
+    {props.method === "silvopasture" &&
+
+
 
       svg.select("#treesMat2")
         .attr("class", "label matured")

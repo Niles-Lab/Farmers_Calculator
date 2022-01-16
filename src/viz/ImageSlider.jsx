@@ -224,7 +224,7 @@ function ImageSlider(props) {
 
 
          {/*style={{'minHeight': '700px'}}*/}
-        <div onLoad={() => setHeight()} className="m-auto mw-100 position-relative pb-5" id="imgContain" style={imgStyle}>
+        <div onLoad={() => setHeight()} className="m-auto mw-100 position-relative pb-5" id="imgContain" style={imgStyle} style={{'height': '800px'}}>
         {/* Fading images accompanying slider */}
 
 {/*          <Box className="position-relative w-100 h-100" style={{'minHeight': '800px'}}>*/}

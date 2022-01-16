@@ -115,7 +115,9 @@ const handleClose = () => setShow(false);
 
 
       <Col xs={0} lg={{ span: 3, offset: 3 }}>
-      <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098</Nav.Item>
+      <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098.
+      All Visualizations provided by Stephanie Hurley. For use, please request permission via stephanie.hurley@uvm.edu.</Nav.Item>
+      <Nav.Item className="small text-wrap"></Nav.Item>
       </Col>
 
 

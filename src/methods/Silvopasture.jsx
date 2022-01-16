@@ -82,7 +82,7 @@ function Silvopasture(props) {
 
 
 		<hr/>
-			<h2>Silvopasture</h2>
+			<h2 id="a0">Silvopasture</h2>
 		<hr/>
 
 		<Image
@@ -332,6 +332,7 @@ Before installing silvopasture systems, trade-offs should be
 <Col xs={0} lg={2}>
 
 </Col>
+
 </Row>
 
 </>

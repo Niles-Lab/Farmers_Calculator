@@ -23,7 +23,7 @@ const Banner = (props) => {
 
       background: "rgba(255, 255, 255, 0)",
       width: "100vw",
-      maxHeight: "6vh"
+      maxHeight: "5vh"
       
 
     }

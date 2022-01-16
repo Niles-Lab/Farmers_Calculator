@@ -26,11 +26,24 @@ function Home(props) {
         <hr/>
 
 
+      <Card className="text-center my-5 px-5" style={{"zIndex": -2}}>
+
+        <Card.Body>
+
+
+          <Card.Title className="display-4 text-center">
+            Climate change poses a challenge to farming systems worldwide
+          </Card.Title>
+          <h3>How Can Northeast Agriculture Adapt?</h3>
+
+        </Card.Body>
+
+      </Card>
 
           <Image
 
           className="position-absolute w-75 d-flex align-content-center"
-          style={{"zIndex": -1, "opacity": 0.2, "top": -100, "bottom": 100, "left" : 150}}
+          style={{"zIndex": -1, "opacity": 0.2, "top": -10, "bottom": 100, "left" : 150}}
           src={ne} 
           />
 

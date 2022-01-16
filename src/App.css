@@ -131,3 +131,9 @@ td, th {
   top: 10px;
   left: 0;
 }
+.absImg {
+  object-fit: contain !important;
+}
+.pb75 {
+  padding-bottom: 60%;
+}

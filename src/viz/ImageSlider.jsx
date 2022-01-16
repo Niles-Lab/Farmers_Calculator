@@ -27,7 +27,7 @@ function ImageSlider(props) {
         .style("height", (imgRef.current ? (imgRef.current.clientHeight+50) : 500))  
 
       imgStyle = {
-        height: (imgRef.current ? (imgRef.current.clientHeight) : 400)
+        height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
         }  
     }
 
@@ -39,7 +39,7 @@ function ImageSlider(props) {
 
     //console.log(props.groups[0][1].default);
     var imgStyle = {
-        height: (imgRef.current ? (imgRef.current.clientHeight) : 400)
+        height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
     };
 
     // What value the opacity slider is at
@@ -121,7 +121,7 @@ function ImageSlider(props) {
 
 
 	return (
-	<Container className="position-relative py-5 w-100 d-block h-auto">
+	<Container className="position-relative py-5 d-block h-auto">
         <hr/>        
         <Card.Title className="mt-5 mb-5">{props.title}</Card.Title>
 
@@ -155,7 +155,7 @@ function ImageSlider(props) {
 
 
 {/*        <Col xs={6} lg={8} className="d-flex ml-0 pl-0 align-items-end">*/}
-        <Row className="mb-5">
+        <Row className="mb-5 position-relative">
         {props.lbls &&
             <>
 
@@ -222,9 +222,9 @@ function ImageSlider(props) {
         }
         </Row>
 
-
+    {/* style={imgStyle} */}
          {/*style={{'minHeight': '700px'}}*/}
-        <div onLoad={() => setHeight()} className="m-auto mw-100 position-relative pb-5" id="imgContain" style={imgStyle} style={{'height': '800px'}}>
+        <Container fluid onLoad={() => setHeight()} className="clearfix position-relative pb75" id="imgContain">
         {/* Fading images accompanying slider */}
 
 {/*          <Box className="position-relative w-100 h-100" style={{'minHeight': '800px'}}>*/}
@@ -233,12 +233,11 @@ function ImageSlider(props) {
                 {active.map((d,idx) => (
 
                         <Image
+                        className="absImg"
                         rounded
                         key={d+idx}
                         ref={imgRef}
-                        onChange={() => setHeight()}
-                        onLoad={() => setHeight()}
-                        className="m-0 p-0 position-absolute d-block h-auto w-100 m-auto"
+                        className="d-block position-absolute w-100 clearfix"
                         style={{'opacity': opacity[idx]}}
                         src={d[1].default} 
                         alt={d[0]} />
@@ -246,8 +245,8 @@ function ImageSlider(props) {
                     ))}
 {/*
           </Box>*/}
-        </div>
-
+        </Container>
+        
 	</Container>
 		)
 }

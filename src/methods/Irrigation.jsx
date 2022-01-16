@@ -53,13 +53,13 @@ function Irrigation(props) {
             <Col xs={0} md={2}>
                 <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
 
-                      <Nav id="sectionnav" className="mx-auto">
-                        {navs.map((d, idx) => (
-                            <Nav.Link key={d+idx} href={"#a" + idx}>
-                            {d}
-                            </Nav.Link>
-                            ))}
-                      </Nav>
+                <Nav id="sectionnav" className="mx-auto">
+                {navs.map((d, idx) => (
+                    <Nav.Link href={"#a" + idx}>
+                    {d}
+                    </Nav.Link>
+                    ))}
+                </Nav>
 
                 </Navbar>
             </Col>

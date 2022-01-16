@@ -49,7 +49,7 @@ const handleClose = () => setShow(false);
   return (
 
     <>
-    <span className="App d-flex flex-column overflow-auto min-vh-100">
+    <span className="App d-flex flex-column min-vh-100">
 
         <Banner show={show} handleClose={handleClose} />
 

@@ -23,7 +23,7 @@ const Banner = (props) => {
 
       background: "rgba(255, 255, 255, 0)",
       width: "100vw",
-      maxHeight: "8vh"
+      maxHeight: "6vh"
       
 
     }
@@ -45,7 +45,7 @@ const Banner = (props) => {
           lockBodyAfterOpen={false}
         >
 
-       <Alert variant="warning" className="my-0 py-0 d-flex ">
+       <Alert variant="warning" className="my-0 py-0 d-flex">
 
 
         <BsFillExclamationTriangleFill className="mr-1 ml-auto my-1 justify-content-center align-content-center d-flex" />

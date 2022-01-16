@@ -42,12 +42,8 @@ return (
     <hr className="mt-2" />
   <Row>
 
-  <Col xs={12} md={6}>
-    <Image
-    className="d-block w-100 mb-2"
-    src={cover} />
-  </Col>
-  <Col xs={12} md={6} className="pt-2">
+
+
 
 
     <p>
@@ -57,15 +53,22 @@ return (
 
 
 
-  </Col>
+
 
 
     <p>
         The tools and resources found on this website were designed to address this gap in resources and respond to farmers’ expressed needs. The economic tools, visualizations, and accompanying overview briefs presented on this website were developed based on input from farmers and technical advisors in Vermont and Maine, and an assessment of existing resources and research. They incorporate farmers’ and agricultural experts’ management concerns and take into account farm scale, regional geographic and climate characteristics, and farmer experience level.
     </p>
 
+
+
   </Row>
 
+  <Row className="d-flex justify-content-center">
+  <Image
+  className="w-75 mb-2"
+  src={cover} />
+  </Row>
 
 </Col>
 <Col xs={0} md={2}>

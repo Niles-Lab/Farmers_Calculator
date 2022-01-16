@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect }  from 'react'
 import { Navbar, Nav, Image, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
@@ -26,12 +26,32 @@ import Tools from './other/Tools.jsx';
 import About from './home/About.jsx'
 import Team from './home/Team.jsx'
 
+import Banner from './other/Banner.jsx'
+
+
+
+
 function App() {
-// style={{ backgroundImage: `url(${background})` }}
+
+
+// Interaction for OffCanvas Elements
+const [show, setShow] = useState(true);
+const toggleShow = () => setShow(d => !d);
+const handleClose = () => setShow(false);
+
+// useEffect(() => {
+
+//   setShow(true);
+
+// }, [])
+
+
   return (
 
     <>
     <span className="App d-flex flex-column overflow-auto min-vh-100">
+
+        <Banner show={show} handleClose={handleClose} />
 
         <Navigation />
 

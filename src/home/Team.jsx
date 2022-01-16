@@ -1,6 +1,5 @@
 import React from 'react';
 import { Card, Container, Row, Col, Image } from 'react-bootstrap';
-import cover from "./../images/cover.jpg";
 
  function importAll(r) {
   let images = {};
@@ -58,12 +57,13 @@ return (
         <span key={d[0]}>
         <Row>
 
-          <Col xs={4} className="d-flex align-items-center justify-content-center">
-            <Container>
+          <Col xs={12} md={4} className="d-flex align-items-center justify-content-center px-0">
+            <Container className="px-0">
             <Row className="d-flex justify-content-center">
             <Image 
+              style={{'maxHeight': '30vh'}}
               //style={{"object-fit": "fit"}}
-              className="my-auto d-block h-50"
+              className="my-auto d-block"
               rounded
               fluid
               src={imgs.find(i => i[0]===d[0])[1].default}
@@ -72,9 +72,9 @@ return (
             </Row>
             {d.length === 3 &&
             <>
-            <Row className="d-block my-0 py-0">
+            <Row className="d-block">
               
-               <cite className="text-center">Photo credit goes to {d[2]}</cite>
+               <cite className="text-center">Photo Credit - {d[2]}</cite>
               
             </Row>
             </>
@@ -82,7 +82,7 @@ return (
             </Container>
           </Col>
 
-          <Col xs={8}>
+          <Col xs={12} md={8} className="px-0 pt-3">
             <p>{d[1]}</p>
           </Col>
 

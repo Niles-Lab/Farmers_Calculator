@@ -221,6 +221,8 @@ These visualizations are designed to help the viewer picture how the implementat
  in the context of a real New England farm. These images depict the different stages of practice implementation
   and help the viewer anticipate how the implementation of the practice will appear over time and what implications
    it may have for the farm. Use the slider tool to progress through the images and implement the practice.
+    <br/>
+   <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
 </Alert>
 
 

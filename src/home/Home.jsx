@@ -26,7 +26,7 @@ function Home(props) {
         <hr/>
 
 
-      <Card className="text-center my-5 px-5" style={{"zIndex": -2}}>
+      <Card className="text-center my-5 px-5 position-relative" style={{"zIndex": -2}}>
 
         <Card.Body>
 
@@ -36,19 +36,21 @@ function Home(props) {
           </Card.Title>
           <h3>How Can Northeast Agriculture Adapt?</h3>
 
-        </Card.Body>
-
-      </Card>
-
           <Image
 
-          className="position-absolute w-75 d-flex align-content-center"
+          className="position-absolute w-75 d-flex align-content-center overflow-hidden"
           style={{"zIndex": -1, "opacity": 0.2, "top": -10, "bottom": 100, "left" : 150}}
           src={ne} 
           />
 
+        </Card.Body>
 
-          <p className="text-start justify-start">
+      </Card>
+
+
+
+
+          <p className="text-start justify-start" style={{"zIndex": 5}}>
             Welcome to the Climate Adaptation Resources for Northern New England Farmers website. The climate adaptation resources 
             and tools on this website were created by a team of researchers and agricultural 
             specialists from the University of Maine, the University of Vermont, and the United 

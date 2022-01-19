@@ -29,7 +29,7 @@ const press = [
   <Col xs={12} md={12}>
   	
     <hr/>
-    <Card.Title>Press</Card.Title>
+    <h2>Press</h2>
     <hr/>
   		<hr/>
 

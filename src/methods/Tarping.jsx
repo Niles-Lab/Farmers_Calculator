@@ -142,7 +142,7 @@ These visualizations are designed to help the viewer picture how the implementat
 The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below.
 </Alert>
 
-{/*<ImageSlider groups={groups} labels={labels} id="a1" />*/}
+
 {groups.map((e,idz) => (
     
     <>
@@ -157,7 +157,7 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
 
 
-<hr/>
+<hr className="mt-5"/>
 <Card.Title>Benefits and Costs</Card.Title>
 <hr/>
 

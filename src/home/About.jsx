@@ -21,7 +21,7 @@ return (
 
 
   <hr/>
-  <Card.Title>Collaborators</Card.Title>
+  <h2>Collaborators</h2>
   <hr/>
   <Row>
       <Col xs={12} lg={4}>
@@ -38,7 +38,7 @@ return (
   </Row>
 
     <hr className="mb-2" />
-    <Card.Title>Background</Card.Title>
+    <h2>Background</h2>
     <hr className="mt-2" />
   <Row>
 

@@ -21,14 +21,14 @@ const adlink = <a rel="noreferrer" target="_blank" href='https://forest.umaine.e
 *
 */
 let team = [
-  ["mniles.jpg", "Dr. Meredith Niles is an Associate Professor of Food Systems in the College of Agriculture and Life Sciences at The University of Vermont.  She serves as the Principle Investigator on the grant, and studies ways to achieve sustainable food security, including how to help farmers adopt sustainable management practices across the US, New Zealand and low-income countries.", "", ""],
-  ["adaigneault.jpg", <p>Dr. Adam Daigneault is an Associate Professor of Forest, Recreation, and Conservation Policy in the University of Maine School of Forest Resources. He received his Ph.D. in Environmental and Natural Resource Economics from The Ohio State University in 2006 and has spent the past 15 years developing quantitative models to assess the impacts of environmental and land use policy on the natural resource sectors. His research focuses on a wide range of issues, including sustainable timber supply, climate change mitigation and adaptation, and valuing ecosystem services. Prior to UMaine, he was a Senior Economist at Landcare Research New Zealand and an Economist for the U.S. Environmental Protection Agency. While in both roles, Dr. Daigneault worked extensively on policy analysis relating to climate change, biofuels, and land use change. Adam is a native Mainer who returned home after several years living and working in Ohio, Oregon, Washington DC, India, and New Zealand.  To see his faculty page, click {adlink}</p>, "", ""],
-  ["jfaulkner.jpg", "Joshua Faulkner has coordinated the Farming and Climate Change Program in UVM Extension’s Center for Sustainable Agriculture for the past eight years.  He works with farmers across Vermont on best management practices for climate change resilience, with a focus on soil and water resources.  As a part of this project, he contributed to educational resources and presented project outputs to farmer groups in Vermont.", "", ""],
-  ["egallandt.png", "Eric Gallandt, Professor of Weed Ecology and Management at the University of Maine, teaches in the Sustainable Agriculture Program and conducts research on ecological weed management in diversified organic vegetable and grain cropping systems.", "", ""],
+  ["mniles.jpg", <p><b>Dr. Meredith Niles</b> is an Associate Professor of Food Systems in the College of Agriculture and Life Sciences at The University of Vermont.  She serves as the Principle Investigator on the grant, and studies ways to achieve sustainable food security, including how to help farmers adopt sustainable management practices across the US, New Zealand and low-income countries. Email: mtniles@uvm.edu</p>, "", "Principle Investigator"],
+  ["adaigneault.jpg", <p>Dr. Adam Daigneault is an Associate Professor of Forest, Recreation, and Conservation Policy in the University of Maine School of Forest Resources. He received his Ph.D. in Environmental and Natural Resource Economics from The Ohio State University in 2006 and has spent the past 15 years developing quantitative models to assess the impacts of environmental and land use policy on the natural resource sectors. His research focuses on a wide range of issues, including sustainable timber supply, climate change mitigation and adaptation, and valuing ecosystem services. Prior to UMaine, he was a Senior Economist at Landcare Research New Zealand and an Economist for the U.S. Environmental Protection Agency. While in both roles, Dr. Daigneault worked extensively on policy analysis relating to climate change, biofuels, and land use change. Adam is a native Mainer who returned home after several years living and working in Ohio, Oregon, Washington DC, India, and New Zealand.  To see his faculty page, click {adlink}</p>, "", "Co-Principle Investigator"],
+  ["jfaulkner.jpg", "Dr. Joshua Faulkner has coordinated the Farming and Climate Change Program in UVM Extension’s Center for Sustainable Agriculture for the past eight years.  He works with farmers across Vermont on best management practices for climate change resilience, with a focus on soil and water resources.  As a part of this project, he contributed to educational resources and presented project outputs to farmer groups in Vermont.", "", "Co-Principle Investigator"],
+  ["egallandt.png", "Dr. Eric Gallandt, Professor of Weed Ecology and Management at the University of Maine, teaches in the Sustainable Agriculture Program and conducts research on ecological weed management in diversified organic vegetable and grain cropping systems.", "", "Co-Principle Investigator"],
   // Josh Brown
-  ["shurley.jpg", "Dr. Stephanie Hurley is an Associate Professor of Ecological Landscape Design in the Department of Plant & Soil Science at the University of Vermont. Her background is in landscape architecture, with an emphasis on ecology, water quality, and ecosystem services. Dr. Hurley’s current research investigates the role that visual imagery can play in decision making about land management, including the use of landscape visualizations (photo-simulations) in stakeholder engagement about climate change adaptation and water management on farms, and green stormwater infrastructure in municipalities.", "Josh Brown", ""],
+  ["shurley.jpg", "Dr. Stephanie Hurley is an Associate Professor of Ecological Landscape Design in the Department of Plant & Soil Science at the University of Vermont. Her background is in landscape architecture, with an emphasis on ecology, water quality, and ecosystem services. Dr. Hurley’s current research investigates the role that visual imagery can play in decision making about land management, including the use of landscape visualizations (photo-simulations) in stakeholder engagement about climate change adaptation and water management on farms, and green stormwater infrastructure in municipalities.", "Josh Brown", "Co-Principle Investigator"],
   
-  ["rschattman.jpg", "Dr. Rachel E. Schattman is an interdisciplinary agroecologist whose research focuses on climate change adaptation/mitigation, diversified cropping and food systems, food insecurity, and adult learning. She received her M.S. and Ph.D. from the University of Vermont in Natural Resources and Agroecology, respectively. She is an Assistant Professor of Sustainable Agriculture at the University of Maine School of Food and Agriculture, a faculty fellow at the University of Maine Climate Change Institute, and a faculty affiliate of the George J. Mitchell Center for Sustainability Solutions. Dr. Schattman is a co-PI on this project, and is responsible for program evaluation.", "", ""],
+  ["rschattman.jpg", "Dr. Rachel E. Schattman is an interdisciplinary agroecologist whose research focuses on climate change adaptation/mitigation, diversified cropping and food systems, food insecurity, and adult learning. She received her M.S. and Ph.D. from the University of Vermont in Natural Resources and Agroecology, respectively. She is an Assistant Professor of Sustainable Agriculture at the University of Maine School of Food and Agriculture, a faculty fellow at the University of Maine Climate Change Institute, and a faculty affiliate of the George J. Mitchell Center for Sustainability Solutions. Dr. Schattman is a co-PI on this project, and is responsible for program evaluation.", "", "Co-Principle Investigator"],
 
   ["sonja.jpg", "Dr. Sonja Birthisel is a part-time faculty associate in the School of Forest Resources at University of Maine. Her research interests include farm adaptation to and mitigation of climate change, ecological weed and pest management, farmland food webs, and ecosystem services. She is committed to addressing practical questions posed by farmers, and enjoys partnering with stakeholders in research.", "Johnny Sanchez", ""],
  
@@ -66,7 +66,7 @@ return (
   <Col xs={12} md={12}>
     
     <hr/>
-    <Card.Title>About the Team</Card.Title>
+    <h2>About the Team</h2>
     <hr/>
       <hr/>
 
@@ -88,7 +88,7 @@ return (
               alt={d[0]}
               />
             </Row>
-            {d.length === 3 &&
+            {d[2] != "" &&
             <>
             <Row className="d-block">
               
@@ -102,6 +102,11 @@ return (
 
           <Col xs={12} md={8} className="px-0 pt-3">
             <p>{d[1]}</p>
+            
+            {d[3] != "" &&
+              <em>{d[3]}</em>
+            }
+
           </Col>
 
 
@@ -118,7 +123,19 @@ return (
 
   </Row>
 
+  <Row>
+    <hr/>
+      <Card.Title>Previous Team Members</Card.Title>
+    <hr/>
 
+    {previousTeam.map(d => (
+
+      <p className="display-4">{d}</p>
+
+      ))}
+
+
+  </Row>
 
 
 

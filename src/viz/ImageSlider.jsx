@@ -237,7 +237,7 @@ function ImageSlider(props) {
                         rounded
                         key={d+idx}
                         ref={imgRef}
-                        className="d-block position-absolute w-100 clearfix"
+                        className="d-block position-absolute h-100 w-100 clearfix"
                         style={{'opacity': opacity[idx]}}
                         src={d[1].default} 
                         alt={d[0]} />

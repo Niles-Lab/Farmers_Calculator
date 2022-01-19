@@ -19,8 +19,8 @@ const Navigation = () => {
 
 
                 <NavDropdown title="About" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/about">About The Project</NavDropdown.Item>
-                  <NavDropdown.Item href="/team">About The Team</NavDropdown.Item>
+                  <NavDropdown.Item href="/about">About the Project</NavDropdown.Item>
+                  <NavDropdown.Item href="/team">About the Team</NavDropdown.Item>
                   <NavDropdown.Item href="/research">Research</NavDropdown.Item>
                   <NavDropdown.Item href="/press">Press</NavDropdown.Item>
                 </NavDropdown>

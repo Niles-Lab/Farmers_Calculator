@@ -1,5 +1,5 @@
 import React from 'react';
-import { Nav, Navbar, NavDropdown, Row, Col } from 'react-bootstrap';
+import { Nav, Navbar, NavDropdown, Row, Col, Card } from 'react-bootstrap';
 
 const Navigation = () => {
 
@@ -8,30 +8,31 @@ const Navigation = () => {
       <Navbar collapseOnSelect expand="sm" variant="dark" className="mainnav">
         <Col>
             <Row className="mb-0 pb-0 ml-3 text-wrap">
-              <Navbar.Brand className="text-wrap">Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>
+              <h4 className="text-wrap text-white font-weight-normal">Climate Adaptation Resources for Northern New England Farmers</h4>
+              {/*<Navbar.Brand className="text-wrap">Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>*/}
             </Row>
             <Row className="mt-0">
             <Navbar.Toggle aria-controls="responsive-navbar-nav" />
             <Navbar.Collapse id="responsive-navbar-nav">
 
               <Nav>
-                <Nav.Link href="/">Home</Nav.Link>
+                <a href="/" className="text-decoration-none"><Nav.Link as={Card.Title} className="font-weight-light" href="/">Home</Nav.Link></a>
 
 
-                <NavDropdown title="About" id="basic-nav-dropdown">
+                <NavDropdown as={Card.Title} className="font-weight-light" title="About" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/about">About the Project</NavDropdown.Item>
                   <NavDropdown.Item href="/team">About the Team</NavDropdown.Item>
                   <NavDropdown.Item href="/research">Research</NavDropdown.Item>
                   <NavDropdown.Item href="/press">Press</NavDropdown.Item>
                 </NavDropdown>
 
-                <NavDropdown title="Practices" id="basic-nav-dropdown">
+                <NavDropdown as={Card.Title} className="font-weight-light" title="Practices" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/silvopasture">Silvopasture</NavDropdown.Item>
                   <NavDropdown.Item href="/irrigation">Irrigation</NavDropdown.Item>
                   <NavDropdown.Item href="/tarping">Tarping</NavDropdown.Item>
                 </NavDropdown>
 
-                <NavDropdown title="Tools" id="basic-nav-dropdown">
+                <NavDropdown as={Card.Title} className="font-weight-light" title="Tools" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/visualizations">Visualizations</NavDropdown.Item>
                   <NavDropdown.Item href="/tools">Economic Tools</NavDropdown.Item>
 

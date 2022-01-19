@@ -64,8 +64,8 @@ function Home(props) {
             beginning farmers in New England to address the unique challenges they face in adapting to climate change. These
              resources are available for three agricultural practices - silvopasture, irrigation, and tarping - that were 
              identified as areas of particular interest and need among New England farmers. To learn more about each practice
-              area and explore the tools and resources, visit the Practices and Tools pages (Quick Links below). Visit the <a href="/about">About</a> page for more information on the purpose and focus of these tools
-               and resources. For an overview of the research and project that generated these resources, visit the <a href="/research">Research</a> page. 
+              area and explore the tools and resources, visit the Practices and Tools pages (Quick Links below). Visit the <a href="/about">About the Project</a> and <a href="/team">About the Team</a> pages for more information on the background, purpose and focus of these tools
+               and resources. For an overview of the research that generated these resources, visit the <a href="/research">Research</a> page. 
             </p>
 
 

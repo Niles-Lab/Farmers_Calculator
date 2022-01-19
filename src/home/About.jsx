@@ -33,7 +33,7 @@ return (
       </Col>
 
       <Col xs={12} lg={4}>
-      <Image fluid className="w-75" src={climatehub}/>
+      <Image fluid className="w-100" src={climatehub}/>
       </Col>
   </Row>
 

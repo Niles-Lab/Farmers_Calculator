@@ -54,9 +54,13 @@ function Tarping(props) {
 
         <Nav id="sectionnav" className="mx-auto">
         {navs.map((d, idx) => (
-            <Nav.Link href={"#a" + idx}>
-            {d}
-            </Nav.Link>
+
+            <a href={"#a" + idx} className="text-decoration-none">
+                <Nav.Link as={Card.Title} className="font-weight-light">
+                {d}
+                </Nav.Link>
+            </a>
+
             ))}
         </Nav>
 
@@ -78,7 +82,7 @@ function Tarping(props) {
         className="d-block w-100"
         src={sp[0][1].default} 
         />
-        <p className="small mt-0 mb-5 text-center">Tarping at the University of Vermont Horticulture Research and Education Center
+        <p className="small mt-0 mb-5 text-center">Tarping at the University of Vermont Horticulture Research and Education Center,
         Photo Credit: Stephanie Hurley</p>
 
 

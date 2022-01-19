@@ -92,7 +92,9 @@ function Home(props) {
                 
 
               <th><a href={"/" + d} className="text-decoration-none">
+                <h5>
                 {d}
+                </h5>
                 </a></th>
               <td><a href={"/" + d + "/#a2"}>
                 Economic Tool

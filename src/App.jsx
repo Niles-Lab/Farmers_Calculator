@@ -108,7 +108,7 @@ const handleClose = () => setShow(false);
       </Col>
 
       <Col xs={12} lg={2}>
-      <Image fluid className="w-75" src={climatehub}/>
+      <Image fluid className="w-100" src={climatehub}/>
       </Col>
       
 

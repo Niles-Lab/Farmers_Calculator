@@ -55,9 +55,13 @@ function Irrigation(props) {
 
                 <Nav id="sectionnav" className="mx-auto">
                 {navs.map((d, idx) => (
-                    <Nav.Link href={"#a" + idx}>
-                    {d}
-                    </Nav.Link>
+                    
+                    <a href={"#a" + idx} className="text-decoration-none">
+                        <Nav.Link as={Card.Title} className="font-weight-light">
+                        {d}
+                        </Nav.Link>
+                    </a>
+
                     ))}
                 </Nav>
 

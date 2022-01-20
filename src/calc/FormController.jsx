@@ -189,7 +189,7 @@ return (
 			<Button
 			className="mx-auto w-100"
 			onClick={toggleShow}
-			>Show Options</Button>
+			>Open Calculator and Input Options</Button>
 
 
 

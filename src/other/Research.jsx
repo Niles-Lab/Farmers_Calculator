@@ -146,7 +146,7 @@ return (
                 <hr/>
 
                     <Row className="d-block pb-0 mb-0">
-                      <Image src={phase_2} className="w-75" fluid />
+                      <Image src={phase_2} className="w-100" fluid />
                     </Row>
                     <Row className="d-block mt-0 pt-0 pb-3">
                       <cite className="text-muted small">Focus Group Summary Image</cite>

@@ -103,7 +103,7 @@ function handleChange(event,key,value) {
 						  	key={key+"trigger"}
 						    placement="right"
 						    overlay={<Tooltip id={key+"trigger"}>{props.opts[key][3]}</Tooltip>}>
-							<a target="_blank" rel="noopener noreferrer" className="ml-1" href={props.opts[key][4]}><BsInfoCircle /></a>
+							<a target="_blank" rel="noreferrer" className="ml-1" href={props.opts[key][4]}><BsInfoCircle /></a>
 						  </OverlayTrigger>
 
 						}

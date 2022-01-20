@@ -29,11 +29,6 @@ p {
   background-color: #006E53 !important;
   border-color: #177B63 !important;
 }
-.logos > span > a > img {
-  min-width: 200px;
-  max-width: 250px; 
-}
-
 div {
   text-align: center;
 }
@@ -103,12 +98,7 @@ td, th {
 .white {
   color: #fff;
 }
-.calc {
-  position: relative;
-  top: 5%;
-  width: 100%;
-  padding: 0;
-}
+
 .flat-butt {
   margin: 0 5px;
   border-radius: 6px;
@@ -136,4 +126,14 @@ td, th {
 }
 .pb75 {
   padding-bottom: 60%;
+}
+.parallax {
+ 
+  overflow:  hidden;
+  min-height: 90vh;
+
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }

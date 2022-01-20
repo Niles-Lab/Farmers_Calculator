@@ -12,9 +12,11 @@ import mapFigure from '../images/figure1.png';
 const About = (props, ref) => {
 
 const citations = [
-"Horton, R., G. Yohe, W. Easterling, R. Kates, M. Ruth, E. Sussman, A. Whelchel, D. Wolfe, and F. Lipschultz, 2014: Ch. 16: Northeast. In Climate Change Impacts in the United States: The Third National Climate Assessment. J.M. Melillo, T.C. Richmond, and G.W. Yohe, Eds. U.S. Global Change Research Program, pp. 371-395, doi:10.7930/J0SF2T3P.",
-"IPCC, 2014: Climate Change 2014: Synthesis Report. Contribution of Working Groups I, II and III to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change [Core Writing Team, R.K. Pachauri and L.A. Meyer (eds.)]. IPCC, Geneva, Switzerland, 151 pp.",
+"Horton, R, Yohe, G, Easterling, W, Kates, R, Ruth, M, Sussman, E, Whelchel, A, Wolfe, D and Lipschultz, F. 2014. Ch. 16: Climate Change Impacts in the United States: The Third National Climate Assessment.",
+"IPCC. 2014. Climate Change 2014: Synthesis Report. Contribution of Working Groups I, II and III to the Fifth Assessment Report of the Intergovernmental Panel on Climate Change. Geneva, Switzerland.",
 "Fernandez, I.J., C.V. Schmitt, S.D. Birkel, E. Stancioff, A.J. Pershing, J.T. Kelley, J.A. Runge, G.L. Jacobson, and P.A. Mayewski. 2015. Maine’s Climate Future: 2015 Update. Orono, ME: University of Maine. 24pp.",
+"Cooper, G, McGechan, MB and Vinten, AJA. 1997. The Influence of a Changed Climate on Soil Workability and Available Workdays in Scotland. Journal of Agricultural Engineering Research 68: 253–269.",
+"Lengnick, L. 2015. Resilient Agriculture: Cultivating Food Systems for a Changing Climate. Gabriola, Canada.",
 "USGCRP, 2018: Impacts, Risks, and Adaptation in the United States: Fourth National Climate Assessment, Volume II [Reidmiller, D.R., C.W. Avery, D.R. Easterling, K.E. Kunkel, K.L.M. Lewis, T.K. Maycock, and B.C. Stewart (eds.)]. U.S. Global Change Research Program, Washington, DC, USA, 1515 pp. doi: 10.7930/NCA4.2018."]
 
 

@@ -185,7 +185,7 @@ let units = ["Acres", "Hectares"];
 			{props.method == "irrigation" && 
 
 			<Alert className="m-3" variant="warning">
-			<small>These default values assume the use of a solid set irrigation system. They may be modified to estimate costs for a drip irrigation system without sprinklers.</small>
+			<small>These default values assume the use of a solid set irrigation system. Drip irrigation cost estimates may be included in a future update, but the tool is not currently designed to support this.</small>
 			</Alert>
 
 			}

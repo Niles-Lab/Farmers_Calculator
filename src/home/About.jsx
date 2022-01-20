@@ -1,11 +1,12 @@
 import React from 'react';
-import { Card, Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image, Table } from 'react-bootstrap';
 import cover from "./../images/cover.jpg";
 
 import umaine from '../images/umaine.png';
 import uvm from '../images/uvm.png';
 import climatehub from '../images/climatehub.png';
 
+import mapFigure from '../images/figure1.png';
 
 
 const About = (props, ref) => {
@@ -25,26 +26,19 @@ return (
   <h2>About The Project</h2>
   <hr/>
 
-  <hr/>
-  <h2>Collaborators</h2>
-  <hr/>
-  <Row>
-      <Col xs={12} lg={4}>
-      <Image fluid className="w-75" src={uvm} />
-      </Col>
 
-      <Col xs={12} lg={4}>
-      <Image fluid className="w-75" src={umaine}/>
-      </Col>
-
-      <Col xs={12} lg={4}>
-      <Image fluid className="w-100" src={climatehub}/>
-      </Col>
+  <Row className="d-flex justify-content-center">
+  <Image
+  className="w-75 mb-2"
+  src={cover} />
   </Row>
 
-    <hr className="mb-2" />
-    <h2>Background</h2>
-    <hr className="mt-2" />
+
+
+    <hr />
+    <h3>Background</h3>
+    <hr />
+
   <Row>
 
 
@@ -69,16 +63,131 @@ return (
 
   </Row>
 
-  <Row className="d-flex justify-content-center">
-  <Image
-  className="w-75 mb-2"
-  src={cover} />
+  <hr/>
+  <h3>Collaborators</h3>
+  <hr/>
+  <Row>
+      <Col xs={12} lg={4}>
+      <Image fluid className="w-75" src={uvm} />
+      </Col>
+
+      <Col xs={12} lg={4}>
+      <Image fluid className="w-75" src={umaine}/>
+      </Col>
+
+      <Col xs={12} lg={4}>
+      <Image fluid className="w-100" src={climatehub}/>
+      </Col>
   </Row>
+
+
+  <hr/>
+    <h3>Climate Change in the Northeast</h3>
+  <hr/>
+
+<Row>
+  
+
+
+  <p>A focus on this region is crucial given the nature of climate change impacts unique to the Northeast. The Northeast region has seen a 
+  2°F increase in average temperatures, and a 5-inch (more than 10%) 
+  increase in annual precipitation since 1895. Prevalence of extreme precipitation events is also increasing (Figure 1). Precipitation intensities
+  , volume and frequency of extreme events are increasing faster in the Northeast than any other U.S. region (Horton et al. 2014), trends that are 
+  expected to continue throughout this century (IPCC 2014). Increased precipitation, particularly in the springtime, could delay planting and decrease
+   the net number of days suitable for cultivation (Cooper et al. 1997), despite the fact that warmer temperatures are expected to add two weeks to our
+    growing season by midcentury (Fernandez et al. 2015).</p>
+
+
+
+
+
+
+<p>  Northern New England growers will likely face increased summer drought risk due to expected 
+    temperature increases (Horton et al. 2014); higher likelihood of frost damage in perennial crops due to premature leafout, as was experienced by orchardists 
+    in the Northeast during 2007 and 2012 (Horton et al. 2014); and increasingly variable weather (Fernandez et al. 2015), which may increase the risk of crop
+     failure and complicate both short- and long-term strategic planning. In a changing climate, forward-thinking, adaptive management strategies will become 
+     increasingly important to the survival and profitability of farming enterprises. We will draw from the expertise of University and Extension experts, NGO
+      partners, government agencies including the USDA, and experienced farmers in developing curriculum and outreach tools that will best prepare SMF to develop
+       resilient farms (Lengnick 2015) and adapt to climate-related challenges (Table 1).
+</p>
+
+
+
+  <Col xs={12} lg={7}>
+  {/*<Col xs={12} md={{offset: 1, span: 10}}>*/}
+  <Table responsive size={'sm'}>
+      <tr>
+        <th>Challenge (NE Region)</th>
+        <th>Small and Medium Farm Management Tools</th>
+      </tr>
+
+    <tbody>
+
+
+    <tr>
+      <td>Increased
+precipitation
+intensity</td>
+
+      <td><p>Decision-aids to monitor disease risk (e.g. UMaine Extension’s Ag-Radar);
+Cover crops for erosion control (Alliaume 2014); Small retention ponds (Fiener
+et al. 2005) and riparian buffers (Joyce 2011); High-efficacy cultivation
+strategies (Kolb et al. 2012) to allow farmers to best utilize the fewer spring
+days suitable for cultivation; No-till practices for erosion control and soil
+quality (Gallandt 2014)</p></td>
+    </tr>
+
+    <tr>
+      <td>Increased summer temperature/drought risk</td>
+
+      <td className=""><p>Drip irrigation (Hutchinson 2003) coupled with mulching to retain soil moisture
+(Schonbeck and Evanylo 1998) and investments in other irrigation
+infrastructure (McDonald Girvetz 2013); Soil solarization for weed & disease
+control (Birthisel unpublished data), which will become increasingly effective
+with increasing temperatures. Choosing drought-resistant cultivars (Aprile et al.
+2013)</p></td>
+    </tr>
+
+    <tr>
+      <td>Increased
+variability
+</td>
+
+      <td><p>Hoop houses to improve environmental control (Blomgren and Frisch 2007;
+Fitzgerald and Hutton 2012); Diversification to distribute risk (Rossing et al.
+2014); Rotational grazing (Wilson et al. 2014); Crop insurance (Garrido et al.
+2014); Using soil amendments to reduce the effects of variability on yield
+(Mallory and Porter 2007.)</p></td>
+    </tr>
+    </tbody>
+  </Table>
+  <small>Table 1: Example Management Tools for Climate-Related Challenges</small>
+  </Col>
+
+
+  <Col xs={12} lg={5}>
+
+  <Image
+  className="w-100 mb-2"
+  src={mapFigure} />
+
+  </Col>
+
+</Row>
+
+<Row>
+
+<h5 className="font-weight-normal mt-3">Visit the&nbsp;<a href="https://nca2018.globalchange.gov/" rel="noreferrer" target="_blank">USDA’s Fourth National Climate Assessment</a>&nbsp;for more information on climate change and its impacts across the United States, including the Northeast.</h5>
+
+
+</Row>
+
 
 </Col>
 <Col xs={0} md={2}>
 </Col>
 </Row>
+
 
 </Container>
 

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Alert } from 'react-bootstrap';
 import OffCanvas from 'react-aria-offcanvas';
 import { BsFillExclamationTriangleFill } from "react-icons/bs";
@@ -41,7 +41,6 @@ const Banner = (props) => {
           isOpen={props.show}
           labelledby="menu-button"
           trapFocusAfterOpen={false}
-          lockBodyAfterOpen={false}
           lockBodyAfterOpen={false}
         >
 

@@ -1,9 +1,10 @@
 import React from 'react';
 import { Container, Card, Row, Col, Image, Navbar, Nav, Alert } from 'react-bootstrap';
 //import mental_map from './../images/mental_map.png';
-import tools from './../images/tools.png';
-import focus_group from './../images/focus_group.png';
-import research_graph from './../images/research_graph.png'
+import tools from './../images/research/tools.png';
+import focus_group from './../images/research/focus_group.png';
+import phase_2 from './../images/research/phase_2.png';
+import research_graph from './../images/research/research_graph.png'
 import Resource from "./../other/Resource.jsx"
 
 const Research = (props, ref) => {
@@ -79,7 +80,7 @@ return (
 
 
 
-                        <Image src={research_graph} className={"w-50"} />
+                        <Image src={research_graph} className={"w-75"} />
                         <br/>
 
                         <Col  md={{ span: 6, offset: 3 }}>
@@ -113,19 +114,19 @@ return (
                         </p>
 
                         <p>
-                        <li>
+                        <li style={{'text-indent': '3em'}}>
                          Farmers mentioned community well-being, public 
-                        education, and farm success significantly more than did outreach professionals; 
+                        education, and farm success significantly more than did outreach professionals.
                         </li>
                         </p>
                         <p>
-                        <li>
+                        <li style={{'text-indent': '3em'}}>
                     Quality of life, community
-                     well-being, environmental stewardship, and farm success were more influential in the farmer mental model 
+                     well-being, environmental stewardship, and farm success were more influential in the farmer mental model.
                         </li>
                         </p>
                         <p>
-                        <li>  
+                        <li style={{'text-indent': '3em'}}>  
                       Climate was a direct driver of yields and product quality in the outreach professional model, but was only 
                       indirectly connected to these factors in the farmer model. 
                         </li>
@@ -145,7 +146,7 @@ return (
                 <hr/>
 
                     <Row className="d-block pb-0 mb-0">
-                      <Image src={focus_group} className="w-75" fluid />
+                      <Image src={phase_2} className="w-75" fluid />
                     </Row>
                     <Row className="d-block mt-0 pt-0 pb-3">
                       <cite className="text-muted small">Focus Group Summary Image</cite>
@@ -158,9 +159,8 @@ return (
                           economic tool to aid farmers in budgeting and planning for climate change adaption. 
                         </p>
                         <p>
-                            Twenty-eight 
-                          farmers from across New England (Vermont, Maine, Massachusetts, and New York) provided feedback 
-                          on these tools through small group discussions and surveys.  
+                            Twenty-eight farmers from across New England (Vermont, Maine, and Massachusetts) 
+                            and New York provided feedback on these tools through small group discussions and surveys.
                         </p>
                     </Row>
                                           

@@ -1,4 +1,4 @@
-# VT/ME Climate Perceptions Platform
+# Climate Adaptation Resources for Northern New England Farmers
 
 - [Abstract](#abstract)
 - [About this application](#file-structure)

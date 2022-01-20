@@ -59,7 +59,8 @@ function Tarping(props) {
                     </Row>
               </div>
           </div>
-
+          <p className="small mt-0 mb-5 text-center">Tarping at the University of Vermont Horticulture Research and Education Center,
+            Photo Credit: Stephanie Hurley</p>
         <Row>
 
 
@@ -97,8 +98,7 @@ function Tarping(props) {
         src={sp[0][1].default} 
         />*/}
 
-        <p className="small mt-0 mb-5 text-center">Tarping at the University of Vermont Horticulture Research and Education Center,
-        Photo Credit: Stephanie Hurley</p>
+        
 
 
 

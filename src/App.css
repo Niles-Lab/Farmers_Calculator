@@ -41,12 +41,7 @@ div {
   max-width: 90vw;
 
 }
-td, th {
-  min-width: 6vw;
-  max-width: 6vw;
-  width: 6vw;
-  overflow: hidden;
-}
+
 .row {
   flex-direction: row;
   margin-top: 1vh;

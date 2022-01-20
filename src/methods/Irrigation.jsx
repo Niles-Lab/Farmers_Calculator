@@ -12,7 +12,8 @@ import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
 import ExternalLink from './../other/ExternalLink';
 
-import cover from "./../images/irrigation/cover/possibleCover.jpg";
+// import cover from "./../images/irrigation/cover/possibleCover.jpg";
+import cover from "./../images/irrigation/cover/cover.JPG";
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
 
@@ -51,7 +52,7 @@ function Irrigation(props) {
 		<>
 
 
-          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${sp[0][1].default})` }}>
+          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
                     <Row className="d-block">
                     <Card.Title className="display-4">
@@ -63,6 +64,8 @@ function Irrigation(props) {
                     </Row>
               </div>
           </div>
+          <p className="small mt-0 mb-5 text-center">Irrigation from University of Vermont Extension Workshops,
+        Photo Credit: Jennifer Brown</p>
 
         <Row>
 

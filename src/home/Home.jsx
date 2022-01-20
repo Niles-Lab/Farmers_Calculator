@@ -28,8 +28,6 @@ function Home(props) {
                     <h3 className="text-center">How Can Northeast Agriculture Adapt?</h3>
                     </Row>
               </div>
-
-
           </div>
 
   <div className="px-5 my-5">

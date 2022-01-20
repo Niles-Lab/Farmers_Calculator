@@ -5,7 +5,7 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Dropdown } from 'react-bootstrap';
+import { Form, Col, Row, Container, Dropdown, Alert } from 'react-bootstrap';
 //import CropInput from './CropInput.jsx'
 import { BsX } from "react-icons/bs";
 import AdvancedOptions from './AdvancedOptions.jsx';
@@ -78,6 +78,9 @@ let units = ["Acres", "Hectares"];
 	return (
 		<Container className="calc">
 			<h1>Calculator <BsX onClick={props.handleClose} /></h1>
+
+
+
 			<Form>
 			
 			<Form.Group>
@@ -179,7 +182,13 @@ let units = ["Acres", "Hectares"];
 					<AdvancedOptions {...props} />
 
 			
+			{props.method == "irrigation" && 
 
+			<Alert className="m-3" variant="warning">
+			<small>These default values assume the use of a solid set irrigation system. They may be modified to estimate costs for a drip irrigation system without sprinklers.</small>
+			</Alert>
+
+			}
 
 			
 

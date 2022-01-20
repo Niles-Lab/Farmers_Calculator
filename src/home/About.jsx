@@ -11,6 +11,10 @@ import mapFigure from '../images/figure1.png';
 
 const About = (props, ref) => {
 
+const citations = [
+"USGCRP, 2018: Impacts, Risks, and Adaptation in the United States: Fourth National Climate Assessment, Volume II [Reidmiller, D.R., C.W. Avery, D.R. Easterling, K.E. Kunkel, K.L.M. Lewis, T.K. Maycock, and B.C. Stewart (eds.)]. U.S. Global Change Research Program, Washington, DC, USA, 1515 pp. doi: 10.7930/NCA4.2018."]
+
+
 return (
 
 
@@ -98,8 +102,14 @@ return (
     growing season by midcentury (Fernandez et al. 2015).</p>
 
 
+  <Row className="d-flex justify-content-center w-100">
 
+  <Image
+  className="d-block mb-2"
+  style={{"width": "40%"}}
+  src={mapFigure} />
 
+  </Row>
 
 
 <p>  Northern New England growers will likely face increased summer drought risk due to expected 
@@ -113,8 +123,8 @@ return (
 
 
 
-  <Col xs={12} lg={7}>
-  {/*<Col xs={12} md={{offset: 1, span: 10}}>*/}
+
+  <Col xs={12} md={{offset: 1, span: 10}}>
   <Table responsive size={'sm'}>
       <tr>
         <th>Challenge (NE Region)</th>
@@ -165,13 +175,8 @@ Fitzgerald and Hutton 2012); Diversification to distribute risk (Rossing et al.
   </Col>
 
 
-  <Col xs={12} lg={5}>
 
-  <Image
-  className="w-100 mb-2"
-  src={mapFigure} />
 
-  </Col>
 
 </Row>
 
@@ -182,6 +187,15 @@ Fitzgerald and Hutton 2012); Diversification to distribute risk (Rossing et al.
 
 </Row>
 
+    <hr/>
+      <h3>Citations</h3>
+    <hr/>
+    {citations.map(d => (
+
+
+      <p><small>{d}</small></p>
+
+      ))}
 
 </Col>
 <Col xs={0} md={2}>

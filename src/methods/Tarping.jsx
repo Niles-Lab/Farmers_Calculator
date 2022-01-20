@@ -46,6 +46,20 @@ function Tarping(props) {
 
 	return (
 		<>
+
+          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${sp[0][1].default})` }}>
+              <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
+                    <Row className="d-block">
+                    <Card.Title className="display-4">
+                      Tarping
+                    </Card.Title>
+                    </Row>
+                    <Row className="d-block">
+                    {/*<h3 className="text-center">How Can Northeast Agriculture Adapt?</h3>*/}
+                    </Row>
+              </div>
+          </div>
+
         <Row>
 
 
@@ -73,7 +87,7 @@ function Tarping(props) {
 
 
 
-        <hr/>
+{/*        <hr/>
         <h2 id="a0">Tarping</h2>
         <hr/>
 
@@ -81,7 +95,8 @@ function Tarping(props) {
         rounded
         className="d-block w-100"
         src={sp[0][1].default} 
-        />
+        />*/}
+
         <p className="small mt-0 mb-5 text-center">Tarping at the University of Vermont Horticulture Research and Education Center,
         Photo Credit: Stephanie Hurley</p>
 

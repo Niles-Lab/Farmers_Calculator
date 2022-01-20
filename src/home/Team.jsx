@@ -31,6 +31,7 @@ let team = [
   ["rschattman.jpg", <p><b>Dr. Rachel E. Schattman</b> is an interdisciplinary agroecologist whose research focuses on climate change adaptation/mitigation, diversified cropping and food systems, food insecurity, and adult learning. She received her M.S. and Ph.D. from the University of Vermont in Natural Resources and Agroecology, respectively. She is an Assistant Professor of Sustainable Agriculture at the University of Maine School of Food and Agriculture, a faculty fellow at the University of Maine Climate Change Institute, and a faculty affiliate of the George J. Mitchell Center for Sustainability Solutions. Dr. Schattman is a co-PI on this project, and is responsible for program evaluation.</p>, "", "Co-Principle Investigator"],
 
   ["sonja.jpg", <p><b>Dr. Sonja Birthisel</b> is a part-time faculty associate in the School of Forest Resources at University of Maine. Her research interests include farm adaptation to and mitigation of climate change, ecological weed and pest management, farmland food webs, and ecosystem services. She is committed to addressing practical questions posed by farmers, and enjoys partnering with stakeholders in research.</p>, "Johnny Sanchez", ""],
+  ["bdemarest.png", <p><b>Dr. Bradford Demarest</b> is a postdoctoral associate at the University of Vermont's Neurobotics Lab.  He received his Ph.D. in Information Science from Indiana University's Luddy School of Informatics, Computing, and Engineering.  His research applies computational approaches to language analysis to study a wide range of topics including farmers' perspectives on climate change, clinician-patient conversations, and community norms in science and open-source coding communities.</p>, "", ""],
   ["tharrold.jpg", <p><b>Tim Harrold</b> is an undergraduate Computer Science student at UVM. He is interested in data visualization, and exploring ways to apply computing concepts in interdisciplinary studies. He has completed data visualization projects using methods such as speech analysis and graph theory. Current projects include designing this website, and exploring different visual and algorithmic approaches to modeling crop diversity and nutritional stability.</p>, "", ""],
   ["bholtzman.png", <p><b>Beth Holtzman</b> is a senior outreach professional with the University of Vermont Extension. As coordinator of the University of Vermont Extension <a rel="noreferrer" target="_blank" href="https://blog.uvm.edu/newfarmer/">New Farmer Project</a> and <a rel="noreferrer" target="_blank" href="https://www.uvm.edu/extension/agriculture/womens-agricultural-network">Women’s Agricultural Network</a> (WAgN), she has developed and managed education programs that help farmers achieve greater viability, resilience and satisfaction with their businesses and their quality of life. Since 2018, she has also served as the <a rel="noreferrer" target="_blank" href="https://blog.uvm.edu/vtsare/">Northeast SARE state coordinator for Vermont</a>. Email: beth.holtzman@uvm.edu</p>, "", ""],
 
@@ -48,9 +49,10 @@ let previousTeam = [
 
 let acknowledged = [
 
-  "Hamid Farhani, PhD, USDA-NRCS ENTSC",
+  "Hamid Farhani, PhD, East National Technology Support Center, Natural Resources Conservation Service, United States Department of Agriculture",
   "Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems",
-  "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment"
+  "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment",
+  "Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture"
 
 
 ];
@@ -155,20 +157,36 @@ return (
 
   <hr/>
 
-  <Row>
+  <Row className="mb-0">
     <hr/>
       <h3>Acknowledgements</h3>
     <hr/>
 
+
   </Row>
-  <Row>
-    {acknowledged.map(d => (
+  <small>We thank the following contributors for their expert review of the agricultural practice materials and website</small>
+  <Row className="mt-3">
+    {acknowledged.map((d,idx) => (
 
       <>
-      <Col xs={12} md={4}>
-      <Card.Title className="font-weight-normal">{d}</Card.Title>
-      </Col>  
+
+      <Row>
+
+
+        <Card.Title className="font-weight-normal mb-0"><p>{d}</p></Card.Title>
+        {idx < acknowledged.length-1 &&
+          <hr className="w-100" />
+        }
+        
+
+      </Row>
       </>
+
+      // <>
+      // <Col xs={12} md={4}>
+      // <Card.Title className="font-weight-normal">{d}</Card.Title>
+      // </Col>  
+      // </>
 
       ))}
 
@@ -176,6 +194,11 @@ return (
   </Row>
 
   <hr/>
+  <Row>
+    <hr/>
+      <h4 className="font-weight-normal mt-3">Visualization design and creation by Holly Greenleaf, Greenleaf Design LLC</h4>
+    <hr/>
+  </Row>
 
 </Col>
 <Col xs={0} md={2}>

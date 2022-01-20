@@ -4,10 +4,10 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import umaine from './images/umaine.png';
-import uvm from './images/uvm.png';
-import climatehub from './images/climatehub.png';
-//import nifa from "./images/nifa-color.svg";
+import umaine from './images/logos/umaine.png';
+import uvm from './images/logos/uvm.png';
+import climatehub from './images/logos/climatehub.png';
+import nifa from './images/logos/nifa-color-lockup.svg';
 
 import Home from './home/Home.jsx'
 
@@ -100,22 +100,25 @@ const handleClose = () => setShow(false);
       </Col>*/}
 
       <Col xs={12} lg={2}>
-      <Image fluid className="w-75" src={uvm} />
+        <Image fluid className="w-75" src={uvm} />
       </Col>
 
       <Col xs={12} lg={2}>
-      <Image fluid className="w-75" src={umaine}/>
+        <Image fluid className="w-75" src={umaine}/>
       </Col>
 
       <Col xs={12} lg={2}>
-      <Image fluid className="w-100" src={climatehub}/>
+        <Image fluid className="w-100" src={climatehub}/>
       </Col>
-      
+  
+      <Col xs={12} lg={3}>
+        <Image fluid src={nifa}/>
+      </Col>    
 
 
 
-      <Col xs={0} lg={{ span: 3, offset: 3 }}>
-      <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098.</Nav.Item>
+      <Col xs={0} lg={{ span: 3 }}>
+      <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098. Any opinions, findings, conclusions, or recommendations expressed in this publication are those of the author(s) and do not necessarily reflect the view of the U.S. Department of Agriculture.</Nav.Item>
       <Nav.Item className="small text-wrap"></Nav.Item>
       </Col>
 

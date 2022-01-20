@@ -2,9 +2,10 @@ import React from 'react';
 import { Container, Row, Col, Image, Table } from 'react-bootstrap';
 import cover from "./../images/cover.jpg";
 
-import umaine from '../images/umaine.png';
-import uvm from '../images/uvm.png';
-import climatehub from '../images/climatehub.png';
+import umaine from '../images/logos/umaine.png';
+import uvm from '../images/logos/uvm.png';
+import climatehub from '../images/logos/climatehub.png';
+import nifa from '../images/logos/nifa-color-lockup.svg';
 
 import mapFigure from '../images/figure1.png';
 
@@ -17,7 +18,20 @@ const citations = [
 "Fernandez, I.J., C.V. Schmitt, S.D. Birkel, E. Stancioff, A.J. Pershing, J.T. Kelley, J.A. Runge, G.L. Jacobson, and P.A. Mayewski. 2015. Maine’s Climate Future: 2015 Update. Orono, ME: University of Maine. 24pp.",
 "Cooper, G, McGechan, MB and Vinten, AJA. 1997. The Influence of a Changed Climate on Soil Workability and Available Workdays in Scotland. Journal of Agricultural Engineering Research 68: 253–269.",
 "Lengnick, L. 2015. Resilient Agriculture: Cultivating Food Systems for a Changing Climate. Gabriola, Canada.",
-"USGCRP, 2018: Impacts, Risks, and Adaptation in the United States: Fourth National Climate Assessment, Volume II [Reidmiller, D.R., C.W. Avery, D.R. Easterling, K.E. Kunkel, K.L.M. Lewis, T.K. Maycock, and B.C. Stewart (eds.)]. U.S. Global Change Research Program, Washington, DC, USA, 1515 pp. doi: 10.7930/NCA4.2018."]
+"USGCRP, 2018: Impacts, Risks, and Adaptation in the United States: Fourth National Climate Assessment, Volume II [Reidmiller, D.R., C.W. Avery, D.R. Easterling, K.E. Kunkel, K.L.M. Lewis, T.K. Maycock, and B.C. Stewart (eds.)]. U.S. Global Change Research Program, Washington, DC, USA, 1515 pp. doi: 10.7930/NCA4.2018.",
+"Alliaume, F. 2014. Reduced tillage and cover crops improve water capture and reduce erosion of fine textured soils in raised bed tomato systems. Agriculture, Ecosystems & Environment 183.",
+"Fiener, P., Auerswald, K., & Weigand, S. 2005. Managing erosion and water quality in agricultural watersheds by small detention ponds. Agriculture, Ecosystems, and Environment, 110, 132-142.",
+"Joyce. (2011). Focus on Intervale Conservation Nursery: What is a Riparian Buffer? Intervale Center. Retrieved from: http://www.intervale.org/focus-on-intervale-conservation-nursery-whatis-ariparian-restoration-project/",
+"Kolb, LN, Gallandt, ER, and Mallory, EB. 2012. Impact of Spring Wheat Planting Density, Row Spacing, and Mechanical Weed Control on Yield, Grain Protein, and Economic Return in Maine. Weed Science 60(2): 244–253.",
+"Gallandt, ER. 2014. “Weed Management in Organic Farming.” In Recent Advances in Weed Management. New York, USA",
+"McDonald RI, Girvetz EH. 2013. Two Challenges for U.S. Irrigation Due to Climate Change: Increasing Irrigated Area in Wet States and Increasing Irrigation Rates in Dry States. PLoS ONE 8(6): e65589. doi:10.1371/journal.pone.0065589",
+"Aprile, A, Havlickova, L, Panna, R, Marè, C, Borrelli, GM, Marone, D, and Cattivelli, L. 2013. Different stress responsive strategies to drought and heat in two durum wheat cultivars with contrasting water use efficiency. BMC Genomics 14 (1): 1–18.",
+"Blomgren, T. and T. Frisch. 2007. High tunnels: Using low-cost technology to increase yields, improve quality and extend the season. 27 Jan. 2008. <http://www.uvm.edu/sustainableagriculture/hightunnels.html>",
+"Rossing, WAH, Modernel, P, and Tittonell, PA. 2014. Diversity in Organic and Agroecological Farming Systems for Mitigation of Climate Change Impact, with Examples from Latin America. In Climate Change Impact and Adaptation in Agricultural Systems. Boston, USA.",
+"Wilson, G.L., Dalzell, B.J., Mulla, D.J., & Porter, P.M. 2014. Estimating water quality effects of conservation practices and grazing land use scenarios. Journal of Soil and Water Conservation, 69(4), 330-342.",
+"Garrido, A, Bielza, M, Rey, D, and Minguez, MN, and Ruiz-Ramos, M. 2014. “Insurance as an adaptation to climate variability in agriculture.” In Handbook on Climate Change and Agriculture. Northampton, USA.",
+"Mallory, E. B., and G. A. Porter. 2007. Potato yield stability under contrasting soil management strategies. Agron J 99:501-510."
+]
 
 
 return (
@@ -76,6 +90,7 @@ return (
   <h3>Collaborators</h3>
   <hr/>
   <Row>
+
       <Col xs={12} lg={4}>
       <Image fluid className="w-75" src={uvm} />
       </Col>
@@ -87,7 +102,17 @@ return (
       <Col xs={12} lg={4}>
       <Image fluid className="w-100" src={climatehub}/>
       </Col>
+
+
+
   </Row>
+
+  <Row>
+      <Col xs={12} lg={{offset: 3, span: 6}}>
+      <Image className="w-100" src={nifa}/>
+      </Col>
+  </Row>
+
 
 
   <hr/>

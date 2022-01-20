@@ -48,25 +48,31 @@ function Home(props) {
       </Card>
 
 
-
-
           <p className="text-start justify-start" style={{"zIndex": 5}}>
-            Welcome to the Climate Adaptation Resources for Northern New England Farmers website. The climate adaptation resources 
+            Welcome to the Climate Adaptation Resources for Northern New England Farmers website.
+            The economic tools, visualizations, and resources on this website were designed with and for small, medium, and 
+            beginning farmers and ranchers<sup>1</sup> in New England to address the unique challenges they face in adapting to climate change. These
+             resources are available for three agricultural practices - silvopasture, irrigation, and tarping - that were 
+             identified as areas of particular interest and need among New England farmers.</p>
+
+
+
+          <p>To learn more about each practice
+              area and explore the tools and resources, visit the Practices and Tools pages (Quick Links below). Visit the <a href="/about">About the Project</a> and <a href="/team">About the Team</a> pages for more information on the background, purpose and focus of these tools
+               and resources. For an overview of the research that generated these resources, visit the <a href="/research">Research</a> page.  
+          </p>
+
+            <p>
+            The climate adaptation resources 
             and tools on this website were created by a team of researchers and agricultural 
             specialists from the University of Maine, the University of Vermont, and the United 
             States Department of Agriculture (USDA) Climate Hub from 2019 to 2022 as part of an
              Agriculture and Food Research Initiative grant from the USDA’s National Institute 
              of Food and Agriculture (award number 2018-68006-28098). 
-          </p>
 
-            <p>
-            The economic tools, visualizations, and resources on this website were designed with and for small, medium, and 
-            beginning farmers in New England to address the unique challenges they face in adapting to climate change. These
-             resources are available for three agricultural practices - silvopasture, irrigation, and tarping - that were 
-             identified as areas of particular interest and need among New England farmers. To learn more about each practice
-              area and explore the tools and resources, visit the Practices and Tools pages (Quick Links below). Visit the <a href="/about">About the Project</a> and <a href="/team">About the Team</a> pages for more information on the background, purpose and focus of these tools
-               and resources. For an overview of the research that generated these resources, visit the <a href="/research">Research</a> page. 
             </p>
+
+            <p class="small"><sup>1</sup> We use the USDA updated definition for a small farm as grossing less than $350,000 annually and for a medium farm as grossing less than $1 million annually (Hoppe et al. 2013). Beginning farmers and ranchers are those with less than 10 years of experience (Ahern & Newton, 2009).</p>
 
 
 
@@ -77,7 +83,7 @@ function Home(props) {
 
 
 
-      <Col xs={{ span: 8, offset: 2}}>
+      <Col xs={12} md={{ span: 8, offset: 2}}>
         <hr/>
         <Card.Title>Quick Links</Card.Title>
         <hr/>

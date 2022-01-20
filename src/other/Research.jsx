@@ -22,9 +22,13 @@ return (
                     <Navbar.Collapse id="responsive-navbar-nav">
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (
-                            <Nav.Link href={"#" + idx} style={{'font-weight': (() => d.search("Phase") > -1 ? 'bold' : '')}}>
-                            {d}
-                            </Nav.Link>
+
+                            <a href={"#" + idx} className="text-decoration-none">
+                                <Nav.Link as={Card.Title} className="font-weight-light">
+                                {d}
+                                </Nav.Link>
+                            </a>
+
                             ))}
                       </Nav>
                     </Navbar.Collapse>
@@ -64,7 +68,7 @@ return (
 
 
                 <hr/>
-                    <Card.Title className="text-start" id="1">Phase 1 - Interviews</Card.Title>
+                    <h2 id="1">Phase 1 - Interviews</h2>
                 <hr/>
 
                 <Row className="d-block">
@@ -137,7 +141,7 @@ return (
 
 
                 <hr/>
-                    <Card.Title className="text-start" id="2">Phase 2 - Focus Groups</Card.Title>
+                    <h2 id="2">Phase 2 - Focus Groups</h2>
                 <hr/>
 
                     <Row className="d-block pb-0 mb-0">
@@ -162,7 +166,7 @@ return (
                                           
 
                 <hr/>
-                    <Card.Title className="text-start" id="3">Phase 3 - Tools</Card.Title>
+                    <h2 id="3">Phase 3 - Tools</h2>
                 <hr/>
 
                     <Row className="d-block">
@@ -194,7 +198,7 @@ return (
                 <Container className="my-5 text-center">
 
                 <hr/>
-                    <Card.Title className="mb-0 text-center" id="4">Publications</Card.Title>
+                    <h2 className="mb-0" id="4">Publications</h2>
                 <hr/>
 
 

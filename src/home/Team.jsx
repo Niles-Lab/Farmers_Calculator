@@ -45,6 +45,16 @@ let previousTeam = [
   "Ruthie Clements", "Devon Johnson", "Thomas Wentworth"
 ];
 
+
+let acknowledged = [
+
+  "Hamid Farhani, PhD, USDA-NRCS ENTSC",
+  "Natalie Lounsbury, PhD",
+  "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment"
+
+
+];
+
 const imgs = importAll(require.context('./../images/team', false, /\.(png|jpe?g|svg)$/));
 
 
@@ -125,21 +135,47 @@ return (
 
   <Row>
     <hr/>
-      <Card.Title>Previous Team Members</Card.Title>
+      <h2>Previous Team Members</h2>
     <hr/>
 
+  </Row>
+  <Row>
     {previousTeam.map(d => (
 
-      <p className="display-4">{d}</p>
+      <>
+      <Col xs={12} md={4}>
+      <Card.Title className="font-weight-normal">{d}</Card.Title>
+      </Col>  
+      </>
 
       ))}
 
 
   </Row>
 
+  <hr/>
+
+  <Row>
+    <hr/>
+      <h2>Acknowledgements</h2>
+    <hr/>
+
+  </Row>
+  <Row>
+    {acknowledged.map(d => (
+
+      <>
+      <Col xs={12} md={4}>
+      <Card.Title className="font-weight-normal">{d}</Card.Title>
+      </Col>  
+      </>
+
+      ))}
 
 
+  </Row>
 
+  <hr/>
 
 </Col>
 <Col xs={0} md={2}>

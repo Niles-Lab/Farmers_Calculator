@@ -20,6 +20,11 @@ return (
 <Col xs={12} md={8}>
 
 
+
+  <hr/>
+  <h2>About The Project</h2>
+  <hr/>
+
   <hr/>
   <h2>Collaborators</h2>
   <hr/>

@@ -185,7 +185,7 @@ let units = ["Acres", "Hectares"];
 			{props.method == "irrigation" && 
 
 			<Alert className="m-3" variant="warning">
-			<small>These default values assume the use of a solid set irrigation system. Drip irrigation cost estimates may be included in a future update, but the tool is not currently designed to support this.</small>
+			<small>This economic tool estimates the costs, revenues and profits of a sprinkler irrigation system. For more information on the costs of drip irrigation systems, visit the University of Vermont Extension’s <a href="https://www.uvm.edu/climatefarming/sites/default/files/files/uvm_dripirrigation.pdf" rel="noreferrer" target="_blank">Getting started with drip irrigation: components and costs.</a></small>
 			</Alert>
 
 			}

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, Container, Row, Col, Image, Table } from 'react-bootstrap';
-import ne from "./../images/ne.png";
+import { Card, Container, Row, Col, Table } from 'react-bootstrap';
+//import ne from "./../images/ne.png";
 import fc1 from "./../images/front_cover1.png";
-import fc2 from "./../images/front_cover2.png";
-import bg2 from "./../images/background_2.jpg";
+//import fc2 from "./../images/front_cover2.png";
+//import bg2 from "./../images/background_2.jpg";
 
 
 const practices = ["Silvopasture", "Tarping", "Irrigation"];

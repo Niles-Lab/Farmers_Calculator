@@ -6,7 +6,7 @@
 
 //import React, { useState, useRef } from 'react';
 
-import { Card, Row, Col, Navbar,Container, Nav, ListGroup, Tab, Image, Alert } from 'react-bootstrap';
+import { Card, Row, Col, Navbar,Container, Nav, ListGroup, Tab, Alert } from 'react-bootstrap';
 
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
@@ -24,7 +24,7 @@ function importAll(r) {
 }
 
 // Irrigation Cover Image(s)
-const sp = importAll(require.context('../images/irrigation/', false, /\.(png|jpe?g|svg)$/));
+//const sp = importAll(require.context('../images/irrigation/', false, /\.(png|jpe?g|svg)$/));
 
 // Ponds images
 const pd = importAll(require.context('../images/irrigation/pd/', false, /\.(png|jpe?g|svg)$/));

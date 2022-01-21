@@ -5,7 +5,7 @@
  **/
 
  import React from 'react';
- import { Card, Row, Col, Nav, Navbar, Alert, ListGroup, Tab, Image } from 'react-bootstrap';
+ import { Card, Row, Col, Nav, Navbar, Alert, ListGroup, Tab } from 'react-bootstrap';
 
  import FormController from './../calc/FormController';
  import ImageSlider from './../viz/ImageSlider';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Card, Container, Row, Col, Image } from 'react-bootstrap';
+import { Container, Row, Col, Image } from 'react-bootstrap';
 
  function importAll(r) {
   let images = {};

@@ -5,7 +5,7 @@
  **/
 
 //import React, { useState } from 'react';
-import { Alert, Card, Row, Col, Nav, Navbar, ListGroup, Tab, Image} from 'react-bootstrap';
+import { Alert, Card, Row, Col, Nav, Navbar, ListGroup, Tab} from 'react-bootstrap';
 import FormController from './../calc/FormController';
 import ImageSlider from './../viz/ImageSlider';
 import ExternalLink from './../other/ExternalLink';

@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container, Row, Col, Image, Table } from 'react-bootstrap';
-import cover from "./../images/cover.jpg";
+import { Container, Row, Col, Image, Table, Card } from 'react-bootstrap';
+import cover from "./../images/cover_2.JPG";
 
 import umaine from '../images/logos/umaine.png';
 import uvm from '../images/logos/uvm.png';
@@ -36,6 +36,22 @@ const citations = [
 
 return (
 
+<>
+<div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
+    <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
+          <Row className="d-block">
+          <Card.Title className="display-4">
+            About The Project
+          </Card.Title>
+          </Row>
+          <Row className="d-block">
+          {/*<h3 className="text-center">How Can Northeast Agriculture Adapt?</h3>*/}
+          </Row>
+    </div>
+</div>
+<p className="small mt-0 mb-5 text-center">Irrigation from University of Vermont Extension Workshops,
+Photo Credit: Jennifer Brown</p>
+
 
 <Container fluid >
 <Row>
@@ -44,17 +60,6 @@ return (
 <Col xs={12} md={8}>
 
 
-
-  <hr/>
-  <h2>About The Project</h2>
-  <hr/>
-
-
-  <Row className="d-flex justify-content-center">
-  <Image
-  className="w-75 mb-2"
-  src={cover} />
-  </Row>
 
 
 
@@ -248,6 +253,8 @@ Fitzgerald and Hutton 2012); Diversification to distribute risk (Rossing et al.
 
 
 </Container>
+
+</>
 
 );
 }

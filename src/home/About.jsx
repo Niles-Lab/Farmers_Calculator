@@ -223,7 +223,10 @@ Fitzgerald and Hutton 2012); Diversification to distribute risk (Rossing et al.
 
 <Row>
 
-<h5 className="font-weight-normal mt-3">Visit the&nbsp;<a href="https://nca2018.globalchange.gov/" rel="noreferrer" target="_blank">USDA’s Fourth National Climate Assessment</a>&nbsp;for more information on climate change and its impacts across the United States, including the Northeast.</h5>
+<p className="font-weight-normal mt-3">Visit the&nbsp;<a href="https://nca2018.globalchange.gov/" rel="noreferrer" target="_blank">USDA’s Fourth National Climate Assessment</a>&nbsp;for more information on climate change and its impacts across the United States, including the Northeast.</p>
+
+<p className="font-weight-normal mt-3">For state-level climate information, visit the <a href="https://statesummaries.ncics.org/#about" rel="noreferrer" target="_blank">National Oceanic and Atmospheric Administration's State Climate Summaries.</a></p>
+
 
 
 </Row>

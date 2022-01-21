@@ -30,6 +30,9 @@ function Home(props) {
               </div>
           </div>
 
+          <p className="small mt-0 mb-5 text-center">The Intervale Community Farm, Photo Credit: Carolyn Hricko</p>
+
+
   <div className="px-5 my-5">
 
 

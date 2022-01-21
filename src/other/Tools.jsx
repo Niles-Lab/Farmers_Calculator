@@ -40,7 +40,8 @@ return (
 
       <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
-      <Navbar.Brand className="text-wrap mt-5">Select Economic Tool</Navbar.Brand> 
+      <Navbar.Brand className="mt-5 mb-3 d-flex justify-content-center mx-0">Select Economic Tool</Navbar.Brand>
+
 
       <Nav 
       id="navbtns"

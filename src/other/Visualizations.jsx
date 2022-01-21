@@ -183,7 +183,7 @@ These visualizations are designed to help the viewer picture how the implementat
       <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
 
-      <Navbar.Brand className="mt-5 text-wrap">Select Visualizations</Navbar.Brand>
+      <Navbar.Brand className="mt-5 mb-3 d-flex justify-content-center mx-0">Select Visualizations</Navbar.Brand>
 
       <Nav 
       id="navbtns"

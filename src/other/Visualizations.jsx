@@ -179,11 +179,11 @@ These visualizations are designed to help the viewer picture how the implementat
 <Row>
 <Col xs={12} md={2}>
 
-      <Navbar.Brand>Select Visualizations</Navbar.Brand>
   
       <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
 
+      <Navbar.Brand className="mt-5 text-wrap">Select Visualizations</Navbar.Brand>
 
       <Nav 
       id="navbtns"

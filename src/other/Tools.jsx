@@ -37,10 +37,10 @@ return (
 <Row>
 <Col xs={12} md={2}>
 
-      <Navbar.Brand className="ml-0">Select Economic Tool</Navbar.Brand> 
+
       <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
 
-
+      <Navbar.Brand className="text-wrap mt-5">Select Economic Tool</Navbar.Brand> 
 
       <Nav 
       id="navbtns"

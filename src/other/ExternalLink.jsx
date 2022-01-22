@@ -7,26 +7,25 @@ function ExternalLink(props) {
 
 	return (
 
-        <>
-        <Row className="d-flex justify-content-start mx-5 px-5">
+    <>
+      <Row className="d-flex w-100">
 
-          <Col xs={props.link ? 11 : 12} className="pl-5 text-justify d-flex justify-content-start">
-            {props.label}
-          </Col>
-          <Col xs={1}>
-            {props.link &&
-            <a className="mx-auto" target="_blank" rel="noreferrer" href={props.link}>
-               <BsBoxArrowUpRight />
-            </a>
-            }
+        <Col xs={props.link ? 11 : 12} className="d-flex justify-content-start">
+          <p>
+          {props.label}
+          </p>
+        </Col>
+        <Col xs={props.link ? 1 : 0} className="justify-content-end">
+          {props.link &&
+          <a className="mx-auto" target="_blank" rel="noreferrer" href={props.link}>
+             <BsBoxArrowUpRight />
+          </a>
+          }
 
-          </Col>
-        </Row>
-        <hr className="mx-auto w-75" />
-        </>
-
-
-
+        </Col>
+      </Row>
+      <hr className="mx-auto w-75" />
+    </>
 
 
 		)

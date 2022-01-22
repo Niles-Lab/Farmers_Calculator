@@ -129,7 +129,7 @@ function ImageSlider(props) {
 
         <Row>
 
-        <Col xs={6} lg={4}>
+        <Col xs={12} md={6} lg={4}>
          {active.length > 1 && 
 
             <Box sx={{ width: "100%" }}>
@@ -157,7 +157,7 @@ function ImageSlider(props) {
 
 
 
-        <Container fluid onLoad={() => setHeight()} className="h-auto d-block clearfix position-relative pb75" id="imgContain">
+        <Container fluid onLoad={() => setHeight()} className="h-auto clearfix position-relative pb75 px-0" id="imgContain">
 
 
 
@@ -170,7 +170,7 @@ function ImageSlider(props) {
                         rounded
                         key={d+idx}
                         ref={imgRef}
-                        className="d-block position-absolute h-100 clearfix"
+                        className="d-block position-absolute h-100 w-100 clearfix"
                         style={{'opacity': opacity[idx]}}
                         src={d[1].default} 
                         alt={d[0]} />

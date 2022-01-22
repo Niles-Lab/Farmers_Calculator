@@ -77,8 +77,8 @@ function Silvopasture(props) {
 		<Row>
 
 
-		<Col xs={0} md={2}>
-		<Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+		<Col xs={0} md={2} className="px-0">
+		<Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto d-inline-block">
 
 		<Nav id="sectionnav" className="mx-auto">
 		{navs.map((d, idx) => (
@@ -94,7 +94,7 @@ function Silvopasture(props) {
 
 		</Navbar>
 		</Col>
-		<Col xs={10} lg={8}>
+		<Col xs={12} md={10} lg={8}>
 
 
 
@@ -169,7 +169,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
 <Row>
 <Col>      
-<ListGroup>
+<ListGroup className="my-3">
 <ListGroup.Item variant="info">Tree Species</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Oaks</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Maples</ListGroup.Item>
@@ -184,7 +184,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 </ListGroup>
 </Col>
 <Col>      
-<ListGroup>
+<ListGroup className="my-3">
 <ListGroup.Item variant="success">Forest Products</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Firewood</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Sawtimber</ListGroup.Item>
@@ -198,7 +198,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 </ListGroup>
 </Col>
 <Col>      
-<ListGroup>
+<ListGroup className="my-3">
 <ListGroup.Item variant="danger">Livestock Species</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Cattle (beef, dairy)</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Goats (meat, dairy)</ListGroup.Item>
@@ -212,7 +212,7 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 </ListGroup>
 </Col>
 <Col>      
-<ListGroup>
+<ListGroup className="my-3">
 <ListGroup.Item variant="secondary">Forages</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Red Clover</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">White Clover</ListGroup.Item>
@@ -274,7 +274,7 @@ Before installing silvopasture systems, trade-offs should be
 <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
 <Row>
 <Col>      
-<ListGroup>
+<ListGroup className="my-3">
 <ListGroup.Item variant="success">Benefits</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Improved animal performance through greater comfort with shelter and shade</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Improved animal health through diversified diets</ListGroup.Item>
@@ -289,7 +289,7 @@ Before installing silvopasture systems, trade-offs should be
 </ListGroup>
 </Col>
 <Col>      
-<ListGroup>
+<ListGroup className="my-3">
 <ListGroup.Item variant="danger">Costs</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Livestock exposure to toxic plants, predators, parasites, diseases, physical hazards, hunters</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Silvopasture establishment and maintenance costs, time, and labor</ListGroup.Item>

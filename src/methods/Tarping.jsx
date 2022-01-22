@@ -64,8 +64,8 @@ function Tarping(props) {
         <Row>
 
 
-        <Col xs={0} md={2}>
-        <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+        <Col xs={0} md={2} className="px-0">
+        <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto d-inline-block">
 
         <Nav id="sectionnav" className="mx-auto">
         {navs.map((d, idx) => (
@@ -81,7 +81,7 @@ function Tarping(props) {
 
         </Navbar>
         </Col>
-        <Col xs={10} lg={8}>
+        <Col xs={12} md={10} lg={8}>
 
 
 

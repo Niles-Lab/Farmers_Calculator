@@ -70,8 +70,8 @@ function Irrigation(props) {
         <Row>
 
 
-            <Col xs={0} md={2}>
-                <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto">
+            <Col xs={0} md={2} className="px-0">
+                <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto d-inline-block">
 
                 <Nav id="sectionnav" className="mx-auto">
                 {navs.map((d, idx) => (
@@ -87,7 +87,7 @@ function Irrigation(props) {
 
                 </Navbar>
             </Col>
-            <Col xs={10} lg={8}>
+            <Col xs={12} md={10} lg={8}>
 
 
 
@@ -145,17 +145,17 @@ function Irrigation(props) {
             <Card.Title id="a1">Visualizations</Card.Title>
             <hr/>
 
-<Alert variant={"success"}>
-These visualizations are designed to help the viewer picture how the implementation of a practice appears
- in the context of a real New England farm. These images depict the different stages of practice implementation
-  and help the viewer anticipate how the implementation of the practice will appear over time and what implications
-   it may have for the farm. Use the slider tool to progress through the images and implement the practice.
-    <br/>
-   <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
-</Alert>
+            <Alert variant={"success"}>
+            These visualizations are designed to help the viewer picture how the implementation of a practice appears
+             in the context of a real New England farm. These images depict the different stages of practice implementation
+              and help the viewer anticipate how the implementation of the practice will appear over time and what implications
+               it may have for the farm. Use the slider tool to progress through the images and implement the practice.
+                <br/>
+               <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
+            </Alert>
 
 
-                {/*<ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />*/}
+
                 {groups.map((e,idz) => (
                     
                     <>

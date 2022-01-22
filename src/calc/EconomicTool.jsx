@@ -621,7 +621,7 @@ function pointerMove(d) {
 { props.tableView ? (
 
       <>
-      <Table bordered striped hover size={'sm'}>
+      <Table responsive bordered striped hover size={'sm'} className="d-inline-block">
             <thead>
 
             <tr>
@@ -655,7 +655,7 @@ function pointerMove(d) {
             ))}
           </thead>
           </Table>
-          <Table bordered striped hover size={'sm'}>
+          <Table responsive bordered striped hover size={'sm'}>
               <tr>
                 <th>Year</th>
                 <th>Revenue</th>

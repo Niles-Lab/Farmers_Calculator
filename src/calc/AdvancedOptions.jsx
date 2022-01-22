@@ -54,7 +54,7 @@ function handleChange(event,key,value) {
 
 		{/* CBA Discount Rate */}
 		<Row>
-			<Col>
+			<Col xs={12} lg={6} className="py-2">
 				Discount Rate
 
 			  <OverlayTrigger
@@ -64,7 +64,7 @@ function handleChange(event,key,value) {
 			  </OverlayTrigger>
 
 			</Col>
-			<Col>
+			<Col xs={12} lg={6}>
 		<InputGroup>
 			<Form.Control
 				placeholder="..."
@@ -84,9 +84,9 @@ function handleChange(event,key,value) {
 		{Object.entries(props.opts).map(([key,value]) => (
 
 			<Form.Group key={key}>
-				<Row>
+				<Row className="my-3">
 					
-					<Col>
+					<Col xs={12} lg={6}>
 						{value[2]}
 				
 						{ props.opts[key].length === 4 &&
@@ -110,7 +110,7 @@ function handleChange(event,key,value) {
 
 
 					</Col>
-				<Col>
+				<Col xs={12} lg={6}>
 				<InputGroup className="mb-1">
 
 					<Form.Control

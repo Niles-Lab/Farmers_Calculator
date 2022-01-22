@@ -15,9 +15,9 @@ return (
 <Container fluid >
 
 <Row>
-<Col xs={12} md={2}>
+<Col xs={12} md={1} lg={2}>
 </Col>
-<Col xs={12} md={8}>
+<Col xs={12} md={10} lg={8}>
   <hr/>
     <h2>Economic Tools</h2>
   <hr/>
@@ -25,7 +25,7 @@ return (
 
 
 </Col>
-<Col xs={0} md={2}>
+<Col xs={12} md={1} lg={2}>
 </Col>
 </Row>
 
@@ -38,9 +38,9 @@ return (
 <Col xs={12} md={2}>
 
 
-      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-block">
+      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column">
 
-      <Navbar.Brand className="mt-5 mb-3 d-flex justify-content-center mx-0">Select Economic Tool</Navbar.Brand>
+      <Navbar.Brand className="mt-5 mb-3 d-flex justify-content-center mx-0 text-wrap">Select Economic Tool</Navbar.Brand>
 
 
       <Nav 
@@ -68,7 +68,7 @@ return (
 
 
 </Col>
-<Col xs={12} md={8}>
+<Col xs={12} md={10} lg={8}>
 
 
 
@@ -87,7 +87,7 @@ return (
 
 
 </Col>
-<Col xs={0} md={2}>
+<Col xs={0} lg={2}>
 </Col>
 </Row>
 

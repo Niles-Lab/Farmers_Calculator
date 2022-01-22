@@ -121,7 +121,7 @@ function ImageSlider(props) {
 
 
 	return (
-	<Container className="position-relative py-5 d-block h-auto">
+	<Container fluid className="position-relative py-5 d-block h-auto">
         <hr/>        
         <Card.Title className="mt-5 mb-5">{props.title}</Card.Title>
 
@@ -154,8 +154,32 @@ function ImageSlider(props) {
 
 
 
-{/*        <Col xs={6} lg={8} className="d-flex ml-0 pl-0 align-items-end">*/}
-        <Row className="mb-5 position-relative">
+
+
+
+        <Container fluid onLoad={() => setHeight()} className="h-auto d-block clearfix position-relative pb75" id="imgContain">
+
+
+
+                {/* Map the active image set to screen */}
+
+                {active.map((d,idx) => (
+
+                        <Image
+                        className="absImg"
+                        rounded
+                        key={d+idx}
+                        ref={imgRef}
+                        className="d-block position-absolute h-100 clearfix"
+                        style={{'opacity': opacity[idx]}}
+                        src={d[1].default} 
+                        alt={d[0]} />
+
+                    ))}
+
+        </Container>
+        <Container className="mt-3 position-relative d-block" style={{'minHeight': '2em'}}>
+
         {props.lbls &&
             <>
 
@@ -166,7 +190,7 @@ function ImageSlider(props) {
                 {props.lbls.map((lbl,idy) => (
 
                 <p key={idy}
-                className="position-absolute text-muted"
+                className="position-absolute text-muted d-block h-auto"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </p>
@@ -183,7 +207,7 @@ function ImageSlider(props) {
                 {props.lbls[props.groups.indexOf(active)].map((lbl,idy) => (
 
                 <Card.Title key={idy}
-                className="text-justify position-absolute pl-5 mb-0 pb-0 pt-3"
+                className="text-justify position-absolute pl-5 pt-3 d-block h-auto"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </Card.Title>
@@ -193,61 +217,20 @@ function ImageSlider(props) {
             </>
 
         }
-{/*            <ButtonToolbar aria-label="Slideshow Selection Toolbar">
-              <ButtonGroup className="mt-5">
-
-                <ListGroup.Item>Select Images</ListGroup.Item>
-                {props.labels.map((d,idx) => (
-                        <Button
-                            key={d+idx}
-                            className="flat-butt"
-                            onClick={function(d) {
-                                    // Manually set active image set on select
-                                    setActive(props.groups[idx]);
-
-                                    // Reset opacity / slider settings
-                                    setTimeSl(0);
-                                    setOpacity(() => {def[0]=1; return def;});
-                                }}
-                            >{d}</Button>
-                    ))}
-
-              </ButtonGroup>
-            </ButtonToolbar>*/}
 
 
           
 
             </>
         }
-        </Row>
 
-    {/* style={imgStyle} */}
-         {/*style={{'minHeight': '700px'}}*/}
-        <Container fluid onLoad={() => setHeight()} className="clearfix position-relative pb75" id="imgContain">
-        {/* Fading images accompanying slider */}
+        </Container>  
 
-{/*          <Box className="position-relative w-100 h-100" style={{'minHeight': '800px'}}>*/}
-                {/* Map the active image set to screen */}
 
-                {active.map((d,idx) => (
-
-                        <Image
-                        className="absImg"
-                        rounded
-                        key={d+idx}
-                        ref={imgRef}
-                        className="d-block position-absolute h-100 w-100 clearfix"
-                        style={{'opacity': opacity[idx]}}
-                        src={d[1].default} 
-                        alt={d[0]} />
-
-                    ))}
-{/*
-          </Box>*/}
-        </Container>
-        
+      
 	</Container>
+
+
 		)
 }
 

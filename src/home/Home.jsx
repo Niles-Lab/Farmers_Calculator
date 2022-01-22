@@ -114,7 +114,7 @@ function Home(props) {
 
 
 
-      <Col xs={12} md={{ span: 8, offset: 2}}>
+      <Col xs={12} md={{ span: 8, offset: 2}} className="px-0">
         <hr/>
         <Card.Title>Quick Links</Card.Title>
         <hr/>

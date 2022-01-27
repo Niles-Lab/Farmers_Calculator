@@ -49,9 +49,9 @@ function Tarping(props) {
 
           <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${sp[0][1].default})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
-                    <Row className="d-block">
+                    <Row className="d-block px-4">
                     <Card.Title className="display-4">
-                      Tarping
+                      Tarping in Cover Crop and Conservation Tillage Systems
                     </Card.Title>
                     </Row>
                     <Row className="d-block">

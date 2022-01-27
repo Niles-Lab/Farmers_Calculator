@@ -53,7 +53,9 @@ let acknowledged = [
   "Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems",
   "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment",
   "Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture",
-  "Visualization design and creation by Holly Greenleaf, Greenleaf Design LLC"
+  "Karrah Kwasnik, Digital Content Manager, USDA Northeast Climate Hub",
+  "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
+  "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County"  
 
 
 ];
@@ -81,7 +83,7 @@ return (
     <hr/>
     <h2>About the Team</h2>
     <hr/>
-      <hr/>
+
 
       {team.map(d => (
 
@@ -178,7 +180,7 @@ return (
       <Row className="w-100">
 
 
-        <p className="font-weight-normal mb-0"><p>{d}</p></p>
+        <p className="font-weight-normal mb-0">{d}</p>
         {idx < acknowledged.length-1 &&
           <hr className="w-100" />
         }
@@ -194,6 +196,18 @@ return (
       // </>
 
       ))}
+
+      <Row className="w-100">
+
+        <hr className="w-100" />
+        <p className="font-weight-normal mt-3"><b>Visualization design and creation</b> by Holly Greenleaf, Greenleaf Design LLC</p>
+        
+
+        
+        
+
+      </Row>
+
 
 
   </Row>

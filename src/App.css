@@ -133,3 +133,14 @@ div {
   background-repeat: no-repeat;
   background-size: cover;
 }
+
+.display-4 {
+
+  font-size: calc(1vw + 2vh + 2vmin) !important;
+
+}
+.main-subtitle {
+
+  font-size: calc(1vw + 1vh + 1vmin);
+  
+}

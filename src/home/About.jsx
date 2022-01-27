@@ -111,12 +111,12 @@ Photo Credit: Jennifer Brown</p>
 
 
   </Row>
-
+{/*
   <Row>
       <Col xs={12} lg={{offset: 3, span: 6}}>
       <Image className="w-100" src={nifa}/>
       </Col>
-  </Row>
+  </Row>*/}
 
 
 

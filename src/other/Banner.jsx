@@ -15,15 +15,15 @@ const Banner = (props) => {
     overlay: {
       
       maxHeight: "3vh",
-      background: "none"
-
+      background: "none",
+      position: "absolute"
 
     },
     content: {
 
       background: "rgba(255, 255, 255, 0)",
       width: "100vw",
-      maxHeight: "5vh"
+      maxHeight: "4vh"
       
 
     }
@@ -42,6 +42,7 @@ const Banner = (props) => {
           labelledby="menu-button"
           trapFocusAfterOpen={false}
           lockBodyAfterOpen={false}
+          //mainContainerSelector={".mainnav"}
         >
 
        <Alert variant="warning" className="my-0 py-0 d-flex">

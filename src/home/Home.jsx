@@ -19,13 +19,13 @@ function Home(props) {
   <>
           <div className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${fc1})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
-                    <Row className="d-block">
+                    <Row className="d-block px-4">
                     <Card.Title className="display-4">
                       Climate change poses a challenge to farming systems worldwide
                     </Card.Title>
                     </Row>
                     <Row className="d-block">
-                    <h3 className="text-center">How Can Northeast Agriculture Adapt?</h3>
+                    <h3 className="text-center main-subtitle">How Can Northeast Agriculture Adapt?</h3>
                     </Row>
               </div>
           </div>

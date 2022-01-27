@@ -8,7 +8,7 @@ const Navigation = () => {
       <Navbar collapseOnSelect expand="sm" variant="dark" className="mainnav">
         <Col>
             <Row className="mb-0 pb-0 ml-3 text-wrap">
-              <h4 className="text-wrap text-white font-weight-normal">Climate Adaptation Resources for Northern New England Farmers</h4>
+              <h4 className="text-white font-weight-normal text-justify" style={{"word-spacing": "-2px", "word-break": "break-all"}}>Climate Adaptation Resources for Northern New England Farmers</h4>
               {/*<Navbar.Brand className="text-wrap">Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>*/}
             </Row>
             <Row className="mt-0">
@@ -20,8 +20,8 @@ const Navigation = () => {
 
 
                 <NavDropdown as={Card.Title} className="font-weight-light" title="About" id="basic-nav-dropdown">
-                  <NavDropdown.Item href="/about">About the Project</NavDropdown.Item>
-                  <NavDropdown.Item href="/team">About the Team</NavDropdown.Item>
+                  <NavDropdown.Item href="/about">Project</NavDropdown.Item>
+                  <NavDropdown.Item href="/team">Team</NavDropdown.Item>
                   <NavDropdown.Item href="/research">Research</NavDropdown.Item>
                   <NavDropdown.Item href="/press">Press</NavDropdown.Item>
                 </NavDropdown>

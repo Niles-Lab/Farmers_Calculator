@@ -49,7 +49,7 @@ let previousTeam = [
 
 let acknowledged = [
 
-  "Hamid Farhani, PhD, East National Technology Support Center, Natural Resources Conservation Service, United States Department of Agriculture",
+  "Hamid Farahani, PhD, Water Management Engineer, USDA-NRCS East National Technology Support Center",
   "Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems",
   "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment",
   "Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture",

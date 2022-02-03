@@ -74,7 +74,11 @@ Photo Credit: Jennifer Brown</p>
 
 
     <p>
-      Climate change is one of the greatest environmental threats to future generations, and one that will have significant impacts on US agriculture. There is an increasing focus on the development of climate resources and information to help farmers plan for future changes. While the availability of climate resources may be growing, few are targeted towards small, medium and beginning farmers in New England and the unique production challenges they face. 
+      Climate change is one of the greatest threats to current and future generations, and one that will 
+      have significant impacts on US agriculture. There is an increasing focus on the development of climate
+       change resources and information to help farmers plan for future changes. While the availability of 
+       these resources may be growing, few are targeted towards small, medium, and beginning farmers in New
+      England and the unique production challenges they face. 
     </p>
          
 
@@ -84,7 +88,11 @@ Photo Credit: Jennifer Brown</p>
 
 
     <p>
-        The tools and resources found on this website were designed to address this gap in resources and respond to farmers’ expressed needs. The economic tools, visualizations, and accompanying overview briefs presented on this website were developed based on input from farmers and technical advisors in Vermont and Maine, and an assessment of existing resources and research. They incorporate farmers’ and agricultural experts’ management concerns and take into account farm scale, regional geographic and climate characteristics, and farmer experience level.
+     The tools and resources found on this website were designed to address this gap in resources and respond
+      to farmers’ expressed need for information and resources. The economic tools, visualizations, and accompanying
+       overview briefs presented on this website were developed based on input from farmers and technical advisors
+        in Vermont and Maine, and an assessment of existing resources and research. They incorporate farmers’ and 
+        agricultural experts’ management concerns while considering farm scale, regional geographic and climate characteristics, and farmer experience level.
     </p>
 
 
@@ -137,6 +145,19 @@ Photo Credit: Jennifer Brown</p>
     growing season by midcentury (Fernandez et al. 2015).</p>
 
 
+  <p>
+
+    A focus on this region is crucial given the nature of climate change impacts unique to the Northeast. The Northeast region has seen a 2°F 
+    increase in average temperatures, and a 5-inch (more than 10%) increase in annual precipitation since 1895. Prevalence of extreme precipitation
+     events is also increasing (Figure 1). Precipitation intensities, volume and frequency of extreme events are increasing faster in the Northeast 
+     than any other U.S. region (Horton et al. 2014), trends that are expected to continue throughout this century (IPCC 2014). Increased precipitation,
+      particularly in the springtime, could delay planting and decrease the net number of days suitable for cultivation (Cooper et al. 1997), despite the 
+      fact that warmer temperatures are expected to add two weeks to our growing season by midcentury (Fernandez et al. 2015).
+  </p> 
+
+
+
+
   <Row className="d-flex justify-content-center w-100">
 
   <Image
@@ -147,13 +168,15 @@ Photo Credit: Jennifer Brown</p>
   </Row>
 
 
-<p>  Northern New England growers will likely face increased summer drought risk due to expected 
-    temperature increases (Horton et al. 2014); higher likelihood of frost damage in perennial crops due to premature leafout, as was experienced by orchardists 
-    in the Northeast during 2007 and 2012 (Horton et al. 2014); and increasingly variable weather (Fernandez et al. 2015), which may increase the risk of crop
-     failure and complicate both short- and long-term strategic planning. In a changing climate, forward-thinking, adaptive management strategies will become 
-     increasingly important to the survival and profitability of farming enterprises. We will draw from the expertise of University and Extension experts, NGO
-      partners, government agencies including the USDA, and experienced farmers in developing curriculum and outreach tools that will best prepare SMF to develop
-       resilient farms (Lengnick 2015) and adapt to climate-related challenges (Table 1).
+<p>
+  Northern New England growers 
+  will likely face increased summer drought risk due to expected temperature increases (Horton et al. 2014); higher likelihood of frost damage in perennial 
+  crops due to premature leafout, as was experienced by orchardists in the Northeast during 2007 and 2012 (Horton et al. 2014); and increasingly variable
+  weather (Fernandez et al. 2015), which may increase the risk of crop failure and complicate both short- and long-term strategic planning. In a 
+  changing climate, forward-thinking, adaptive management strategies will become increasingly important to the survival and profitability of farming
+  enterprises. We will draw from the expertise of University and Extension experts, NGO partners, government agencies including the USDA, and 
+  experienced farmers in developing curriculum and outreach tools that will best prepare SMF to develop resilient farms (Lengnick 2015) and adapt
+  to climate-related challenges (Table 1).
 </p>
 
 

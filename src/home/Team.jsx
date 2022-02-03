@@ -49,9 +49,9 @@ let previousTeam = [
 
 let acknowledged = [
 
+  "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at  Yale School of the Environment",
   "Hamid Farahani, PhD, Water Management Engineer, USDA-NRCS East National Technology Support Center",
   "Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems",
-  "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment",
   "Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture",
   "Karrah Kwasnik, Digital Content Manager, USDA Northeast Climate Hub",
   "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
@@ -90,7 +90,7 @@ return (
         <span key={d[0]}>
         <Row>
 
-          <Col xs={12} md={4} className="d-flex align-items-center justify-content-center px-0">
+          <Col xs={12} md={4} className="d-flex px-0">
             <Container className="px-0">
             <Row className="d-flex justify-content-center">
             <Image 
@@ -200,7 +200,7 @@ return (
       <Row className="w-100">
 
         <hr className="w-100" />
-        <p className="font-weight-normal mt-3"><b>Visualization design and creation</b> by Holly Greenleaf, Greenleaf Design LLC</p>
+        <p className="font-weight-normal mt-3"><b>Visualization design and creation</b><br/>Holly Greenleaf, Greenleaf Design LLC</p>
         
 
         

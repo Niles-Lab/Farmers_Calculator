@@ -48,9 +48,10 @@ return (
                 <Alert variant={'success'} className="mx-4">
                   <em className="small">
 
-                    The long term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United States(specifically Maine and Vermont) by developing climate change resources that consider farmer&#39;s own 
-                    perceptions, concerns, experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region and the unique climate change challenges facing the Northeast. 
-
+                    The long term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United 
+                    States (specifically Maine and Vermont) by developing climate change resources that consider farmer's own perceptions, concerns, 
+                    experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region
+                     and the unique climate change challenges facing the Northeast.
                   </em>
                   <small>
                   <footer className="blockquote-footer small">
@@ -95,17 +96,23 @@ return (
                         <Row className="d-block">
 
                         <p>
-                        Successful climate adaptation will depend in part on communication
-                         between farmers and outreach professionals that is framed by farmers’ 
-                         perceptions and values. Differences between these stakeholder perceptions
-                          were identified by conducting mental modeling interviews with 33 small- to
-                           medium-scale farmers in Maine and Vermont, as well as 16 outreach professionals.
+
+
+                        Successful climate adaptation will depend in part on communication 
+                        between farmers and outreach professionals that is framed by farmers’ 
+                        perceptions and values. Differences between these stakeholder perceptions were 
+                        identified by conducting mental modeling interviews with 33 small- to medium-scale 
+                        farmers in Maine and Vermont, as well as 16 outreach professionals.
+
+
                         </p>
                        
                         <p>
-                        Farmers were asked to construct mental models of their farming systems, 
-                        while outreach professionals were asked to construct models of a farming
-                         system they typically work with. 
+
+
+                     Farmers were asked to construct mental models of their farming systems, while outreach
+                      professionals were asked to construct models of a farming system they typically work with.
+
                         </p>
 
                         <p>
@@ -114,27 +121,25 @@ return (
                         </p>
 
                         <p>
-                        <li style={{'text-indent': '3em'}}>
-                         Farmers mentioned community well-being, public 
-                        education, and farm success significantly more than did outreach professionals.
+                        <li className="ml-5">
+                            Farmers mentioned community well-being, public education, and farm success significantly more than did outreach professionals.
                         </li>
                         </p>
                         <p>
-                        <li style={{'text-indent': '3em'}}>
-                    Quality of life, community
-                     well-being, environmental stewardship, and farm success were more influential in the farmer mental model.
+                        <li className="ml-5">
+                            Quality of life, community well-being, environmental stewardship, and farm success were more influential in the farmer mental model.
                         </li>
                         </p>
                         <p>
-                        <li style={{'text-indent': '3em'}}>  
-                      Climate was a direct driver of yields and product quality in the outreach professional model, but was only 
-                      indirectly connected to these factors in the farmer model. 
+                        <li className="ml-5">  
+                            Climate was a direct driver of yields and product quality in the outreach professional model but was only indirectly 
+                            connected to these factors in the farmer model.
                         </li>
                         </p>
                         <p>
-                      The importance of social dimensions in farmers’ mental models suggests that climate change communication and adaptation outreach should consider how adaptation 
-                      strategies, practices, tools, and resources may affect social outcomes, which may be critical for farmers prior
-                       to adoption.
+                          The importance of social dimensions in farmers’ mental models suggests that climate change communication 
+                          and adaptation outreach should consider how adaptation strategies, practices, tools, and resources may affect 
+                          social outcomes, which may be critical for farmers prior to adoption.
                        </p>
 
                 </Row>
@@ -153,10 +158,10 @@ return (
                     </Row>
                     <Row>
                         <p>
-                          Farmer focus groups were conducted in the winter of 2019-2020 in Maine, Vermont, and New Hampshire 
-                          to pilot and gather feedback on several climate change adaptation resources, including virtual tours, 
-                          a climate change resource database, visualizations of climate change adaptation practices, and an 
-                          economic tool to aid farmers in budgeting and planning for climate change adaption. 
+                          Farmer focus groups were conducted in the winter of 2019-2020 in Maine, Vermont, and New Hampshire
+                           to pilot and gather feedback on several climate change adaptation resources, including virtual tours,
+                            a climate change resource database, visualizations of climate change adaptation practices, and an economic
+                             tool to aid farmers in budgeting and planning for climate change adaptation.
                         </p>
                         <p>
                             Twenty-eight farmers from across New England (Vermont, Maine, and Massachusetts) 
@@ -177,17 +182,16 @@ return (
                     </Row>
                     <Row>
                         <p>
-                          Based on farmer and agricultural expert interviews, farmer feedback from the focus groups,
-                           a review of New England farmers’ plans and needs for climate change adaptation, and an 
-                           assessment of available climate change adaptation resources, the research team 
-                           identified three agricultural practices (silvopasture, irrigation, and tarping) and two 
-                           tools (visualizations and economic calculator) that are of particular need and interest
-                            to New England farmers. 
+                          Based on farmer and agricultural expert interviews, farmer feedback from the focus groups, 
+                          a review of New England farmers’ plans and needs for climate change adaptation, and an assessment 
+                          of available climate change adaptation resources, the research team identified three agricultural 
+                          practices (silvopasture, irrigation, and tarping) and two tools (visualizations and economic calculator) 
+                          that are of particular need and interest to New England farmers.
                         </p>
                         <p>
-                            Visualization and economic tools and an overview brief with 
-                            additional resources were developed for each practice area and shared with the New England
-                            farming community through webinars, workshops, and regional conferences in winter 2021-2022.
+                            Visualization and economic tools and an overview brief with additional resources were developed 
+                            for each agricultural practice and shared with the New England farming community through webinars, 
+                            workshops, and regional conferences in winter 2021-2022.
                         </p>
                     </Row>
                                   

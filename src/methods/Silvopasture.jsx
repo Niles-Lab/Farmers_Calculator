@@ -11,7 +11,10 @@
  import ImageSlider from './../viz/ImageSlider';
  import ExternalLink from './../other/ExternalLink';
 
+ import cover from './../images/silvopasture/cover/cover2.JPG';
+
  const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
+
 
  function importAll(r) {
   let images = {};
@@ -61,7 +64,7 @@ function Silvopasture(props) {
 	return (
 		<>
 
-          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${pe[1][1].default})` }}>
+          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
                     <Row className="d-block px-4">
                     <Card.Title className="display-4">
@@ -73,6 +76,9 @@ function Silvopasture(props) {
                     </Row>
               </div>
           </div>
+          <p className="small mt-0 mb-5 text-center">Early Fall Silvopasture,
+        Photo Credit: Brett Chedzoy </p>
+
 
 		<Row>
 

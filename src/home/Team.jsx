@@ -55,7 +55,8 @@ let acknowledged = [
   "Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture",
   "Karrah Kwasnik, Digital Content Manager, USDA Northeast Climate Hub",
   "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
-  "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County"  
+  "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County",
+  "Todd Guerdat, PhD, Engineer, USDA Natural Resources Conservation Service"
 
 
 ];

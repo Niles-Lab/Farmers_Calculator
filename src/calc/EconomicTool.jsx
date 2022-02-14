@@ -36,9 +36,11 @@ const legendY = parseFloat(margin.top);
 
 let x = d3.scaleLinear()
 .range([0,width-((margin.right+margin.left))])
+.nice();
 
 let y = d3.scaleLinear()
 .range([height-margin.top-margin.bottom,0])
+.nice();
 
 
 

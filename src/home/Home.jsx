@@ -74,19 +74,11 @@ function Home(props) {
 
 
 
-          <p className="text-start justify-start" style={{"zIndex": 5}}>
-            Welcome to the Climate Adaptation Resources for Northern New England Farmers website.
-            The economic tools, visualizations, and resources on this website were designed with and for small, medium, and 
-            beginning farmers and ranchers<sup>1</sup> in New England to address the unique challenges they face in adapting to climate change. These
-             resources are available for three agricultural practices - silvopasture, irrigation, and tarping - that were 
-             identified as areas of particular interest and need among New England farmers.</p>
-
-
-             Welcome to the Climate Adaptation Resources for Northern New England Farmers website. The economic tools,
+             <p>Welcome to the Climate Adaptation Resources for Northern New England Farmers website. The economic tools,
               visualizations, and resources on this website were designed with and for small, medium, and beginning farmers
                and ranchers<sup>1</sup> in New England to help address their unique challenges in adapting to a changing climate. These
                 resources are available for three agricultural practices - silvopasture, irrigation, and tarping - that
-                 were identified as areas of particular interest and need among New England farmers. 
+                 were identified as areas of particular interest and need among New England farmers.</p>
 
 
 

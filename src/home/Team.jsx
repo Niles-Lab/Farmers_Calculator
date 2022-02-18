@@ -1,6 +1,8 @@
 import React from 'react';
 import { Container, Row, Col, Image } from 'react-bootstrap';
 
+import greenleaf from '../images/logos/greenleaf_horizontal.png'
+
  function importAll(r) {
   let images = {};
   r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
@@ -56,7 +58,8 @@ let acknowledged = [
   "Karrah Kwasnik, Digital Content Manager, USDA Northeast Climate Hub",
   "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
   "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County",
-  "Todd Guerdat, PhD, Engineer, USDA Natural Resources Conservation Service"
+  "Todd Guerdat, PhD, Engineer, USDA Natural Resources Conservation Service",
+  "Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture"
 
 
 ];
@@ -201,10 +204,36 @@ return (
       <Row className="w-100">
 
         <hr className="w-100" />
+        
+{/*        <Col xs={2} lg={3} className="d-flex border-right">
         <p className="font-weight-normal mt-3"><b>Visualization design and creation</b><br/>Holly Greenleaf, Greenleaf Design LLC</p>
-        
+        </Col>
 
-        
+        <Col xs={10} lg={6} className="d-flex">
+        <Image
+        className="w-100 d-block"
+        src={greenleaf} />
+        </Col>*/}
+{/*        <Row className="d-flex">
+        <p className="font-weight-normal mt-3"><b>Visualization design and creation</b><br/>Holly Greenleaf, Greenleaf Design LLC</p>
+        </Row>
+
+        <Row className="d-flex">
+        <Image
+        className="w-50 d-block"
+        src={greenleaf} />
+        </Row>*/}
+        <Row>
+        <div className="d-flex align-items-center border-right pr-3">
+        <p className="font-weight-normal mt-3"><b>Visualization design and creation</b><br/>Holly Greenleaf, Greenleaf Design LLC</p>
+        </div>
+
+
+        <Image
+        className="w-50 d-block"
+        src={greenleaf} />
+        </Row>
+
         
 
       </Row>

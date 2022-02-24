@@ -4,9 +4,11 @@
  * A dictionary of arrays is expected in the format of:
  * value: [default: integer, 
  * 			unit: string,
- * 			display name: string]
+ * 			display name: string,
+ * 			(optional) tooltip description: string,
+ * 			(optional) tooltip link: string(preferably url)]
  * e.g.
- * costPerUnit: [5, "$/Unit", "Cost Per Unit"]
+ * costPerUnit: [5, "$/Unit", "Cost Per Unit", "This is the cost per unit of x", "www.costperunit.com" (not a real website)]
  * 
  * 
  **/
@@ -19,6 +21,8 @@ function AdvancedOptions(props) {
 
 
 const [isOpen, setIsOpen] = useState(false);
+
+// Capitalize first letter in method name for display purposes
 let upperCaseMethod = props.method.charAt(0).toUpperCase() + props.method.slice(1);
 
 
@@ -39,8 +43,6 @@ function handleChange(event,key,value) {
 
 	<Card style={{"backgroundColor": "rgba(255,255,255,0.2)"}} className="mt-5">
 
-
-		
     <Button
     onClick={() => setIsOpen(!isOpen)}
     aria-controls="silvoPasture-collapse"

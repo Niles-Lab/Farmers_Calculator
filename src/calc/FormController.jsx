@@ -7,10 +7,6 @@ import CalcShow from "./CalcShow.jsx"
 
 function FormController(props) {
 
-// Methods to calculate a cost for, this will be passed to:
-// The calculator's input for selection
-// The calculator's output - one page per method will be rendered
-const options = ["Method A", "Method B", "Compounded"];
 
 
 // Forced update - implemented for adding and removing crops
@@ -18,8 +14,12 @@ const [, updateState] = React.useState();
 const forceUpdate = React.useCallback(() => updateState({}), []);
 // const sizeRef = React.createRef();
 
+// Possible units for user to set
+const units = ["Acres", "Hectares"];
 
-// Default values for calculator
+//
+// Default generalized values for calculator
+// 
 let data = {
 	unit: "Acres",
 	land: 10,
@@ -30,7 +30,15 @@ let data = {
 	rate: 0.05
 };	
 
-
+/* Specific options for methods - these should be in the format of:
+* value: [default: integer, 
+* 			unit: string,
+* 			display name: string,
+* 			(optional) tooltip description: string,
+* 			(optional) tooltip link: string(preferably url)]
+* e.g.
+* costPerUnit: [5, "$/Unit", "Cost Per Unit", "This is the cost per unit of x", "www.costperunit.com" (not a real website)]
+*/
 const silvoptions = {
 	maturingYears:
 	[10, "yrs", "Maturing Years", "How long will these trees take to mature?"],
@@ -40,8 +48,12 @@ const silvoptions = {
 	[300, "$", "Base Pasture Cost", "Assumes area is 100% Pasture"],
 	treeSpacing: 
 	[30, "ft", "Tree Spacing", "Economic Budgeting for Agroforestry Practices(University of Missouri)", "https://extension.missouri.edu/publications/af1006"],
-	treePlantingCost: 
-	[9.5, "$", "Tree Planting Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	// 2.24.22 Changed treePlantingCost of $9.5 to $4.75/ea for seedling / labor costs
+	treeSeedlingCost: 
+	[4.75, "$", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
+	treeLaborCost:
+	[4.75, "$", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
 	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
 	treesPerAcre: 
 	[48, "Tr/Acre", "Trees Per Acre"],
@@ -79,7 +91,7 @@ const irroptions = {
 	dieselCost: 
 	[3.40, "$/Gal", "Diesel Fuel Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
 	maintenanceCost: 
-	[100, "$/Acre/Yr", "Maintenance Cost"],
+	[100, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
 	effectiveProperty: 
 	[225, "%", "Productivity With Irrigation"]
 }
@@ -94,7 +106,7 @@ const tarpoptions = {
 	tarpLength: 
 	[5445, "Ft", "Tarp Length"],
 	tarpCost: 
-	[0.70, "$/Ft", "Tarp Cost"],
+	[0.70, "$/Sq. Ft", "Tarp Cost"],
 	tarpLabor: 
 	[4, "Hr/Acre", "Tarp Labor"],
 	tarpLaborCost: 
@@ -102,7 +114,7 @@ const tarpoptions = {
 	coverCropCost: 
 	[150, "$/Ac", "Cover Crop Cost", "Based on NRCS Practice 340, Scenario #57: Cover Crop, 1 ac or less (includes materials + labor)", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"], // Effective every OTHER year, starting with 0
 	maintenanceCost: 
-	[50, "$/Acre/Yr", "Maintenance Cost"],
+	[50, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
 	effectiveProperty: 
 	[120, "%", "Productivity With Tarp & Cover Crop"]
 }
@@ -115,7 +127,7 @@ const [rate, setRate] = useState(data.rate);
 const [land, setLand] = useState(data.land);
 
 const [crops, setCrops] = useState(data.crops);
-//const [method, setMethod] = useState(props.variant); // Silvopasture, Irrigation or Tarping?
+
 const [unit, setUnit] = useState(data.unit);
 
 // Length of project(yrs)
@@ -132,14 +144,22 @@ const [opts, setOpts] = useState(() => {
 
 
 
-
+/*
+*
+* Optional extra modifications per method
+* e.g. Default land for tarping should be 1 acre
+*
+*/
 useEffect(() => {
 
 if (props.variant === "silvopasture") {
 	setOpts(silvoptions);
 } else if(props.variant === "irrigation") {
 	setOpts(irroptions);
-} else setOpts(tarpoptions);
+} else {
+	setOpts(tarpoptions);
+	setLand(1);
+}
 
 }, [props.variant]);
 
@@ -166,7 +186,6 @@ return (
 			{/*Calculator Output Table*/}
 			<Calculator
 				key={props.variant}
-				options={options}
 				land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
 				acres={unit}
 				method={props.variant}
@@ -218,7 +237,6 @@ return (
 		{/*Calculator Input UI*/}
 		<CalcShow
 		onChange={() => forceUpdate()}
-		options={options}
 		land={land}
 		setLand={setLand}
 		unit={unit}
@@ -241,6 +259,9 @@ return (
 		show={show}
 		setShow={setShow}
 		handleClose={handleClose}
+
+		units={units}
+
 		 />
 
 	</>

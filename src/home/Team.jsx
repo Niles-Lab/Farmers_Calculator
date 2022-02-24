@@ -117,7 +117,7 @@ return (
           </Col>
 
           <Col xs={12} md={9} className="pl-4 pt-3">
-          {d[1] != "" &&
+          {d[1] !== "" &&
             <Row className="mb-0 pb-0">
               <p>{d[1]}</p>
             </Row>
@@ -201,13 +201,6 @@ return (
         
 
       </Row>
-
-
-      // <>
-      // <Col xs={12} md={4}>
-      // <Card.Title className="font-weight-normal">{d}</Card.Title>
-      // </Col>  
-      // </>
 
       ))}
 

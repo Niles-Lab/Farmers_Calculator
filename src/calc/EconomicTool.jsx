@@ -25,9 +25,6 @@ height = 500 - (margin.top+margin.bottom);
 // Data for legend
 const lines = ["Annual Revenue", "Annual Cost", "Annual Profit", "Cumulative Revenue"];
 
-const yearColors = d3.scaleOrdinal().domain(lines)
-  .range(["steelblue", "red", "orange", "darkseagreen"]);
-
 const yC = ["steelblue", "red", "darkseagreen", "orange"];
 
 const legendX = parseFloat((width)-margin.left-margin.right-140);
@@ -105,7 +102,7 @@ let y = d3.scaleLinear()
       .attr("x", width/2)
       .attr("y", 0)
       .attr("dy", height-margin.bottom)
-      .text("Project Year");
+      .text("Farming Year");
 
     svg.append("text")
         .attr("class", "y label")

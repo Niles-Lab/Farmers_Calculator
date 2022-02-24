@@ -1,4 +1,4 @@
-import React, { useState, useEffect }  from 'react'
+import React, { useState }  from 'react'
 import { Navbar, Nav, Image, Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
@@ -36,14 +36,10 @@ function App() {
 
 // Interaction for OffCanvas Elements
 const [show, setShow] = useState(true);
-const toggleShow = () => setShow(d => !d);
+
 const handleClose = () => setShow(false);
 
-// useEffect(() => {
 
-//   setShow(true);
-
-// }, [])
 
 
   return (

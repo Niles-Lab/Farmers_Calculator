@@ -87,8 +87,11 @@ d3.range(0, parseInt(props.length)).forEach(d => {
 
   if(props.method === "silvopasture") {
   
+    // Total Labor Costs
+    let treePlantingCost = props.opts.treeSeedlingCost[0] + props.opts.treeLaborCost[0];
+
     rev = (parseInt(d) >= maturingYears ? parseFloat(props.opts.treesPerAcre[0]*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity);
-    cst = (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*props.opts.treePlantingCost[0] : props.opts.treesPerAcre[0] * props.opts.treeCost[0])    
+    cst = (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*treePlantingCost : props.opts.treesPerAcre[0] * props.opts.treeCost[0])    
   
   }
   else if(props.method === "irrigation") {

@@ -37,7 +37,6 @@ function ImageSlider(props) {
 
     const imgRef = React.useRef(null);
 
-    //console.log(props.groups[0][1].default);
     var imgStyle = {
         height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
     };
@@ -166,11 +165,10 @@ function ImageSlider(props) {
                 {active.map((d,idx) => (
 
                         <Image
-                        className="absImg"
                         rounded
                         key={d+idx}
                         ref={imgRef}
-                        className="d-block position-absolute h-100 w-100 clearfix"
+                        className="absImg d-block position-absolute h-100 w-100 clearfix"
                         style={{'opacity': opacity[idx]}}
                         src={d[1].default} 
                         alt={d[0]} />

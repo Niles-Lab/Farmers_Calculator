@@ -5,7 +5,7 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Dropdown, Alert } from 'react-bootstrap';
+import { Form, Col, Row, Container, Dropdown, Alert, InputGroup } from 'react-bootstrap';
 //import CropInput from './CropInput.jsx'
 import { BsX } from "react-icons/bs";
 import AdvancedOptions from './AdvancedOptions.jsx';
@@ -14,70 +14,12 @@ import AdvancedOptions from './AdvancedOptions.jsx';
 
 function CalcForm(props) {
 
-// Global variables for option selections
-// const opts = { // Calculate Options for "Category": ["Methods..."]
-// 		"Livestock": ["Method L-1", "Method L-2"], 
-// 		"Climate": ["Method C-1", "Method C-2"], 
-// 		"Other": ["Support Local Music", "Irrigation"]
-// 	};
-let units = ["Acres", "Hectares"];
 
-// function handleCropChange(event) { // Special handler for the CropInput Component
-// 	const target = event.target;
-// 	const name = target.name;
-// 	const idx = target.attributes.idx.value;
-// 	let value = target.value;
-
-// 	if(event.target.type === "number") { // Handle UI for negative crop input value
-// 		const val = parseFloat(value);
-// 		if(isNaN(val) || val <= 0) {
-// 			value = 0;
-// 		}
-
-// 	}
-
-// 	props.crops[idx][name] = value; // Set dictionary value from master record of crops
-
-// 	props.setCrops(props.crops);
-// 	props.onChange();
-
-// }
-
-// // Handler for the "Add" button for particular land use input
-// // Adds a null crop to the end of the crop model array, updates the view and scrolls to the bottom
-// function addCrop() {
-// 	let len;
-// 	if((len = props.crops.length) >= MAX_CROPS) { // Max of 10 crops
-// 		return;
-// 	}
-
-// 	props.crops.push({ type: "Unknown", amount: 0, idx: len });
-// 	props.setCrops(props.crops);
-
-// }
-
-// // Handler for "Remove" button for particular land use input
-// // Splices the last index from the crop model array, updates the view and scrolls up
-// function removeCrop() {
 	
-// 	let len;
-// 	if((len = props.crops.length) <= 1) {
-// 		return;
-// 	}
-// 	props.crops.splice(len-1,1);
-// 	props.setCrops(props.crops);
-
-// 	// Scrolling functionality for inputs
-// 	// window.scrollTo({
-// 	// 	behavior: "smooth",
-// 	// 	top: 0
-// 	// });
-	
-// }
 
 	return (
 		<Container className="calc">
-			<h1>Calculator <BsX onClick={props.handleClose} /></h1>
+			<h1 className="mt-3" style={{"fontSize": "2.5em", "fontWeight": "lighter"}}>Calculator and Input Options<BsX onClick={props.handleClose} /></h1>
 
 
 
@@ -91,20 +33,23 @@ let units = ["Acres", "Hectares"];
 
 
 
-				{/* MAX LENGTH = 100 */}
 				<Row>
 					<Col>
-						Length of Project(Yrs)
+						Length of Project
 					</Col>
 					<Col>
+					<InputGroup>
 					<Form.Control
 						placeholder="..."
 						name="length"
 						min="1"
+						max={100}
 						type="number"
 						step="1"
 						value={props.length}
 						onChange = {(event) => {props.setLength(event.target.value)}} />
+						<InputGroup.Text>Years</InputGroup.Text>
+					</InputGroup>
 					</Col>
 				</Row>
 
@@ -124,7 +69,7 @@ let units = ["Acres", "Hectares"];
 						  {props.unit}
 						</Dropdown.Toggle>
 						<Dropdown.Menu>
-							{units.map((item,idx) => (
+							{props.units.map((item,idx) => (
 								<Dropdown.Item
 									key={item+idx}
 									onClick={e => props.setUnit(e.target.innerHTML)}>
@@ -154,35 +99,13 @@ let units = ["Acres", "Hectares"];
 			</Form>
 
 
-{/* Add and remove different acres */}
-{/*				<Form.Label>I Own...</Form.Label>
 
-						<Row>
-							<Col>
-							    <Button onClick={() => { props.onChange(); addCrop();}}>
-							      	Add...
-							    </Button>
-						    </Col>
-						    <Col>
-							    <Button onClick={() => { props.onChange(); removeCrop();}}>
-							    	Remove...
-							    </Button>
-						    </Col>
-					    </Row>
-
-					<Container>
-						{props.crops.map((cr,idx) => ( // Map Various Crop Inputs
-							<CropInput key={cr+idx} unit={props.unit} onChange={(event) => {handleCropChange(event); }} name="crops" id={cr.idx} key={cr.idx} />
-						))}
-					</Container>*/}
-
-
-					{/* Custom Calculator input here */}
-
+					{/* Method Specific Calculator input here */}
 					<AdvancedOptions {...props} />
 
 			
-			{props.method == "irrigation" && 
+			{/* Irrigation Specific Disclaimer */}
+			{props.method === "irrigation" && 
 
 			<Alert className="m-3" variant="warning">
 			<small>This economic tool estimates the costs, revenues and profits of a sprinkler irrigation system. For more information on the costs of drip irrigation systems, visit the University of Vermont Extension’s <a href="https://www.uvm.edu/climatefarming/sites/default/files/files/uvm_dripirrigation.pdf" rel="noreferrer" target="_blank">Getting started with drip irrigation: components and costs.</a></small>

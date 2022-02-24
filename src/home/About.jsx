@@ -5,7 +5,7 @@ import cover from "./../images/cover_2.JPG";
 import umaine from '../images/logos/umaine.png';
 import uvm from '../images/logos/uvm.png';
 import climatehub from '../images/logos/climatehub.png';
-import nifa from '../images/logos/nifa-color-lockup.svg';
+//import nifa from '../images/logos/nifa-color-lockup.svg';
 
 import mapFigure from '../images/figure1.png';
 
@@ -43,9 +43,6 @@ return (
           <Card.Title className="display-4">
             About The Project
           </Card.Title>
-          </Row>
-          <Row className="d-block">
-          {/*<h3 className="text-center">How Can Northeast Agriculture Adapt?</h3>*/}
           </Row>
     </div>
 </div>

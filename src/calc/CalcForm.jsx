@@ -5,7 +5,7 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Dropdown, Alert, InputGroup, ButtonGroup, Button, ToggleButton } from 'react-bootstrap';
+import { Form, Col, Row, Container, Dropdown, Alert, InputGroup, ButtonGroup, Button, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 //import CropInput from './CropInput.jsx'
 import { BsX } from "react-icons/bs";
 import AdvancedOptions from './AdvancedOptions.jsx';
@@ -101,31 +101,36 @@ function CalcForm(props) {
 			{/* Irrigation Specific Switch to Drip Irrigation */}
 			{props.method === "irrigation" && 
 
-			<ButtonGroup className="mt-3">
-				{/* <Button className={props.irrTech === "Spray Irrigation" ? "btn.active" : ""} value={"Spray Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Spray Irrigation</Button>
-				<Button className={props.irrTech === "Drip Irrigation" ? "btn.active" : ""} value={"Drip Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Drip Irrigation</Button> */}
-				<ToggleButton
+			<ToggleButtonGroup className="mt-3" name="radioGroup">
+
+
+				<Button variant="secondary" className={props.irrTech === "Spray Irrigation" ? "btn.active" : ""} value={"Spray Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Spray Irrigation</Button>
+				<Button variant="secondary" className={props.irrTech === "Drip Irrigation" ? "btn.active" : ""} value={"Drip Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Drip Irrigation</Button>
+				
+				{/* <ToggleButton
+					id="spIgRd"
 					type="radio"
 					variant="secondary"
 					name="radioGroup"
-					value={"Spray Irrigation"}
+					value={props.irrTech}
 					checked={"Spray Irrigation" === props.irrTech}
 					//onChange={(e) => setRadioValue(e.currentTarget.value)}
-					onClick = {(event, d) => {props.setIrrTech(event.target.value)}}
+					onChange = {(event, d) => {props.setIrrTech("Spray Irrigation")}}
 				>Spray Irrigation</ToggleButton>
 
 
 				<ToggleButton
+					id="drIgRd"
 					type="radio"
 					variant="secondary"
 					name="radioGroup"
 					value={"Drip Irrigation"}
 					checked={"Drip Irrigation" === props.irrTech}
 					//onChange={(e) => setRadioValue(e.currentTarget.value)}
-					onClick = {(event, d) => {props.setIrrTech(event.target.value)}}
-				>Drip Irrigation</ToggleButton>
+					onChange = {(event, d) => {props.setIrrTech("Drip Irrigation")}}
+				>Drip Irrigation</ToggleButton> */}
 
-			</ButtonGroup>
+			</ToggleButtonGroup>
 
 			}						
 

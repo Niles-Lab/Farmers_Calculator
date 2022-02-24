@@ -36,16 +36,16 @@ p {
 .btn:active {
   border-color: #177B63 !important;
 }
-.btn:active:after .btn:after {
+.btn:active:after .btn:focus {
   background-color: #1e9c7d !important;
 }
 
 
 .btn-primary {
   color: #fff;
-  background-color: #006E53;
+  background-color: #006E53 !important;
   background-color: cutom-color;
-  border-color: #177B63;
+  border-color: #177B63 !important;
   border-color: cutom-cor;
 }
 .btn.active {

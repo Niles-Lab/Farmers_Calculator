@@ -241,7 +241,9 @@ return (
 				length={length}
 				rate={rate}
 				tableView={tableView}
-				opts={opts} />
+				opts={opts} 
+				irrTech={irrTech}
+				/>
 
 		</Col>
 		<Col xs={12} xl={2} className="pr-0 my-5">

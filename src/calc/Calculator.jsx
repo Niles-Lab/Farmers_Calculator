@@ -96,13 +96,30 @@ d3.range(0, parseInt(props.length)).forEach(d => {
   }
   else if(props.method === "irrigation") {
   
-    let sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
-    let annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
-    let pipeLength = acreFt / props.opts.sprinklerSpacing[0];
+    // Calculate individually for spray and drip irrigation
+    if(props.irrTech === "Spray Irrigation") {
 
-    rev = props.opts.baseCropRevenue[0] * (productivity-1)
-    cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
-    props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
+      let sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
+      let annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
+      let pipeLength = acreFt / props.opts.sprinklerSpacing[0];
+  
+      rev = props.opts.baseCropRevenue[0] * (productivity-1)
+      cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
+      props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
+
+    } else {
+
+      /// TODO: replace this calculator with updated drip irrigation calculator
+      let sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
+      let annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
+      let pipeLength = acreFt / props.opts.sprinklerSpacing[0];
+  
+      rev = props.opts.baseCropRevenue[0] * (productivity-1)
+      cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
+      props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
+
+    }
+
 
 
   } else if(props.method === "tarping") {

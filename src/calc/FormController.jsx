@@ -67,7 +67,7 @@ const silvoptions = {
 	[80, "%", "Effective Property", "Mean productivity based on Pent (2020)", "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
 }
 
-
+// Spray Irrigation Options
 const irroptions = {
 	baseCropRevenue: 
 	[2500, "$/Acre", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
@@ -95,6 +95,38 @@ const irroptions = {
 	effectiveProperty: 
 	[225, "%", "Productivity With Irrigation"]
 }
+
+// Drip Irrigation Variant
+const dripIrroptions = {
+	dripIrrigation:
+	[525600, "$$$", "Test Extra Drip Irrigation Option"],
+	baseCropRevenue: 
+	[2500, "$/Acre", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
+	baseCropCost: 
+	[1500, "$/Acre", "Base Crop Cost", "Assumes area is 100% Vegetables"],
+	sprinklerSpacing: 
+	[40, "Ft", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
+	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
+	sprinklerCost: 
+	[62.50, "$/Head", "Sprinkler Cost"],
+	pipeCost: 
+	[2.80, "$/Ft", "Pipe Cost", "Based on NRCS Practice 430, Scenario #7: 2\" Surface HDPE Irrigation Pipeline", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
+	pumpSize: 
+	[10, "HP", "Pump Size"],
+	pumpCost: 
+	[710, "$/HP", "Pump Cost", "Diesel Fuel Cost", "NRCS Practice 533, Scenario $5: Electric-powered pump 10-40HP", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
+	dailyPumpUse : 
+	[8, "Hr/Day", "Daily Pump Use"],
+	hourlyPump: 
+	[90, "Days/Yr", "Hourly Pump"],
+	dieselCost: 
+	[3.40, "$/Gal", "Diesel Fuel Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
+	maintenanceCost: 
+	[100, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
+	effectiveProperty: 
+	[225, "%", "Productivity With Irrigation"]
+}
+
 
 const tarpoptions = {
 	baseCropRevenue: 
@@ -130,10 +162,15 @@ const [crops, setCrops] = useState(data.crops);
 
 const [unit, setUnit] = useState(data.unit);
 
+
+
 // Length of project(yrs)
 const [length, setLength] = useState(data.length);
 
-// Silvopasture specific options
+// Select Drip / Spray Irrigation
+const [irrTech, setIrrTech] = useState("Spray Irrigation")
+
+// Set initial state of options
 const [opts, setOpts] = useState(() => {
 	if (props.variant === "silvopasture") {
 		return silvoptions;
@@ -155,7 +192,9 @@ useEffect(() => {
 if (props.variant === "silvopasture") {
 	setOpts(silvoptions);
 } else if(props.variant === "irrigation") {
-	setOpts(irroptions);
+	if(irrTech === "Spray Irrigation") {
+		setOpts(irroptions);
+	} else setOpts(dripIrroptions);
 } else {
 	setOpts(tarpoptions);
 	setLand(1);
@@ -164,7 +203,16 @@ if (props.variant === "silvopasture") {
 }, [props.variant]);
 
 
+useEffect(() => {
 
+	if(props.variant === "irrigation") {
+		if(irrTech === "Spray Irrigation") {
+			setOpts(irroptions);
+		} else setOpts(dripIrroptions);
+	}
+
+
+}, [irrTech]);
 
 // Optional table view
 const [tableView, setTableView] = useState(false);
@@ -261,6 +309,9 @@ return (
 		handleClose={handleClose}
 
 		units={units}
+
+		irrTech={irrTech}
+		setIrrTech={setIrrTech}
 
 		 />
 

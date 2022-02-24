@@ -41,7 +41,7 @@ function handleChange(event,key,value) {
 	return (
 
 
-	<Card style={{"backgroundColor": "rgba(255,255,255,0.2)"}} className="mt-5">
+	<Card style={{"backgroundColor": "rgba(255,255,255,0.2)"}} className="mt-3">
 
     <Button
     onClick={() => setIsOpen(!isOpen)}

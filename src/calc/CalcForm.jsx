@@ -5,7 +5,7 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Dropdown, Alert, InputGroup } from 'react-bootstrap';
+import { Form, Col, Row, Container, Dropdown, Alert, InputGroup, ButtonGroup, Button, ToggleButton } from 'react-bootstrap';
 //import CropInput from './CropInput.jsx'
 import { BsX } from "react-icons/bs";
 import AdvancedOptions from './AdvancedOptions.jsx';
@@ -98,10 +98,39 @@ function CalcForm(props) {
 
 			</Form>
 
+			{/* Irrigation Specific Switch to Drip Irrigation */}
+			{props.method === "irrigation" && 
+
+			<ButtonGroup className="mt-3">
+				{/* <Button className={props.irrTech === "Spray Irrigation" ? "btn.active" : ""} value={"Spray Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Spray Irrigation</Button>
+				<Button className={props.irrTech === "Drip Irrigation" ? "btn.active" : ""} value={"Drip Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Drip Irrigation</Button> */}
+				<ToggleButton
+					type="radio"
+					variant="secondary"
+					name="radioGroup"
+					value={"Spray Irrigation"}
+					checked={"Spray Irrigation" === props.irrTech}
+					//onChange={(e) => setRadioValue(e.currentTarget.value)}
+					onClick = {(event, d) => {props.setIrrTech(event.target.value)}}
+				>Spray Irrigation</ToggleButton>
 
 
-					{/* Method Specific Calculator input here */}
-					<AdvancedOptions {...props} />
+				<ToggleButton
+					type="radio"
+					variant="secondary"
+					name="radioGroup"
+					value={"Drip Irrigation"}
+					checked={"Drip Irrigation" === props.irrTech}
+					//onChange={(e) => setRadioValue(e.currentTarget.value)}
+					onClick = {(event, d) => {props.setIrrTech(event.target.value)}}
+				>Drip Irrigation</ToggleButton>
+
+			</ButtonGroup>
+
+			}						
+
+			{/* Method Specific Calculator input here */}
+			<AdvancedOptions {...props} />
 
 			
 			{/* Irrigation Specific Disclaimer */}

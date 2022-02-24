@@ -27,9 +27,32 @@ p {
 
 }
 .btn {
-  background-color: #006E53 !important;
+  background-color: #006E53;
+  border-color: #177B63;
+}
+.btn:hover {
+  background-color: #1e9c7d !important;
+}
+.btn:active {
   border-color: #177B63 !important;
 }
+.btn:active:after .btn:after {
+  background-color: #1e9c7d !important;
+}
+
+
+.btn-primary {
+  color: #fff;
+  background-color: #006E53;
+  background-color: cutom-color;
+  border-color: #177B63;
+  border-color: cutom-cor;
+}
+.btn.active {
+  color: black Impo !important;
+  background-color: black !important;
+}
+
 div {
   text-align: center;
 }

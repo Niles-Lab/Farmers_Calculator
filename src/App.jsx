@@ -45,9 +45,12 @@ const handleClose = () => setShow(false);
   return (
 
     <>
+
+    <Banner show={show} handleClose={handleClose} />
+
     <span className="App d-flex flex-column min-vh-100">
 
-        <Banner show={show} handleClose={handleClose} />
+        
 
         <Navigation />
 

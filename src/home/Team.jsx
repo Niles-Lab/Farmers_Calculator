@@ -105,10 +105,10 @@ return (
             <Container className="p-3">
               <Row className="d-flex justify-content-center">
                 <Image 
-                  style={{'height': '30vh', 'maxHeight': '30vh', 'minWidth': '15vw', 'width': '15vw'}}
-                  className="my-auto w-100 d-block"
+
+                  style={{'minHeight': '25vh', 'minWidth': '14vw', 'objectFit': 'cover', 'overflow': 'auto'}}
+                  className="my-auto w-100 d-block h-auto"
                   rounded
-                  fluid
                   src={imgs.find(i => i[0]===d[0])[1].default}
                   alt={d[0]}
                   />

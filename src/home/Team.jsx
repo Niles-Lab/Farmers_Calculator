@@ -106,8 +106,8 @@ return (
               <Row className="d-flex justify-content-center">
                 <Image 
 
-                  style={{'minHeight': '25vh', 'minWidth': '14vw', 'objectFit': 'cover', 'overflow': 'auto'}}
-                  className="my-auto w-100 d-block h-auto"
+                  style={{'minHeight': '25vh', 'maxHeight': '35vh', 'minWidth': '14vw', 'objectFit': 'cover', 'overflow': 'auto'}}
+                  className="img-responsive my-auto w-100 d-block h-auto"
                   rounded
                   src={imgs.find(i => i[0]===d[0])[1].default}
                   alt={d[0]}

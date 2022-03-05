@@ -3,6 +3,10 @@
  * ImageSlider - Contains a series of visualizations, a slider to gradually change one in focus
  * and a title / series of captions per image
  * 
+ * NOTES:
+ * - Images are set up to be pulled from their folders alphabetically. It does not matter what these images are named, so long as their alphabetical name allows them to be sorted into the correct sequence.
+ * - Images on the site will keep their native aspect ratio. Consider updating visualizations in the future to have the same size, or same aspect ratio to make them flush.
+ * 
  **/
 
 import React, { useState, useEffect } from 'react';
@@ -55,14 +59,18 @@ function ImageSlider(props) {
     const [closest, setClosest] = useState(0)
 
     // Create an updated array for slider marks
+    // This should generate 3 values
     function createMarks(arr) {
 
         marks = [];
 
         arr.forEach((d,idx) => {
             
+            // Sneakily push more opacity values while creating marks
+            // This will be a part of the state that holds opacity values for all mapped images
             def.push(0);
 
+            // Push our mark position into the placeholder from [0,1]
             marks.push({
                value: idx/(arr.length-1)
             });

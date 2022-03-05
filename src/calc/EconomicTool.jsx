@@ -285,67 +285,56 @@ let y = d3.scaleLinear()
       .attr("y", (d,idx) => parseFloat((legendY) + (idx * 20)));
 
 
+        drawTooltip();
+
+    // const tooltip = svg.append("g")
+    //   .attr("id", "ttlbl")
+    //   .attr("opacity", 0);
 
 
-    const tooltip = svg.append("g")
-      .attr("id", "ttlbl")
-      .attr("opacity", 0);
+    //   tooltip.append("rect")
+    //   //.attr("fill", (d,idx) => yC[idx])
+    //   .attr("fill", "ghostwhite")
+    //   .attr("rx", 1)
+    //   // .attr("ry", 2)
+    //   .attr("stroke", "#d3d3d3")
+    //   .attr("stroke-width", "1px")
+    //   .attr("opacity", 1)
+    //   //.attr("width", d => d.length * 10 + ((": $0.00").length*5))
+    //   .attr("width", 80)
+    //   .attr("height", lines.length * 23)
+    //   .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
 
 
-      tooltip.append("rect")
-      //.attr("fill", (d,idx) => yC[idx])
-      .attr("fill", "ghostwhite")
-      .attr("rx", 4)
-      .attr("ry", 4)
-      .attr("stroke", "black")
-      .attr("stroke-width", "2px")
-      .attr("opacity", 1)
-      //.attr("width", d => d.length * 10 + ((": $0.00").length*5))
-      .attr("width", 80)
-      .attr("height", lines.length * 23)
-      .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
+    // tooltip.selectAll("path")
+    // .data(lines)
+    // .join("circle")
+    //   // Manually add offset based on index of year
+    //   // Oh boy is this some spaghetti
+    //   // Note - 20 is the offset in this case, as each index is multiplied by 20
+    //   .attr("transform", (d,idx) => "translate(8," + (parseFloat(idx * 15)-3) + ")")
+    //   .attr("r", 6)
+    //   .attr("fill", (d,idx) => yC[idx]);
 
+    //   tooltip.selectAll("text")
+    //   .data(lines)
+    //   .join("text")
+    //   .style("font-size", 12)
+    //   .style("border", "solid")
+    //   .style("border-width", "2px")
+    //   .style("border-radius", "5px")
+    //   .attr("transform", (d,idx) => "translate(16," + (parseFloat((idx * 15))+1) + ")")
+    //   .text(d => d + ": $0.00"); 
 
-    tooltip.selectAll("path")
-    .data(lines)
-    .join("circle")
-      // Manually add offset based on index of year
-      // Oh boy is this some spaghetti
-      // Note - 20 is the offset in this case, as each index is multiplied by 20
-      .attr("transform", (d,idx) => "translate(8," + (parseFloat(idx * 15)-3) + ")")
-      .attr("r", 6)
-      .attr("fill", (d,idx) => yC[idx]);
-
-
-
-      // tooltip.selectAll("rect")
-      // .data(lines)
-      // .join("rect")
-      // .attr("fill", (d,idx) => yC[idx])
-      // .attr("opacity", 0.6)
-      // .attr("width", d => d.length * 10 + ((": $0.00").length*5))
-      // .attr("height", 6)
-      // .attr("transform", (d,idx) => "translate(0," + parseFloat((idx * 15)) + ")");
-
-      tooltip.selectAll("text")
-      .data(lines)
-      .join("text")
-      .style("font-size", 12)
-      .style("border", "solid")
-      .style("border-width", "2px")
-      .style("border-radius", "5px")
-      .attr("transform", (d,idx) => "translate(16," + (parseFloat((idx * 15))+1) + ")")
-      .text(d => d + ": $0.00"); 
-
-      tooltip.append("text")
-      .attr("id", "ttlblyear")
-      .style("font-size", 12)
-      .style("font-weight", "bold")
-      .style("border", "solid")
-      .style("border-width", "2px")
-      .style("border-radius", "5px")
-      .attr("transform", "translate(16," + parseFloat(-13) + ")")
-      .text("Year 0");
+    //   tooltip.append("text")
+    //   .attr("id", "ttlblyear")
+    //   .style("font-size", 12)
+    //   .style("font-weight", "bold")
+    //   .style("border", "solid")
+    //   .style("border-width", "2px")
+    //   .style("border-radius", "5px")
+    //   .attr("transform", "translate(16," + parseFloat(-13) + ")")
+    //   .text("Year 0");
 
 
 
@@ -500,10 +489,116 @@ let y = d3.scaleLinear()
     .curve(d3.curveBasis));    
 
 
+    drawTooltip();
+    // d3.select("#ttlbl").selectAll("*")
+    // .each(function() {  
+    //   this.parentNode.appendChild(this); 
+    //   });
+
   }, [props.data])
 
 
+function drawTooltip() {
 
+  let svg = d3.select(".main");
+
+  svg.select("#ttlbl").remove();
+
+  let tooltip = svg.append("g")
+      .attr("id", "ttlbl")
+      .attr("opacity", 0);
+
+      tooltip.append("rect")
+      .attr("fill", "#0B0B0C")
+      .attr("rx", 8)
+      .attr("ry", 4)
+      .attr("stroke", "#d3d3d3")
+      .attr("stroke-width", "1px")
+      .attr("opacity", 0.7)
+      .attr("width", 85)
+      .attr("height", lines.length * 23)
+      .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
+
+
+    tooltip.selectAll("path")
+    .data(lines)
+    .join("circle")
+      // Manually add offset based on index of year
+      // Oh boy is this some spaghetti
+      // Note - 20 is the offset in this case, as each index is multiplied by 20
+      .attr("transform", (d,idx) => "translate(12," + (parseFloat(idx * 15)-3) + ")")
+      .attr("r", 6)
+      .attr("fill", (d,idx) => yC[idx]);
+
+      tooltip.selectAll("text")
+      .data(lines)
+      .join("text")
+      .attr("fill", "#f3f3f3")
+      .style("font-size", 12)
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .attr("transform", (d,idx) => "translate(22," + (parseFloat((idx * 15))+1) + ")")
+      .text(d => d + ": $0.00"); 
+
+      tooltip.append("text")
+      .attr("id", "ttlblyear")
+      .attr("fill", "#f3f3f3")
+      .style("font-size", 12)
+      .style("font-weight", "bold")
+      .style("border", "solid")
+      .style("border-width", "2px")
+      .style("border-radius", "5px")
+      .attr("transform", "translate(20," + parseFloat(-13) + ")")
+      .text("Year 0");
+
+
+
+    //   tooltip.append("rect")
+    //   .attr("fill", "ghostwhite")
+    //   .attr("rx", 1)
+    //   .attr("stroke", "#d3d3d3")
+    //   .attr("stroke-width", "1px")
+    //   .attr("opacity", 1)
+    //   .attr("width", 80)
+    //   .attr("height", lines.length * 23)
+    //   .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
+
+
+    // tooltip.selectAll("path")
+    // .data(lines)
+    // .join("circle")
+    //   // Manually add offset based on index of year
+    //   // Oh boy is this some spaghetti
+    //   // Note - 20 is the offset in this case, as each index is multiplied by 20
+    //   .attr("transform", (d,idx) => "translate(8," + (parseFloat(idx * 15)-3) + ")")
+    //   .attr("r", 6)
+    //   .attr("fill", (d,idx) => yC[idx]);
+
+    //   tooltip.selectAll("text")
+    //   .data(lines)
+    //   .join("text")
+    //   .style("font-size", 12)
+    //   .style("border", "solid")
+    //   .style("border-width", "2px")
+    //   .style("border-radius", "5px")
+    //   .attr("transform", (d,idx) => "translate(16," + (parseFloat((idx * 15))+1) + ")")
+    //   .text(d => d + ": $0.00"); 
+
+    //   tooltip.append("text")
+    //   .attr("id", "ttlblyear")
+    //   .style("font-size", 12)
+    //   .style("font-weight", "bold")
+    //   .style("border", "solid")
+    //   .style("border-width", "2px")
+    //   .style("border-radius", "5px")
+    //   .attr("transform", "translate(16," + parseFloat(-13) + ")")
+    //   .text("Year 0");
+
+
+
+
+}
 
   
 

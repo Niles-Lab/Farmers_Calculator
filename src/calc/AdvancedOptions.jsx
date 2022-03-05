@@ -20,7 +20,7 @@ import { BsInfoCircle } from "react-icons/bs";
 function AdvancedOptions(props) {
 
 
-const [isOpen, setIsOpen] = useState(false);
+const [isOpen, setIsOpen] = useState(true);
 
 // Capitalize first letter in method name for display purposes
 let upperCaseMethod = props.method.charAt(0).toUpperCase() + props.method.slice(1);

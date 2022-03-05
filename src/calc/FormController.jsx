@@ -179,7 +179,29 @@ const [opts, setOpts] = useState(() => {
 	} else return tarpoptions;
 });
 
+// Set options back to default
+function setDefault() {
 
+	setRate(data.rate);
+	setLand(data.land);
+	setCrops(data.crops);
+	setUnit(data.unit);
+	setLength(data.length);
+
+
+	if (props.variant === "silvopasture") {
+		setOpts(silvoptions);
+	} else if(props.variant === "irrigation") {
+		if(irrTech === "Spray Irrigation") {
+			setOpts(irroptions);
+		} else setOpts(dripIrroptions);
+	} else {
+		setOpts(tarpoptions);
+		setLand(1);
+	}
+
+	
+}
 
 /*
 *
@@ -259,6 +281,11 @@ return (
 			className="mx-auto w-100"
 			onClick={toggleShow}
 			>Open Calculator and Input Options</Button>
+
+			<Button
+			className="mt-3 mx-auto w-100"
+			onClick={() => setDefault()}
+			>Reset Options</Button>
 
 
 

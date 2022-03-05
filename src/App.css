@@ -167,3 +167,8 @@ div {
   font-size: calc(1vw + 1vh + 1vmin);
   
 }
+
+.MuiSlider-mark {
+  transform: scale(2, 3) !important;
+
+}

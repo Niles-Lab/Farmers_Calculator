@@ -34,8 +34,14 @@ const irrigation = {
   titles: ["Aerial view of a drip irrigation system on a small-medium New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a small-medium New England vegetable farm"],
   images: [ig, pd],
   lbls: [
-  ["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to the driplines in fields through an irrigation pipe"],
-  ["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to a combined drip and sprinkler irrigation system in the vegetable fields through an irrigation pipe"]
+    ["Farm before pond or irrigation lines.", 
+    "Addition of farm pond for irrigation water supply.", 
+    "Diagram of pump and irrigation system installed."],
+    
+    ["Existing farm with vegetable crops.", 
+    "New irrigation pond, pump and pipes established as water source.", 
+    "Aerial sprayers added to create combined drip and sprinkler irrigation system.",
+    "Crops grown with pond-irrigation system."]
   ]
 }
 
@@ -57,12 +63,12 @@ const tarping = {
   titles: ["Tarping in cover crop and conservation tillage systems"],
   images: [tp],
   lbls: [
-["Late August/Early September: plant perennial rye cover crop",
-"June: Roll down rye using either a lawn roller or a tractor driven roller crimper",
-"June: Place tarps, secure with sand bags",
-"June: Remove tarps after two weeks. Plant cash crop of brassica starts",
-"August/September: Harvest crops, plant cover crop"]
-]
+    ["Spring growth of winter rye cover crop planted previous September.",
+    "In June, roll down with lawn roller or tractor with roller-crimper to prepare for tarping. Some also mow the rye.",
+    "Use black plastic tarps to prepare planting beds and kill weed species. Weigh tarps with sand bags.",
+    "Two weeks later: remove black plastic and mulch with straw. Then plant vegetable starts. Example: Brassica species such as broccoli or kale.",
+    "Crop growing within straw mulch."]
+    ]
 }
 
 // 
@@ -97,11 +103,24 @@ const silvopasture = {
   "Aerial view of apple orchard in pasture"],
   images: [pe, av1, pe2, av2],
   lbls: [
-["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture approximately 20 years after planting. Cattle graze among the trees, and trees (mostly black locust) are selectively harvested."],
-["Aerial view of open pasture.","Aerial view of 40 year old black walnut trees planted in pasture. Silvopasture on right depicts selective harvest of black walnut."],
-["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted approximately 15-20 feet apart in the sheep pasture.","Mature apple trees in the pasture 5-15 years after planting."],
-["Aerial view of open pasture.", "Aerial view of apple trees at different maturities planted in adjacent pastures."]
-]
+    // Image Set 1
+    ["Cattle graze in a pasture on a New England farm. Livestock density is average for a small to medium size farm.", 
+    "Trees intended for future timber harvest are planted at 17-21 basal density in the pasture. Example trees: Black Walnut.", 
+    "Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, some of which are selectively harvested."],
+    // Image Set 2
+    ["Aerial view of open pasture.",
+    "Mature timber trees of two ages: 30-40 year old and 10-15 year old trees.",
+    "Selective harvest of timber species in both fields."],
+    // Image Set 3
+    ["Sheep and cattle graze in adjacent pastures on a New England farm.",
+    "Apple saplings are planted 15-20 feet apart in the sheep pasture.",
+    "Mature apple trees in the pasture 5-15 years after planting."],
+    // Image Set 4
+    ["Aerial view of open pasture.", 
+    "Young orchard crop, bearing some fruit after 2-3 years.",
+    "Mature orchard crop, consistently bearing fruit after 8-10 years."]
+    
+    ]
 
 }
 

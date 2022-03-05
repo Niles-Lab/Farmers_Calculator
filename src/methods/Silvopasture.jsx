@@ -22,9 +22,6 @@
   return Object.entries(images);
 }
 
-// Silvopasture Cover Image(s)
-//const sp = importAll(require.context('./../images/silvopasture/sp', false, /\.(png|jpe?g|svg)$/));
-
 // Pasture Enrichment Images
 const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
 
@@ -37,9 +34,6 @@ const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.
 // Forest Conversion Images
 const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
 
-// Forest Conversion Images
-//const fc = importAll(require.context('./../images/silvopasture/fc', false, /\.(png|jpe?g|svg)$/));
-
 // Groups and labels for ImageSlider
 const groups = [pe, av1, pe2, av2];
 const titles = ["Perspective view of black walnut and black locust trees in cattle pasture", 
@@ -48,10 +42,22 @@ const titles = ["Perspective view of black walnut and black locust trees in catt
 "Aerial view of apple orchard in pasture"];
 
 let lbls = [
-["Cattle graze in a pasture on a New England farm. Livestock density is average for a small-medium size farm.", "Trees are planted at 17-21 basal density in the pasture.", "Mature trees in the pasture approximately 20 years after planting. Cattle graze among the trees, and trees (mostly black locust) are selectively harvested."],
-["Aerial view of open pasture.","Aerial view of 40 year old black walnut trees planted in pasture. Silvopasture on right depicts selective harvest of black walnut."],
-["Sheep and cattle graze in adjacent pastures on a New England farm.","Apple seedlings are planted approximately 15-20 feet apart in the sheep pasture.","Mature apple trees in the pasture 5-15 years after planting."],
-["Aerial view of open pasture.", "Aerial view of apple trees at different maturities planted in adjacent pastures."]
+// Image Set 1
+["Cattle graze in a pasture on a New England farm. Livestock density is average for a small to medium size farm.", 
+"Trees intended for future timber harvest are planted at 17-21 basal density in the pasture. Example trees: Black Walnut.", 
+"Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, some of which are selectively harvested."],
+// Image Set 2
+["Aerial view of open pasture.",
+"Mature timber trees of two ages: 30-40 year old and 10-15 year old trees.",
+"Selective harvest of timber species in both fields."],
+// Image Set 3
+["Sheep and cattle graze in adjacent pastures on a New England farm.",
+"Apple saplings are planted 15-20 feet apart in the sheep pasture.",
+"Mature apple trees in the pasture 5-15 years after planting."],
+// Image Set 4
+["Aerial view of open pasture.", 
+"Young orchard crop, bearing some fruit after 2-3 years.",
+"Mature orchard crop, consistently bearing fruit after 8-10 years."]
 
 ];
 

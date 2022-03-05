@@ -37,8 +37,14 @@ let groups = [ig, pd];
 
 const titles = ["Aerial view of a drip irrigation system on a small-medium New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a small-medium New England vegetable farm"];
 let lbls = [
-["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to the driplines in fields through an irrigation pipe"],
-["New England vegetable farm without irrigation", "Pond is established as a water source for a future irrigation system", "Water is pumped from the pond to a combined drip and sprinkler irrigation system in the vegetable fields through an irrigation pipe"]
+["Farm before pond or irrigation lines.", 
+"Addition of farm pond for irrigation water supply.", 
+"Diagram of pump and irrigation system installed."],
+
+["Existing farm with vegetable crops.", 
+"New irrigation pond, pump and pipes established as water source.", 
+"Aerial sprayers added to create combined drip and sprinkler irrigation system.",
+"Crops grown with pond-irrigation system."]
 ];
 
 

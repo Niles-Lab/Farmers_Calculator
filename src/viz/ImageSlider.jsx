@@ -1,7 +1,7 @@
 /**
  * 
- * ImageSlider - Contains multiple sliders of visualizations, a slider to gradually change one in focus
- * and a button group to toggle between them
+ * ImageSlider - Contains a series of visualizations, a slider to gradually change one in focus
+ * and a title / series of captions per image
  * 
  **/
 

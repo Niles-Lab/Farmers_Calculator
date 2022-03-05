@@ -30,11 +30,11 @@ let groups = [tp];
 
 const titles = ["Tarping in cover crop and conservation tillage systems"];
 let lbls = [
-["Late August/Early September: plant perennial rye cover crop",
-"June: Roll down rye using either a lawn roller or a tractor driven roller crimper",
-"June: Place tarps, secure with sand bags",
-"June: Remove tarps after two weeks. Plant cash crop of brassica starts",
-"August/September: Harvest crops, plant cover crop"]
+["Spring growth of winter rye cover crop planted previous September.",
+"In June, roll down with lawn roller or tractor with roller-crimper to prepare for tarping. Some also mow the rye.",
+"Use black plastic tarps to prepare planting beds and kill weed species. Weigh tarps with sand bags.",
+"Two weeks later: remove black plastic and mulch with straw. Then plant vegetable starts. Example: Brassica species such as broccoli or kale.",
+"Crop growing within straw mulch."]
 ];
 
 
@@ -243,6 +243,7 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
 <Card.Title className="my-3">Guides, Factsheets, Other</Card.Title>
 
+<ExternalLink link={"https://extension.umaine.edu/publications/1075e/"} label={"Tarping in the Northeast: A Guide for Small Farms, University of Maine Cooperative Extension Publications"} />
 <ExternalLink link={"https://projects.sare.org/wp-content/uploads/CC_Fact_Sheet_Vegetables_Northern_NE.pdf"} label={"Cover Cropping on Vegetable Farms in Northern New England, UVM Extension"} />
 <ExternalLink link={"https://smallfarms.cornell.edu/2019/07/manage-weeds-with-tarping"} label={"Manage Weeds With Tarping, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, July 15, 2019, Ryan Maher"} />
 <ExternalLink link={"https://smallfarms.cornell.edu/2019/01/reusable-black-tarps-suppress-weeds-and-make-organic-reduced-tillage-more-viable"} label={"Reusable Black Tarps Suppress Weeds and Make Organic Reduced Tillage More Viable, Reduced Tillage in Vegetables Project, Small Farms Program, Cornell College of Agriculture and Life Sciences, January 14, 2019, Haley Rylander"} />

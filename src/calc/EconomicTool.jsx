@@ -750,6 +750,7 @@ function pointerMove(d) {
           </thead>
           </Table>
           <Table responsive bordered striped hover size={'sm'}>
+            <thead>
               <tr>
                 <th>Year</th>
                 <th>Revenue</th>
@@ -757,7 +758,7 @@ function pointerMove(d) {
                 <th>Value</th>
                 <th>Cumulative</th>
               </tr>
-
+            </thead>
             <tbody>
           {props.data.map((d,idx) => (
 

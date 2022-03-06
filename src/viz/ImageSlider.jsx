@@ -26,24 +26,24 @@ let def = [1];
 function ImageSlider(props) {
 
 
-    function setHeight() {
-      d3.select("#imgContain")
-        .style("height", (imgRef.current ? (imgRef.current.clientHeight+50) : 500))  
+    // function setHeight() {
+    //   d3.select("#imgContain")
+    //     .style("height", (imgRef.current ? (imgRef.current.clientHeight+50) : 500))  
 
-      imgStyle = {
-        height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
-        }  
-    }
+    //   imgStyle = {
+    //     height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
+    //     }  
+    // }
 
-    useEffect(() => {
-        setHeight();
-    }, [])
+    // useEffect(() => {
+    //     setHeight();
+    // }, [])
 
-    const imgRef = React.useRef(null);
+    // const imgRef = React.useRef(null);
 
-    var imgStyle = {
-        height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
-    };
+    // var imgStyle = {
+    //     height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
+    // };
 
     // What value the opacity slider is at
     const [timeSl, setTimeSl] = useState(0);
@@ -163,8 +163,8 @@ function ImageSlider(props) {
 
 
 
-
-        <Container fluid onLoad={() => setHeight()} className="h-auto clearfix position-relative pb75 px-0" id="imgContain">
+        {/* onLoad={() => setHeight()} */}
+        <Container fluid  className="h-auto clearfix position-relative pb75 px-0" id="imgContain">
 
 
 
@@ -175,7 +175,7 @@ function ImageSlider(props) {
                         <Image
                         rounded
                         key={d+idx}
-                        ref={imgRef}
+                        //ref={imgRef}
                         className="absImg d-block position-absolute h-100 w-100 clearfix"
                         style={{'opacity': opacity[idx]}}
                         src={d[1].default} 

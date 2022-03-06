@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
-import OffCanvas from 'react-aria-offcanvas';
+// import OffCanvas from 'react-aria-offcanvas';
 import { BsFillExclamationTriangleFill } from "react-icons/bs";
 import { BsX } from "react-icons/bs";
 
@@ -14,25 +14,25 @@ const Banner = (props) => {
 
 
 
-  const style = {
-    overlay: {
+  // const style = {
+  //   overlay: {
       
-      //maxHeight: "3vh",
-      background: "none",
-      width: "0vw",
-      height: "0vh",
+  //     //maxHeight: "3vh",
+  //     background: "none",
+  //     width: "0vw",
+  //     height: "0vh",
 
-    },
-    content: {
+  //   },
+  //   content: {
 
-      background: "rgba(255, 255, 255, 0)",
-      width: "100vw",
+  //     background: "rgba(255, 255, 255, 0)",
+  //     width: "100vw",
       
-      //maxHeight: "4vh"
+  //     //maxHeight: "4vh"
       
 
-    }
-  }
+  //   }
+  // }
 
     return (
     <div className={props.show ? "" : "d-none"}>

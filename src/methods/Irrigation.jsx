@@ -82,7 +82,7 @@ function Irrigation(props) {
                 <Nav id="sectionnav" className="mx-auto">
                 {navs.map((d, idx) => (
                     
-                    <a href={"#a" + idx} className="text-decoration-none">
+                    <a key={"navItem#"+idx} href={"#a" + idx} className="text-decoration-none">
                         <Nav.Link as={Card.Title} className="font-weight-light">
                         {d}
                         </Nav.Link>
@@ -164,11 +164,9 @@ function Irrigation(props) {
 
                 {groups.map((e,idz) => (
                     
-                    <>
-                    
+
                     <ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} title={titles[idz]} />
 
-                    </>
 
                     ))}
 

@@ -119,7 +119,12 @@ return (
           <Col xs={12} md={9} className="pl-4 pt-3">
           {d[1] !== "" &&
             <Row className="mb-0 pb-0">
-              <p>{d[1]}</p>
+              {typeof d[1] === "object" &&
+                <>{d[1]}</>
+              }
+              {typeof d[1] === "string" &&
+                <p>{d[1]}</p>
+              }
             </Row>
           }
           {d[3] !== "" &&
@@ -159,14 +164,14 @@ return (
 
   </Row>
   <Row>
-    {previousTeam.map(d => (
+    {previousTeam.map((d,idx) => (
 
-      <>
-      <Col xs={12} md={4}>
+
+      <Col key={"prevTeam#"+idx} xs={12} md={4}>
 
       <p className="text-center">{d}</p>
       </Col>  
-      </>
+
 
       ))}
 
@@ -191,7 +196,7 @@ return (
 
 
 
-      <Row className="w-100">
+      <Row key={"ackTm#"+idx} className="w-100">
 
 
         <p className="font-weight-normal mb-0">{d}</p>

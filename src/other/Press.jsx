@@ -33,9 +33,9 @@ const press = [
     <hr/>
   		<hr/>
 
-      {press.map(d => (
+      {press.map((d,idx) => (
 
-        <>
+        <span key={"navItem#"+idx}>
         <Row>
 
           <Col xs={10} className="d-flex text-start">
@@ -51,7 +51,7 @@ const press = [
 
         </Row>
                 <hr/>
-        </>
+        </span>
       ))}
 
 

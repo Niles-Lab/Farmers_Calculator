@@ -133,16 +133,20 @@ const tarpoptions = {
 	[2500, "$", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
 	baseCropCost: 
 	[1500, "$", "Base Crop Cost", "Assumes area is 100% Vegetables"],
+	tarpArea: 
+	[10890, "Ft Sq./Acre", "Tarp Area"],
 	bedSpacing: 
 	[8, "Ft", "Bed Spacing"],
-	tarpLength: 
-	[5445, "Ft", "Tarp Length"],
+	costPerFt:
+	[0.7, "$/Ft.", "Cost Per Foot of Tarp"],
 	tarpCost: 
-	[0.70, "$/Sq. Ft", "Tarp Cost"],
+	[0.0875, "$/Sq. Ft", "Tarp Cost", "Based on UW Madison Extension Study", "https://fyi.extension.wisc.edu/danecountyag/files/2019/07/Tarps-to-Terminate-Cover-Crops-Before-No-Till-Organic-Vegetables-RFS.pdf"],
 	tarpLabor: 
 	[4, "Hr/Acre", "Tarp Labor"],
 	tarpLaborCost: 
 	[20.00, "$/Hr", "Tarp Labor Cost"],
+	tarpDurability:
+	[5, "Years", "Tarp Durability"],
 	coverCropCost: 
 	[150, "$/Ac", "Cover Crop Cost", "Based on NRCS Practice 340, Scenario #57: Cover Crop, 1 ac or less (includes materials + labor)", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"], // Effective every OTHER year, starting with 0
 	maintenanceCost: 

@@ -8,7 +8,7 @@ const Navigation = () => {
       <Navbar collapseOnSelect expand="sm" variant="dark" className="mainnav">
         <Col>
             <Row className="mb-0 pb-0 ml-3 text-wrap">
-              <h4 className="text-white font-weight-normal text-justify" style={{"word-spacing": "-2px", "word-break": "break-all"}}>Climate Adaptation Resources for Northern New England Farmers</h4>
+              <h4 className="text-white font-weight-normal text-justify" style={{"wordSpacing": "-2px", "wordBreak": "break-all"}}>Climate Adaptation Resources for Northern New England Farmers</h4>
               {/*<Navbar.Brand className="text-wrap">Climate Adaptation Resources for Northern New England Farmers</Navbar.Brand>*/}
             </Row>
             <Row className="mt-0">

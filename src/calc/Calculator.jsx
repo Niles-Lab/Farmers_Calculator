@@ -124,12 +124,18 @@ d3.range(0, parseInt(props.length)).forEach(d => {
 
   } else if(props.method === "tarping") {
     
+    // To get total tarp
+    let costTotal = 0.7 / props.opts.bedSpacing[0];
+    let tarpArea = acreFt / (props.opts.bedSpacing[0]/2);
+
     let labor = props.opts.tarpLabor[0]*props.opts.tarpLaborCost[0];
     let cost = 0;
 
-    cost += d === 0 ? (props.opts.tarpLength[0] * props.opts.tarpCost[0]) : 0; // Initial cost, one time only
+    cost += ((d%props.opts.tarpDurability[0]) === 0) ? (tarpArea * costTotal) : 0; // Initial cost, one time only
     cost += d % 2 === 0 ? labor : props.opts.coverCropCost[0]; // Labor is paid every other year, cover crop cost is paid every other year
     cost += (d > 0 && (d % 2 === 0)) ? props.opts.maintenanceCost[0] : 0; //
+
+    if(d%5 === 0) console.log(props.opts.maintenanceCost[0])
 
     cst = cost;
 

@@ -24,7 +24,7 @@ return (
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (
 
-                            <a href={"#" + idx} className="text-decoration-none">
+                            <a key={"navItem#"+idx} href={"#" + idx} className="text-decoration-none">
                                 <Nav.Link as={Card.Title} className="font-weight-light">
                                 {d}
                                 </Nav.Link>

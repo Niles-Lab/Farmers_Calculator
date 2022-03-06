@@ -181,6 +181,7 @@ Photo Credit: Jennifer Brown</p>
 
   <Col xs={12} md={{offset: 1, span: 10}}>
   <Table responsive>
+      <thead>
       <tr>
 
         <th>Challenge (NE Region)</th>
@@ -189,7 +190,7 @@ Photo Credit: Jennifer Brown</p>
         <th>Small and Medium Farm Management Tools</th>
 
       </tr>
-
+      </thead>
     <tbody>
 
 
@@ -259,10 +260,10 @@ Fitzgerald and Hutton 2012); Diversification to distribute risk (Rossing et al.
     <hr/>
       <h3>Citations</h3>
     <hr/>
-    {citations.map(d => (
+    {citations.map((d,idx) => (
 
 
-      <p><small>{d}</small></p>
+      <p key={"smCit"+idx}><small>{d}</small></p>
 
       ))}
 

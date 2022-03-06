@@ -195,7 +195,7 @@ const [group, setGroup] = useState(() => {
            
  
            
-           <ImageSlider key={e+idz} groups={e} lbls={group.lbls[idz]} title={group.titles[idz]} />
+           <ImageSlider key={key+idz} groups={e} lbls={group.lbls[idz]} title={group.titles[idz]} />
  
  
  

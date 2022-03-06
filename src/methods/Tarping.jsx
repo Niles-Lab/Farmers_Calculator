@@ -60,20 +60,6 @@ function Tarping(props) {
         <Col xs={12} md={10} lg={8}>
 
 
-
-
-
-
-{/*        <hr/>
-        <h2 id="a0">Tarping</h2>
-        <hr/>
-
-        <Image
-        rounded
-        className="d-block w-100"
-        src={sp[0][1].default} 
-        />*/}
-
         
 
 

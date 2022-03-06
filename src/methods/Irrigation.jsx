@@ -9,43 +9,13 @@
 import { Card, Row, Col, Navbar,Container, Nav, ListGroup, Tab, Alert } from 'react-bootstrap';
 
 import FormController from './../calc/FormController';
-import ImageSlider from './../viz/ImageSlider';
+import ImageController from './../viz/ImageController';
 import ExternalLink from './../other/ExternalLink';
 
 // import cover from "./../images/irrigation/cover/possibleCover.jpg";
 import cover from "./../images/irrigation/cover/cover.JPG";
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
-
-function importAll(r) {
-  let images = {};
-  r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
-  return Object.entries(images);
-}
-
-// Irrigation Cover Image(s)
-//const sp = importAll(require.context('../images/irrigation/', false, /\.(png|jpe?g|svg)$/));
-
-// Ponds images
-const pd = importAll(require.context('../images/irrigation/pd/', false, /\.(png|jpe?g|svg)$/));
-
-// Irrigation images
-const ig = importAll(require.context('../images/irrigation/ig/', false, /\.(png|jpe?g|svg)$/));
-
-let groups = [ig, pd];
-
-
-const titles = ["Aerial view of a drip irrigation system on a small-medium New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a small-medium New England vegetable farm"];
-let lbls = [
-["Farm before pond or irrigation lines.", 
-"Addition of farm pond for irrigation water supply.", 
-"Diagram of pump and irrigation system installed."],
-
-["Existing farm with vegetable crops.", 
-"New irrigation pond, pump and pipes established as water source.", 
-"Aerial sprayers added to create combined drip and sprinkler irrigation system.",
-"Crops grown with pond-irrigation system."]
-];
 
 
 function Irrigation(props) {
@@ -160,19 +130,8 @@ function Irrigation(props) {
                <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
             </Alert>
 
-
-
-                {groups.map((e,idz) => (
-                    
-
-                    <ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} title={titles[idz]} />
-
-
-                    ))}
-
-
-
-
+            {/* VISUALIZATIONS */}
+            <ImageController variant="irrigation" />
       
                         <Card.Title id="1" className="mt-4">Benefits and Costs</Card.Title>
                     

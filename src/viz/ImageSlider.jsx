@@ -9,12 +9,12 @@
  * 
  **/
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Container, Row, Col, Image, Card } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import * as d3 from "d3";
+
 
 // Marks on slider for concrete images
 let marks = [];
@@ -25,25 +25,6 @@ let def = [1];
 
 function ImageSlider(props) {
 
-
-    // function setHeight() {
-    //   d3.select("#imgContain")
-    //     .style("height", (imgRef.current ? (imgRef.current.clientHeight+50) : 500))  
-
-    //   imgStyle = {
-    //     height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
-    //     }  
-    // }
-
-    // useEffect(() => {
-    //     setHeight();
-    // }, [])
-
-    // const imgRef = React.useRef(null);
-
-    // var imgStyle = {
-    //     height: (imgRef.current ? (imgRef.current.clientHeight) : 500)
-    // };
 
     // What value the opacity slider is at
     const [timeSl, setTimeSl] = useState(0);
@@ -161,9 +142,6 @@ function ImageSlider(props) {
 
 
 
-
-
-        {/* onLoad={() => setHeight()} */}
         <Container fluid  className="h-auto clearfix position-relative pb75 px-0" id="imgContain">
 
 

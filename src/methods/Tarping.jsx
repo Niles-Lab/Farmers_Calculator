@@ -7,35 +7,11 @@
 //import React, { useState } from 'react';
 import { Alert, Card, Row, Col, Nav, Navbar, ListGroup, Tab} from 'react-bootstrap';
 import FormController from './../calc/FormController';
-import ImageSlider from './../viz/ImageSlider';
 import ExternalLink from './../other/ExternalLink';
-
+import ImageController from './../viz/ImageController';
+import cover from './../images/tarping/cover/IMG_3500.png';
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
-
-function importAll(r) {
-  let images = {};
-  r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
-  return Object.entries(images);
-}
-
-// Tarping image slides
-const tp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
-
-// Tarping cover image is just the first from our one set
-const sp = importAll(require.context('../images/tarping/cover', false, /\.(png|jpe?g|svg)$/));
-
-// Collection of elements for ImageSlider
-let groups = [tp];
-
-const titles = ["Tarping in cover crop and conservation tillage systems"];
-let lbls = [
-["Spring growth of winter rye cover crop planted previous September.",
-"In June, roll down with lawn roller or tractor with roller-crimper to prepare for tarping. Some also mow the rye.",
-"Use black plastic tarps to prepare planting beds and kill weed species. Weigh tarps with sand bags.",
-"Two weeks later: remove black plastic and mulch with straw. Then plant vegetable starts. Example: Brassica species such as broccoli or kale.",
-"Crop growing within straw mulch."]
-];
 
 
 function Tarping(props) {
@@ -47,7 +23,7 @@ function Tarping(props) {
 	return (
 		<>
 
-          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${sp[0][1].default})` }}>
+          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
                     <Row className="d-block px-4">
                     <Card.Title className="display-4">
@@ -158,16 +134,8 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 </Alert>
 
 
-{groups.map((e,idz) => (
-    
-    
-    <ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} title={titles[idz]} />
-
-
-    ))}
-
-
-
+{/* VISUALIZATIONS */}
+<ImageController variant="tarping" />
 
 
 <hr className="mt-5"/>

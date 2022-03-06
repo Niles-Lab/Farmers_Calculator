@@ -8,58 +8,12 @@
  import { Card, Row, Col, Nav, Navbar, Alert, ListGroup, Tab } from 'react-bootstrap';
 
  import FormController from './../calc/FormController';
- import ImageSlider from './../viz/ImageSlider';
  import ExternalLink from './../other/ExternalLink';
+ import ImageController from './../viz/ImageController';
 
  import cover from './../images/silvopasture/cover/cover2.JPG';
 
  const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
-
-
- function importAll(r) {
-  let images = {};
-  r.keys().map((item, index) => { return images[item.replace('./', '')] = r(item); });
-  return Object.entries(images);
-}
-
-// Pasture Enrichment Images
-const pe = importAll(require.context('./../images/silvopasture/pe', false, /\.(png|jpe?g|svg)$/));
-
-// Forest Conversion Images
-const av1 = importAll(require.context('./../images/silvopasture/av1', false, /\.(png|jpe?g|svg)$/));
-
-// Pasture Enrichment Images 2
-const pe2 = importAll(require.context('./../images/silvopasture/pe2', false, /\.(png|jpe?g|svg)$/));
-
-// Forest Conversion Images
-const av2 = importAll(require.context('./../images/silvopasture/av2', false, /\.(png|jpe?g|svg)$/));
-
-// Groups and labels for ImageSlider
-const groups = [pe, av1, pe2, av2];
-const titles = ["Perspective view of black walnut and black locust trees in cattle pasture", 
-"Aerial view of black walnut trees in pasture",
-"Perspective view of apple orchard in sheep pasture",
-"Aerial view of apple orchard in pasture"];
-
-let lbls = [
-// Image Set 1
-["Cattle graze in a pasture on a New England farm. Livestock density is average for a small to medium size farm.", 
-"Trees intended for future timber harvest are planted at 17-21 basal density in the pasture. Example trees: Black Walnut.", 
-"Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, some of which are selectively harvested."],
-// Image Set 2
-["Aerial view of open pasture.",
-"Mature timber trees of two ages: 30-40 year old and 10-15 year old trees.",
-"Selective harvest of timber species in both fields."],
-// Image Set 3
-["Sheep and cattle graze in adjacent pastures on a New England farm.",
-"Apple saplings are planted 15-20 feet apart in the sheep pasture.",
-"Mature apple trees in the pasture 5-15 years after planting."],
-// Image Set 4
-["Aerial view of open pasture.", 
-"Young orchard crop, bearing some fruit after 2-3 years.",
-"Mature orchard crop, consistently bearing fruit after 8-10 years."]
-
-];
 
 
 function Silvopasture(props) {
@@ -257,14 +211,7 @@ These visualizations are designed to help the viewer picture how the implementat
 </Alert>
 
 
-
-
-{groups.map((e,idz) => (
-		
-	<ImageSlider key={e+idz} groups={e} lbls={lbls[idz]} title={titles[idz]} />
-
-
-	))}
+<ImageController variant="silvopasture" />
 
 
 <hr/>

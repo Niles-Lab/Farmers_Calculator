@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Nav, Navbar, Alert } from 'react-bootstrap';
+import ImageController from '../viz/ImageController.jsx';
 //import cover from "./../images/cover.jpg";
 import ImageSlider from "./../viz/ImageSlider.jsx"
 
@@ -232,23 +233,8 @@ These visualizations are designed to help the viewer picture how the implementat
 
 
 
+  <ImageController variant={key} />
 
-    { group &&
-
-
-      <>
-      {/*<ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />*/}
-      {group.images.map((e,idz) => (
-          
-
-          
-          <ImageSlider key={e+idz} groups={e} lbls={group.lbls[idz]} title={group.titles[idz]} />
-
-
-
-          ))}
-      </>
-    }
 
 
 

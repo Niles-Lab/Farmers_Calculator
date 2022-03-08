@@ -105,19 +105,12 @@ const dripIrroptions = {
 
 	cropRowSpacing:
 	[8, "Ft.", "Irrigated Crop Row Spacing"],
-	dripFittingSpacing:
-	[2, "Ft.", "Drip Fitting Spacing"],
-	dripTapeLength:
-	[],
-
-	sprinklerSpacing: 
-	[40, "Ft", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
-	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
-	sprinklerCost: 
-	[62.50, "$/Head", "Sprinkler Cost"],
-	pipeCost: 
-	[2.80, "$/Ft", "Pipe Cost", "Based on NRCS Practice 430, Scenario #7: 2\" Surface HDPE Irrigation Pipeline", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
-	
+	fittingSpacing:
+	[2, "Ft.", "Irrigation Drip Fitting Spacing"],
+	tapeCost:
+	[0.20, "$/Ft.", "Irrigation Drip Tape Cost"],
+	fittingCost:
+	[1.00, "$", "Irrigation Drip Fitting Cost"],
 	pumpSize: 
 	[10, "HP", "Pump Size"],
 	pumpCost: 
@@ -186,7 +179,10 @@ const [opts, setOpts] = useState(() => {
 	if (props.variant === "silvopasture") {
 		return silvoptions;
 	} else if(props.variant === "irrigation") {
-		return irroptions;
+		if(irrTech === "Spray Irrigation") {
+			return irroptions;
+		} else return dripIrroptions;
+		
 	} else return tarpoptions;
 });
 
@@ -222,28 +218,23 @@ function setDefault() {
 */
 useEffect(() => {
 
-if (props.variant === "silvopasture") {
-	setOpts(silvoptions);
-} else if(props.variant === "irrigation") {
-	if(irrTech === "Spray Irrigation") {
-		setOpts(irroptions);
-	} else setOpts(dripIrroptions);
-} else {
-	setOpts(tarpoptions);
-	setLand(1);
-}
+	setDefault();
 
 }, [props.variant]);
 
 
 useEffect(() => {
 
-	if(props.variant === "irrigation") {
+	if (props.variant === "silvopasture") {
+		setOpts(silvoptions);
+	} else if(props.variant === "irrigation") {
 		if(irrTech === "Spray Irrigation") {
 			setOpts(irroptions);
 		} else setOpts(dripIrroptions);
+	} else {
+		setOpts(tarpoptions);
+		setLand(1);
 	}
-
 
 }, [irrTech]);
 

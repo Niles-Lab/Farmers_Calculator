@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import EconomicTool from './EconomicTool.jsx'
 //import SilvoBar from './SilvoBar.jsx'
 import * as d3 from "d3";
@@ -18,7 +18,8 @@ const maturingYears = 10;
 
 
 // Create data per year for returns/costs
-let data = [];
+//let data = [];
+const [data, setData] = useState([]);
 
 // Total profit gained over time
 let totalProfit = 0;
@@ -76,6 +77,11 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 // }
 
 
+
+useEffect(() => {
+
+let tmpData = [];
+
 // Map each data point with:
 // x -> year
 // y -> revenue, cost, net gain
@@ -96,6 +102,7 @@ d3.range(0, parseInt(props.length)).forEach(d => {
   }
   else if(props.method === "irrigation") {
   
+
     // Calculate individually for spray and drip irrigation
     if(props.irrTech === "Spray Irrigation") {
 
@@ -109,14 +116,21 @@ d3.range(0, parseInt(props.length)).forEach(d => {
 
     } else {
 
+      let tapeLength = acreFt / props.opts.cropRowSpacing[0];
+
+      let fittingCount = Math.round(props.opts.fittingSpacing[0] > 0 ? tapeLength / props.opts.fittingSpacing[0] : 0);
+
+
       /// TODO: replace this calculator with updated drip irrigation calculator
-      let sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
+      // let sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
       let annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
-      let pipeLength = acreFt / props.opts.sprinklerSpacing[0];
+      //let pipeLength = acreFt / props.opts.sprinklerSpacing[0];
   
+      console.log(fittingCount*props.opts.fittingCost[0])
       rev = props.opts.baseCropRevenue[0] * (productivity-1)
-      cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
+      cst = parseInt(d) === 0 ? ((fittingCount*props.opts.fittingCost[0]) + (props.opts.tapeCost[0]*tapeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
       props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
+
 
     }
 
@@ -156,13 +170,20 @@ d3.range(0, parseInt(props.length)).forEach(d => {
   
   totalProfit += rev-cst;
 
-  data.push({
+  tmpData.push({
     year: d+1,
     revenue: rev,
     cost: -cst,
     value: totalProfit
   })
+
+  setData(tmpData);
+
 });
+
+
+
+}, [props.opts])
 
 
 

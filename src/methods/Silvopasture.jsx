@@ -265,8 +265,8 @@ Before installing silvopasture systems, trade-offs should be
 <Card.Title id="a2">Silvopasture Economic Tool</Card.Title>
 <hr/>
 
-
 {/* Calculator */}
+
 <FormController variant={"silvopasture"} />
 
 

@@ -1,6 +1,6 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col, Alert } from 'react-bootstrap';
+import { Button, Row, Col, Alert, Card } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
 
@@ -29,6 +29,32 @@ let data = {
 	length: 20,
 	rate: 0.05
 };	
+
+/**
+ * 
+ *  'Using This Tool' sections
+ *  This should be an array of strings, that will subsequently be mapped to bullet points
+ * 
+ * 
+ */
+const usingSp = ["To begin, select “Open Calculator and Input Options”.", 
+"Use the default options for each metric, or enter information specific to your operation, such as your farm size, the project length, your costs and revenue for the base pasture, tree planting costs, trees per acre, and anticipated tree crop yield.",
+"After inputting your details, view the graph. The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
+"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 11 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."];
+
+const usingIg = [
+	"To begin, select “Open Calculator and Input Options”. Then select ”Spray Irrigation” or ”Drip Irrigation” depending on what you intend to calculate costs for.",
+	"Use the default options for each metric, or enter information specific to your operation, such as the project length, your farm size, your costs and revenue for the base crop, sprinkler cost, pump size, diesel fuel cost, and anticipated productivity with irrigation.",
+	"After inputting your details, view the graph. The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
+	"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 9 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."
+]
+
+const usingTp = [
+	"To begin, select “Open Calculator and Input Options” and then “More Tarping Options.” ",
+	"Use the default options for each metric, or enter information specific to your operation, such as your farm size, the project length, your costs and revenue for the base crop, the hourly rate for labor, and anticipated maintenance costs.",
+	"After inputting your details, view the graph.  The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
+	"Using the default options for tarping, you can see the up-front costs appear in the first 2-3 years and that it will take about 11 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."
+]
 
 /* Specific options for methods - these should be in the format of:
 * value: [default: integer, 
@@ -157,6 +183,13 @@ const tarpoptions = {
 
 //, "Efficiency Based On OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"
 
+// Initial state for 'using this tool'
+const [toolDesc, setToolDesc] = useState(() => {
+
+	return updateToolDesc();
+
+})
+
 // Discount rate for NPV
 const [rate, setRate] = useState(data.rate);
 
@@ -210,6 +243,17 @@ function setDefault() {
 	
 }
 
+function updateToolDesc() {
+
+
+	if (props.variant === "silvopasture") {
+		return usingSp;
+	} else if(props.variant === "tarping") {
+		return usingTp;
+	} else return usingIg;
+
+}
+
 /*
 *
 * Optional extra modifications per method
@@ -219,6 +263,7 @@ function setDefault() {
 useEffect(() => {
 
 	setDefault();
+	setToolDesc(updateToolDesc());
 
 }, [props.variant]);
 
@@ -249,7 +294,7 @@ const handleClose = () => setShow(false);
 
 return (
 
-	<>
+	<Card.Body className="border">
 
 	<Row>
 		<Col xs={12} xl={10} className="p-0">
@@ -297,10 +342,29 @@ return (
 		</Col>
 
 	</Row>
+
+
+
+
+	<hr className='mt-5'/>
+	<Card.Title>Using this tool</Card.Title>
+	<hr/>
+
+	<Row>
+		<Col md={{ span: 10, offset: 1 }}>
+
+		{toolDesc.map(d => (
+
+			<p><li>{d}</li></p>
+
+		))}
+		</Col>
+
+	</Row>
 	<Row>
 
-	<Alert variant="info" className="mt-5 small">
-		Our team developed an economic tool to assist farmers and their advisors in understanding what 
+	<Alert variant="info mt-2" className="small">
+		Our team developed this economic tool to assist farmers and their advisors in understanding what 
 		the general costs, revenues and profits may be for a farm that implements different climate 
 		adaptation practices.  A farmer or advisor can input farm-specific data using the calculator 
 		to generate a general understanding of many of the economic costs associated with implementation 
@@ -347,7 +411,7 @@ return (
 
 		 />
 
-	</>
+	</Card.Body>
 
 
 )

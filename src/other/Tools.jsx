@@ -73,15 +73,10 @@ return (
 
 
 
-  <Card id="a1">
 
-  <Card.Body>
 
-      <FormController key={key} variant={key} />
+      <FormController id="a1" key={key} variant={key} />
 
-  </Card.Body>
-
-  </Card>  
 
 
 

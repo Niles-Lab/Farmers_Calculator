@@ -61,23 +61,6 @@ let y = d3.scaleLinear()
     .attr("class", "svg-content-responsive svg-container")
     .attr("preserveAspectRatio", "xMinYMin meet")
     .attr("viewBox", "0 0 " + (width+(margin.left*2)) + " " + (height+margin.bottom))
-    // .on("pointerover", d => {
-    //   d3.select("#ttline")
-    //   .attr("opacity", 1);
-
-    //   d3.select("#ttlbl")
-    //   .attr("opacity", 1);
-
-    // })
-    // .on("pointerout", d => {
-
-    //   d3.select("#ttline")
-    //   .attr("opacity", 0);
-
-    //   d3.select("#ttlbl")
-    //   .attr("opacity", 0);
-
-    // })
     .on("pointermove", d => pointerMove(d))
     .append("g")
     .attr("class", "main")
@@ -248,22 +231,6 @@ let y = d3.scaleLinear()
     // Graph Legend
     const legend = svg.append("g")
     .attr("class", "legend");
-
-    // Add arc shape for legend
-    // legend.selectAll("path")
-    // .data(lines)
-    // .join("path")
-    //   // Manually add offset based on index of year
-    //   // Oh boy is this some spaghetti
-    //   // Note - 20 is the offset in this case, as each index is multiplied by 20
-    //   .attr("transform", (d,idx) => "translate(" + parseFloat(legendX-5) + "," + parseFloat((legendY-5) + (idx * 20)) + ")")
-    //   .attr("d", d3.arc()
-    //     .innerRadius(0)
-    //     .outerRadius(10)
-    //     .startAngle(Math.PI)
-    //     .endAngle(3.14 * 2)
-    //     )
-    //   .attr("fill", (d,idx) => yC[idx]);
 
     legend.selectAll("path")
     .data(lines)
@@ -495,6 +462,8 @@ let y = d3.scaleLinear()
     //   this.parentNode.appendChild(this); 
     //   });
 
+    console.log("data re")
+
   }, [props.data])
 
 
@@ -720,7 +689,7 @@ function pointerMove(d) {
 
             <tr>
               <th>Component</th>
-              <th>Per Acre</th>
+              <th>Per {props.unit === "Acres" ? "Acre" : "Hectare"}</th>
               <th>Total Area</th>
             </tr>
           {props.npv.map((d,idx) => (

@@ -72,7 +72,7 @@ function CalcForm(props) {
 							{props.units.map((item,idx) => (
 								<Dropdown.Item
 									key={item+idx}
-									onClick={e => props.setUnit(e.target.innerHTML)}>
+									onClick={() => props.setUnit(item)}>
 									{item}
 								</Dropdown.Item>
 								))}

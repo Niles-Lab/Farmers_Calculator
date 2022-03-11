@@ -11,7 +11,7 @@ const graphWidth = 800;
 //const graphWidth = this.sizeRef.current.offsetWidth;
 
 // How many sq ft in an acre
-const acreFt = 43560;
+var acreFt = 43560;
 
 // At what age is a tree mature enough to start producing profits
 const maturingYears = 10;
@@ -80,12 +80,14 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 
 useEffect(() => {
 
+// 43560 feet in an acre, 107639 in a hectare
+acreFt = props.unit === "Acres" ?  43560 : 107639;
 let tmpData = [];
 
 // Map each data point with:
 // x -> year
 // y -> revenue, cost, net gain
-d3.range(0, parseInt(props.length)).forEach(d => {
+d3.range(0, parseInt(props.length)+1).forEach(d => {
 
 
   let rev = 0;
@@ -95,9 +97,12 @@ d3.range(0, parseInt(props.length)).forEach(d => {
   
     // Total Labor Costs
     let treePlantingCost = props.opts.treeSeedlingCost[0] + props.opts.treeLaborCost[0];
+    let treesPerAcre = acreFt / (props.opts.treeSpacing[0]**2);
 
-    rev = (parseInt(d) >= maturingYears ? parseFloat(props.opts.treesPerAcre[0]*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity);
-    cst = (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*treePlantingCost : props.opts.treesPerAcre[0] * props.opts.treeCost[0])    
+    rev = (parseInt(d) >= maturingYears ? parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity);
+    cst = (parseInt(d) < 1 ? treesPerAcre*treePlantingCost : treesPerAcre * props.opts.treeCost[0])    
+
+    //cst = (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*treePlantingCost : props.opts.treesPerAcre[0] * props.opts.treeCost[0])    
   
   }
   else if(props.method === "irrigation") {
@@ -114,7 +119,7 @@ d3.range(0, parseInt(props.length)).forEach(d => {
       cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
       props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
 
-    } else {
+    } else { // Drip irrigation calculation
 
       let tapeLength = acreFt / props.opts.cropRowSpacing[0];
 
@@ -181,9 +186,7 @@ d3.range(0, parseInt(props.length)).forEach(d => {
 
 });
 
-
-
-}, [props.opts])
+}, [props.opts, props.length, props.land, props.crops, props.unit])
 
 
 
@@ -207,7 +210,7 @@ data.forEach(d => {
 
 
 // Resize graph if largest value exceeds current domain
-let xDom = [1,parseInt(props.length)];
+let xDom = [1,parseInt(props.length)+1];
 let yDom = [smallest*1.25, largest*1.25];
 
 

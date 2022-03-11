@@ -55,8 +55,8 @@ const silvoptions = {
 	treeLaborCost:
 	[4.75, "$", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
 	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
-	treesPerAcre: 
-	[48, "Tr/Acre", "Trees Per Acre"],
+	// treesPerAcre: 
+	// [48, "Tr/Acre", "Trees Per Acre"],
 	treeCost: 
 	[2.50, "$/yr", "Tree Maintenance Cost"],
 	treeCropYield: 
@@ -258,6 +258,7 @@ return (
 			{/*Calculator Output Table*/}
 			<Calculator
 				key={props.variant}
+				unit={unit}
 				land={(unit === "Acres") ? parseFloat(land) : parseFloat(land) * 2.47105}
 				acres={unit}
 				method={props.variant}

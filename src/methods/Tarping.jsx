@@ -8,10 +8,11 @@
 import { Alert, Card, Row, Col, Nav, Navbar, ListGroup, Tab} from 'react-bootstrap';
 import FormController from './../calc/FormController';
 import ExternalLink from './../other/ExternalLink';
+import Acknowledgements from '../other/Acknowledgements';
 import ImageController from './../viz/ImageController';
 import cover from './../images/tarping/cover/IMG_3500.png';
 
-const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
+const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources", "Acknowledgements"]; 
 
 
 function Tarping(props) {
@@ -207,7 +208,15 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 </Col>
 
 </Row>
-
+    <div id="a4">
+        <Acknowledgements
+            authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Stephanie Hurley, Sonja Birthisel"
+            team={[["Principal Investigator", "Meredith Niles"], 
+            ["Co-Principal Investigators", "Dr. Adam Daigneault, Dr. Nick Cheney, Dr. Joshua Faulkner, Dr. Eric Gallandt, Dr. Stephanie Hurley, Dr. Rachel Schattman"],
+            ["Additional Team Members", "Dr. Sonja Birthisel, Dr. Bradford Demarest, Tim Harrold, Beth Holtzman, Carolyn Hricko, Erin Lane, Ruthie Clements, Devon Johnson, Thomas Wentworth"]]}
+            external={["Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems", "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University"]}
+        />
+    </div>
 </>
 )
 }

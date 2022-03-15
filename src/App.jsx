@@ -1,5 +1,5 @@
 import React, { useState }  from 'react'
-import { Navbar, Nav, Image, Col } from 'react-bootstrap';
+import { Navbar, Nav, Image, Col, Row } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Route, Switch } from 'react-router-dom';
 import './App.css';
@@ -99,18 +99,18 @@ const handleClose = () => setShow(false);
       </Col>*/}
 
       <Col xs={12} lg={2}>
-        <Image fluid className="w-75" src={uvm} />
+        <Image fluid className="w-100" src={uvm} />
       </Col>
 
       <Col xs={12} lg={2}>
-        <Image fluid className="w-75" src={umaine}/>
+        <Image fluid className="w-100" src={umaine}/>
       </Col>
 
-      <Col xs={12} lg={2}>
-        <Image fluid className="w-100" src={climatehub}/>
+      <Col xs={12} lg={3}>
+        <Image fluid className="w-75" src={climatehub}/>
       </Col>
   
-      <Col xs={12} lg={3}>
+      {/* <Col xs={12} lg={3}>
         <Image fluid src={nifa}/>
       </Col>    
 
@@ -118,9 +118,21 @@ const handleClose = () => setShow(false);
 
       <Col xs={0} lg={{ span: 3 }}>
       <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098. Any opinions, findings, conclusions, or recommendations expressed in this publication are those of the author(s) and do not necessarily reflect the view of the U.S. Department of Agriculture.</Nav.Item>
-      <Nav.Item className="small text-wrap"></Nav.Item>
+
+      </Col> */}
+      <Col xs={12} lg={2}>
       </Col>
 
+
+      <Col xs={12} lg={{ span: 3 }}>
+        <Row className="d-flex justify-content-center">
+          <Image className='w-100' fluid src={nifa}/>
+        </Row>
+        <Row>
+          <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098. Any opinions, findings, conclusions, or recommendations expressed in this publication are those of the author(s) and do not necessarily reflect the view of the U.S. Department of Agriculture.</Nav.Item>
+        </Row>
+      </Col>
+      
 
     </Navbar>
 

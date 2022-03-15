@@ -150,7 +150,7 @@ div {
  
   overflow:  hidden;
   min-height: 90vh;
-
+  max-height: 100vh;
   background-attachment: fixed;
   background-position: center;
   background-repeat: no-repeat;

@@ -8,7 +8,7 @@ function ExternalLink(props) {
 	return (
 
     <>
-      <Row className="d-flex w-100">
+      <Row className="my-2 d-flex w-100">
 
         <Col xs={props.link ? 11 : 12} className="d-flex justify-content-start">
           <p>

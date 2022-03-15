@@ -110,8 +110,8 @@ function ImageSlider(props) {
 
 	return (
 	<Container fluid className="position-relative py-5 d-block h-auto">
-        <hr/>        
-        <Card.Title className="mt-5 mb-5">{props.title}</Card.Title>
+    
+        <Card.Title className="mt-1 mb-5">{props.title}</Card.Title>
 
 
 

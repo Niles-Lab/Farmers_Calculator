@@ -9,11 +9,12 @@
 
  import FormController from './../calc/FormController';
  import ExternalLink from './../other/ExternalLink';
+ import Acknowledgements from '../other/Acknowledgements';
  import ImageController from './../viz/ImageController';
 
  import cover from './../images/silvopasture/cover/cover2.JPG';
 
- const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources"]; 
+ const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources", "Acknowledgements"]; 
 
 
 function Silvopasture(props) {
@@ -303,6 +304,16 @@ Before installing silvopasture systems, trade-offs should be
 <ExternalLink link={"https://www.aftaweb.org/about/afta.html"} label={"Association for Temperate Agroforestry (association promoting the wider adoption of agroforestry by landowners in temperate regions of North America)"} />
 <ExternalLink link={"https://www.capitalrcd.org/nema-about-us.html"} label={"Northeast/Mid-Atlantic Agroforestry (NEMA) Working Group"} />
 <ExternalLink link={"/resources/smith_etal.pdf"} label={"Silvopasture in the USA: A systematic review of natural resource professional and producer-reported benefits, challenges, and management activities "} />
+
+<div id="a4">
+        <Acknowledgements
+            authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Joshua Faulkner, Stephanie Hurley"
+            team={[["Principal Investigator", "Meredith Niles"], 
+            ["Co-Principal Investigators", "Dr. Adam Daigneault, Dr. Nick Cheney, Dr. Joshua Faulkner, Dr. Eric Gallandt, Dr. Stephanie Hurley, Dr. Rachel Schattman"],
+            ["Additional Team Members", "Dr. Sonja Birthisel, Dr. Bradford Demarest, Tim Harrold, Beth Holtzman, Carolyn Hricko, Erin Lane, Ruthie Clements, Devon Johnson, Thomas Wentworth"]]}
+            external={["Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment", "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County", "Kate MacFarland, Agroforester, USDA National Agroforestry Center", "Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture"]}
+        />
+    </div>
 
 
 </Col>

@@ -98,15 +98,15 @@ const handleClose = () => setShow(false);
 
       </Col>*/}
 
-      <Col xs={12} lg={2}>
+      <Col xs={12} md={6} lg={2}>
         <Image fluid className="w-100" src={uvm} />
       </Col>
 
-      <Col xs={12} lg={2}>
+      <Col xs={12} md={6} lg={2}>
         <Image fluid className="w-100" src={umaine}/>
       </Col>
 
-      <Col xs={12} lg={3}>
+      <Col xs={12} md={6} lg={3}>
         <Image fluid className="w-75" src={climatehub}/>
       </Col>
   
@@ -120,11 +120,11 @@ const handleClose = () => setShow(false);
       <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098. Any opinions, findings, conclusions, or recommendations expressed in this publication are those of the author(s) and do not necessarily reflect the view of the U.S. Department of Agriculture.</Nav.Item>
 
       </Col> */}
-      <Col xs={12} lg={2}>
+      <Col xs={12} md={0} lg={2}>
       </Col>
 
 
-      <Col xs={12} lg={{ span: 3 }}>
+      <Col xs={12} md={12} lg={{ span: 3 }}>
         <Row className="d-flex justify-content-center">
           <Image className='w-100' fluid src={nifa}/>
         </Row>

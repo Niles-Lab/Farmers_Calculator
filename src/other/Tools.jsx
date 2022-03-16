@@ -1,3 +1,10 @@
+/**
+ * 
+ * Economic Tools Page
+ * 
+ * This should allow a user to toggle between all available economic tools
+ * 
+ */
 import React, { useState } from 'react';
 import { Card, Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 import FormController from "./../calc/FormController.jsx"
@@ -49,8 +56,6 @@ return (
       className="d-block"
       activeKey={key}
       onSelect={(k) => setKey(k)}>
-
-   
 
 
         <Nav.Item>

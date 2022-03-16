@@ -34,10 +34,10 @@ function CalcForm(props) {
 
 
 				<Row>
-					<Col>
+					<Col xs={12} lg={6}>
 						Length of Project
 					</Col>
-					<Col>
+					<Col xs={12} lg={6}>
 					<InputGroup>
 					<Form.Control
 						placeholder="..."

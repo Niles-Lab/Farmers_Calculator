@@ -79,24 +79,34 @@ function Silvopasture(props) {
 		<Row className="mt-5">
 
 		<p>
-		Silvopasture is an agroforestry system that combines well-managed woodlands and pastures to generate both livestock and forest products 
-		on the same parcel of land. Silvopasture systems are diverse and varied and can be designed to meet farmers’ unique goals and complement 
-		existing and desired farm characteristics. Silvopasture is often incorporated into farm systems that have numerous types of land use, 
-		including open pasture. This brief focuses on pasture enrichment, which involves adding trees into the pasture area and is eligible for 
-		federal cost-share programs. Silvopasture may also take other forms, such as forest thinning in which trees are thinned in uniform, patch, 
-		or irregular patterns, and pasture species are seeded, though farmers should investigate this option with a forester to ensure compliance 
-		with current use designations.  
+		Silvopasture is an agroforestry system that intentionally combines trees, forage, and 
+		pastures to generate both livestock and forest products on the same unit of land. 
+		Silvopasture systems are diverse and varied and can be designed to meet farmers’ unique 
+		goals and complement existing and desired farm characteristics. Silvopasture can be 
+		incorporated into farm systems that have numerous types of land use, including open 
+		pastures, woodlands, and orchards. This brief focuses on pasture enrichment, which 
+		involves adding trees into existing pasture area and is eligible for federal cost-share
+		 programs. Silvopasture may also take other forms, such as forest thinning in which 
+		 trees are thinned in uniform, patch, or irregular patterns, and pasture forage species 
+		 are seeded. Converting an existing forest to silvopasture may involve natural resource
+		  concerns, so farmers interested in this option should consider trade-offs, ensure proper 
+		  planning and design, and consult with silvopasture experts and foresters to ensure success
+		   and compliance with local regulations. 
 		</p>
 
 		<br />
 
 		<p>
-		Silvopasture offers numerous climate change adaptation benefits that address challenges such as increased frequency and severity
-		 of weather extremes (i.e. drought, heat, and heavy rains). Pasture enrichment provides shade and protection for livestock, may 
-		 enhance carbon sequestration, and can improve water filtration and retention. Skilled and active management of enriched pastures
-		  together with sound livestock husbandry are essential to achieving a sustainable and successful silvopasture system. Experience 
-		  with and knowledge of rotational grazing systems form a strong foundation for skilled management of silvopasture systems. Without
-		   proper management, farms may experience issues with soil degradation and compaction, and damage to tree roots, bark, and branches. 
+		Silvopasture offers numerous climate change adaptation benefits that address challenges such
+		 as increased frequency and severity of weather extremes (i.e. drought, heat, and heavy rains).
+		  Pasture enrichment with trees provides shade and protection for livestock, may enhance carbon
+		   sequestration, and can improve water filtration and retention. Skilled and active management
+		    of enriched pastures together with sound livestock husbandry are essential to achieving a 
+			sustainable and successful silvopasture system. Experience with and knowledge of rotational
+			 grazing systems form a strong foundation for skilled management of silvopasture systems. 
+			 Without proper management, farms using silvopasture may experience issues with soil 
+			 degradation and compaction, decreased water retention and quality, and damage to tree 
+			 roots, bark, and branches. 
 		</p>
 
 		</Row>
@@ -130,7 +140,7 @@ src={pe[0][1].default}
 <hr/>
 
 <Alert variant={'info'} className="px-5 mx-5 mb-0">
-Components of Northeast Silvopasture systems may include but are not limited to these elements
+Components of Northeast silvopasture systems may include but are not limited to:
 </Alert>
 
 <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
@@ -143,7 +153,6 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 <ListGroup.Item variant="light" action href="">Fruit Trees</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Eastern White Pine</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Hickories</ListGroup.Item>  
-<ListGroup.Item variant="light" action href="">Eastern Hemlock</ListGroup.Item> 
 <ListGroup.Item variant="light" action href="">Commercial Nut Trees</ListGroup.Item>  
 <ListGroup.Item variant="light" action href="">Black Locust</ListGroup.Item>  
 
@@ -152,15 +161,14 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 </Col>
 <Col>      
 <ListGroup className="my-3">
-<ListGroup.Item variant="success">Forest Products</ListGroup.Item>
+<ListGroup.Item variant="success">Tree Products</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Firewood</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Sawtimber</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Fence Posts</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Scion Wood</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Fruit</ListGroup.Item>  
 <ListGroup.Item variant="light" action href="">Nuts</ListGroup.Item> 
-<ListGroup.Item variant="light" action href="">Maple Sap</ListGroup.Item>  
-<ListGroup.Item variant="light" action href="">Tree Nursery</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Maple Sap</ListGroup.Item> 
 
 </ListGroup>
 </Col>
@@ -195,35 +203,12 @@ Components of Northeast Silvopasture systems may include but are not limited to 
 </Row>
 </Tab.Container>
 
-
-{/* Tabbed view of method variants */}
-
 <hr/>
-<Card.Title id="a1">Visualizations</Card.Title>
-<hr/>
-
-<Alert variant={"success"}>
-These visualizations are designed to help the viewer picture how the implementation of a practice appears
- in the context of a real New England farm. These images depict the different stages of practice implementation
-  and help the viewer anticipate how the implementation of the practice will appear over time and what implications
-   it may have for the farm. Use the slider tool to progress through the images and implement the practice.
-    <br/>
-   <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
-</Alert>
-
-
-<ImageController variant="silvopasture" />
-
-
-<hr/>
-<Card.Title>Benefits and Costs</Card.Title>
+<Card.Title>Silvopasture Adoption Costs and Benefits</Card.Title>
 <hr/>
 
 <Alert variant={'info'} className="px-5 mx-5 mb-0">
-Before installing silvopasture systems, trade-offs should be
- carefully considered. It may not be possible to realize all
-  or even some of these potential benefits, while potential 
-  challenges may be mitigated through management and/or silvopasture system design. 
+Carefully consider trade-offs before installing silvopasture systems. It may not be possible to realize all or even some of these potential benefits, though potential challenges may be mitigated through management and/or silvopasture system design. 
 
 </Alert>
 
@@ -232,13 +217,13 @@ Before installing silvopasture systems, trade-offs should be
 <Row>
 <Col>      
 <ListGroup className="my-3">
-<ListGroup.Item variant="success">Benefits</ListGroup.Item>
+<ListGroup.Item variant="success">Potential Benefits</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Improved animal performance through greater comfort with shelter and shade</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Improved animal health through diversified diets</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Diversified farm products and income</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Balancing of seasonal forage growth and increased forage availability during droughts</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Cost-effective vegetation control</ListGroup.Item>  
-<ListGroup.Item variant="light" action href="">Creation of high-value wildlife habitat</ListGroup.Item>  
+<ListGroup.Item variant="light" action href="">Creation of wildlife habitat</ListGroup.Item>  
 <ListGroup.Item variant="light" action href="">Improved soil health</ListGroup.Item>  
 <ListGroup.Item variant="light" action href="">Improved water retention and quality</ListGroup.Item> 
 <ListGroup.Item variant="light" action href="">Carbon sequestration</ListGroup.Item>  
@@ -247,18 +232,39 @@ Before installing silvopasture systems, trade-offs should be
 </Col>
 <Col>      
 <ListGroup className="my-3">
-<ListGroup.Item variant="danger">Costs</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Livestock exposure to toxic plants, predators, parasites, diseases, physical hazards, hunters</ListGroup.Item>
+<ListGroup.Item variant="danger">Potential Costs</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Livestock exposure to toxic plants, predators, parasites, diseases, physical hazards</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Silvopasture establishment and maintenance costs, time, and labor</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Managers’ lack of silvopasture management experience and knowledge </ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Reduced mobility of farm equipment in grazing areas</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Decreased water retention and quality</ListGroup.Item>  
+<ListGroup.Item variant="light" action href="">Managers’ lack of silvopasture management experience and knowledge</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Depending on silvopasture design, farm equipment mobility in grazing areas may be reduced or hindered</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Implementation of silvopasture may impact farms’ Current Use designation and enrollment</ListGroup.Item>  
+<ListGroup.Item variant="light" action href="">Reduced ability to harvest and dry hay in pasture areas</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Possible reduction in total forage yield, depending on amount of shade from trees</ListGroup.Item>  
 
 </ListGroup>
 </Col>
 </Row>
 </Tab.Container>
+
+
+
+{/* Tabbed view of method variants */}
+
+<hr/>
+<Card.Title id="a1">Visualizations</Card.Title>
+<hr/>
+
+<Alert variant={"success"}>
+	These visualizations are designed to help the viewer picture how the implementation of 
+	silvopasture appears in the context of a real New England farm. These images depict the 
+	different stages of practice implementation and help the viewer anticipate how silvopasture 
+	will appear over time and what implications it may have for the farm. 
+    <br/>
+   <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
+</Alert>
+
+{/* Visualizations */}
+<ImageController variant="silvopasture" />
 
 
 
@@ -302,8 +308,9 @@ Before installing silvopasture systems, trade-offs should be
 <Card.Title className="my-3">Other</Card.Title>
 
 <ExternalLink link={"https://www.aftaweb.org/about/afta.html"} label={"Association for Temperate Agroforestry (association promoting the wider adoption of agroforestry by landowners in temperate regions of North America)"} />
-<ExternalLink link={"https://www.capitalrcd.org/nema-about-us.html"} label={"Northeast/Mid-Atlantic Agroforestry (NEMA) Working Group"} />
-<ExternalLink link={"/resources/smith_etal.pdf"} label={"Silvopasture in the USA: A systematic review of natural resource professional and producer-reported benefits, challenges, and management activities "} />
+<ExternalLink link={"https://www.capitalrcd.org/nema-about-us.html"} label={"Northeast/Mid-Atlantic Agroforestry (NEMA) Working Group (network of researchers, technical service providers, agency staff, farmers and producers focused on educating, promoting and implementing agroforestry systems in the region)"} />
+<ExternalLink link={"http://silvopasture.ning.com/"} label={"Silvopasture Ning Network (online forum and blog for silvopasture practitioners, advisors, and others)"} />
+<ExternalLink link={"/resources/smith_etal.pdf"} label={"Silvopasture in the USA: A systematic review of natural resource professional and producer-reported benefits, challenges, and management activities (Smith, M. M., Bentrup, G., Kellerman, T., MacFarland, K., Straight, R., Ameyaw, L., & Stein, S. 2022. Agriculture, Ecosystems & Environment, 326, 107818.)"} />
 
 <div id="a4">
         <Acknowledgements

@@ -191,7 +191,6 @@ function Irrigation(props) {
                         <Card.Title id="a3">Additional Resources</Card.Title>
                         <hr/>
                         
-                        
 
                 <Container>
                     <Row>
@@ -248,7 +247,10 @@ function Irrigation(props) {
 
 
                     </Row>
-                    
+                    <ExternalLink label={"Download this practice page"} download={[
+                        ["pdf", "/resources/briefs/Irrigation 3.2.22 paper.pdf"],
+                        ["docx", "/resources/briefs/Irrigation 3.2.22 paper.docx"]]} />
+
                     <div id="a4">
                     <Acknowledgements
                         authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Joshua Faulkner, Stephanie Hurley, Rachel Schattman"

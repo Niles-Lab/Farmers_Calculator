@@ -281,6 +281,9 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 <Card.Title id="a3">Additional Resources</Card.Title>
 <hr/>
 
+
+
+
 <Card.Title className="my-3 pt-4">Virtual Tours and Videos</Card.Title>
 
 <ExternalLink link={"https://www.climatehubs.usda.gov/hubs/northeast/project/agroforestry-angus-glen"} label={"Agroforestry Angus Glen Farms, NY (USDA Northeast Climate Hub)"} /> 
@@ -311,6 +314,11 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 <ExternalLink link={"https://www.capitalrcd.org/nema-about-us.html"} label={"Northeast/Mid-Atlantic Agroforestry (NEMA) Working Group (network of researchers, technical service providers, agency staff, farmers and producers focused on educating, promoting and implementing agroforestry systems in the region)"} />
 <ExternalLink link={"http://silvopasture.ning.com/"} label={"Silvopasture Ning Network (online forum and blog for silvopasture practitioners, advisors, and others)"} />
 <ExternalLink link={"/resources/smith_etal.pdf"} label={"Silvopasture in the USA: A systematic review of natural resource professional and producer-reported benefits, challenges, and management activities (Smith, M. M., Bentrup, G., Kellerman, T., MacFarland, K., Straight, R., Ameyaw, L., & Stein, S. 2022. Agriculture, Ecosystems & Environment, 326, 107818.)"} />
+
+
+<ExternalLink label={"Download this practice page"} download={[
+	["pdf", "/resources/briefs/Silvopasture 3.2.22 paper.pdf"],
+	["docx", "/resources/briefs/Silvopasture 3.2.22 paper.docx"]]} />
 
 <div id="a4">
         <Acknowledgements

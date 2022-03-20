@@ -201,6 +201,10 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
 <ExternalLink link={""} label={"Mays, Daniel. The No-Till Organic Vegetable Farm: How to Start and Run a Profitable Market Garden That Builds Health in Soil, Crops, and Communities. Storey Publishing, LLC. November 10, 2020. ISBN-10: 1635861896."} />
 
+<ExternalLink label={"Download this practice page"} download={[
+	["pdf", "/resources/briefs/Tarping 3.2.22 paper.pdf"],
+	["docx", "/resources/briefs/Tarping 3.2.22 paper.docx"]]} />
+
 
 <div id="a4">
         <Acknowledgements

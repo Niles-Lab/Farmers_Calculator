@@ -77,7 +77,17 @@ Parent(s): `FormController`
 
 Children: `EconomicTool`
 
-This is purely a data-computation class. Given upstream options and inputs, this will calculate values for the economic tool.
+This is purely a data-computation class. Given upstream options and inputs, this will calculate values for the economic tool. It is expected to output `data`, an array of objects in the form of {`year`, `revenue`, `cost`, `value`}
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `length`<span style="color:red">*</span>                   | `float`   | `See FormController`                        | Project length in years                                                                                         |
+| `unit`<span style="color:red">*</span>                   | `string`   | `Acres`                        | Unit for `land` prop. Current values include [`Acres`, `Hectares`]. More may be added in FormController.                                                                                         |
+| `land`<span style="color:red">*</span>                   | `float`   | `Dependant on Variant`                        | Land owned by farmer.                                                                                        |
+| `method`<span style="color:red">*</span>                   | `string`   | `See FormController`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use in this component is to display `"More `[method]` options"`                                                                                          |
+| `irrTech`<span style="color:red">*</span>                   | `string`   | `Spray Irrigation`                        | Specialty option for Irrigation. Can be set to `Spray Irrigation` or `Drip Irrigation`. Methods will share much of the same states because they are so similar.                                                                                        |
+| `opts`<span style="color:red">\*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">\*</span>, unit<span style="color:red">\*</span> , description<span style="color:red">\*</span> , tooltip description, tooltip URL]                                                                                                       |
+| `EconomicTool Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `EconomicTool` but child to FormController, all props in `EconomicTool` must be passed through here. Please see `EconomicTool` props.                                                                                            |
 
 ### EconomicTool
 

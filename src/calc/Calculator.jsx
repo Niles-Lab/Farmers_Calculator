@@ -186,7 +186,7 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
 
 });
 
-}, [props.opts, props.length, props.land, props.crops, props.unit])
+}, [props.opts, props.length, props.land, props.unit])
 
 
 

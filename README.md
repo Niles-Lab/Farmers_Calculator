@@ -30,11 +30,22 @@ Main component for the Economic Tool. This holds default state data for all prac
 
 | Prop                       | Type     | Default                        | Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ |---------------------------------------------------------------------------------------------------------------------------------- |
-| `opts`<span style="color:red">*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">*</span>, unit<span style="color:red">*</span> , description<span style="color:red">*</span> , tooltip description, tooltip URL]                                                                                                       |
-
-### CalcForm
+| `opts`<span style="color:red">\*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">\*</span>, unit<span style="color:red">\*</span> , description<span style="color:red">\*</span> , tooltip description, tooltip URL]                                                                                                       |
+| `method`<span style="color:red">\*</span>                    | `string`   | `N/A`                         |  The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use is to display `"More `[method]` options"`                                                                 |
+| `rate`<span style="color:red">\*</span>                    | `float`   | `0.05`                         |  The Net-Present Value Discount rate. This is a more nuanced value, and thus included in advanced options. It is typically 0.05, and should generally not be changed unless you are familiar with economics.                                                                |
 
 ### CalcShow
+
+Parent(s): `FormController`
+
+Children: ``
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component. In                                                                                                  |
+
+
+### CalcForm
 
 ### Calculator
 

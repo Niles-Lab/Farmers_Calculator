@@ -1,8 +1,10 @@
 # Climate Adaptation Resources for Northern New England Farmers
 
 - [Abstract](#abstract)
-- [Components](#Components)
-
+- [Components](#components)
+  - [Calculator](#calculator) 
+  - [Visualizations](#visualizations) 
+  - [Other](#other) 
 - [Sources](#sources)
 
 
@@ -25,6 +27,10 @@ Main component for the Economic Tool. This holds default state data for all prac
 | `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component. In                                                                                                  |
 
 ### AdvancedOptions
+
+Parent(s): `CalcForm`
+
+Children: `None`
 
 "More __ Options" dropdown for each practice, should be nested inside of CalcForm. These are practice-specific values.
 
@@ -55,23 +61,27 @@ Children: `AdvancedOptions`
 | Prop                       | Type     | Default                        |Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `length, setLength`<span style="color:red">*</span>                   | `float`   | ``                        | Project length in years                                                                                         |
-| `unit, setUnit`<span style="color:red">*</span>                   | `float`   | `Acres`                        | Unit for land ownership. Current values include [`Acres`, `Hectares`]. More may be added in FormController.                                                                                         |
+| `unit, setUnit`<span style="color:red">*</span>                   | `float`   | `Acres`                        | Unit for `land` prop. Current values include [`Acres`, `Hectares`]. More may be added in FormController.                                                                                         |
 | `land, setLand`<span style="color:red">*</span>                   | `float`   | `Dependant on Variant`                        | Land owned by farmer.                                                                                        |
-| `method`<span style="color:red">*</span>                   | `string`   | `string`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use is to display `"More `[method]` options"`                                                                                          |
+| `method`<span style="color:red">*</span>                   | `string`   | `string`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use in this component is to display `"More `[method]` options"`                                                                                          |
 | `irrTech`<span style="color:red">*</span>                   | `string`   | `Spray Irrigation`                        | Specialty option for Irrigation. Can be set to `Spray Irrigation` or `Drip Irrigation`. Methods will share much of the same states because they are so similar.                                                                                        |
+| `handleClose`<span style="color:red">*</span>                   | `function`   | `N/A`                        | Method to open/close Offcanvas element, managed by FormController. This is used in the "X" next to calculator title.                                                                                                 |
 | `AdvancedOptions Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `AdvancedOptions` but child to FormController, all props in `AdvancedOptions` must be passed through here. Please see `AdvancedOptions` props.                                                                                            |
-| `handleClose`<span style="color:red">*</span>                   | `function`   | `N/A`                        | Method to open/close Offcanvas element, managed by FormController. This is used in the "X" next to the calculator title.                                                                                                 |
+
 
 
 
 ### Calculator
 
+Parent(s): `FormController`
+
+Children: `EconomicTool`
+
+This is purely a data-computation class. Given upstream options and inputs, this will calculate values for the economic tool.
+
 ### EconomicTool
 
-### DDSelect (Deprecated)
-
-
-
+This is the d3 visualization of the Economic Tool. It holds the actual graph and table, and re-renders on each data update.
 
 
 ## Visualizations

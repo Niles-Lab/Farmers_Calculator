@@ -24,12 +24,12 @@ function ExternalLink(props) {
     <>
       <Row className="my-2 d-flex w-100">
 
-        <Col xs={props.download ? 6 : 10} className={props.download ? "d-flex justify-content-end" : "d-flex justify-content-start"}>
+        <Col xs={props.download ? 6 : 11} className={props.download ? "d-flex justify-content-end" : "d-flex justify-content-start"}>
           <p>
             {props.label}
           </p>
         </Col>
-        <Col xs={props.link ? 2 : 6} className={props.download ? "d-flex justify-content-start" : "d-flex justify-content-end"}>
+        <Col xs={props.link ? 1 : 6} className={props.download ? "d-flex justify-content-start" : "d-flex justify-content-end"}>
           {props.link &&
           <a className="mx-auto" target="_blank" rel="noreferrer" href={props.link}>
              <BsBoxArrowUpRight />

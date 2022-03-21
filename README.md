@@ -18,7 +18,7 @@ The Economic Tool will help to understand long-term investments as applicable to
 
 ### FormController
 
-Main component for the Economic Tool. This holds default state data for all practices, values for all tools in use, and text descriptions of how to use tools.
+Main component for the Economic Tool. This holds default state data for all practices, values for all tools in use, and text descriptions of how to use tools. It also holds offcanvas state, button / calculator layout, and table vs. graph view.
 
 | Prop                       | Type     | Default                        |Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
@@ -38,14 +38,31 @@ Main component for the Economic Tool. This holds default state data for all prac
 
 Parent(s): `FormController`
 
-Children: ``
+Children: `CalcForm`
 
 | Prop                       | Type     | Default                        |Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component. In                                                                                                  |
-
+| `show`<span style="color:red">*</span>                   | `boolean`   | `true`                        | Managed state for offcanvas being open/closed. Managed by FormController.                                                                                             |
+| `handleClose`<span style="color:red">*</span>                   | `function`   | `N/A`                        | Method to open/close Offcanvas element, managed by FormController.                                                                                                  |
+| `CalcForm Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `CalcForm` but child to FormController, all props in `CalcForm` must be passed through here. Please see `CalcForm` props.                                                                                            |
 
 ### CalcForm
+
+Parent(s): `CalcShow`
+
+Children: `AdvancedOptions`
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `length, setLength`<span style="color:red">*</span>                   | `float`   | ``                        | Project length in years                                                                                         |
+| `unit, setUnit`<span style="color:red">*</span>                   | `float`   | `Acres`                        | Unit for land ownership. Current values include [`Acres`, `Hectares`]. More may be added in FormController.                                                                                         |
+| `land, setLand`<span style="color:red">*</span>                   | `float`   | `Dependant on Variant`                        | Land owned by farmer.                                                                                        |
+| `method`<span style="color:red">*</span>                   | `string`   | `string`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use is to display `"More `[method]` options"`                                                                                          |
+| `irrTech`<span style="color:red">*</span>                   | `string`   | `Spray Irrigation`                        | Specialty option for Irrigation. Can be set to `Spray Irrigation` or `Drip Irrigation`. Methods will share much of the same states because they are so similar.                                                                                        |
+| `AdvancedOptions Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `AdvancedOptions` but child to FormController, all props in `AdvancedOptions` must be passed through here. Please see `AdvancedOptions` props.                                                                                            |
+| `handleClose`<span style="color:red">*</span>                   | `function`   | `N/A`                        | Method to open/close Offcanvas element, managed by FormController. This is used in the "X" next to the calculator title.                                                                                                 |
+
+
 
 ### Calculator
 

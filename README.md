@@ -1,25 +1,71 @@
 # Climate Adaptation Resources for Northern New England Farmers
 
 - [Abstract](#abstract)
-- [About this application](#file-structure)
+- [Components](#Components)
+
 - [Sources](#sources)
 
 
 # Abstract
 
-This is an open-sourced React-JS application aimed to support small, medium and beginning farms in Vermont and other parts of New England. It should serve as a platform to educate farmers on existing tools and research on climate change. A part of this research is aimed at focusing on what issues farmers are facing, and how to best communicate solutions to these problems.
+This is an open-sourced React-JS application aimed to support small, medium and beginning farms in Vermont and other parts of New England. Currently two tools exist within this website outlining three farming practices. Silvopasture, Tarping, and Irrigation are covered through practice pages, and with Visualzation + Economic Tools.
 
-A provided calculator application will help to understand long-term investments as applicable to each farm on a case-by-case basis.
+The Economic Tool will help to understand long-term investments as applicable to each farm on a case-by-case basis, while Visualizations may give an idea as to what these practices really look like.
 
-# File Structure
+# Components
 
-When possible, each component has been implemented as functional rather than Object-Oriented. This is to help in pushing the state up, as well as to allow more freedom in custom scripts per file.
+## Calculator
 
-All data has been loaded in as a .json file for standardization, and ease of use in working with D3.js.
+### FormController
 
-Because D3 tries to modify the DOM directly, whereas React has a virtual DOM, it is difficult to render and modify the style of each chart. I believe this is because d3 and react render asynchronously, each containing its own style that is inconsistent in its priority. To work around this, a "callback function" of sorts was implemented in most of these visualizations. It will re-draw each chart on render, using a global variable "rerender".
+Main component for the Economic Tool. This holds default state data for all practices, values for all tools in use, and text descriptions of how to use tools.
 
-<img alt="Component Chart" src="./components.png">
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component. In                                                                                                  |
+
+### AdvancedOptions
+
+"More __ Options" dropdown for each practice, should be nested inside of CalcForm. These are practice-specific values.
+
+| Prop                       | Type     | Default                        | Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ |---------------------------------------------------------------------------------------------------------------------------------- |
+| `opts`<span style="color:red">*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">*</span>, unit<span style="color:red">*</span> , description<span style="color:red">*</span> , tooltip description, tooltip URL]                                                                                                       |
+
+### CalcForm
+
+### CalcShow
+
+### Calculator
+
+### EconomicTool
+
+### DDSelect (Deprecated)
+
+
+
+
+
+## Visualizations
+
+Visualizations for practices are read out of each practice's folder. In src/images/silvopasture, you will find several folders pertaining to practices. These image groups are automatically loaded into visualization collections by folder. They are loaded alphabetically, so you may insert or reorder images by simply changing their file names.
+
+### ImageController
+
+### ImageSlider
+
+## Other
+
+### Acknowledgements
+
+### Banner
+
+### ExternalLink
+
+### Resource
+
+
+
 
 # Sources
 

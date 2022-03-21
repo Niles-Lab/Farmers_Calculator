@@ -24,7 +24,7 @@ Main component for the Economic Tool. This holds default state data for all prac
 
 | Prop                       | Type     | Default                        |Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
-| `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component. In                                                                                                  |
+| `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component.                                                                                                |
 
 ### AdvancedOptions
 
@@ -37,7 +37,7 @@ Children: `None`
 | Prop                       | Type     | Default                        | Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ |---------------------------------------------------------------------------------------------------------------------------------- |
 | `opts`<span style="color:red">\*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">\*</span>, unit<span style="color:red">\*</span> , description<span style="color:red">\*</span> , tooltip description, tooltip URL]                                                                                                       |
-| `method`<span style="color:red">\*</span>                    | `string`   | `N/A`                         |  The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use is to display `"More `[method]` options"`                                                                 |
+| `method`<span style="color:red">\*</span>                    | `string`   | `N/A`                         |  The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`.                                                             |
 | `rate`<span style="color:red">\*</span>                    | `float`   | `0.05`                         |  The Net-Present Value Discount rate. This is a more nuanced value, and thus included in advanced options. It is typically 0.05, and should generally not be changed unless you are familiar with economics.                                                                |
 
 ### CalcShow
@@ -82,16 +82,33 @@ This is purely a data-computation class. Given upstream options and inputs, this
 | Prop                       | Type     | Default                        |Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `length`<span style="color:red">*</span>                   | `float`   | `See FormController`                        | Project length in years                                                                                         |
+| `rate`<span style="color:red">*</span>                   | `float`   | `0.05`                        | Net Present Value Discount Rate. This is used in the npv() method.                                                                                       |
 | `unit`<span style="color:red">*</span>                   | `string`   | `Acres`                        | Unit for `land` prop. Current values include [`Acres`, `Hectares`]. More may be added in FormController.                                                                                         |
 | `land`<span style="color:red">*</span>                   | `float`   | `Dependant on Variant`                        | Land owned by farmer.                                                                                        |
-| `method`<span style="color:red">*</span>                   | `string`   | `See FormController`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use in this component is to display `"More `[method]` options"`                                                                                          |
+| `method`<span style="color:red">*</span>                   | `string`   | `See FormController`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`.                                                                                         |
 | `irrTech`<span style="color:red">*</span>                   | `string`   | `Spray Irrigation`                        | Specialty option for Irrigation. Can be set to `Spray Irrigation` or `Drip Irrigation`. Methods will share much of the same states because they are so similar.                                                                                        |
 | `opts`<span style="color:red">\*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">\*</span>, unit<span style="color:red">\*</span> , description<span style="color:red">\*</span> , tooltip description, tooltip URL]                                                                                                       |
 | `EconomicTool Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `EconomicTool` but child to FormController, all props in `EconomicTool` must be passed through here. Please see `EconomicTool` props.                                                                                            |
 
 ### EconomicTool
 
+Parent(s): `Calculator`
+
+Children: `None`
+
 This is the d3 visualization of the Economic Tool. It holds the actual graph and table, and re-renders on each data update.
+
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `xDom`<span style="color:red">*</span>                   | `array`   | `[1,length+1]`                        | X Domain for graph, this should be updated whenever the project length is updated.                                                                                        |
+| `yDom`<span style="color:red">*</span>                   | `array`   | `[min(data)*1.25,max(data)*1.25]`                        | Y Domain for graph, this should be updated whenever the calculator data is updated.Min is always expected to be negative, so multiplying by 1.25 will produce a better lower Y than 0.75.                                                                                        |
+| `land`<span style="color:red">*</span>                   | `float`   | `Dependant on Variant`                        | Land owned by farmer.                                                                                        |
+| `method`<span style="color:red">*</span>                   | `string`   | `See FormController`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Used for practice-specific data, such as the asymptote for maturing trees in Silvopasture variant.                                                                                        |
+| `opts`<span style="color:red">\*</span>                    | `dictionary`   | `See FormController`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">\*</span>, unit<span style="color:red">\*</span> , description<span style="color:red">\*</span> , tooltip description, tooltip URL]. Used for practice-specific data, such as the asymptote for maturing trees in Silvopasture variant.                                                                                                          |
+| `tableView`<span style="color:red">\*</span>                    | `boolean`   | `false`                         |  Controlled boolean state for Economic Tool's form. If set to `true`, the tool will show as a table. Otherwise it will show as a graph.                                                                                                        |
+| `data`<span style="color:red">\*</span>                    | `array`   | `[]`                         |  Economic data passed into graph and table. This is generated by Calculator, and expected to be an array of Objects containing {`Year`, `Revenue`, `Cost`, `Value`}. On change, all lines are deleted and new ones are drawn on top.                                                                                                      |
+| `npv`<span style="color:red">\*</span>                    | `nested array`   | `see Calculator`                         |  Net Present Value in a nested array. This is expected to contain 3 arrays for revenue, cost, and their average. Each array should take the form [`Label`, `value`]                                                                                                    |
 
 
 ## Visualizations
@@ -100,7 +117,38 @@ Visualizations for practices are read out of each practice's folder. In src/imag
 
 ### ImageController
 
+Parent(s): `ImageController`
+
+Children: `None`
+
+Displaying element for interactive Visualizations. This features a slider, and multiple sets of images to scroll through. By modifying image opacity, this gives the effect of progression through a practice. Practices should be compartamentalized into separate objects containing three nested arrays. At index *i* of each array, data for each image set can be found.
+
+`titles`[*i*]: The title for this progression of images
+
+`images`[*i*]: An object representing a folder full of images. Attainable by passing a directory into the *ImportAll* method.
+
+`lbls`[*i*]: A set of labels for this group. This should be an array of strings of equal length to the images contained in this set.
+
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component.                                                                                                  |
+
 ### ImageSlider
+
+Parent(s): `Practice Pages`, `Visualization Pages`
+
+Children: `ImageSlider`
+
+This is mainly a data-holder such as FormController. It contains pointers to all image folders, titles and labels for each image group. It will import resources mainly from the src/images folder. When importing images, a folder is scanned and imported alphabetically. This will reflect in any ordered grouping of images.
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `group`<span style="color:red">*</span>                   | `array`   | `N/A`                        | An object representing a folder full of images. Attainable by passing a directory into ImageController's *ImportAll* method.                                                                                             |
+| `title`<span style="color:red">*</span>                   | `string`   | `N/A`                        | The title of this particular image group                                                                               |
+| `lbls`<span style="color:red">*</span>                   | `array`   | `N/A`                        | An array containing strings that label images in this group. This array should be the same size as the amount of images in `group`.                                                                                           |
+
+
 
 ## Other
 

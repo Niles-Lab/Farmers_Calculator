@@ -19,11 +19,7 @@
    return Object.entries(images);
  }
  
- 
- 
- 
- 
- 
+
  // 
  // 
  //  IRRIGATION DATA
@@ -190,12 +186,11 @@ const [group, setGroup] = useState(() => {
  
  
        <>
-       {/*<ImageSlider groups={groups} labels={labels} lbls={lbls} id="a1" />*/}
        {group.images.map((e,idz) => (
            
  
            
-           <ImageSlider key={key+idz} groups={e} lbls={group.lbls[idz]} title={group.titles[idz]} />
+           <ImageSlider key={key+idz} group={e} lbls={group.lbls[idz]} title={group.titles[idz]} />
  
  
  

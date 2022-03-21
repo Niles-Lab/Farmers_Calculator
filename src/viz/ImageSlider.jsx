@@ -31,8 +31,8 @@ function ImageSlider(props) {
 
 
     // Which image array is active?
-    const [active, setActive] = useState(props.groups);
-    //if(typeof props.groups[0] == 'object') setActive(props.groups[0]);
+    const [active, setActive] = useState(props.group);
+    //if(typeof props.group[0] == 'object') setActive(props.group[0]);
 
     // Opacity container for images
     const [opacity, setOpacity] = useState(def);
@@ -188,7 +188,7 @@ function ImageSlider(props) {
             <>
 
                 {/* Map the active image labels */}
-                {props.lbls[props.groups.indexOf(active)].map((lbl,idy) => (
+                {props.lbls[props.group.indexOf(active)].map((lbl,idy) => (
 
                 <Card.Title key={idy}
                 className="text-justify position-absolute pl-5 pt-3 d-block h-auto"

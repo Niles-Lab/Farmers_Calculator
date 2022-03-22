@@ -1,11 +1,19 @@
 # Climate Adaptation Resources for Northern New England Farmers
 
 - [Abstract](#abstract)
+- [Installation](#installation)
 - [Components](#components)
   - [Calculator](#calculator) 
   - [Visualizations](#visualizations) 
   - [Other](#other) 
 - [Sources](#sources)
+
+
+# Abstract
+
+This is an open-sourced React-JS application aimed to support small, medium and beginning farms in Vermont and other parts of New England. Currently two tools exist within this website outlining three farming practices. Silvopasture, Tarping, and Irrigation are covered through practice pages, and with Visualzation + Economic Tools.
+
+The Economic Tool will help to understand long-term investments as applicable to each farm on a case-by-case basis, while Visualizations may give an idea as to what these practices really look like.
 
 # Installation
 
@@ -21,11 +29,7 @@ If the updates look good in the provided temporary link, run:
 
 `netlify deploy --prod`
 
-# Abstract
 
-This is an open-sourced React-JS application aimed to support small, medium and beginning farms in Vermont and other parts of New England. Currently two tools exist within this website outlining three farming practices. Silvopasture, Tarping, and Irrigation are covered through practice pages, and with Visualzation + Economic Tools.
-
-The Economic Tool will help to understand long-term investments as applicable to each farm on a case-by-case basis, while Visualizations may give an idea as to what these practices really look like.
 
 # Components
 

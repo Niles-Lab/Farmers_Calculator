@@ -6,7 +6,7 @@
  * 
  */
 import React, { useState } from 'react';
-import { Card, Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
+import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 import FormController from "./../calc/FormController.jsx"
 
 

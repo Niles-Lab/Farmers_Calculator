@@ -31,7 +31,7 @@ function Irrigation(props) {
 		<>
 
 
-          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
+          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${brief1})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
                     <Row className="d-block px-4">
                     <Card.Title className="display-4">
@@ -71,18 +71,6 @@ function Irrigation(props) {
 
 
 
-
-{/*                <hr/>
-                <h2 id="a0">Irrigation</h2>
-                <hr/>
-
-                <Image
-                rounded
-                className="d-block w-100 mb-3"
-                src={sp[0][1].default} />*/}
-
-
-
                 <Row>
 
 
@@ -111,7 +99,9 @@ function Irrigation(props) {
                     <Image
                     rounded
                     className="d-block w-75 mb-3"
-                    src={brief1} />
+                    src={cover} />
+                    <p className="small mt-0 mb-5 text-center">Irrigation from University of Vermont Extension Workshops,
+        Photo Credit: Jennifer Brown</p>
                     </Row>
                     <Row>
                     <p>
@@ -127,6 +117,8 @@ function Irrigation(props) {
                     rounded
                     className="d-block w-75 mb-3"
                     src={brief2} />
+                    <p className="small mt-0 mb-5 text-center">Irrigation from University of Vermont Extension Workshops,
+        Photo Credit: Jennifer Brown</p>
                     </Row>
                     <Row>
                     <p>

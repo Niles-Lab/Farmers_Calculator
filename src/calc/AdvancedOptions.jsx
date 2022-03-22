@@ -76,7 +76,7 @@ function handleChange(event,key,value) {
 				step={0.01}
 				key={"dcRate"}
 				value={props.rate}
-				onChange = {(event) => {props.setRate(event.target.value)}} />
+				onChange = {(event) => {props.setRate(parseFloat(event.target.value))}} />
 			<InputGroup.Text>%</InputGroup.Text>
 		  </InputGroup>
 			</Col>

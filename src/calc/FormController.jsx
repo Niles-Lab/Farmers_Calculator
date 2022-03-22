@@ -160,7 +160,7 @@ const tarpoptions = {
 	baseCropCost: 
 	[1500, "$", "Base Crop Cost", "Assumes area is 100% Vegetables"],
 	tarpArea: 
-	[10890, "Ft Sq./Acre", "Tarp Area"],
+	[10890, "Sq. Ft/Acre", "Tarp Area"],
 	bedSpacing: 
 	[8, "Ft", "Bed Spacing"],
 	costPerFt:
@@ -235,9 +235,12 @@ function setDefault() {
 		if(irrTech === "Spray Irrigation") {
 			setOpts(irroptions);
 		} else setOpts(dripIrroptions);
+		setLand(4);
+		setUnit("Acres");
 	} else {
 		setOpts(tarpoptions);
 		setLand(1);
+		setUnit("Acres");
 	}
 
 	
@@ -276,6 +279,7 @@ useEffect(() => {
 		if(irrTech === "Spray Irrigation") {
 			setOpts(irroptions);
 		} else setOpts(dripIrroptions);
+		setLand(4);
 	} else {
 		setOpts(tarpoptions);
 		setLand(1);
@@ -353,9 +357,9 @@ return (
 	<Row>
 		<Col md={{ span: 10, offset: 1 }}>
 
-		{toolDesc.map(d => (
+		{toolDesc.map((d,idx) => (
 
-			<p><li>{d}</li></p>
+			<p key={"toolDesc#"+idx}><li>{d}</li></p>
 
 		))}
 		</Col>

@@ -99,7 +99,7 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
     let treePlantingCost = props.opts.treeSeedlingCost[0] + props.opts.treeLaborCost[0];
     let treesPerAcre = acreFt / (props.opts.treeSpacing[0]**2);
 
-    rev = (parseInt(d) >= maturingYears ? parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity);
+    rev = (parseInt(d) >= props.opts.maturingYears[0] ? parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + parseFloat(netRevenue*productivity);
     cst = (parseInt(d) < 1 ? treesPerAcre*treePlantingCost : treesPerAcre * props.opts.treeCost[0])    
 
     //cst = (parseInt(d) < 1 ? props.opts.treesPerAcre[0]*treePlantingCost : props.opts.treesPerAcre[0] * props.opts.treeCost[0])    
@@ -131,7 +131,7 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
       let annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
       //let pipeLength = acreFt / props.opts.sprinklerSpacing[0];
   
-      console.log(fittingCount*props.opts.fittingCost[0])
+
       rev = props.opts.baseCropRevenue[0] * (productivity-1)
       cst = parseInt(d) === 0 ? ((fittingCount*props.opts.fittingCost[0]) + (props.opts.tapeCost[0]*tapeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
       props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
@@ -185,7 +185,6 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
   setData(tmpData);
 
 });
-
 }, [props.opts, props.length, props.land, props.unit])
 
 
@@ -222,8 +221,7 @@ function npv() {
   let npvr = 0;
   let npvc = 0;
 
-
-  for(var i = 0; i<data.length;i++) {
+  for(var i = 0; i<data.length-1;i++) {
     npvr += (data[i].revenue)/(1+props.rate)**(i+1);
     npvc += (data[i].cost)/(1+props.rate)**(i+1);
   }

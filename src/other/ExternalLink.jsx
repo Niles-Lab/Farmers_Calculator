@@ -13,7 +13,7 @@
  */
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { BsBoxArrowUpRight, BsDownload } from "react-icons/bs";
+import { BsBoxArrowUpRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function ExternalLink(props) {

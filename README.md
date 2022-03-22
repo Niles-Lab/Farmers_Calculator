@@ -16,9 +16,11 @@ The Economic Tool will help to understand long-term investments as applicable to
 
 # Components
 
-## Calculator
+Below documentation covers some custom react components.
 
-### FormController
+# Calculator
+
+## FormController
 
 Main component for the Economic Tool. This holds default state data for all practices, values for all tools in use, and text descriptions of how to use tools. It also holds offcanvas state, button / calculator layout, and table vs. graph view.
 
@@ -26,7 +28,7 @@ Main component for the Economic Tool. This holds default state data for all prac
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component.                                                                                                |
 
-### AdvancedOptions
+## AdvancedOptions
 
 Parent(s): `CalcForm`
 
@@ -40,7 +42,7 @@ Children: `None`
 | `method`<span style="color:red">\*</span>                    | `string`   | `N/A`                         |  The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`.                                                             |
 | `rate`<span style="color:red">\*</span>                    | `float`   | `0.05`                         |  The Net-Present Value Discount rate. This is a more nuanced value, and thus included in advanced options. It is typically 0.05, and should generally not be changed unless you are familiar with economics.                                                                |
 
-### CalcShow
+## CalcShow
 
 Parent(s): `FormController`
 
@@ -52,7 +54,7 @@ Children: `CalcForm`
 | `handleClose`<span style="color:red">*</span>                   | `function`   | `N/A`                        | Method to open/close Offcanvas element, managed by FormController.                                                                                                  |
 | `CalcForm Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `CalcForm` but child to FormController, all props in `CalcForm` must be passed through here. Please see `CalcForm` props.                                                                                            |
 
-### CalcForm
+## CalcForm
 
 Parent(s): `CalcShow`
 
@@ -71,7 +73,7 @@ Children: `AdvancedOptions`
 
 
 
-### Calculator
+## Calculator
 
 Parent(s): `FormController`
 
@@ -90,7 +92,7 @@ This is purely a data-computation class. Given upstream options and inputs, this
 | `opts`<span style="color:red">\*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">\*</span>, unit<span style="color:red">\*</span> , description<span style="color:red">\*</span> , tooltip description, tooltip URL]                                                                                                       |
 | `EconomicTool Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `EconomicTool` but child to FormController, all props in `EconomicTool` must be passed through here. Please see `EconomicTool` props.                                                                                            |
 
-### EconomicTool
+## EconomicTool
 
 Parent(s): `Calculator`
 
@@ -111,11 +113,11 @@ This is the d3 visualization of the Economic Tool. It holds the actual graph and
 | `npv`<span style="color:red">\*</span>                    | `nested array`   | `see Calculator`                         |  Net Present Value in a nested array. This is expected to contain 3 arrays for revenue, cost, and their average. Each array should take the form [`Label`, `value`]                                                                                                    |
 
 
-## Visualizations
+# Visualizations
 
 Visualizations for practices are read out of each practice's folder. In src/images/silvopasture, you will find several folders pertaining to practices. These image groups are automatically loaded into visualization collections by folder. They are loaded alphabetically, so you may insert or reorder images by simply changing their file names.
 
-### ImageController
+## ImageController
 
 Parent(s): `ImageController`
 
@@ -134,7 +136,7 @@ Displaying element for interactive Visualizations. This features a slider, and m
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `variant`<span style="color:red">*</span>                   | `string`   | `tarping`                        | What practice variant to load. accepted values are `silvopasture`, `irrigation`, or `tarping`. More variants may be defined in component.                                                                                                  |
 
-### ImageSlider
+## ImageSlider
 
 Parent(s): `Practice Pages`, `Visualization Pages`
 
@@ -150,15 +152,15 @@ This is mainly a data-holder such as FormController. It contains pointers to all
 
 
 
-## Other
+# Other
 
-### Acknowledgements
+## Acknowledgements
 
-### Banner
+## Banner
 
-### ExternalLink
+## ExternalLink
 
-### Resource
+## Resource
 
 
 

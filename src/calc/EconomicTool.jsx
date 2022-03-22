@@ -462,8 +462,6 @@ let y = d3.scaleLinear()
     //   this.parentNode.appendChild(this); 
     //   });
 
-    console.log("data re")
-
   }, [props.data])
 
 
@@ -628,20 +626,29 @@ function pointerMove(d) {
       .attr("cx", position[0] - (margin.right+margin.left) - (maxWidth+position[0] >= width ? 120 : 15))
       .attr("cy", position[1]-35);
 
+      if(props.data) {
 
       // Update all tooltip data points
       d3.select("#ttlbl")
       .selectAll("text")
       .text((d,idy) => {
         let point = props.data[idx];
+
+        if(point) {
+
         // Set label accordingly - each data point is in the format of [revenue, cost, value]
         let num = idy === 0 ? point.revenue : idy === 1 ? point.cost : idy === 2 ? (point.revenue + point.cost) : (point.value);
         return new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
         //return d + ":" + new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(num);
+
+        }
+
       });
 
       d3.select("#ttlblyear")
       .text("Year " + props.data[idx].year);
+
+    }
 
 }
 
@@ -716,6 +723,21 @@ function pointerMove(d) {
             </tr>
 
             ))}
+
+            <tr>
+              <th>Benefit-Cost Ratio
+              <OverlayTrigger
+                key={"trigger"}
+                placement="right"
+                overlay={<Tooltip>Present Benefit<hr className="my-0 py-0 w-75" style={{"borderTop": "1px solid white"}} />Present Cost</Tooltip>}>
+              <span className="ml-1"><BsInfoCircle /></span>
+              </OverlayTrigger>
+
+              </th>
+              <td>{Math.abs(props.npv[0][1]/props.npv[1][1]).toFixed(2)}</td>
+              <td>{Math.abs(props.npv[0][1]/props.npv[1][1]).toFixed(2)}</td>
+            </tr>
+
           </thead>
           </Table>
           <Table responsive bordered striped hover size={'sm'}>

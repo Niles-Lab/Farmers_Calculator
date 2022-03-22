@@ -197,10 +197,35 @@ A banner element at the top of all pages. May be useful for sitewide alerts.
 
 ## ExternalLink
 
+Parent(s): `Practice Pages`
+
+Children: `None`
+
+An external link to another resource. This may be site-hosted, downloadable or clickable.
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `label`<span style="color:red">*</span>                   | `string`   | `Empty`                        | Description of this resource.                                                                                             |
+| `link`                   | `string`   | `None`                        | A URL to redirect users to when clicked.                                                                                                |
+| `second_link`                   | `string`   | `None`                        | Second URL to redirect users to. This element is limited to two URLs for style reasons.                                                                                                  |
+| `download`                   | `nested array`   | `None`                        | A nested array containing filetypes and links to hosted resources. Array items should be in the form of ["pdf", "path/to/item"].                                                                                                 |
+
 ## Resource
 
 
+Parent(s): `Research Page`
 
+Children: `None`
+
+A site-hosted resource for users to view or download. An example of this being a research paper or brief.
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `description`<span style="color:red">*</span>                   | `string`   | `Empty`                        | Description of this resource.                                                                                             |
+| `link`<span style="color:red">*</span>                    | `string`   | `None`                        | A link to this resource.                                                                                                  |
+| `format`                   | `string`   | `None`                        | The type of document this is. I.e. "Research Paper", "Slideshow", etc.                                                                                                |
+| `date`                   | `string`   | `None`                        | What date was this created / published?                                                                                                |
+| `download`                   | `boolean`   | `false`                        | Should this resource be downloadable? If so, a box will be rendered next to the "view" button allowing this.                                                                                             |
 
 # Sources
 

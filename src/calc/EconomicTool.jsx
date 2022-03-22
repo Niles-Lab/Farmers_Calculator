@@ -735,7 +735,7 @@ function pointerMove(d) {
 
               </th>
               <td>{Math.abs(props.npv[0][1]/props.npv[1][1]).toFixed(2)}</td>
-              <td>{Math.abs(props.npv[0][1]/props.npv[1][1]).toFixed(2)}</td>
+              <td>{Math.abs((props.npv[0][1]*props.land)/(props.npv[1][1]*props.land)).toFixed(2)}</td>
             </tr>
 
           </thead>

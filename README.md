@@ -7,6 +7,19 @@
   - [Other](#other) 
 - [Sources](#sources)
 
+# Installation
+
+To run this application, simply clone into an empty folder and run the following commands:
+
+`npm install && npm start`
+
+To build and deploy new versions of the site via Netlify CLI(if you have the proper permissions) then run:
+
+`npm run build && netlify deploy`
+
+If the updates look good in the provided temporary link, run:
+
+`netlify deploy --prod`
 
 # Abstract
 
@@ -156,7 +169,31 @@ This is mainly a data-holder such as FormController. It contains pointers to all
 
 ## Acknowledgements
 
+Parent(s): `Practice Pages`
+
+Children: `None`
+
+This is the bottom "Acknowledgements" section found on each practice page. It contains a list of all authors, researchers and external reviewers.
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `authors`                  | `string`   | `N/A`                        | A comma separated string with a list of author names.                                                                                            |
+| `team`                   | `array`   | `N/A`                        | A nested array with each value contaning a role and name. Ex. ["Sorcerer Supreme", "Dr. Strange"]                                                                               |
+| `external`                   | `string`   | `N/A`                        | A comma separated string with a list of external editors.                                                                                         |
+
+
 ## Banner
+
+Parent(s): `App`
+
+Children: `None`
+
+A banner element at the top of all pages. May be useful for sitewide alerts.
+
+| Prop                       | Type     | Default                        |Description                                                                                                                        |
+| -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
+| `show`<span style="color:red">*</span>                   | `boolean`   | `true`                        | Managed state for element being present. Managed by App.                                                                                             |
+| `handleClose`<span style="color:red">*</span>                   | `function`   | `N/A`                        | Method to close element once "x" is clicked, managed by App.                                                                                                  |
 
 ## ExternalLink
 

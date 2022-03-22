@@ -13,9 +13,6 @@ const graphWidth = 800;
 // How many sq ft in an acre
 var acreFt = 43560;
 
-// At what age is a tree mature enough to start producing profits
-const maturingYears = 10;
-
 
 // Create data per year for returns/costs
 //let data = [];
@@ -156,20 +153,10 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
 
     cost += (d > 0 && (d % 2 === 0)) ? props.opts.maintenanceCost[0] : 0; //
 
-
-
     cst = cost;
 
     rev = props.opts.baseCropRevenue[0] * (productivity-1);
 
-    // cst = ((parseInt(d) === 0 ? props.opts.tarpLength[0] * props.opts.tarpCost[0] : 0) + // Initial Investment
-    //   (parseInt(d) % 2 == 0 ? labor // Ongoing Maintenance
-    //     : props.opts.coverCropCost[0]); // Is this a maintenance year?
-
-
-    // cst = (parseInt(d) === 0 ? props.opts.tarpLength[0] * props.opts.tarpCost[0] :
-    //   props.opts.maintenanceCost[0]) // Ongoing Maintenance
-    //   + (parseInt(d) % 2 == 1 ? props.opts.coverCropCost[0] : 0); // Is this a maintenance year?
 
   }
   

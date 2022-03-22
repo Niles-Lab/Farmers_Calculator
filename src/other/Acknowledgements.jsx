@@ -41,51 +41,45 @@ return (
     <hr/>
 
 
-
+  { props.authors &&
+  <>
     <p><b className="text-start">Authors:</b></p>
     
     <p>{props.authors}.</p>
-
+  </>
+  }
 
     <Row>
 
     </Row>
-    <p><b className="text-start">Research Team:</b></p>
-    <Row>
-            {props.team.map((d,idx) => (
-                <>
+    {props.team &&
+      <>
+      <p><b className="text-start">Research Team:</b></p>
+      <Row>
+              {props.team.map((d,idx) => (
+                  <>
 
-                    <p><em>{d[0]}</em>: &nbsp;{d[1]}.</p>
+                      <p><em>{d[0]}</em>: &nbsp;{d[1]}.</p>
 
-                </>
-                
-            ))}
-
-    </Row>
-
-    <p><b>We thank the following contributors for their expert review of the agricultural practice materials and website:</b></p>
-  <Row>
-    
-    {props.external.map(d => (
-        <p>{d}</p>
-    ))}
-
-    {/* {acknowledged.map((d,idx) => (
-
-
-
-      <Row key={"ackTm#"+idx} className="w-100">
-
-
-        <p className="font-weight-normal mb-0">{d}</p>
-        {idx < acknowledged.length-1 &&
-          <hr className="w-100" />
-        }
-        
+                  </>
+                  
+              ))}
 
       </Row>
+      </>
+    }
 
-      ))} */}
+  
+  <Row>
+    {props.external &&
+      <>
+      <p><b>We thank the following contributors for their expert review of the agricultural practice materials and website:</b></p>
+
+      {props.external.map(d => (
+          <p>{d}</p>
+      ))}
+      </>
+    }
 
       <Row className="w-100">
 

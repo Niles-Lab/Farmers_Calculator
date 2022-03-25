@@ -108,8 +108,12 @@ const irroptions = {
 	sprinklerSpacing: 
 	[40, "Ft", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
 	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
+	sprinklerCountDisabled:
+	[27, "Head/Acre", "Sprinkler Count", "Calculated"],
 	sprinklerCost: 
 	[62.50, "$/Head", "Sprinkler Cost"],
+	pipeLengthDisabled:
+	[1089, "Ft./Acre", "Pipe Length", "Calculated"],
 	pipeCost: 
 	[2.80, "$/Ft", "Pipe Cost", "Based on NRCS Practice 430, Scenario #7: 2\" Surface HDPE Irrigation Pipeline", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
 	pumpSize: 
@@ -122,6 +126,8 @@ const irroptions = {
 	[90, "Days/Yr", "Hourly Pump"],
 	dieselCost: 
 	[3.40, "$/Gal", "Diesel Fuel Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
+	annualDieselCostDisabled:
+	[1707, "$/Yr.", "Annual Diesel Cost", "Efficiency Based on OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
 	maintenanceCost: 
 	[100, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
 	effectiveProperty: 

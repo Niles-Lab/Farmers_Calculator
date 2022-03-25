@@ -25,14 +25,13 @@ const [isOpen, setIsOpen] = useState(true);
 // Capitalize first letter in method name for display purposes
 let upperCaseMethod = props.method.charAt(0).toUpperCase() + props.method.slice(1);
 
-
 function handleChange(event,key,value) {
 
 	let opts = props.opts;
 
 	opts[key][0] = parseFloat(event.target.value);
-	
-	props.setOpts(sp => ({
+
+	props.setOpts(() => ({
 		...props.opts
 	}));
 
@@ -122,7 +121,8 @@ function handleChange(event,key,value) {
 						min={0}
 						step={0.5}
 						key={key}
-						value={props.opts[key][0]}
+						disabled={key.includes("Disabled")}
+						value={(Math.floor(props.opts[key][0]*100)/100)}
 						onChange = {(event) => {handleChange(event,key,value)}} />
 					<InputGroup.Text>{value[1]}</InputGroup.Text>
 				  </InputGroup>

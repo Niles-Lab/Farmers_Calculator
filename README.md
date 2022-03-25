@@ -39,7 +39,16 @@ Below documentation covers some custom react components.
 
 ## FormController
 
-Main component for the Economic Tool. This holds default state data for all practices, values for all tools in use, and text descriptions of how to use tools. It also holds offcanvas state, button / calculator layout, and table vs. graph view.
+Main component for the Economic Tool. This holds default state data for all practices, values for all tools in use, and text descriptions of how to use tools. It also holds offcanvas state, button / calculator layout, and table vs. graph view. Among its instance data, this contains a list of configurable options for each practice. These values will be mapped to the Offcanvas `CalcForm` component, and passed down to the `Calculator` component.
+
+Each key should contain the word `Disabled` if it is calculated/derived, but should otherwise take the form of:
+
+`Name[Disabled]`: [`Value`, `Unit`, `Description`, `Tooltip text(optional)`, `Tooltip link(optional)`] 
+
+e.g.
+
+`HoursLabor[Disabled]`: [`20`, `Hours`, `Hours of Labor`, `How much do I work per hour?`, `www.laborstatistics.com`]
+
 
 | Prop                       | Type     | Default                        |Description                                                                                                                        |
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |

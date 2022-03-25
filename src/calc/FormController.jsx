@@ -64,6 +64,7 @@ const usingTp = [
 * 			(optional) tooltip link: string(preferably url)]
 * e.g.
 * costPerUnit: [5, "$/Unit", "Cost Per Unit", "This is the cost per unit of x", "www.costperunit.com" (not a real website)]
+* For disabled / calculated values, please put Disabled anywhere in the string name of this value
 */
 const silvoptions = {
 	maturingYears:
@@ -71,9 +72,13 @@ const silvoptions = {
 	baseCropRevenue: 
 	[450, "$", "Base Pasture Revenue", "Assumes area is 100% Pasture"],
 	baseCropCost: 
-	[300, "$", "Base Pasture Cost", "Assumes area is 100% Pasture"],
+	[300, "$/Acre", "Base Grazing Cost", "Assumes area is 100% Pasture"],
+	netRevenueDisabled:
+	[150, "$/Acre", "Base Pasture Net Revenue", "Calculated: Base Pasture Revenue - Base Pasture Cost"],
 	treeSpacing: 
 	[30, "ft", "Tree Spacing", "Economic Budgeting for Agroforestry Practices(University of Missouri)", "https://extension.missouri.edu/publications/af1006"],
+	treesPlantedDisabled:
+	[48, "Trees/Acre", "Trees Planted", "Calculated"],
 	// 2.24.22 Changed treePlantingCost of $9.5 to $4.75/ea for seedling / labor costs
 	treeSeedlingCost: 
 	[4.75, "$", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
@@ -81,6 +86,9 @@ const silvoptions = {
 	treeLaborCost:
 	[4.75, "$", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
 	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
+	treePlantingCostDisabled:
+	[9.50, "$/Tree", "Tree Planting Cost", "Calculated: Seedling Cost + Labor Cost"],
+
 	// treesPerAcre: 
 	// [48, "Tr/Acre", "Trees Per Acre"],
 	treeCost: 
@@ -97,8 +105,6 @@ const silvoptions = {
 const irroptions = {
 	baseCropRevenue: 
 	[2500, "$/Acre", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
-	baseCropCost: 
-	[1500, "$/Acre", "Base Crop Cost", "Assumes area is 100% Vegetables"],
 	sprinklerSpacing: 
 	[40, "Ft", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
 	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
@@ -126,13 +132,15 @@ const irroptions = {
 const dripIrroptions = {
 	baseCropRevenue: 
 	[2500, "$/Acre", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
-	baseCropCost: 
-	[1500, "$/Acre", "Base Crop Cost", "Assumes area is 100% Vegetables"],
 
 	cropRowSpacing:
 	[8, "Ft.", "Irrigated Crop Row Spacing"],
 	fittingSpacing:
 	[2, "Ft.", "Irrigation Drip Fitting Spacing"],
+	tapeLengthDisabled:
+	[5445, "Ft./Acre", "Drip Tape Length", "Calculated"],
+	fittingCountDisabled:
+	[2723, "Fitting/Acre", "Fitting Count", "Calculated"],
 	tapeCost:
 	[0.20, "$/Ft.", "Irrigation Drip Tape Cost"],
 	fittingCost:
@@ -147,6 +155,8 @@ const dripIrroptions = {
 	[90, "Days/Yr", "Hourly Pump"],
 	dieselCost: 
 	[3.40, "$/Gal", "Diesel Fuel Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
+	annualDieselCostDisabled:
+	[1707, "$/Yr.", "Annual Diesel Cost", "Efficiency Based on OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
 	maintenanceCost: 
 	[100, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
 	effectiveProperty: 
@@ -157,20 +167,20 @@ const dripIrroptions = {
 const tarpoptions = {
 	baseCropRevenue: 
 	[2500, "$", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
-	baseCropCost: 
-	[1500, "$", "Base Crop Cost", "Assumes area is 100% Vegetables"],
-	tarpArea: 
-	[10890, "Sq. Ft/Acre", "Tarp Area"],
+	tarpAreaDisabled: 
+	[0, "Sq. Ft/Acre", "Tarp Area", "Calculated"],
 	bedSpacing: 
-	[8, "Ft", "Bed Spacing"],
+	[8, "Ft", "Bed Spacing", "Space Between Centerline of Crop Rows"],
 	costPerFt:
 	[0.7, "$/Ft.", "Cost Per Foot of Tarp"],
-	tarpCost: 
-	[0.0875, "$/Sq. Ft", "Tarp Cost", "Based on UW Madison Extension Study", "https://fyi.extension.wisc.edu/danecountyag/files/2019/07/Tarps-to-Terminate-Cover-Crops-Before-No-Till-Organic-Vegetables-RFS.pdf"],
+	tarpCostDisabled: 
+	[0.0875, "$/Sq. Ft", "Tarp Cost", "Calculated - Based on UW Madison Extension Study", "https://fyi.extension.wisc.edu/danecountyag/files/2019/07/Tarps-to-Terminate-Cover-Crops-Before-No-Till-Organic-Vegetables-RFS.pdf"],
 	tarpLabor: 
 	[4, "Hr/Acre", "Tarp Labor"],
 	tarpLaborCost: 
 	[20.00, "$/Hr", "Tarp Labor Cost"],
+	totalLaborDisabled:
+	[80, "$/Acre", "Total Labor Cost", "Calculated"],
 	tarpDurability:
 	[5, "Years", "Tarp Durability"],
 	coverCropCost: 
@@ -317,6 +327,9 @@ return (
 				tableView={tableView}
 				opts={opts} 
 				irrTech={irrTech}
+
+				// This should ONLY be passed down to set calculated values
+				setOpts={setOpts}
 				/>
 
 		</Col>

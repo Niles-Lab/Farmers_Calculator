@@ -162,7 +162,8 @@ let y = d3.scaleLinear()
 
 
       // Only render trees matured line for silvopasture method
-      {(props.method === "silvopasture") &&
+        if(props.method === "silvopasture") {
+
 
         // Tree Matured Line
         svg.append("svg:line")
@@ -175,28 +176,21 @@ let y = d3.scaleLinear()
         .style("stroke", "black")
         .style("stroke-dasharray", ("5, 5"));
 
-      }
-      {(props.method === "silvopasture") &&
-
+          
         // Tree Matured Label
         svg.append("text")
-          .attr("class", "label matured")
-          .attr("id", "treesMat")
-          .attr("text-anchor", "start")
-          .attr("x", 0)
-          .attr("y", (height/3)-margin.top-margin.bottom+20)
-          .attr("dx", x(props.opts.maturingYears[0])+5)
-          .attr("dy", 0)
-          .style("font-weight", "bold")
-          .text("Trees Matured"); 
+        .attr("class", "label matured")
+        .attr("id", "treesMat")
+        .attr("text-anchor", "start")
+        .attr("x", 0)
+        .attr("y", (height/3)-margin.top-margin.bottom+20)
+        .attr("dx", x(props.opts.maturingYears[0])+5)
+        .attr("dy", 0)
+        .style("font-weight", "bold")
+        .text("Trees Matured"); 
 
 
-
-        }
-      {(props.method === "silvopasture") &&
-
-
-        svg.append("text")
+          svg.append("text")
           .attr("class", "label matured")
           .attr("id", "treesMat2")
           .attr("text-anchor", "start")
@@ -208,9 +202,7 @@ let y = d3.scaleLinear()
           .text("Year " + props.opts.maturingYears[0][0]); 
 
 
-
         }
-
 
 
 
@@ -331,12 +323,12 @@ let y = d3.scaleLinear()
     d3.select("#yAxis")
       .call(d3.axisLeft(y));
 
-    {props.method === "silvopasture" &&
-    // Update trees matured line
-    d3.selectAll(".matured")
-      .attr("dx", x(props.opts.maturingYears[0])+5)
-      .attr("x1", x(props.opts.maturingYears[0]))
-      .attr("x2", x(props.opts.maturingYears[0]));
+    if(props.method === "silvopasture") {
+      // Update trees matured line
+      d3.selectAll(".matured")
+        .attr("dx", x(props.opts.maturingYears[0])+5)
+        .attr("x1", x(props.opts.maturingYears[0]))
+        .attr("x2", x(props.opts.maturingYears[0]));
     }
   
 
@@ -371,7 +363,7 @@ let y = d3.scaleLinear()
 
 
     // Re-generate 'trees matured' text
-    {props.method === "silvopasture" &&
+    if(props.method === "silvopasture") {
 
       svg.select("#treesMat")
         .attr("class", "label matured")
@@ -379,20 +371,15 @@ let y = d3.scaleLinear()
         //.attr("dy", "0em")
         .text("Trees Matured"); 
 
-
-
-    }
-    {props.method === "silvopasture" &&
-
-
-
-      svg.select("#treesMat2")
+        svg.select("#treesMat2")
         .attr("class", "label matured")
         .attr("text-anchor", "start")
         .attr("dy", "1.2em")
         .text("Year " + props.opts.maturingYears[0]); 
 
+
     }
+
 
 
     // Revenue Line

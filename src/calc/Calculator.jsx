@@ -90,68 +90,6 @@ var totalProfit = 0;
 let tmpData = [];
 
 
-// Set calculated values before using them later
-// if(props.method === "silvopasture") {
-
-//   var netRevenue = props.opts.baseCropRevenue[0] - props.opts.baseCropCost[0];
-//   props.opts["netRevenueDisabled"][0] = netRevenue;
-
-//   var treePlantingCost = props.opts.treeSeedlingCost[0] + props.opts.treeLaborCost[0];
-//   props.opts["treePlantingCostDisabled"][0] = treePlantingCost;
-
-//   var treesPerAcre = acreFt / (props.opts.treeSpacing[0]**2);
-//   props.opts["treesPlantedDisabled"][0] = treesPerAcre;
-
-
-// }
-// if(props.method === "irrigation") {
-
-//   if(props.irrTech === "Spray Irrigation") {
-
-
-//     var sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
-//     props.opts["sprinklerCountDisabled"][0] = sprinklerCount;
-    
-//     var annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
-//     props.opts["annualDieselCostDisabled"][0] = annualDieselCost;
-
-//     var pipeLength = acreFt / props.opts.sprinklerSpacing[0];
-//     props.opts["pipeLengthDisabled"][0] = pipeLength;
-
-
-//   } else { // Drip Irrigation Calculated Values
-
-//     var tapeLength = acreFt / props.opts.cropRowSpacing[0];
-//     props.opts["tapeLengthDisabled"][0] = tapeLength;
-
-//     var fittingCount = Math.round(props.opts.fittingSpacing[0] > 0 ? tapeLength / props.opts.fittingSpacing[0] : 0);
-//     props.opts["fittingCountDisabled"][0] = fittingCount;
-
-//     var annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
-//     props.opts["annualDieselCostDisabled"][0] = annualDieselCost;
-
-//   }
-// }
-// if(props.method === "tarping") {
-
-//   var tarpArea = acreFt / (props.opts.bedSpacing[0]/2);
-//   props.opts["tarpAreaDisabled"][0] = tarpArea;
-
-//   // To get total tarp square footage
-//   var costTotal = props.opts.costPerFt[0] / props.opts.bedSpacing[0];
-//   props.opts["tarpCostDisabled"][0] = costTotal;
-
-  
-//   var tarpLabor = props.opts.tarpLabor[0]*props.opts.tarpLaborCost[0];
-//   props.opts["totalLaborDisabled"][0] = tarpLabor;
-
-// }
-
-
-
-
-
-
 // Map each data point with:
 // x -> year
 // y -> revenue, cost, net gain
@@ -214,9 +152,9 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
 
   tmpData.push({
     year: d+1,
-    revenue: rev,
-    cost: -cst,
-    value: totalProfit
+    revenue: (rev*props.land),
+    cost: -(cst*props.land),
+    value: (totalProfit*props.land)
   })
 
   setData(tmpData);

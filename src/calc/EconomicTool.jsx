@@ -704,8 +704,8 @@ function pointerMove(d) {
               }
               </th>
               
+              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(parseFloat(d[1])/props.land)}</td>
               <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1])}</td>
-              <td>{new Intl.NumberFormat('en-US',{ style: 'currency', currency: 'USD' }).format(d[1]*props.land)}</td>
               
             </tr>
 

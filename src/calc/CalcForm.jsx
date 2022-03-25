@@ -83,7 +83,7 @@ function CalcForm(props) {
 					<Form.Control
 						placeholder="..."
 						name="land"
-						min="0"
+						min="0.1"
 						type="number"
 						step="0.1"
 						value={props.land}

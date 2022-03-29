@@ -7,6 +7,10 @@ import phase_2 from './../images/research/phase_2.png';
 import research_graph from './../images/research/research_graph.png'
 import Resource from "./../other/Resource.jsx"
 
+import sp_thumbnail from './../images/silvopasture/pdf_thumbnail.jpg'
+import ig_thumbnail from './../images/irrigation/pdf_thumbnail.jpg'
+import tp_thumbnail from './../images/tarping/pdf_thumbnail.jpg'
+
 const Research = (props, ref) => {
 
 //const scroll = (ref) => props.refProp.scrollIntoView()
@@ -208,23 +212,8 @@ return (
 
                 <Row className="mb-5">
 
-                   <Resource format={"Practice Overview"} download
-                    link={"/resources/Silvopasture Two-Pager.pdf"}
-                    description={"Brief Silvopasture Overview"} />
 
-                    <Resource format={"Practice Overview"} download
-                    link={"/resources/Pond and Irrigation Two-Pager.pdf"}
-                    description={"Brief Irrigation Overview"} />
-
-                    
-                </Row>
-                <Row>
-
-                    <Resource format={"Practice Overview"} download
-                    link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}
-                    description={"Brief Tarping Overview"} />
-                
-                    <Resource format={"Farmer Advisor Brief"}
+                <Resource format={"Farmer Advisor Brief"}
                     date={"December 2019"}
                     link={"https://womeninag.extension.org/wp-content/uploads/2020/01/Farmer-Advisor-Mental-Models-Brief_1_2020.pdf"}
                     description={"What do Northern New England Farmers Need to Adapt to Climate Change?"} />
@@ -233,6 +222,47 @@ return (
                     date={"19 April 2021"}
                     link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
                     description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
+
+
+
+                    
+                </Row>
+                <Row>
+
+
+{/*                 <Resource format={"Practice Overview"} download
+                    link={"/resources/Silvopasture Two-Pager.pdf"}
+                    description={"Brief Silvopasture Overview"} /> */}
+                    
+                    <Resource format={"Silvopasture Practice Brief"} download
+					thumbnail
+                    date={"March 2022"}
+                    link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
+                    description={sp_thumbnail} />
+
+
+                    {/* <Resource format={"Practice Overview"} download
+                    link={"/resources/Pond and Irrigation Two-Pager.pdf"}
+                    description={"Brief Irrigation Overview"} /> */}
+
+                    <Resource format={"Irrigation Practice Brief"} download
+					thumbnail
+                    date={"March 2022"}
+                    link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
+                    description={ig_thumbnail} />
+
+                    {/* <Resource format={"Practice Overview"} download
+                    link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}
+                    description={"Brief Tarping Overview"} /> */}
+
+                    <Resource format={"Tarping Practice Brief"} download
+                        thumbnail
+                        date={"March 2022"}
+                        link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
+                        description={tp_thumbnail} />
+
+                
+
 
                 </Row>
                 <Row>

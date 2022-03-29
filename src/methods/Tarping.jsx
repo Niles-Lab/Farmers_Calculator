@@ -10,6 +10,9 @@ import FormController from './../calc/FormController';
 import ExternalLink from './../other/ExternalLink';
 import Acknowledgements from '../other/Acknowledgements';
 import ImageController from './../viz/ImageController';
+import Resource from './../other/Resource';
+
+import thumbnail from './../images/tarping/pdf_thumbnail.jpg'
 import cover from './../images/tarping/cover/IMG_3500.png';
 
 const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources", "Acknowledgements"]; 
@@ -28,7 +31,7 @@ function Tarping(props) {
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
                     <Row className="d-block px-4">
                     <Card.Title className="display-4">
-                      Tarping in Cover Crop and Conservation Tillage Systems
+                      Tarping in Cover Crop Mulch and Conservation Tillage Systems
                     </Card.Title>
                     </Row>
                     <Row className="d-block">
@@ -87,7 +90,7 @@ function Tarping(props) {
         </p>
 
         <p>
-            The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. Integrating the use of cover crops with tarps requires an even stand of cover crops with high biomass. The crop should be laid down before applying the tarp. Rolling is the best method for doing this, as it avoids creating stubble that can poke holes in the tarp as would be the case with mowing. An example this application of tarping, best suited to transplanted crops, is shown below.
+            The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. Integrating the use of cover crops with tarps requires an even stand of cover crops with high biomass. The crop should be laid down before applying the tarp. Rolling is the best method for doing this, as it avoids creating stubble that can poke holes in the tarp as would be the case with mowing. An example of this application of tarping, best suited to transplanted crops, is shown below.
         </p>
 
 
@@ -201,14 +204,17 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
 <ExternalLink link={""} label={"Mays, Daniel. The No-Till Organic Vegetable Farm: How to Start and Run a Profitable Market Garden That Builds Health in Soil, Crops, and Communities. Storey Publishing, LLC. November 10, 2020. ISBN-10: 1635861896."} />
 
-<ExternalLink label={"Download this practice page"} download={[
-	["pdf", "/resources/briefs/Tarping 3.2.22 paper.pdf"],
-	["docx", "/resources/briefs/Tarping 3.2.22 paper.docx"]]} />
+
+<Resource format={"Download this practice brief"} download
+    thumbnail
+    date={"March 2022"}
+    link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
+    description={thumbnail} />
 
 
 <div id="a4">
         <Acknowledgements
-            authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Stephanie Hurley, Sonja Birthisel"
+            //authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Stephanie Hurley, Sonja Birthisel"
             team={[["Principal Investigator", "Meredith Niles"], 
             ["Co-Principal Investigators", "Dr. Adam Daigneault, Dr. Nick Cheney, Dr. Joshua Faulkner, Dr. Eric Gallandt, Dr. Stephanie Hurley, Dr. Rachel Schattman"],
             ["Additional Team Members", "Dr. Sonja Birthisel, Dr. Bradford Demarest, Tim Harrold, Beth Holtzman, Carolyn Hricko, Erin Lane, Ruthie Clements, Devon Johnson, Thomas Wentworth"]]}

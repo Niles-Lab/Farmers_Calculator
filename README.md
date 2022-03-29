@@ -226,7 +226,7 @@ An external link to another resource. This may be site-hosted, downloadable or c
 ## Resource
 
 
-Parent(s): `Research Page`
+Parent(s): `Main Pages`
 
 Children: `None`
 
@@ -236,9 +236,10 @@ A site-hosted resource for users to view or download. An example of this being a
 | -------------------------- | -------- | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------- |
 | `description`<span style="color:red">*</span>                   | `string`   | `Empty`                        | Description of this resource.                                                                                             |
 | `link`<span style="color:red">*</span>                    | `string`   | `None`                        | A link to this resource.                                                                                                  |
-| `format`                   | `string`   | `None`                        | The type of document this is. I.e. "Research Paper", "Slideshow", etc.                                                                                                |
+| `format`                   | `string`   | `None`                        | The type of document this is. I.e. "Research Paper", "Slideshow", etc. This may also be a title for the resource.                                                                                                |
 | `date`                   | `string`   | `None`                        | What date was this created / published?                                                                                                |
 | `download`                   | `boolean`   | `false`                        | Should this resource be downloadable? If so, a box will be rendered next to the "view" button allowing this.                                                                                             |
+| `thumbnail`                   | `boolean`   | `None`                        | If this prop is supplied, an image will be displayed instead of a description. The image path will be expected in the `description` prop of this element in that case.                                                                                              |
 
 # Sources
 

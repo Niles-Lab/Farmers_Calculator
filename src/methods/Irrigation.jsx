@@ -12,8 +12,10 @@ import FormController from './../calc/FormController';
 import ImageController from './../viz/ImageController';
 import ExternalLink from './../other/ExternalLink';
 import Acknowledgements from '../other/Acknowledgements';
+import Resource from './../other/Resource';
 
 import cover from "./../images/irrigation/cover/cover.JPG";
+import thumbnail from './../images/irrigation/pdf_thumbnail.jpg'
 
 import brief1 from "./../images/irrigation/brief_1.jpg";
 import brief2 from "./../images/cover_2.JPG";
@@ -87,7 +89,7 @@ function Irrigation(props) {
                     </p>
                     <p>
 
-                    Farmers interested in more information about technical and financial support for the implementation of these systems should consult with local extension agents. Potential irrigation water sources include an on-farm pond fed by runoff from surrounding areas, on-site well, or nearby streams and lakes. The quantity and quality of water are site-specific but are of significant importance. A rough estimate of the irrigation water (pumping rate) need for the region is about 10-15 gallons per minute per acre for irrigation events lasting about 8 hours a day. It is important to note that the systems described here for use in open fields.
+                    Farmers interested in more information about technical and financial support for the implementation of these systems should consult with local extension agents. Potential irrigation water sources include an on-farm pond fed by runoff from surrounding areas, on-site well, or nearby streams and lakes. The quantity and quality of water are site-specific but are of significant importance. A rough estimate of the irrigation water (pumping rate) need for the region is about 10-15 gallons per minute per acre for irrigation events lasting about 8 hours a day.
 
                     </p>
 
@@ -126,7 +128,7 @@ function Irrigation(props) {
                     </p>
                     </Row>
 
-                <Card.Title id="1" className="mt-4">Irrigation Trade-offs</Card.Title>
+                <Card.Title id="1" className="mt-4">Irrigation Adoption Costs and Benefits</Card.Title>
                 
 
                     <Tab.Container id="list-group-tabs" defaultActiveKey="#l0">
@@ -239,13 +241,17 @@ function Irrigation(props) {
 
 
                     </Row>
-                    <ExternalLink label={"Download this practice page"} download={[
-                        ["pdf", "/resources/briefs/Irrigation 3.2.22 paper.pdf"],
-                        ["docx", "/resources/briefs/Irrigation 3.2.22 paper.docx"]]} />
+
+                    <Resource format={"Download this practice brief"} download
+					thumbnail
+                    date={"March 2022"}
+                    link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
+                    description={thumbnail} />
+
 
                     <div id="a4">
                     <Acknowledgements
-                        authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Joshua Faulkner, Stephanie Hurley, Rachel Schattman"
+                        //authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Joshua Faulkner, Stephanie Hurley, Rachel Schattman"
                         team={[["Principal Investigator", "Meredith Niles"], 
                         ["Co-Principal Investigators", "Dr. Adam Daigneault, Dr. Nick Cheney, Dr. Joshua Faulkner, Dr. Eric Gallandt, Dr. Stephanie Hurley, Dr. Rachel Schattman"],
                         ["Additional Team Members", "Dr. Sonja Birthisel, Dr. Bradford Demarest, Tim Harrold, Beth Holtzman, Carolyn Hricko, Erin Lane, Ruthie Clements, Devon Johnson, Thomas Wentworth"]]}

@@ -36,7 +36,7 @@
  
  
  const irrigation = {
-   titles: ["Aerial view of a drip irrigation system on a small-medium New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a small-medium New England vegetable farm"],
+   titles: ["Aerial view of a drip irrigation system on a New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a New England vegetable farm"],
    images: [ig, pd],
    lbls: [
      ["Farm before pond or irrigation lines.", 
@@ -56,7 +56,7 @@
  // 
  // 
  // Tarping image slides
- const tp = importAll(require.context('../images/tarping/', false, /\.(png|jpe?g|svg)$/));
+ const tp = importAll(require.context('../images/tarping/tarping/', false, /\.(png|jpe?g|svg)$/));
  
  // Tarping cover image is just the first from our one set
  //const sp = [tp[0]];
@@ -65,14 +65,14 @@
  
  
  const tarping = {
-   titles: ["Tarping in cover crop and conservation tillage systems"],
+   titles: ["Tarping in cover crop mulch and conservation tillage systems"],
    images: [tp],
    lbls: [
      ["Spring growth of winter rye cover crop planted previous September.",
-     "In June, roll down with lawn roller or tractor with roller-crimper to prepare for tarping. Some also mow the rye.",
+     "Spring growth of winter rye cover crop planted previous September.",
      "Use black plastic tarps to prepare planting beds and kill weed species. Weigh tarps with sand bags.",
-     "Two weeks later: remove black plastic and mulch with straw. Then plant vegetable starts. Example: Brassica species such as broccoli or kale.",
-     "Crop growing within straw mulch."]
+     "Two weeks later: remove black plastic tarps. Then plant vegetable starts in cover crop mulch. Example: Brassica species such as broccoli or kale.",
+     "Brassica crop growing within cover crop mulch."]
      ]
  }
  
@@ -102,8 +102,8 @@
  
  
  const silvopasture = {
-   titles: ["Perspective view of black walnut and black locust trees in cattle pasture", 
-   "Aerial view of black walnut trees in pasture",
+   titles: ["Perspective view of black walnut trees in cattle pasture", 
+   "Aerial view of timber trees in pasture",
    "Perspective view of apple orchard in sheep pasture",
    "Aerial view of apple orchard in pasture"],
    images: [pe, av1, pe2, av2],

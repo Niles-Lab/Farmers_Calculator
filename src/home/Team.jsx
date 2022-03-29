@@ -31,8 +31,8 @@ let team = [
   // Alternative: jfaulkner.jpg
   ["jfaulknerPortrait.png", <p><b>Dr. Joshua Faulkner</b> has coordinated the Farming and Climate Change Program in UVM Extension’s Center for Sustainable Agriculture for the past eight years.  He works with farmers across Vermont on best management practices for climate change resilience, with a focus on soil and water resources.  As a part of this project, he contributed to educational resources and presented project outputs to farmer groups in Vermont.</p>, "", "Co-Principal Investigator"],
   ["egallandt.png", <p><b>Dr. Eric Gallandt</b>, Professor of Weed Ecology and Management at the University of Maine, teaches in the Sustainable Agriculture Program and conducts research on ecological weed management in diversified organic vegetable and grain cropping systems.</p>, "", "Co-Principal Investigator"],
-  // Alternative: shurley.jpg
-  ["shurleyPortrait.png", <p><b>Dr. Stephanie Hurley</b> is an Associate Professor of Ecological Landscape Design in the Department of Plant & Soil Science at the University of Vermont. Her background is in landscape architecture, with an emphasis on ecology, water quality, and ecosystem services. Dr. Hurley’s current research investigates the role that visual imagery can play in decision making about land management, including the use of landscape visualizations (photo-simulations) in stakeholder engagement about climate change adaptation and water management on farms, and green stormwater infrastructure in municipalities.</p>, "Josh Brown", "Co-Principal Investigator"],
+  // Alternative: shurley.jpg shurleyPortrait.png
+  ["shurley.jpg", <p><b>Dr. Stephanie Hurley</b> is an Associate Professor of Ecological Landscape Design in the Department of Plant & Soil Science at the University of Vermont. Her background is in landscape architecture, with an emphasis on ecology, water quality, and ecosystem services. Dr. Hurley’s current research investigates the role that visual imagery can play in decision making about land management, including the use of landscape visualizations (photo-simulations) in stakeholder engagement about climate change adaptation and water management on farms, and green stormwater infrastructure in municipalities.</p>, "Josh Brown", "Co-Principal Investigator"],
   
   // Alternative: rschattman.jpg
   ["rschattmanPortrait.png", <p><b>Dr. Rachel E. Schattman</b> is an interdisciplinary agroecologist whose research focuses on climate change adaptation/mitigation, diversified cropping and food systems, food insecurity, and adult learning. She received her M.S. and Ph.D. from the University of Vermont in Natural Resources and Agroecology, respectively. She is an Assistant Professor of Sustainable Agriculture at the University of Maine School of Food and Agriculture, a faculty fellow at the University of Maine Climate Change Institute, and a faculty affiliate of the George J. Mitchell Center for Sustainability Solutions. Dr. Schattman is a co-PI on this project, and is responsible for program evaluation.</p>, "", "Co-Principal Investigator"],
@@ -44,8 +44,8 @@ let team = [
   ["bholtzman.png", <p><b>Beth Holtzman</b> is a senior outreach professional with the University of Vermont Extension. As coordinator of the University of Vermont Extension <a rel="noreferrer" target="_blank" href="https://blog.uvm.edu/newfarmer/">New Farmer Project</a> and <a rel="noreferrer" target="_blank" href="https://www.uvm.edu/extension/agriculture/womens-agricultural-network">Women’s Agricultural Network</a> (WAgN), she has developed and managed education programs that help farmers achieve greater viability, resilience and satisfaction with their businesses and their quality of life. Since 2018, she has also served as the <a rel="noreferrer" target="_blank" href="https://blog.uvm.edu/vtsare/">Northeast SARE state coordinator for Vermont</a>. Email: beth.holtzman@uvm.edu</p>, "", ""],
   // Alternative: chricko.png
   ["chrickoPortrait.png", <p><b>Carolyn Hricko</b> is a Food Systems PhD student at the University of Vermont. Her research interests include the interactions between diet, health, agriculture and the environment, and the role of policy in supporting a more just, sustainable food system.</p>, "Keith MacDonald", ""],
-  // Alternative: elane.jpg
-  ["elanePortrait.png", <p><b>Erin Lane</b> has worked for the USDA Forest Service for 25 years, and has just started studying soil carbon.  She is the Coordinator of the USDA Northeast Climate Hub. The Hub focuses on communicating how we can adapt our farms and forests to climate change, and how working lands can contribute to climate mitigation. Her research is aimed at finding solutions to climate change by storing carbon in the soil. Erin is passionate about collaborating on teams and developing partnerships.</p>, "", ""]
+  // Alternative: elane.jpg elanePortrait.png
+  ["elaneOrig.jpg", <p><b>Erin Lane</b> has worked for the USDA Forest Service for 25 years, and has just started studying soil carbon.  She is the Coordinator of the USDA Northeast Climate Hub. The Hub focuses on communicating how we can adapt our farms and forests to climate change, and how working lands can contribute to climate mitigation. Her research is aimed at finding solutions to climate change by storing carbon in the soil. Erin is passionate about collaborating on teams and developing partnerships.</p>, "", ""]
  
 
 ]
@@ -66,7 +66,8 @@ let acknowledged = [
   "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
   "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County",
   "Todd Guerdat, PhD, Engineer, USDA Natural Resources Conservation Service",
-  "Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture"
+  "Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture",
+  "Kate MacFarland, Agroforester, USDA National Agroforestry Center"
 
 
 ];

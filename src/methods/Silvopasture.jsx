@@ -11,8 +11,10 @@
  import ExternalLink from './../other/ExternalLink';
  import Acknowledgements from '../other/Acknowledgements';
  import ImageController from './../viz/ImageController';
+ import Resource from './../other/Resource';
 
  import cover from './../images/silvopasture/cover/cover2.JPG';
+ import thumbnail from './../images/silvopasture/pdf_thumbnail.jpg'
 
  const navs = ["Overview", "Visualizations", "Economic Tool", "Additional Resources", "Acknowledgements"]; 
 
@@ -316,13 +318,16 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 <ExternalLink link={"/resources/smith_etal.pdf"} label={"Silvopasture in the USA: A systematic review of natural resource professional and producer-reported benefits, challenges, and management activities (Smith, M. M., Bentrup, G., Kellerman, T., MacFarland, K., Straight, R., Ameyaw, L., & Stein, S. 2022. Agriculture, Ecosystems & Environment, 326, 107818.)"} />
 
 
-<ExternalLink label={"Download this practice page"} download={[
-	["pdf", "/resources/briefs/Silvopasture 3.2.22 paper.pdf"],
-	["docx", "/resources/briefs/Silvopasture 3.2.22 paper.docx"]]} />
+<Resource format={"Download this practice brief"} download
+					thumbnail
+                    date={"March 2022"}
+                    link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
+                    description={thumbnail} />
+
 
 <div id="a4">
         <Acknowledgements
-            authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Joshua Faulkner, Stephanie Hurley"
+            //authors="Carolyn Hricko, Meredith Niles, Adam Daigneault, Joshua Faulkner, Stephanie Hurley"
             team={[["Principal Investigator", "Meredith Niles"], 
             ["Co-Principal Investigators", "Dr. Adam Daigneault, Dr. Nick Cheney, Dr. Joshua Faulkner, Dr. Eric Gallandt, Dr. Stephanie Hurley, Dr. Rachel Schattman"],
             ["Additional Team Members", "Dr. Sonja Birthisel, Dr. Bradford Demarest, Tim Harrold, Beth Holtzman, Carolyn Hricko, Erin Lane, Ruthie Clements, Devon Johnson, Thomas Wentworth"]]}

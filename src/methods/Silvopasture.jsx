@@ -153,11 +153,11 @@ Components of Northeast silvopasture systems may include but are not limited to:
 <ListGroup.Item variant="info">Tree Species</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Oaks</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Maples</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Fruit Trees</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Fruit trees</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Eastern White Pine</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Hickories</ListGroup.Item>  
 <ListGroup.Item variant="light" action href="">Commercial Nut Trees</ListGroup.Item>  
-<ListGroup.Item variant="light" action href="">Black Locust</ListGroup.Item>  
+<ListGroup.Item variant="light" action href="">Black Walnut</ListGroup.Item>  
 
 
 </ListGroup>
@@ -167,11 +167,11 @@ Components of Northeast silvopasture systems may include but are not limited to:
 <ListGroup.Item variant="success">Tree Products</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Firewood</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Sawtimber</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Fence Posts</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Scion Wood</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Fence posts</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Scion wood</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Fruit</ListGroup.Item>  
 <ListGroup.Item variant="light" action href="">Nuts</ListGroup.Item> 
-<ListGroup.Item variant="light" action href="">Maple Sap</ListGroup.Item> 
+<ListGroup.Item variant="light" action href="">Maple sap</ListGroup.Item> 
 
 </ListGroup>
 </Col>
@@ -192,8 +192,8 @@ Components of Northeast silvopasture systems may include but are not limited to:
 <Col>      
 <ListGroup className="my-3">
 <ListGroup.Item variant="secondary">Forages</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">Red Clover</ListGroup.Item>
-<ListGroup.Item variant="light" action href="">White Clover</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">Red clover</ListGroup.Item>
+<ListGroup.Item variant="light" action href="">White clover</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Orchardgrass</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Bentgrasses</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Bluegrasses</ListGroup.Item>  

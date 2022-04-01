@@ -49,27 +49,23 @@ return (
   </>
   }
 
-    <Row>
-
+    <Row className='mb-0'>
+      <p><b>Research Team:</b></p>
     </Row>
+
+    <Row className='mt-0'>
     {props.team &&
+
       <>
-      <p><b className="text-start">Research Team:</b></p>
-      <Row>
               {props.team.map((d,idx) => (
-                  <>
 
                       <p><em>{d[0]}</em>: &nbsp;{d[1]}.</p>
-
-                  </>
                   
               ))}
-
-      </Row>
       </>
-    }
 
-  
+    }
+    </Row>
   <Row>
     {props.external &&
       <>

@@ -27,7 +27,7 @@ function Silvopasture(props) {
 	return (
 		<>
 
-          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
+          <div className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
                     <Row className="d-block px-4">
                     <Card.Title className="display-4">
@@ -65,7 +65,8 @@ function Silvopasture(props) {
 		</Col>
 		<Col xs={12} md={10} lg={8}>
 
-
+		<h1 id="a0" className='display-4'>Overview</h1>
+                <hr/>
 
 {/*
 		<hr/>
@@ -253,7 +254,7 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 {/* Tabbed view of method variants */}
 
 <hr/>
-<Card.Title id="a1">Visualizations</Card.Title>
+<Card.Title className='display-4' id="a1">Visualizations</Card.Title>
 <hr/>
 
 <Alert variant={"success"}>
@@ -262,8 +263,7 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 	silvopasture appears in the context of a real New England farm. These images depict the 
 	different stages of practice implementation and help the viewer anticipate how silvopasture 
 	will appear over time and what implications it may have for the farm. 
-    </p>
-   <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
+    <cite> To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu).</cite></p>
 </Alert>
 
 {/* Visualizations */}
@@ -272,7 +272,7 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 
 
 <hr/>
-<Card.Title id="a2">Silvopasture Economic Tool</Card.Title>
+<Card.Title className='display-4' id="a2">Silvopasture Economic Tool</Card.Title>
 <hr/>
 
 {/* Calculator */}
@@ -281,7 +281,7 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 
 
 <hr/>
-<Card.Title id="a3">Additional Resources</Card.Title>
+<Card.Title className='display-4' id="a3">Additional Resources</Card.Title>
 <hr/>
 
 

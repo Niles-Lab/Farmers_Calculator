@@ -161,18 +161,30 @@ let y = d3.scaleLinear()
 
       
 
-      // Break Even Line - Find points (x1, x2) such that
-      // x1 >= 0 && x2 < 0
-      // svg.append("svg:line")
-      // .attr("class", "line")
-      // .attr("id", "break-even")
-      // .attr("x1", x())
-      // .attr("x2", x(props.opts.maturingYears[0]+20))
-      // .attr("y1", 0)
-      // .attr("y2", height-margin.top-margin.bottom)
-      // .style("stroke-width", 2)
-      // .style("stroke", "black")
-      // .style("stroke-dasharray", ("4, 4"));
+      // Break Even Line - passed down by yIntercept prop
+      svg.append("svg:line")
+      .attr("class", "line")
+      .attr("id", "break-even")
+      .attr("x1", x(props.yIntercept))
+      .attr("x2", x(props.yIntercept))
+      .attr("y1", 0)
+      .attr("y2", height-margin.top-margin.bottom)
+      .style("stroke-width", 2)
+      .style("stroke", "black")
+      .attr("opacity", 0.6)
+      .style("stroke-dasharray", ("4, 4"));
+
+      // Break Even Label
+      svg.append("text")
+      .attr("class", "label")
+      .attr("id", "break-even-lbl")
+      .attr("text-anchor", "start")
+      .attr("x", 0)
+      .attr("y", (height/2)-margin.bottom+40)
+      .attr("dx", x(props.yIntercept)+5)
+      .attr("dy", 0)
+      .style("font-weight", "bold")
+      .text("Break Even"); 
 
 
       // Only render trees matured line for silvopasture method
@@ -260,57 +272,6 @@ let y = d3.scaleLinear()
 
         drawTooltip();
 
-    // const tooltip = svg.append("g")
-    //   .attr("id", "ttlbl")
-    //   .attr("opacity", 0);
-
-
-    //   tooltip.append("rect")
-    //   //.attr("fill", (d,idx) => yC[idx])
-    //   .attr("fill", "ghostwhite")
-    //   .attr("rx", 1)
-    //   // .attr("ry", 2)
-    //   .attr("stroke", "#d3d3d3")
-    //   .attr("stroke-width", "1px")
-    //   .attr("opacity", 1)
-    //   //.attr("width", d => d.length * 10 + ((": $0.00").length*5))
-    //   .attr("width", 80)
-    //   .attr("height", lines.length * 23)
-    //   .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
-
-
-    // tooltip.selectAll("path")
-    // .data(lines)
-    // .join("circle")
-    //   // Manually add offset based on index of year
-    //   // Oh boy is this some spaghetti
-    //   // Note - 20 is the offset in this case, as each index is multiplied by 20
-    //   .attr("transform", (d,idx) => "translate(8," + (parseFloat(idx * 15)-3) + ")")
-    //   .attr("r", 6)
-    //   .attr("fill", (d,idx) => yC[idx]);
-
-    //   tooltip.selectAll("text")
-    //   .data(lines)
-    //   .join("text")
-    //   .style("font-size", 12)
-    //   .style("border", "solid")
-    //   .style("border-width", "2px")
-    //   .style("border-radius", "5px")
-    //   .attr("transform", (d,idx) => "translate(16," + (parseFloat((idx * 15))+1) + ")")
-    //   .text(d => d + ": $0.00"); 
-
-    //   tooltip.append("text")
-    //   .attr("id", "ttlblyear")
-    //   .style("font-size", 12)
-    //   .style("font-weight", "bold")
-    //   .style("border", "solid")
-    //   .style("border-width", "2px")
-    //   .style("border-radius", "5px")
-    //   .attr("transform", "translate(16," + parseFloat(-13) + ")")
-    //   .text("Year 0");
-
-
-
 
 
   }
@@ -336,6 +297,14 @@ let y = d3.scaleLinear()
 
     d3.select("#yAxis")
       .call(d3.axisLeft(y));
+
+
+    d3.select("#break-even")
+    .attr("x1", x(props.yIntercept))
+    .attr("x2", x(props.yIntercept));
+
+    d3.select("#break-even-lbl")
+    .attr("dx", x(props.yIntercept)+5);
 
     if(props.method === "silvopasture") {
       // Update trees matured line
@@ -522,50 +491,6 @@ function drawTooltip() {
 
 
 
-    //   tooltip.append("rect")
-    //   .attr("fill", "ghostwhite")
-    //   .attr("rx", 1)
-    //   .attr("stroke", "#d3d3d3")
-    //   .attr("stroke-width", "1px")
-    //   .attr("opacity", 1)
-    //   .attr("width", 80)
-    //   .attr("height", lines.length * 23)
-    //   .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
-
-
-    // tooltip.selectAll("path")
-    // .data(lines)
-    // .join("circle")
-    //   // Manually add offset based on index of year
-    //   // Oh boy is this some spaghetti
-    //   // Note - 20 is the offset in this case, as each index is multiplied by 20
-    //   .attr("transform", (d,idx) => "translate(8," + (parseFloat(idx * 15)-3) + ")")
-    //   .attr("r", 6)
-    //   .attr("fill", (d,idx) => yC[idx]);
-
-    //   tooltip.selectAll("text")
-    //   .data(lines)
-    //   .join("text")
-    //   .style("font-size", 12)
-    //   .style("border", "solid")
-    //   .style("border-width", "2px")
-    //   .style("border-radius", "5px")
-    //   .attr("transform", (d,idx) => "translate(16," + (parseFloat((idx * 15))+1) + ")")
-    //   .text(d => d + ": $0.00"); 
-
-    //   tooltip.append("text")
-    //   .attr("id", "ttlblyear")
-    //   .style("font-size", 12)
-    //   .style("font-weight", "bold")
-    //   .style("border", "solid")
-    //   .style("border-width", "2px")
-    //   .style("border-radius", "5px")
-    //   .attr("transform", "translate(16," + parseFloat(-13) + ")")
-    //   .text("Year 0");
-
-
-
-
 }
 
   
@@ -653,31 +578,6 @@ function pointerMove(d) {
 
 }
 
-
-// Mike Bostock's long label wrap example - thanks Mike!
-// function wrap(text, width) {
-//   text.each(function() {
-//     var text = d3.select(this),
-//         words = text.text().split(/\s+/).reverse(),
-//         word,
-//         line = [],
-//         lineNumber = 0,
-//         lineHeight = 1.0, // ems
-//         y = text.attr("y"),
-//         dy = parseFloat(text.attr("dy")),
-//         tspan = text.text(null).append("tspan").attr("x", 1).attr("y", y).attr("dy", dy + "em");
-//     while (word = words.pop()) {
-//       line.push(word);
-//       tspan.text(line.join(" "));
-//       if (tspan.node().getComputedTextLength() > width) {
-//         line.pop();
-//         tspan.text(line.join(" "));
-//         line = [word];
-//         tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
-//       }
-//     }
-//   });
-// }
 
 		return (
 

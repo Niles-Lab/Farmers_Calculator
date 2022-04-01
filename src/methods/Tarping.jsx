@@ -27,7 +27,7 @@ function Tarping(props) {
 	return (
 		<>
 
-          <div id="a0" className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
+          <div className="parallax py-5 h-100 d-flex position-relative align-items-center justify-content-center" style={{ backgroundImage: `url(${cover})` }}>
               <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
                     <Row className="d-block px-4">
                     <Card.Title className="display-4">
@@ -65,7 +65,8 @@ function Tarping(props) {
 
 
         
-
+        <h1 id="a0" className='display-4'>Overview</h1>
+        <hr/>
 
 
         <Row className="d-block">
@@ -139,7 +140,7 @@ function Tarping(props) {
 {/* Tabbed view of method variants */}
 
 <hr/>
-<Card.Title id="a1">Visualizations</Card.Title>
+<Card.Title className='display-4' id="a1">Visualizations</Card.Title>
 <hr/>
 
 
@@ -149,8 +150,7 @@ function Tarping(props) {
 	silvopasture appears in the context of a real New England farm. These images depict the 
 	different stages of practice implementation and help the viewer anticipate how silvopasture 
 	will appear over time and what implications it may have for the farm. 
-    </p>
-   <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
+    <cite> To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu).</cite></p>
 </Alert>
 
 <Alert variant={'warning'} className="mx-4 mb-0">
@@ -167,7 +167,7 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
 
 <hr/>
-<Card.Title id="a2">Tarping Economic Tool</Card.Title>
+<Card.Title className='display-4' id="a2">Tarping Economic Tool</Card.Title>
 <hr/>
 {/* Calculator */}
 <FormController variant={"tarping"} />
@@ -177,7 +177,7 @@ The use of tarping in cover crop and conservation tillage systems is a flexible 
 
 
 <hr/>
-<Card.Title id="a3">Additional Resources</Card.Title>
+<Card.Title className='display-4' id="a3">Additional Resources</Card.Title>
 <hr/>
 
 <Card.Title className="my-3">Guides, Factsheets, Other</Card.Title>

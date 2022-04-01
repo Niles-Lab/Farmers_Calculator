@@ -44,12 +44,12 @@ return (
 
 
 <Alert variant={"success"}>
-These visualizations are designed to help the viewer picture how the implementation of a practice appears
- in the context of a real New England farm. These images depict the different stages of practice implementation
-  and help the viewer anticipate how the implementation of the practice will appear over time and what implications
-   it may have for the farm. Use the slider tool to progress through the images and implement the practice.
-    <br/>
-   <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
+	<p>
+	These visualizations are designed to help the viewer picture how the implementation of 
+	silvopasture appears in the context of a real New England farm. These images depict the 
+	different stages of practice implementation and help the viewer anticipate how silvopasture 
+	will appear over time and what implications it may have for the farm. 
+    <cite> To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu).</cite></p>
 </Alert>
 
 

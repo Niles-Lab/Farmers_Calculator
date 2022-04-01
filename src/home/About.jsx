@@ -41,7 +41,7 @@ return (
     <div className="py-3 w-100" style={{'backgroundColor': 'rgb(255,255,255,0.7)'}}>
           <Row className="d-block">
           <Card.Title className="display-4">
-            About The Project
+            About the Project
           </Card.Title>
           </Row>
     </div>

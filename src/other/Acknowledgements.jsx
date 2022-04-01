@@ -37,7 +37,7 @@ return (
 
 
     <hr/>
-      <h3>Acknowledgements</h3>
+      <h3 className='display-4'>Acknowledgements</h3>
     <hr/>
 
 

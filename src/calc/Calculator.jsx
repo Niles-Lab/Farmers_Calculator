@@ -17,6 +17,7 @@ const graphWidth = 800;
 //let data = [];
 const [data, setData] = useState([]);
 
+const [yIntercept, setYIntercept] = useState(0);
 
 var acreFt = props.unit === "Acres" ?  43560 : 107639;
 
@@ -164,10 +165,19 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
     value: (totalProfit*props.land)
   })
 
-  setData(tmpData);
 
 
 });
+
+setData(tmpData);
+
+// Distance from x1 to x2 given y1 and y2 = ()
+let pt = d3.bisect(tmpData.map(d => d.value), 0);
+let diff = (0-tmpData[pt-1].value)/(tmpData[pt].value - tmpData[pt-1].value);
+
+setYIntercept(pt+diff);
+
+
 
 }, [props.opts, props.length, props.land, props.unit])
 
@@ -221,7 +231,15 @@ function npv() {
 
 return (
 
-	<EconomicTool key={props.variant} npv={npv()} width={graphWidth} range={range} data={data} xDom={xDom} yDom={yDom} {...props} />
+	<EconomicTool key={props.variant}
+   npv={npv()}
+   width={graphWidth}
+   range={range}
+   data={data}
+   xDom={xDom}
+   yDom={yDom}
+   yIntercept={yIntercept}
+   {...props} />
 
 )
 

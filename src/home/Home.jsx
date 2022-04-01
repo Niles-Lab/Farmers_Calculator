@@ -85,8 +85,8 @@ function Home(props) {
                  <p>
                  To learn more about
                   each practice area and explore the tools and resources, visit the practice pages (Quick Links below). 
-                  The economic tool and visualizations can also be accessed on the Tools page. Visit the <a href="/about">About the Project</a>
-                   and <a href="/team">About the Team</a> pages for more information on the purpose and focus of these tools and resources. 
+                  The economic tools, visualizations, and overview briefs can also be found under the Tools tab at the top of the page. Visit the <a href="/about">About the Project</a>
+                    &nbsp;and <a href="/team">About the Team</a> pages for more information on the purpose and focus of these tools and resources. 
                    For an overview of the research project that generated these resources, visit the <a href="/research">Research</a> page. 
                 </p>
 

@@ -84,7 +84,7 @@ return (
         <Row className="d-flex justify-content-center">
           <Col xs={12} lg={5} className="d-flex align-items-center border-right pr-3">
 
-          <p className="font-weight-lighter" style={{"fontSize": "1em"}}><b style={{"fontSize": "2em"}} className="display-3">Visualization design and creation</b><br/>&nbsp;&nbsp;Holly Greenleaf, Greenleaf Design LLC</p>
+          <p className="font-weight-lighter" style={{"fontSize": "1em"}}><b style={{"fontSize": "2em"}} className="display-3">Visualization design<br/>and creation</b><br/>&nbsp;&nbsp;Holly Greenleaf, Greenleaf Design LLC</p>
 
           </Col>
           <Col xs={12} lg={7}>
@@ -97,8 +97,6 @@ return (
         
 
       </Row>
-      <p>This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098. Any opinions, findings, conclusions, or recommendations expressed in this publication are those of the author(s) and do not necessarily reflect the view of the U.S. Department of Agriculture.</p>
-
 
 
   </Row>

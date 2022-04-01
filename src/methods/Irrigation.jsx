@@ -95,7 +95,7 @@ function Irrigation(props) {
                     </p>
                     <p>
 
-                    Farmers interested in more information about technical and financial support for the implementation of these systems should consult with local extension agents. Potential irrigation water sources include an on-farm pond fed by runoff from surrounding areas, on-site well, or nearby streams and lakes. The quantity and quality of water are site-specific but are of significant importance. A rough estimate of the irrigation water (pumping rate) need for the region is about 10-15 gallons per minute per acre for irrigation events lasting about 8 hours a day.
+                    Farmers interested in more information about technical and financial support for the implementation of these systems should consult with local extension agents. Potential irrigation water sources include an on-farm pond fed by runoff from surrounding areas, an on-site well, or nearby streams and lakes. The quantity and quality of water are site-specific but are of significant importance. A rough estimate of the irrigation water (pumping rate) need for the region is about 10-15 gallons per minute per acre for irrigation events lasting about 8 hours a day.
 
                     </p>
 
@@ -196,10 +196,7 @@ function Irrigation(props) {
                         
 
                 <Container>
-                    <Row>
 
-                    <p><b>Interested in irrigation? Check out these additional resources for more information:</b></p>
-                    </Row>
                     <Row>
                     <hr/>
                     <Card.Title className="my-3">Guides and Tools</Card.Title>

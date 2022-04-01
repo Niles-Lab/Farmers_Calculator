@@ -109,7 +109,7 @@ function Tarping(props) {
 <ListGroup.Item variant="light" action href="">Eliminates the need for herbicides and/or specialized equipment like a roller-crimper</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Provides flexibility in the timing of cover crop termination</ListGroup.Item>
 <ListGroup.Item variant="light" action href="">Augments the weed suppression provided by cover crop residue</ListGroup.Item> 
-<ListGroup.Item variant="light" action href="">Increase cover crop biomass which may support long-term soil health goals, like protecting soil organic matter and building soil structure. Supporting soil health can also improve water holding capacity</ListGroup.Item> 
+<ListGroup.Item variant="light" action href="">Increases cover crop biomass which may support long-term soil health goals, like protecting soil organic matter and building soil structure. Supporting soil health can also improve water holding capacity</ListGroup.Item> 
 <ListGroup.Item variant="light" action href="">Eliminates the need for field passes (especially beneficial when soils are too wet to operate equipment)</ListGroup.Item> 
 <ListGroup.Item variant="light" action href="">Reduces soil erosion</ListGroup.Item> 
 <ListGroup.Item variant="light" action href="">Supports use of overwintering cover crops, some of which (i.e., hairy vetch, not pictured here) may add valuable nitrogen and reduce future need for fertilizer</ListGroup.Item> 
@@ -153,9 +153,9 @@ function Tarping(props) {
     <cite> To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu).</cite></p>
 </Alert>
 
-<Alert variant={'warning'} className="mx-4 mb-0">
-The use of tarping in cover crop and conservation tillage systems is a flexible multi-step process. One example of this is shown below.
-</Alert>
+
+<p>The use of tarping in cover crop mulch and conservation tillage systems is a flexible multi-step process. One example of this is shown below.</p>
+
 
 
 {/* VISUALIZATIONS */}

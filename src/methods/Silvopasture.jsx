@@ -257,11 +257,12 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 <hr/>
 
 <Alert variant={"success"}>
+	<p>
 	These visualizations are designed to help the viewer picture how the implementation of 
 	silvopasture appears in the context of a real New England farm. These images depict the 
 	different stages of practice implementation and help the viewer anticipate how silvopasture 
 	will appear over time and what implications it may have for the farm. 
-    <br/>
+    </p>
    <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu)</cite>
 </Alert>
 

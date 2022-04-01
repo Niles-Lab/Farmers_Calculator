@@ -87,7 +87,7 @@ function handleChange(event,key,value) {
 			<Form.Group key={key}>
 				<Row className="my-3">
 					
-					<Col xs={12} lg={6}>
+					<Col xs={12} xl={6}>
 						{value[2]}
 				
 						{ props.opts[key].length === 4 &&
@@ -111,7 +111,7 @@ function handleChange(event,key,value) {
 
 
 					</Col>
-				<Col xs={12} lg={6}>
+				<Col xs={12} xl={6}>
 				<InputGroup className="mb-1">
 
 					<Form.Control

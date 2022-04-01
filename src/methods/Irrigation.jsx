@@ -162,9 +162,10 @@ function Irrigation(props) {
             <hr/>
 
             <Alert variant={"success"}>
+            <p>
             These visualizations are designed to help the viewer picture how irrigation appears in the context of a real New England farm. These images depict the different stages of practice implementation and help the viewer anticipate how the implementation of this practice will appear over time and what implications it may have for the farm.
-                <br/>
-               <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu).</cite>
+            </p>
+            <cite>To use these images, please request permission from Stephanie Hurley (stephanie.hurley@uvm.edu).</cite>
             </Alert>
 
             {/* VISUALIZATIONS */}

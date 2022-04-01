@@ -12,9 +12,14 @@ import AdvancedOptions from './AdvancedOptions.jsx';
 
 // let MAX_CROPS = 10;
 
+
 function CalcForm(props) {
 
+	function changeIrrTech(event) {
+		
+		props.setIrrTech(event.target.value)
 
+	}
 	
 
 	return (
@@ -104,8 +109,8 @@ function CalcForm(props) {
 			<ToggleButtonGroup className="mt-3" name="radioGroup">
 
 
-				<Button variant="secondary" className={props.irrTech === "Spray Irrigation" ? "btn.active" : ""} value={"Spray Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Spray Irrigation</Button>
-				<Button variant="secondary" className={props.irrTech === "Drip Irrigation" ? "btn.active" : ""} value={"Drip Irrigation"} onClick = {(event, d) => {props.setIrrTech(event.target.value)}}>Drip Irrigation</Button>
+				<Button variant="secondary" className={props.irrTech === "Spray Irrigation" ? "btn.active" : ""} value={"Spray Irrigation"} onClick = {(event) => {changeIrrTech(event)}}>Spray Irrigation</Button>
+				<Button variant="secondary" className={props.irrTech === "Drip Irrigation" ? "btn.active" : ""} value={"Drip Irrigation"} onClick = {(event) => {changeIrrTech(event)}}>Drip Irrigation</Button>
 				
 				{/* <ToggleButton
 					id="spIgRd"

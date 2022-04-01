@@ -69,7 +69,7 @@
    images: [tp],
    lbls: [
      ["Spring growth of winter rye cover crop planted previous September.",
-     "Spring growth of winter rye cover crop planted previous September.",
+     "In June, roll down with lawn roller or tractor with roller-crimper to prepare for tarping.",
      "Use black plastic tarps to prepare planting beds and kill weed species. Weigh tarps with sand bags.",
      "Two weeks later: remove black plastic tarps. Then plant vegetable starts in cover crop mulch. Example: Brassica species such as broccoli or kale.",
      "Brassica crop growing within cover crop mulch."]

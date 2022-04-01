@@ -159,6 +159,20 @@ let y = d3.scaleLinear()
       .y(d => y(d.revenue + d.cost))
       .curve(d3.curveBasis)); 
 
+      
+
+      // Break Even Line - Find points (x1, x2) such that
+      // x1 >= 0 && x2 < 0
+      // svg.append("svg:line")
+      // .attr("class", "line")
+      // .attr("id", "break-even")
+      // .attr("x1", x())
+      // .attr("x2", x(props.opts.maturingYears[0]+20))
+      // .attr("y1", 0)
+      // .attr("y2", height-margin.top-margin.bottom)
+      // .style("stroke-width", 2)
+      // .style("stroke", "black")
+      // .style("stroke-dasharray", ("4, 4"));
 
 
       // Only render trees matured line for silvopasture method
@@ -183,23 +197,23 @@ let y = d3.scaleLinear()
         .attr("id", "treesMat")
         .attr("text-anchor", "start")
         .attr("x", 0)
-        .attr("y", (height/3)-margin.top-margin.bottom+20)
+        .attr("y", (height/2)-margin.top-margin.bottom+20)
         .attr("dx", x(props.opts.maturingYears[0])+5)
         .attr("dy", 0)
         .style("font-weight", "bold")
         .text("Trees Matured"); 
 
 
-          svg.append("text")
-          .attr("class", "label matured")
-          .attr("id", "treesMat2")
-          .attr("text-anchor", "start")
-          .attr("x", 0)
-          .attr("y", (height/3)-margin.top-margin.bottom+20)
-          .attr("dx", x(props.opts.maturingYears[0])+5)
-          .attr("dy", "1.2em")
-          .style("font-weight", "bold")
-          .text("Year " + props.opts.maturingYears[0][0]); 
+        svg.append("text")
+        .attr("class", "label matured")
+        .attr("id", "treesMat2")
+        .attr("text-anchor", "start")
+        .attr("x", 0)
+        .attr("y", (height/2)-margin.top-margin.bottom+20)
+        .attr("dx", x(props.opts.maturingYears[0])+5)
+        .attr("dy", "1.2em")
+        .style("font-weight", "bold")
+        .text("Year " + props.opts.maturingYears[0][0]); 
 
 
         }

@@ -301,6 +301,7 @@ useEffect(() => {
 		setLand(1);
 	}
 
+
 }, [irrTech]);
 
 // Optional table view
@@ -410,6 +411,7 @@ return (
 		setUnit={setUnit}
 		crops={crops}
 		setCrops={setCrops}
+
 		method={props.variant}
 
 		length={length}

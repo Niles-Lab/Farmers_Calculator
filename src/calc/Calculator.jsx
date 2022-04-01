@@ -41,6 +41,7 @@ if(props.method === "irrigation") {
 
   if(props.irrTech === "Spray Irrigation") {
 
+    if(props.opts.sprinklerSpacing) {
 
     var sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
     props.opts["sprinklerCountDisabled"][0] = sprinklerCount;
@@ -51,8 +52,12 @@ if(props.method === "irrigation") {
     var pipeLength = acreFt / props.opts.sprinklerSpacing[0];
     props.opts["pipeLengthDisabled"][0] = pipeLength;
 
+    }
+
 
   } else { // Drip Irrigation Calculated Values
+
+    if(props.opts.cropRowSpacing) {
 
     var tapeLength = acreFt / props.opts.cropRowSpacing[0];
     props.opts["tapeLengthDisabled"][0] = tapeLength;
@@ -62,6 +67,8 @@ if(props.method === "irrigation") {
 
     var annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
     props.opts["annualDieselCostDisabled"][0] = annualDieselCost;
+
+    }
 
   }
 }

@@ -58,16 +58,27 @@ let previousTeam = [
 
 let acknowledged = [
 
-  "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at  Yale School of the Environment",
-  "Hamid Farahani, PhD, Water Management Engineer, USDA-NRCS East National Technology Support Center",
-  "Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems",
-  "Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture",
-  "Karrah Kwasnik, Digital Content Manager, USDA Northeast Climate Hub",
-  "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
-  "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County",
-  "Todd Guerdat, PhD, Engineer, USDA Natural Resources Conservation Service",
-  "Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture",
-  "Kate MacFarland, Agroforester, USDA National Agroforestry Center"
+"Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture",
+"Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County",
+"Hamid Farahani, PhD, Water Management Engineer, USDA-NRCS East National Technology Support Center",
+"Todd Guerdat, PhD, Engineer, USDA Natural Resources Conservation Service",
+"Karrah Kwasnik, Digital Content Manager, USDA Northeast Climate Hub",
+"Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems",
+"Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
+"Kate MacFarland, Agroforester, USDA National Agroforestry Center",
+"Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment",
+"Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture"
+
+  // "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at  Yale School of the Environment",
+  // "Hamid Farahani, PhD, Water Management Engineer, USDA-NRCS East National Technology Support Center",
+  // "Natalie Lounsbury, PhD, Postdoctoral Research Associate, University of New Hampshire Department of Agriculture, Nutrition, and Food Systems",
+  // "Les Wright, PE, Civil Engineer, Natural Resources Conservation Service, United States Department of Agriculture",
+  // "Karrah Kwasnik, Digital Content Manager, USDA Northeast Climate Hub",
+  // "Ryan Maher, Research and Extension Specialist, Cornell Small Farms Program, Cornell University",
+  // "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County",
+  // "Todd Guerdat, PhD, Engineer, USDA Natural Resources Conservation Service",
+  // "Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture",
+  // "Kate MacFarland, Agroforester, USDA National Agroforestry Center"
 
 
 ];
@@ -217,7 +228,7 @@ return (
         <Row className="d-flex justify-content-center">
           <Col xs={12} lg={5} className="d-flex align-items-center border-right pr-3">
 
-          <p className="font-weight-lighter" style={{"fontSize": "1em"}}><b style={{"fontSize": "2em"}} className="display-3">Visualization design and creation</b><br/>&nbsp;&nbsp;Holly Greenleaf, Greenleaf Design LLC</p>
+          <p className="font-weight-lighter" style={{"fontSize": "1em"}}><b style={{"fontSize": "2em"}} className="display-3">Visualization design<br/>and Creation</b><br/>&nbsp;&nbsp;Holly Greenleaf, Greenleaf Design LLC</p>
 
           </Col>
           <Col xs={12} lg={7}>

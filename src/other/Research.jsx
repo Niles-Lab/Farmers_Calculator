@@ -28,7 +28,7 @@ return (
                       <Nav id="sectionnav" className="mx-auto">
                         {navs.map((d, idx) => (
 
-                            <a key={"navItem#"+idx} href={"#" + idx} className="text-decoration-none">
+                            <a key={"navItem#"+idx} href={"#a" + idx} className="text-decoration-none">
                                 <Nav.Link as={Card.Title} className="font-weight-light">
                                 {d}
                                 </Nav.Link>
@@ -41,9 +41,9 @@ return (
             </Col>
             <Col xs={12} md={8} id="0">
    
-{/*                    <hr/>
-                        <Card.Title className="mb-0 text-center" id="0">Overview</Card.Title>
-                    <hr/>*/}
+            <hr/>
+                    <h2 className='display-4' id="a0">About the Research</h2>
+                <hr/>
 
 
                             <blockquote className="blockquote mt-5 mb-0 ">
@@ -52,18 +52,18 @@ return (
                 <Alert variant={'success'} className="mx-4">
                   <em className="small">
 
-                    The long term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United 
-                    States (specifically Maine and Vermont) by developing climate change resources that consider farmer's own perceptions, concerns, 
+                    The long-term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United 
+                    States (specifically Maine and Vermont) by developing climate change resources that consider farmers' own perceptions, concerns, 
                     experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region
                      and the unique climate change challenges facing the Northeast.
                   </em>
-                  <small>
+
                   <footer className="blockquote-footer small">
                         <a target="_blank" rel="noreferrer" href="https://training-portal.nifa.usda.gov/web/crisprojectpages/1015771-assessing-climate-perceptions-and-developing-adaptation-resources-for-small-medium-and-beginning-farms.html">
                             <cite>USDA Grant Summary</cite>
                         </a>
                   </footer>
-                  </small>
+ 
                 </Alert>
 
 
@@ -74,7 +74,7 @@ return (
 
 
                 <hr/>
-                    <h2 id="1">Phase 1 - Interviews</h2>
+                    <h2 className='display-4' id="a1">Phase 1 - Interviews</h2>
                 <hr/>
 
                 <Row className="d-block">
@@ -92,7 +92,7 @@ return (
 
                         <cite className="text-muted small">Graph showing the percent of respondents who mentioned a
                             concept or outcome for a given farm during mental model exercise,
-                            separated by occupation. Statistically signicant mention scores are
+                            separated by occupation. Statistically significant mention scores are
                             noted with an asterisk (*). (X squared =4.27, p=0.039).</cite>
 
                         </Col>
@@ -151,7 +151,7 @@ return (
 
 
                 <hr/>
-                    <h2 id="2">Phase 2 - Focus Groups</h2>
+                    <h2 className='display-4' id="a2">Phase 2 - Focus Groups</h2>
                 <hr/>
 
                     <Row className="d-block pb-0 mb-0">
@@ -175,7 +175,7 @@ return (
                                           
 
                 <hr/>
-                    <h2 id="3">Phase 3 - Tools</h2>
+                    <h2 className='display-4' id="a3">Phase 3 - Tools</h2>
                 <hr/>
 
                     <Row className="d-block">
@@ -206,7 +206,7 @@ return (
                 <Container className="my-5 text-center">
 
                 <hr/>
-                    <h2 className="mb-0" id="4">Publications</h2>
+                    <h2 className="display-4 mb-0" id="a4">Publications</h2>
                 <hr/>
 
 

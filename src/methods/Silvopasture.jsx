@@ -332,7 +332,7 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
             team={[["Principal Investigator", "Meredith Niles"], 
             ["Co-Principal Investigators", "Dr. Adam Daigneault, Dr. Nick Cheney, Dr. Joshua Faulkner, Dr. Eric Gallandt, Dr. Stephanie Hurley, Dr. Rachel Schattman"],
             ["Additional Team Members", "Dr. Sonja Birthisel, Dr. Bradford Demarest, Tim Harrold, Beth Holtzman, Carolyn Hricko, Erin Lane, Ruthie Clements, Devon Johnson, Thomas Wentworth"]]}
-            external={["Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment", "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County", "Kate MacFarland, Agroforester, USDA National Agroforestry Center", "Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture"]}
+            external={["Juan P. Alvez, Ph.D., Research Associate Faculty, University of Vermont Extension, Center for Sustainable Agriculture", "Brett Chedzoy, Senior Resource Educator, Cornell Cooperative Extension of Schuyler County", "Kate MacFarland, Agroforester, USDA National Agroforestry Center", "Joe Orefice, PhD, Lecturer and Director of Forest & Agricultural Operations, The Forest School at Yale School of the Environment"]}
         />
     </div>
 

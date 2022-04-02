@@ -10,10 +10,13 @@ import { Container, Row, Col, Nav, Navbar } from 'react-bootstrap';
 import FormController from "./../calc/FormController.jsx"
 
 
+var keys = ["silvopasture", "irrigation", "tarping"]
+
 const Tools = (props, ref) => {
 
 
 const [key, setKey] = useState("silvopasture");
+
 
 
 return (
@@ -57,16 +60,15 @@ return (
       activeKey={key}
       onSelect={(k) => setKey(k)}>
 
+        {keys.map((d,idx) => (
 
-        <Nav.Item>
-          <Nav.Link eventKey="silvopasture">Silvopasture</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="irrigation">Irrigation</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="tarping">Tarping</Nav.Link>
-        </Nav.Item>
+          <Nav.Item key={"navTl"+idx}>
+            <Nav.Link eventKey={d}>{d.charAt(0).toUpperCase() + d.slice(1)}</Nav.Link>
+
+          </Nav.Item>
+
+        ))}
+
       </Nav>
 
       </Navbar>
@@ -76,13 +78,13 @@ return (
 <Col xs={12} md={10} lg={8}>
 
 
-
-
-
-
-      <FormController id="a1" key={key} variant={key} />
-
-
+      {keys.map(d => (
+        <>
+        { key === d &&
+          <FormController id="a1" key={d} variant={d} />
+        }
+        </>
+      ))}
 
 
 

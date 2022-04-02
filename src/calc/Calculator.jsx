@@ -171,11 +171,30 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
 
 setData(tmpData);
 
-// Distance from x1 to x2 given y1 and y2 = ()
+/**
+ * 
+ * The precise break-even point between cumulative revenue points x1 and x2, such that
+ * x1 <= 0 && x2 > 0 is attained by:
+ * 1. Find x1 by bisecting 0 into the sorted array 
+ * 2. Given index of x1 and x2, find difference between y1 and y2
+ * 3. Find distance from y1 to 0 to see how far from x1 our point is
+ * 4. Divide (0-y1)/(y2-y1)
+ * 5. yee haw!
+ * 
+ */
 let pt = d3.bisect(tmpData.map(d => d.value), 0);
-let diff = (0-tmpData[pt-1].value)/(tmpData[pt].value - tmpData[pt-1].value);
+let diff;
 
-setYIntercept(pt+diff);
+if(pt >= 1 && pt < tmpData.length) {
+  diff = (0-tmpData[pt-1].value)/(tmpData[pt].value - tmpData[pt-1].value);
+  setYIntercept(pt+diff);
+} else {
+  setYIntercept(-1);
+}
+
+
+
+
 
 
 

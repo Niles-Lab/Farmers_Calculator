@@ -183,6 +183,7 @@ let y = d3.scaleLinear()
       .attr("y", (height/2)-margin.bottom+40)
       .attr("dx", x(props.yIntercept)+5)
       .attr("dy", 0)
+      .attr("opacity", 1)
       .style("font-weight", "bold")
       .text("Break Even"); 
 
@@ -298,13 +299,15 @@ let y = d3.scaleLinear()
     d3.select("#yAxis")
       .call(d3.axisLeft(y));
 
-
+    console.log(props.yIntercept)
     d3.select("#break-even")
     .attr("x1", x(props.yIntercept))
-    .attr("x2", x(props.yIntercept));
+    .attr("x2", x(props.yIntercept))
+    .attr("opacity", props.yIntercept > -1 ? 0.6 : 0);
 
     d3.select("#break-even-lbl")
-    .attr("dx", x(props.yIntercept)+5);
+    .attr("dx", x(props.yIntercept)+5)
+    .attr("opacity", props.yIntercept > -1 ? 1 : 0)
 
     if(props.method === "silvopasture") {
       // Update trees matured line

@@ -1,18 +1,18 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col, Alert, Card } from 'react-bootstrap';
+import { Button, Row, Col, Alert, Card, OverlayTrigger, Tooltip, Overlay } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
-
+import { BsArrowLeft } from "react-icons/bs";
 
 function FormController(props) {
 
 
 
 // Forced update - implemented for adding and removing crops
-const [, updateState] = React.useState();
-const forceUpdate = React.useCallback(() => updateState({}), []);
-// const sizeRef = React.createRef();
+// const [, updateState] = React.useState();
+// const forceUpdate = React.useCallback(() => updateState({}), []);
+
 
 // Possible units for user to set
 const units = ["Acres", "Hectares"];
@@ -53,7 +53,7 @@ const usingTp = [
 	"To begin, select “Open Calculator and Input Options” and then “More Tarping Options.” ",
 	"Use the default options for each metric, or enter information specific to your operation, such as your farm size, the project length, your costs and revenue for the base crop, the hourly rate for labor, and anticipated maintenance costs.",
 	"After inputting your details, view the graph.  The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
-	"Using the default options for tarping, you can see the up-front costs appear in the first 2-3 years and that it will take about 11 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."
+	"Using the default options for tarping, you can see the up-front costs appear every 5 years and that it will take 2-3 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."
 ]
 
 /* Specific options for methods - these should be in the format of:
@@ -238,6 +238,10 @@ const [opts, setOpts] = useState(() => {
 // Set options back to default
 function setDefault() {
 
+	// Reset tooltip state
+	setShowTT(true);
+
+	// Reset user input values
 	setRate(data.rate);
 	setLand(data.land);
 	setCrops(data.crops);
@@ -312,6 +316,9 @@ const [show, setShow] = useState(false);
 const toggleShow = () => setShow(d => !d);
 const handleClose = () => setShow(false);
 
+// "Start Here" tooltip for opening calculator options
+const [showTT, setShowTT] = useState(true);
+const handleCloseTT = () => setShowTT(false);
 
 return (
 
@@ -349,19 +356,23 @@ return (
 			onClick={() => setTableView(!tableView)}>
 			View as {tableView ? "Graph": "Table"}</Button>
 
-			<Button
-			className="mx-auto w-100"
-			onClick={toggleShow}
-			>Open Calculator and Input Options</Button>
+
+			<OverlayTrigger
+			key={"starttrigger"}
+			onToggle={handleCloseTT}
+			defaultShow={true}
+			show={showTT}
+			target={"#ttBtn"}
+			placement={"right"}
+			overlay={<Tooltip className='mx-1' id={"sttooltip"}><Row className='my-1 ml-1 px-0 d-flex align-items-center'><BsArrowLeft className='mx-1' /> Start Here</Row></Tooltip>}>
+			<Button className='ttBtn' onClick={toggleShow}>Open Calculator and Input Options</Button>
+			</OverlayTrigger>		
+
 
 			<Button
 			className="mt-3 mx-auto w-100"
 			onClick={() => setDefault()}
 			>Reset Options</Button>
-
-
-
-			
 
 		</Col>
 
@@ -387,7 +398,8 @@ return (
 	</Row>
 	<Row>
 
-	<Alert variant="info mt-2" className="small">
+	<Alert variant="info mt-2">
+		<p>
 		Our team developed this economic tool to assist farmers and their advisors in understanding what 
 		the general costs, revenues and profits may be for a farm that implements different climate 
 		adaptation practices.  A farmer or advisor can input farm-specific data using the calculator 
@@ -397,6 +409,7 @@ return (
 		 understanding the range of costs for implementation across these practices, and should be used
 		  in conjunction with our other tools and technical advisors to better understand the specific 
 		  opportunities and challenges for implementation on any given farm.
+		</p>
 	</Alert>
 
 	</Row>
@@ -404,7 +417,7 @@ return (
 
 		{/*Calculator Input UI*/}
 		<CalcShow
-		onChange={() => forceUpdate()}
+		//onChange={() => forceUpdate()}
 		land={land}
 		setLand={setLand}
 		unit={unit}

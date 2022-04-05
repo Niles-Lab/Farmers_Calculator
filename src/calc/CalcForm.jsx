@@ -24,7 +24,7 @@ function CalcForm(props) {
 
 	return (
 		<Container className="calc">
-			<h1 className="mt-3" style={{"fontSize": "2.5em", "fontWeight": "lighter"}}>Calculator and Input Options<BsX onClick={props.handleClose} /></h1>
+			<h1 className="mt-3" style={{"fontSize": "2.5em", "fontWeight": "lighter"}}>Input Options<BsX onClick={props.handleClose} /></h1>
 
 
 

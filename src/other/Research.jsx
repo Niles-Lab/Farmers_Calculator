@@ -189,7 +189,7 @@ return (
                           Based on farmer and agricultural expert interviews, farmer feedback from the focus groups, 
                           a review of New England farmers’ plans and needs for climate change adaptation, and an assessment 
                           of available climate change adaptation resources, the research team identified three agricultural 
-                          practices (silvopasture, irrigation, and tarping) and two tools (visualizations and economic calculator) 
+                          practices (silvopasture, irrigation, and tarping) and two tools (visualizations and economic tool) 
                           that are of particular need and interest to New England farmers.
                         </p>
                         <p>

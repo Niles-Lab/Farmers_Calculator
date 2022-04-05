@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Row, Col, Alert, Card, OverlayTrigger, Tooltip, Overlay } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
-import { BsArrowLeft } from "react-icons/bs";
+import { BsArrowDown } from "react-icons/bs";
 
 function FormController(props) {
 
@@ -37,20 +37,20 @@ let data = {
  * 
  * 
  */
-const usingSp = ["To begin, select “Open Calculator and Input Options”.", 
+const usingSp = ["To begin, select “Open Input Options”.", 
 "Use the default options for each metric, or enter information specific to your operation, such as your farm size, the project length, your costs and revenue for the base pasture, tree planting costs, trees per acre, and anticipated tree crop yield.",
 "After inputting your details, view the graph. The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
 "Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 11 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."];
 
 const usingIg = [
-	"To begin, select “Open Calculator and Input Options”. Then select ”Spray Irrigation” or ”Drip Irrigation” depending on what you intend to calculate costs for.",
+	"To begin, select “Open Input Options”. Then select ”Spray Irrigation” or ”Drip Irrigation” depending on what you intend to calculate costs for.",
 	"Use the default options for each metric, or enter information specific to your operation, such as the project length, your farm size, your costs and revenue for the base crop, sprinkler cost, pump size, diesel fuel cost, and anticipated productivity with irrigation.",
 	"After inputting your details, view the graph. The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
 	"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 9 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."
 ]
 
 const usingTp = [
-	"To begin, select “Open Calculator and Input Options” and then “More Tarping Options.” ",
+	"To begin, select “Open Input Options” and then “More Tarping Options.” ",
 	"Use the default options for each metric, or enter information specific to your operation, such as your farm size, the project length, your costs and revenue for the base crop, the hourly rate for labor, and anticipated maintenance costs.",
 	"After inputting your details, view the graph.  The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
 	"Using the default options for tarping, you can see the up-front costs appear every 5 years and that it will take 2-3 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."
@@ -325,7 +325,7 @@ return (
 	<Card.Body className="border">
 
 	<Row>
-		<Col xs={12} xl={10} className="p-0">
+		<Col xs={12} xl={12} className="p-0">
 
 
 			{/*Calculator Output Table*/}
@@ -347,33 +347,34 @@ return (
 				/>
 
 		</Col>
-		<Col xs={12} xl={2} className="pr-0 my-5">
+		<Col xs={12} xl={12} className="pr-0 my-5">
+		<Row>
+			<Col xs={4}>
+				<OverlayTrigger
+				key={"starttrigger"}
+				onToggle={handleCloseTT}
+				defaultShow={true}
+				show={showTT}
+				target={"#ttBtn"}
+				placement={"top"}
+				overlay={<Tooltip className='mx-1' id={"sttooltip"}><Row className='my-1 ml-1 px-0 d-flex align-items-center'><BsArrowDown className='mx-1' /> Start Here</Row></Tooltip>}>
+				<Button className='w-100 ttBtn' onClick={toggleShow}>Open Input Options</Button>
+				</OverlayTrigger>	
+			</Col>
+			<Col xs={4}>
+				<Button 
+				className="mx-auto w-100"
+				onClick={() => setTableView(!tableView)}>
+				View as {tableView ? "Graph": "Table"}</Button>	
+			</Col>
 
-
-
-			<Button 
-			className="my-3 mx-auto w-100"
-			onClick={() => setTableView(!tableView)}>
-			View as {tableView ? "Graph": "Table"}</Button>
-
-
-			<OverlayTrigger
-			key={"starttrigger"}
-			onToggle={handleCloseTT}
-			defaultShow={true}
-			show={showTT}
-			target={"#ttBtn"}
-			placement={"right"}
-			overlay={<Tooltip className='mx-1' id={"sttooltip"}><Row className='my-1 ml-1 px-0 d-flex align-items-center'><BsArrowLeft className='mx-1' /> Start Here</Row></Tooltip>}>
-			<Button className='ttBtn' onClick={toggleShow}>Open Calculator and Input Options</Button>
-			</OverlayTrigger>		
-
-
-			<Button
-			className="mt-3 mx-auto w-100"
-			onClick={() => setDefault()}
-			>Reset Options</Button>
-
+			<Col xs={4}>
+				<Button
+				className="mx-auto w-100"
+				onClick={() => setDefault()}
+				>Reset Options</Button>
+			</Col>
+			</Row>
 		</Col>
 
 	</Row>
@@ -402,7 +403,7 @@ return (
 		<p>
 		Our team developed this economic tool to assist farmers and their advisors in understanding what 
 		the general costs, revenues and profits may be for a farm that implements different climate 
-		adaptation practices.  A farmer or advisor can input farm-specific data using the calculator 
+		adaptation practices.  A farmer or advisor can input farm-specific data using the estimator 
 		to generate a general understanding of many of the economic costs associated with implementation 
 		of a practice.  Data for the various costs associated with a practice are detailed in a specific 
 		practice, as well as the costs considered.  This tool should be considered a guide towards better

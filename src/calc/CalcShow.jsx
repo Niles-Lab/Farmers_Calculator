@@ -34,8 +34,8 @@ function CalcShow({name, ...props}) {
 
 
         <OffCanvas
- 		  placement={"start"}
-          height={"100%"}
+          position={"left"}
+		  height={"100%"}
           style={style}
           isOpen={props.show}
           onClose={props.handleClose}

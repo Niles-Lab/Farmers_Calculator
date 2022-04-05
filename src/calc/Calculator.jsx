@@ -40,7 +40,7 @@ if(props.method === "silvopasture") {
 }
 if(props.method === "irrigation") {
 
-  if(props.irrTech === "Spray Irrigation") {
+  if(props.irrTech === "Sprinkler Irrigation") {
 
     if(props.opts.sprinklerSpacing) {
 
@@ -120,7 +120,7 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
   
 
     // Calculate individually for spray and drip irrigation
-    if(props.irrTech === "Spray Irrigation") {
+    if(props.irrTech === "Sprinkler Irrigation") {
   
       rev = props.opts.baseCropRevenue[0] * (productivity-1)
       cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs

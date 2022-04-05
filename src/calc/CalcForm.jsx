@@ -109,7 +109,7 @@ function CalcForm(props) {
 			<ToggleButtonGroup className="mt-3" name="radioGroup">
 
 
-				<Button variant="secondary" className={props.irrTech === "Spray Irrigation" ? "btn.active" : ""} value={"Spray Irrigation"} onClick = {(event) => {changeIrrTech(event)}}>Spray Irrigation</Button>
+				<Button variant="secondary" className={props.irrTech === "Sprinkler Irrigation" ? "btn.active" : ""} value={"Sprinkler Irrigation"} onClick = {(event) => {changeIrrTech(event)}}>Sprinkler Irrigation</Button>
 				<Button variant="secondary" className={props.irrTech === "Drip Irrigation" ? "btn.active" : ""} value={"Drip Irrigation"} onClick = {(event) => {changeIrrTech(event)}}>Drip Irrigation</Button>
 				
 				{/* <ToggleButton

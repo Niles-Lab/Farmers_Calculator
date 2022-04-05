@@ -221,14 +221,14 @@ const [unit, setUnit] = useState(data.unit);
 const [length, setLength] = useState(data.length);
 
 // Select Drip / Spray Irrigation
-const [irrTech, setIrrTech] = useState("Spray Irrigation")
+const [irrTech, setIrrTech] = useState("Sprinkler Irrigation")
 
 // Set initial state of options
 const [opts, setOpts] = useState(() => {
 	if (props.variant === "silvopasture") {
 		return silvoptions;
 	} else if(props.variant === "irrigation") {
-		if(irrTech === "Spray Irrigation") {
+		if(irrTech === "Sprinkler Irrigation") {
 			return irroptions;
 		} else return dripIrroptions;
 		
@@ -252,7 +252,7 @@ function setDefault() {
 	if (props.variant === "silvopasture") {
 		setOpts(silvoptions);
 	} else if(props.variant === "irrigation") {
-		if(irrTech === "Spray Irrigation") {
+		if(irrTech === "Sprinkler Irrigation") {
 			setOpts(irroptions);
 		} else setOpts(dripIrroptions);
 		setLand(4);
@@ -296,7 +296,7 @@ useEffect(() => {
 	if (props.variant === "silvopasture") {
 		setOpts(silvoptions);
 	} else if(props.variant === "irrigation") {
-		if(irrTech === "Spray Irrigation") {
+		if(irrTech === "Sprinkler Irrigation") {
 			setOpts(irroptions);
 		} else setOpts(dripIrroptions);
 		setLand(4);

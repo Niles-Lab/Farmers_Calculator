@@ -15,7 +15,7 @@ const Research = (props, ref) => {
 
 //const scroll = (ref) => props.refProp.scrollIntoView()
 //const ref4 = props.refs[3];
-const navs = ["Research", "Phase 1 - Interviews", "Phase 2 - Focus Groups", "Phase 3 - Tools", "Publications"];
+const navs = ["Research", "Interviews", "Focus Groups", "Tools", "Publications"];
 
 return (
 

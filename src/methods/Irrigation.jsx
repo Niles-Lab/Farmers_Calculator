@@ -93,7 +93,7 @@ function Irrigation(props) {
                     There are a variety of irrigation systems that farmers may consider installing. Two options suitable for small and medium New England farms are drip and solid set sprinkler irrigation systems. This brief presents these irrigation systems generally and does not address their use in specific contexts such as high-tunnels or greenhouses. 
 
                     </p>
-                    <p>
+                    <p className="mb-5">
 
                     Farmers interested in more information about technical and financial support for the implementation of these systems should consult with local extension agents. Potential irrigation water sources include an on-farm pond fed by runoff from surrounding areas, an on-site well, or nearby streams and lakes. The quantity and quality of water are site-specific but are of significant importance. A rough estimate of the irrigation water (pumping rate) need for the region is about 10-15 gallons per minute per acre for irrigation events lasting about 8 hours a day.
 
@@ -108,11 +108,11 @@ function Irrigation(props) {
                     rounded
                     className="d-block w-75 mb-3"
                     src={cover} />
-                    <p className="small mt-0 mb-5 text-center">Irrigation from University of Vermont Extension Workshops,
+                    <p className="small mt-0 mb-3 text-center">Irrigation from University of Vermont Extension Workshops,
         Photo Credit: Jennifer Brown</p>
                     </Row>
                     <Row>
-                    <p>
+                    <p className="mb-5">
                         Drip irrigation brings water to crop root zones through low pressure devices, such as drip emitters, micro spray, sprays, and bubblers, that are operated just above or directly on the ground, or just under the soil surface. This option works well in orchards and vineyards and in vegetable and flower production. While drip irrigation is easy to install, highly efficient, effective on sloping and oddly shaped fields, and largely unaffected by wind, it has high management and maintenance needs, including those related to issues such as clogging and bacterial and algal growth.  
                     </p>
 
@@ -125,7 +125,7 @@ function Irrigation(props) {
                     rounded
                     className="d-block w-75 mb-3"
                     src={brief2} />
-                    <p className="small mt-0 mb-5 text-center">Irrigation from University of Vermont Extension Workshops,
+                    <p className="small mt-0 mb-3 text-center">Irrigation from University of Vermont Extension Workshops,
         Photo Credit: Jennifer Brown</p>
                     </Row>
                     <Row>

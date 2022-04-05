@@ -143,16 +143,6 @@ function CalcForm(props) {
 			<AdvancedOptions {...props} />
 
 			
-			{/* Irrigation Specific Disclaimer */}
-			{props.method === "irrigation" && 
-
-			<Alert className="m-3" variant="warning">
-			<small>This economic tool estimates the costs, revenues and profits of a sprinkler irrigation system. For more information on the costs of drip irrigation systems, visit the University of Vermont Extension’s <a href="https://www.uvm.edu/climatefarming/sites/default/files/files/uvm_dripirrigation.pdf" rel="noreferrer" target="_blank">Getting started with drip irrigation: components and costs.</a></small>
-			</Alert>
-
-			}
-
-			
 
 		
 		</Container>

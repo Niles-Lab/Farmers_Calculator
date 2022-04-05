@@ -43,7 +43,7 @@ const usingSp = ["To begin, select “Open Input Options”.",
 "Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 11 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."];
 
 const usingIg = [
-	"To begin, select “Open Input Options”. Then select ”Spray Irrigation” or ”Drip Irrigation” depending on what you intend to calculate costs for.",
+	"To begin, select “Open Input Options”. Then select ”Sprinkler Irrigation” or ”Drip Irrigation” depending on what you intend to calculate costs for.",
 	"Use the default options for each metric, or enter information specific to your operation, such as the project length, your farm size, your costs and revenue for the base crop, sprinkler cost, pump size, diesel fuel cost, and anticipated productivity with irrigation.",
 	"After inputting your details, view the graph. The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
 	"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 9 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive)."

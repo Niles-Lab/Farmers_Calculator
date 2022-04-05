@@ -30,7 +30,7 @@ return (
 
                             <a key={"navItem#"+idx} href={"#a" + idx} className="text-decoration-none">
                                 <Nav.Link as={Card.Title} className="font-weight-light">
-                                {d}
+                                <p className="my-0 py-0">{d}</p>
                                 </Nav.Link>
                             </a>
 

@@ -62,7 +62,7 @@ return (
 
         {keys.map((d,idx) => (
 
-          <Nav.Item key={"navTl"+idx}>
+          <Nav.Item key={"navTl"+idx} className="d-flex justify-content-start">
             <Nav.Link eventKey={d}>{d.charAt(0).toUpperCase() + d.slice(1)}</Nav.Link>
 
           </Nav.Item>

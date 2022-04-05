@@ -53,8 +53,8 @@ function Silvopasture(props) {
 		{navs.map((d, idx) => (
 
             <a key={"navItem#"+idx} href={"#a" + idx} className="text-decoration-none">
-                <Nav.Link as={Card.Title} className="font-weight-light">
-                {d}
+                <Nav.Link as={Card.Title} className="text-start font-weight-light">
+                <p className="my-0 py-0">{d}</p>
                 </Nav.Link>
             </a>
 

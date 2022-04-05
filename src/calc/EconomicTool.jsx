@@ -27,7 +27,7 @@ const lines = ["Annual Revenue", "Annual Cost", "Annual Profit", "Cumulative Rev
 
 const yC = ["steelblue", "red", "darkseagreen", "orange"];
 
-const legendX = parseFloat((width)-margin.left-margin.right-140);
+const legendX = parseFloat(margin.left+margin.right);
 const legendY = parseFloat(margin.top);
 
 

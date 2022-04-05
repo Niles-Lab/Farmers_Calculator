@@ -18,13 +18,7 @@ const Visualizations = (props, ref) => {
 
 const [key, setKey] = useState("silvopasture");
 
-
-function handleChange(d) {
-
-setKey(d);
-
-
-}
+var keys = ["silvopasture", "irrigation", "tarping"]
 
 
 
@@ -70,12 +64,12 @@ return (
       <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column">
 
 
-      <Navbar.Brand className="mt-5 mb-3 d-flex justify-content-center mx-0">Select Visualizations</Navbar.Brand>
+      <Navbar.Brand className="mt-5 mb-3 d-flex justify-content-center">Select Visualizations</Navbar.Brand>
 
-      <Nav 
+      {/* <Nav 
       id="navbtns"
       variant="pills" 
-      className="flex-column"
+      className="flex-column d-flex justify-content-start"
       activeKey={key}
       onSelect={(k) => handleChange(k)}>
 
@@ -90,6 +84,24 @@ return (
         <Nav.Item>
           <Nav.Link eventKey="tarping">Tarping</Nav.Link>
         </Nav.Item>
+      </Nav> */}
+
+      <Nav 
+      id="navbtns"
+      variant="pills" 
+      className="d-block"
+      activeKey={key}
+      onSelect={(k) => setKey(k)}>
+
+        {keys.map((d,idx) => (
+
+          <Nav.Item key={"navTl"+idx} className="d-flex justify-content-start">
+            <Nav.Link eventKey={d}>{d.charAt(0).toUpperCase() + d.slice(1)}</Nav.Link>
+
+          </Nav.Item>
+
+        ))}
+
       </Nav>
 
       </Navbar>

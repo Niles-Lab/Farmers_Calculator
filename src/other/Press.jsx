@@ -1,6 +1,11 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { BsBoxArrowUpRight } from "react-icons/bs";
+import Resource from "./../other/Resource.jsx"
+
+import sp_thumbnail from './../images/silvopasture/pdf_thumbnail.jpg'
+import ig_thumbnail from './../images/irrigation/pdf_thumbnail.jpg'
+import tp_thumbnail from './../images/tarping/pdf_thumbnail.jpg'
 
 function Press(props) {
 
@@ -29,7 +34,7 @@ const press = [
   <Col xs={12} md={12}>
   	
     <hr/>
-    <h2>Press</h2>
+    <h2 className='display-4'>Publications</h2>
     <hr/>
   		<hr/>
 
@@ -62,6 +67,42 @@ const press = [
 
   </Row>
 
+  <Row>
+
+
+      {/* <Resource format={"Practice Overview"} download
+      link={"/resources/Silvopasture Two-Pager.pdf"}
+      description={"Brief Silvopasture Overview"} /> */}
+
+      <Resource format={"Silvopasture Practice Brief"} download
+      thumbnail
+      date={"March 2022"}
+      link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
+      description={sp_thumbnail} />
+
+
+      {/* <Resource format={"Practice Overview"} download
+      link={"/resources/Pond and Irrigation Two-Pager.pdf"}
+      description={"Brief Irrigation Overview"} /> */}
+
+      <Resource format={"Irrigation Practice Brief"} download
+      thumbnail
+      date={"March 2022"}
+      link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
+      description={ig_thumbnail} />
+
+      {/* <Resource format={"Practice Overview"} download
+      link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}
+      description={"Brief Tarping Overview"} /> */}
+
+      <Resource format={"Tarping Practice Brief"} download
+          thumbnail
+          date={"March 2022"}
+          link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
+          description={tp_thumbnail} />
+
+
+      </Row>
 
 
 

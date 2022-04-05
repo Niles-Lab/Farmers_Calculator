@@ -61,35 +61,16 @@ return (
 <Col xs={12} md={2}>
 
   
-      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column">
+      <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light py-4" className="flex-column d-flex justify-content-start">
 
 
       <Navbar.Brand className="mt-5 mb-3 d-flex justify-content-center">Select Visualizations</Navbar.Brand>
 
-      {/* <Nav 
-      id="navbtns"
-      variant="pills" 
-      className="flex-column d-flex justify-content-start"
-      activeKey={key}
-      onSelect={(k) => handleChange(k)}>
-
-   
-
-        <Nav.Item>
-          <Nav.Link id="navbtns" eventKey="silvopasture">Silvopasture</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="irrigation">Irrigation</Nav.Link>
-        </Nav.Item>
-        <Nav.Item>
-          <Nav.Link eventKey="tarping">Tarping</Nav.Link>
-        </Nav.Item>
-      </Nav> */}
 
       <Nav 
       id="navbtns"
       variant="pills" 
-      className="d-block"
+      className="d-flex flex-column justify-content-start"
       activeKey={key}
       onSelect={(k) => setKey(k)}>
 

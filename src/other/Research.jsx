@@ -7,9 +7,6 @@ import phase_2 from './../images/research/phase_2.png';
 import research_graph from './../images/research/research_graph.png'
 import Resource from "./../other/Resource.jsx"
 
-import sp_thumbnail from './../images/silvopasture/pdf_thumbnail.jpg'
-import ig_thumbnail from './../images/irrigation/pdf_thumbnail.jpg'
-import tp_thumbnail from './../images/tarping/pdf_thumbnail.jpg'
 
 const Research = (props, ref) => {
 
@@ -224,50 +221,6 @@ return (
                     description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
 
 
-
-                    
-                </Row>
-                <Row>
-
-
-{/*                 <Resource format={"Practice Overview"} download
-                    link={"/resources/Silvopasture Two-Pager.pdf"}
-                    description={"Brief Silvopasture Overview"} /> */}
-                    
-                    <Resource format={"Silvopasture Practice Brief"} download
-					thumbnail
-                    date={"March 2022"}
-                    link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
-                    description={sp_thumbnail} />
-
-
-                    {/* <Resource format={"Practice Overview"} download
-                    link={"/resources/Pond and Irrigation Two-Pager.pdf"}
-                    description={"Brief Irrigation Overview"} /> */}
-
-                    <Resource format={"Irrigation Practice Brief"} download
-					thumbnail
-                    date={"March 2022"}
-                    link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
-                    description={ig_thumbnail} />
-
-                    {/* <Resource format={"Practice Overview"} download
-                    link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}
-                    description={"Brief Tarping Overview"} /> */}
-
-                    <Resource format={"Tarping Practice Brief"} download
-                        thumbnail
-                        date={"March 2022"}
-                        link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
-                        description={tp_thumbnail} />
-
-                
-
-
-                </Row>
-                <Row>
-
-                    
 
                     
                 </Row>

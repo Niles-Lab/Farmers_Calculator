@@ -39,14 +39,14 @@
    titles: ["Aerial view of a drip irrigation system on a New England vegetable farm", "Perspective view of a drip and sprinkler irrigation system on a New England vegetable farm"],
    images: [ig, pd],
    lbls: [
-     ["Farm before pond or irrigation lines.", 
-     "Addition of farm pond for irrigation water supply.", 
-     "Diagram of pump and irrigation system installed."],
+     ["Stage 1: Farm before pond or irrigation lines.", 
+     "Stage 2: Addition of farm pond for irrigation water supply.", 
+     "Stage 3: Diagram of pump and irrigation system installed."],
      
-     ["Existing farm with vegetable crops.", 
-     "New irrigation pond, pump and pipes established as water source.", 
-     "Aerial sprayers added to create combined drip and sprinkler irrigation system.",
-     "Crops grown with pond-irrigation system."]
+     ["Stage 1: Existing farm with vegetable crops.", 
+     "Stage 2: New irrigation pond, pump and pipes established as water source.", 
+     "Stage 3: Aerial sprayers added to create combined drip and sprinkler irrigation system.",
+     "Stage 4: Crops grown with pond-irrigation system."]
    ]
  }
  
@@ -68,11 +68,11 @@
    titles: ["Tarping in cover crop mulch and conservation tillage systems"],
    images: [tp],
    lbls: [
-     ["Spring growth of winter rye cover crop planted previous September.",
-     "In June, roll down with lawn roller or tractor with roller-crimper to prepare for tarping.",
-     "Use black plastic tarps to prepare planting beds and kill weed species. Weigh tarps with sand bags.",
-     "Two weeks later: remove black plastic tarps. Then plant vegetable starts in cover crop mulch. Example: Brassica species such as broccoli or kale.",
-     "Brassica crop growing within cover crop mulch."]
+     ["Stage 1: Spring growth of winter rye cover crop planted previous September.",
+     "Stage 2: In June, roll down with lawn roller or tractor with roller-crimper to prepare for tarping.",
+     "Stage 3: Use black plastic tarps to prepare planting beds and kill weed species. Weigh tarps with sand bags.",
+     "Stage 4: Two weeks later: remove black plastic tarps. Then plant vegetable starts in cover crop mulch. Example: Brassica species such as broccoli or kale.",
+     "Stage 5: Brassica crop growing within cover crop mulch."]
      ]
  }
  
@@ -109,21 +109,21 @@
    images: [pe, av1, pe2, av2],
    lbls: [
      // Image Set 1
-     ["Cattle graze in a pasture on a New England farm. Livestock density is average for a small to medium size farm.", 
-     "Trees intended for future timber harvest are planted at 17-21 basal density in the pasture. Example trees: Black Walnut.", 
-     "Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, some of which are selectively harvested."],
+     ["Stage 1: Cattle graze in a pasture on a New England farm. Livestock density is average for a small to medium size farm.", 
+     "Stage 2: Trees intended for future timber harvest are planted at 17-21 basal density in the pasture. Example trees: Black Walnut.", 
+     "Stage 3: Mature trees in the pasture 15-20 years after planting. Cattle graze among the trees, some of which are selectively harvested."],
      // Image Set 2
-     ["Aerial view of open pasture.",
-     "Mature timber trees of two ages: 30-40 year old and 10-15 year old trees.",
-     "Selective harvest of timber species in both fields."],
+     ["Stage 1: Aerial view of open pasture.",
+     "Stage 2: Mature timber trees of two ages: 30-40 year old and 10-15 year old trees.",
+     "Stage 3: Selective harvest of timber species in both fields."],
      // Image Set 3
-     ["Sheep and cattle graze in adjacent pastures on a New England farm.",
-     "Apple saplings are planted 15-20 feet apart in the sheep pasture.",
-     "Mature apple trees in the pasture 5-15 years after planting."],
+     ["Stage 1: Sheep and cattle graze in adjacent pastures on a New England farm.",
+     "Stage 2: Apple saplings are planted 15-20 feet apart in the sheep pasture.",
+     "Stage 3: Mature apple trees in the pasture 5-15 years after planting."],
      // Image Set 4
-     ["Aerial view of open pasture.", 
-     "Young orchard crop, bearing some fruit after 2-3 years.",
-     "Mature orchard crop, consistently bearing fruit after 8-10 years."]
+     ["Stage 1: Aerial view of open pasture.", 
+     "Stage 2: Young orchard crop, bearing some fruit after 2-3 years.",
+     "Stage 3: Mature orchard crop, consistently bearing fruit after 8-10 years."]
      
      ]
  

@@ -23,7 +23,7 @@ const Navigation = () => {
                   <NavDropdown.Item href="/about">Project</NavDropdown.Item>
                   <NavDropdown.Item href="/team">Team</NavDropdown.Item>
                   <NavDropdown.Item href="/research">Research</NavDropdown.Item>
-                  <NavDropdown.Item href="/press">Press</NavDropdown.Item>
+                  <NavDropdown.Item href="/press">Publications</NavDropdown.Item>
                 </NavDropdown>
 
                 <NavDropdown as={Card.Title} className="font-weight-light" title="Practices" id="basic-nav-dropdown">

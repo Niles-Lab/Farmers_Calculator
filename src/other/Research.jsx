@@ -200,35 +200,6 @@ return (
                 </Row>
 
 
-                <Container className="my-5 text-center">
-
-                <hr/>
-                    <h2 className="display-4 mb-0" id="a4">Publications</h2>
-                <hr/>
-
-
-                <Row className="mb-5">
-
-
-                <Resource format={"Farmer Advisor Brief"}
-                    date={"December 2019"}
-                    link={"https://womeninag.extension.org/wp-content/uploads/2020/01/Farmer-Advisor-Mental-Models-Brief_1_2020.pdf"}
-                    description={"What do Northern New England Farmers Need to Adapt to Climate Change?"} />
-
-                    <Resource format={"Academic Paper"} download
-                    date={"19 April 2021"}
-                    link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
-                    description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
-
-
-
-                    
-                </Row>
-
-
-
-
-                </Container>
 
 
 

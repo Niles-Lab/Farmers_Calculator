@@ -70,15 +70,28 @@ const press = [
   <Row>
 
 
+      <Resource format={"Farmer Advisor Brief"}
+      date={"December 2019"}
+      link={"https://womeninag.extension.org/wp-content/uploads/2020/01/Farmer-Advisor-Mental-Models-Brief_1_2020.pdf"}
+      description={"What do Northern New England Farmers Need to Adapt to Climate Change?"} />
+
+      <Resource format={"Academic Paper"} download
+      date={"19 April 2021"}
+      link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
+      description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
+
+
+
+
       {/* <Resource format={"Practice Overview"} download
       link={"/resources/Silvopasture Two-Pager.pdf"}
       description={"Brief Silvopasture Overview"} /> */}
 
       <Resource format={"Silvopasture Practice Brief"} download
-      thumbnail
-      date={"March 2022"}
-      link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
-      description={sp_thumbnail} />
+        thumbnail
+        date={"March 2022"}
+        link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
+        description={sp_thumbnail} />
 
 
       {/* <Resource format={"Practice Overview"} download
@@ -86,10 +99,10 @@ const press = [
       description={"Brief Irrigation Overview"} /> */}
 
       <Resource format={"Irrigation Practice Brief"} download
-      thumbnail
-      date={"March 2022"}
-      link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
-      description={ig_thumbnail} />
+        thumbnail
+        date={"March 2022"}
+        link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
+        description={ig_thumbnail} />
 
       {/* <Resource format={"Practice Overview"} download
       link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}

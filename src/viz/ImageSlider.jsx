@@ -174,7 +174,7 @@ function ImageSlider(props) {
                 {props.lbls.map((lbl,idy) => (
 
                 <p key={idy}
-                className="position-absolute text-muted d-block h-auto"
+                className="position-absolute text-muted d-block h-auto pl-5"
                 style={{'opacity': idy === closest ? 1 : 0}}>
                     {lbl}
                 </p>

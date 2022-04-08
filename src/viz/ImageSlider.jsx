@@ -10,10 +10,11 @@
  **/
 
 import React, { useState } from 'react';
-import { Container, Row, Col, Image, Card } from 'react-bootstrap';
+import { Container, Row, Col, Image, Card, Placeholder } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Skeleton from '@mui/material/Skeleton';
 
 
 // Marks on slider for concrete images
@@ -23,8 +24,11 @@ let marks = [];
 let def = [1];
 
 
+
+
 function ImageSlider(props) {
 
+    const [imageLoaded, setImageLoaded] = useState(false);
 
     // What value the opacity slider is at
     const [timeSl, setTimeSl] = useState(0);
@@ -140,14 +144,15 @@ function ImageSlider(props) {
         </Col>
         </Row>
 
+        {!imageLoaded &&
+                <Skeleton variant="rectangular" width={"100%"} height={"25vh"} />
+        }
+        <Container fluid  className="h-auto clearfix position-relative pb75 px-0" id="imgContain" style={{"opacity": () => imageLoaded ? 1 : 0}}>
 
 
-        <Container fluid  className="h-auto clearfix position-relative pb75 px-0" id="imgContain">
-
-
+        
 
                 {/* Map the active image set to screen */}
-
                 {active.map((d,idx) => (
 
                         <Image
@@ -155,6 +160,7 @@ function ImageSlider(props) {
                         key={d+idx}
                         //ref={imgRef}
                         className="absImg d-block position-absolute h-100 w-100 clearfix"
+                        onLoad={() => setImageLoaded(true)}
                         style={{'opacity': opacity[idx]}}
                         src={d[1].default} 
                         alt={d[0]} />
@@ -162,6 +168,7 @@ function ImageSlider(props) {
                     ))}
 
         </Container>
+
         <Container className="mt-3 position-relative d-block" style={{'minHeight': '2em'}}>
 
         {props.lbls &&

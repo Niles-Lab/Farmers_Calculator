@@ -98,7 +98,7 @@ const silvoptions = {
 	treeCropPrice: 
 	[5, "$/Unit", "Tree Crop Price"],
 	effectiveProperty: 
-	[80, "%", "Effective Property", "Mean productivity based on Pent (2020)", "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
+	[80, "%", "Effective Property", <span>Crop productivity (yield) relative to the case where the practice is not implemented. For example, a productivity increase of 50% above the base practice would be recorded at 150% <br/><br/> <em>Mean productivity based on Pent (2020)</em></span>, "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
 }
 
 // Spray Irrigation Options

@@ -1,3 +1,6 @@
+/**
+ * About The Project Page
+ */
 import React from 'react';
 import { Container, Row, Col, Image, Table, Card } from 'react-bootstrap';
 import cover from "./../images/cover_2.JPG";
@@ -102,15 +105,21 @@ Photo Credit: Jennifer Brown</p>
   <Row>
 
       <Col xs={12} lg={4}>
+      <a className='w-100' href="https://www.uvm.edu/" target="_blank" rel='noreferrer'>
       <Image fluid className="w-75" src={uvm} />
+      </a>
       </Col>
 
       <Col xs={12} lg={4}>
+      <a className='w-100' href="https://umaine.edu/" target="_blank" rel='noreferrer'>
       <Image fluid className="w-75" src={umaine}/>
+      </a>
       </Col>
 
       <Col xs={12} lg={4}>
+      <a className='w-100' href="https://www.climatehubs.usda.gov/hubs/northeast" target="_blank" rel='noreferrer'>
       <Image fluid className="w-100" src={climatehub}/>
+      </a>
       </Col>
 
 

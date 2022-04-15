@@ -99,15 +99,21 @@ const handleClose = () => setShow(false);
       </Col>*/}
 
       <Col xs={12} md={6} lg={2}>
-        <Image fluid className="w-100" src={uvm} />
+        <a href="https://www.uvm.edu/" target="_blank" rel='noreferrer'>
+          <Image fluid className="w-100" src={uvm} />
+        </a>
       </Col>
 
       <Col xs={12} md={6} lg={2}>
-        <Image fluid className="w-100" src={umaine}/>
+        <a href="https://umaine.edu/" target="_blank" rel='noreferrer'>
+          <Image fluid className="w-100" src={umaine}/>
+        </a>
       </Col>
 
       <Col xs={12} md={6} lg={3}>
-        <Image fluid className="w-75" src={climatehub}/>
+        <a href="https://www.climatehubs.usda.gov/" target="_blank" rel='noreferrer'>
+          <Image fluid className="w-75" src={climatehub}/>
+        </a>
       </Col>
   
       {/* <Col xs={12} lg={3}>
@@ -126,7 +132,9 @@ const handleClose = () => setShow(false);
 
       <Col xs={12} md={12} lg={{ span: 3 }}>
         <Row className="d-flex justify-content-center">
-          <Image className='w-100' fluid src={nifa}/>
+          <a className='w-100' href="https://www.usda.gov/" target="_blank" rel='noreferrer'>
+            <Image className='w-100' fluid src={nifa}/>
+          </a>
         </Row>
         <Row>
           <Nav.Item className="small text-wrap">This Material is Based Upon Work Supported by USDA/NIFA Under Award Number 2018-68006-28098. Any opinions, findings, conclusions, or recommendations expressed in this publication are those of the author(s) and do not necessarily reflect the view of the U.S. Department of Agriculture.</Nav.Item>

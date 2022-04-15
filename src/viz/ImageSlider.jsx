@@ -144,8 +144,11 @@ function ImageSlider(props) {
         </Col>
         </Row>
 
+        
         {!imageLoaded &&
-                <Skeleton variant="rectangular" width={"100%"} height={"25vh"} />
+                <Container fluid>
+                    <Skeleton variant="rectangular" className='d-block' height={"25vh"} />
+                </Container>
         }
         <Container fluid  className="h-auto clearfix position-relative pb75 px-0" id="imgContain" style={{"opacity": () => imageLoaded ? 1 : 0}}>
 
@@ -160,7 +163,7 @@ function ImageSlider(props) {
                         key={d+idx}
                         //ref={imgRef}
                         className="absImg d-block position-absolute h-100 w-100 clearfix"
-                        onLoad={() => setImageLoaded(true)}
+                        onLoad={() => {if(idx === active.length-1) setImageLoaded(true)}}
                         style={{'opacity': opacity[idx]}}
                         src={d[1].default} 
                         alt={d[0]} />

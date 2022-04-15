@@ -1,6 +1,6 @@
 // This is a smart component to control Calculator and CalcForm's state - supplying CalcForm's options and passing its I/O to Calculator
 import React, { useState, useEffect } from 'react';
-import { Button, Row, Col, Alert, Card, OverlayTrigger, Tooltip, Overlay } from 'react-bootstrap';
+import { Button, Row, Col, Alert, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
 import { BsArrowDown } from "react-icons/bs";

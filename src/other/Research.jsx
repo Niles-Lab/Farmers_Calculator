@@ -1,17 +1,14 @@
 import React from 'react';
-import { Container, Card, Row, Col, Image, Navbar, Nav, Alert } from 'react-bootstrap';
-//import mental_map from './../images/mental_map.png';
+import { Card, Row, Col, Image, Navbar, Nav, Alert } from 'react-bootstrap';
+
 import tools from './../images/research/tools.png';
-//import focus_group from './../images/research/focus_group.png';
+
 import phase_2 from './../images/research/phase_2.png';
 import research_graph from './../images/research/research_graph.png'
-import Resource from "./../other/Resource.jsx"
 
 
 const Research = (props, ref) => {
 
-//const scroll = (ref) => props.refProp.scrollIntoView()
-//const ref4 = props.refs[3];
 const navs = ["Research", "Interviews", "Focus Groups", "Tools", "Publications"];
 
 return (

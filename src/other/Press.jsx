@@ -12,7 +12,8 @@ function Press(props) {
 
 const press = [
 
-	["New research project to help small farms get needed climate adaptation information resources", "https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"]
+	["New research project to help small farms get needed climate adaptation information resources", "https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"],
+  
 
 ];
 
@@ -76,9 +77,20 @@ const press = [
       description={"What do Northern New England Farmers Need to Adapt to Climate Change?"} />
 
       <Resource format={"Academic Paper"} download
-      date={"19 April 2021"}
+      date={"April 19 2021"}
       link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
       description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
+
+
+      <Resource format={"Webinar"}
+      date={"March 5 2022"}
+      link={"https://www.youtube.com/watch?v=2lBbL2FFHis"}
+      description={"Webinar @ MOFGA Spring Growth Conference - “Climate Change Adaptation Resources for Northern New England Farmers”"} />
+
+      <Resource format={"Webinar"}
+      date={"January 27 2022"}
+      link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
+      description={"Webinar @ Vermont Vegetable and Berry Growers Association - “Climate Adaptation for Vegetable Farms“"} />
 
 
 

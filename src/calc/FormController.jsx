@@ -5,17 +5,14 @@ import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
 import { BsArrowDown } from "react-icons/bs";
 
+// Small custom component for expressing division with an hr element
+function MathHR() {
+	return (
+		<hr className='w-75 my-0' style={{"backgroundColor": "white"}}/>
+	)
+}
+
 function FormController(props) {
-
-
-
-// Forced update - implemented for adding and removing crops
-// const [, updateState] = React.useState();
-// const forceUpdate = React.useCallback(() => updateState({}), []);
-
-
-// Possible units for user to set
-const units = ["Acres", "Hectares"];
 
 //
 // Default generalized values for calculator
@@ -29,6 +26,12 @@ let data = {
 	length: 20,
 	rate: 0.05
 };	
+
+// Possible units for user to set
+const units = ["Acres", "Hectares"];
+
+const [unit, setUnit] = useState(data.unit);
+
 
 /**
  * 
@@ -76,9 +79,9 @@ const silvoptions = {
 	netRevenueDisabled:
 	[150, "$/Acre", "Base Pasture Net Revenue", "Calculated: Base Pasture Revenue - Base Pasture Cost"],
 	treeSpacing: 
-	[30, "ft", "Tree Spacing", "Economic Budgeting for Agroforestry Practices(University of Missouri)", "https://extension.missouri.edu/publications/af1006"],
+	[30, "Ft", "Tree Spacing", "Economic Budgeting for Agroforestry Practices(University of Missouri)", "https://extension.missouri.edu/publications/af1006"],
 	treesPlantedDisabled:
-	[48, "Trees/Acre", "Trees Planted", "Calculated"],
+	[48, "Trees/Acre", "Trees Planted", <span>Calculated<br/> (Ft. per [Acres/Hectares]) <MathHR/> (Tree Spacing<sup>2</sup>)</span>],
 	// 2.24.22 Changed treePlantingCost of $9.5 to $4.75/ea for seedling / labor costs
 	treeSeedlingCost: 
 	[4.75, "$", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
@@ -106,16 +109,16 @@ const irroptions = {
 	baseCropRevenue: 
 	[2500, "$/Acre", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
 	sprinklerSpacing: 
-	[40, "Ft", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
+	[40, "Ft.", "Sprinkler Spacing", "Based on NRCS Practice 442, Scenario #6: Solid Set Sprinkler System", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
 	//sprinklerCount: [27, "Head/Acre", "Sprinkler Count"],
 	sprinklerCountDisabled:
-	[27, "Head/Acre", "Sprinkler Count", "Calculated"],
+	[27, "Head/Acre", "Sprinkler Count", <span>Calculated<br/>(Ft. per [Acres/Hectares]) <MathHR/> (Sprinkler Spacing)<sup>2</sup></span>],
 	sprinklerCost: 
 	[62.50, "$/Head", "Sprinkler Cost"],
 	pipeLengthDisabled:
-	[1089, "Ft./Acre", "Pipe Length", "Calculated"],
+	[1089, "Ft./Acre", "Pipe Length", <span>Calculated<br/>(Ft. per [Acres/Hectares]) <MathHR/> (Sprinkler Spacing)</span>],
 	pipeCost: 
-	[2.80, "$/Ft", "Pipe Cost", "Based on NRCS Practice 430, Scenario #7: 2\" Surface HDPE Irrigation Pipeline", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
+	[2.80, "$/Ft.", "Pipe Cost", "Based on NRCS Practice 430, Scenario #7: 2\" Surface HDPE Irrigation Pipeline", "https://www.nrcs.usda.gov/wps/PA_NRCSConsumption/download?cid=NRCSEPRD1854519&ext=pdf"],
 	pumpSize: 
 	[10, "HP", "Pump Size"],
 	pumpCost: 
@@ -127,9 +130,9 @@ const irroptions = {
 	dieselCost: 
 	[3.40, "$/Gal", "Diesel Fuel Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
 	annualDieselCostDisabled:
-	[1707, "$/Yr.", "Annual Diesel Cost", "Efficiency Based on OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
+	[1707, "$/Yr.", "Annual Diesel Cost", <span>Calculated<br/>Efficiency Based on OKSU Irrigation Cost Calculator<br/>((<em><b>1.15</b></em> * Diesel Cost) &divide; <em><b>16.49</b></em>) * Hourly Pump * Pump Size * Daily Pump Use</span>, "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
 	maintenanceCost: 
-	[100, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
+	[100, "$/Acre/Yr.", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
 	effectiveProperty: 
 	[225, "%", "Productivity With Irrigation"]
 }
@@ -144,9 +147,9 @@ const dripIrroptions = {
 	fittingSpacing:
 	[2, "Ft.", "Irrigation Drip Fitting Spacing"],
 	tapeLengthDisabled:
-	[5445, "Ft./Acre", "Drip Tape Length", "Calculated"],
+	[5445, "Ft./Acre", "Drip Tape Length", <span>Calculated<br/>(Ft. per [Acres/Hectares]) <MathHR/> (Crop Row Spacing)</span>],
 	fittingCountDisabled:
-	[2723, "Fitting/Acre", "Fitting Count", "Calculated"],
+	[2723, "Fitting/Acre", "Fitting Count", <span>Calculated<br/>(Tape Length) <MathHR/> (Fitting Spacing)</span>],
 	tapeCost:
 	[0.20, "$/Ft.", "Irrigation Drip Tape Cost"],
 	fittingCost:
@@ -162,7 +165,7 @@ const dripIrroptions = {
 	dieselCost: 
 	[3.40, "$/Gal", "Diesel Fuel Cost", "EIA Fuel Prices", "https://www.eia.gov/petroleum/gasdiesel/"],
 	annualDieselCostDisabled:
-	[1707, "$/Yr.", "Annual Diesel Cost", "Efficiency Based on OKSU Irrigation Cost Calculator", "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
+	[1707, "$/Yr.", "Annual Diesel Cost", <span>Calculated<br/>Efficiency Based on OKSU Irrigation Cost Calculator<br/>((<em><b>1.15</b></em> * Diesel Cost) &divide; <em><b>16.49</b></em>) * Hourly Pump * Pump Size * Daily Pump Use</span>, "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
 	maintenanceCost: 
 	[100, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
 	effectiveProperty: 
@@ -174,19 +177,19 @@ const tarpoptions = {
 	baseCropRevenue: 
 	[2500, "$", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
 	tarpAreaDisabled: 
-	[0, "Sq. Ft/Acre", "Tarp Area", "Calculated"],
+	[0, "Sq. Ft/Acre", "Tarp Area", <span>Calculated<br/>(Ft. per [Acres/Hectares]) <MathHR/> (Bed Spacing)</span>],
 	bedSpacing: 
 	[8, "Ft", "Bed Spacing", "Space Between Centerline of Crop Rows"],
 	costPerFt:
 	[0.7, "$/Ft.", "Cost Per Foot of Tarp"],
 	tarpCostDisabled: 
-	[0.0875, "$/Sq. Ft", "Tarp Cost", "Calculated - Based on UW Madison Extension Study", "https://fyi.extension.wisc.edu/danecountyag/files/2019/07/Tarps-to-Terminate-Cover-Crops-Before-No-Till-Organic-Vegetables-RFS.pdf"],
+	[0.0875, "$/Sq. Ft", "Tarp Cost", <span>Calculated - Based on UW Madison Extension Study<br/>(Cost Per Ft.) <MathHR/> (Bed Spacing)</span>, "https://fyi.extension.wisc.edu/danecountyag/files/2019/07/Tarps-to-Terminate-Cover-Crops-Before-No-Till-Organic-Vegetables-RFS.pdf"],
 	tarpLabor: 
 	[4, "Hr/Acre", "Tarp Labor"],
 	tarpLaborCost: 
 	[20.00, "$/Hr", "Tarp Labor Cost"],
 	totalLaborDisabled:
-	[80, "$/Acre", "Total Labor Cost", "Calculated"],
+	[80, "$/Acre", "Total Labor Cost",  <span>Calculated<br/>(Tarp Labor) * (Tarp Labor Cost)</span>],
 	tarpDurability:
 	[5, "Years", "Tarp Durability"],
 	coverCropCost: 
@@ -212,8 +215,6 @@ const [rate, setRate] = useState(data.rate);
 const [land, setLand] = useState(data.land);
 
 const [crops, setCrops] = useState(data.crops);
-
-const [unit, setUnit] = useState(data.unit);
 
 
 
@@ -421,6 +422,8 @@ return (
 		//onChange={() => forceUpdate()}
 		land={land}
 		setLand={setLand}
+		
+		units={units}
 		unit={unit}
 		setUnit={setUnit}
 		crops={crops}
@@ -443,7 +446,6 @@ return (
 		setShow={setShow}
 		handleClose={handleClose}
 
-		units={units}
 
 		irrTech={irrTech}
 		setIrrTech={setIrrTech}

@@ -19,7 +19,8 @@ const margin = {top: 50, right: 20, bottom: 30, left: 30},
 width = 800 - margin.right - margin.left,
 height = 500 - (margin.top+margin.bottom);
 
-
+// Radius for each tooltip circle
+const tooltipRadius = 6;
 
 
 // Data for legend
@@ -444,18 +445,20 @@ function drawTooltip() {
 
   svg.select("#ttlbl").remove();
 
+  const fontSize = Number(window.getComputedStyle(document.body).getPropertyValue('font-size').match(/\d+/)[0])
+
   let tooltip = svg.append("g")
       .attr("id", "ttlbl")
       .attr("opacity", 0);
 
       tooltip.append("rect")
       .attr("fill", "#0B0B0C")
-      .attr("rx", 8)
-      .attr("ry", 4)
+      .attr("rx", 6)
+      .attr("ry", 6)
       .attr("stroke", "#d3d3d3")
       .attr("stroke-width", "1px")
       .attr("opacity", 0.7)
-      .attr("width", 85)
+      .attr("width", 4+tooltipRadius+(fontSize*6)) // 6 for circle radius, 4 for padding, then use, (-$10,000)    // 85 was previous static value
       .attr("height", lines.length * 23)
       .attr("transform", (d,idx) => "translate(0," + parseFloat(-30) + ")");
 
@@ -467,7 +470,7 @@ function drawTooltip() {
       // Oh boy is this some spaghetti
       // Note - 20 is the offset in this case, as each index is multiplied by 20
       .attr("transform", (d,idx) => "translate(12," + (parseFloat(idx * 15)-3) + ")")
-      .attr("r", 6)
+      .attr("r", tooltipRadius)
       .attr("fill", (d,idx) => yC[idx]);
 
       tooltip.selectAll("text")

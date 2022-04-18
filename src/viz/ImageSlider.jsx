@@ -10,7 +10,7 @@
  **/
 
 import React, { useState } from 'react';
-import { Container, Row, Col, Image, Card, Placeholder } from 'react-bootstrap';
+import { Container, Row, Col, Image, Card } from 'react-bootstrap';
 import Slider from '@mui/material/Slider';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';

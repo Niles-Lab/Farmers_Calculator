@@ -5,7 +5,7 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Dropdown, Alert, InputGroup, Button, ToggleButtonGroup } from 'react-bootstrap';
+import { Form, Col, Row, Container, Dropdown, InputGroup, Button, ToggleButtonGroup } from 'react-bootstrap';
 //import CropInput from './CropInput.jsx'
 import { BsX } from "react-icons/bs";
 import AdvancedOptions from './AdvancedOptions.jsx';

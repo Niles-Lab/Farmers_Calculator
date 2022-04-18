@@ -11,7 +11,7 @@ const graphWidth = 800;
 //const graphWidth = this.sizeRef.current.offsetWidth;
 
 
-
+var annualDieselCost;
 
 // Create data per year for returns/costs
 //let data = [];
@@ -47,7 +47,7 @@ if(props.method === "irrigation") {
     var sprinklerCount = acreFt / (props.opts.sprinklerSpacing[0]**2);
     props.opts["sprinklerCountDisabled"][0] = sprinklerCount;
     
-    var annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
+    annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
     props.opts["annualDieselCostDisabled"][0] = annualDieselCost;
 
     var pipeLength = acreFt / props.opts.sprinklerSpacing[0];
@@ -66,7 +66,7 @@ if(props.method === "irrigation") {
     var fittingCount = Math.round(props.opts.fittingSpacing[0] > 0 ? tapeLength / props.opts.fittingSpacing[0] : 0);
     props.opts["fittingCountDisabled"][0] = fittingCount;
 
-    var annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
+    annualDieselCost = (1.15*props.opts.dieselCost[0]/16.49)*props.opts.hourlyPump[0]*props.opts.pumpSize[0]*props.opts.dailyPumpUse[0];
     props.opts["annualDieselCostDisabled"][0] = annualDieselCost;
 
     }
@@ -93,7 +93,7 @@ if(props.method === "tarping") {
 useEffect(() => {
 
 // 43560 feet in an acre, 107639 in a hectare
-var acreFt = props.unit === "Acres" ?  43560 : 107639;
+acreFt = props.unit === "Acres" ?  43560 : 107639;
 var totalProfit = 0;
 let tmpData = [];
 

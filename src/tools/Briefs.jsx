@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
-import { Container, Row, Col, Nav, Navbar, Alert } from 'react-bootstrap';
-import ImageController from '../viz/ImageController.jsx';
+import React from 'react';
+import { Container, Row, Col } from 'react-bootstrap';
 import Resource from '../other/Resource.jsx';
 
 
@@ -12,17 +11,6 @@ import tp_thumbnail from './../images/tarping/pdf_thumbnail.jpg'
 
 
 const Briefs = (props) => {
-
-
-
-
-
-
-const [key, setKey] = useState("silvopasture");
-
-var keys = ["silvopasture", "irrigation", "tarping"]
-
-
 
 
 return (

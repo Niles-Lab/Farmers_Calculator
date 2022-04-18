@@ -36,7 +36,7 @@ return (
             <Col xs={12} md={8} id="0">
    
             <hr/>
-                    <h2 className='display-4' id="a0">About the Research</h2>
+                    <h2 className='display-4' id="a0">Research Overview</h2>
                 <hr/>
 
 
@@ -45,11 +45,12 @@ return (
 
                 <Alert variant={'success'} className="mx-4">
                   <em className="small">
-
+                    <p>
                     The long-term goal of this project is to enhance the success of small, medium and beginning farmers in the Northeastern United 
                     States (specifically Maine and Vermont) by developing climate change resources that consider farmers' own perceptions, concerns, 
                     experience, and needs. We focus on these states because of the high percent of small, medium and beginning farmers in this region
                      and the unique climate change challenges facing the Northeast.
+                     </p>
                   </em>
 
                   <footer className="blockquote-footer small">

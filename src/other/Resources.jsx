@@ -12,7 +12,7 @@ function Resources(props) {
 
 const press = [
 
-	["New research project to help small farms get needed climate adaptation information resources", "https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"],
+	//["New research project to help small farms get needed climate adaptation information resources", "https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"],
   
 
 ];
@@ -68,13 +68,74 @@ const press = [
 
   </Row>
 
+    <hr/>
+      <h3>Briefs</h3>
+    <hr/>
+
+
   <Row>
 
-
-      <Resource format={"Farmer Advisor Brief"}
+    <Resource format={"Farmer Advisor Brief"}
       date={"December 2019"}
       link={"https://womeninag.extension.org/wp-content/uploads/2020/01/Farmer-Advisor-Mental-Models-Brief_1_2020.pdf"}
       description={"What do Northern New England Farmers Need to Adapt to Climate Change?"} />
+
+    <Resource format={"Silvopasture Practice Brief"} download
+      thumbnail
+      date={"March 2022"}
+      link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
+      description={sp_thumbnail} />
+
+    <Resource format={"Irrigation Practice Brief"} download
+      thumbnail
+      date={"March 2022"}
+      link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
+      description={ig_thumbnail} />
+
+    <Resource format={"Tarping Practice Brief"} download
+        thumbnail
+        date={"March 2022"}
+        link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
+        description={tp_thumbnail} />
+
+
+  </Row>
+
+
+    <hr/>
+      <h3>Webinars</h3>
+    <hr/>
+
+
+  <Row>
+
+    <Resource format={"Webinar"}
+    date={"March 5 2022"}
+    link={"https://www.youtube.com/watch?v=2lBbL2FFHis"}
+    description={"Webinar @ MOFGA Spring Growth Conference - “Climate Change Adaptation Resources for Northern New England Farmers”"} />
+
+    <Resource format={"Webinar"}
+    date={"January 27 2022"}
+    link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
+    description={"Webinar @ Vermont Vegetable and Berry Growers Association - “Climate Adaptation for Vegetable Farms“"} />
+
+  </Row>
+
+    <hr/>
+      <h3>Press</h3>
+    <hr/>
+
+
+  <Row>
+      
+
+      
+      <Resource format={"News Release"}
+      date={"October 31 2018"}
+      link={"https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"}
+      description={"New research project to help small farms get needed climate adaptation information resources"} />
+
+
 
       <Resource format={"Academic Paper"} download
       date={"April 19 2021"}
@@ -82,54 +143,17 @@ const press = [
       description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
 
 
-      <Resource format={"Webinar"}
-      date={"March 5 2022"}
-      link={"https://www.youtube.com/watch?v=2lBbL2FFHis"}
-      description={"Webinar @ MOFGA Spring Growth Conference - “Climate Change Adaptation Resources for Northern New England Farmers”"} />
-
-      <Resource format={"Webinar"}
-      date={"January 27 2022"}
-      link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
-      description={"Webinar @ Vermont Vegetable and Berry Growers Association - “Climate Adaptation for Vegetable Farms“"} />
 
 
 
-
-      {/* <Resource format={"Practice Overview"} download
-      link={"/resources/Silvopasture Two-Pager.pdf"}
-      description={"Brief Silvopasture Overview"} /> */}
-
-      <Resource format={"Silvopasture Practice Brief"} download
-        thumbnail
-        date={"March 2022"}
-        link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
-        description={sp_thumbnail} />
+    </Row>
+    <Row>
 
 
-      {/* <Resource format={"Practice Overview"} download
-      link={"/resources/Pond and Irrigation Two-Pager.pdf"}
-      description={"Brief Irrigation Overview"} /> */}
+    </Row>
+    <Row>
 
-      <Resource format={"Irrigation Practice Brief"} download
-        thumbnail
-        date={"March 2022"}
-        link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
-        description={ig_thumbnail} />
-
-      {/* <Resource format={"Practice Overview"} download
-      link={"/resources/Tarping_No-till_Cover Cropping Two-pager.pdf"}
-      description={"Brief Tarping Overview"} /> */}
-
-      <Resource format={"Tarping Practice Brief"} download
-          thumbnail
-          date={"March 2022"}
-          link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
-          description={tp_thumbnail} />
-
-
-      </Row>
-
-
+    </Row>
 
 
 

@@ -20,8 +20,8 @@ import Tarping from './methods/Tarping.jsx'
 import Research from './other/Research.jsx'
 import Press from './other/Press.jsx'
 
-import Visualizations from './other/Visualizations.jsx';
-import Tools from './other/Tools.jsx';
+import Visualizations from './tools/Visualizations.jsx';
+import Tools from './tools/Tools.jsx';
 
 import About from './home/About.jsx'
 import Team from './home/Team.jsx'

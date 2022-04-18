@@ -9,7 +9,7 @@ import research_graph from './../images/research/research_graph.png'
 
 const Research = (props, ref) => {
 
-const navs = ["Research", "Interviews", "Focus Groups", "Tools", "Publications"];
+const navs = ["Research", "Interviews", "Focus Groups", "Tools"];
 
 return (
 

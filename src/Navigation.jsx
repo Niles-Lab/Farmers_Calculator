@@ -23,7 +23,7 @@ const Navigation = () => {
                   <NavDropdown.Item href="/about">Project</NavDropdown.Item>
                   <NavDropdown.Item href="/team">Team</NavDropdown.Item>
                   <NavDropdown.Item href="/research">Research</NavDropdown.Item>
-                  <NavDropdown.Item href="/press">Publications</NavDropdown.Item>
+                  <NavDropdown.Item href="/resources">Resources</NavDropdown.Item>
                 </NavDropdown>
 
                 <NavDropdown as={Card.Title} className="font-weight-light" title="Practices" id="basic-nav-dropdown">
@@ -35,6 +35,7 @@ const Navigation = () => {
                 <NavDropdown as={Card.Title} className="font-weight-light" title="Tools" id="basic-nav-dropdown">
                   <NavDropdown.Item href="/visualizations">Visualizations</NavDropdown.Item>
                   <NavDropdown.Item href="/tools">Economic Tools</NavDropdown.Item>
+                  <NavDropdown.Item href="/briefs">Briefs</NavDropdown.Item>
 
                 </NavDropdown>
 

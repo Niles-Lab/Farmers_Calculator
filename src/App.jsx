@@ -18,10 +18,11 @@ import Irrigation from './methods/Irrigation.jsx'
 import Tarping from './methods/Tarping.jsx'
 
 import Research from './other/Research.jsx'
-import Press from './other/Press.jsx'
+import Resources from './other/Resources.jsx'
 
 import Visualizations from './tools/Visualizations.jsx';
 import Tools from './tools/Tools.jsx';
+import Briefs from './tools/Briefs.jsx';
 
 import About from './home/About.jsx'
 import Team from './home/Team.jsx'
@@ -60,6 +61,7 @@ const handleClose = () => setShow(false);
 
           <Route path='/Tools' component={Tools}/>
           <Route path='/Visualizations' component={Visualizations}/>
+          <Route path='/Briefs' component={Briefs}/>
 
           {/* Import method paths */}
           <Route path='/Silvopasture' component={Silvopasture}/>
@@ -68,7 +70,7 @@ const handleClose = () => setShow(false);
 
 
 
-          <Route path='/Press' component={Press}/>
+          <Route path='/Resources' component={Resources}/>
           <Route path='/About' component={About}/>
           <Route path='/team' component={Team}/>
 

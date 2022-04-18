@@ -29,7 +29,7 @@ return (
 </Col>
 <Col xs={12} md={10} lg={8}>
   <hr/>
-    <h2>Economic Tools</h2>
+    <h2 className='display-4'>Economic Tools</h2>
   <hr/>
 
 

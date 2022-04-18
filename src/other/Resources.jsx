@@ -1,13 +1,13 @@
 import React from 'react';
 import { Container, Row, Col } from 'react-bootstrap';
 import { BsBoxArrowUpRight } from "react-icons/bs";
-import Resource from "./../other/Resource.jsx"
+import Resource from "./Resource.jsx"
 
 import sp_thumbnail from './../images/silvopasture/pdf_thumbnail.jpg'
 import ig_thumbnail from './../images/irrigation/pdf_thumbnail.jpg'
 import tp_thumbnail from './../images/tarping/pdf_thumbnail.jpg'
 
-function Press(props) {
+function Resources(props) {
 
 
 const press = [
@@ -35,7 +35,7 @@ const press = [
   <Col xs={12} md={12}>
   	
     <hr/>
-    <h2 className='display-4'>Publications</h2>
+    <h2 className='display-4'>Resources</h2>
     <hr/>
   		<hr/>
 
@@ -146,4 +146,4 @@ const press = [
 		)
 }
 
-export default Press;
+export default Resources;

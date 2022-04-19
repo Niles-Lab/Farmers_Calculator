@@ -35,14 +35,12 @@ return (
             </Col>
             <Col xs={12} md={8} id="0">
    
-            <hr/>
+                <hr/>
                     <h2 className='display-4' id="a0">Research Overview</h2>
                 <hr/>
 
 
-                            <blockquote className="blockquote mt-5 mb-0 ">
-
-
+                <blockquote className="blockquote mt-5 mb-0 ">
                 <Alert variant={'success'} className="mx-4">
                   <em className="small">
                     <p>
@@ -58,12 +56,8 @@ return (
                             <cite>USDA Grant Summary</cite>
                         </a>
                   </footer>
- 
                 </Alert>
-
-
-
-                            </blockquote>
+                </blockquote>
 
 
 
@@ -73,10 +67,6 @@ return (
                 <hr/>
 
                 <Row className="d-block">
-
-
-
-
 
 
 

@@ -103,7 +103,7 @@ const press = [
 
 
     <hr/>
-      <h3>Webinars</h3>
+      <h3>Webinars / Press</h3>
     <hr/>
 
 
@@ -119,21 +119,21 @@ const press = [
     link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
     description={"Webinar @ Vermont Vegetable and Berry Growers Association - “Climate Adaptation for Vegetable Farms“"} />
 
+
+    <Resource format={"News Release"}
+    date={"October 31 2018"}
+    link={"https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"}
+    description={"New research project to help small farms get needed climate adaptation information resources"} />
+
+
   </Row>
 
     <hr/>
-      <h3>Press</h3>
+      <h3>Research</h3>
     <hr/>
 
 
   <Row>
-      
-
-      
-      <Resource format={"News Release"}
-      date={"October 31 2018"}
-      link={"https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"}
-      description={"New research project to help small farms get needed climate adaptation information resources"} />
 
 
 

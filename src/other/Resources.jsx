@@ -112,12 +112,24 @@ const press = [
     <Resource format={"Webinar"}
     date={"March 5 2022"}
     link={"https://www.youtube.com/watch?v=2lBbL2FFHis"}
-    description={"Webinar @ MOFGA Spring Growth Conference - “Climate Change Adaptation Resources for Northern New England Farmers”"} />
+    description={"MOFGA Spring Growth Conference - “Climate Change Adaptation Resources for Northern New England Farmers”"} />
 
     <Resource format={"Webinar"}
     date={"January 27 2022"}
     link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
-    description={"Webinar @ Vermont Vegetable and Berry Growers Association - “Climate Adaptation for Vegetable Farms“"} />
+    description={"Vermont Vegetable and Berry Growers Association - “Climate Adaptation for Vegetable Farms“"} />
+
+
+    <Resource format={"Webinar"}
+    date={"March 29 2022"}
+    link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
+    description={<><div>USDA Northeast Climate Hub</div><hr/><div>Climate Adaptation Resources for Northern New England Farmers - Part 1: Livestock Enterprises</div></>} />
+
+    <Resource format={"Webinar"}
+    date={"March 29 2022"}
+    link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
+    description={<><div>USDA Northeast Climate Hub</div><hr/><div>Climate Adaptation Resources for Northern New England Farmers - Part 2: Vegetable Production Systems</div></>} />
+
 
 
     <Resource format={"News Release"}

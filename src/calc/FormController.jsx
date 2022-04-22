@@ -399,7 +399,7 @@ return (
 		</Col>
 
 	</Row>
-	<ExternalLink download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={"Download This Tool as a Spreadsheet"} />
+	<ExternalLink center download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={"Download This Tool as a Spreadsheet"} />
 	<Row>
 
 	<Alert variant="info mt-2">

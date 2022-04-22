@@ -222,6 +222,7 @@ An external link to another resource. This may be site-hosted, downloadable or c
 | `link`                   | `string`   | `None`                        | A URL to redirect users to when clicked.                                                                                                |
 | `second_link`                   | `string`   | `None`                        | Second URL to redirect users to. This element is limited to two URLs for style reasons.                                                                                                  |
 | `download`                   | `nested array`   | `None`                        | A nested array containing filetypes and links to hosted resources. Array items should be in the form of ["pdf", "path/to/item"]. A single string can also be passed in to display a download button instead.                                                                                       |
+| `center`                   | `boolean`   | `None`                        | Optional argument to override positioning and center everything                                                                              |
 
 ## Resource
 

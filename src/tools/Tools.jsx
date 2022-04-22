@@ -79,11 +79,11 @@ return (
 
 
       {keys.map(d => (
-        <>
+        <span key={d}>
         { key === d &&
           <FormController id="a1" key={d} variant={d} />
         }
-        </>
+        </span>
       ))}
 
 

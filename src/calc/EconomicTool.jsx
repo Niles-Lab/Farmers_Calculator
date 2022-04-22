@@ -300,7 +300,6 @@ let y = d3.scaleLinear()
     d3.select("#yAxis")
       .call(d3.axisLeft(y));
 
-    console.log(props.yIntercept)
     d3.select("#break-even")
     .attr("x1", x(props.yIntercept))
     .attr("x2", x(props.yIntercept))

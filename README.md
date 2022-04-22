@@ -221,7 +221,7 @@ An external link to another resource. This may be site-hosted, downloadable or c
 | `label`<span style="color:red">*</span>                   | `string`   | `Empty`                        | Description of this resource.                                                                                             |
 | `link`                   | `string`   | `None`                        | A URL to redirect users to when clicked.                                                                                                |
 | `second_link`                   | `string`   | `None`                        | Second URL to redirect users to. This element is limited to two URLs for style reasons.                                                                                                  |
-| `download`                   | `nested array`   | `None`                        | A nested array containing filetypes and links to hosted resources. Array items should be in the form of ["pdf", "path/to/item"].                                                                                                 |
+| `download`                   | `nested array`   | `None`                        | A nested array containing filetypes and links to hosted resources. Array items should be in the form of ["pdf", "path/to/item"]. A single string can also be passed in to display a download button instead.                                                                                       |
 
 ## Resource
 
@@ -238,7 +238,8 @@ A site-hosted resource for users to view or download. An example of this being a
 | `link`<span style="color:red">*</span>                    | `string`   | `None`                        | A link to this resource.                                                                                                  |
 | `format`                   | `string`   | `None`                        | The type of document this is. I.e. "Research Paper", "Slideshow", etc. This may also be a title for the resource.                                                                                                |
 | `date`                   | `string`   | `None`                        | What date was this created / published?                                                                                                |
-| `download`                   | `boolean`   | `false`                        | Should this resource be downloadable? If so, a box will be rendered next to the "view" button allowing this.                                                                                             |
+| `download`                   | `boolean`   | `false`                        | Should this resource be downloadable? Displays a download icon using the `link` prop as a path if so.                                                                                             |
+| `view`                   | `boolean`   | `false`                        | Should this resource be viewable? Displays a view icon using the `link` prop as a path if so.                                                                                          |
 | `thumbnail`                   | `boolean`   | `None`                        | If this prop is supplied, an image will be displayed instead of a description. The image path will be expected in the `description` prop of this element in that case.                                                                                              |
 
 # Sources

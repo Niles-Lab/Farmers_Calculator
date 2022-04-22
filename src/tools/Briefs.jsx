@@ -48,20 +48,20 @@ return (
 
         <Row>
 
-            <Resource format={"Silvopasture Practice Brief"} download
+            <Resource format={"Silvopasture Practice Brief"} view download
                 thumbnail
                 date={"March 2022"}
                 link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
                 description={sp_thumbnail} />
 
-            <Resource format={"Irrigation Practice Brief"} download
+            <Resource format={"Irrigation Practice Brief"} view download
                 thumbnail
                 date={"March 2022"}
                 link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
                 description={ig_thumbnail} />
 
 
-            <Resource format={"Tarping Practice Brief"} download
+            <Resource format={"Tarping Practice Brief"} view download
                 thumbnail
                 date={"March 2022"}
                 link={"/resources/briefs/Tarping 3.2.22 website.pdf"}

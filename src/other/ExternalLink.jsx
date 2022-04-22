@@ -13,7 +13,7 @@
  */
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
-import { BsBoxArrowUpRight } from "react-icons/bs";
+import { BsDownload, BsBoxArrowUpRight } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
 function ExternalLink(props) {
@@ -42,6 +42,14 @@ function ExternalLink(props) {
           }
 
           {props.download &&
+
+            <>
+            {typeof props.download === "string" &&
+            <>
+              <Link to={{pathname: props.download}} download target="_blank"><BsDownload/></Link>
+            </>
+            }
+            {typeof props.downlaod === "object" &&
             <>
               {props.download.map((d,idx) => (
                 <>
@@ -53,8 +61,12 @@ function ExternalLink(props) {
               ))}
 
             </>
-          
+            }
+
+            </>
+
           }
+
         </Col>
 
       </Row>

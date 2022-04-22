@@ -3,6 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { Button, Row, Col, Alert, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import Calculator from "./Calculator.jsx"
 import CalcShow from "./CalcShow.jsx"
+import ExternalLink from '../other/ExternalLink.jsx';
 import { BsArrowDown } from "react-icons/bs";
 
 // Small custom component for expressing division with an hr element
@@ -398,6 +399,7 @@ return (
 		</Col>
 
 	</Row>
+	<ExternalLink download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={"Download This Tool as a Spreadsheet"} />
 	<Row>
 
 	<Alert variant="info mt-2">

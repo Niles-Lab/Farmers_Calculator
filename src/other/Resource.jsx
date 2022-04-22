@@ -26,11 +26,14 @@ function Resource(props) {
 
 		    <Row className="mx-auto">
 
+			{props.view &&
+
+
 			    <Col className='text-nowrap'>
 					<Link to={{pathname: props.link}} target="_blank">View <BsBoxArrowUpRight/></Link>
 				</Col>
 
-
+			}
 			{	// Optional inclusion of download button for resource
 				props.download ? (
 				<Col className='text-nowrap'>

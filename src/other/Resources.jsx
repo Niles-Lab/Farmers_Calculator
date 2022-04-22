@@ -128,15 +128,13 @@ const press = [
 
     <Resource format={"Webinar"} view
     date={"March 29 2022"}
-    link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
+    link={"https://www.climatehubs.usda.gov/hubs/northeast/events/climate-adaptation-resources-northern-new-england-farmers-part-1-livestock"}
     description={<><div>USDA Northeast Climate Hub</div><hr/><div>Climate Adaptation Resources for Northern New England Farmers - Part 1: Livestock Enterprises</div></>} />
 
     <Resource format={"Webinar"} view
     date={"March 29 2022"}
-    link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
+    link={"https://www.climatehubs.usda.gov/hubs/northeast/events/climate-adaptation-resources-northern-new-england-farmers-part-2-vegetable"}
     description={<><div>USDA Northeast Climate Hub</div><hr/><div>Climate Adaptation Resources for Northern New England Farmers - Part 2: Vegetable Production Systems</div></>} />
-
-
 
     <Resource format={"News Release"} view
     date={"October 31 2018"}

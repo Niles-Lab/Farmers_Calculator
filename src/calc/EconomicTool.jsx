@@ -92,10 +92,10 @@ let y = d3.scaleLinear()
         .attr("class", "y label")
         .style("font-weight", "bold")
         .attr("text-anchor", "end")
-        .attr("x", -(height/2)+margin.bottom+margin.top)
+        .attr("x", -(height/2)+margin.bottom+margin.top+10)
         .attr("y", -margin.left-margin.right)
         .attr("transform", "rotate(-90)")
-        .text("Revenue($)");
+        .text("Revenue (USD)");
 
 
       // Revenue Line

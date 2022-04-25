@@ -533,7 +533,7 @@ function pointerMove(d) {
       // and making sure its positive to convert into an index for data array
       let idx = Math.floor(d3.max([0,x.invert(position[0]-(margin.right+(margin.left*2)))-1]));
 
-      //if(idx > props.length) idx = props.length-1;
+      if(idx >= props.length) idx = props.length-1;
 
 
       //let minY = d3.min([props.data[idx].revenue, props.data[idx].cost]);

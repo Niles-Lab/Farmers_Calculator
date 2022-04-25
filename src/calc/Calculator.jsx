@@ -77,14 +77,15 @@ if(props.method === "irrigation") {
 }
 if(props.method === "tarping") {
 
-  var tarpArea = acreFt / (props.opts.bedSpacing[0]/2);
+  //var tarpArea = acreFt / (props.opts.bedSpacing[0]/2);
+  var tarpArea = acreFt * (props.opts.tarpAreaUsr[0]/100);
   props.opts["tarpAreaDisabled"][0] = tarpArea;
 
   // To get total tarp square footage
-  var costTotal = props.opts.costPerFt[0] / props.opts.bedSpacing[0];
+  // var costTotal = props.opts.costPerFt[0] / tarpArea;
+  var costTotal = props.opts.costPerFt[0];
   props.opts["tarpCostDisabled"][0] = costTotal;
 
-  
   var tarpLabor = props.opts.tarpLabor[0]*props.opts.tarpLaborCost[0];
   props.opts["totalLaborDisabled"][0] = tarpLabor;
 
@@ -103,7 +104,7 @@ let tmpData = [];
 // Map each data point with:
 // x -> year
 // y -> revenue, cost, net gain
-d3.range(0, parseInt(props.length)+1).forEach(d => {
+d3.range(0, parseInt(props.length)).forEach(d => {
 
 
   let rev = 0;
@@ -130,16 +131,19 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
     // Calculate individually for spray and drip irrigation
     if(props.irrTech === "Sprinkler Irrigation") {
   
-      rev = props.opts.baseCropRevenue[0] * (productivity-1)
-      cst = parseInt(d) === 0 ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
-      props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
+      rev = (props.opts.baseCropRevenue[0] * (productivity-1)) + ((props.opts.cropLoss[0]/100)*props.opts.baseCropRevenue[0]);
+
+      cst = parseInt(d) === 0 
+      ? ((sprinklerCount*props.opts.sprinklerCost[0]) + (props.opts.pipeCost[0]*pipeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) // First year costs
+      : props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
 
     } else { // Drip irrigation calculation
 
 
-      rev = props.opts.baseCropRevenue[0] * (productivity-1)
-      cst = parseInt(d) === 0 ? ((fittingCount*props.opts.fittingCost[0]) + (props.opts.tapeCost[0]*tapeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) : // First year costs
-      props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
+      rev = (props.opts.baseCropRevenue[0] * (productivity-1)) + ((props.opts.cropLoss[0]/100)*props.opts.baseCropRevenue[0]);
+      cst = parseInt(d) === 0 
+      ? ((fittingCount*props.opts.fittingCost[0]) + (props.opts.tapeCost[0]*tapeLength) + (props.opts.pumpSize[0]*props.opts.pumpCost[0]) + annualDieselCost) // First year costs
+      : props.opts.maintenanceCost[0]+annualDieselCost; // Ongoing maintenance   
 
 
     }
@@ -150,7 +154,7 @@ d3.range(0, parseInt(props.length)+1).forEach(d => {
 
     let cost = 0;
 
-    cost += ((d%Math.round(props.opts.tarpDurability[0])) === 0) ? (tarpArea * costTotal) : 0; // Initial cost, one time only
+    cost += ((d%Math.round(props.opts.tarpDurability[0])) === 0) ? (tarpArea * costTotal)+props.opts.tarpSecuringCost[0] : 0; // Cost to replace tarp after durability expires
 
     cost += (d % 2 === 0) ? tarpLabor : props.opts.coverCropCost[0]; // Labor is paid every other year, cover crop cost is paid every other year
 

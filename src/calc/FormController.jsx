@@ -136,6 +136,8 @@ const irroptions = {
 	[1707, "$/Yr.", "Annual Diesel Cost", <span>Calculated<br/>Efficiency Based on OKSU Irrigation Cost Calculator<br/>((<em><b>1.15</b></em> * Diesel Cost) &divide; <em><b>16.49</b></em>) * Hourly Pump * Pump Size * Daily Pump Use</span>, "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
 	maintenanceCost: 
 	[100, "$/Acre/Yr.", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
+	cropLoss:
+	[10, "%", "Annual Crop Loss Without Irrigation"],
 	effectiveProperty: 
 	[225, "%", "Productivity With Irrigation"]
 }
@@ -171,6 +173,8 @@ const dripIrroptions = {
 	[1707, "$/Yr.", "Annual Diesel Cost", <span>Calculated<br/>Efficiency Based on OKSU Irrigation Cost Calculator<br/>((<em><b>1.15</b></em> * Diesel Cost) &divide; <em><b>16.49</b></em>) * Hourly Pump * Pump Size * Daily Pump Use</span>, "https://extension.okstate.edu/fact-sheets/comparative-energy-costs-for-irrigation-pumping.html"],
 	maintenanceCost: 
 	[100, "$/Acre/Yr", "Maintenance Cost", "This is an umbrella term miscellaneous annual costs not explicitly included in the calculator"],
+	cropLoss:
+	[10, "%", "Annual Crop Loss Without Irrigation"],
 	effectiveProperty: 
 	[225, "%", "Productivity With Irrigation"]
 }
@@ -179,12 +183,14 @@ const dripIrroptions = {
 const tarpoptions = {
 	baseCropRevenue: 
 	[2500, "$", "Base Crop Revenue", "Assumes area is 100% Vegetables"],
+	tarpAreaUsr:
+	[50, "%", "Tarp Area as % of Total Crop Area"],
 	tarpAreaDisabled: 
-	[0, "Sq. Ft/Acre", "Tarp Area", <span>Calculated<br/>(Ft. per [Acres/Hectares]) <MathHR/> (Bed Spacing)</span>],
-	bedSpacing: 
-	[8, "Ft", "Bed Spacing", "Space Between Centerline of Crop Rows"],
+	[0, "Sq. Ft/Acre", "Tarp Area", <span>Calculated<br/>(Ft. per [Acres/Hectares]) * (Tarp Area %)</span>],
+	// bedSpacing: 
+	// [8, "Ft", "Bed Spacing", "Space Between Centerline of Crop Rows"],
 	costPerFt:
-	[0.7, "$/Ft.", "Cost Per Foot of Tarp"],
+	[0.07, "$/Sq. Ft.", "Cost Per Square Foot of Tarp"],
 	tarpCostDisabled: 
 	[0.0875, "$/Sq. Ft", "Tarp Cost", <span>Calculated - Based on UW Madison Extension Study<br/>(Cost Per Ft.) <MathHR/> (Bed Spacing)</span>, "https://fyi.extension.wisc.edu/danecountyag/files/2019/07/Tarps-to-Terminate-Cover-Crops-Before-No-Till-Organic-Vegetables-RFS.pdf"],
 	tarpLabor: 
@@ -193,6 +199,8 @@ const tarpoptions = {
 	[20.00, "$/Hr", "Tarp Labor Cost"],
 	totalLaborDisabled:
 	[80, "$/Acre", "Total Labor Cost",  <span>Calculated<br/>(Tarp Labor) * (Tarp Labor Cost)</span>],
+	tarpSecuringCost:
+	[25.00, "$/Acre", "Tarp Securing Cost"],
 	tarpDurability:
 	[5, "Years", "Tarp Durability"],
 	coverCropCost: 

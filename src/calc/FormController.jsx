@@ -70,7 +70,7 @@ const usingTp = [
 * costPerUnit: [5, "$/Unit", "Cost Per Unit", "This is the cost per unit of x", "www.costperunit.com" (not a real website)]
 * For disabled / calculated values, please put Disabled anywhere in the string name of this value
 */
-const silvoptions = {
+const silvoCropOptions = {
 	maturingYears:
 	[10, "yrs", "Maturing Years", "How long will these trees take to mature?"],
 	baseCropRevenue: 
@@ -85,10 +85,10 @@ const silvoptions = {
 	[48, "Trees/Acre", "Trees Planted", <span>Calculated<br/> (Ft. per [Acres/Hectares]) <MathHR/> (Tree Spacing<sup>2</sup>)</span>],
 	// 2.24.22 Changed treePlantingCost of $9.5 to $4.75/ea for seedling / labor costs
 	treeSeedlingCost: 
-	[4.75, "$", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	[5.00, "$", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
 	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
 	treeLaborCost:
-	[4.75, "$", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	[4.50, "$", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
 	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
 	treePlantingCostDisabled:
 	[9.50, "$/Tree", "Tree Planting Cost", "Calculated: Seedling Cost + Labor Cost"],
@@ -100,9 +100,11 @@ const silvoptions = {
 	treeCropYield: 
 	[2, "$/Unit", "Tree Crop Yield"],
 	treeCropPrice: 
-	[5, "$/Unit", "Tree Crop Price"],
+	[5.00, "$/Unit", "Tree Crop Price"],
+	pastureAreaDisabled:
+	[97, "%", "Pasture Area With Silvopasture", <span>Calculated - Assuming 3 Ft. Radius Around Cannot be Grazed<br/> ((Ft. per [Acres/Hectares])-(Trees Planted*π*3<sup>2</sup>)) <MathHR/> (Ft. per [Acres/Hectares])</span>],
 	effectiveProperty: 
-	[80, "%", "Effective Property", <span>Crop productivity (yield) relative to the case where the practice is not implemented. For example, a productivity increase of 50% above the base practice would be recorded at 150% <br/><br/> <em>Mean productivity based on Pent (2020)</em></span>, "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
+	[110, "%", "Animal Health & Productivity", <span>Crop productivity (yield) relative to the case where the practice is not implemented. For example, a productivity increase of 50% above the base practice would be recorded at 150% <br/><br/> <em>Mean productivity based on Pent (2020)</em></span>, "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
 }
 
 // Spray Irrigation Options
@@ -228,7 +230,7 @@ const [irrTech, setIrrTech] = useState("Sprinkler Irrigation")
 // Set initial state of options
 const [opts, setOpts] = useState(() => {
 	if (props.variant === "silvopasture") {
-		return silvoptions;
+		return silvoCropOptions;
 	} else if(props.variant === "irrigation") {
 		if(irrTech === "Sprinkler Irrigation") {
 			return irroptions;
@@ -252,7 +254,7 @@ function setDefault() {
 
 
 	if (props.variant === "silvopasture") {
-		setOpts(silvoptions);
+		setOpts(silvoCropOptions);
 	} else if(props.variant === "irrigation") {
 		if(irrTech === "Sprinkler Irrigation") {
 			setOpts(irroptions);
@@ -296,7 +298,7 @@ useEffect(() => {
 useEffect(() => {
 
 	if (props.variant === "silvopasture") {
-		setOpts(silvoptions);
+		setOpts(silvoCropOptions);
 	} else if(props.variant === "irrigation") {
 		if(irrTech === "Sprinkler Irrigation") {
 			setOpts(irroptions);

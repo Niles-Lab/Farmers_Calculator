@@ -53,10 +53,10 @@ function Irrigation(props) {
 
 
 
-            <Col xs={0} md={2} className="px-0">
+            <Col xs={0} lg={2} className="px-0">
                 <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto d-inline-block">
 
-                <Nav id="sectionnav" className="mx-auto">
+                <Nav id="sectionnav" className="mx-auto mb-5">
                 {navs.map((d, idx) => (
                     
                     <a key={"navItem#"+idx} href={"#a" + idx} className="text-decoration-none">
@@ -68,9 +68,16 @@ function Irrigation(props) {
                     ))}
                 </Nav>
 
+                <Resource format={"Download this practice brief"} view download
+					thumbnail
+                    date={"March 2022"}
+                    link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
+                    description={thumbnail} />
+
+
                 </Navbar>
             </Col>
-            <Col xs={12} md={10} lg={8}>
+            <Col xs={12} md={12} lg={8}>
 
 
                     <h1 id="a0" className='display-4'>Overview</h1>
@@ -248,11 +255,7 @@ function Irrigation(props) {
 
                     </Row>
 
-                    <Resource format={"Download this practice brief"} download
-					thumbnail
-                    date={"March 2022"}
-                    link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
-                    description={thumbnail} />
+
 
 
                     <div id="a4">

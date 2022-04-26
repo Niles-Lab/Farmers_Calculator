@@ -180,13 +180,15 @@ let y = d3.scaleLinear()
       .attr("class", "label")
       .attr("id", "break-even-lbl")
       .attr("text-anchor", "start")
+      .attr("text-wrap", "wrap")
       .attr("x", 0)
-      .attr("y", (height/2)-margin.bottom+40)
+      .attr("y", (height/2)-margin.bottom+60)
       .attr("dx", x(props.yIntercept)+5)
       .attr("dy", 0)
       .attr("opacity", 1)
       .style("font-weight", "bold")
-      .text("Break Even"); 
+      .text("Estimated Time to Break Even")
+      .call(wrap, 150);
 
 
       // Only render trees matured line for silvopasture method
@@ -582,6 +584,31 @@ function pointerMove(d) {
     }
 
 }
+
+function wrap(text, width) {
+  text.each(function() {
+    var text = d3.select(this),
+        words = text.text().split(/\s+/).reverse(),
+        word,
+        line = [],
+        lineNumber = 0,
+        lineHeight = 1.1, // ems
+        y = text.attr("y"),
+        dy = parseFloat(text.attr("dy")),
+        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
+    while (word = words.pop()) {
+      line.push(word);
+      tspan.text(line.join(" "));
+      if (tspan.node().getComputedTextLength() > width) {
+        line.pop();
+        tspan.text(line.join(" "));
+        line = [word];
+        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+      }
+    }
+  });
+}
+
 
 
 		return (

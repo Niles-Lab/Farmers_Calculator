@@ -46,10 +46,10 @@ function Silvopasture(props) {
 		<Row>
 
 
-		<Col xs={0} md={2} className="px-0">
+		<Col xs={0} lg={2} className="px-0">
 		<Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto d-inline-block">
 
-		<Nav id="sectionnav" className="mx-auto">
+		<Nav id="sectionnav" className="mx-auto mb-5">
 		{navs.map((d, idx) => (
 
             <a key={"navItem#"+idx} href={"#a" + idx} className="text-decoration-none">
@@ -60,10 +60,17 @@ function Silvopasture(props) {
 
 			))}
 		</Nav>
-
+		<Resource format={<d>Download this<br/>practice brief</d>} view download
+					thumbnail
+                    date={"March 2022"}
+                    link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
+                    description={thumbnail} />
 		</Navbar>
+
+
+
 		</Col>
-		<Col xs={12} md={10} lg={8}>
+		<Col xs={12} md={12} lg={8}>
 
 		<h1 id="a0" className='display-4'>Overview</h1>
                 <hr/>
@@ -317,14 +324,6 @@ Carefully consider trade-offs before installing silvopasture systems. It may not
 <ExternalLink link={"https://www.capitalrcd.org/nema-about-us.html"} label={"Northeast/Mid-Atlantic Agroforestry (NEMA) Working Group (network of researchers, technical service providers, agency staff, farmers and producers focused on educating, promoting and implementing agroforestry systems in the region)"} />
 <ExternalLink link={"http://silvopasture.ning.com/"} label={"Silvopasture Ning Network (online forum and blog for silvopasture practitioners, advisors, and others)"} />
 <ExternalLink link={"/resources/smith_etal.pdf"} label={"Silvopasture in the USA: A systematic review of natural resource professional and producer-reported benefits, challenges, and management activities (Smith, M. M., Bentrup, G., Kellerman, T., MacFarland, K., Straight, R., Ameyaw, L., & Stein, S. 2022. Agriculture, Ecosystems & Environment, 326, 107818.)"} />
-
-
-<Resource format={"Download this practice brief"} download
-					thumbnail
-                    date={"March 2022"}
-                    link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
-                    description={thumbnail} />
-
 
 <div id="a4">
         <Acknowledgements

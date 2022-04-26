@@ -69,61 +69,56 @@ const press = [
   </Row>
 
     <hr/>
-      <h3>Tools</h3>
+      <h3>Web Briefs</h3>
     <hr/>
 
+    <Row>
 
-  <Row>
-
-    <Resource format={"Farmer Advisor Brief"} view
-      date={"December 2019"}
-      link={"https://womeninag.extension.org/wp-content/uploads/2020/01/Farmer-Advisor-Mental-Models-Brief_1_2020.pdf"}
-      description={"What do Northern New England Farmers Need to Adapt to Climate Change?"} />
-
-    <Resource format={"Silvopasture Practice Brief"} view download
-      thumbnail
-      date={"March 2022"}
-      link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
-      description={sp_thumbnail} />
-
-    <Resource format={"Irrigation Practice Brief"} view download
-      thumbnail
-      date={"March 2022"}
-      link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
-      description={ig_thumbnail} />
-
-    <Resource format={"Tarping Practice Brief"} view download
+      <Resource format={"Silvopasture Practice Brief"} view download
         thumbnail
         date={"March 2022"}
-        link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
-        description={tp_thumbnail} />
+        link={"/resources/briefs/Silvopasture 3.2.22 website.pdf"}
+        description={sp_thumbnail} />
 
-    <Resource format={"Economic Tool Worksheet"} download
-        date={"April 2022"}
-        link={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"}
-        description={"Spreadsheet Version of Economic Tool From Practice & Tools Pages"} />
+      <Resource format={"Irrigation Practice Brief"} view download
+        thumbnail
+        date={"March 2022"}
+        link={"/resources/briefs/Irrigation 3.2.22 website.pdf"}
+        description={ig_thumbnail} />
+
+      <Resource format={"Tarping Practice Brief"} view download
+          thumbnail
+          date={"March 2022"}
+          link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
+          description={tp_thumbnail} />
 
 
-
-  </Row>
+    </Row>
 
 
     <hr/>
-      <h3>Webinars / Press</h3>
+      <h3>Print Briefs</h3>
+    <hr/>
+
+
+
+
+    <hr/>
+      <h3>Webinars</h3>
     <hr/>
 
 
   <Row>
-
-    <Resource format={"Webinar"} view
-    date={"March 5 2022"}
-    link={"https://www.youtube.com/watch?v=2lBbL2FFHis"}
-    description={"MOFGA Spring Growth Conference - “Climate Change Adaptation Resources for Northern New England Farmers”"} />
 
     <Resource format={"Webinar"} view
     date={"January 27 2022"}
     link={"https://www.youtube.com/watch?v=tuyCxEpqeNw&list=PLszfvPfJBpgz9xndiySWAFf9Q9rZUmNP1&index=14"}
     description={"Vermont Vegetable and Berry Growers Association - “Climate Adaptation for Vegetable Farms“"} />
+
+    <Resource format={"Webinar"} view
+    date={"March 5 2022"}
+    link={"https://www.youtube.com/watch?v=2lBbL2FFHis"}
+    description={"MOFGA Spring Growth Conference - “Climate Change Adaptation Resources for Northern New England Farmers”"} />
 
 
     <Resource format={"Webinar"} view
@@ -136,29 +131,41 @@ const press = [
     link={"https://www.climatehubs.usda.gov/hubs/northeast/events/climate-adaptation-resources-northern-new-england-farmers-part-2-vegetable"}
     description={<><div>USDA Northeast Climate Hub</div><hr/><div>Climate Adaptation Resources for Northern New England Farmers - Part 2: Vegetable Production Systems</div></>} />
 
-    <Resource format={"News Release"} view
-    date={"October 31 2018"}
-    link={"https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"}
-    description={"New research project to help small farms get needed climate adaptation information resources"} />
+
 
 
   </Row>
 
     <hr/>
-      <h3>Research</h3>
+      <h3>Other</h3>
     <hr/>
 
 
   <Row>
 
 
+      <Resource format={"News Release"} view
+      date={"October 31 2018"}
+      link={"https://umaine.edu/news/blog/2018/10/31/new-research-project-to-help-small-farms-get-needed-climate-adaptation-information-resources/"}
+      description={"New research project to help small farms get needed climate adaptation information resources"} />
 
-      <Resource format={"Academic Paper"} view download
-      date={"April 19 2021"}
-      link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
-      description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
+
+      <Resource format={"Farmer Advisor Brief"} view
+        date={"December 2019"}
+        link={"https://womeninag.extension.org/wp-content/uploads/2020/01/Farmer-Advisor-Mental-Models-Brief_1_2020.pdf"}
+        description={"What do Northern New England Farmers Need to Adapt to Climate Change?"} />
 
 
+        <Resource format={"Academic Paper"} view download
+        date={"April 19 2021"}
+        link={"/resources/Clements et al. - 2021 - Climate change in the context of whole-farming sys.pdf"}
+        description={"Climate change in the context of whole-farming systems: opportunities for improved outreach"} />
+
+
+      <Resource format={"Economic Tool Worksheet"} download
+        date={"April 2022"}
+        link={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"}
+        description={"Spreadsheet Version of Economic Tool From Practice & Tools Pages"} />
 
 
 

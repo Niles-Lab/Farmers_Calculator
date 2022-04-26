@@ -44,20 +44,20 @@ const [unit, setUnit] = useState(data.unit);
 const usingSp = ["To begin, select “Open Input Options”.", 
 "Use the default options for each metric, or enter information specific to your operation, such as your farm size, the project length, your costs and revenue for the base pasture, tree planting costs, trees per acre, and anticipated tree crop yield.",
 "After inputting your details, view the graph. The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
-"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 11 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive at the Break Even line)."];
+"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 11 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive at the 'Estimated Time to Break Even' line)."];
 
 const usingIg = [
 	"To begin, select “Open Input Options”. Then select ”Sprinkler Irrigation” or ”Drip Irrigation” depending on what you intend to calculate costs for.",
 	"Use the default options for each metric, or enter information specific to your operation, such as the project length, your farm size, your costs and revenue for the base crop, sprinkler cost, pump size, diesel fuel cost, and anticipated productivity with irrigation.",
 	"After inputting your details, view the graph. The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
-	"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 9 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive at the Break Even line)."
+	"Using the default options, you can see on the graph that the up-front costs appear in the first 2-3 years and that it will take about 9 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive at the 'Estimated Time to Break Even' line)."
 ]
 
 const usingTp = [
 	"To begin, select “Open Input Options” and then “More Tarping Options.” ",
 	"Use the default options for each metric, or enter information specific to your operation, such as your farm size, the project length, your costs and revenue for the base crop, the hourly rate for labor, and anticipated maintenance costs.",
 	"After inputting your details, view the graph.  The blue line shows the revenue you may earn each year, the red line depicts the annual costs, and the blue line (revenue) minus the red line (costs) gives the green line, or the annual profits you may expect.",
-	"Using the default options for tarping, you can see the up-front costs appear every 5 years and that it will take 2-3 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive at the Break Even line)."
+	"Using the default options for tarping, you can see the up-front costs appear every 5 years and that it will take 2-3 years to pay back this initial investment (where the cumulative revenue, or yellow line, moves from negative to positive at the 'Estimated Time to Break Even' line)."
 ]
 
 /* Specific options for methods - these should be in the format of:
@@ -409,7 +409,7 @@ return (
 		</Col>
 
 	</Row>
-	<ExternalLink center download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={<b>Download This Tool as a Worksheet</b>} />
+	<ExternalLink center download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={<b>Download this tool as a worksheet</b>} />
 	<Row>
 
 	<Alert variant="info mt-2">

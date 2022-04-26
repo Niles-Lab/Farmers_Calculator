@@ -7,6 +7,10 @@ import sp_thumbnail from './../images/silvopasture/pdf_thumbnail.jpg'
 import ig_thumbnail from './../images/irrigation/pdf_thumbnail.jpg'
 import tp_thumbnail from './../images/tarping/pdf_thumbnail.jpg'
 
+import sp_paper_thumbnail from './../images/silvopasture/pdf_thumbnail_paper.jpg'
+import ig_paper_thumbnail from './../images/irrigation/pdf_thumbnail_paper.jpg'
+import tp_paper_thumbnail from './../images/tarping/pdf_thumbnail_paper.jpg'
+
 function Resources(props) {
 
 
@@ -100,8 +104,27 @@ const press = [
       <h3>Print Briefs</h3>
     <hr/>
 
+    <Row>
 
+    <Resource format={"Silvopasture Practice Brief"} view download
+        thumbnail
+        date={"March 2022"}
+        link={"/resources/briefs/Silvopasture 3.2.22 paper.pdf"}
+        description={sp_paper_thumbnail} />
 
+      <Resource format={"Irrigation Practice Brief"} view download
+        thumbnail
+        date={"March 2022"}
+        link={"/resources/briefs/Irrigation 3.2.22 paper.pdf"}
+        description={ig_paper_thumbnail} />
+
+      <Resource format={"Tarping Practice Brief"} view download
+          thumbnail
+          date={"March 2022"}
+          link={"/resources/briefs/Tarping 3.2.22 paper.pdf"}
+          description={tp_paper_thumbnail} />
+
+    </Row>
 
     <hr/>
       <h3>Webinars</h3>

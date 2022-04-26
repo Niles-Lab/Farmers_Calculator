@@ -98,7 +98,7 @@ const press = [
         link={"/resources/briefs/Tarping 3.2.22 website.pdf"}
         description={tp_thumbnail} />
 
-    <Resource format={"Economic Tool Spreadsheet"} download
+    <Resource format={"Economic Tool Worksheet"} download
         date={"April 2022"}
         link={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"}
         description={"Spreadsheet Version of Economic Tool From Practice & Tools Pages"} />

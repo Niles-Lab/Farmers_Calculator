@@ -200,7 +200,7 @@ const tarpoptions = {
 	totalLaborDisabled:
 	[80, "$/Acre", "Total Labor Cost",  <span>Calculated<br/>(Tarp Labor) * (Tarp Labor Cost)</span>],
 	tarpSecuringCost:
-	[25.00, "$/Acre", "Tarp Securing Cost"],
+	[25.00, "$/Acre", "Tarp Securing Cost", "Includes cost to secure tarp such as sandbags, cinderblocks, burying edges, etc."],
 	tarpDurability:
 	[5, "Years", "Tarp Durability"],
 	coverCropCost: 
@@ -409,7 +409,7 @@ return (
 		</Col>
 
 	</Row>
-	<ExternalLink center download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={"Download This Tool as a Spreadsheet"} />
+	<ExternalLink center download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={<b>Download This Tool as a Worksheet</b>} />
 	<Row>
 
 	<Alert variant="info mt-2">

@@ -6,6 +6,7 @@
   - [Calculator](#calculator) 
   - [Visualizations](#visualizations) 
   - [Other](#other) 
+- [Notes](#notes)
 - [Sources](#sources)
 
 
@@ -242,6 +243,10 @@ A site-hosted resource for users to view or download. An example of this being a
 | `download`                   | `boolean`   | `false`                        | Should this resource be downloadable? Displays a download icon using the `link` prop as a path if so.                                                                                             |
 | `view`                   | `boolean`   | `false`                        | Should this resource be viewable? Displays a view icon using the `link` prop as a path if so.                                                                                          |
 | `thumbnail`                   | `boolean`   | `None`                        | If this prop is supplied, an image will be displayed instead of a description. The image path will be expected in the `description` prop of this element in that case.                                                                                              |
+
+# Notes
+
+All thumbnail images on the site maintain an aspect ratio of 4:3, or more specifically (1.3402777777777777777777777777778):1. This is derived from original thumbnails being 193x144 pixels
 
 # Sources
 

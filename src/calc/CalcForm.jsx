@@ -5,12 +5,10 @@
  **/
 
 import React from "react";
-import { Form, Col, Row, Container, Dropdown, InputGroup, Button, ToggleButtonGroup } from 'react-bootstrap';
-//import CropInput from './CropInput.jsx'
+import { Form, Col, Row, Container, Dropdown, InputGroup, Button, ToggleButtonGroup, Card, OverlayTrigger, Tooltip } from 'react-bootstrap';
+import { BsInfoCircle } from "react-icons/bs";
 import { BsX } from "react-icons/bs";
 import AdvancedOptions from './AdvancedOptions.jsx';
-
-// let MAX_CROPS = 10;
 
 
 function CalcForm(props) {
@@ -26,16 +24,13 @@ function CalcForm(props) {
 		<Container className="calc">
 			<h1 className="mt-3" style={{"fontSize": "2.5em", "fontWeight": "lighter"}}>Input Options<BsX onClick={props.handleClose} /></h1>
 
+			<hr />
 
+			<Card style={{"backgroundColor": "rgba(255,255,255,0.2)"}} className="my-3 py-2">
 
 			<Form>
 			
 			<Form.Group>
-
-				<hr />
-			
-
-
 
 
 				<Row>
@@ -96,12 +91,42 @@ function CalcForm(props) {
 					</Col>
 				</Row>
 
+				{/* CBA Discount Rate */}
+				<Row>
+					<Col xs={12} lg={6} className="py-2">
+						Discount Rate
+
+					<OverlayTrigger
+						placement="right"
+						overlay={<Tooltip>Typical for agricultural financial analyses</Tooltip>}>
+						<span className="ml-1"><BsInfoCircle /></span>
+					</OverlayTrigger>
+
+					</Col>
+					<Col xs={12} lg={6}>
+				<InputGroup>
+					<Form.Control
+						placeholder="..."
+						name="rate"
+						type="number"
+						min={0}
+						step={0.01}
+						key={"dcRate"}
+						value={props.rate}
+						onChange = {(event) => {props.setRate(parseFloat(event.target.value))}} />
+					<InputGroup.Text>%</InputGroup.Text>
+				</InputGroup>
+					</Col>
+				</Row>
+
 
 			</Form.Group>
 
 
 
 			</Form>
+			
+			<hr/>
 
 			{/* Irrigation Specific Switch to Drip Irrigation */}
 			{props.method === "irrigation" && 
@@ -112,28 +137,6 @@ function CalcForm(props) {
 				<Button variant="secondary" className={props.irrTech === "Sprinkler Irrigation" ? "btn.active" : ""} value={"Sprinkler Irrigation"} onClick = {(event) => {changeIrrTech(event)}}>Sprinkler Irrigation</Button>
 				<Button variant="secondary" className={props.irrTech === "Drip Irrigation" ? "btn.active" : ""} value={"Drip Irrigation"} onClick = {(event) => {changeIrrTech(event)}}>Drip Irrigation</Button>
 				
-				{/* <ToggleButton
-					id="spIgRd"
-					type="radio"
-					variant="secondary"
-					name="radioGroup"
-					value={props.irrTech}
-					checked={"Spray Irrigation" === props.irrTech}
-					//onChange={(e) => setRadioValue(e.currentTarget.value)}
-					onChange = {(event, d) => {props.setIrrTech("Spray Irrigation")}}
-				>Spray Irrigation</ToggleButton>
-
-
-				<ToggleButton
-					id="drIgRd"
-					type="radio"
-					variant="secondary"
-					name="radioGroup"
-					value={"Drip Irrigation"}
-					checked={"Drip Irrigation" === props.irrTech}
-					//onChange={(e) => setRadioValue(e.currentTarget.value)}
-					onChange = {(event, d) => {props.setIrrTech("Drip Irrigation")}}
-				>Drip Irrigation</ToggleButton> */}
 
 			</ToggleButtonGroup>
 
@@ -143,6 +146,10 @@ function CalcForm(props) {
 			<AdvancedOptions {...props} />
 
 			
+			
+
+
+			</Card>
 
 		
 		</Container>

@@ -180,15 +180,17 @@ let y = d3.scaleLinear()
       .attr("class", "label")
       .attr("id", "break-even-lbl")
       .attr("text-anchor", "start")
-      .attr("text-wrap", "wrap")
       .attr("x", 0)
       .attr("y", (height/2)-margin.bottom+60)
-      .attr("dx", x(props.yIntercept)+5)
+      .attr("dx", 0)
       .attr("dy", 0)
       .attr("opacity", 1)
       .style("font-weight", "bold")
       .text("Estimated Time to Break Even")
-      .call(wrap, 150);
+      .call(wrap, 120);
+
+      d3.selectAll("#break-even-lbl > tspan")
+      .attr("dx", x(props.yIntercept)+5)
 
 
       // Only render trees matured line for silvopasture method
@@ -308,8 +310,11 @@ let y = d3.scaleLinear()
     .attr("opacity", props.yIntercept > -1 ? 0.6 : 0);
 
     d3.select("#break-even-lbl")
-    .attr("dx", x(props.yIntercept)+5)
+    //.attr("dx", x(props.yIntercept)+5)
     .attr("opacity", props.yIntercept > -1 ? 1 : 0)
+
+    d3.selectAll("#break-even-lbl > tspan")
+    .attr("dx", x(props.yIntercept)+5)
 
     if(props.method === "silvopasture") {
       // Update trees matured line
@@ -586,29 +591,37 @@ function pointerMove(d) {
 }
 
 function wrap(text, width) {
-  text.each(function() {
-    var text = d3.select(this),
-        words = text.text().split(/\s+/).reverse(),
-        word,
-        line = [],
-        lineNumber = 0,
-        lineHeight = 1.1, // ems
-        y = text.attr("y"),
-        dy = parseFloat(text.attr("dy")),
-        tspan = text.text(null).append("tspan").attr("x", 0).attr("y", y).attr("dy", dy + "em");
-    while (word = words.pop()) {
-      line.push(word);
-      tspan.text(line.join(" "));
-      if (tspan.node().getComputedTextLength() > width) {
-        line.pop();
-        tspan.text(line.join(" "));
-        line = [word];
-        tspan = text.append("tspan").attr("x", 0).attr("y", y).attr("dy", ++lineNumber * lineHeight + dy + "em").text(word);
+  text.each(function () {
+      var text = d3.select(this),
+          words = text.text().split(/\s+/).reverse(),
+          word,
+          line = [],
+          lineNumber = 0,
+          lineHeight = 1.1, // ems
+          x = text.attr("x"),
+          y = text.attr("y"),
+          dy = 0, //parseFloat(text.attr("dy")),
+          tspan = text.text(null)
+                      .append("tspan")
+                      .attr("x", x)
+                      .attr("y", y)
+                      .attr("dy", dy + "em");
+      while (word = words.pop()) {
+          line.push(word);
+          tspan.text(line.join(" "));
+          if (tspan.node().getComputedTextLength() > width) {
+              line.pop();
+              tspan.text(line.join(" "));
+              line = [word];
+              tspan = text.append("tspan")
+                          .attr("x", x)
+                          .attr("y", y)
+                          .attr("dy", ++lineNumber * lineHeight + dy + "em")
+                          .text(word);
+          }
       }
-    }
   });
 }
-
 
 
 		return (

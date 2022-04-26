@@ -48,15 +48,19 @@ function Tarping(props) {
         <Navbar style={{zIndex: 1}} sticky="top" collapseOnSelect expand="sm" variant="light" className="mx-auto d-inline-block">
 
         <Nav id="sectionnav" className="mx-auto mb-5">
+        <Row>
         {navs.map((d, idx) => (
 
+            <Col md={4} lg={12}>
             <a key={"navItem#"+idx} href={"#a" + idx} className="text-decoration-none">
                 <Nav.Link as={Card.Title} className="font-weight-light">
                 <p className="my-0 py-0">{d}</p>
                 </Nav.Link>
             </a>
+            </Col>
 
             ))}
+        </Row>
         </Nav>
 
         <Resource format={"Download this practice brief"} view download

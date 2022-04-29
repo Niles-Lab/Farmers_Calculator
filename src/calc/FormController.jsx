@@ -85,14 +85,13 @@ const silvoCropOptions = {
 	[48, "Trees/Acre", "Trees Planted", <span>Calculated<br/> (Ft. per [Acres/Hectares]) <MathHR/> (Tree Spacing<sup>2</sup>)</span>],
 	// 2.24.22 Changed treePlantingCost of $9.5 to $4.75/ea for seedling / labor costs
 	treeSeedlingCost: 
-	[5.00, "$", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	[5.00, "$/Tree", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
 	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
 	treeLaborCost:
-	[4.50, "$", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	[4.50, "$/Tree", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
 	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
 	treePlantingCostDisabled:
 	[9.50, "$/Tree", "Tree Planting Cost", "Calculated: Seedling Cost + Labor Cost"],
-
 	// treesPerAcre: 
 	// [48, "Tr/Acre", "Trees Per Acre"],
 	treeCost: 
@@ -101,11 +100,51 @@ const silvoCropOptions = {
 	[2, "$/Unit", "Tree Crop Yield"],
 	treeCropPrice: 
 	[5.00, "$/Unit", "Tree Crop Price"],
+	fencingLength:
+	[500, "Ft./Acre", "Fencing Length"],
+	fencingCost:
+	[0.20, "$/Ft.", "Fencing Cost"],
 	pastureAreaDisabled:
 	[97, "%", "Pasture Area With Silvopasture", <span>Calculated - Assuming 3 Ft. Radius Around Cannot be Grazed<br/> ((Ft. per [Acres/Hectares])-(Trees Planted*π*3<sup>2</sup>)) <MathHR/> (Ft. per [Acres/Hectares])</span>],
 	effectiveProperty: 
 	[110, "%", "Animal Health & Productivity", <span>Crop productivity (yield) relative to the case where the practice is not implemented. For example, a productivity increase of 50% above the base practice would be recorded at 150% <br/><br/> <em>Mean productivity based on Pent (2020)</em></span>, "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
 }
+
+const silvoTimberOptions = {
+	maturingYears:
+	[40, "yrs", "Timber Stand Harvest Year", "How long will these trees take to mature?"],
+	baseCropRevenue: 
+	[450, "$", "Base Pasture Revenue", "Assumes area is 100% Pasture"],
+	baseCropCost: 
+	[300, "$/Acre", "Base Grazing Cost", "Assumes area is 100% Pasture"],
+	netRevenueDisabled:
+	[150, "$/Acre", "Base Pasture Net Revenue", "Calculated: Base Pasture Revenue - Base Pasture Cost"],
+	areaPlantedTrees:
+	[40, "%", "Pasture Area Planted in Trees"],
+	treeDensity:
+	[500, "Trees/Acre", "Tree Planting Density"],
+	treeSeedlingCost: 
+	[1.50, "$/Tree", "Tree Planting Seedling Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
+	treeLaborCost:
+	[0.50, "$/Tree", "Tree Planting Labor Cost", "Coder, Kim D. 2017. Number of trees per acre by spacing distance. Warnell School of Forestry & Natural Resources, University of Georgia, Outreach Publication WSFNR-17-WMJ. Pp.7.",
+	"https://bugwoodcloud.org/bugwood/productivity/pdfs/Jx_WOODLAND_MANAGEMENT_Trees_per_Acre_Spacing_Dist_CODER_2017.pdf"],
+	treeCost: 
+	[0.20, "$/Tree", "Tree Maintenance Cost"],
+	treeCropYield: 
+	[18, "Cords/Acre", "Timber Yield at Maturity"],
+	timberPrice: 
+	[5.00, "$/Cord", "Timber Price"],
+	fencingLength:
+	[500, "Ft./Acre", "Fencing Length"],
+	fencingCost:
+	[0.20, "$/Ft.", "Fencing Cost"],
+	pastureAreaDisabled:
+	[60, "%", "Pasture Area With Silvopasture", <span>Calculated - 1 - (Percent of Area Planted in Trees)</span>],
+	effectiveProperty: 
+	[110, "%", "Animal Health & Productivity", <span>Crop productivity (yield) relative to the case where the practice is not implemented. For example, a productivity increase of 50% above the base practice would be recorded at 150% <br/><br/> <em>Mean productivity based on Pent (2020)</em></span>, "https://link.springer.com/article/10.1007/s10457-020-00494-6"]
+}
+
 
 // Spray Irrigation Options
 const irroptions = {
@@ -234,11 +273,17 @@ const [length, setLength] = useState(data.length);
 
 // Select Drip / Spray Irrigation
 const [irrTech, setIrrTech] = useState("Sprinkler Irrigation")
+const [subVariant, setSubvariant] = useState("Crop Silvopasture");
 
 // Set initial state of options
 const [opts, setOpts] = useState(() => {
 	if (props.variant === "silvopasture") {
-		return silvoCropOptions;
+		if(subVariant === "Crop Silvopasture") {
+			return silvoCropOptions;
+		} else {
+			return silvoTimberOptions;
+		}
+		
 	} else if(props.variant === "irrigation") {
 		if(irrTech === "Sprinkler Irrigation") {
 			return irroptions;
@@ -260,9 +305,16 @@ function setDefault() {
 	setUnit(data.unit);
 	setLength(data.length);
 
-
 	if (props.variant === "silvopasture") {
-		setOpts(silvoCropOptions);
+
+		if(subVariant === "Crop Silvopasture") {
+			setOpts(silvoCropOptions);
+		} else {
+			setLength(40);
+			setOpts(silvoTimberOptions);
+		}
+
+		
 	} else if(props.variant === "irrigation") {
 		if(irrTech === "Sprinkler Irrigation") {
 			setOpts(irroptions);
@@ -306,7 +358,12 @@ useEffect(() => {
 useEffect(() => {
 
 	if (props.variant === "silvopasture") {
-		setOpts(silvoCropOptions);
+		if(subVariant === "Crop Silvopasture") {
+			setOpts(silvoCropOptions);
+		} else {
+			setLength(40);
+			setOpts(silvoTimberOptions);
+		}
 	} else if(props.variant === "irrigation") {
 		if(irrTech === "Sprinkler Irrigation") {
 			setOpts(irroptions);
@@ -317,8 +374,9 @@ useEffect(() => {
 		setLand(1);
 	}
 
+	console.log(subVariant);
 
-}, [irrTech]);
+}, [subVariant, irrTech]);
 
 // Optional table view
 const [tableView, setTableView] = useState(false);
@@ -353,6 +411,7 @@ return (
 				tableView={tableView}
 				opts={opts} 
 				irrTech={irrTech}
+				subVariant={subVariant}
 
 				// This should ONLY be passed down to set calculated values
 				setOpts={setOpts}
@@ -458,6 +517,8 @@ return (
 		setShow={setShow}
 		handleClose={handleClose}
 
+		subVariant={subVariant}
+		setSubvariant={setSubvariant}
 
 		irrTech={irrTech}
 		setIrrTech={setIrrTech}

@@ -18,6 +18,11 @@ function CalcForm(props) {
 		props.setIrrTech(event.target.value)
 
 	}
+	function changeSubVar(event) {
+
+		props.setSubvariant(event.target.value);
+
+	}
 	
 
 	return (
@@ -140,7 +145,21 @@ function CalcForm(props) {
 
 			</ToggleButtonGroup>
 
-			}						
+			}			
+
+			{/* Silvopasture Specific Switch to Timber/Crop Silvopasture */}
+			{props.method === "silvopasture" && 
+
+			<ToggleButtonGroup className="mt-3" name="radioGroup">
+
+
+				<Button variant="secondary" className={props.subVariant === "Crop Silvopasture" ? "btn.active" : ""} value={"Crop Silvopasture"} onClick = {(event) => {changeSubVar(event)}}>Crop Silvopasture</Button>
+				<Button variant="secondary" className={props.subVariant === "Timber Silvopasture" ? "btn.active" : ""} value={"Timber Silvopasture"} onClick = {(event) => {changeSubVar(event)}}>Timber Silvopasture</Button>
+				
+
+			</ToggleButtonGroup>
+
+			}		
 
 			{/* Method Specific Calculator input here */}
 			<AdvancedOptions {...props} />

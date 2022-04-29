@@ -10,9 +10,6 @@ const practices = ["Silvopasture", "Tarping", "Irrigation"];
 
 function Home(props) {
 
-//const navs = ["Local Effects of Climate Change", "Individual Action", "What is CBA?", "Our Mission"];
-//const navs = ["Abstract", "Project Goals", "Methods", "Focus Group"];
-//const navs = ["Project Description", "The Problem", "The Focus"];
 
 	return (
 
@@ -42,34 +39,6 @@ function Home(props) {
         </Col>
         
         <Col xs={12} lg={8}>
-
-{/*        <hr/>*/}
-
-
-{/*      <Card className="text-center my-5 px-5 position-relative" style={{"zIndex": -2}}>*/}
-
-{/*        <Card.Body>*/}
-
-
-
-{/*          <Image
-          className="position-absolute w-100 d-flex align-content-center overflow-hidden rounded"
-          style={{"zIndex": -1, "top": -10, "bottom": 100, "left" : 150}}
-          src={fc1} 
-          />*/}
-
-
-
-
-
-
-
-{/*
-        </Card.Body>*/}
-
-{/*      </Card>*/}
-
-
 
 
 
@@ -103,14 +72,6 @@ function Home(props) {
 
             <p className="small"><sup>1</sup>We use the USDA updated definition for a small farm as grossing less than $350,000 annually and for a medium farm as grossing less than $1 million annually (Hoppe et al. 2013). Beginning farmers and ranchers are those with less than 10 years of experience (Ahern & Newton, 2009).</p>
 
-
-{/*          <Image
-
-          className="position-absolute w-75 d-flex align-content-center overflow-hidden"
-          style={{"zIndex": -1, "opacity": 0.2, "top": -200, "bottom": 0, "left" : 0}}
-          src={ne} 
-          />*/}
-   
 
 
         <Container>
@@ -153,40 +114,6 @@ function Home(props) {
       </Col>
 
 
-
-
-
-
-
-
-
-{/*          {practices.map(d => (
-            <>
-
-            <Row>
-              <Col xs={12} lg={1} className="d-flex">
-                <a href={"/" + d}>
-                {d}
-                </a>
-              </Col>
-              <Col xs={12} lg={1} className="d-flex">
-
-              </Col>
-              <Col xs={12} lg={2}>
-                <a href={"/" + d + "/#a2"}>
-                Economic Tool
-                </a>
-              </Col>
-              <Col xs={12} lg={2}>
-                <a href={"/" + d + "/#a1"}>
-                Visualizations
-                </a>
-              </Col>
-            <hr/>
-            </Row>
-            <hr/>
-            </>
-          ))}*/}
 
     </Container>
 

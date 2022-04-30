@@ -28,7 +28,9 @@ let productivity = props.opts.effectiveProperty[0] / 100;
 if(props.method === "silvopasture") {
 
   if(props.subVariant === "Crop Silvopasture") {
-
+ 
+    // Primitive check that we actually have the right props
+    if(props.opts["treePlantingCostDisabled"]) {
     
     var netRevenue = props.opts.baseCropRevenue[0] - props.opts.baseCropCost[0];
     props.opts["netRevenueDisabled"][0] = netRevenue;
@@ -41,8 +43,22 @@ if(props.method === "silvopasture") {
 
     var pastureArea = (acreFt-(treesPerAcre*(Math.PI)*(3**2)))/acreFt;
     props.opts["pastureAreaDisabled"][0] = pastureArea;
+    
+    }
 
   } else {
+
+    if(props.opts.areaPlantedTrees) {
+
+    var netRevenue = props.opts.baseCropRevenue[0] - props.opts.baseCropCost[0];
+    props.opts["netRevenueDisabled"][0] = netRevenue;
+
+    var pastureArea = parseFloat(1 - (props.opts.areaPlantedTrees[0] / 100));
+    props.opts["pastureAreaDisabled"][0] = (pastureArea*100);
+    
+    var areaTrees = (props.opts.areaPlantedTrees[0] / 100);
+
+    }
 
   }
 
@@ -122,21 +138,37 @@ d3.range(0, parseInt(props.length)).forEach(d => {
 
     if(props.subVariant === "Crop Silvopasture") {
 
-      // rev = (parseInt(d) >= props.opts.maturingYears[0] ? parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + (parseFloat(productivity*netRevenue*pastureArea));
-      if(parseInt(d) >= props.opts.maturingYears[0]) { // Tree has matured
-        rev = parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]*productivity) + parseFloat(netRevenue*pastureArea);
-      } else { // Tree has not yet matured
-        rev = parseFloat(productivity*netRevenue*pastureArea);
+
+      // Primitive check that we actually have the right props
+      if(props.opts["treePlantingCostDisabled"]) {
+
+        // rev = (parseInt(d) >= props.opts.maturingYears[0] ? parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + (parseFloat(productivity*netRevenue*pastureArea));
+        if(parseInt(d) >= props.opts.maturingYears[0]) { // Tree has matured
+          rev = parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]*productivity) + parseFloat(netRevenue*pastureArea);
+        } else { // Tree has not yet matured
+          rev = parseFloat(productivity*netRevenue*pastureArea);
+        }
+
+
+        cst = (parseInt(d) < 1 ? (treesPerAcre*treePlantingCost)+(props.opts["fencingLength"][0] * props.opts["fencingCost"][0]) : treesPerAcre * props.opts.treeCost[0]);
+
       }
-
-
-      cst = (parseInt(d) < 1 ? (treesPerAcre*treePlantingCost)+(props.opts["fencingLength"][0] * props.opts["fencingCost"][0]) : treesPerAcre * props.opts.treeCost[0])    
 
     } else { // Timber silvopasture
 
 
-      rev = 0;
-      cst = 0;
+        // rev = (parseInt(d) >= props.opts.maturingYears[0] ? parseFloat(treesPerAcre*props.opts.treeCropPrice[0]*props.opts.treeCropYield[0]) : 0) + (parseFloat(productivity*netRevenue*pastureArea));
+        if(parseInt(d) >= parseFloat(props.opts.maturingYears[0])) { // Tree has matured          
+          rev = parseFloat(props.opts.treeCropYield[0] * (props.opts.timberPrice[0]) * (areaTrees));
+        } else { // Tree has not yet matured
+          rev = parseFloat(netRevenue * pastureArea * productivity);
+        }
+
+
+
+        if(parseInt(d) === 0) cst += ((props.opts.treeSeedlingCost[0]+props.opts.treeLaborCost[0])*props.opts.treeDensity[0] + (props.opts.fencingCost[0]*props.opts.fencingLength[0]));
+        else if(parseInt(d) < 10) cst += props.opts.treeDensity[0]*props.opts.treeCost[0];
+
 
     }
 
@@ -220,11 +252,6 @@ if(pt >= 1 && pt < tmpData.length) {
 } else {
   setYIntercept(-1);
 }
-
-
-
-
-
 
 
 }, [props.opts, props.length, props.land, props.unit])

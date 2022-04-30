@@ -134,7 +134,7 @@ const silvoTimberOptions = {
 	treeCropYield: 
 	[18, "Cords/Acre", "Timber Yield at Maturity"],
 	timberPrice: 
-	[5.00, "$/Cord", "Timber Price"],
+	[100, "$/Cord", "Timber Price"],
 	fencingLength:
 	[500, "Ft./Acre", "Fencing Length"],
 	fencingCost:
@@ -272,7 +272,7 @@ const [crops, setCrops] = useState(data.crops);
 const [length, setLength] = useState(data.length);
 
 // Select Drip / Spray Irrigation
-const [irrTech, setIrrTech] = useState("Sprinkler Irrigation")
+const [irrTech, setIrrTech] = useState("Sprinkler Irrigation");
 const [subVariant, setSubvariant] = useState("Crop Silvopasture");
 
 // Set initial state of options
@@ -310,7 +310,7 @@ function setDefault() {
 		if(subVariant === "Crop Silvopasture") {
 			setOpts(silvoCropOptions);
 		} else {
-			setLength(40);
+			setLength(50);
 			setOpts(silvoTimberOptions);
 		}
 
@@ -357,11 +357,13 @@ useEffect(() => {
 
 useEffect(() => {
 
+
 	if (props.variant === "silvopasture") {
 		if(subVariant === "Crop Silvopasture") {
+			setLength(20);
 			setOpts(silvoCropOptions);
 		} else {
-			setLength(40);
+			setLength(50);
 			setOpts(silvoTimberOptions);
 		}
 	} else if(props.variant === "irrigation") {
@@ -373,8 +375,6 @@ useEffect(() => {
 		setOpts(tarpoptions);
 		setLand(1);
 	}
-
-	console.log(subVariant);
 
 }, [subVariant, irrTech]);
 
@@ -471,7 +471,7 @@ return (
 	<ExternalLink center download={"/resources/AFRI_Economics_Calcs_v1.31.xlsx"} label={<b>Download this tool as a worksheet</b>} />
 	<Row>
 
-	<Alert variant="info mt-2">
+	<Alert variant="info">
 		<p>
 		Our team developed this economic tool to assist farmers and their advisors in understanding what 
 		the general costs, revenues and profits may be for a farm that implements different climate 

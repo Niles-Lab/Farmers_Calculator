@@ -65,7 +65,7 @@ function Home(props) {
             <p>
             The climate adaptation resources and tools on this website were created by a team of researchers and agricultural 
             specialists from the University of Maine, the University of Vermont, and the United States Department of Agriculture
-             (USDA) Climate Hub from 2019 to 2022 as part of an Agriculture and Food Research Initiative grant from the USDA’s 
+             (USDA) Climate Hub from 2018 to 2022 as part of an Agriculture and Food Research Initiative grant from the USDA’s 
              National Institute of Food and Agriculture (award number 2018-68006-28098).  
 
             </p>

@@ -13,16 +13,16 @@
 
 # Abstract
 
-This is an open-sourced React-JS application aimed to support small, medium and beginning farms in Vermont and other parts of New England. Currently two tools exist within this website outlining three farming practices. Silvopasture, Tarping, and Irrigation are covered through practice pages, and with Visualzation + Economic Tools.
+This is an open-sourced React-JS application aimed to support small, medium and beginning farms in Vermont and other parts of New England by providing information on climate change adaptation methods. Currently two tools exist within this website outlining three farming practices - Silvopasture, Tarping, and Irrigation - and four sub-variants.
 
-The Economic Tool will help to understand long-term investments as applicable to each farm on a case-by-case basis, while Visualizations may give an idea as to what these practices really look like.
+The Economic Tool will help to understand long-term investments as applicable to each farm on a case-by-case basis, while Visualizations may give an idea as to what these practices really look like. There are also numerous resources and additional links in the site.
 
 # Installation/Maintenance
 
 
 ## For anyone wishing to contribute
 
-For further development on this application, clone into an empty folder and install dependencies via:
+For further development on this application, clone into an empty folder, navigate to this folder in a command line/terminal and install dependencies via:
 
 `npm install`
 
@@ -107,6 +107,7 @@ Children: `AdvancedOptions`
 | `land, setLand`<span style="color:red">*</span>                   | `float`   | `Dependant on Variant`                        | Land owned by farmer.                                                                                        |
 | `method`<span style="color:red">*</span>                   | `string`   | `string`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`. Only use in this component is to display `"More `[method]` options"`                                                                                          |
 | `irrTech`<span style="color:red">*</span>                   | `string`   | `Spray Irrigation`                        | Specialty option for Irrigation. Can be set to `Spray Irrigation` or `Drip Irrigation`. Methods will share much of the same states because they are so similar.                                                                                        |
+| `subVariant`<span style="color:red">*</span>                   | `string`   | `Crop Silvppasture`                        | Specialty option for Silvopasture. Can be set to `Crop Silvopasture` or `Timber Silvopasture`. Methods will share much of the same states because they are so similar.                                                                                        |
 | `handleClose`<span style="color:red">*</span>                   | `function`   | `N/A`                        | Method to open/close Offcanvas element, managed by FormController. This is used in the "X" next to calculator title.                                                                                                 |
 | `AdvancedOptions Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `AdvancedOptions` but child to FormController, all props in `AdvancedOptions` must be passed through here. Please see `AdvancedOptions` props.                                                                                            |
 
@@ -129,6 +130,7 @@ This is purely a data-computation class. Given upstream options and inputs, this
 | `land`<span style="color:red">*</span>                   | `float`   | `Dependant on Variant`                        | Land owned by farmer.                                                                                        |
 | `method`<span style="color:red">*</span>                   | `string`   | `See FormController`                        | The variant prop from Formcontroller passed down. This is expected to be `silvopasture`, `irrigation`, or `tarping`.                                                                                         |
 | `irrTech`<span style="color:red">*</span>                   | `string`   | `Spray Irrigation`                        | Specialty option for Irrigation. Can be set to `Spray Irrigation` or `Drip Irrigation`. Methods will share much of the same states because they are so similar.                                                                                        |
+| `subVariant`<span style="color:red">*</span>                   | `string`   | `Crop Silvppasture`                        | Specialty option for Silvopasture. Can be set to `Crop Silvopasture` or `Timber Silvopasture`. Methods will share much of the same states because they are so similar.                                                                                        |
 | `opts`<span style="color:red">\*</span>                    | `dictionary`   | `N/A`                         |  A pre-defined set of values from FormController. Keys are arbitrary, but values must be arrays containing [value<span style="color:red">\*</span>, unit<span style="color:red">\*</span> , description<span style="color:red">\*</span> , tooltip description, tooltip URL]                                                                                                       |
 | `EconomicTool Props`<span style="color:red">*</span>                   | `props`   | `N/A`                        | Because this is a parent class to `EconomicTool` but child to FormController, all props in `EconomicTool` must be passed through here. Please see `EconomicTool` props.                                                                                            |
 

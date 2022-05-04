@@ -1,12 +1,13 @@
 # Climate Adaptation Resources for Northern New England Farmers
 
 - [Abstract](#abstract)
-- [Installation](#installation)
+
 - [Components](#components)
   - [Calculator](#calculator) 
   - [Visualizations](#visualizations) 
   - [Other](#other) 
 - [Notes](#notes)
+- [Installation/Maintenance](#installation/maintenance)
 - [Sources](#sources)
 
 
@@ -16,21 +17,33 @@ This is an open-sourced React-JS application aimed to support small, medium and 
 
 The Economic Tool will help to understand long-term investments as applicable to each farm on a case-by-case basis, while Visualizations may give an idea as to what these practices really look like.
 
-# Installation
+# Installation/Maintenance
 
-To run this application, simply clone into an empty folder and run the following commands:
 
-`npm install && npm start`
+## For anyone wishing to contribute
 
-To build and deploy new versions of the site via Netlify CLI(if you have the proper permissions) then run:
+For further development on this application, clone into an empty folder and install dependencies via:
 
-`npm run build && netlify deploy`
+`npm install`
+
+Once finished, simply run `npm start`, open the source code in a code editor and code away!
+
+
+## For Official Team Members
+
+**NOTE: These instructions should only be completed on a personal or trusted machine, as they will allow a user to push arbitrary changes to the site.**
+
+Follow the above instructions, then proceed to these steps.
+
+To build and deploy new versions of the site manually via Netlify CLI(if you have the proper permissions) then run:
+
+`npm install netlify-cli` Only once per machine
+
+`npm run build && netlify deploy` The first time this is run, you will be required to sign in to Netlify for authentication.
 
 If the updates look good in the provided temporary link, run:
 
 `netlify deploy --prod`
-
-
 
 # Components
 
@@ -251,6 +264,10 @@ All thumbnail images on the site maintain an aspect ratio of 4:3, or more specif
 # Sources
 
 This work was supported by the United States Department of Agriculture (USDA) National Institute of Food and Agriculture (NIFA) Agriculture and Food Research Initiative (Niles, 2018-68006-28098). Title: “Assessing climate perceptions and developing adaptation resources for small, medium and beginning farmers”.
+
+
+For technical questions, please reach out to Tim Harrold @ timjharrold@gmail.com
+
 
 This application was also made possible largely by:
 

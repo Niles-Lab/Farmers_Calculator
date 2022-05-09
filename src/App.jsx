@@ -35,10 +35,10 @@ import Banner from './other/Banner.jsx'
 function App() {
 
 
-// Interaction for OffCanvas Elements
-const [show, setShow] = useState(true);
+// Interaction for Banner element
+// const [show, setShow] = useState(true);
 
-const handleClose = () => setShow(false);
+// const handleClose = () => setShow(false);
 
 
 
@@ -47,7 +47,8 @@ const handleClose = () => setShow(false);
 
     <>
 
-    <Banner show={show} handleClose={handleClose} />
+    {/* Sitewide banner */}
+    {/* <Banner show={show} handleClose={handleClose} /> */}
 
     <span className="App d-flex flex-column min-vh-100">
 
